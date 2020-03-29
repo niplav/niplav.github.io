@@ -1,0 +1,9 @@
+test::{:[~istree([]);{.p("fail: empty list is a tree");0}@[];1]&
+	:[~istree([:a [] []]);{.p("fail: [:a [] []] is a tree");0}@[];1]&
+	:[~istree([:a [:b [:d [] []] [:e [] []]] [:c [] [:f [:g [] []] []]]]);{.p("fail: failure with large tree");0}@[];1]&
+	:[istree([:a []]);{.p("fail: [:a []] is not a tree");0}@[];1]&
+	:[istree([:a [:b [] []]]);{.p("fail: [:a [:b [] []]] is not a tree");0}@[];1]&
+	:[~istree([[] [] []]);{.p("fail: [[] [] []] is a tree");0}@[];1]&
+	:[istree([[:a] [] []]);{.p("fail: [[:a] [] []] is not a tree");0}@[];1]}
+
+istree::s54a

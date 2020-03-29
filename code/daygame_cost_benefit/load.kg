@@ -1,0 +1,12 @@
+.l("math")
+.l("nstat")
+
+.l("./vars.kg")
+
+ratio::{ratiobegin+(ratioexp-ratiobegin)*(1-500%x+500)}
+dateratio::{3*ratiobegin+(ratioexp-ratiobegin)*(1-500%x+500)}
+
+layvals::{firstlayval*sqr(ratio(x)*x)}
+benefit::{layvals(x)}
+
+cost::{(oppcost*x%apprperhour)+(dateratio(x)*datecost*avgdates*x)+dateratio(x)*datelen*avgdates*oppcost}

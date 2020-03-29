@@ -1,0 +1,109 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+function addAnchor(element) {
+	cnt=element.textContent
+	if(cnt==="home")
+		return;
+	ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2019-07-06, modified: 2019-12-06, language: english, status: in progress, importance: 5, confidence: log</em></p>
+
+<blockquote>
+  <p><strong>A collection of contributions to other projects.</strong></p>
+</blockquote>
+
+<h1>Contributions</h1>
+
+<h2>Texts</h2>
+
+<!--
+TODO: follow up on https://drewdevault.com/2014/02/02/The-worst-bugs.html,
+https://www.skepticink.com/prussian/2014/03/31/the-anti-racialist-q-a/,
+http://metamoderna.org/beyond-piketty-far-beyond?lang=en,
+-->
+
+<h3>“Differential Intellectual Progress as a Positive-Sum Project”</h3>
+
+<p><a href="https://foundational-research.org/differential-intellectual-progress-as-a-positive-sum-project/">Tomasik 2015</a>.</p>
+
+<p>Fixed a typo where in the section "Transhumanism" of the pdf version,
+the text "Transhumanists recognize the importance of thinking about the
+future ahead of time." was repeated.</p>
+
+<h3>“Ordinary Life Improvements”</h3>
+
+<p><a href="https://www.gwern.net/Notes#ordinary-life-improvements">Gwern 2019</a>.</p>
+
+<p>In the section "Ordinary Life Improvements" the first sentence read
+"[It can be hard to see the gradual improvement of most goods over
+time]{,smallcaps}, but I think one way to get a handle on them is to
+look". The comma before "smallcaps" was misplaced.</p>
+
+<h3>“Empirical evidence for the proposition that production based on exchange value has collapsed”</h3>
+
+<p><a href="https://therealmovement.wordpress.com/2018/05/26/empirical-evidence-for-the-proposition-that-production-based-on-exchange-value-has-collapsed/#comment-10324">Jehu 2018</a>.</p>
+
+<p>Fixed a typo where with "The inflation of the of wages from 1970 to
+1980" the author meant "The inflation of wages from 1970 to 1980".</p>
+
+<h3>“Urbit: A Solid-State Interpreter”</h3>
+
+<p><a href="https://media.urbit.org/whitepaper.pdf">Yarvin et al. 2016</a>.</p>
+
+<p>Fixed a typo on p. 17 where in "treats b and c is formulas", "is" should
+have been be "as".</p>
+
+<h2>Programming</h2>
+
+<h3>Klong</h3>
+
+<p><a href="http://t3x.org/klong/index.html">Klong, A Simple Array Language</a>
+(see its <a href="http://t3x.org/klong/changes.html">Change Log</a>).</p>
+
+<ul>
+<li>Wrote a faster shuffling and primality check functions</li>
+<li>Inspired a timing and process clock function</li>
+<li>Fixed a bug in the implementation of correlation</li>
+</ul>

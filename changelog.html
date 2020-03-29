@@ -1,0 +1,279 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+function addAnchor(element) {
+	cnt=element.textContent
+	if(cnt==="home")
+		return;
+	ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2019-04-02, modified: 2020-03-24, language: english, status: in progress, importance: 3, confidence: log</em></p>
+
+<blockquote>
+  <p><strong>A monthly review of changes on this website.</strong></p>
+</blockquote>
+
+<h1>Changelog</h1>
+
+<h2>March 2020</h2>
+
+<h3>Writing</h3>
+
+<ul>
+<li><a href="./daygame_cost_benefit.html#A-Slightly-More-Complex-Model">A Slightly More Comple Model for the Value of Daygame</a></li>
+<li><a href="./naive_set_theory_solutions.html#Section-6-Exercise-1">Solutions for Exercises in Section 6 &amp; 7 in “Naive Set Theory”</a></li>
+<li><a href="./99_problems_klong_solution.html#A-Generative-Solution">A Generative Solution for P60</a> in the <a href="./99_problems_klong_solution.html">99 Problems Klong Solution</a></li>
+<li><a href="./considerations_on_cryonics.html#Appendix-A-A-Guesstimate-Model">A Monte-Carlo Simulation for the Value of Cryonics</a></li>
+</ul>
+
+<h2>February 2020</h2>
+
+<h3>Writing</h3>
+
+<ul>
+<li><a href="./masturbation_and_attractiveness.html#Appendix-C-Further-Hypotheses">Further Hypotheses on Masturbation and Attractiveness</a></li>
+<li><a href="./daygame_cost_benefit.html#Empirical-Data-for-Ratios">Empirical Data for Daygame Ratios</a></li>
+</ul>
+
+<h2>January 2020</h2>
+
+<h3>Writing</h3>
+
+<ul>
+<li>Started <a href="./daygame_cost_benefit.html">Daygame Cost-Benefit Analysis</a></li>
+<li>Added <a href="https://en.wikipedia.org/wiki/Longevity_escape_velocity">Longevity Escape Velocity</a> impacts to <a href="./considerations_on_cryonics.html">Considerations on Cryonics</a></li>
+<li>Notes
+<ul>
+<li><a href="./notes.html#Some-Thoughts-about-the-Qualia-Research-Institute">Some Thoughts about the Qualia Research Institute</a></li>
+<li><a href="./notes.html#The-Benefit-of-Reading-LessWrong">The Benefit of Reading LessWrong</a></li>
+</ul></li>
+<li>Updated the chronological blog archives:
+<ul>
+<li><a href="./bp_chrono.html">bit-player</a></li>
+<li><a href="./ob_chrono.html">Overcoming Bias</a></li>
+<li><a href="./so_chrono.html">Shtetl Optimized</a></li>
+<li><a href="./trm_chrono.html">The Real Movement</a></li>
+</ul></li>
+</ul>
+
+<h2>December 2019</h2>
+
+<h3>Writing</h3>
+
+<ul>
+<li>Restructured the <a href="./index.html">index page</a></li>
+<li>Started the <a href="./daygame_log.html">Day Game Log</a></li>
+<li>Notes
+<ul>
+<li><a href="./notes.html#Killing-Old-People-Versus-Infants">Killing Old People Versus Infants</a></li>
+</ul></li>
+</ul>
+
+<h2>November 2019</h2>
+
+<h3>Writing</h3>
+
+<ul>
+<li><a href="./naive_set_theory_solutions.html">Solutions to “Naive Set Theory” up to section 6</a></li>
+<li>Solutions to <a href="./99_problems_klong_solution.html#P61--Count-the-leaves-of-a-binary-tree">P61</a>, <a href="./99_problems_klong_solution.html#P61A--Collect-the-leaves-of-a-binary-tree-in-a-list">P61A</a>, <a href="./99_problems_klong_solution.html#P62--Collect-the-internal-nodes-of-a-binary-tree-in-a-list">P62</a> and <a href="./99_problems_klong_solution.html#P62B--Collect-the-nodes-at-a-given-level-in-a-tree">P62B</a> of the <a href="./99_problems_klong_solution.html">99 Klong Problems</a></li>
+<li>Notes
+<ul>
+<li><a href="./notes.html#Artificial-Intelligence-and-ActionCompelling-Sentences">Artificial Intelligence and Action-Compelling Sentences</a></li>
+<li><a href="./notes.html#Use-Things-Up">Use Things Up</a></li>
+<li>Better Names
+<ul>
+<li><a href="./notes.html#Sentience">Better Names for "Sentience"</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h3>Site Changes</h3>
+
+<ul>
+<li>Added table support in the CSS</li>
+</ul>
+
+<h2>October 2019</h2>
+
+<h3>Writing</h3>
+
+<ul>
+<li><a href="./considerations_on_cryonics.html">Considerations on Cryonics</a></li>
+</ul>
+
+<h2>September 2019</h2>
+
+<h3>Writing</h3>
+
+<ul>
+<li><a href="./against_applause.html">Against Applause After Classical Concerts</a></li>
+<li>Solutions to <a href="./99_problems_klong_solution.html#P55--Construct-completely-balanced-binary-trees">P55</a>, <a href="./99_problems_klong_solution.html#P56--Symmetric-binary-trees">P56</a>, <a href="./99_problems_klong_solution.html#P57--Binary-search-trees-dictionaries">P57</a>, <a href="./99_problems_klong_solution.html#P58--Generateandtest-paradigm">P58</a> and <a href="./99_problems_klong_solution.html#P59--Construct-heightbalanced-binary-trees">P59</a>, and a complete implementation of the <a href="./99_problems_klong_solution.html#A-More-Complete-Implementation">Huffman code</a> for the <a href="./99_problems_klong_solution.html">99 Klong Problems</a></li>
+<li>Notes
+<ul>
+<li><a href="./notes.html#Better-Names-for-Things">Better Names for Things</a></li>
+</ul></li>
+</ul>
+
+<h3>Programming</h3>
+
+<ul>
+<li><a href="./awitt.html">awitt – Another Window Title Tracker</a></li>
+</ul>
+
+<h2>August 2019</h2>
+
+<h3>Writing</h3>
+
+<ul>
+<li><a href="./estimated_life_expectancy.html">Subjective Estimates of Life Expectancy</a></li>
+<li>Solutions to <a href="./99_problems_klong_solution.html#P40--Goldbachs-conjecture">P40</a>, <a href="./99_problems_klong_solution.html#P41--A-list-of-Goldbach-compositions">P41</a>, <a href="./99_problems_klong_solution.html#P49--Gray-code">P49</a>, <a href="./99_problems_klong_solution.html#P50--Huffman-code">P50</a> and <a href="./99_problems_klong_solution.html#P54A--Check-whether-a-given-term-represents-a-binary-tree">P54A</a> of the <a href="./99_problems_klong_solution.html">99 Klong Problems</a></li>
+<li>Notes
+<ul>
+<li><a href="./notes.html#Compliments-as-Utilitarian-Practice">Compliments as Utilitarian Praxis</a></li>
+<li><a href="./notes.html#Indirect-AntiNatalism">Indirect Anti-Natalism</a></li>
+</ul></li>
+</ul>
+
+<h3>Site Changes</h3>
+
+<ul>
+<li>Tooltips for images and links (to increase accessibility)</li>
+</ul>
+
+<h2>July 2019</h2>
+
+<h3>Writing</h3>
+
+<ul>
+<li>Notes
+<ul>
+<li><a href="./notes.html#Converging-Preference-Utilitarianism">Converging Preference Utilitarianism</a></li>
+<li><a href="./notes.html#Silent--Loud-Killers">Silent &amp; Loud Killers</a></li>
+</ul></li>
+<li><a href="./contributions.html">Contributions</a></li>
+<li><a href="./two_people_on_a_planet.html#Other-Proposed-Solutions">Other Proposed Solutions to Rendezvous on a Sphere</a></li>
+<li><a href=".//99_problems_klong_solution.html#P34--Calculate-Eulers-totient-function-phim">Solutions to P34-P39 for the 99 Klong Problems</a></li>
+<li>Archives
+<ul>
+<li><a href="./bp_chrono.html">Bit-Player Posts Chronological Index</a></li>
+<li><a href="./ob_chrono.html">Overcoming Bias Posts Chronological Index</a></li>
+<li><a href="./so_chrono.html">Shtetl Optimized Posts Chronological Index</a></li>
+<li><a href="./trm_chrono.html">The Real Movement Posts Chronological Index</a></li>
+</ul></li>
+</ul>
+
+<h2>June 2019</h2>
+
+<h3>Writing</h3>
+
+<ul>
+<li>Notes
+<ul>
+<li><a href="./notes.html#Approach-Anxiety">Approach Anxiety</a></li>
+</ul></li>
+<li>Solution to <a href="./99_problems_klong_solution.html#P27--Group-the-elements-of-a-set-into-disjoint-subsets">Problem 27-33</a> of the 99 problems</li>
+<li>Finished transcription of the <a href="./tao_te_king.html#Kapitel-71">Tao Tê King</a> (chapters 71 to 81)</li>
+</ul>
+
+<h3>Site Changes</h3>
+
+<ul>
+<li>Images are centered now</li>
+</ul>
+
+<h2>May 2019</h2>
+
+<h3>Writing</h3>
+
+<ul>
+<li>Started <a href="./notes.html">Notes</a></li>
+<li><a href="./pipe_rings.html">Pipe Rings</a></li>
+<li>Transcribed chapters <a href="./tao_te_king.html#Kapitel-43">43 to 70</a> of the Tao Tê King</li>
+<li>Added illustrations to <a href="./two_people_on_a_planet.html">Two People on a Planet</a></li>
+</ul>
+
+<h3>Site Changes</h3>
+
+<ul>
+<li>Updated CSS to highlight quotes &amp; code</li>
+<li>Added a favicon</li>
+<li>Made sections anchor-links to themselves</li>
+</ul>
+
+<h2>April 2019</h2>
+
+<h3>Writing</h3>
+
+<ul>
+<li><a href="./two_people_on_a_planet.html">Two People on a Planet</a></li>
+<li><a href="./rationalist_gods.html">Rationalist Gods</a></li>
+</ul>
+
+<p>Structurally supporting pages (like this changelog, the home page and <a href="./about.html">the
+about page</a>) are also new, but not even near being finished.</p>
+
+<p>At the beginning of the month, I set up the code to generate this website
+and imported some existing projects of mine.</p>
+
+<h4>Essays</h4>
+
+<ul>
+<li><a href="./99_problems_collection.html">99 Problems Collection</a></li>
+<li><a href="./99_klong_problems.html">K-99: Ninety-Nine Klong Problems</a></li>
+<li><a href="./99_problems_klong_solution.html">99 Problems Klong Solution</a></li>
+<li><a href="./equally_many_heads_and_tails.html">Equally Many Heads and Tails</a></li>
+</ul>
+
+<h4>Translations</h4>
+
+<ul>
+<li><a href="./metamodernistisches_manifest.html">Metamodernistisches // Manifest</a></li>
+</ul>
+
+<h4>Fiction</h4>
+
+<ul>
+<li><a href="./buch_stab.html">Buch Stab</a></li>
+<li><a href="./platte.html">Platte</a></li>
+</ul>

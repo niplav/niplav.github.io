@@ -1,0 +1,11 @@
+.l("nplot")
+
+data::-.r()
+
+grid([0],(#data),[10];0,(|/data),[10000])
+
+xtitle("Years from now")
+ytitle("Dollar value of signing up for cryonics")
+fillrgb(0.4;0.4;1)
+barplot(data)
+draw()

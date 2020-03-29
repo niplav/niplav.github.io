@@ -1,0 +1,76 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+function addAnchor(element) {
+	cnt=element.textContent
+	if(cnt==="home")
+		return;
+	ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2020-03-24, modified: 2020-03-24, language: english, status: notes, importance: 6, confidence: possible</em></p>
+
+<blockquote>
+  <p><strong>This text looks at the accuracy of forecasts in relation
+  to the time between forecast and resolution, and asks three
+  questions: First; is the accuracy higher between forecasts;
+  Second; is the accuracy higher between questions; Third: is the
+  accuracy higher within questions. These questions are analyzed
+  using data from <a href="https://predictionbook.com/">PredictionBook</a> and
+  <a href="https://www.metaculus.com/questions/">Metaculus</a>, the answers turn
+  out to be _, _ and no. Possible reasons are discussed.</strong></p>
+</blockquote>
+
+<h1>Short and Mid Range Forecasting Accuracy</h1>
+
+<h2>Short-, Mid- and Long-Range Forecasting</h2>
+
+<h2>Accuracy Between Forecasts</h2>
+
+<p><!--https://en.wikipedia.org/wiki/Simpson's_paradox-->
+<!--https://www.openphilanthropy.org/blog/how-feasible-long-range-forecasting-->
+<!--https://github.com/gimpf/metaculus-question-stats--></p>
+
+<h2>Accuracy Between Questions</h2>
+
+<h2>Accuracy Within Questions</h2>

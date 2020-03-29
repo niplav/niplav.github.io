@@ -1,0 +1,69 @@
+.l("csv")
+.l("nstat")
+
+.fc(.ic("../../data/estimated_life_expectancy.csv"));data::csv.load()
+
+m::1:$'{1_x}'flr({"m"~*x};data)
+f::1:$'{1_x}'flr({"f"~*x};data)
+data::1:$'{1_x}'1_data
+
+m::m@<m
+f::f@<f
+data::data@<data
+
+fm::mu(*+f)
+mm::mu(*+m)
+fem::mu(*|+f)
+mem::mu(*|+m)
+dm::mu(*+data)
+dem::mu(*|+data)
+
+ages::*+data
+mages::*+m
+fages::*+f
+estages::*|+data
+mestages::*|+m
+festages::*|+f
+
+ages::ages@<ages
+mestages::mestages@<mestages
+festages::festages@<festages
+
+grf::=*+f
+abaf::mu'(*|+f)@grf
+rf::(*'(*+f)@grf),'abaf
+
+grm::=*+m
+abam::mu'(*|+m)@grm
+rm::(*'(*+m)@grm),'abam
+
+gr::=*+data
+aba::mu'(*|+data)@gr
+r::(*'(*+data)@gr),'aba
+
+:"yl: years left"
+
+yl::{(*|x)-*x}'data
+fyl::{(*|x)-*x}'f
+myl::{(*|x)-*x}'m
+yl::yl@<yl
+fyl::fyl@<fyl
+myl::myl@<myl
+muyl::mu(yl)
+mufyl::mu(fyl)
+mumyl::mu(myl)
+
+.fc(.ic("../../data/de_actuarial_tables.csv"));known::csv.load()
+
+known::{(1:$*x),(1.0:$x@1),(1.0:$x@2)}'1_known
+mk::{x@[0 1]}'known
+fk::{x@[0 2]}'known
+kr::{(*x),((x@1)+x@2)%2}'known
+
+:"aba[mf]: average estimates for given ages"
+:"cor[mf]: accuracy males/females, correlation between average male/female"
+:"estimate and actuarial values, cord the same for all of the data"
+
+corm::cor(abam;*|+mk@*'(*+m)@grm)
+corf::cor(abaf;*|+fk@*'(*+f)@grf)
+cord::cor(aba;*|+kr@*'(*+data)@gr)

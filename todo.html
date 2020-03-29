@@ -1,0 +1,1101 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+function addAnchor(element) {
+	cnt=element.textContent
+	if(cnt==="home")
+		return;
+	ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2019-09-09, modified: 2020-03-24, language: english, status: notes, importance: 2, confidence: log</em></p>
+
+<blockquote>
+  <p><strong>Notes and ideas for texts &amp; programs that will be written decades
+  in the future, as well as music.</strong></p>
+</blockquote>
+
+<h1>TODO</h1>
+
+<h2>Site</h2>
+
+<ul>
+<li>Make more mobile-friendly</li>
+<li>Add tooltips to links (Title of Text)</li>
+<li>Find out how to make the site more inclusive</li>
+<li>(a) link for archives?</li>
+<li>Get rid of "we", use "I" instead.</li>
+<li>Confidence intervals for some values</li>
+<li>Improve citation (both to wikipedia and to papers)</li>
+<li>Make all scripted programs banged</li>
+</ul>
+
+<h2>Texts</h2>
+
+<h3>Arguments</h3>
+
+<ul>
+<li>Why Still Choose C?
+<ul>
+<li>Long-term reliability/stability</li>
+<li>Performance</li>
+<li>Portability</li>
+<li>→ Caveat: Only portable if very reliably/portably written</li>
+</ul></li>
+<li>Unix is Not About Reimplementing Unix
+<ul>
+<li>Examples for claim:
+<ul>
+<li><a href="http://blog.izs.me/post/48281998870/unix-philosophy-and-nodejs">Node JS</a></li>
+<li><a href="https://victorops.com/blog/internet-age-unix-philosophy/">The Internet</a></li>
+<li><a href="https://www.reddit.com/r/vim/comments/22w1li/a_fair_comparison_between_vim_and_emacs/cgqyqst/">Vim</a></li>
+<li>https://gist.github.com/rjsteinert/f3823f3cdc9971779c17</li>
+</ul></li>
+<li><a href="http://www.catb.org/esr/writings/taoup/html/ch01s06.html">"Do one thing, and do it well. Use text streams, since that is the universal interface"</a></li>
+<li>Most systems reimplement unix ("Those who don't understand unix are doomed to reimplement it, poorly.")</li>
+</ul></li>
+<li>Libertarianism is too Simple
+<ul>
+<li>Libertarianism is a very simple method of organising society,
+so it must have been tried in the history of societies. However,
+none of those societies have survived, which makes it an
+unsuccessful way of structuring societies</li>
+<li>Counter-argument: Humans are consistently biased against liberty</li>
+<li>Counter-argument: Libertarianism is very well suited for
+<em>modern</em> (capitalist, technological) societies, which haven't
+existed for very long</li>
+</ul></li>
+<li>Antinatalism and Consent</li>
+<li>Limit “Philosophy” and “Art”</li>
+<li>Against Advertising
+<ul>
+<li>Strong claim: Advertising is always bad</li>
+<li>Weak claim: Advertising in public spaces is bad</li>
+<li>Does this hold up to a good consequentialist calculation?</li>
+</ul></li>
+<li>Against News
+<ul>
+<li>Priming → News+Wikipedia≤Wikipedia</li>
+</ul></li>
+<li>On the Importance of
+<ul>
+<li>Qualia Engineering</li>
+<li>Track Records, Forecasting and Prediction Markets</li>
+<li>The Difference in Sexual Behavior Between Men and Women</li>
+<li>Pick Up
+<ul>
+<li>Combines Near (Sex) with Far (Abstract thinking)</li>
+</ul></li>
+</ul></li>
+<li>In Favor of Selling Glee
+<ul>
+<li>Pointing out problems with the ideas in <a href="http://slatestarcodex.com/2016/03/23/the-price-of-glee-in-china/">The Price Of Glee In China</a></li>
+<li>General idea: When you find out that making people wealthier
+doesn't make them happier, you start thinking about how to make
+them happier instead of trying to find reasons why making them
+wealthier is still a good idea.</li>
+<li>Read the post carefully</li>
+<li>Read up on the research</li>
+<li>Perhaps re-emphasize as "Easterlin's Paradox"?</li>
+</ul></li>
+<li>Missing the Movement
+<ul>
+<li>"Most Hedonists end up sad!"</li>
+<li>"Utilitarianism leads to bad results!"</li>
+<li>"Rationalism leads to believing wrong things!"</li>
+<li>Related text: <a href="https://www.lesswrong.com/s/pvim9PZJ6qHRTMqD3/p/oZNXmHcdhb4m7vwsv">Incremental Progress and the Valley</a></li>
+</ul></li>
+<li>In Favor of Gish-Gallop
+<ul>
+<li>https://en.wikipedia.org/wiki/Gish_gallop</li>
+</ul></li>
+<li>An Anthropic Argument in Favour of Eventual Existential Security
+<ul>
+<li>Worlds in which existential risk eventually declines contain
+more observer-moments than worlds in which existential risk
+becomes or stays very likely.</li>
+<li>Therefore, we're more likely to be in a world where
+there are more observer-moments and we're in world 1</li>
+</ul></li>
+</ul>
+
+<h3>Analyses</h3>
+
+<ul>
+<li>Modelling the Dream-Time (Population will probably start growing again)</li>
+<li>Dumpster Diving</li>
+<li>Hitch Hiking</li>
+<li>Keyboards
+<ul>
+<li>Hardware
+<ul>
+<li>Hands too near each other</li>
+<li>Staggered keys maybe increase learning time, possibly
+increase typing time (sqr(2) instead of 1 movement distance)</li>
+</ul></li>
+<li>Software
+<ul>
+<li>Layouts are a problem</li>
+<li>Two modes: key position on keyboard &amp; character presented by key</li>
+</ul></li>
+</ul></li>
+<li>Table Diving</li>
+<li>Walking Barefoot</li>
+<li>Pick Up
+<ul>
+<li>Direct Number on Street</li>
+<li>Direct Date on Street</li>
+<li>Direct Date off Street</li>
+</ul></li>
+<li>Actuarial tables for dictators</li>
+<li>Ideology Transition Graphs
+<ul>
+<li>When people move along ideologies, which paths do they take?</li>
+<li>How long do they stay at certain ideologies?</li>
+<li>What are the overall transition probabilities, what are the "sinks" (look up on markov chains)</li>
+<li>Survey on /r/CapitalismVSocialism</li>
+<li>One part with selected ideologies:
+<ul>
+<li>Centrism, Apolitical</li>
+<li>Social Democracy, Socialism, Communism</li>
+<li>Liberalism, Left Liberalism, Anarchism</li>
+<li>Libertarianism, Minarchism, Anarcho-Capitalism</li>
+<li>Conservativism, Alt-Right, National Socialism, Fascism</li>
+</ul></li>
+<li>One part with freely choosable ideologies</li>
+</ul></li>
+<li>Dice Chains
+<ul>
+<li>Throw n dice as long as the sum of their values is higher
+than the previous throw. What is the probability
+distribution on the length of the run?</li>
+<li>Simulation from ../prog/dicechain/dicechain.lua</li>
+</ul></li>
+<li>Algorithm for distributing production of goods among different
+producers according to comparative advantage
+<ul>
+<li>producers: {2,n}</li>
+<li>products: {2,n}</li>
+<li>transformation curves: {linear, marginal, any}</li>
+<li>indifference curves: {linear, fixed number, any}</li>
+</ul></li>
+<li>Building A Big Tower
+<ul>
+<li>500 years, ~1 trio. dollars, stable technology, build a tower as big as possible</li>
+<li>considerations
+<ul>
+<li>location
+<ul>
+<li>some mountains nearby for material</li>
+<li>very stable ground (tower doesn't sink into the ground)</li>
+</ul></li>
+<li>energy production
+<ul>
+<li>nuclear, probably</li>
+</ul></li>
+</ul></li>
+<li>base of the tower probably square
+<ul>
+<li>length 5-10 km</li>
+</ul></li>
+<li>pyramid shaped
+<ul>
+<li>100 m for every layer, 20-50m distance to the edge of the last layer</li>
+</ul></li>
+<li>big blocks
+<ul>
+<li>use lava to form them, from pulverized mountains
+<ul>
+<li>pump up powder/sand/little stones or magma?</li>
+<li>in the former case, one also needs electricity at the top</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Nuking the Amazon Cost-Benefit Analysis</li>
+<li>What is the most common word I don't use?</li>
+<li>How Strong is the Gender Difference In Sex Drive?
+<ul>
+<li>/usr/local/doc/unread/blackpill/is<em>there</em>a<em>gender</em>difference<em>in</em>strength<em>of</em>sex<em>drive</em>baumeister<em>et</em>al<em>2001.pdf</li>
+<li>/usr/local/doc/unread/blackpill/in<em>heterosexual</em>relationships<em>men</em>masturbate<em>more</em>than<em>women</em>waterink</em>2014.pdf</li>
+</ul></li>
+<li>Do eggs burst when they're not poked before boiling?
+<ul>
+<li>Blinded, person needs to poke &amp; write down, but not tell</li>
+<li>Student's t-test</li>
+<li>N=200</li>
+<li>Pre-register</li>
+</ul></li>
+<li>Precommit to Enlightenment
+<ul>
+<li>precommit to performing the steps from TMI &amp; MCTB2 for
+5000 hours over 10 years (~1h30m every day on average),
+then report back what the effects were</li>
+<li>frame as experiment (is that actually legit?)</li>
+</ul></li>
+<li>Proposed Solutions to Pascal's Mugging
+<ul>
+<li>Bite the Bullet</li>
+<li>Abandon Utility-Maximization</li>
+<li>Bounded Probability</li>
+<li>Bounded Utility</li>
+<li>Abstain From Assigning Probabilities to Some Events
+<ul>
+<li>Probability of X is undefined</li>
+</ul></li>
+</ul></li>
+<li>Creatine &amp; Vegetarianism IQ?</li>
+<li>How difficult is it to manipulate real existing prediction markets?
+<ul>
+<li>PredictIt</li>
+<li>BetFair</li>
+</ul></li>
+<li>Survey Advanced Meditators about Their Attainments and their Monetary Worth</li>
+<li>Comparing Forecasting Accuracy Between the Good Judgment Project and Metaculus
+<ul>
+<li>https://www.openphilanthropy.org/blog/forecasting-covid-19-pandemic</li>
+<li>https://pandemic.metaculus.com/questions/</li>
+</ul></li>
+</ul>
+
+<h3>Ideas</h3>
+
+<ul>
+<li>Ends of Discussions
+<ul>
+<li>Dissolving the question
+<ul>
+<li>Discussion about the meaning of a word</li>
+<li>Disagreement about an arbitrary category (morality/aethetics)</li>
+</ul></li>
+<li>Bet</li>
+<li>Agreement</li>
+</ul></li>
+<li>The End of History Fallacy</li>
+<li>The “If Everyone Just” Argument
+<ul>
+<li>The argument just assumes one of the biggest problems away: coordination and cooperation</li>
+<li>Related: <a href="https://www.scottaaronson.com/blog/?p=418">Malthusianisms</a></li>
+<li>Related: https://squareallworthy.tumblr.com/post/163790039847/everyone-will-not-just</li>
+</ul></li>
+<li>Information and Markets:
+<ul>
+<li>Explanation
+<ul>
+<li>Information as a non-scarce good</li>
+</ul></li>
+<li>Existing solution
+<ul>
+<li>Copyright</li>
+<li>Patents</li>
+</ul></li>
+<li>Problems with patents/copyright
+<ul>
+<li>creates a temporary monopoly</li>
+<li>→ all regular problems with monopolies as result
+<ul>
+<li>no competition</li>
+<li>therefore, less/no innovation</li>
+<li>higher prices</li>
+<li>prevention of further work based on the innovation</li>
+<li>copying is inherent to (all but quantum) information,
+preventing it is theoretically (and for the most part also
+practically) impossible</li>
+<li>possible overcompensation: some people get a lot more money
+than appropriate for the work they put in, some get nothing</li>
+<li>it's ontologically confused</li>
+</ul></li>
+</ul></li>
+<li>Possible solutions:
+<ul>
+<li>Pay for production
+<ul>
+<li>Patreon</li>
+<li>Kickstarter</li>
+</ul></li>
+<li>Premium models</li>
+<li>Advertising
+<ul>
+<li>Problem: getting harder the more products come into the information domain</li>
+</ul></li>
+<li>Open-source model: free work</li>
+</ul></li>
+</ul></li>
+<li>Aesthematics
+<ul>
+<li>Infinite Fractal Meta Recursion</li>
+<li>Mendeljew Operator</li>
+<li>Supersymmetric Copying</li>
+</ul></li>
+<li>Preference Frustration Auctions</li>
+<li>The Tyranny of the Mill
+<ul>
+<li>The Hedonic Treadmill is very good &amp; very bad</li>
+</ul></li>
+<li>Moral progress as an EA cause area?</li>
+<li>Writing system based on all binary trees with maximal height 2
+<ul>
+<li>no 's' sounds</li>
+</ul></li>
+<li>Moving the Lever Closer
+<ul>
+<li>Due to an asymmetry in human decision making, making somebody
+causally more responsible for a negative action makes them less
+likely to take that action</li>
+<li>Related: The bystander effect</li>
+</ul></li>
+<li>Salty fries
+<ul>
+<li>Buy something, that creates a need for something else (software &lt;-> support, salty fries &lt;-> drinks)</li>
+</ul></li>
+<li>Running Away from Your Problems
+<ul>
+<li>Examples (?)
+<ul>
+<li>Anti-biotics</li>
+<li>de Grey anti-aging proposal</li>
+</ul></li>
+</ul></li>
+<li>Cryptographic Agreement on Bribing</li>
+<li>Encoding Conditionals Using Modulo</li>
+</ul>
+
+<h3>Collections</h3>
+
+<ul>
+<li>Simple Unsolved Math Problems</li>
+<li>Differences Between GNU and POSIX <code>make</code></li>
+<li>Better Mathematical Notation
+<ul>
+<li>Mathematical notation is not a planned and systematic
+endeavour, but the result of a long process of generation
+and selection of different notations. Here I collect
+contemporary ideas for better notation, and discuss old &amp;
+discarded methods of writing mathematics.</li>
+<li>Discarded Methods
+<ul>
+<li>https://en.wikipedia.org/wiki/Begriffsschrift</li>
+<li>https://en.wikipedia.org/wiki/Newton%27s<em>notation#Newton's</em>notation</li>
+</ul></li>
+<li>New Notations
+<ul>
+<li>General
+<ul>
+<li>https://www.stephenwolfram.com/publications/mathematical-notation-past-future/</li>
+<li>/usr/local/doc/unread/towards<em>a</em>better<em>notation</em>for<em>mathematics</em>olah<em>2010.pdf</li>
+</ul></li>
+<li>Triangle of Power
+<ul>
+<li>https://www.youtube.com/watch?v=sULa9Lc4pck</li>
+<li>https://math.stackexchange.com/questions/30046/alternative-notation-for-exponents-logs-and-roots</li>
+<li>http://www.solidangl.es/2015/04/a-radical-new-look-for-logarithms.html</li>
+</ul></li>
+</ul></li>
+<li>Read
+<ul>
+<li>/usr/local/doc/unread/notation/notation<em>as</em>a<em>tool</em>of<em>thought</em>iverson</em>1986.pdf</li>
+</ul></li>
+</ul></li>
+<li>Cryonics in Germany FAQ</li>
+</ul>
+
+<h3>Notes</h3>
+
+<ul>
+<li>Be Liberal in what you Accept, but Conservative in what you Emit</li>
+<li>Believing Something Doesn't Mean You to Tell it to Everyone</li>
+<li>You Actually Don't Need to Convice Idiots</li>
+<li>Hug the Objective</li>
+<li>Report: Walking Barefoot</li>
+<li>Report: Riding the Bike a Lot</li>
+<li>Report: Stopping to Bite Your Nails
+<ul>
+<li>Cut Your Nails Every Week</li>
+</ul></li>
+<li>Report: Becoming Marginally More Productive
+<ul>
+<li>Follow Alexey Guzey's Advice, Leave the House</li>
+<li>Internet Abstinence</li>
+</ul></li>
+<li>No One Knows &amp; No One Can Know</li>
+</ul>
+
+<h3>Misc</h3>
+
+<ul>
+<li>Coding Standards
+<ul>
+<li>General Project Setup</li>
+<li>C</li>
+<li>Shell Scripting</li>
+</ul></li>
+<li>Mistakes</li>
+<li>Open Questions</li>
+<li>Good Ideas
+<ul>
+<li>Some ideas I've read about &amp; found good</li>
+<li>Forecasting
+<ul>
+<li>Track records</li>
+<li>Prediction platforms</li>
+<li>Prediction markets (https://en.wikipedia.org/wiki/Prediction_market)</li>
+<li>Decision markets</li>
+<li>Futarchy</li>
+</ul></li>
+<li>Voting methods
+<ul>
+<li>Approval voting</li>
+<li>Maybe quadratic voting, although I haven't looked into it too much</li>
+</ul></li>
+<li>Taxes
+<ul>
+<li>Pigovian taxes instead of strict rules on damaging public goods
+<ul>
+<li>How computationally tractable are these?</li>
+<li>Which computational complexity?</li>
+</ul></li>
+<li>Harberger taxes (COST)
+<ul>
+<li>The thing Glen Weyl is talking about</li>
+</ul></li>
+</ul></li>
+<li>Sokalling
+<ul>
+<li>Look up tweet by David Chapman</li>
+<li>Adversarial submitting of fraudulent papers to journals</li>
+</ul></li>
+<li>Besides stdin, stdout and stderr, add usrin and usrout as
+standard unix files: latter is for confirming decisions,
+status bars etc. I read this proposal a few years back,
+but can't find it again.</li>
+<li>Programming languages without operator precedence:
+APL/K/J. Why? One less detail to keep in mind, structured
+data flow. Downside: Inconsistency with mathematics,
+not relevant in languages with little use of operators.</li>
+<li>Status tags ({prototype, in progress, maintenance,
+finished, hiatus, abandoned}) for open source projects.</li>
+<li>Mental tool: How would you solve this if you had a hypercomputer?</li>
+<li>Cryonics</li>
+<li>Daygame</li>
+</ul></li>
+<li>Fundamentals</li>
+</ul>
+
+<blockquote>
+  <p>we should be far more explicit about the assumed background against
+  which we intend to communicate.</p>
+</blockquote>
+
+<p><em>– John Nerst, <a href="https://everythingstudies.com/2018/07/16/30-fundamentals/">“30 Fundamentals”</a>, 2018</em></p>
+
+<h3>Fiction</h3>
+
+<ul>
+<li>A Religion
+<ul>
+<li>A pseudo-mathematical religion combining several
+unrelated ideas is presented and explained.
+Inspired by <a href="http://unsongbook.com/">Unsong</a></li>
+<li>Ingredients
+<ul>
+<li>Timelessness
+<ul>
+<li>Plotinus</li>
+</ul></li>
+<li>Tegmark's Mathematical Universe
+<ul>
+<li>/usr/local/doc/unread/physics/our<em>mathematical</em>universe<em>tegmark</em>2014.epub</li>
+</ul></li>
+<li>Symmetry Theory of Valence
+<ul>
+<li>/usr/local/doc/unread/principia<em>qualia</em>johnson_2017.pdf</li>
+</ul></li>
+<li>Scott Alexander's Solution to Theodicy
+https://slatestarcodex.com/2015/03/15/answer-to-job/</li>
+</ul></li>
+<li>Explanation
+<ul>
+<li>Creation</li>
+<li>God</li>
+<li>Heaven</li>
+<li>Hell</li>
+</ul></li>
+</ul></li>
+<li>Homeless Super-Mathematicians
+<ul>
+<li>Perhaps in the SCP format?</li>
+</ul></li>
+<li>Blue Reality
+<ul>
+<li>Like the Red Reality SCP, but people in there are really well (think MDMA)</li>
+</ul></li>
+<li>The Intentionality of the Tyrannical Object
+<ul>
+<li>SCP format</li>
+<li>Abstract Tyrannical Object as a thing in the real world</li>
+<li>Has the property of intentionality (except for celibate men?)</li>
+<li>Text by german early 20th century continental philosopher about this object</li>
+<li>Fragments by a 11th century german monk about this</li>
+</ul></li>
+<li>Guten Morgen</li>
+<li>A History of Names</li>
+<li>Skalpell Bizeps</li>
+</ul>
+
+<blockquote>
+  <p>11-uhr-luft liegt rauh auf dem parkplatzboden.  in den ritzen des
+  asphalt streitet sich krepierender löwenzahn mit ausgeblichenen
+  zigarettenstummeln um platz. abblätternde farbe liegt dazwischen,
+  obwohl die altbauten noch ein paar hundert meter entfernt liegen.</p>
+</blockquote>
+
+<ul>
+<li>myzel</li>
+</ul>
+
+<blockquote>
+  <p>moderne kapitalistische verteilung ist weder zentralisiert noch
+  dezentralisiert, sie ist myzelisch, verwaberndes, meist unsichtbares
+  gewebe in einem fruchtbaren umfeld, mit anhäufungen, ballungen und
+  kumulationen von produktionszentren – zur festigkeit verdichtetes
+  gewebe dort fassbar, wo es sich am wenigsten äußert. werden als
+  eine kontingente verschmelzung von fast-sein und konkretheit"</p>
+</blockquote>
+
+<h3>Translations</h3>
+
+<ul>
+<li>Kodomulo Manifesto (translation of “A Hacker Manifesto”)</li>
+</ul>
+
+<h2>Music</h2>
+
+<h3>Clarinet</h3>
+
+<ul>
+<li>Clarinet Concerto (Mozart)</li>
+</ul>
+
+<h3>Piano</h3>
+
+<ul>
+<li>The People United Will Never be Defeated (Rzewski)</li>
+<li>Das Wohltemperirte Clavier (Bach)</li>
+<li>Beethoven Piano Sonatas (Beethoven)</li>
+<li>Impromptus (Schubert)</li>
+<li>Nocturnes (Chopin)</li>
+<li>Gymnopédies/Gnosiemmes (Satie)</li>
+<li>Rhapsodie in Blue (Gershwin)</li>
+</ul>
+
+<h2>Programming</h2>
+
+<ul>
+<li>cap
+<ul>
+<li>simple language for assembling different files into one. syntax very
+sed/ed like, mostly like this: <code>[line,]line@file[&lt;|^|&gt;][line,]line[|comm]</code>
+where line is a regex enclosed in '/' with an optional number suffix
+or a line number, file is a filename and comm is a shell command in
+single quotes. the text from each file is inserted into a buffer and
+printed at the end of the cap script.</li>
+</ul></li>
+<li>toc
+<ul>
+<li>time out cat, which prints its input unless there was no
+input for more than argv[1] seconds (try different
+versions, settle for the most exact version that is
+not unbearably slow).</li>
+</ul></li>
+<li><p>lvst</p>
+
+<ul>
+<li>print levensthein distances of strings</li>
+<li>option '-f' for the field separator</li>
+<li>can be used for fuzzy search</li>
+<li><p>usage:</p>
+
+<pre><code>$ lvst "test"
+foo
+3:test:foo
+bar
+4:test:bar
+</code></pre></li>
+</ul></li>
+<li><p>cy</p>
+
+<ul>
+<li>A very simple version control system, written in rc. inspiration from put and get, from "the unix programming environment".</li>
+<li>supports 3 operations
+<ul>
+<li>init (initialize a repository)</li>
+<li>put (make a commit)</li>
+<li>get (go back to a certain commit)</li>
+</ul></li>
+<li>tracks changes within files and deletion/creation of files</li>
+<li>reason: git/hg are good, but way too huge for private, simple, linear, personal repositories.</li>
+<li>inspiration: svn/rvn/eie<!--TODO: links for these--></li>
+</ul></li>
+<li>fle
+<ul>
+<li>suckless pager</li>
+<li>commands
+<ul>
+<li>[f]orwards</li>
+<li>[b]ackwards</li>
+<li>[u]p</li>
+<li>[d]own</li>
+<li>[j] (line up)</li>
+<li>[k] (line down)</li>
+<li>[g] (first line)</li>
+<li>[G] (last line)</li>
+<li>[/] for searching</li>
+<li>[n]ext and [p]revious match</li>
+</ul></li>
+<li>support for arbitrary length files, loading lazily, unicode is displayed properly, big lines are dealt with properly.</li>
+</ul></li>
+<li>recog
+<ul>
+<li>program that accepts one backus-naur form grammar and checks if it's input or other files match that grammar.</li>
+<li>BNF -(Convert to Chomsky Normal Form)&gt; CNF -(Cocke-Younger-Kasami algorithm)&gt; Boolean</li>
+<li>Relevant material:
+<ul>
+<li>RFC 2234</li>
+<li>RFC 4234</li>
+<li>RFC 5234</li>
+<li>RFC 7405</li>
+</ul></li>
+<li>Possible BNF forms:
+<ul>
+<li>ABNF (RFCs)</li>
+<li>EBNF</li>
+<li>naive &amp; simple form (similar to the one used on Wikipedia)
+<ul>
+<li><symbol\&gt;</li>
+<li>optionality: '?'</li>
+<li>repetition: '+'</li>
+<li>repetition with optionality: '*'</li>
+<li>alternative symbols: '|'</li>
+<li>assignment: '::='</li>
+<li>"string"</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>sif
+<ul>
+<li>simple text processing filter that takes only one instruction</li>
+<li>(single instruction filter)</li>
+<li>instruction form:
+<ul>
+<li><code>[^]/str/[,[^]/str/]((a|i|c)/str/)|d|p</code></li>
+<li>str is a literal string here (no regex)</li>
+<li>a=&gt;append, i=&gt;insert, c=&gt;change, d=&gt;delete, p=&gt;print</li>
+<li>'^' means that the following str is excluded from the matched text</li>
+</ul></li>
+<li>sif does not do input/output buffering and does treat whitespace as any other character.</li>
+<li>normally, everything is printed, unless the option '-n' is used.</li>
+</ul></li>
+<li>pau
+<ul>
+<li>vis-digraph reads from the terminal input directly and emulates the input of the corresponding character
+<ul>
+<li>uses table from RFC 1345
+<ul>
+<li>Seems not extendable, damn</li>
+</ul></li>
+</ul></li>
+<li>if vis-digraph extendable, add:
+<ul>
+<li>Interrobang   ‽   ?!</li>
+<li>Join  ⋈   &gt;&lt;</li>
+<li>Expected value    𝔼   |E</li>
+<li>Real numbers  ℝ   |R</li>
+<li>Integers        ℤ       |Z</li>
+<li>Natural numbers   ℕ   |N</li>
+<li>Triple e  ≡   3=</li>
+<li>Approximately e   ≈   ~~</li>
+<li>Subscript a   ₐ   _a / as</li>
+<li>Subscript e   ₑ   _e / es</li>
+<li>Subscript h   ₕ   _h / hs</li>
+<li>Subscript k   ₖ   _k / ks</li>
+<li>Subscript l   ₗ   _l / ls</li>
+<li>Subscript m   ₘ   _m / ms</li>
+<li>Subscript n   ₙ   _n / ns</li>
+<li>Subscript o   ₒ   _o / os</li>
+<li>Subscript p   ₚ   _p / ps</li>
+<li>Subscript s   ₛ   _s / ss</li>
+<li>Subscript t   ₜ   _t / ts</li>
+<li>Superscript i ⁱ   ^i</li>
+<li>Superscript n ⁿ   ^n</li>
+</ul></li>
+<li>daemon that catches such digraphs and emulates them as
+if they were typed, using vis-digraph</li>
+</ul></li>
+<li>mtfs
+<ul>
+<li>plan9 file server for a file that returns the current metric time on read</li>
+</ul></li>
+<li>libbruch
+<ul>
+<li>rational numbers with libzahl</li>
+<li>some functions:
+<ul>
+<li>badd(bruch a, bruch b, bruch c): a:=b+c</li>
+<li>bsub(bruch a, bruch b, bruch c): a:=b-c</li>
+<li>bdiv(bruch a, bruch b, bruch c): a:=b÷c</li>
+<li>bmul(bruch a, bruch b, bruch c): a:=a⋅c</li>
+<li>binv(bruch a, bruch b): a=b^(-1)</li>
+</ul></li>
+<li>more functions:
+<ul>
+<li>bset, bseti, bsets, bsetu, bstr, bfloor, bceil,
+bmod, bcmp, bcmpu, bsqrt, binit, bfree, bsave,
+bload, bsetup, bunsetup, berror, bperror</li>
+</ul></li>
+</ul></li>
+<li>nager
+<ul>
+<li>sxhkd for the mouse</li>
+<li>syntax: <code>[MOUSEEVENT] [, MOUSEEVENT] [ /*possibly nested*/ COMMAND ]</code></li>
+</ul></li>
+<li>erle
+<ul>
+<li>rlwrap alternative, takes ideas from the fish shell interactive mode</li>
+<li>normal readline like behavior (but using something simpler, like linenoise/dietline)</li>
+<li>history file is loaded during startup</li>
+<li><code>&lt;text&gt;[UP]</code> shows the last command containing <code>&lt;text&gt;</code>,
+again <code>[UP]</code> the one before that, and so on</li>
+<li><code>&lt;word1&gt; &lt;word2&gt;[TAB]</code> expands <code>&lt;word2&gt;</code> into the last word
+(string separated from the others with a newline/space)
+beginning with <code>&lt;word2&gt;</code></li>
+<li>no input for more than half a second/a second shows a suggestion
+    of the last command beginning with the current line.</li>
+<li>ideas for speeding it up:
+<ul>
+<li>use <code>char**</code> for storing each history and words</li>
+<li>benchmark and optimise, of course</li>
+</ul></li>
+</ul></li>
+<li>pandeck
+<ul>
+<li>convert files from different spaced repetition softwares into another
+<ul>
+<li>fulgurate .crd</li>
+<li>mnemosyne</li>
+<li>anki</li>
+</ul></li>
+</ul></li>
+<li>unitspheretransform
+<ul>
+<li>VR application that visualizes the transformation of the unit sphere in 3-dimensional space</li>
+<li>also unit circle transform</li>
+<li>color code the original vectors</li>
+<li>interpolate them?</li>
+</ul></li>
+<li>hedonium
+<ul>
+<li>look up different information-processing centric ideas about consciousness</li>
+<li>combine them with the symmetry theory of valence</li>
+<li>implement the best approximation of these</li>
+</ul></li>
+<li>minspantree
+<ul>
+<li>implement all algorithms for the minimum spanning tree in a functional programming language</li>
+<li>like sml/ocaml</li>
+<li>/usr/local/doc/unread/cs/state<em>of</em>the<em>art</em>algorithms<em>for</em>minimum<em>spanning</em>trees<em>eisner</em>1997.pdf</li>
+</ul></li>
+<li>nenio
+<ul>
+<li>a suckless prolog implementation</li>
+<li>ISO prolog</li>
+</ul></li>
+<li>rien
+<ul>
+<li>suckless sml implementation, sml '97</li>
+<li>maybe build on mosml</li>
+</ul></li>
+<li>curve
+<ul>
+<li>C with significant whitespace</li>
+<li>indentation instead of braces</li>
+<li>optional semicolons &amp; optional parentheses around for/while/if/switch</li>
+</ul></li>
+<li>jmp
+<ul>
+<li>j/z for rc</li>
+<li>jumps into frecent directories</li>
+<li>should also work on plan9</li>
+</ul></li>
+<li>ladder
+<ul>
+<li>datastructure where key and value are interchangeable</li>
+<li>two arrays/slice, sorted, where each element has a pointer to the corresponding element in the other list</li>
+<li>searching has the speed of binary search</li>
+<li>insertion has the speed of the underlying datastructure, but twice</li>
+</ul></li>
+<li>openspace
+<ul>
+<li>Given a rectangle with many inscribed rectangles, what is the
+biggest open rectangle in there?</li>
+<li>Seems like a packing problem</li>
+</ul></li>
+<li>species
+<ul>
+<li>browsable tree of all currently known biological species</li>
+<li>starting from the highest classification</li>
+</ul></li>
+<li>texdown
+<ul>
+<li>small TeX library that offers basic markdown-like functionality:
+<ul>
+<li>Numbered lists</li>
+<li>Unnumbered lists</li>
+<li>code listings</li>
+<li>quotes</li>
+<li>bold/italic text</li>
+<li>links</li>
+<li>images</li>
+<li>paragraph headings</li>
+</ul></li>
+</ul></li>
+<li>librule
+<ul>
+<li>C library for raku rules</li>
+<li>read about:
+<ul>
+<li>backtracking</li>
+<li>regex implementation (swtch.com?)</li>
+<li>raku rules</li>
+</ul></li>
+<li>example program: far (find after rule, grep; but with raku rules)</li>
+<li>github.com/zorgnax/librx</li>
+</ul></li>
+<li>nest
+<ul>
+<li>program dealing with nested data structures</li>
+<li>similar to lisp, but without execution</li>
+<li>am I NIHing this?</li>
+</ul></li>
+<li>noise
+<ul>
+<li>utility for producing white/pink/brown/&amp;c noise</li>
+</ul></li>
+<li>spiel
+<ul>
+<li>utility for logging/visualizing daygame stats</li>
+</ul></li>
+<li>orakel
+<ul>
+<li>utility for making/ranking/visualizing forecasts</li>
+</ul></li>
+<li>dukkha
+<ul>
+<li>utility for logging/visualizing meditation stats</li>
+<li>get inspiration from meditavo</li>
+</ul></li>
+<li>tomate
+<ul>
+<li>little pomodoro utility</li>
+</ul></li>
+</ul>
+
+<h3>Klong Libraries</h3>
+
+<ul>
+<li>combin.kg
+<ul>
+<li>combinatorics library for klong</li>
+<li>exponentiation</li>
+<li>tetration</li>
+<li>n-tation</li>
+<li>factorial</li>
+<li>binomial coefficient</li>
+<li>stirling numbers (1st/2nd kind)</li>
+<li>eulerian numbers (1st order, 2nd order)</li>
+<li>catalan numbers</li>
+<li>counting partitions</li>
+</ul></li>
+<li>date.kg
+<ul>
+<li>date/time library for klong: convert different date formats to another</li>
+</ul></li>
+<li>utf8.kg
+<ul>
+<li>unicode decoding/encoding library</li>
+<li>see how myrddin/lua/libutf/plan9 did it</li>
+</ul></li>
+<li>linalg.kg
+<ul>
+<li>linear algebra library for klong</li>
+<li>function for the determinant</li>
+<li>function for gaussian elimination</li>
+<li>function for matrix multiplication</li>
+<li>function for matrix inversion</li>
+<li>function for the calculation of eigenvalues and eigenbases</li>
+<li>function for the calculation of polynomial division</li>
+</ul></li>
+<li>statests.kg
+<ul>
+<li>library for statistical tests</li>
+</ul></li>
+</ul>
+
+<h3>Contributions</h3>
+
+<ul>
+<li>mupdf
+<ul>
+<li>implement unicode search</li>
+<li>improve search overall, lacking</li>
+<li>why don't ← and → work for next/prev page?</li>
+</ul></li>
+<li>myrddin
+<ul>
+<li>documentation: "and modern features with a high cost-benefit ratio"</li>
+<li>cost/benefit is high? Clarify</li>
+</ul></li>
+<li>vis
+<ul>
+<li>add C-a and C-e for beginning of line and end of line in insert mode</li>
+<li>add C-← and C-→ for jumping words in insert mode (equivalent of b and e)</li>
+<li>fix syntax highlighting for ocaml with single quotes: 'a takes the whole line</li>
+<li>Syntax highlighting of inline code in markdown is annoying (dark blue background!)</li>
+</ul></li>
+<li>sad
+<ul>
+<li>implement features that weren't finished</li>
+<li>care for it</li>
+</ul></li>
+<li>toxcore
+<ul>
+<li>maybe</li>
+<li>single/group</li>
+<li>chat/audio/video</li>
+<li>not much more, really</li>
+</ul></li>
+<li>neo2
+<ul>
+<li>port neo2 to plan9/9front/Haiku OS</li>
+</ul></li>
+<li><p>klong</p>
+
+<ul>
+<li>receiving output of shell commands via pipe</li>
+<li>receiving output of shell commands (maybe via pipe?)</li>
+<li>self adverb (options are :!, :&amp;, :,, :;, :&lt;, :&gt;, :?)
+<ul>
+<li>:&lt; and :&gt; should be reserved for something symetric</li>
+<li>:; is not fit because ; is not really a verb or adverb</li>
+<li>:!, :&amp;, :? and :, are the best options</li>
+</ul></li>
+<li>support for imaginary numbers?</li>
+<li><p>nplot</p>
+
+<ul>
+<li>Support for multiple bargraphs</li>
+<li>Bargraphs with negative values</li>
+<li>Logarithmic scales for graphs</li>
+<li>setrgb doesn't work properly: after setting the color once, it can only be reset to black</li>
+<li><p>Example:</p>
+
+<pre><code>.l("nplot")
+grid([0 100 10];[0 100 10])
+text(250;60;"Foo")
+setrgb(0;0;1)
+text(200;250;"Bar")
+setrgb(1;1;0)
+text(100;100;"Baz")
+draw()
+</code></pre></li>
+</ul></li>
+<li><p>nstat</p>
+
+<ul>
+<li>n% confidence interval</li>
+<li>polynomial/exponential/logarithmic (?) fit for a dataset</li>
+</ul></li>
+<li>Range is extremely slow for anything but integers, why?</li>
+<li>error with klong: <code>#'s58'!40</code> returns <code>kg: error: call: type error: [6 :triad %call1 %pop1]</code>
+<ul>
+<li>bug, report</li>
+</ul></li>
+<li>Pivot in the gauss/elim implementations</li>
+</ul></li>
+<li>fzf
+<ul>
+<li>Why doesn't fzf cope well with shuffled or repeated letters?</li>
+<li>'niiiiiplav' and 'nlapiv' both take me to the wrong directory, they're obviously meant for my home directory</li>
+</ul></li>
+<li>dc 9base manpage:
+<ul>
+<li>typo in the order of operations in the manpage</li>
+</ul></li>
+</ul>
+
+<blockquote>
+  <p>+  - /  *  %  ^
+       Add subtract multiply divide remainder or exponentiate the top
+       two values on the stack.</p>
+</blockquote>
+
+<h2>Structure</h2>
+
+<ul>
+<li>Top-level:
+<ul>
+<li>Translations
+<ul>
+<li>English to Esperanto</li>
+</ul></li>
+<li>Music
+<ul>
+<li>Clarinet</li>
+<li>Piano</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h2>General</h2>
+
+<ul>
+<li>Send typos to people, let them correct them</li>
+</ul>

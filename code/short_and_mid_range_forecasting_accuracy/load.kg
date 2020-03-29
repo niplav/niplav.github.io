@@ -1,0 +1,47 @@
+.l("csv")
+.l("nstat")
+
+spd::24*60*60
+spw::7*spd
+spm::30*spd
+spy::365*spd
+
+brier::{mu((x-y)^2)}
+
+.fc(.ic("../../data/pb.csv"));pbraw::csv.load()
+
+pbdata::+{1.0:$'x}'pbraw
+:"For days"
+:"pbdiffs::{_x%spd}pbdata@2"
+:"For weeks"
+:"pbdiffs::{_x%spw}'pbdata@2"
+:"For months (roughly)"
+pbdiffs::{_x%spm}'pbdata@2
+"For years"
+:"pbdiffs::{_x%spy}'pbdata@2"
+
+pbress::pbdata@0
+pbfcs::pbdata@1
+
+pbdg::=pbdiffs
+pbdiffbrier::{(pbdiffs@*x),mse.set(pbfcs@x;pbress@x)}'pbdg
+pbdiffbrier::pbdiffbrier@<*'pbdiffbrier
+
+.fc(.ic("../../data/met.csv"));metraw::csv.load()
+
+metdata::+{1.0:$'x}'metraw
+:"For days"
+metdiffs::{_x%spd}'metdata@2
+:"For weeks"
+:"metdiffs::{_x%spw}'metdata@2"
+:"For months (roughly)"
+metdiffs::{_x%spm}'metdata@2
+"For years"
+:"metdiffs::{_x%spy}'metdata@2"
+
+metress::metdata@0
+metfcs::metdata@1
+
+metdg::=metdiffs
+metdiffbrier::{(metdiffs@*x),mse.set(metfcs@x;metress@x)}'metdg
+metdiffbrier::metdiffbrier@<*'metdiffbrier

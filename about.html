@@ -1,0 +1,437 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+function addAnchor(element) {
+	cnt=element.textContent
+	if(cnt==="home")
+		return;
+	ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2019-04-02, modified: 2020-03-21, language: english, status: in progress, importance: 3, confidence: highly likely</em></p>
+
+<blockquote>
+  <p><strong>A description of this website and its author.</strong></p>
+</blockquote>
+
+<h1>About</h1>
+
+<h2>The site</h2>
+
+<h3>Content</h3>
+
+<p>This website contains essays on different topics, ranging
+from programming over philosophy to discussions of odd social
+behavior, as well as translations, transcriptions, music
+recordings and programming projects. It follows the idea of <a href="https://www.gwern.net/About#long-content">Long
+Content</a>: pages that are
+continually getting refined and updated, never quite completely finished,
+but approaching stability. This allows for "perpetual drafts", along
+with continuous improvement (similar to a wiki, but mainly edited by one
+person).</p>
+
+<p>This is inspired by the idea of Long Content, produced under the motto</p>
+
+<blockquote>
+  <p>Think Less Wrong, act Long Now and Suck Less.</p>
+</blockquote>
+
+<p><em>– paraphrasing <a href="https://www.gwern.net/">Gwern Branwen</a>, <a href="https://www.gwern.net/About">“About This Website”</a>, 2019</em></p>
+
+<p>For this reason, articles are not published by date,
+but rather by category, both to make it easier to read
+the content of the site in order (i. e. to <a href="https://entirelyuseless.com/2018/06/12/start-at-the-beginning/">"Start at the
+Beginning"</a>)
+and to structure it by topic and form, rather than to strive for
+presenting mainly new information to the reader.</p>
+
+<p>The content on this website is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons
+4.0</a>.</p>
+
+<h4>Essays</h4>
+
+<p>The essays contain mainly new material, both short arguments and
+collections of links, but also longer descriptions of new ideas or
+analyses of concepts where existing descriptions (e.g. on Wikipedia or
+other blogs) were deemed incomplete. It is of course not possible to
+avoid replicating existing ideas (it is not possible for me to read
+anything beyond a slim part of existing texts on a topic before writing
+my own ideas down), but it seems likely that the idea will at least
+be new to most readers.</p>
+
+<p>Generally I use the rule: Let t be the time it would take to write a
+text about the idea I was thinking about. Then the time spent researching
+whether the idea exists already should stop take at most <code>$\frac{t}{2}$</code>.</p>
+
+<p>There are, of course, some essays that were written about existing and
+well-known ideas. These were written mainly for my own enjoyment.</p>
+
+<h4>Translations, Transcriptions &amp; Archives</h4>
+
+<p>It <a href="https://reducing-suffering.org/ways-writing-valuable/#Old_content_vs_new_content">seems
+possible</a>
+that archiving content has a much bigger impact than creating new
+content. Given that I write mostly for self-expression, it is a small
+factor in most of what I do, but occasionally I transcribe or translate
+texts in order to make them more easily accessible.</p>
+
+<p>The translations are often intertwined with the effort of learning other
+languages or exercising language skills that would otherwise be forgotten.
+For that reason, they can be of quite low quality, so I'm always grateful
+for corrections sent my way.</p>
+
+<h4>Programming Projects</h4>
+
+<p>This site also acts as a central place of organisation for different
+programming related projects and contributions. That includes
+pages representing programming projects, but also <a href="https://en.wikipedia.org/wiki/Literate_programming">literate
+programs</a>
+containing code, comments, tests and performance measurements. Most
+programs will be written in <a href="./uses_this.html#Programming-languages">a small number of programming
+languages</a>.</p>
+
+<h3>Inspiration</h3>
+
+<p>I always had a few ideas I thought were worth preserving, and a lot
+of ideas I thought would be fun writing down, and also thought about
+creating a repository for all my personal projects, but somehow these
+never really pushed me completely toward actually setting something
+up. A good reason might have been that I only visited sites that were
+poorly organised and contained little to no personal long-term content
+(either blogs focused on new posts or simply haphazard aggregations
+of short ideas (like in the form of <a href="http://2f30.org">2f30.org</a> or the
+<a href="https://suckless.org/wiki/">suckless.org wiki</a>)).</p>
+
+<p>This was changed upon discovering <a href="https://www.gwern.net">gwern.net</a>
+and <a href="https://reducing-suffering.org">reducing-suffering.org</a>: both gave
+me a good idea of how a long-term website should look and feel like,
+and which kind of content could be published there.</p>
+
+<p>I decided to start writing down my ideas, collecting older texts and
+reviewing them to see what was still valuable and what was useless.</p>
+
+<p>My decision to start a website was solidified by <a href="https://guzey.com/personal/why-have-a-blog/">guzey
+2019</a> and a question on
+<a href="https://old.reddit.com/r/slatestarcodex/comments/ab3ry1/whats_the_bottleneck_to_more_things_like_slate/">/r/slatestarcodex</a>:</p>
+
+<blockquote>
+  <p>What's the bottleneck to more things like "Slate Star Codex" or Gwern's site existing in the world?</p>
+</blockquote>
+
+<p><em>– <a href="https://old.reddit.com/user/arikr">arikir</a>, <a href="https://old.reddit.com/r/slatestarcodex/comments/ab3ry1/whats_the_bottleneck_to_more_things_like_slate/">“What's the bottleneck to more things like "Slate Star Codex" or Gwern's site existing in the world?”</a> on <a href="https://old.reddit.com/r/slatestarcodex/">/r/slatestarcodex</a>, 2019</em></p>
+
+<!--TODO: Lesswrong question: [What makes people intellectually
+active?](https://www.lesswrong.com/posts/XYYyzgyuRH5rFN64K/what-makes-people-intellectually-active)-->
+
+<p>I decided that it could not hurt to try and follow through on the idea
+of aggregating the stuff I produced, and a possible (but unlikely)
+benefit to other people was just a nice addition.</p>
+
+<p>So far, writing for a website has been beneficial to interacting with
+several topics: It streamlines my thoughts, makes it possible to take
+notes, include code and images and several other advantages. Even if
+I had never gotten around to publishing this site, it would still have
+been a net positive project for me.</p>
+
+<h3>Style</h3>
+
+<p>The style of writing is mostly formal US english.</p>
+
+<h4>Titles and Headings</h4>
+
+<ul>
+<li>Titles and headers use the <a href="https://blog.apastyle.org/apastyle/2012/03/title-case-and-sentence-case-capitalization-in-apa-style.html">APA style of capitalization</a></li>
+<li>MathJax is used only when necessary</li>
+<li>The <a href="https://en.wikipedia.org/wiki/Serial_comma">Oxford comma</a> is not used</li>
+<li>Code is not syntax-highlighted</li>
+<li>A passive voice is preferred, but I have to get into the flow of writing, so texts may contain that as well.</li>
+<li>No footnotes/endnotes (see <a href="https://entirelyuseless.com/2015/07/11/are-hyperlinks-a-bad-idea/">entirelyuseless 2015</a>)</li>
+<li>Quotes have the following style: <code>*– [Author Name](https://en.wikipedia.org/wiki/Author_Name), [“Chapter” in “Work Name”](https://work-name.com) p.1, Year*</code>. If the work is not online, link the Wikipedia page.</li>
+<li>Quotes of reddit have the following style:
+<ul>
+<li>Post: <code>*– [User_Name](https://old.reddit.com/u/User_Name), [“Post Title”](https://old.reddit.com/r/all/post_title/) in [/r/all](https://old.reddit.com/r/all) (100 upvotes), Year*</code></li>
+<li>Comment: <code>*– [User_Name](https://old.reddit.com/u/User_Name), [comment](https://old.reddit.com/r/all/post_title/deadbeef) on [“Post Title”](https://old.reddit.com/r/all/post_title/) in [/r/all](https://old.reddit.com/r/all) (100 upvotes), Year*</code></li>
+</ul></li>
+<li>For pages, optimal is to give the page number of the quotation in the linked PDF. If it is not available, the page number written at the bottom of the page is used.</li>
+<li>Link to document: typical style
+<ul>
+<li>for one author: <code>[Author Year](./title_author_year.pdf)</code></li>
+<li>for two authors: <code>[Author&amp;Coauthor Year](./title_author_coauthor_year.pdf)</code></li>
+<li>for more than two authors: <code>[Author et al. Year](./title_author_et_al_year.pdf)</code></li>
+<li>Tooltip: The title of the document</li>
+</ul></li>
+<li>The year for a text is usually the best date of the last significant change to the text.</li>
+<li>Link individual chapters from books, not whole books, whole papers are okay.</li>
+<li>Sections every article contains:
+<ul>
+<li>link back to the index page <code>[home](./index.html)</code></li>
+<li>metadata on the article, bold&amp;quoted abstract</li>
+<li>title of the article</li>
+<li>"See Also" for similar links on this website</li>
+<li>"External Links" for links to other websites discussing the same (or very similar) ideas</li>
+<li>"Discussions" for external discussions on the article</li>
+</ul></li>
+<li>Long numbers written with <a href="https://en.wikipedia.org/wiki/Metric_prefix#List_of_SI_prefixes">SI-postfixes</a> (K for thousand, M for million etc.)
+<ul>
+<li>However, huge amounts of money are designated via K for thousand, and perhaps a bit inconsistently mio. for million, bio. for billion, trio. for trillion, and so on.</li>
+</ul></li>
+</ul>
+
+<h3>Writing Checklist</h3>
+
+<p>I use a <a href="./code/sitelint">script</a> to fix easily catchable mistakes.</p>
+
+<ul>
+<li>Spell checking using <a href="http://aspell.net/">aspell</a></li>
+<li>Check broken markdown</li>
+<li>Broken citations</li>
+<li><a href="https://en.wikipedia.org/wiki/American_English">American English</a> ("labour" instead of "labor", "behaviour" instead of "behavior")</li>
+<li>Checking for unbalanced parentheses</li>
+</ul>
+
+<!--
+* links for authors to Wikipedia
+* capitalization of headings
+* proselint
+* fixing 404'ed links
+-->
+
+<h3>Organisation</h3>
+
+<p>For every text, there are several tags attached to it (mainly taken from
+<a href="http://www.gwern.net/About#confidence-tags">Gwern 2019</a>).</p>
+
+<h4>Author</h4>
+
+<p>The "author" tag is quite self-explanatory, the field is the original author
+of the piece. This is only relevant for translations and transcriptions.</p>
+
+<p>Similarly, there are two optional tags: "translator" for the person
+who translated the text, and "transcriptor" for the person who transcribed
+the text. The former can be me or a professional translator, the latter
+is always me.</p>
+
+<h4>Dates</h4>
+
+<p>A page has several date tags. The creation date ("created") shows the
+date when the text was first created (if the text is by me) or when
+the text was first published (if the text is by another author). If it
+is unclear when the text was <em>first</em> published, I give my best estimate
+for the year, and set the date to the first of January of that year. The
+"modified" tag always shows the date of the last modification by me. Both
+the "created" and the "modified" tag are present on every text.</p>
+
+<p>If the text is a translation, the "translated" tag shows the date when
+I started working on the translation. Similarly, the also optional "transcribed" tag
+shows when I started working on the transcription of the text.</p>
+
+<p>The date format is <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</a>,
+rarely using a "-" as a negative sign for a year before the <a href="https://en.wikipedia.org/wiki/Common_Era">Common
+Era</a>.</p>
+
+<h4>Language</h4>
+
+<p>The language tag shows the languages the body of the text is written in
+(if necessary, separated by commas). Currently, there are only texts in
+English and German, but the tag may be one of the following:</p>
+
+<ul>
+<li>"english"</li>
+<li>"german"</li>
+<li>"french"</li>
+<li><a href="https://en.wikipedia.org/wiki/Esperanto">"esperanto"</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Latin">"latin"</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Serbo-Croatian">"serbocroatian"</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Lojban">"lojban"</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Ithkuil">"ithkuil"</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Toki_Pona">"toki pona"</a></li>
+</ul>
+
+<h4>Confidence</h4>
+
+<p>The confidence tags are also taken mainly from <a href="https://www.gwern.net/About#confidence-tags">Gwern
+2019</a>.</p>
+
+<p>I made some additions to the list of tags which I thought were useful:
+"translation" for translations, "transcription" for transcriptions
+(digitalizing of a book or article written on paper), "theory" for
+unfalsifiable ideas that nonetheless might create new perspectives
+and approaches, "other" for texts that might not fit into any of these
+categories.</p>
+
+<p>The complete list of confidence tags is as follows:</p>
+
+<ul>
+<li>"certain"</li>
+<li>"highly likely"</li>
+<li>"likely"</li>
+<li>"possible"</li>
+<li>"unlikely"</li>
+<li>"highly unlikely"</li>
+<li>"remote"</li>
+<li>"impossible"</li>
+<li>"log"</li>
+<li>"fiction"</li>
+<li>"theory"</li>
+<li>"translation"</li>
+<li>"transcription"</li>
+<li>"emotional"</li>
+<li>"other"</li>
+</ul>
+
+<h4>Status</h4>
+
+<p>The status tags indicate the state of progress for a piece.</p>
+
+<p>They may be any of the following (in increasing order of
+being-finished-ness):</p>
+
+<ul>
+<li>"notes"</li>
+<li>"draft"</li>
+<li>"in progress"</li>
+<li>"finished"</li>
+<li>"abandoned"</li>
+</ul>
+
+<h4>Importance</h4>
+
+<p>The importance tags are also taken from <a href="https://www.gwern.net/About#importance-tags">Gwern
+2019</a>, but I don't do any
+resorting, both because that would be too much effort and because I
+believe that most of the content I produce is not especially important.</p>
+
+<p>The importance tag is a number <code>$n \in [10] \subset \mathbb{N}$</code>.</p>
+
+<h3>Implementation</h3>
+
+<p>The website is built writing the articles in
+<a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>
+and them compiling them to standard HTML using
+<a href="https://pypi.org/project/Markdown/"><code>markdown_py</code></a>. Mathematical formulae
+are typeset using <a href="https://en.wikipedia.org/wiki/MathJax">MathJax</a>. It
+only uses only minimal CSS (highlighting code and quotes, centering the
+text and limiting line length) and very litte JavaScript. The Javascript
+is used for MathJax and converting headers to anchor links.</p>
+
+<h3>Influences</h3>
+
+<p>This site is greatly influenced by several websites: The
+style of organisation and presentation is shamelessly
+influenced by <a href="https://www.gwern.net">gwern.net</a> and
+<a href="https://reducing-suffering.org/">reducing-suffering.org</a> (although
+achieving similar quality in content, breadth and depth will
+be diffficult to achieve). I try to follow the concept of <a href="https://www.gwern.net/About#long-content">Long
+Content</a> and extensive
+presentation.</p>
+
+<p>My views on philosophy are heavily influenced by the <a href="https://lesswrong.com">rationalist
+movement</a>, and I stay faithful to
+the ideas of the movement by disagreeing sharply with it on
+several points. The general principles I broadly agree with are
+<a href="https://plato.stanford.edu/entries/consequentialism/">consequentialism</a>,
+<a href="https://plato.stanford.edu/entries/epistemology-bayesian/">bayesian
+epistemology</a>,
+<a href="https://plato.stanford.edu/entries/nominalism-metaphysics/">meta-physical
+nominalism</a>,
+<a href="https://en.wikipedia.org/wiki/Reductionism">reductionism</a> and <a href="https://plato.stanford.edu/entries/naturalism/#MetNat">scientific
+naturalism</a>.</p>
+
+<p>My views on ethics are very similar to
+(and influenced by) the idea of <a href="https://foundational-research.org/the-case-for-suffering-focused-ethics/">suffering focused
+ethics</a>,
+especially the writings at
+<a href="https://reducing-suffering.org/">reducing-suffering.org</a>.</p>
+
+<p>In regard to software, my views are quite
+similar to those of the minimalist unix and <a href="https://en.wikipedia.org/wiki/Plan_9_from_Bell_Labs">Plan
+9</a> supporters at
+<a href="https://suckless.org">suckless.org</a> and <a href="http://cat-v.org">cat-v.org</a>.</p>
+
+<h2>The author</h2>
+
+<h3>Elsewhere on the Internet</h3>
+
+<ul>
+<li><a href="https://old.reddit.com/u/niplav">Reddit</a></li>
+<li><a href="https://github.com/niplav">Github</a></li>
+<li><a href="https://www.lesswrong.com/users/niplav">Lesswrong</a></li>
+<li><a href="https://en.wikipedia.org/wiki/User:Niplav">Wikipedia</a></li>
+</ul>
+
+<h3>Contact</h3>
+
+<p>Contact address is <code>niplav@posteo.net</code>.</p>
+
+<p>PGP public key:</p>
+
+<pre><code>-----BEGIN PGP PUBLIC KEY BLOCK-----
+mQENBFxjMzUBCAD1GrTHAZ+K50WTzvZJBoUiXhnqIDO7mHpdsD9bpNDGFLudeQKE
+5BjTV4F4Sfp8BxQU3uo9WUGqPWpYsWZ5VHyYbFoQUZaXulDslwNOfLY4vlT6SLHN
+5aoLHVDnZQ7wP44nsubIu4iDVUWpKCSQBaxSLku9u1eINlGshXVPlQbxwWoHpxS1
+Wkpo3wVI8RKDVNuCnSJhUPdYz9L/yIIm833UJ/sSuv6DM3VVKZxNqCB7XJq8qXdg
+JwaOIMzPiJAnJSvIedOAo5JKDdQNpQ1e7thufPRZVG0vOxt8c+zO8eajMiiG6yMk
+PMPNaRuKfv/2wZVX/37sIwaHIgj7NxknHix1ABEBAAG0Gm5pcGxhdiA8bmlwbGF2
+QHBvc3Rlby5uZXQ+iQFUBBMBCAA+FiEEuOHrdbohn8dtrXQGKf5C00UfR10FAlxj
+MzUCGwMFCQPCZwAFCwkIBwIGFQoJCAsCBBYCAwECHgECF4AACgkQKf5C00UfR12Q
+bwf+LpmGTGKThsOx0yycplid03ws4sbdXYlEnfzWMgemiJqa4jmwmcExHGhbNbnq
+wdz7bnXY2qa8oG3mJW/vqWbFIkv8k96bPTshaHg9JzoelooSkmG3rrtSPuKYebrC
+cJN3eyRERGU39oFJGqPLytVlv9XshLBHvZKA4WRZe6iBco++YRRPk8OLfY4GFXrC
+68DQZof/MLYjYqHxsm9y4eGLhT3MjbgKnFeia0J3XvGnKfAsbQpKGdRkJaOG3ht4
+04jb0QHja/3+Px1+iVL0k405IZ1rxiYmstQ1pa3OTQ4HhoB37BMb6R4sKIF8AyMP
+WGw2ZtikL7HiQZdc3o2I1HLCXrkBDQRcYzM1AQgAucsvQoAi/bYfEKcTtUPt4EqM
+z2NUkwPCOFJxTu5sSIgTioZbXAlHeCCIXAUVi8sUK496Ymmf5cLjqw8rUeSVorL6
+Eh9bB6S+gDn8/RlWgqU377pK4f6SIuOCHo1vHcLJ9YeIpwv660KgHci3J40lcTpz
+7oTlJNu3NxU+F53o+YO5IGOmuNsokXpeCERnnpJpEjaqE+IdyYaAxVHfxcwbUODu
+ZhA9hkmdYMn9pNiSiSFSNpCSS/D9ZS4+UWV3602IfKegGt6V1W89W78QA1mzALze
+I1GmpgqlQM5Z/BmKL/zH3NC4rwBTqU62oaf0XZlgIWaM6SbdCZaK4IxDgTDcBwAR
+AQABiQE8BBgBCAAmFiEEuOHrdbohn8dtrXQGKf5C00UfR10FAlxjMzUCGwwFCQPC
+ZwAACgkQKf5C00UfR12icwgAlIpsa66lxUEQrMk27V9fXH89h540Y7W3n2rssDKb
+bY1D8gtfbnQ3Uhs+Sy+XtKSSfpLlI8qVmYfW1UFmyViYkh3bWmT3lQo4ap/JTACm
+bkA6Gxj91lMqwJMUxSTEgAPaZwkvPB2I2PMWuLBjjsXdA3Y/i64kPPRDO+Exxewi
+DxfYMGTQf89lrPifvT5y78NL6S8FqHcGeWrwEXsuumg0RDC7uBm9PC5DFEtZQmxP
+AxRVmda5oa7eNp72JTYpkbna9n6v6QLpWsbr702tKgJmj8NS1QMx+YKFw5U9eP4x
+INanMfBMaiGYGd1BKfd6xJfapLLRimDp6nUbaVMimNo99w==
+=9nws
+-----END PGP PUBLIC KEY BLOCK-----
+</code></pre>

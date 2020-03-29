@@ -1,0 +1,2856 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+function addAnchor(element) {
+	cnt=element.textContent
+	if(cnt==="home")
+		return;
+	ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2019-02-10, modified: 2020-03-19, language: english, status: in progress, importance: 3, confidence: possible</em></p>
+
+<blockquote>
+  <p><strong>Solutions to the <a href="./99_klong_problems.html" title="99 Klong
+  Problems">99 problems</a> in <a href="http://t3x.org/klong/index.html">Klong</a> in a <a href="https://en.wikipedia.org/wiki/Literate_programming">literate
+  programming</a>
+  style. Attempts to produce the shortest complete solution to these
+  problems up to date.</strong></p>
+</blockquote>
+
+<h1>99 Problems Klong Solutions</h1>
+
+<h2>Acknowledgements</h2>
+
+<p>s7 is inspired by a function by
+<a href="http://t3x.org/nmh/index.html">nmh</a>, who wrote it <a href="http://t3x.org/klong/klong-ref.txt.html">in the Klong
+documentation</a>.
+<a href="https://old.reddit.com/user/John_Earnest">/u/John_Earnest</a>
+provided a <a href="https://old.reddit.com/r/apljk/comments/59asq0/pack_duplicate_consecutive_elements_into_sublists/">more
+elegant</a>
+s9 on <a href="https://old.reddit.com/r/apljk/">/r/apljk</a>. Dave
+Long provided a much more elegant s8, s26, c1, s49 and
+s55 over email. s31 is from the <a href="https://en.wikipedia.org/wiki/K_(programming_language)#Examples">Wikipedia article about
+K</a>.</p>
+
+<h2>Code</h2>
+
+<!--TODO: Make the tests also external-->
+
+<p>The pure Klong code, without tests, explanations, comments or performance
+tests is available <a href="./code/99_klong/sol.kg">here</a>. It currently implements
+solutions for all problems up to P63 (excluding P47 and P48), in 2408
+bytes.</p>
+
+<h2>Conventions</h2>
+
+<p>Since this collection of solutions attempts to maximize for terseness,
+several considerations concerning completeness have to be made. There
+is nearly no checking for correct arguments, except for empty lists.
+Variables are declared locally. The solution for problem N is called
+<code>sN</code>, helper functions are numbered <code>aN</code> for the Nth helper function
+in <strong>Working with lists</strong>, <code>bN</code> in <strong>Arithmetic</strong>, <code>cN</code> in <strong>Logic and
+Codes</strong> and so on.</p>
+
+<h2>Prerequisites</h2>
+
+<p>The solutions use <code>flr</code> and <code>dp</code> from the util library and <code>sqr</code> and
+<code>ln</code> from the math library in the standard library.</p>
+
+<pre><code>.l("util")
+.l("math")
+</code></pre>
+
+<p>These would be, of course, trivial to implement on your own:
+<code>flr::{[f];f::x;y@(f'y)?1}</code>, <code>dp::{:[@x;0;1+|/.f'x]}</code> and
+<code>sqr::{[a];a::x;:[0=x;0;{(x+a%x)%2}:~a]}</code> (taken directly from the
+library).</p>
+
+<h2>Working with Lists</h2>
+
+<h3>P01 (*) Find the last element of a list.</h3>
+
+<p>The function reverses the first argument and then returns the first element.</p>
+
+<pre><code>s1::{*|x}
+mylast::s1
+</code></pre>
+
+<p>Testing with the example obtains the correct result:</p>
+
+<pre><code>    mylast([:a :b :c :d])
+:d
+</code></pre>
+
+<p>Another possible version would be <code>s1::{x@((#x)-1)}</code>. These can be
+compared to each other in respect to their performance (the performance
+test repeated 10 times each to avoid advantages from caching):</p>
+
+<pre><code>    .l("time")
+    s1::{*|x}
+    (+/1_10{x;time({s1(!3000000)})}\*[])%10
+0.0842222
+    s1::{x@((#x)-1)}
+    (+/1_10{x;time({s1(!3000000)})}\*[])%10
+0.1471947
+</code></pre>
+
+<p>One can see that the first version of <code>s1</code> is nearly twice as fast
+as the second version.</p>
+
+<p>Klong apparently has a very efficient reversing operation for lists.</p>
+
+<h3>P02 (*) Find the last but one sublist of a list.</h3>
+
+<p>This implementation uses a property of the Take verb that allows
+indexing from the end of the list with negative numbers. A longer and
+less elegant solution, re-using <code>s1</code>, would be <code>s2::{((|x)@2),s1(x)}</code>.
+Alternatively, one could also use direct indexing while reversing the
+list: <code>s2::{(|x)@[1 0]}</code>.</p>
+
+<pre><code>s2::{(-2)#x}
+mybutlast::s2
+</code></pre>
+
+<p>We again take the test from the problems list:</p>
+
+<pre><code>    mybutlast([:a :b :c :d])
+[:c :d]
+</code></pre>
+
+<h3>P03 (*) Find the K'th element of a list.</h3>
+
+<p>This one is very straightforward in Klong: indexing is zero-based,
+so one subtracts one of the second element and then extracts the value.</p>
+
+<pre><code>s3::{x@y-1}
+elementat::s3
+</code></pre>
+
+<p>Testing:</p>
+
+<pre><code>    elementat([:a :b :c :d :e];3)
+:c
+</code></pre>
+
+<h3>P04 (*) Find the number of elements of a list.</h3>
+
+<p>Since <code>#</code> is a Klong primitive for the length of a list, this
+problem is trivial.</p>
+
+<pre><code>s4::{#x}
+</code></pre>
+
+<h3>P05 (*) Reverse a list.</h3>
+
+<p>Similar to problem 5, there is a primitive for this.</p>
+
+<pre><code>s5::{|x}
+</code></pre>
+
+<h3>P06 (*) Find out whether a list is a palindrome.</h3>
+
+<p>Since <code>=</code> compares a list element-wise (and returns a list with boolean
+values corresponding to the equality of the two lists), we have to use
+the <code>~</code> primitive, which compares lists by structure and content. So we
+compare <code>x</code> and its reversion that way.</p>
+
+<pre><code>s6::{x~|x}
+</code></pre>
+
+<h3>P07 (**) Flatten a nested list structure.</h3>
+
+<p>This solution is taken from the Klong
+<a href="(http://t3x.org/klong/klong-ref.txt.html)">documentation</a>, while fixing
+a little problem. The original solution was <code>s7::{,/:~x}</code>, which applied
+the concatenation operator to the sublists of a list as long as the
+list changes with each operation, and then returned the list. However,
+that solution failed with nested lists that contain only one element:
+"If "a" is a single-element list, return the single element." (from the
+Klong documentation on Over). For flattening a list, that is not right:
+<code>s7([1])</code> should be <code>[1]</code>, not <code>1</code>. So this code differentiates between
+a list that only contains an atom, and returns that, or executes the original
+code otherwise.</p>
+
+<pre><code>s7::{{:[@,/x;x;,/x]}:~x}
+myflatten::s7
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    myflatten([:a [:b [:c :d] :e]])
+[:a :b :c :d :e]
+    myflatten([0])
+[0]
+</code></pre>
+
+<p>This is also the result in the problems statement.</p>
+
+<p>Testing it with nested empty lists doesn't work:</p>
+
+<pre><code>    myflatten([[] [[]] [[][]]])
+[[] [] []]
+</code></pre>
+
+<p><!--TODO: Find a solution that doesn't do this.-->
+<!--
+Idea:</p>
+
+<pre><code>s7::{{:[@,/x;,,/x;,/x]}:~x}
+</code></pre>
+
+<p>Returns <code>[[]]</code> for s7([[] [[]] [[][]]]).
+--></p>
+
+<h3>P08 (**) Eliminate consecutive duplicates of list elements.</h3>
+
+<p>This solution first creates a list of <code>1</code> and <code>0</code> that has <code>1</code> at at
+positions where in <code>x</code> the element is followed by an value different
+from itself. Because one has one element too much in the list (<code>[]</code> has
+the positions <code>[1]</code>), we only take as many elements as we need off the
+beginning of the resulting positions list (in these cases, it's <code>#x</code>,
+the length of the argument list).
+We then use Expand/Where to find the positions of 1 in the list of
+positions, and extract them with At/Index.</p>
+
+<pre><code>s8::{x@&amp;(#x)#~0,~:'x}
+compress::s8
+</code></pre>
+
+<p>Compressing the example list returns the desired result:</p>
+
+<pre><code>    compress([:a :a :a :a :b :c :c :a :a :d :e :e :e :e])
+[:a :b :c :a :d :e]
+</code></pre>
+
+<p>And compressing the empty list (and a 1-element list) works as well:</p>
+
+<pre><code>    compress([])
+[]
+    compress([1])
+[1]
+</code></pre>
+
+<h3>P09 (**) Pack consecutive duplicates of list elements into sublists.</h3>
+
+<p>Here, we first do the same matching between the elements as in P08,
+but then we reverse the results and append 0 at the start. In that
+way, we can use Expand/Where to obtain the positions of <code>1</code> in the list
+(that's where the element in the list changes). We then can use Cut to
+cut out sublists ending before the given positions. Because <code>~~:'[]</code>
+returns not <code>[]</code>, but the number <code>1</code> (for whatever reason), we have
+to build in a special case for the empty list at the beginning.</p>
+
+<pre><code>s9::{:[x~[];[];(&amp;0,~~:'x):_x]}
+pack::s9
+</code></pre>
+
+<p>Since the problems don't specify how we should deal with empty
+lists (whether one should return <code>[]</code> or <code>[[]]</code>), we could consider
+<code>s9::{(&amp;0,~'~:'x):_x}</code>, which returns the latter. But this clashes with
+<code>s10</code>, where <code>s10([])</code> returns <code>[[0]]</code>, which doesn't seem to be correct
+at all.</p>
+
+<p>Testing it:</p>
+
+<pre><code>    pack([:a :a :a :a :b :c :c :a :a :d :e :e :e :e])
+[[:a :a :a :a] [:b] [:c :c] [:a :a] [:d] [:e :e :e :e]]
+</code></pre>
+
+<h3>P10 (*) Run-length encoding of a list.</h3>
+
+<p>As the problem statement suggests, this solution is pretty
+straightforward. For every sublist of the result of <code>s9</code>, we append
+its length to its first element.</p>
+
+<pre><code>s10::{{(#x),*x}'s9(x)}
+encode::s10
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    encode([:a :a :a :a :b :c :c :a :a :d :e :e :e :e])
+[[4 :a] [1 :b] [2 :c] [2 :a] [1 :d] [4 :e]]
+</code></pre>
+
+<h3>P11 (*) Modified run-length encoding.</h3>
+
+<p>Again, this is quite easy. For the result of <code>s10</code>, we test whether the
+length of the sublist is 1, and if it is, then we return just the value,
+otherwise we return the list.</p>
+
+<pre><code>s11::{{:[1=*x;*|x;x]}'s10(x)}
+encodemodified::s11
+</code></pre>
+
+<p>Testing:</p>
+
+<pre><code>    encodemodified([:a :a :a :a :b :c :c :a :a :d :e :e :e :e])
+[[4 :a] :b [2 :c] [2 :a] :d [4 :e]]
+</code></pre>
+
+<p>This works fine. However, <code>encodemodified</code> shows weird behavior with lists with one element:</p>
+
+<pre><code>    encodemodified([0])
+[0 [0]]
+    encodemodified([1])
+[1]
+</code></pre>
+
+<p><!--TODO: Fix this.--></p>
+
+<p>It works fine with <code>[]</code>, though:</p>
+
+<pre><code>    encodemodified([])
+[]
+</code></pre>
+
+<h3>P12 (**) Decode a run-length encoded list.</h3>
+
+<p>Here, we simply execute a function over the list: If the list element
+is an atom (it is itself not a list), we simply return it, otherwise
+we use Reshape to repeat the last element of <code>x</code> (<code>x</code> has the form
+<code>[freq val]</code>) <code>freq</code> times. The result is then flattened by appending
+the list elements to each other.</p>
+
+<pre><code>s12::{,/{:[@x;x;(*x):^x@1]}'x}
+</code></pre>
+
+<h3>P13 (**) Run-length encoding of a list (direct solution).</h3>
+
+<p>The difference between 'creating sublists' and 'indexing them' is
+not very big in Klong, but a reasonable attempt is presented here.
+We start like in P09: First, we check whether our function argument
+is the empty list, in case of which we return immediately with the
+empty list. Otherwise we store the outer function argument <code>x</code> in
+the local variable <code>a</code>. Then we proceed by again executing Match
+between the elements of the list, and append <code>1</code> at the beginning
+to indicate that we want to include the first sublist. This results
+in a list containing the starting positions of the sublists with different
+elements. We pass this list pairwise to a function, where we first
+check whether the difference is <code>1</code>. In this case, the sublist has
+length <code>1</code> as well and can be returned as an atom, otherwise we
+return the length of the sequence concatenated with its first element.</p>
+
+<pre><code>s13::{[a];a::x;:[x~[];[];{:[1=y-x;a@x;(y-x),a@x]}:'&amp;1,~~:'x]}
+encodedirect::s13
+</code></pre>
+
+<p>Testing this function should return the same result as <code>s11</code>:</p>
+
+<pre><code>    encodedirect([:a :a :a :a :b :c :c :a :a :d :e :e :e :e])
+[[4 :a] :b [2 :c] [2 :a] :d]
+</code></pre>
+
+<p>Which it does.</p>
+
+<p>One can now compare the speed of the direct solution with the speed of
+the indirect solution:</p>
+
+<pre><code>    .l("time")
+    s9::{:[x~[];[];(&amp;0,~~:'x):_x]}
+    s10::{{(#x),*x}'s9(x)}
+    s11::{{:[1=*x;*|x;x]}'s10(x)}
+    time({s11(!10000)})
+0.010219
+    s13::{[a];a::x;:[x~[];[];{:[1=y-x;a@x;(y-x),a@x]}:'&amp;1,~~:'x]}
+    time({s13(!10000)})
+1.884073
+</code></pre>
+
+<p>As one can see, the more complex solution <code>s13</code> is much slower than the
+more idiomatic <code>s11</code>.</p>
+
+<p><!--TODO: Explore further why <code>s13</code> is so much slower.--></p>
+
+<h3>P14 (*) Duplicate the elements of a list.</h3>
+
+<p>This solution is a specialization of the solution to P15. We take the function
+<code>2:^x</code> (repeat x 2 times, abusing Reshape) and call Each-Left on the first
+function argument with it. Because the result is a list of lists, we then have
+to flatten the list using the well known <code>,/</code> pattern.</p>
+
+<pre><code>s14::{,/2:^:\x}
+dupli::s14
+</code></pre>
+
+<p>There are two alternative, but longer solutions: <code>s14::{,/{x,x}'x}</code>
+is more naïve, and <code>s14::{x@_0.5*!2*#x}</code> is perhaps slightly more
+amusing.</p>
+
+<p>The test runs through, as expected:</p>
+
+<pre><code>    dupli([:a :b :c :c :d])
+[:a :a :b :b :c :c :c :c :d :d]
+</code></pre>
+
+<p>We're now interested in the performance of these functions, so we time
+calling the different versions with <code>10000</code> elements:</p>
+
+<pre><code>    .l("time")
+    s14::{,/2:^:\x}
+    time({s14(!10000)})
+0.666863
+    s14::{,/{x,x}'x}
+    time({s14(!10000)})
+0.64103
+     s14::{x@_0.5*!2*#x}
+    time({s14(!10000)})
+0.022282
+</code></pre>
+
+<p>As one can see, the indexing-based solution is by far the fastest,
+with little difference between the other two.</p>
+
+<h3>P15 (**) Replicate the elements of a list a given number of times.</h3>
+
+<p>Here we have the more general case of P14. We simply have to replace <code>2</code>
+by the second argument <code>y</code> here: Repeat <code>x</code> <code>y</code> times for every <code>x</code> in
+the first argument, then concatenate the result.</p>
+
+<pre><code>s15::{,/y:^:\x}
+repli::s15
+</code></pre>
+
+<p>Test:</p>
+
+<pre><code>    repli([:a :b :c];3)
+[:a :a :a :b :b :b :c :c :c]
+</code></pre>
+
+<h3>P16 (**) Drop every N'th element from a list.</h3>
+
+<p>The example given indicates that the indexing is 1-based. The Drop verb
+doesn't work with two lists (although that would make a nice addition
+to the language), so we have to find a simpler solution. <code>s16</code> works
+by creating a list with all indices to <code>x</code> (<code>!#x</code>) and then executing
+the modulo of <code>y</code> on it. The result is a list in the form of <code>[0 1 2 3 … (y-1) 0 1 2 3 …]</code>.
+The elements we want to avoid are at the positions where the list
+contains <code>y-1</code>, so we create a list where <code>1</code> is at the positions
+where the original list had elements smaller than <code>y-1</code>. We then use
+<code>&amp;</code> to obtain the positions of the value <code>1</code> and then simply index <code>x</code>
+by those positions.</p>
+
+<pre><code>s16::{x@&amp;(y-1)&gt;(!#x)!y}
+drop::s16
+</code></pre>
+
+<p>We test the implementation:</p>
+
+<pre><code>    drop([:a :b :c :d :e :f :g :h :i :k];3)
+[:a :b :d :e :g :h :k]
+    drop([:a :b :c];1)
+[]
+    drop([];1)
+kg: error: rem: type error: [[] 1]
+</code></pre>
+
+<p>So our solution fails for empty lists. We could modify it to
+include a simple conditional statement to return the empty list
+if <code>x</code> is <code>[]</code>: <code>s16::{:[x~[];[];x@&amp;(y-1)&gt;(!#x)!y]}</code>.</p>
+
+<p><!--TODO: Think about including this into the full text.--></p>
+
+<h3>P17: (*) Split a list into two parts, the length of the first part is given.</h3>
+
+<p>For this problem, Split is the fitting verb. It can receive a list of
+lengths, and is quite lenient with lists that don't fit exactly. So we
+concatenate <code>y</code> with the total length of <code>x</code> and then just split <code>x</code>
+by that.</p>
+
+<pre><code>s17::{(y,#x):#x}
+split::s17
+</code></pre>
+
+<p>An alternative solution could be <code>s17::{(,y#x),,y_x}</code>, in which one
+concatenates taking <code>y</code> elements of <code>x</code> with dropping <code>y</code> elements of <code>x</code>.</p>
+
+<p>Executing the test returns the correct result:</p>
+
+<pre><code>    split([:a :b :c :d :e :f :g :h :i :k]; 3)
+[[:a :b :c] [:d :e :f :g :h :i :k]]
+</code></pre>
+
+<p>The Split verb doesn't work with a range of <code>0</code>:</p>
+
+<pre><code>    split([1 2 3];0)
+kg: error: split: range error: 0
+</code></pre>
+
+<h3>P18: (**) Extract a slice from a list.</h3>
+
+<p>Here, we can simply take the first <code>z</code> elements from the start of
+the list, and then drop <code>y-1</code> elements of that list (we have to subtract
+<code>1</code> because indexing in lists is <code>0</code>-based).</p>
+
+<pre><code>s18::{(y-1)_z#x}
+slice::s18
+</code></pre>
+
+<p>The test runs through, as expected:</p>
+
+<pre><code>    slice([:a :b :c :d :e :f :g :h :i :k];3;7)
+[:c :d :e :f :g]
+</code></pre>
+
+<p>However, passing arguments that are not long enough gives some
+interesting results:</p>
+
+<pre><code>    slice([:a];3;7)
+[:a :a :a :a :a]
+</code></pre>
+
+<p>This happens because if Take doesn't find enough elements, it simply
+repeats the elements it finds.</p>
+
+<p>An alternative solution, using Index over a range, is
+<code>s18::{x@(y-1)+!1+z-y}</code>.</p>
+
+<h3>P19: (**) Rotate a list N places to the left.</h3>
+
+<p>Klong has a verb for that™. By default, <code>:+</code> rotates to the right with
+positive, and to the left with negative integers, so we have to reverse
+the sign of <code>y</code>.</p>
+
+<pre><code>s19::{(-y):+x}
+rotate::s19
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    rotate([:a :b :c :d :e :f :g :h];3)
+[:d :e :f :g :h :a :b :c]
+    rotate([:a :b :c :d :e :f :g :h];-2)
+[:g :h :a :b :c :d :e :f]
+</code></pre>
+
+<h3>P20: (*) Remove the K'th element from a list.</h3>
+
+<p>It's quite possible that there is a short and elegant solution with 3
+combined adverbs, but this solution does the obvious: it concatenates
+the first <code>y-1</code> elements of <code>x</code> with the last elements of <code>x</code> that don't
+contain the <code>y</code>th element.</p>
+
+<pre><code>s20::{((y-1)#x),y_x}
+removeat::s20
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    removeat([:a :b :c :d];2)
+[:a :c :d]
+    removeat([];1)
+[]
+</code></pre>
+
+<p>Alternative solutions could use Expand over a list of booleans
+<code>s20::{x@&amp;~(y-1)=!#x}</code> or double rotation <code>s20::{(-y-2):+1_(y-1):+x}</code></p>
+
+<h3>P21: (*) Insert an element at a given position into a list.</h3>
+
+<p>Here, one can use a naïve solution takes the first <code>z-1</code> elements from
+the list, concatenates them with <code>x</code>, and then concatenates the result
+with the rest of <code>y</code>.</p>
+
+<pre><code>s21::{((z-1)#y),x,(z-1)_y}
+insertat::s21
+</code></pre>
+
+<p>The given test passes successfully:</p>
+
+<pre><code>    s21(:alfa;[:a :b :c :d];2)
+[:a :alfa :b :c :d]
+</code></pre>
+
+<p>Other solutions are possible, for example a hack using the Amend verb with
+lists and then flattening the result <code>s21::{,/y:=(,x,y@z-1),z-1}</code> or re-using
+solution 17 to obtain the sublists <code>s21::{[r];r::s17(y;z-1);(*r),x,r@1}</code>.</p>
+
+<p>Timing the different solutions returns unsurprising results:</p>
+
+<pre><code>    s21::{((z-1)#y),x,(z-1)_y}
+    (+/1_100{x;time({s21(1;!100000;50000)})}\*[])%100
+0.00247086
+    s21::{,/y:=(,x,y@z-1),z-1}
+    time({s21(1;!100000;50000)})
+31.133766
+    s17::{(y,#x):#x}
+    s21::{[r];r::s17(y;z-1);(*r),x,r@1}
+    (+/1_100{x;time({s21(1;!100000;50000)})}\*[])%100
+0.00285916
+</code></pre>
+
+<p>The Amend solution is much slower, mainly because of the flattening at
+the end. The solution re-using <code>s17</code> is a bit slower, maybe because
+of storing the result in a local variable or because Cut is a more
+expensive operation.</p>
+
+<h3>P22: (*) Create a list containing all integers within a given range.</h3>
+
+<p>This one is quite simple, although a bit clunky. We simply create a
+list of integers from 0 to <code>y-(x-1)</code> (in Klong, because of right-to-left
+operator evaluation, simply <code>y-x-1</code>), and add x to that.</p>
+
+<pre><code>s22::{x+!y-x-1}
+range::s22
+</code></pre>
+
+<p>Tests run through like a breeze:</p>
+
+<pre><code>    range(4;9)
+[4 5 6 7 8 9]
+</code></pre>
+
+<h3>P23 (**) Extract a given number of randomly selected elements from a list.</h3>
+
+<p>We don't use solution 20 because we don't have to. Instead, we wrap the
+function into an Iterate verb that gets executed <code>(#x)-y</code> times, and
+each of these iterations we drop one element of the list that has been
+rotated a random number of positions in the range <code>0</code>..<code>#x</code>. That way
+we remove the right number of elements and return a list of the size <code>y</code>.</p>
+
+<pre><code>s23::{((#x)-y){1_(_.rn()*#x):+x}:*x}
+rndselect::s23
+</code></pre>
+
+<p>Tests are a bit different here, because we obtain a random result. But
+we can check if it does the approximately right thing:</p>
+
+<pre><code>    rndselect([:a :b :c :d :e :f :g :h];3)
+[:b :d :f]
+    rndselect([:a :b :c :d :e :f :g :h];1)
+[:h]
+    rndselect([:a :b :c :d :e :f :g :h];0)
+[]
+</code></pre>
+
+<h3>P24 (*) Lotto: Draw N different random numbers from the set 1..M.</h3>
+
+<p>The solution to this is pretty simple. With <code>s23</code>, we already have a
+function to draw N elements from a list, so we only have to create the
+set 1..M, or, in Klong-speak, <code>1+!M</code> (where M is the second argument
+<code>y</code> to the function).</p>
+
+<pre><code>s24::{s23(1+!y;x)}
+lottoselect::s24
+</code></pre>
+
+<p>Testing:</p>
+
+<pre><code>    lottoselect(6;49)
+[6 11 12 13 35 37]
+    lottoselect(1;49)
+[13]
+    lottoselect(0;49)
+[]
+    lottoselect(10;10)
+[1 2 3 4 5 6 7 8 9 10]
+</code></pre>
+
+<p>Using <code>s22</code> here would be wasteful, since that would use up more bytes
+than simply typing <code>1+!y</code>: <code>s24::{s23(s22(1;1+y);x)}</code>. We don't need
+the given hint.</p>
+
+<h3>P25 (*) Generate a random permutation of the elements of a list.</h3>
+
+<p>A quite nice solution is the following: First, one creates a list of
+random numbers that has the same length as the first argument using the
+Iterate adverb. Then, one uses Grade-Down (or Grade-Up, in this case
+synonymous) to create a list of random indices, and uses Index/At to
+pick the elements in this random order from <code>x</code>.</p>
+
+<pre><code>s25::{x@&lt;(#x){x,.rn()}:*[]}
+rndpermu::s25
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    rndpermu([:a :b :c :d :e :f])
+[:d :c :b :a :e :f]
+    rndpermu([])
+[]
+    rndpermu([:a])
+[:a]
+</code></pre>
+
+<p>It is probably slower than a more naïve
+<a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">Fischer-Yates shuffle</a>
+like equivalent <code>s25::{(#x){p::_.rn()*#x;(x@p),s20(x;p+1)}:*x}</code>, since
+Grade-Up <code>&lt;</code> sorts the list, which results in a <code>$\cal{O}(n*log(n))$</code> time
+complexity, while Fischer-Yates is just <code>$\cal{O}(n)$</code>.</p>
+
+<p>One can then measure the runtimes of these two functions and generate
+a graph of the runtimes using Klong's nplot and time libraries:</p>
+
+<pre><code>.l("nplot")
+.l("time")
+
+s25.1::{x@&lt;(#x){x,.rn()}:*[]}
+
+s20::{((y-1)#x),y_x}
+s25.2::{(#x){p::_.rn()*#x;(x@p),s20(x;p+1)}:*x}
+
+rt1::{[a];a::x;time({s25.1(!a)})}'1000+500*!19
+rt2::{[a];a::x;time({s25.2(!a)})}'1000+500*!19
+
+:"frame with the maximum value"
+
+frame([0 10000 1000]; [0],(1+_|/rt1,rt2),[0.5])
+
+ytitle("runtime in seconds")
+
+segplot(rt1)
+text(250;60;"Grading Shuffle")
+setrgb(0;0;1)
+segplot(rt2)
+text(200;250;"Fisher-Yates Shuffle")
+draw()
+</code></pre>
+
+<p>The output of this is in <a href="https://en.wikipedia.org/wiki/Encapsulated_PostScript">Encapsulated
+PostScript</a>
+and now has to be converted into
+<a href="https://en.wikipedia.org/wiki/Portable_Network_Graphics">PNG</a> using
+<a href="https://imagemagick.org/index.php">ImageMagick</a>:</p>
+
+<pre><code>kg -l ./p25plot.kg -e '[]' &gt;runtimes25.eps
+convert -size 750x750 runtimes25.eps runtimes25.png
+</code></pre>
+
+<p><img src="./img/99_klong/runtimes25.png" alt="Runtimes for the solutions to problem 3" title="Runtimes for the solutions to problem 3. Fisher-Yates shuffle is alot slower than the shorter Grading shuffle (Fisher-Yates takes 3 seconds for 9K elements, Grading shuffle only 0.6 seconds), and also grows quicker." /></p>
+
+<p>The Fisher-Yates shuffle implementation seems to grow with <code>$\cal{O}(n^2)$</code>,
+but the growth behavior of the Grading Shuffle is not entirely
+clear. Nonetheless, it seems like the grading shuffle is clearly superior
+to the Fisher-Yates Shuffle implementation in terms of performance.
+There is probably a Klong verb that runs in <code>$\cal{O}(n^2)$</code> and was used in
+<code>s20</code> or <code>s25.2</code>.</p>
+
+<h3>P26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list.</h3>
+
+<p>This solution is a <em>bit</em> more complicated than the previous ones. It
+takes a recursive approach, with the base case being <code>1</code>, returning a
+list that contains all elements in the original list as sublists: <code>,'y</code>.
+Each recursive step first creates all suffixes of the list, then calls
+<code>s26</code> with the tail of that suffix and appends the first element to each
+of the results.</p>
+
+<p>If the suffixes were not created, calling the function would result in
+duplicates: <code>s26([:a :b];2)</code> would return <code>[[:a :b][:b :a]]</code>.</p>
+
+<p>The suffixes are created with the expression <code>{x}{1_x}\``y</code>, using the
+While adverb and exploiting the fact that <code>[]</code> is equivalent to <code>0</code>
+(false) in Klong. This expression can be expressed as "While x is not
+the empty list, drop one element of the front of list, and return all
+intermediary results".</p>
+
+<p>The appending uses the Append verb with the Each-Left adverb, appending
+the first element of the list to all sublists.</p>
+
+<p>In the end, the result needs to be flattened with <code>,/</code>, because the
+elements are themselves put in sublists and empty lists are left in
+the result.</p>
+
+<pre><code>s26::{[k];k::x;:[1=k;,'y;,/{(1#x),:\s26(k-1;1_x)}'{x}{1_x}\~y]}
+combination::s26
+</code></pre>
+
+<p>Testing:</p>
+
+<pre><code>    combination(3;[:a :b :c :d :e :f])
+[[:a :b :c] [:a :b :d] [:a :b :e] ...]
+    combination(3;[])
+[]
+    combination(0;[:a :b])
+[]
+    combination(3;[:a :b])
+[]
+</code></pre>
+
+<h3>P27 (**) Group the elements of a set into disjoint subsets.</h3>
+
+<p>Fortunately, given <code>s26</code>, both <code>group3</code> and <code>s27</code> are quite easy to
+implement. <code>group3</code> First generates all subsets of <code>x</code> containing 2
+members, and then passes them on to another function. This function
+creates the set difference <code>a1</code> of the argument and the set passed
+(for example, when <code>x</code> is for the local function is <code>[:a :b]</code>, and <code>a</code>
+is <code>[:a :b :c :d]</code>, then <code>a1(a;x)</code> is of course <code>[:c :d]</code>). Of this,
+all subsets with length 3 are generated with <code>s26</code>, and the result is
+concatenated with the sets from the first call of <code>s26</code>. The results
+are then passed, and the same procedure is repeated for subsets of size 4.</p>
+
+<p><code>a1</code> is not a very efficient implementation of set difference (it seems
+to have a quadratic run-time of <code>$\cal{O}(n*m)$</code>). But it is short and easy to
+implement: it filters out all elements out of <code>x</code> that can be found in
+<code>y</code>. The quadratic run-time can thus be explained easily: For each
+element in x; that element has to be searched in <code>y</code>, resulting in
+<a href="https://en.wikipedia.org/wiki/Big_O_notation#Product">a runtime</a> of
+<code>$\cal{O}(n)*\cal{O}(m)=\cal{O}(n*m)$</code>, where <code>$n$</code> is the size of <code>x</code> and <code>$m$</code> is the
+size of <code>y</code>.</p>
+
+<p><code>s27</code> is basically a recursive version of <code>group3</code>, producing just the
+result of <code>s26</code> for the base case and applying the same set-difference
+call of <code>s26</code> as in <code>group3</code>.
+It does not check whether the length of <code>x</code> corresponds to the size specified
+by <code>+/y</code>, although that would be trivial to implement.</p>
+
+<pre><code>a1::{[b];b::y;flr({[]~b?x};x)}
+group3::{[a];a::x;*'{x,:\,'s26(4;a1(a;,/x))}',/{(,x),:\,'s26(3;a1(a;x))}'s26(2;x)}
+s27::{[a b];a::x;b::y;:[1=#y;,'s26(*y;x);,/{x,:\,'s26(*b;a1(a;,/x))}'.f(x;1_y)]}
+group::s27
+</code></pre>
+
+<p>The tests given in the specification have gigantic results, but small samples confirm
+the correct behavior of <code>group3</code>:</p>
+
+<pre><code>    group3([:aldo :beat :carla :david :evi :flip :gary :hugo :ida])@[0 1 2 3]
+[[[:aldo :beat] [:carla :david :evi] [:flip :gary :hugo :ida]]
+[[:aldo :beat] [:carla :david :flip] [:evi :gary :hugo :ida]]
+[[:aldo :beat] [:carla :david :gary] [:evi :flip :hugo :ida]]
+[[:aldo :beat] [:carla :david :hugo] [:evi :flip :gary :ida]]]
+</code></pre>
+
+<p>Similarly, this also works for <code>s27</code>:</p>
+
+<pre><code>    s27([:aldo :beat :carla :david :evi :flip :gary :hugo :ida];[2 3 4])@[0 1 2 3]
+[[[:aldo :beat :carla :david] [:evi :flip :gary] [:hugo :ida]]
+[[:aldo :beat :carla :david] [:evi :flip :hugo] [:gary :ida]]
+[[:aldo :beat :carla :david] [:evi :flip :ida] [:gary :hugo]]
+[[:aldo :beat :carla :david] [:evi :gary :hugo] [:flip :ida]]]
+    s27([:a :b :c];[1 2])
+[[[:a :b] [:c]] [[:a :c] [:b]] [[:b :c] [:a]]]
+    s27([:a :b :c :d];[2 2])
+[[[:a :b] [:c :d]] [[:a :c] [:b :d]] [[:a :d] [:b :c]]
+[[:b :c] [:a :d]] [[:b :d] [:a :c]] [[:c :d] [:a :b]]]
+    s27([:a];[1])
+[[[:a]]]
+</code></pre>
+
+<p>Empty lists don't work</p>
+
+<pre><code>    s27([];[])
+kg: error: interrupted
+</code></pre>
+
+<p>But set sizes that don't sum to the length of the original list still work:</p>
+
+<pre><code>    s27([:a :b :c :d];[1 2])
+[[[:a :b] [:c]] [[:a :b] [:d]] [[:a :c] [:b]]
+[[:a :c] [:d]] [[:a :d] [:b]] [[:a :d] [:c]]
+[[:b :c] [:a]] [[:b :c] [:d]] [[:b :d] [:a]]
+[[:b :d] [:c]] [[:c :d] [:a]] [[:c :d] [:b]]]
+</code></pre>
+
+<h3>P28 (**) Sorting a list of lists according to length of sublists</h3>
+
+<p>a) Sorting a list after the length of its sublists is nearly trivial in
+Klong. Create a list with the lengths of the sublists, then grade that
+list and select the indexes from the original argument.</p>
+
+<pre><code>s28a::{x@&lt;#'x}
+lsort::s28a
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    lsort([[:a :b :c] [:d :e] [:f :g :h] [:d :e] [:i :j :k :l] [:m :n] [:o]])
+[[:o] [:d :e] [:m :n] [:d :e] [:a :b :c] [:f :g :h] [:i :j :k :l]
+    lsort([])
+[]
+    lsort([:a])
+kg: error: size: type error: [:a]
+</code></pre>
+
+<p>It is not stable, though:</p>
+
+<pre><code>    lsort([[:a][:b]])
+[[:b] [:a]]
+</code></pre>
+
+<p>b) In this exercise, the solution is supposed to sort the sublists of a
+list according to the frequency of length of the list. So if there are
+5 lists with length 2, and one list with length 7, the five lists with
+length 2 come first, and then the list with length 7.</p>
+
+<p>I haven't found a very elegant and beautiful solution for this, but the
+obvious answer is quite straightforward and direct: First, one obtains the
+lengths of the sublists and groups (so that the indices of lists with the
+same length are put into sublists. This is assigned to the variable <code>f</code>.
+We then sort this list after the length of its sublists so that we simply
+repeat the implementation of s28a (which takes more bytes to be called
+than to be implemented in-line). Finally, <code>x</code> is indexed with the flattened
+version of these indices.</p>
+
+<pre><code>s28b::{[f];f::=#'x;x@,/f@&lt;#'f}
+lfsort::s28b
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    lfsort([[:a :b :c] [:d :e] [:f :g :h] [:d :e] [:i :j :k :l] [:m :n] [:o]])
+[[:o] [:i :j :k :l] [:a :b :c] [:f :g :h] [:d :e] [:d :e] [:m :n]]
+    lfsort([])
+[]
+    lfsort([[:a]])
+[[:a]]
+</code></pre>
+
+<p>One can see that <code>lfsort</code> returns the correct result, but is not stable:
+<code>[:o]</code> occurred after <code>[:i :j :k :l]</code> in the original list, but is before
+it in the returned value.</p>
+
+<h2>Arithmetic</h2>
+
+<h3>P31 (**) Determine whether a given integer number is prime.</h3>
+
+<p>In the implementation of a primality test, there generally is a great trade-off
+between conciseness and performance. This seems only partially applicable in Klong.</p>
+
+<p>Here, I compare four different primality tests written in Klong. The
+first three were written by me, and the fourth is a slightly adapted
+version from the Klong standard math library. The fifth one is <a href="https://en.wikipedia.org/wiki/K_(programming_language)#Examples">from
+wikipedia</a>,
+and the sixth is an adaption of the wikipedia version.</p>
+
+<p><code>s31.1</code> is the simplest and therefore the shortest of these four
+implementations: it simply checks whether a number is divisible by any
+of the numbers smaller than itself, and if that is the case, it returns
+0, otherwise 1. It needs a special case for the number 2, but otherwise,
+it is quite boring.</p>
+
+<pre><code>s31.1::{:[x&lt;2;0:|x=2;1;[]~(x!2+!x-2)?0]}
+</code></pre>
+
+<p><code>s31.2</code> basically does the same thing, but tests less numbers: Only odd
+numbers less than the square root of the argument (with special cases
+for 2, 3 and 5). Because of this, it should run a lot faster (and as one
+will see, it does!).</p>
+
+<pre><code>s31.2::{:[x&lt;2;0:|[2 3 5]?x;1;&amp;/(x!2,3+2*!_sqr(x)%2)]}
+</code></pre>
+
+<p>One perhaps a naïve primality check is not optimal, and using a
+sieve is a lot faster. These two function implement the <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">sieve of
+Eratosthenes</a> :
+checking whether the current number divides all smaller prime numbers
+until the biggest known prime number is either bigger than the argument
+or equal to it.</p>
+
+<pre><code>s31.3::{[a v];a::x;v::1;x=*{a&gt;*x}{v::v+2;:[[]~(v!x)?0;v,x;x]}:~[2]}
+s31.4::{[n p];n::x;p::[2];{~x&gt;n}{:[&amp;/x!p;p::p,x;0];x+2}:~3;:[x&lt;2;0;x=*|p]}
+</code></pre>
+
+<p><code>s31.5</code> is especially beautiful: It generate all numbers smaller than x (save 0 and 1);
+and makes a division test using the Each-Right adverb (x Modulo Each-Right every number
+smaller than x). The resulting list of booleans is then searched for a 1 using Min/And:</p>
+
+<pre><code>s31.5::{:[x&lt;2;0:|x=2;1;&amp;/x!:\2_!x]}
+</code></pre>
+
+<p><code>s31.6</code> is basically the same principle, but the list of values generated to be checked
+is shorter (through omission of even numbers and numbers greater than the square root
+of x).</p>
+
+<pre><code>s31.6::{:[x&lt;2;0:|x&gt;3;&amp;/x!:\2,3+2*!_sqr(x)%2;1]}
+</code></pre>
+
+<p>Even quick performance tests reveal massive differences between these
+four functions (the result always is the average runtime in seconds):</p>
+
+<p>Testing <code>s31.1</code> with 100 random values &gt;100K:</p>
+
+<pre><code>    .l("time")
+    s31.1::{:[[0 1]?x;0:|x=2;1;[]~(x!2+!x-2)?0]}
+    (+/1_100{x;time({s31.1(100000+_100*.rn())})}\*[])%100
+0.08203387
+</code></pre>
+
+<p>Testing <code>s31.2</code> with 100 random values &gt;1G:</p>
+
+<pre><code>    .l("time")
+    s31.2::{:[[0 1]?x;0:|[2 3 5]?x;1;&amp;/(x!2,3+2*!_sqr(x)%2)]}
+    (+/1_100{x;time({s31.2(1000000000+_100*.rn())})}\*[])%100
+0.05924128
+</code></pre>
+
+<p>Testing <code>s31.3</code> with 100 random values &gt;10K:</p>
+
+<pre><code>    .l("time")
+    s31.3::{[a v];a::x;v::1;x=*{a&gt;*x}{v::v+2;:[[]~(v!x)?0;v,x;x]}:~[2]}
+    (+/1_100{x;time({s31.3(10000+_100*.rn())})}\*[])%100
+2.87354341
+</code></pre>
+
+<p>Testing <code>s31.4</code> with 100 random values &gt;10K:</p>
+
+<pre><code>    .l("time")
+    s31.4::{[n p];n::x;p::[2];{~x&gt;n}{:[&amp;/x!p;p::p,x;0];x+2}:~3;:[x&lt;2;0;x=*|p]}
+    (+/1_100{x;time({s31.4(10000+_100*.rn())})}\*[])%100
+5.4216601
+</code></pre>
+
+<p>Testing <code>s31.5</code> with 100 random values &gt;100K:</p>
+
+<pre><code>    .l("time")
+    s31.5::{:[x&lt;2;0:|x=2;1;&amp;/x!:\2_!x]}
+    (+/1_100{x;time({s31.5(100000+_100*.rn())})}\*[])%100
+0.28281745
+</code></pre>
+
+<p>Testing <code>s31.6</code> with 100 values &gt;1G:</p>
+
+<pre><code>    .l("time")
+    s31.6::{:[x&lt;2;0:|x&gt;3;&amp;/x!:\2,3+2*!_sqr(x)%2;1]}
+    (+/1_100{x;time({s31.6(1000000000+_100*.rn())})}\*[])%100
+0.07785973
+</code></pre>
+
+<p>One can already see that the primality checks implementing sieves are
+orders of magnitude slower than the simple and boring divisor-checking
+primality tests. One can also see that together with <code>s31.6</code>, <code>s31.2</code>
+is by far the fastest of these three implementations (probably due to
+the omission of even divisors).</p>
+
+<p>One can now check the performance of the first two functions to find
+out about their runtime behavior (notice that both have similar growth
+behavior at 100K and 10G, respectively).</p>
+
+<p>Measuring runtimes of <code>s31.1</code> and generating the graph:</p>
+
+<pre><code>.l("nplot")
+.l("time")
+
+s31.1::{:[[0 1]?x;0:|x=2;1;[]~(x!2+!x-2)?0]}
+
+rt::{[a];a::x;time({s31.1(a+_100*.rn())})}'100000+50000*!19
+
+frame([0 1000000 100000]; [0],(1+_|/rt),[0.5])
+ytitle("runtime in seconds")
+
+segplot(rt)
+text(300;300;"s31.1")
+draw()
+</code></pre>
+
+<p><img src="./img/99_klong/runtimes31_1.png" alt="Runtimes of s31.1" title="Runtimes of s31.1. The runtime grows linearly, with spikes in the runtime around the values 300K, 500K and 700K." /></p>
+
+<p>Measuring runtimes of <code>s31.2</code> and generating the graph:</p>
+
+<pre><code>.l("nplot")
+
+s31.2::{:[[0 1]?x;0:|[2 3 5]?x;1;&amp;/(x!2,3+2*!_sqr(x)%2)]}
+
+rt::{[a];a::x;time({s31.2(a+_100*.rn())})}'10000000000+5000000000*!19
+
+frame([0 100000000000 10000000000]; [0],(1+_|/rt),[0.5])
+ytitle("runtime in seconds")
+
+segplot(rt)
+text(300;300;"s31.2")
+draw()
+</code></pre>
+
+<p><img src="./img/99_klong/runtimes31_2.png" alt="Runtimes of s31.2" title="Runtimes of s31.2. The runtime seems to grow linearly, with spikes around values of 9G, 30G and 90G. s31.2 takes around 1 second for a value of 10G." /></p>
+
+<p>And, finally, I measure the runtimes of <code>s31.5</code> and generate the
+corresponding graph:</p>
+
+<pre><code>.l("nplot")
+.l("time")
+
+s31.5::{:[x&lt;2;0:|x=2;1;&amp;/x!:\2_!x]}
+
+rt::{[a];a::x;time({s31.5(a+_100*.rn())})}'100000+50000*!19
+
+frame([0 1000000 100000]; [0],(1+_|/rt),[0.5])
+ytitle("runtime in seconds")
+
+segplot(rt)
+text(300;300;"s31.5")
+draw()
+</code></pre>
+
+<p><img src="./img/99_klong/runtimes31_5.png" alt="Runtimes of s31.5" title="Runtimes of s31.5. It is not clear whether the function grows linearly or quadratically. But it also has spikes, this time around 100K, 200K, 400K and 650K. It takes around 3 seconds for a value of 600K." /></p>
+
+<p>As one can see, both grow approximately linearly, and <code>s31.5</code> is around
+twice as slow as <code>s31.1</code>, while having the same growth behavior. I am
+not sure where the spikes in the graph come from, they could be from
+cache layers, or the internal Klong garbage collector.</p>
+
+<p>One can now give a good justification for choosing <code>s31.5</code> as the prime
+checking implementation (though it hurts a bit to be alot slower than
+<code>s31.2</code>, while shaving off a few bits).</p>
+
+<pre><code>s31::{:[x&lt;2;0:|x=2;1;&amp;/x!:\2_!x]}
+isprime::s31
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    isprime(7)
+1
+    flr(isprime;!100)
+[2 3 5 7 11 13 17 19 23 29 31 37 41 43 47 53 59 61 67 71 73 79 83 89 97]
+    isprime(-1)
+0
+    isprime(0)
+0
+    isprime(1)
+0
+</code></pre>
+
+<h3>P32 (**) Determine the greatest common divisor of two positive integer numbers.</h3>
+
+<p>Implementing <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclid's
+algorithm</a> is not
+very hard:</p>
+
+<pre><code>s32::{:[0=y;x;.f(y;x!y)]}
+gcd::s32
+</code></pre>
+
+<p>Testing it:</p>
+
+<pre><code>    gcd(36;63)
+9
+    s32(1;10)
+1
+    s32(0;10)
+10
+    s32(-15;10)
+-5
+    s32(123456;98765432)
+8
+</code></pre>
+
+<p>Seems about right.</p>
+
+<h3>P33 (*) Determine whether two positive integer numbers are coprime.</h3>
+
+<blockquote>
+  <p>Two numbers are coprime if their greatest common divisor equals 1.</p>
+</blockquote>
+
+<p><em>– niplav, <a href="./99_klong_problems.html#P33--Determine-whether-two-positive-integer-numbers-are-coprime">“P33“ in 99 Klong Problems</a>, 2019</em></p>
+
+<p>This is trivial:</p>
+
+<pre><code>s33::{1=s32(x;y)}
+coprime::s33
+</code></pre>
+
+<p>Testing:</p>
+
+<pre><code>    coprime(35;64)
+1
+    coprime(35;63)
+0
+</code></pre>
+
+<h3>P34 (**) Calculate Euler's totient function phi(m).</h3>
+
+<blockquote>
+  <p>Euler's so-called totient function phi(m) is defined as the number of
+  positive integers r (1&lt;=r<m) that are coprime to m.</p>
+</blockquote>
+
+<p><em>– niplav, <a href="./99_klong_problems.html#P34--Calculate-Eulers-totient-function-phim">“P34“ in 99 Klong Problems</a>, 2019</em></p>
+
+<p>Since a predicate for coprimality is already given with <code>s33</code>, it is
+not hard to find the number of coprimes for a given integer: Iterating
+the smaller integers just works fine. <code>s34</code> calculates <code>s33</code> for all smaller
+integers, returning a list containing 0s and 1s for the respective coprimality.
+Using the Where verb compresses the list of boolean values into indices of
+1, so one can just return the length of that compressed list.</p>
+
+<pre><code>s34::{[t];t::x;#&amp;{s33(x;t)}'!x}
+totientphi::s34
+</code></pre>
+
+<p>An alternative formulation filters the list after coprimality, and then returns
+the length of that list: <code>s34::{[t];t::x;#flr({s33(x;t)};!x)}</code>, but that solution is
+slightly longer.</p>
+
+<p>Tests:</p>
+
+<pre><code>    totientphi(10)
+4
+    totientphi(1)
+1
+    totientphi(0)
+0
+    totientphi'!20
+[0 1 1 2 2 4 2 6 4 6 4 10 4 12 6 8 8 16 6 18]
+</code></pre>
+
+<h3>P35 (**) Determine the prime factors of a given positive integer.</h3>
+
+<p>In short, this solution generates all prime numbers ≤x, iterates to
+determine how often x divides the given prime and repeats that prime
+that many times.</p>
+
+<p>To find the primes, it filters the numbers from 1 to x using <code>s31</code>. The
+iteration is similarly easy: it divides <code>x</code> by the given prime until
+<code>x!prime</code> (x modulo the prime) is 0. This produces a list of numbers,
+starting with x, with x divided by the prime one or more times. The
+length of this list is the number of times x can be divided by the
+prime. In theory, one could then just use the Reshape verb to repeat the
+prime this many times, but unfortunately Reshape, used as repetition,
+has the weird behavior of producing the atom n with 0 as length: <code>0:^5</code>
+is <code>5</code>, not the empty list <code>[]</code> or something similar. Because of this,
+atoms have to be filtered out of the result list using <code>{~@x}</code> as a filter.
+The result is then flattened and returned.</p>
+
+<p>Also, this function accesses arguments of outer functions pretty
+often. It would be nice to be able to have a shortcut for the arguments of
+outer functions (or does this violate some deep structure in functional
+programming languages?). If this were possible, it would probably shave
+off a couple of bytes from the code.</p>
+
+<pre><code>s35::{[a];a::x;,/flr({~@x};{[b];b::x;(#{~x!b}{x:%b}\~a):^x}'flr(s31;1+!x))}
+primefactors::s35
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    primefactors(315)
+[3 3 5 7]
+    s46'2+!10
+[[2] [3] [2 2] [5] [2 3] [7] [2 2 2] [3 3] [2 5] [11] [2 2 3] [13] [2 7] [3 5] [2 2 2 2] [17] [2 3 3] [19] [2 2 5] [3 7]]
+    primefactors(1)
+[]
+    primefactors(0)
+kg: error: plus: type error: [1 []]
+</code></pre>
+
+<p>Unsurprisingly, this algorithm and its implementation is <em>abysmally</em> slow:</p>
+
+<pre><code>    .l("time")
+    time({primefactors'2+!100})
+0.37971
+    time({primefactors(1023)})
+1.095063
+</code></pre>
+
+<p><!--
+TODO:
+<a href="https://github.com/kevinlawler/kona/wiki/K-99%3A-Ninety-Nine-K-Problems#problem-30-202">Here</a>
+is a better solution for factoring (it is shorter etc.), but</p>
+
+<ol>
+<li>I don't understand it.</li>
+<li>It is written in K.</li>
+</ol>
+
+<p>Solve these two problems, and adopt it!
+--></p>
+
+<h3>P36 (**) Determine the prime factors of a given positive integer (2).</h3>
+
+<p>Given the implementations of <code>s10</code> and <code>s35</code>, this is very easy:</p>
+
+<pre><code>s36::{|'s10(s35(x))}
+primefactorsmult::s36
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    primefactorsmult(315)
+[[3 2] [5 1] [7 1]]
+</code></pre>
+
+<h3>P37 (**) Calculate Euler's totient function phi(m) (improved).</h3>
+
+<p>This problem is also simple to solve: One simply generates the prime
+factors and their multiplicities, and then implements the function
+that computes them. The only interesting thing in this implementation
+is that one can use the verb Apply (<code>@</code>) for the list of prime factors
+and their multiplicities. Here, a list is treated as arguments, where
+<code>x</code> is the factor, and <code>y</code> becomes the multiplicity.</p>
+
+<pre><code>s37::{*/{{(x-1)*x^y-1}@x}'s36(x)}
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    s37(10)
+4
+    s37(115)
+88
+    s37(1)
+[]
+    s37(0)
+kg: error: plus: type error: [1 []]
+    (s37'2+!100)~s34'2+!100
+1
+</code></pre>
+
+<p>The wrong values for 1 and 0 are inherited from <code>s35</code>.</p>
+
+<h3>P38 (*) Compare the two methods of calculating Euler's totient function.</h3>
+
+<blockquote>
+  <p>Take the number of logical inferences as a measure for efficiency.</p>
+</blockquote>
+
+<p><em>– niplav, <a href="./99_klong_problems.html#P38--Compare-the-two-methods-of-calculating-Eulers-totient-function">“P38“ in 99 Klong Problems</a>, 2019</em></p>
+
+<p>We will not do that, but simply measure the runtimes of the two functions
+in seconds.</p>
+
+<p>First, we make a ballpark estimate of how fast the functions are:</p>
+
+<pre><code>    .l("time")
+    s32::{:[0=y;x;.f(y;x!y)]}
+    s33::{1=s32(x;y)}
+    s34::{[t];t::x;#&amp;{s33(x;t)}'!x}
+    time({s34(10090)})
+0.113058
+    s9::{:[x~[];[];(&amp;0,~~:'x):_x]}
+    s10::{{(#x),*x}'s9(x)}
+    s31::{:[x&lt;2;0:|x=2;1;&amp;/x!:\2_!x]}
+    s35::{[a];a::x;,/flr({~@x};{[b];b::x;(#{~x!b}{x:%b}\~a):^x}'flr(s31;1+!x))}
+    s36::{|'s10(s35(x))}
+    s37::{*/{{(x-1)*x^y-1}@x}'s36(x)}
+    time({s37(10090)})
+106.232003
+</code></pre>
+
+<p>One can easily see that <code>s34</code> is a lot faster than <code>s37</code>. But does
+the same hold for growth? Maybe <code>s37</code> has a much slower growth and is
+surpassed by <code>s34</code> at some point.</p>
+
+<pre><code>.l("nplot")
+.l("time")
+
+s32::{:[0=y;x;.f(y;x!y)]}
+s33::{1=s32(x;y)}
+s34::{[t];t::x;#&amp;{s33(x;t)}'!x}
+
+s9::{:[x~[];[];(&amp;0,~~:'x):_x]}
+s10::{{(#x),*x}'s9(x)}
+s31::{:[x&lt;2;0:|x=2;1;&amp;/x!:\2_!x]}
+s35::{[a];a::x;,/flr({~@x};{[b];b::x;(#{~x!b}{x:%b}\~a):^x}'flr(s31;1+!x))}
+s36::{|'s10(s35(x))}
+s37::{*/{{(x-1)*x^y-1}@x}'s36(x)}
+
+rt1::{[a];a::x;time({s34(a)})}'100+50*!19
+rt2::{[a];a::x;time({s37(a)})}'100+50*!19
+
+:"frame with the maximum value"
+
+frame([0 1000 100]; [0],(1+_|/rt1,rt2),[0.5])
+ytitle("runtime in seconds")
+
+segplot(rt1)
+text(250;40;"Naive phi function")
+setrgb(0;0;1)
+segplot(rt2)
+text(200;250;"phi function with prime factors")
+draw()
+</code></pre>
+
+<p><img src="./img/99_klong/runtimes38.png" alt="Runtimes of the naive phi function and the prime factor version" title="Runtimes of the naive phi function and the prime factor version. The prime factor version of the function grows much faster than the naive phi implementation, but it seems unclear whether it has a different growth behavior. The naive phi function stays very near the X-axis, with runtimes of 0.05 seconds or less for values where the prime factor version takes almost a second." /></p>
+
+<p>As one can easily see, this is not the case. This is not surprising,
+since calculating prime factors is generally slow (and even slower here,
+because <code>s35</code> does not use any efficient prime sieves, but the simplest
+factoring algorithm). It could be improved runtime-wise by pre-computing
+the prime-numbers using a sieve, but that would take up many bytes and
+exceed the scope of this exercise.</p>
+
+<h3>P39 (*) A list of prime numbers.</h3>
+
+<p>I assume that the range of numbers is inclusive. Then the solution is
+just filtering the list of numbers from x to y using <code>s31</code>. To construct
+this list, one can use <code>s22</code>, which returns all the integers in the
+range from x to y.</p>
+
+<pre><code>s39::{flr(s31;s22@x,y)}
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    s39(2;23)
+[2 3 5 7 11 13 17 19 23]
+    s39(4;23)
+[5 7 11 13 17 19 23]
+    s39(0;23)
+[2 3 5 7 11 13 17 19 23]
+    s39(4;20)
+[5 7 11 13 17 19]
+    s39(0;0)
+[]
+    s39(-1;0)
+[]
+</code></pre>
+
+<h3>P40 (**) Goldbach's conjecture.</h3>
+
+<p>This solution starts out with a list containing 0 and the argument x.
+As long as one number in the list is not a prime (using <code>s31</code> over
+the list and aggregating the results using And, then negating them),
+<code>[1 -1]</code> is added to the list, causing the first element to increment
+and the second element to decrement in a While loop until a solution
+is found.</p>
+
+<p>This way, if a solution exists, the smallest possible solution is
+always returned.</p>
+
+<pre><code>s40::{{~&amp;/s31'x}{[1 -1]+x}:~0,x}
+goldbach::s40
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    goldbach(4)
+[2 2]
+    goldbach(5)
+[2 3]
+    goldbach(28)
+[5 23]
+    goldbach(12000)
+[13 11987]
+    goldbach(1)
+kg: error: interrupted
+    goldbach(0)
+kg: error: interrupted
+    goldbach(11)
+kg: error: interrupted
+    goldbach(2)
+kg: error: interrupted
+</code></pre>
+
+<p>As one can see, it works quite well for even numbers above 4, and even for
+most odd numbers, but goes into infinite loops for all other arguments.
+This should not be a problem, though.</p>
+
+<h3>P41 (**) A list of Goldbach compositions.</h3>
+
+<p>The idea I followed was to have two helper functions: One that generates
+all even numbers from x to y (called <code>b1</code>), and another one responsible
+for the string formatting and printing (called <code>b2</code>), accepting the two
+prime summands in a list as an argument.</p>
+
+<p>I wrote several possible implementations for <code>b1</code> and chose the shortest
+one (since they are all quite similar and simple, I won't bother
+explaining them in detail):</p>
+
+<pre><code>b1.1::{flr({~x!2};s22@x,y)}
+b1.2::{(!y)@&amp;~(x&gt;!y)|(!y)!2}
+b1.3::{2*s22(_0.6+x%2;y:%2)}
+b1.4::{s22(x;y)@&amp;~s22(x;y)!2}
+b1.5::{2*s22@_[0.6 0]+(x,y)%2}
+b1.6::{[v];v::s22@x,y;v@&amp;~v!2}
+b1.7::{[v];v::!y;v@&amp;~(v&lt;x)|v!2}
+</code></pre>
+
+<p>Afterwards, I did the same thing with <code>b2</code>:</p>
+
+<pre><code>b2.1::{.p@($+/x)," = ",{x," + ",y}/$x}
+b2.2::{.p@($+/x)," = ",{x," + ",y}@$x}
+b2.3::{.p@($+/x)," = ",($*x)," + ",$*|x}
+</code></pre>
+
+<p>One can now choose the shortest two options for these functions:</p>
+
+<pre><code>b1::{flr({~x!2};s22@x,y)}
+b2::{.p@($+/x)," = ",{x," + ",y}/$x}
+</code></pre>
+
+<p>Together with <code>s40</code>, the problem is now pretty easy to solve. <code>s41a</code>
+just applies <code>s40</code> to the result of <code>b1</code> (which returns the numbers
+that interest us), and <code>b2</code> (the formatting) is applied to the results
+afterwards.</p>
+
+<pre><code>s41a::{'b2's40'b1@x,y}
+goldbachlist::s41a
+</code></pre>
+
+<p>In <code>s41b</code>, we first filter the output of <code>s40</code> by checking whether the
+first element of the list is smaller than the argument z. Afterwards, <code>b2</code>
+is applied for formatting. This function is not called <code>goldbachlist</code>,
+because the name is later needed for testing and because I don't like
+assuming two different namespace for the two functions.</p>
+
+<pre><code>s41b::{[l];l::z;b2'flr({l&lt;*x};s40'b1@x,y)}
+</code></pre>
+
+<p>The tests seem to run through pretty well:</p>
+
+<pre><code>    goldbachlist(9;20)
+10 = 3 + 7
+12 = 5 + 7
+14 = 3 + 11
+16 = 3 + 13
+18 = 5 + 13
+20 = 3 + 17
+["10 = 3 + 7" "12 = 5 + 7" "14 = 3 + 11" "16 = 3 + 13" "18 = 5 + 13" "20 = 3 + 17"]
+    goldbachlist(4;10)
+4 = 2 + 2
+6 = 3 + 3
+8 = 3 + 5
+10 = 3 + 7
+["4 = 2 + 2" "6 = 3 + 3" "8 = 3 + 5" "10 = 3 + 7" "12 = 5 + 7" "14 = 3 + 11" "16 = 3 + 13" "18 = 5 + 13" "20 = 3 + 17"]
+    goldbachlist(2;10)
+kg: error: interrupted
+</code></pre>
+
+<p>Again, as one can see, <code>s40</code> can't deal with the number 2 and goes into
+an infinite loop.</p>
+
+<p>Now the test is repeated for the <code>s41b</code> with the lower bound:</p>
+
+<pre><code>    s41b(4;2000;50)
+992 = 73 + 919
+1382 = 61 + 1321
+1856 = 67 + 1789
+1928 = 61 + 1867
+["992 = 73 + 919" "1382 = 61 + 1321" "1856 = 67 + 1789" "1928 = 61 + 1867"]
+</code></pre>
+
+<p>The results are the same as in the problem statement.</p>
+
+<h2>Logic and Codes</h2>
+
+<h3>P46 (**) Truth tables for logical expressions.</h3>
+
+<p>The problem statements asks to define the functions <code>and</code>, <code>or</code>, <code>nand</code>,
+<code>nor</code>, <code>xor</code>, <code>impl</code> and <code>equ</code>, which can be done easily with atomic
+operations:</p>
+
+<pre><code>and::{x&amp;y}
+or::{x|y}
+nand::{~x&amp;y}
+nor::{~x|y}
+xor::{~x=y}
+impl::{~x&amp;~y}
+equ::{x=y}
+</code></pre>
+
+<p>That was easy.</p>
+
+<p>This problem is not really made for Klong. It asks to execute a function
+on a list of binary inputs, but doesn't represent these inputs as a list,
+and instead treats each one of them as a separate argument, while using
+a list and indexing it would be a much simpler and cleaner solution.</p>
+
+<p>Since P47 and P48 can't be implemented nicely, P46 is reduced to mapping
+the function given as an argument over the binary representations of
+all the numbers from 0 to 3, and then formatting and printing the results.
+The formatting simply consists of converting the binary values to strings
+and concatenating them with tabs.</p>
+
+<pre><code>s46::{[f];f::x;.p'{x,"  ",y}/'${x,f@x}'[[0 0][0 1][1 0][1 1]]}
+table1::s46
+</code></pre>
+
+<p>A tests show that it works as intended:</p>
+
+<pre><code>    table1({and(x;or(x;y))})
+0    0   0
+0    1   0
+1    0   1
+1    1   1
+["0     0       0" "0   1       0" "1   0       1" "1   1       1"]
+</code></pre>
+
+<p>There are two longer and more general solution that could be helpful
+for P47 and P48 in the future. Both contain helper functions for converting
+numbers to binary.</p>
+
+<p>Solution with a separate helper function <code>c1</code> that creates the binary
+numbers:</p>
+
+<pre><code>c1::{(-x)#(&amp;x),{:[x;.f(x:%2),x!2;0]}:(y)}
+s46::{[f];f::x;.p'{x,"  ",y}/'${x,f@x}'c1(2;)'!4}
+</code></pre>
+
+<p>Solution with another separate function <code>c</code> that creates all binary
+numbers of length x.</p>
+
+<pre><code>c1::{(-x)#(&amp;x),{:[x;.f(x:%2),x!2;0]}:(y)}
+c2::{{c1@x}'x,:\(!2^x)}
+s46::{[f];f::x;.p'{x,"  ",y}/'${x,f@x}'c2(2)}
+</code></pre>
+
+<p>Note that this is just code saved for a later point where I might
+revisit P47 and P48 to solve them appropriately as well.</p>
+
+<p><!--</p>
+
+<h3>P47 (*) Truth tables for logical expressions (2).</h3>
+
+<pre><code>s47::{s46(x)}
+</code></pre>
+
+<h3>P48 (**) Truth tables for logical expressions (3).</h3>
+
+<pre><code>s48::{c3(x;y)}
+</code></pre>
+
+<p>--></p>
+
+<h3>P49 (**) Gray code.</h3>
+
+<p>The Gray code can be generated as following: The 0-bit Gray
+code is the empty list <code>[]</code>, the 1-bit Gray code is simply <code>['0'
+'1']</code>. The n+1-bit Gray code is the n-bit Gray code where 0 is
+prepended to every sequence, concatenated with the n-bit Gray code
+where 1 is prepended to every sequence of the reversed n-bit <a href="https://en.wikipedia.org/wiki/Gray_code">Gray
+code</a>. In the case of n=2,
+this would be <code>['00' '01'],['11' '10']</code>.</p>
+
+<p>This recursive definition can now be put into code quite easily: If x=0,
+return the empty list, otherwise return the x-1 Gray code prepended with
+first 0 and then 1 to the reversed x-1 code.</p>
+
+<pre><code>s49::{:[x;{(0,:\x),1,:\|x}:(.f(x-1));,[]]}
+</code></pre>
+
+<p>One can see that this works for the usual cases:</p>
+
+<pre><code>    s49(0)
+[[]]
+    s49(1)
+[[0] [1]]
+    s49(2)
+[[0 0] [0 1] [1 1] [1 0]
+    s49(10)
+[… [1 0 0 0 0 0 0 0 1 0] [1 0 0 0 0 0 0 0 1 1] [1 0 0 0 0 0 0 0 0 1] [1 0 0 0 0 0 0 0 0 0]]
+</code></pre>
+
+<p>However, one runs into problems with negative numbers, since <code>s49</code>
+attempts infinite recursion:</p>
+
+<pre><code>    s49(-1)
+kg: error: interrupted
+</code></pre>
+
+<p>This is to be expected, since negative-bit Gray codes do not make
+any sense.</p>
+
+<h3>P50 (<em>*</em>) Huffman code.</h3>
+
+<p>I am especially proud of this code.</p>
+
+<p>The problem statement only asks to create a code from the list of
+frequencies, but to make everything easier, one can write a function
+that returns this list of frequences for a given string. It does this
+by grouping the string, and then concatenating the length of the group
+list with the corresponding element.</p>
+
+<pre><code>frq::{[t];t::x;{(t@*x),#x}'=x}
+</code></pre>
+
+<p>That seems to work well:</p>
+
+<pre><code>    frq("aabbccccca")
+[[3 0ca] [2 0cb] [5 0cc]]
+</code></pre>
+
+<p>The implementation of the Huffman code is not very complicated, although it might
+look like that on the first view. It was initially separated into three functions,
+but for sake of brevity two of them have been contracted.</p>
+
+<pre><code>c1::{:[2=#x;,(,y),x@1;.f(x@1;y,0),.f(x@2;y,1)]}
+s50::{|'c1(*{1&lt;#x}{{,(+/*'x),x}:(2#x@&lt;*'x),2_x@&lt;*'x}:~|'x;[])}
+huffman::s50
+</code></pre>
+
+<p>Originally, the code looked like this:</p>
+
+<pre><code>c1::{:[2=#x;,(,y),x@1;.f(x@1;y,0),.f(x@2;y,1)]}
+c2::{{,(+/*'x),x}:(2#x),2_x}
+s50::{|'c1(*{1&lt;#x}{c2(x@&lt;*'x)}:~x;[])}
+</code></pre>
+
+<p>Here, one can quite clearly seet he separation of creating the Huffman
+code: first, the tree is built up by calling <code>c2</code> on the list of code
+frequencies repeatedly, until the tree is complete, and then the tree is
+passed to <code>c1</code>, which creates the code by traversing the tree and adding
+1's and 0's to the code. The frequency and the symbol are exchanged
+at the beginning to make processing by <code>c2</code> easier, and in the end,
+codeword and symbol are exchanged again so that the result fits with
+the desired format.</p>
+
+<p><code>c2</code> takes the first two elements of the sorted list of trees (in the first
+case just lists), adds the first elements of these lists, concatenates
+the sum and the two nodes and appends this to the rest of the list.</p>
+
+<p><code>c1</code> traverses the tree recursively, building up the code using the second
+argument of the function (giving the left part of the tree a <code>0</code> and
+the right part a <code>1</code>). If it encounters a leaf, it returns the code
+generated so far, together with the symbol represented by the code.</p>
+
+<p>The final solution simply inlines <code>c2</code> into <code>s50</code>.</p>
+
+<p>Testing it shows that it generate the same code as in the example, but that this
+result is not sorted after the length of the code, but is rather in traversal order
+of the tree:</p>
+
+<pre><code>    huffman([[0ca 45] [0cb 13] [0cc 12] [0cd 16] [0ce 9] [0cf 5]])
+[[0ca [0]] [0cc [1 0 0]] [0cb [1 0 1]] [0cf [1 1 0 0]] [0ce [1 1 0 1]] [0cd [1 1 1]]]
+    s50([[0ca 10][0cb 10]])
+[[0cb [0]] [0ca [1]]]
+</code></pre>
+
+<p>This is okay.</p>
+
+<h3>A More Complete Implementation</h3>
+
+<p>This is not part of the problem statement, but one can now write code
+that receives a string and encodes it, as well as code that receives a
+an encoded string and a list of frequencies and decodes that given string.</p>
+
+<p>Encoding the string is not particularly difficult: For each character,
+the inner function searches for the representation of that character in
+the huffman coding and returns the code. The results are then concatenated
+and converted to a string.</p>
+
+<p>Decoding is much more complex because huffman decoding is very iterative,
+and there doesn't seem to be a array-based equivalent. Basically,
+searches for a prefix of the string that is in the code, appends the
+corresponding character from the code to the result string r and removes
+the prefix from the encoded string. The variable o is the huffman code
+for the string and p is the matching prefix for the string. This code
+is executed in a While-loop until the encoded string is empty, and then
+returns the result string.</p>
+
+<p>To summarize, there are 7 helper functions:</p>
+
+<ul>
+<li><code>frq</code> builds the frequency table</li>
+<li><code>treewalk</code> builds the huffman code from an existing tree</li>
+<li><code>combsmallest</code> gets a list of trees and combines the ones with
+the smallest root value</li>
+<li><code>gencode</code> combines <code>combsmallest</code> and <code>treewalk</code> to generate a
+huffman code from a frequency table</li>
+<li><code>bin</code> returns the binary representation of a number</li>
+<li><code>comp</code> creates an ASCII string from a list of binary digits</li>
+<li><code>decomp</code> creates a list of binary digits from an ASCII string
+(the inverse operation of <code>comp</code>)</li>
+<li><code>encode</code> generates the huffman-encoded bit-array from a string,
+and from that creates a list with 3 elements
+<ul>
+<li>the length of the bit array (needed because the conversion
+to a string pads the bit array with 0s or 1s)</li>
+<li>the frequency table of the string (using <code>frq</code>)</li>
+<li>the encoded string itself (using <code>comp</code>)</li>
+</ul></li>
+<li><code>decode</code> receives a list created by <code>encode</code> and returns the
+original string by first generating the huffman code from the frequency
+table (using <code>gencode</code>), then decompressing the ASCII string using
+<code>decomp</code>, and then iterating through the string</li>
+</ul>
+
+<p>Here is the complete code, in all its glory:</p>
+
+<pre><code>frq::{[t];t::x;{(t@*x),#x}'=x}
+treewalk::{:[2=#x;,(,y),x@1;.f(x@1;y,0),.f(x@2;y,1)]}
+combsmallest::{{,(+/*'x),x}:(2#x),2_x}
+gencode::{|'treewalk(*{1&lt;#x}{combsmallest(x@&lt;*'x)}:~|'x;[])}
+bin::{(-x)#(&amp;x),{:[x;.f(x:%2),x!2;0]}:(y)}
+comp::{,/:#{+/x*'2^|!8}'(8*1+!(#x):%8):_x}
+decomp::{,/{bin(8;x)}'#'x}
+encode::{[c f b];f::frq(x);c::gencode(f);b::,/{*|c@*(x=*'c)?1}'x;(#b),(,f),,comp(b)}
+decode::{[r o];o::gencode(x@1);r::"";{x}{[p];p::*(x{:[&amp;/y=(#y)#x;1;0]}:\*'|'o)?1;r::r,*o@p;(#*|o@p)_x}:~(*x)#decomp(x@2);r}
+</code></pre>
+
+<p>Test:</p>
+
+<pre><code>    s::"Sun is shining in the sky, there ain't a cloud in sight. It's a blazin', everybody's there to play, and don't you know-it's so beautiful today, he- he- hey. Running down the avenue, see how the sun shines brightly."
+    p::encode(s)
+[923 [[0cS 1] [0cu 8] [0cn 17] [0c  38] [0ci 13] [0cs 12] [0ch 13] [0cg 4] [0ct 14] [0ce 18] [0ck 2] [0cy 8] [0c, 5] [0cr 4] [0ca 9] [0c' 6] [0cc 1] [0cl 5] [0co 10] [0cd 6] [0c. 3] [0cI 1] [0cb 4] [0cz 1] [0cv 2] [0cp 1] [0cw 3] [0c- 3] [0cf 1] [0cR 1]] "g�������Q��
+����ʌ����&gt;��E&amp;aT��w��}�����rR���3{��δo�TO�1o�a�J/˻6�÷�}��`�u��KJ�3��܁{��EG
+                                                                           myK�""��`"]
+    decode(p)
+"Sun is shining in the sky, there ain't a cloud in sight. It's a blazin', everybody's there to play, and don't you know-it's so beautiful today, he- he- hey. Running down the avenue, see how the sun shines brightly."
+</code></pre>
+
+<p>Using <code>encode</code> interactively can cause problems because the string
+can contain control characters that change the settings of the current
+terminal.</p>
+
+<p>It is unclear when it starts to make sense to compress strings this way,
+since there is a considerable overhead due to including the frequency
+table and the length of the initial bit-array. More tests are needed
+on that.</p>
+
+<h2>Binary Trees</h2>
+
+<p>A shorter way to write such a list would be to leave the empty lists out
+at a leaf of the binary tree, that is, if a list has the form <code>[a [][]]</code>,
+it can be also written as <code>[a]</code>. However, if there is a subtree
+for the node (it is not a leaf), the empty list can't be left out: <code>[a [] [b]]</code>
+is not <code>[a [b]]</code>.</p>
+
+<p>Because this is a lot more readable, one can write conversion functions that
+remove or add these redundant empty lists:</p>
+
+<pre><code>pt::{(,x),(,y),,z}
+clean::{:[[[][]]~1_x;1#x:|[]~x;x;pt(*x;.f(x@1);.f(x@2))]}
+litter::{:[(1=#x)&amp;@*x;pt(*x;[];[]):|[]~x;x;pt(*x;.f(x@1);.f(x@2))]}
+</code></pre>
+
+<p><code>clean</code> removes the redundant empty lists, and <code>litter</code> converts a tree
+with atoms as leafs into with empty lists added.</p>
+
+<p><code>pt</code> is a small helper function that receives three arguments and puts
+them together into a tree: an atom, and two lists as nodes.</p>
+
+<p>Testing <code>clean</code>:</p>
+
+<pre><code>    clean([:a [] []])
+[:a]
+    clean([])
+[]
+    clean([:a [:b [:d [] []] [:e [] []]] [:c [] [:f [:g [] []] []]]])
+[:a [:b [:d] [:e]] [:c [] [:f [:g] []]]]
+    clean([:a [:b [:c [:d [:e [:f [] []] []] []] []] []] []])
+[:a [:b [:c [:d [:e [:f] []] []] []] []] []]
+</code></pre>
+
+<p>Testing <code>litter</code>:</p>
+
+<pre><code>    litter([:a])
+[:a [] []]
+    litter([])
+[]
+    litter([:a [:b [:d] [:e]] [:c [] [:f [:g] []]]])
+[:a [:b [:d [] []] [:e [] []]] [:c [] [:f [:g [] []] []]]]
+    litter([:a [:b [:c [:d [:e [:f] []] []] []] []] []])
+[:a [:b [:c [:d [:e [:f [] []] []] []] []] []] []]
+</code></pre>
+
+<h3>P54A (*) Check whether a given term represents a binary tree.</h3>
+
+<p><code>s54a</code> is not very difficult: it simply recursively checks whether a
+node contains an atom (and not an empty list) as the first element,
+and two lists as the other two elements, with the base case of the
+empty list. The check whether the first element is the empty list has
+to be done separately because Klong think the empty list is an atom. For
+whatever reason.</p>
+
+<pre><code>s54a::{:[x~[];1:|3=#x;.f(x@2)&amp;.f(x@1)&amp;(~[]~*x)&amp;@*x;0]}
+istree::s54a
+</code></pre>
+
+<p>This function can now be tested:</p>
+
+<pre><code>    istree(:a)
+kg: error: index: type error: [:a 1]
+    istree([:a])
+0
+    istree([])
+1
+    istree([:a []])
+0
+    istree([:a [] []])
+1
+    istree([:a [:b [] []] []])
+1
+    istree([:a [:b [] []]])
+0
+    istree([[] [] []])
+0
+    istree([[:a] [] []])
+0
+    istree([:a [:b [:d [] []] [:e [] []]] [:c [] [:f [:g [] []] []]]])
+1
+    istree([:a [:b [:c [:d [:e [:f [] []] []] []] []] []] []])
+1
+</code></pre>
+
+<h3>P55 (**) Construct completely balanced binary trees.</h3>
+
+<p><code>s55</code> can be implemented as a recursive function. The only balanced
+binary tree with 0 nodes is the empty list <code>[]</code>, so <code>s55</code> returns <code>[[]]</code>
+(the list containing the only balanced binary tree with 0 nodes) for the
+argument <code>0</code>. If the tree has more nodes, <code>s55</code> first subtracts 1 for
+the root node, and then generates the two possible sets of trees: one
+with <code>x:%2</code> nodes (half of them), and <code>x-x:%2</code> nodes (the other half).
+These two sets are then given as arguments to another function. This
+function checks whether the two sets have the same shape (this is the
+case iff <code>(x:%2)=x-x:%2</code>). If they have the same shape, it generates
+all possible combinations of the two using the helper function <code>d2</code>,
+which simply executes <code>d1</code> on all pairs of <code>x</code> and <code>y</code> (the cartesian
+product). If their shapes are different, then <code>d2</code> is executed on <code>x</code>
+and <code>y</code> in both orders. <code>d1</code> simply takes two trees and combines them
+into a single tree with the root node <code>:x</code>.</p>
+
+<pre><code>d1::{:x,(,x),,y}
+d2::{x{y d1:/x}:\y}
+s55::{:[x=0;,[];,/{:[x~y;d2(x;x);d2(x;y),d2(y;x)]}@.f'{(x:%2),x-x:%2}@x-1]}
+cbaltree::s55
+</code></pre>
+
+<p>Tests (using <code>clean</code> which was previously defined):</p>
+
+<pre><code>    cbaltree(0)
+[[]]
+     clean'cbaltree(1)
+[[:x]]
+    clean'cbaltree(2)
+[[:x [] [:x]] [:x [:x] []]]
+    clean'cbaltree(3)
+[[:x [:x] [:x]]]
+    clean'cbaltree(4)
+[[:x [:x] [:x [] [:x]]] [:x [:x] [:x [:x] []]] [:x [:x [] [:x]] [:x]] [:x [:x [:x] []] [:x]]]
+    #'cbaltree'!41
+[1 1 2 1 4 4 4 1 8 16 32 16 32 16 8 1 16 64 256 256 1024 1024 1024 256 1024 1024 1024 256 256 64 16 1 32 256 2048 4096 32768 65536 131072 65536 524288]
+    cbaltree(-1)
+kg: error: interrupted
+</code></pre>
+
+<p>This seems to work just fine.</p>
+
+<h3>P56 (**) Symmetric binary trees.</h3>
+
+<p>In this function, <code>mirror</code> is inlined into <code>s56</code>. It roughly works like
+this: Two trees are the mirror of of each other if and only if both
+trees are either empty or have the same shape and</p>
+
+<ul>
+<li>The left subtree of the left tree has the same shape as the right subtree of the right tree, and</li>
+<li>The right subtree of the left tree has the same shape as the left subtree of the right tree</li>
+</ul>
+
+<p>The problem statement says that the content of the tree can be ignored
+and that only structure is important.</p>
+
+<p>The outer function takes the input tree, returns true if it is empty,
+and calls the inner mirror-checking function with the two subtrees. The
+inner function checks whether the two input trees are empty (and returns
+true if they are), recursively checks the trees if they have the same
+shape, or returns false.</p>
+
+<p>The function doesn't check whether the tree is a correct tree (that's what
+<code>s54a</code> is for, after all).</p>
+
+<pre><code>s56::{:[3=#x;{:[[]~x,y;1:|(^x)~^y;.f(x@1;y@2)&amp;.f(x@2;y@1);0]}@(1_x):|x~[];1;0]}
+testsymmetric::s56
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    testsymmetric([])
+1
+    testsymmetric([:x [] []])
+1
+    testsymmetric([:x [] [:x [] []]])
+0
+    testsymmetric([:x [:x [] []] [:x [] []]])
+1
+    testsymmetric([:x [:x [:x [] []] []] [:x [] [:x [] []]]])
+1
+    testsymmetric([:x [:x [:x [] []] []] [:x [:x [] []] [:x [] []]]])
+0
+    testsymmetric([:x [:x [:x [] []] []] [:x [:x [] []] []]])
+0
+</code></pre>
+
+<p>The function sometimes fails if it is not given a correctly shaped tree:</p>
+
+<pre><code>    testsymmetric([:x [:x][:x]])
+kg: error: index: range error: 2
+</code></pre>
+
+<h3>P57 (**) Binary search trees (dictionaries).</h3>
+
+<p>This problem is quite easy to solve with a recursive function that
+accepts an already sorted list of integers. The recursive function takes
+the middle element, makes it the root of the tree, and then calls itself
+with the left half of the tree and the right half of the tree. It then
+combines the results together into a single tree. The base case is the
+empty list, which returns the empty list (the empty tree) as a result.</p>
+
+<pre><code>s57::{{[m];m::(#x):%2;:[x;(x@m),(,.f(x@!m)),,.f((1+m)_x);x]}:(x@&lt;x)}
+construct::s57
+</code></pre>
+
+<p>Example:</p>
+
+<pre><code>    construct([3 2 5 7 1])
+[3 [2 [1 [] []] []] [7 [5 [] []] []]]
+</code></pre>
+
+<p>This is a bit different from the result <code>[3 [2 [1 [] []] []] [5 [] [7
+[] []]]]</code> in the problem statement, but both are valid binary search
+trees. The solution presented here just makes a left-leaning tree in
+the edge-cases, and the solution presented in the original problem is
+a right-leaning tree.</p>
+
+<p>Now, one can also test the solution of problem P56:</p>
+
+<pre><code>    testsymmetric(construct([5 3 18 1 4 12 21]))
+1
+    testsymmetric(construct([3 2 5 7 1]))
+0
+</code></pre>
+
+<p>The results are what one would expect from the problem statement.</p>
+
+<h3>P58 (**) Generate-and-test paradigm.</h3>
+
+<p>Given the function <code>flr</code>, this is easy: <code>s55</code> constructs all completely
+balanced binary trees with x nodes, and <code>s56</code> tests a tree for being
+completely balanced. One just generates the completely balanced trees
+and then filters them for being symmetric.</p>
+
+<pre><code>s58::{flr({s56(x)};s55(x))}
+symcbaltrees::s58
+</code></pre>
+
+<p>Tests show that this code works:</p>
+
+<pre><code>    symcbaltrees(0)
+[[]]
+    symcbaltrees(1)
+[[:x [] []]]
+    symcbaltrees(2)
+[]
+    symcbaltrees(3)
+[[:x [:x [] []] [:x [] []]]]
+    symcbaltrees(4)
+[]
+    symcbaltrees(5)
+[[:x [:x [:x [] []] []] [:x [] [:x [] []]]]
+[:x [:x [] [:x [] []]] [:x [:x [] []] []]]]
+</code></pre>
+
+<p>One can see that except for trees with 0 nodes, there are no completely
+balanced symmetric binary trees with an even number of nodes. That makes
+sense, since no tree with an even number of nodes can be symmetric (there are
+more nodes on one side than on the other). One could use this to make
+<code>s58</code> faster: <code>s58::{:[(x=0)|x!2;flr({s56(x)};s55(x));[]]}</code>. This does have
+the desired result:</p>
+
+<pre><code>    time({s58'!40})
+28.832377
+    s58::{:[(x=0)|x!2;flr({s56(x)};s55(x));[]]}
+    time({s58'!40})
+6.292701
+</code></pre>
+
+<p>Now, one can find out how many symmetric completely balanced binary trees
+with 57 nodes exist:</p>
+
+<pre><code>    #symcbaltrees(57)
+256
+</code></pre>
+
+<p>And now, I'm interested in how the number changes when values grow:</p>
+
+<pre><code>    #'s58'!68
+[1 1 0 1 0 2 0 1 0 4 0 4 0 4 0 1 0 8 0 16 0 32 0 16 0 32 0 16 0 8 0 1 0 16 0 64 0 256 0 256 0 1024 0 1024 0 1024 0 256 0 1024 0 1024 0 1024 0 256 0 256 0 64 0 16 0 1 0 32 0 256]
+</code></pre>
+
+<p>Visualizing this makes it a bit clearer (there seems to be a pattern
+here), but it's not clearly visible:</p>
+
+<pre><code>.l("nplot")
+
+:"values for `#'s58'!68`"
+
+v::[1 1 0 1 0 2 0 1 0 4 0 4 0 4 0 1 0 8 0 16 0 32 0 16 0 32 0 16 0 8 0 1 0 16 0 64 0 256 0 256 0 1024 0 1024 0 1024 0 256 0 1024 0 1024 0 1024 0 256 0 256 0 64 0 16 0 1 0 32 0 256]
+
+frame([0 50 5];[0 1100 100])
+ytitle("Value")
+barplot(v)
+draw()
+</code></pre>
+
+<p><img src="./img/99_klong/barres58_1.png" alt="Values of s58 up to 68" title="Values of s58 up to 68. Exactly the values as above, but in a bargraph." /></p>
+
+<p>However, if one filters out the zeroes and takes the 2-logarithm of the
+values, a neat graph emerges:</p>
+
+<pre><code>.l("nplot")
+
+:"values for `#'s58'!68`"
+
+v::[1 1 0 1 0 2 0 1 0 4 0 4 0 4 0 1 0 8 0 16 0 32 0 16 0 32 0 16 0 8 0 1 0 16 0 64 0 256 0 256 0 1024 0 1024 0 1024 0 256 0 1024]
+v::_'(ln'v@1+2*!(#v):%2)%ln(2)
+
+grid([0 25 2];[0 12 1])
+ytitle("Logarithmic value")
+barplot(v)
+draw()
+</code></pre>
+
+<p><img src="./img/99_klong/barres58_2.png" alt="Logarithmic values of even numbers up to 68 for s58" title="Logarithmic values of even numbers up to 68 for s58, forming some kind of growing “hills” which increase both in width and in height. The values are [0 0 1 0 2 2 2 0 3 4 5 4 5 4 3 0 4 6 8 8 10 10 10 8 10 10 10 8 8 6 4 0 5 8]." /></p>
+
+<p>It looks like the number of completely balanced symmetric binary trees
+forms a sort of "hill" pattern, where the number of trees increases to
+higher values, with an increasing height of steps.</p>
+
+<p><!--
+Find some nice mathematical description for this hill pattern!
+--></p>
+
+<p><!--
+I have written some code that examines the different runtimes between
+the even-optimized and unoptimized versions,but it looks like <code>s58</code>
+shoots into Klongs stack and bugs everything out.</p>
+
+<blockquote>
+  <p>This … is a bug.
+  My god.
+  There's more.
+  No.</p>
+</blockquote>
+
+<p>Occurs on this code:</p>
+
+<pre><code>    d1::{:x,(,x),,y}
+    d2::{x{y d1:/x}:\y}
+    s55::{:[x=0;,[];,/{:[x~y;d2(x;x);d2(x;y),d2(y;x)]}@.f'{(x:%2),x-x:%2}@x-1]}
+    s56::{:[3=#x;{:[[]~x,y;1:|(^x)~^y;.f(x@1;y@2)&amp;.f(x@2;y@1);0]}@(1_x):|x~[];1;0]}
+    s58::{flr({s56(x)};s55(x))}
+    #'s58'!40
+kg: error: call: type error: [[6 :triad %call1 %pop1]
+</code></pre>
+
+<p>For <code>#'s58'!36</code> it is:</p>
+
+<pre><code>kg: error: wrong arity: :monad
+</code></pre>
+
+<p>For <code>#'s58'!39</code> it is:</p>
+
+<pre><code>kg: error: call: type error: [6]
+</code></pre>
+
+<p>--></p>
+
+<h3>P59 (**) Construct height-balanced binary trees.</h3>
+
+<p><code>s59</code> is a simple recursive function that returns the empty tree as a base
+case (the height is smaller than 0). The recursive case first
+generates all trees with the heights <code>x-1</code> and <code>x-2</code> and then combines
+them using <code>d2</code> using <code>:x</code> as a root node. Because this creates a list
+of lists of trees, this is flattened once using concatenation and the
+Over adverb. Because this list contains duplicates, they are filtered out
+using <code>?</code> (which is functionally equivalent to the <code>uniq</code> unix command).</p>
+
+<pre><code>s59::{:[x&lt;0;,[];?,/{d2(x;x),d2(y;x),d2(x;y)}:(s59(x-1);s59(x-2))]}
+hbaltree::s59
+</code></pre>
+
+<p>Testing:</p>
+
+<pre><code>    hbaltree(0)
+[[:x [] []]]
+    hbaltree(1)
+[[:x [:x [] []] [:x [] []]]
+[:x [] [:x [] []]]
+[:x [:x [] []] []]]
+    hbaltree(2)
+[[:x [:x [:x [] []] [:x [] []]] [:x [:x [] []] [:x [] []]]]
+[:x [:x [] [:x [] []]] [:x [:x [] []] [:x [] []]]]
+[:x [:x [:x [] []] []] [:x [:x [] []] [:x [] []]]]
+[:x [:x [:x [] []] [:x [] []]] [:x [] [:x [] []]]]
+[:x [:x [] [:x [] []]] [:x [] [:x [] []]]]
+[:x [:x [:x [] []] []] [:x [] [:x [] []]]]
+[:x [:x [:x [] []] [:x [] []]] [:x [:x [] []] []]]
+[:x [:x [] [:x [] []]] [:x [:x [] []] []]]
+[:x [:x [:x [] []] []] [:x [:x [] []] []]]
+[:x [:x [] []] [:x [:x [] []] [:x [] []]]]
+[:x [:x [] []] [:x [] [:x [] []]]]
+[:x [:x [] []] [:x [:x [] []] []]]
+[:x [:x [:x [] []] [:x [] []]] [:x [] []]]
+[:x [:x [] [:x [] []]] [:x [] []]]
+[:x [:x [:x [] []] []] [:x [] []]]]
+    hbaltree(-1)
+[[]]
+</code></pre>
+
+<p><code>hbaltree(2)</code> returns all height-balanced binary trees with height 3,
+I checked.<!--TODO: add images for all the different trees returned by
+<code>hbaltree(3)</code>?--> One could modify <code>hbaltree</code> to return an error message
+for negative parameters, but since this is an exercise and not production
+code, this seems unnecessary here.</p>
+
+<p>One can now also find out how many heigh-balanced binary trees exist for
+a given height:</p>
+
+<pre><code>    #'s59'!4
+[1 3 15 315]
+</code></pre>
+
+<p>Interestingly, <code>s59</code> seems to have abysmal runtimes:</p>
+
+<pre><code>    {[a];a::x;time({s59(a)})}'!4
+[0.000022 0.000016 0.000044 0.008815]
+    time({s59(4)})
+    ^C
+    :"terminated after more than 5 minutes of runtime"
+</code></pre>
+
+<p>The reason for this seems to be that this is because the Range verb is
+very slow (which itself uses the Group verb, which is probably responsible
+for the slow speed). To test this, one can look how range deals with
+increasingly large lists:</p>
+
+<pre><code>    :"return a list with x random numbers"
+    xrn::{x{x,.rn()}:*[]}
+    v::{xrn(2^x)}'!12
+    d::{[a];a::x;time({?a})}'v
+[0.000054 0.000047 0.000079 0.000233 0.006979 0.010476 0.036759 0.041276 0.123291 0.505992 2.178776 7.369197]
+    |%:'|d
+[0.87037037037037037 1.68085106382978723 2.94936708860759494 29.9527896995708154 1.50107465252901562 3.50887743413516609 1.12288147120433091 2.98699001841263688 4.10404652407718324 4.30594950117788424 3.38226462931480794]
+    d::{[a];a::x;time({=a})}'v
+[0.000095 0.000073 0.000118 0.00033 0.001132 0.01022 0.023503 0.028528 0.096454 0.401348 1.673313 7.288477]
+    |%:'|d
+[0.768421052631578947 1.61643835616438356 2.79661016949152542 3.4303030303030303 9.02826855123674912 2.299706457925636 1.21380249329872782 3.38102916432978126 4.16103012835133846 4.16923218752803054 4.35571647384559852]
+</code></pre>
+
+<p>So Range takes around 7 seconds for 2000 elements, and seems to be
+growing exponentially with at least <code>$\cal{O}(2^n)$</code> (but notice that
+it might be more or less, the exact value being somewhere between
+<code>$\cal{O}(1.5^n)$</code> and <code>$\cal{O}(3^n)$</code>), although even a simple
+implementation of an algorithm that returns the unique elements of a
+list should take not more than <code>$\cal{O}(n^2)$</code>. The command responsible
+seems to be Group, which is used in the code for Range:</p>
+
+<pre><code>static cell range(cell x) {
+    cell    n, m, p, new;
+    int i, k,str = 0;
+    if (list_p(x))
+        n = group(x);
+    else
+        n = group_string(x);
+</code></pre>
+
+<p>No wonder Range is a bit overwhelmed with data, since <code>s59(4)</code> deals with
+around 100000 trees:</p>
+
+<pre><code>    #,/{d2(x;x),d2(y;x),d2(x;y)}:(s59(3);s59(2))
+108675
+</code></pre>
+
+<p>If Range takes around 2.1 seconds for 1000 elements, one can predict that
+it would take roughly <code>$2.1s*2^{100} \approx 2.662*10^{30}s$</code>, which would be
+<code>$2.662*10^{30}s*\frac{1y}{3600s*24*365} \approx 8.44*10^{22}y$</code>. This is
+of course only a rough estimate, and may turn out to be entirely wrong
+if Group and Range don't have an exponential time complexity after all.</p>
+
+<p><!--TODO: more closely examine the code in the Klong implementation
+and perhaps write a replacement for Range? It doesn't <em>have</em> to be
+that slow. Note: this is not the case for integers. Why?--></p>
+
+<h3>P60 (**) Construct height-balanced binary trees with a given number of nodes.</h3>
+
+<p>Simple solution: generate all height-balanced trees from height
+<code>$min_{n}$</code> (the minimal height of trees with <code>$n$</code> nodes) to <code>$max_{n}$</code>
+(the maximal height of trees with <code>$n$</code> nodes) for the given number of
+nodes, then filter them for having the desired number of nodes.</p>
+
+<p><code>$min_{n}$</code> is <code>$\lfloor \ln_2(x) \rfloor$</code>, because</p>
+
+<div>
+    $$x \ge 2^{min_{n}}-1\\
+    \ln_2(x+1) \ge min_{n}$$
+</div>
+
+<p>One can find the exact number by considering that for a number <code>$m=2^n-1$</code>
+(e.g <code>$3=2^2-1$</code>), the shortest tree has the height <code>$n-1$</code> (1), but for
+<code>$m=2^n$</code> (e.g <code>$4=2^2$</code>), the shortest tree with that many nodes has
+the height <code>$n$</code> (2). This is of course not a proof, only an illustration
+of the edge conditions in this problem.</p>
+
+<p><code>$min_{n}$</code> therefore is</p>
+
+<pre><code>d3::{:[x;_ln(x)%ln(2);0]}
+</code></pre>
+
+<p>For <code>$max_{n}$</code>, one first needs to introduce the inverse of the fibonacci
+series. One can think of the fibonacci series as an injective function
+<code>$f : \mathbb{N} \rightarrow \mathbb{N}$</code>. This means that a straightforward
+inverse <code>$fib^{-1}$</code> is not a function, because e.g. 10 would have no value to
+be mapped to. However, one can define a function that maps a number to the
+inverse of the next lower fibonacci number: the next fibonacci number below
+10 is 8, which is the 6th fibonacci number. This creates a function that is
+fit for the given purpose.</p>
+
+<p>Height-balanced trees have an intricate relation to the fibonacci numbers:
+In the best case, a heigh-balanced binary tree of height <code>$h$</code> has
+at least <code>$fib_{h+3}-1$</code> nodes. Proof:</p>
+
+<ol>
+<li>Induction base: For height 0, the tree with the smallest amount
+of nodes has 1 node (a single, unconnected node). For height 1, the
+heigh-balanced tree with the smallest amount of nodes has 2 nodes (2
+connected nodes).</li>
+<li>Induction assumption: <code>$minnodes_{h}=fib_{h+3}-1$</code>.</li>
+<li>Induction step: The height-balanced tree with height <code>$h+1$</code>
+with the minimal number of nodes can be constructed using
+the tree with height <code>$h$</code> and the tree with height <code>$h-1$</code>
+and combining them using another node as a root. This way,
+<code>$minnodes_{h+1}=minnodes_{h}+minnodes_{h-1}+1=fib_{h+3}-1+fib_{h+2}-1+1=fib_{h+4}-1$</code>.</li>
+</ol>
+
+<p>To find out how high the maximum height of a height-balanced binary tree
+with <code>$n$</code> nodes, one can simply take the inverse of that. This way,
+<code>$max_{n}=fib^{-1}_{n+1}-3$</code>.</p>
+
+<p>To implement this, one needs a
+<a href="https://stackoverflow.com/a/5162856">formula</a> for the inverse of the
+Fibonacci numbers:</p>
+
+<div>
+    $$fib^{-1}(n)=\lfloor \frac{\frac{1}{2}+n*\sqrt{5}}{\ln(\phi)} \rfloor$$
+</div>
+
+<p>To implement it, one now needs only the value of the <a href="https://en.wikipedia.org/wiki/Golden_ratio">golden
+ratio</a>, which is
+<code>$\phi=\frac{1+\sqrt{5}}{2}$</code>.</p>
+
+<p>This way,</p>
+
+<pre><code>gr::(1+sqr(5))%2
+fibinv::{_ln(0.5+x*sqr(5))%ln(gr)}
+</code></pre>
+
+<p>For testing purposes, one can now also define <code>fib</code>:</p>
+
+<pre><code>fib::{*(x-1){(+/2#x),x}:*[1 0]}
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    fib'1+!10
+[1 1 2 3 5 8 13 21 34 55]
+    fibinv(10)
+6
+    fibinv(1)
+2
+    fibinv(20)
+7
+    fibinv(21)
+8
+    fibinv'!50
+[-2 2 3 4 4 5 5 5 6 6 6 6 6 7 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9 9]
+</code></pre>
+
+<p>Apparently, fibinv returns <code>-2</code> for 0.<!--TODO: This might pose a problem later?--></p>
+
+<p>Implementing <code>$max_{n}$</code> is implementing</p>
+
+<div>
+    $$max_{n}\\
+    =fib^{-1}(n+1)-3\\
+    =\lfloor \frac{\ln(\frac{1}{2}+(n+1)*\sqrt{5})}{\ln(\phi)} \rfloor-3\\
+    =\lfloor \frac{\ln(\frac{1}{2}+\sqrt{5}+\sqrt{5}*n)}{\ln(\phi)} \rfloor-3\\
+    =\lfloor \frac{\ln(\frac{1}{2}+\sqrt{5}+\sqrt{5}*n)}{\ln(\phi)}-3 \rfloor\\
+    =\lfloor \frac{\ln(\frac{1}{2}+\sqrt{5}+\sqrt{5}*n)}{\ln(\phi)}-\frac{3*\ln(\phi)}{\ln(\phi)} \rfloor\\
+    =\lfloor \frac{\ln(\frac{1}{2}+\sqrt{5}+\sqrt{5}*n)}{\ln(\phi)}-\frac{3*\ln(\phi)}{\ln(\phi)} \rfloor\\
+    =\lfloor \frac{\ln(\frac{1}{2}+\sqrt{5}+\sqrt{5}*n)-ln(e^{3*\ln(\phi)})}{\ln(\phi)} \rfloor\\
+    =\lfloor \frac{\ln(\frac{\frac{1}{2}+\sqrt{5}+\sqrt{5}*n}{e^{3*\ln(\phi)}})}{\ln(\phi)} \rfloor\\
+    \approx \lfloor \frac{\ln(0.6459+0.5279*n)}{0.4812} \rfloor$$
+</div>
+
+<p>This way, <code>$max_{n}$</code> can be implemented the following way:</p>
+
+<pre><code>d4.1::{:[x;_ln(0.6459+x*0.5279)%0.4812;0]}
+</code></pre>
+
+<p>Another possible method of implementation could be to
+generate the minimal number of nodes in trees with increasing
+heights using the fact that they behave very similarly to the
+fibonacci numbers, and return the height as soon as the number
+of nodes becomes bigger than the argument.</p>
+
+<p>This implementation uses the fact that <code>$max_{n+1}=max_{n}+max_{n-1}+1$</code>.
+It works by counting up in a recursive function, and returning the counter
+when it becomes smaller than the highest tree generated. <code>|!3</code> is the
+array <code>[2 1 0]</code>, representing the number of nodes in the sparsest tree
+with height 1, the number of nodes in the sparsest tree with height 0,
+and the counter.</p>
+
+<pre><code>d4.2::{[a];a::x;{:[a&lt;x;z;.f(1+x+y;x;z+1)]}@|!3}
+</code></pre>
+
+<p>These two implementations can now be tested against each other and
+compared with each other.</p>
+
+<pre><code>    d4.1'!10
+[0 0 1 1 2 2 2 3 3 3]
+    d4.2'!10
+[0 0 1 1 2 2 2 3 3 3]
+    &amp;/(d4.1'!1000)=d4.2'!1000
+1
+</code></pre>
+
+<p>One can see that the two implementations return the same values for
+the same inputs (at least for small values up to 1000), so they seem to
+be correct up to that point.</p>
+
+<p>It should be noted that <code>d4.1</code> is actually slower that <code>d4.2</code> for small
+values, despite having a lower time complexity:</p>
+
+<pre><code>    time({d4.1(10000)})
+0.008489
+    time({d4.2(10000)})
+0.000155
+</code></pre>
+
+<p>However, the difference in performance seems negligible, and <code>d4.1</code>
+has a shorter implementation, which makes it a better candidate.</p>
+
+<p>Now implementing <code>s60</code> is quite straightforward: Find out the minimal
+and the maximal height for height-balanced trees with <code>x</code> nodes,
+generate all balanced trees with those heights using <code>s59</code>, and then
+filter them for having <code>x</code> nodes using <code>s7</code> (flattening the tree and
+then checking the length of the resulting list).</p>
+
+<pre><code>d3::{:[x;_ln(x)%ln(2);0]}
+d4::{:[x;_ln(0.6459+x*0.5279)%0.4812;0]}
+s60::{[a];a::x;flr({a=#s7(x)};,/s59's22(d3(x);d4(x)))}
+</code></pre>
+
+<p>Testing this:</p>
+
+<pre><code>    s60(0)
+[]
+    s60(1)
+[[:x [] []]]
+    s60(2)
+[[:x [] [:x [] []]] [:x [:x [] []] []]]
+    s60(3)
+[[:x [:x [] []] [:x [] []]]]
+    s60(5)
+[[:x [:x [] [:x [] []]] [:x [] [:x [] []]]]
+[:x [:x [:x [] []] []] [:x [] [:x [] []]]]
+[:x [:x [] [:x [] []]] [:x [:x [] []] []]]
+[:x [:x [:x [] []] []] [:x [:x [] []] []]]
+[:x [:x [] []] [:x [:x [] []] [:x [] []]]]
+[:x [:x [:x [] []] [:x [] []]] [:x [] []]]]
+    #'s60'!12
+[0 1 2 1 4 6 4 17 32 44 60 70]
+    s60(12)
+kg: error: interrupted
+    :"aborted because of very long run-time"
+</code></pre>
+
+<p>The problem here is quite obvious: <code>s59</code> is very slow for values ≥4,
+and 12 is the first value for which <code>d4</code> is 4. So this also
+means one needs to take another approach to find out what the
+number of heigh-balanced binary trees with 15 nodes is.</p>
+
+<h4>A Generative Solution</h4>
+
+<p>But there should be a simpler version: Why not recursively generate all
+balanced subtrees with the fitting number of nodes, and then combine
+these in all fitting ways?</p>
+
+<p>However, this turns out to be more complex than I imagined. The algorithm
+has 4 relevant steps, which have to be tackeled separately. The relevant
+steps are as follows:</p>
+
+<ol>
+<li>Determine the maximally uneven weighting of nodes on both sides</li>
+<li>Generate a list of possible weightings for both sides</li>
+<li>Generate all trees for all given weightings</li>
+<li>Filter out duplicates and trees with the wrong height difference</li>
+</ol>
+
+<p>To explain the algorithm, I will go through all these steps separately.</p>
+
+<h5>Determine the Maximally Uneven Weighting of Nodes</h5>
+
+<p>I define a maximally unevenly weighted balanced binary tree to be a
+tree where the left subtree contains as few nodes as possible so that
+the right subtree is only one level deeper than the left subtree.</p>
+
+<p>Although that definition is super clear, I will humor the reader with
+an example: The maximally unevenly weighted balanced binary tree with
+14 nodes.</p>
+
+<p><img src="./img/99_klong/14_unbalanced.png" alt="The maximally unevenly weighted balanced binary tree with 14 nodes" title="The maximally unevenly weighted balanced binary tree with 14 nodes" /></p>
+
+<p>As one can see, the right subtree is one level deeper than the left
+subtree.</p>
+
+<p>This means that the left subtree is always as sparse as possible, while
+the right subtree is a perfect (or nearly perfect) binary tree.</p>
+
+<p>To determine the number of nodes in the left subtree, I will iterate
+the number of nodes in the left subtree from 0 upwards until the right
+subtree is only 1 level deeper:</p>
+
+<pre><code>d5::{[a];a::x-1;{x,a-x}@{d3(a-x)&gt;1+d4(x)}{x+1}:~0}
+</code></pre>
+
+<p>The function returns the a list with the number of nodes in the left
+subtree and the number of nodes in the right subtree.</p>
+
+<h5>Generating a List of Possible Weightings for Both Sides</h5>
+
+<p>For the list of possible weightings on both sides, we can use <code>s22</code> to
+generate the list from the lower to the upper bound, and then combine that
+pairwise with the reverse. This just means that if we must minimally have
+4 nodes on the left side, then we can have 5, 6, 7, and so on nodes on the
+left side, but only if we have 8, 7, 6, and so on nodes on the right side.</p>
+
+<pre><code>d6::{[z];z::s22@d5(x);z,'|z}
+</code></pre>
+
+<h5>Generating all Trees for all Given Weightings</h5>
+
+<p>After one has determined the possible weightings using <code>d6</code>, one can now
+generate the trees. This can be done by implementing <code>s60</code> as a recursive
+function: The completely balanced binary trees with 0 nodes is known:
+it is simply the empty list <code>[]</code>.</p>
+
+<p>Since each weighting is a pair of numbers in a list, one can generate
+the trees for this weighting by iterating <code>s60</code> over this list. That
+produces a list of two lists, which each contain trees. Since <code>d6</code>
+generates all possible weightings, symmetrically, one doesn't have to
+worry about mirroring the trees (although this uses up more computing
+power than strictly necessary – a tradeoff between the length of the
+code and the performance it has).</p>
+
+<p><code>d7</code> takes two lists, and generates their cartesian product<!--TODO:
+wikipedia link-->. Why not take the cartesian product <code>cp</code> from set.kg,
+the set library included in Klong, you ask? Because <code>cp</code> has problems
+with lists of lists, while <code>d7</code> deals with them easily:</p>
+
+<pre><code>    .l("set")
+    d7::{,/y{(,y){x,,y}:\x}:\x}
+    cp(!3;3+!3)
+[[0 3] [0 4] [0 5] [1 3] [1 4] [1 5] [2 3] [2 4] [2 5]]
+    d7(!3;3+!3)
+[[0 3] [0 4] [0 5] [1 3] [1 4] [1 5] [2 3] [2 4] [2 5]]
+    cp(,'!3;,'3+!3)
+[[0 3] [0 4] [0 5] [1 3] [1 4] [1 5] [2 3] [2 4] [2 5]]
+    d7(,'!3;,'3+!3)
+[[[0] [3]] [[0] [4]] [[0] [5]] [[1] [3]] [[1] [4]] [[1] [5]] [[2] [3]] [[2] [4]] [[2] [5]]]
+</code></pre>
+
+<p>When dealing with the cartesian product of two sets of trees,
+this is important to get right.<!--TODO: report bug &amp; send correct
+implementation?--></p>
+
+<p><code>d7</code> then returns a list of lists, each of which contains two trees.
+Two combine each of these into a single tree, we use <code>d1</code> that was
+implemented earlier. It uses the symbol <code>:x</code> as a root. After iterating
+over all possible combinations, the resulting list is flattened once
+and one gets a list of correctly weighted trees.</p>
+
+<pre><code>d7::{,/y{(,y){x,,y}:\x}:\x}
+s60::{:[x=0;,[];,/{{d1@x}'d7@s60'x}'d6(x)]}
+</code></pre>
+
+<h5>Filter out Duplicates and Trees with the Wrong Height Difference</h5>
+
+<p>This list of trees is not perfect yet. It contains both duplicates and
+trees with the wrong height difference, since there are combinations
+with the correct weighting but wildly different heights.</p>
+
+<p>The order in which to do this is important: Checking the height difference
+of the subtrees is computationally more expensive, so it's better if
+it's applied after removing duplicates.</p>
+
+<p>Removing duplicates is done by using the Range verb. In order to make
+checking the height differences in the subtrees easier, the call of <code>d1</code>
+is moved to the end of function execution.</p>
+
+<p>The removal of non-balanced trees is done by first computing the depth
+of the left subtree and the right subtree, calculating the difference
+in height, and then filtering out the ones with a a height difference of
+≥2. The function for calculating the depth is <code>dp</code>, taken from util.kg:</p>
+
+<pre><code>d8::{:[@x;0;1+|/.f'x]}
+</code></pre>
+
+<p>In the end, <code>s60</code> looks like this:</p>
+
+<pre><code>s60::{:[x=0;,[];{d1@x}'flr({2&gt;#-/d8'x};?,/{d7@s60'x}'d6(x))]}
+</code></pre>
+
+<h5>Final Result</h5>
+
+<p>Tests:</p>
+
+<pre><code>    s60(0)
+[[]]
+    s60(1)
+[[:x [] []]]
+    s60(2)
+[[:x [] [:x [] []]] [:x [:x [] []] []]]
+    s60(3)
+[[:x [:x [] []] [:x [] []]]]
+    s60(4)
+[[:x [:x [] []] [:x [] [:x [] []]]] [:x [:x [] []] [:x [:x [] []] []]] [:x [:x [] [:x [] []]] [:x [] []]] [:x [:x [:x [] []] []] [:x [] []]]]
+    #'s60'!20
+[1 1 2 1 4 6 4 17 32 44 60 70 184 476 872 1553 2720 4288 6312 9004]
+</code></pre>
+
+<p>A small test to check whether filtering out duplicates before non-balanced
+trees is in fact faster:</p>
+
+<pre><code>    s60::{:[x=0;,[];{d1@x}'flr({2&gt;#-/d8'x};?,/{d7@s60'x}'d6(x))]}
+    time({#s60(15)})
+1.337233
+    s60::{:[x=0;,[];{d1@x}'?flr({2&gt;#-/d8'x};,/{d7@s60'x}'d6(x))]}
+    time({#s60(15)})
+1.35368
+</code></pre>
+
+<p>If there is a difference, it's at least not obvious.</p>
+
+<p>To make the code shorter, <code>s7</code> and <code>s8</code> could be inlined:</p>
+
+<pre><code>d5::{[a];a::x-1;{x,a-x}@{d3(a-x)&gt;1+d4(x)}{x+1}:~0}
+d6::{[z];z::s22@d5(x);z,'|z}
+s60::{:[x=0;,[];{d1@x}'flr({2&gt;#-/{:[@x;0;1+|/.f'x]}'x};?,/{{,/y{(,y){x,,y}:\x}:\x}@s60'x}'d6(x))]}
+</code></pre>
+
+<p>However, this weirdly leads to segmentations faults &amp; crashing the Klong interpreter.</p>
+
+<p>This solution is still longer than the filtering version, but can generate the trees much faster than the filtering <code>s60</code>:</p>
+
+<pre><code>    .l("time")
+    time({#s60(15)})
+1.070058
+</code></pre>
+
+<p>For <code>x</code> = 15, the number of trees is 1553.</p>
+
+<h3>P61 (*) Count the leaves of a binary tree.</h3>
+
+<p>A node in the list is a leaf if both its subnodes are the empty list.
+This way, one can write a very simple recursive function that traverses
+the tree and adds up the number of leaves in its subnodes.
+Here, an empty list is not a leaf, but a node with two empty subnodes is
+a leaf. One can test whether both subtrees are empty by concatenating them
+using fold and then testing whether this concatenation is the empty list.</p>
+
+<pre><code>s61::{+/:[x~[];0:|[]~,/1_x;1;.f'1_x]}
+countleaves::s61
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    countleaves([:x [] []])
+1
+    countleaves([])
+0
+    countleaves([:x [:x [] []] [:x [:x [] []] [:x [] []]]])
+3
+    countleaves([:x])
+1
+</code></pre>
+
+<p>The last result is incorrect, however, because the problem statement says
+nothing about incorrectly formed trees, it is reasonable to assume that
+the function should just return correct results for correct inputs. Every
+other case can be checked using <code>s54</code>.</p>
+
+<h3>P61A (*) Collect the leaves of a binary tree in a list.</h3>
+
+<p>This problem is very similar to P61, in fact, its solution can be used
+to solve P61 more easily.
+One can again traverse the tree recursively, this time concatenating
+nodes that have two empty subnodes.</p>
+
+<pre><code>s61a::{,/:[[]~,/1_x;,1#x;.f'1_x]}
+leaves::s61a
+</code></pre>
+
+<p>Testing this reveals that it works:</p>
+
+<pre><code>    leaves([])
+[]
+    leaves([:x [][]])
+[:x]
+    leaves([:a [:b [] []] [:c [:d [] []] []]])
+[:b :d]
+    leaves([:x [:x [] []] [:x [:x [] []] [:x [] []]]])
+[:x :x :x]
+</code></pre>
+
+<p>In fact, one can use <code>s61a</code> to implement a much shorter version of <code>s61</code>:</p>
+
+<pre><code>s61::{#s61a(x)}
+</code></pre>
+
+<h3>P62 (*) Collect the internal nodes of a binary tree in a list.</h3>
+
+<p>This function is very similar to the functions above: It traverses the
+tree recursively, returning the empty list if the given tree is a leaf
+(checked by checking whether the concatenation of two subtrees is the
+empty list) and returning the first element of the list if this is not
+the case.</p>
+
+<pre><code>s62::{(:[~[]~,/1_x;1#x;[]]),,/.f'1_x}
+internals::s62
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    internals([])
+[]
+    internals([:a [] []])
+[]
+    internals([:a [:b [] []] []])
+[:a]
+    internals([:x [:x [:x [] []]]])
+[:x :x]
+    internals([:a [:b [] []] [:c [:d [:e [] []] []] []]])
+[:a :c :d]
+</code></pre>
+
+<p>Another possible implementation could be <code>s62::{a1(s7(x);s61a(x))}</code>:
+it returns the set difference of all of the nodes of the tree and
+the leaves. However, this only works if all elements in the tree are
+distinct, because the set difference removes duplicates.</p>
+
+<h3>P62B (*) Collect the nodes at a given level in a tree.</h3>
+
+<p>One can think of collecting the nodes at a given level of a tree as
+removing all the levels above the given level by creating a list of the
+subtrees repeatedly. The nodes at the given level are then just the first
+elements of all the subtrees in the list, which are then collected and
+concatenated.</p>
+
+<p>The result is then concatenated with the empty list to fix Over converting
+a list containing a single atom into only that atom. Concatenating with
+the empty list turns an atom into a list containing that atom, and is the
+null operation on every other list.<!--TODO: Could I use this elsewhere?
+It seems useful.--> This of course doesn't answer the immediate question
+of why Klong would fold a single-element list into the element. Some
+things are not meant to be unearthed by mere mortals.</p>
+
+<pre><code>s62b::{[],,/*'(y-1){,/{1_x}'x}:*,x}
+atlevel::s62b
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    atlevel([:a [:b [:c [] []] [:d [] []]] [:e [] []]];1)
+[:a]
+    atlevel([:a [:b [:c [] []] [:d [] []]] [:e [] []]];2)
+[:b :e]
+    atlevel([:a [:b [:c [] []] [:d [] []]] [:e [] []]];3)
+[:c :d]
+    atlevel([:a [:b [:c [] []] [:d [] []]] [:e [] []]];4)
+[]
+    atlevel([];0)
+[]
+    atlevel([:x [:x [:x [] []]]];0)
+[:x]
+    atlevel([:x [:x [:x [] []]]];1)
+[:x]
+    atlevel([:x [:x [:x [] []]]];2)
+[:x]
+    atlevel([:x [:x [:x [] []]]];3)
+[:x]
+</code></pre>
+
+<blockquote>
+  <p>Using <code>atlevel</code>, it is easy to construct a function <code>levelorder</code> which
+  creates the level-order sequence of the nodes. However, there are more
+  efficient ways to do that.</p>
+</blockquote>
+
+<p><em>– niplav, <a href="./99_klong_problems.html#P62B--Collect-the-nodes-at-a-given-level-in-a-list">“P62B“ in 99 Klong Problems</a>, 2019</em></p>
+
+<p>To solve this, one needs to know the depth of the tree. Fortunately,
+the already imported library <code>util.kg</code> contains an implementation for
+a function to determine the depth of a tree: <code>dp</code>. The solution is then
+not difficult: Generate a number for every level, iterate <code>s62b</code> over
+the given tree and the numbers: <code>s62c::{[t];t::x;s62b(t;)'1+!dp(x)}</code>.</p>
+
+<p>This, of course, wastes cycles: The first level is remove <code>dp(x)</code> times,
+for no good reason.</p>
+
+<p>But one can write some versions that traverse the tree and accumulate
+the levels:</p>
+
+<pre><code>s62c::{|1_{:[x~[];[];.f(,/{1_x}'x),,[],,/*'x]}@,,x}
+s62c::{|1_{:[x~[];[];.f(,/{1_x}'x),,[],,/*'x]}:(,x)}
+s62c::{{:[[]~,/x;y;.f(,/{1_x}'x;y,,[],,/*'x)]}:(,x;[])}
+</code></pre>
+
+<p>All of these follow the very basic schema of extracting the first element
+of all given trees, concatenating it to the list of previous results,
+modifying the list of trees by removing every first element, and then
+passing the resulting set to the function recursively. The function
+stops when the argument is an empty list.</p>
+
+<p>We can now assign the shortest solution to <code>levelorder</code>:</p>
+
+<pre><code>s62c::{|1_{:[x~[];[];.f(,/{1_x}'x),,[],,/*'x]}@,,x}
+levelorder::s62c
+</code></pre>
+
+<p>and test the solution:</p>
+
+<pre><code>s62c([])
+[]
+    s62c([:x [] []])
+[[:x]]
+    s62c([:a [:b [] []] []])
+[[:a] [:b]]
+    s62c([:a [:b [:c [] []] [:d [] []]] [:e [] []]])
+[[:a] [:b :e] [:c :d]]
+</code></pre>
+
+<h3>P63 (*) Construct a complete binary tree.</h3>
+
+<pre><code>s63::{:[0=x;[];
+    {(:x,:[y&lt;2*x;[];,.f(x*2;y)]),:[y=2*x;,[]:|y&lt;1+2*x;[];,.f(1+2*x;y)]}:(1;x)]}
+</code></pre>
+
+<p><!--</p>
+
+<h2>Multiway Trees</h2>
+
+<h2>Graphs</h2>
+
+<h2>Miscellaneous Problems</h2>
+
+<p>--></p>

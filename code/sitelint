@@ -1,0 +1,70 @@
+#!/usr/bin/env rc
+
+fn search {
+	ag --ignore 'code/sitelint' $1
+}
+
+fn encheck {
+	aspell -x -l en check $1
+}
+
+fn decheck {
+	aspell -x -l de check $1
+}
+
+fn balanced {
+	cat $1 |
+	tr -dc '"[]{}()' |
+	sed 's/./&\n/g' |
+	sort |
+	uniq -c |
+	awk '{ a[$2]=$1 }
+	END {
+			if(a["\""]%2) printf("unmatched \" ");
+			if(a["("]>a[")"]) printf("%d unmatched ( ", a["("]-a[")"]);
+			if(a["("]<a[")"]) printf("%d unmatched ) ", a[")"]-a["("]);
+			if(a["["]>a["]"]) printf("%d unmatched [ ", a["["]-a["]"]);
+			if(a["["]<a["]"]) printf("%d unmatched ] ", a["]"]-a["["]);
+			if(a["{"]>a["}"]) printf("%d unmatched { ", a["{"]-a["}"]);
+			if(a["{"]<a["}"]) printf("%d unmatched } ", a["}"]-a["{"]);
+	}'
+}
+
+if(~ $1 'spell') {
+	for(i in `{ag -l 'language: english' | grep -v sitelint})
+		encheck $i
+
+	for(i in `{ag -l 'language: german' | grep -v sitelint})
+		decheck $i
+}
+
+#Uses: [ag](https://geoff.greer.fm/ag/)
+
+printf 'Incorrectly formatted citations:\n'
+
+#short form
+search '\[[A-Za-z]+,( |\n)-?[0-9]+\]'
+
+#long form
+search '^\*–[^ ]'
+
+printf '\nIncorrect whitespace:\n'
+
+search '   $'
+search '\t$'
+
+printf '\nChecking for british english:\n'
+
+search 'colour|grey|labour|theatre|behaviour'
+
+printf '\n%d TODOs in following files:\n\n' `{search TODO | wc -l}
+
+ag -l TODO | sort
+
+printf '\nChecking for unbalanced characters:\n'
+
+for(i in `{ls *.md}) {
+	j=`{balanced $i}
+	if(! ~ $j '')
+		echo $i':' $"j
+}

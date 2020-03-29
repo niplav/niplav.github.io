@@ -1,0 +1,22 @@
+.l("nplot")
+.l("time")
+
+s25.1::{x@<(#x){x,.rn()}:*[]}
+
+s20::{((y-1)#x),y_x}
+s25.2::{(#x){p::_.rn()*#x;(x@p),s20(x;p+1)}:*x}
+
+rt1::{[a];a::x;time({s25.1(!a)})}'1000+125*!76
+rt2::{[a];a::x;time({s25.2(!a)})}'1000+125*!76
+
+:"frame with the maximum value"
+
+frame([0 10000 1000]; [0],(1+_|/rt1,rt2),[0.5])
+ytitle("runtime in seconds")
+
+segplot(rt1)
+text(250;60;"Grading Shuffle")
+setrgb(0;0;1)
+segplot(rt2)
+text(200;250;"Fisher-Yates Shuffle")
+draw()
