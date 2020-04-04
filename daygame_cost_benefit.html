@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-12-25, modified: 2020-03-29, language: english, status: in progress, importance: 4, confidence: remote</em></p>
+<p><em>author: niplav, created: 2019-12-25, modified: 2020-04-03, language: english, status: in progress, importance: 4, confidence: remote</em></p>
 
 <blockquote>
   <p><strong>Is daygame worth it, and if yes, how much? I first present a simple
@@ -967,7 +967,13 @@ Would these expenditures be made if the person wasn't doing daygame?</p>
 
 <h5>Fixed Costs</h5>
 
-<p>To possible fixed costs I'd count the following:</p>
+<p>I assume that the fixed costs for doing any daygame at all are \$500:</p>
+
+<pre><code>fixcost::500
+</code></pre>
+
+<p><!--
+To possible fixed costs I'd count the following:</p>
 
 <ul>
 <li>Logistics (higher rent from living closer to the city center)</li>
@@ -996,9 +1002,10 @@ and does 1000 approaches per year.</p>
 
 <h6>Logistics</h6>
 
-<p><!--TODO: find some examples for sources--></p>
-
-<p>I (without any research) assume that a daygamer will pay \$200 more per
+<p>-->
+<!--TODO: find some examples for sources-->
+<!--
+I (without any research) assume that a daygamer will pay \$200 more per
 year for logistics.</p>
 
 <p>It seems to be relatively common for daygamers to move because of daygame,
@@ -1006,9 +1013,10 @@ I'll assume that 30% of them will do it.</p>
 
 <h6>Sex Toys</h6>
 
-<p><!--Find sources for average vibrator cost--></p>
-
-<p>I assume the daygamer counterfactually buys one vibrator (those who
+<p>-->
+<!--Find sources for average vibrator cost-->
+<!--
+I assume the daygamer counterfactually buys one vibrator (those who
 buy more probably would also have bought sex toys in the counterfactual
 case where they weren't doing daygame). A vibrator seems to cost ~\$30
 on average.</p>
@@ -1021,9 +1029,10 @@ I haven't heard much discussion of this, and therefore assume that only
 
 <h6>Clothes</h6>
 
-<p><!--TODO: find some sources/discussion?--></p>
-
-<p>Many daygamers seem to buy less flashy clothes, sometimes of higher
+<p>-->
+<!--TODO: find some sources/discussion?-->
+<!--
+Many daygamers seem to buy less flashy clothes, sometimes of higher
 quality. I'm unsure how much these clothes introduce additional costs
 and how much they just displace buying normal clothes. I'll pretty much
 baselessly assume that the cost overhead is \$80.</p>
@@ -1038,16 +1047,31 @@ baselessly assume that the cost overhead is \$80.</p>
 
 <h6>Fitness</h6>
 
+<p>--></p>
+
 <h5>Variable Costs</h5>
 
-<ul>
-<li>Condoms</li>
-<li>Transportation (money for gas, public transport)</li>
-</ul>
+<p>I assume that the variable costs are \$0.5 per approach:</p>
+
+<pre><code>varcost::0.5
+</code></pre>
+
+<p><!--
+* Condoms
+* Transportation (money for gas, public transport)</p>
 
 <h6>Condoms</h6>
 
 <h6>Transportation</h6>
+
+<p>--></p>
+
+<h5>Code</h5>
+
+<p>With this, one can easily calculate the additional exppenditures:</p>
+
+<pre><code>expenditures::{fixcost+varcost*x}
+</code></pre>
 
 <h4>Social Costs from Being Found Out</h4>
 

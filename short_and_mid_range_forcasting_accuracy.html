@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2020-03-24, modified: 2020-03-29, language: english, status: notes, importance: 6, confidence: possible</em></p>
+<p><em>author: niplav, created: 2020-03-24, modified: 2020-04-03, language: english, status: notes, importance: 6, confidence: possible</em></p>
 
 <blockquote>
   <p><strong>This text looks at the accuracy of forecasts in relation
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function () {
   accuracy higher within questions. These questions are analyzed
   using data from <a href="https://predictionbook.com/">PredictionBook</a> and
   <a href="https://www.metaculus.com/questions/">Metaculus</a>, the answers turn
-  out to be _, _ and no. Possible reasons are discussed.</strong></p>
+  out to be no, _ and _. Possible reasons are discussed.</strong></p>
 </blockquote>
 
 <h1>Short and Mid Range Forecasting Accuracy</h1>
@@ -112,12 +112,16 @@ and the resolution of the forecast. Keeping with the report by the Open
 Philanthropy Project<!--TODO: link-->, I will define short-term forecasts
 as forecasts with a range of less than a year, mid-range forecasts as
 forecasts with a range between 1 and 10 years, and long-term forecasts
-as forecasts with a range of more than 10 years.</p>
+as forecasts with a range of more than 10 years (this distinction is
+not central to the following analysis, though).</p>
 
 <p>Fortunately, for short- and mid-range forecasts, two easily accessible
 sources of forecasts and their resolutions are available online: The
 two forecasting websites <a href="https://predictionbook.com">PredictionBook</a>
 and <a href="https://www.metaculus.com">Metaculus</a>.</p>
+
+<p>To find out about the range of forecasts, I download, parse &amp; analyse
+forecasting data from these sites.</p>
 
 <p><!--
 Make a point here that making forecasts is one of the best existing
@@ -137,14 +141,111 @@ not train people in becoming good at estimating the future,
 but this time with probabilistic estimates?
 --></p>
 
-<p><!--
---></p>
-
-<h2>Short-, Mid- and Long-Range Forecasting</h2>
-
 <h2>Metaculus and PredictionBook</h2>
 
+<p><a href="https://predictionbook.com">PredictionBook</a> and
+<a href="https://www.metaculus.com">Metaculus</a> are both forecasting focussed
+sites, though both are not prediction markets, but rather function on
+the base of merit and track records: although you don't win money by
+being right, you can still boast about it (although it seems questionable
+whether other people will be impressed). Besides that, these sites make
+it easier to train ones calibration on real-world questions and become
+less wrong in the process.</p>
+
+<p>However, both sites differ in their approach to writing, judging
+and scoring forecasts. Predictionbook is much older than Metaculus:
+the former was first released in 2008, the latter started in 2015. It
+is also much less formal than Metaculus: it doesn't require stringent
+resolution criteria, making possible for everybody to judge a question
+(unrelated to whether the person has even made a prediction on the
+question themselves!), while Metaculus requires a short text explaining
+the context and resolution criteria for a question, with the questions
+being resolved by moderators or admins. This leads to Metaculus having
+less questions than Predictionbook, each question having more predictions
+on it. Of the two, Metaculus is much more feature-rich: It supports
+not only binary questions, but also range questions with probability
+distributions, comment threads, having closed questions (questions
+that haven't yet been resolved, but that can still be predicted on),
+three different kinds of scores (the Brier score<!--TODO: link-->, and
+a log score for discrete and continuous forecasts each), as well as the
+Metaculus prediction, a weighted aggregation of the forecasts of the
+best forecasters on the site.</p>
+
+<p>Another significant difference between these two websites is the amount of
+data they publish: Predictionbook shows every single forecast made, while
+on Metaculus one can only see the community forecast (a the time-weighted
+median of the forecasts made on the question). This is relevant for this
+analysis: The two approaches must be analysed separately.</p>
+
 <h2>Accuracy Between Forecasts</h2>
+
+<p>The first approach I took was to simply take the probability, result and
+range for all forecasts made, sort these forecasts into buckets by range
+(e.g. one bucket for all forecasts made 1 day before their resolution
+(and their results), one bucket for all forecasts made 2 days before
+their resolution, and so on). I then calculated the Brier score for each
+of these buckets, and then checked what the relation between brier score
+and range (the time between forecast &amp; resolution) was (correlation &amp;
+linear regression).</p>
+
+<h3>Getting the Data</h3>
+
+<h4>For Metaculus</h4>
+
+<p>The Metaculus data is relatively easy to obtain:
+The forecasts are available on a JSON API at
+<code>https://www.metaculus.com/api2/questions/?page=</code>. Fortunately,
+gimpf has already published <a href="https://github.com/gimpf/metaculus-question-stats">a collection of
+scripts</a> for fetching &amp;
+analysing Metaculus data, I reused their script <code>fetch</code> to download the
+raw JSON. I then converted the distinct page objects in the generated
+file to a list of questions:</p>
+
+<pre><code>$ cd /usr/local/src
+$ git clone https://github.com/gimpf/metaculus-question-stats
+$ cd metaculus-question-stats
+$ ./fetch
+$ z site
+$ jq -s '[.]|flatten' &lt;/usr/local/src/metaculus/data-questions-raw.json &gt;data/metaculus.json
+</code></pre>
+
+<p>The resulting data is available <a href="./data/metaculus.json">here</a>.</p>
+
+<p>I then wrote a python script to convert the JSON data to CSV in the form
+<code>forecasting_probability,result,range</code>, while also filtering out yet
+unresolved questions and range questions.</p>
+
+<p>The script is not terribly interesting: It just reads in the JSON data,
+parses and traverses it, printing the CSV in the process.</p>
+
+<p>Code:</p>
+
+<pre><code>#!/usr/bin/env python3
+
+import json
+import time
+
+from time import mktime
+
+f=open("../../data/metaculus.json")
+jsondata=json.load(f)
+
+for page in jsondata:
+        for question in page["results"]:
+                if question["possibilities"]["type"]=="binary" and (question["resolution"]==1 or question["resolution"]==0):
+                        try:
+                                restime=time.strptime(question["resolve_time"],"%Y-%m-%dT%H:%M:%S.%fZ")
+                        except:
+                                restime=time.strptime(question["resolve_time"],"%Y-%m-%dT%H:%M:%SZ")
+                        for pred in question["prediction_timeseries"]:
+                                timediff=mktime(restime)-pred["t"]
+                                print("{},{},{}".format(question["resolution"],pred["community_prediction"],timediff))
+</code></pre>
+
+<p>The resulting CSV file with over 40K predictions is available
+<a href="./data/met.csv">here</a>.</p>
+
+<h4>For PredictionBook</h4>
 
 <h2>Accuracy Between Questions</h2>
 

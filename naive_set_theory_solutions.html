@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2020-03-23, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2020-04-03, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -450,8 +450,19 @@ violation: <code>$(a,a)\not\in$</code>, symmetry violation: <code>$(b,a)\not\in$
 <h2>Section 7, Exercise 2</h2>
 
 <blockquote>
-  <p>Exercise: show that <code>$X/R$</code> is indeed a set by exhibiting a condition that
-  specifies exactly the subset <code>$X/R$</code> of the power set <code>${\cal{P}}(X)$</code>.</p>
+  <p>We shall write <code>$X/R$</code> for the set of all equivalence classe. (Pronounce
+  <code>$X/R$</code> as “X modulo R,“ or, in abbreviated form, “X mod R.“ Exercise:
+  show that <code>$X/R$</code> is indeed a set by exhibiting a condition that specifies
+  exactly the subset <code>$X/R$</code> of the power set <code>${\cal{P}}(X)$</code>).</p>
 </blockquote>
 
 <p><em>– <a href="https://en.wikipedia.org/wiki/Paul_Halmos">Paul Halmos</a>, <a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set Theory“</a> p. 38, 1960</em></p>
+
+<p>To be honest, I'm not quite sure what exactly I am supposed to do here.
+<code>$X/R$</code> has been defined as being a set, how can I prove a definition?</p>
+
+<p>But I can try and construct <code>$X/R$</code> from <code>${\cal{P}}(X)$</code>:</p>
+
+<p><code>$X/R=\{E: (\forall x, y \in E: x R y) \land E \in {\cal{P}}(X) \} \subset {\cal{P}}(X)$</code></p>
+
+<p>□, I guess?</p>
