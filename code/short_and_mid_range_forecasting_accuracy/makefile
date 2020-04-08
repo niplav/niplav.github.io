@@ -1,13 +1,29 @@
-all:
-	./pbdata.py >pb.csv
-	./metdata.py <../../data/metaculus.json >met.csv
+include config.mk
 
-puttit: all
+.SUFFIXES: .kg .eps .png
+
+all: $(IMG)
+
+puttit: $(CSV) $(IMG)
 	mv pb.csv ../../data
 	mv met.csv ../../data
 
+pb.csv:
+	./pbdata.py >pb.csv
+
+met.csv:
+	./metdata.py <../../data/metaculus.json >met.csv
+
+.eps.png:
+	convert -chop 0x180 $< $@
+	rm $<
+
+.kg.eps:
+	kg -l ./$< -e '.x(0)' >$@
+
+
 clean:
-	rm -f pb.csv
-	rm -f met.csv
+	rm -f $(IMG)
+	rm -f $(CSV)
 
 .PHONY: clean

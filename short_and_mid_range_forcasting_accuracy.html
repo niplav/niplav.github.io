@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2020-03-24, modified: 2020-04-03, language: english, status: notes, importance: 6, confidence: possible</em></p>
+<p><em>author: niplav, created: 2020-03-24, modified: 2020-04-07, language: english, status: notes, importance: 6, confidence: possible</em></p>
 
 <blockquote>
   <p><strong>This text looks at the accuracy of forecasts in relation
@@ -62,6 +62,17 @@ document.addEventListener('DOMContentLoaded', function () {
 </blockquote>
 
 <h1>Short and Mid Range Forecasting Accuracy</h1>
+
+<blockquote>
+  <p>Above all, don’t ask what to believe—ask what to anticipate. Every
+  question of belief should flow from a question of anticipation, and that
+  question of anticipation should be the center of the inquiry. Every guess
+  of belief should begin by flowing to a specific guess of anticipation,
+  and should continue to pay rent in future anticipations. If a belief
+  turns deadbeat, evict it.</p>
+</blockquote>
+
+<p><em>– <a href="https://en.wikipedia.org/wiki/Eliezer_Yudkowsky">Eliezer Yudkowsky</a>, <a href="https://www.lesswrong.com/posts/a7n8GdKiAZRX86T5A/making-beliefs-pay-rent-in-anticipated-experiences">“Making Beliefs Pay Rent (in Anticipated Experiences)“</a>, 2007</em></p>
 
 <p><!--https://en.wikipedia.org/wiki/Simpson's_paradox-->
 <!--https://www.openphilanthropy.org/blog/how-feasible-long-range-forecasting-->
@@ -211,9 +222,10 @@ $ jq -s '[.]|flatten' &lt;/usr/local/src/metaculus/data-questions-raw.json &gt;d
 
 <p>The resulting data is available <a href="./data/metaculus.json">here</a>.</p>
 
-<p>I then wrote a python script to convert the JSON data to CSV in the form
-<code>forecasting_probability,result,range</code>, while also filtering out yet
-unresolved questions and range questions.</p>
+<p>I then wrote a python script to convert the JSON data to CSV in the
+form <code>id,result,probability,range</code> (<code>id</code> is a unique ID per question,
+which will come in handy later), while also filtering out yet unresolved
+questions and range questions.</p>
 
 <p>The script is not terribly interesting: It just reads in the JSON data,
 parses and traverses it, printing the CSV in the process.</p>
@@ -231,21 +243,189 @@ f=open("../../data/metaculus.json")
 jsondata=json.load(f)
 
 for page in jsondata:
-        for question in page["results"]:
-                if question["possibilities"]["type"]=="binary" and (question["resolution"]==1 or question["resolution"]==0):
-                        try:
-                                restime=time.strptime(question["resolve_time"],"%Y-%m-%dT%H:%M:%S.%fZ")
-                        except:
-                                restime=time.strptime(question["resolve_time"],"%Y-%m-%dT%H:%M:%SZ")
-                        for pred in question["prediction_timeseries"]:
-                                timediff=mktime(restime)-pred["t"]
-                                print("{},{},{}".format(question["resolution"],pred["community_prediction"],timediff))
+    for question in page["results"]:
+        if question["possibilities"]["type"]=="binary" and (question["resolution"]==1 or question["resolution"]==0):
+            try:
+                restime=time.strptime(question["resolve_time"],"%Y-%m-%dT%H:%M:%S.%fZ")
+            except:
+                restime=time.strptime(question["resolve_time"],"%Y-%m-%dT%H:%M:%SZ")
+            for pred in question["prediction_timeseries"]:
+                timediff=mktime(restime)-pred["t"]
+                print("{},{},{},{}".format(question["id"], question["resolution"], pred["community_prediction"], timediff))
 </code></pre>
 
 <p>The resulting CSV file with over 40K predictions is available
 <a href="./data/met.csv">here</a>.</p>
 
 <h4>For PredictionBook</h4>
+
+<p>As far as I know, PredictionBook doesn't publish the forecasting
+data over an API. However, all individual predictions are visible
+on the web, which means I had to parse the HTML itself using
+<a href="https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser)">BeautifulSoup</a>.</p>
+
+<p>This time the code is more complex, but just slightly so: It starts at
+the <a href="https://predictionbook.com/predictions/page/1">first page</a>
+of predictions, and loops down to the <a href="https://predictionbook.com/predictions/page/326">last
+one</a>, every time iterating
+through the questions on that page.</p>
+
+<p>It then loops through the predictions on each question and parses out
+the date for the prediction and the credence.</p>
+
+<p>Every question on PredictionBook has two dates related to its
+resolution: the 'known on' date, for which the resolution was originally
+planned, and by which the result should be known, and the 'judged on'
+date, on which the resolution was actually made. I take the second date
+to avoid predictions with negative differences between prediction and
+resolution time.</p>
+
+<p>Also, the 'known on' date has the CSS class <code>date created_at</code>, which
+doesn't seem right.</p>
+
+<p>The output of this script is in the same format as the one for Metaculus
+data: <code>id,result,probability,range</code>.</p>
+
+<p>Code:</p>
+
+<pre><code>#!/usr/bin/env python2
+
+import urllib2
+import sys
+import time
+
+from bs4 import BeautifulSoup
+from time import mktime
+
+def showforecasts(linkp, res):
+    urlp="https://predictionbook.com{}".format(linkp)
+    reqp=urllib2.Request(urlp, headers={"User-Agent" : "Firefox"})
+    try:
+        conp=urllib2.urlopen(reqp)
+    except (urllib2.HTTPError, urllib2.URLError) as e:
+        return
+    datap=conp.read()
+    soupp=BeautifulSoup(datap, "html.parser")
+
+    timedata=soupp.find(lambda tag:tag.name=="p" and "Created by" in tag.text)
+
+    resolved=timedata.find("span", class_="judgement").find("span", class_="date created_at").get("title")
+    restime=time.strptime(resolved,"%Y-%m-%d %H:%M:%S UTC")
+
+    responses=soupp.find_all("li", class_="response")
+    for r in responses:
+        forecasts=r.find_all("span", class_="confidence")
+        if forecasts!=[]:
+            est=float(r.find_all("span", class_="confidence")[0].text.strip("%"))/100
+        else:
+            continue
+        estimated=r.find("span", class_="date").get("title")
+        esttime=time.strptime(estimated,"%Y-%m-%d %H:%M:%S UTC")
+        print("{},{},{},{}".format(linkp.replace("/predictions/", ""), res, est, mktime(restime)-mktime(esttime)))
+
+for page in range(1,400):
+    url="https://predictionbook.com/predictions/page/{}".format(page)
+    req=urllib2.Request(url, headers={"User-Agent" : "Firefox"})
+    try:
+        con=urllib2.urlopen(req)
+    except (urllib2.HTTPError, urllib2.URLError) as e:
+        continue
+    data=con.read()
+    soup=BeautifulSoup(data, "html.parser")
+    predright=soup.find_all("li", {"class": "prediction right"})
+    predwrong=soup.find_all("li", {"class": "prediction wrong"})
+    for pred in predright:
+        linkp=pred.span.a.get("href")
+        showforecasts(linkp, "1.0")
+    for pred in predwrong:
+        linkp=pred.span.a.get("href")
+        showforecasts(linkp, "0.0")
+</code></pre>
+
+<p>Surprisingly, both platforms had almost the same amount of individual
+predictions on binary resolved questions: ~43K for Metaculus, and ~42K
+for PredictionBook.</p>
+
+<p>The resulting data from PredictionBook is available <a href="./data/pb.csv">here</a>.</p>
+
+<h3>Analysis</h3>
+
+<p>Now that the two datasets are available, they can be properly analyzed.</p>
+
+<p>First, the raw data is loaded from the two CSV files and then the ID is
+converted to integer, and the rest of the fields are converted to floats
+(the range is a float for some Metaculus questions, and while the result
+can only take on 0 or 1, using float there makes it easier to calculate
+the brier score using <code>mse.set</code>):</p>
+
+<pre><code>.fc(.ic("../../data/pb.csv"));pbraw::csv.load()
+.fc(.ic("../../data/met.csv"));metraw::csv.load()
+
+pbdata::+{(1:$*x),1.0:$'x}'pbraw
+metdata::+{(1:$*x),1.0:$'x}'metraw
+</code></pre>
+
+<p>To compare the accuracy between forecasts, one can't deal with individual
+forecasts, only with sets of forecasts and outcomes. Here, I organise
+the predictions into buckets according to range. The size of the buckets
+seems important: bigger buckets contain bigger datasets, but are also
+less granular. Also, should the size of buckets increase with increasing
+range (e.g. exponentially: the first bucket is for all predictions made
+one day or less before resolution, the second bucket for all predictions
+made 2-4 days before resolution, the third bucket for all predictions
+4-8 days before resolution, and so on) or stay the same?</p>
+
+<p>I decided to use evenly sized buckets, and test with varying sizes of
+one day, one week, one month (30 days) and one year (365 days).</p>
+
+<pre><code>spd::24*60*60
+spw::7*spd
+spm::30*spd
+spy::365*spd
+dpbdiffs::{_x%spd}pbdata@3
+wpbdiffs::{_x%spw}'pbdata@3
+mpbdiffs::{_x%spm}'pbdata@3
+ypbdiffs::{_x%spy}'pbdata@3
+dmetdiffs::{_x%spd}'metdata@3
+wmetdiffs::{_x%spw}'metdata@3
+mmetdiffs::{_x%spm}'metdata@3
+ymetdiffs::{_x%spy}'metdata@3
+</code></pre>
+
+<p>The <a href="https://en.wikipedia.org/wiki/Brier_score">Brier Score</a> is
+a scoring rule for binary forecasts. It takes into account both
+calibration and resolution by basically being the <a href="https://en.wikipedia.org/wiki/Mean_squared_error">mean squared
+error</a> of forecast
+(<code>$f_{t}$</code>) and outcome (<code>$o_{t}$</code>):</p>
+
+<div>
+    $$BS=\frac{1}{N}\sum_{t=1}^{N}(f_{t}-o_{t})^{2}$$
+</div>
+
+<p>In Klong, it's easy to implement (and also available through
+the function <code>mse.set</code>):</p>
+
+<pre><code>brier::{mu((x-y)^2)}
+</code></pre>
+
+<p>Now, one can calculate the brier score for the forecasts and outcomes
+in each bucket (here I only show it for the days buckets, but it's
+similar for weeks, months and years):</p>
+
+<pre><code>pbress::pbdata@1
+pbfcs::pbdata@2
+
+dpbdg::=dpbdiffs
+dpbdiffbrier::{(dpbdiffs@*x),brier(pbfcs@x;pbress@x)}'dpbdg
+dpbdiffbrier::dpbdiffbrier@&lt;*'dpbdiffbrier
+
+metress::metdata@1
+metfcs::metdata@2
+
+dmetdg::=dmetdiffs
+dmetdiffbrier::{(dmetdiffs@*x),brier(metfcs@x;metress@x)}'dmetdg
+dmetdiffbrier::dmetdiffbrier@&lt;*'dmetdiffbrier
+</code></pre>
 
 <h2>Accuracy Between Questions</h2>
 
