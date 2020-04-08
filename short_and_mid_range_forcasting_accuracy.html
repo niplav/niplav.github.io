@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2020-03-24, modified: 2020-04-07, language: english, status: notes, importance: 6, confidence: possible</em></p>
+<p><em>author: niplav, created: 2020-03-24, modified: 2020-04-08, language: english, status: notes, importance: 6, confidence: possible</em></p>
 
 <blockquote>
   <p><strong>This text looks at the accuracy of forecasts in relation
@@ -361,8 +361,8 @@ the brier score using <code>mse.set</code>):</p>
 <pre><code>.fc(.ic("../../data/pb.csv"));pbraw::csv.load()
 .fc(.ic("../../data/met.csv"));metraw::csv.load()
 
-pbdata::+{(1:$*x),1.0:$'x}'pbraw
-metdata::+{(1:$*x),1.0:$'x}'metraw
+pbdata::+flr({0&lt;*|x};{(1:$*x),1.0:$'1_x}'pbraw)
+metdata::+flr({0&lt;*|x};{(1:$*x),1.0:$'1_x}'metraw)
 </code></pre>
 
 <p>To compare the accuracy between forecasts, one can't deal with individual
