@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-12-25, modified: 2020-04-03, language: english, status: in progress, importance: 4, confidence: remote</em></p>
+<p><em>author: niplav, created: 2019-12-25, modified: 2020-04-11, language: english, status: in progress, importance: 4, confidence: remote</em></p>
 
 <blockquote>
   <p><strong>Is daygame worth it, and if yes, how much? I first present a simple
@@ -1075,18 +1075,51 @@ baselessly assume that the cost overhead is \$80.</p>
 
 <h4>Social Costs from Being Found Out</h4>
 
+<p>For some people doing daygame, being found out as a daygamer can have
+negative consequences: Loosing friends, being publicly shamed, or even
+having negative effects in the workplace. For this reason (and probably
+also as a precautionary measure), many daygamers publish their writing
+online anonymously.</p>
+
+<p>But doing daygame can also have negative side-effects even if one doesn't
+write about it online: Acquantainces could see one doing daygame and
+tell it around in parts of ones social circle, leading to ostracisation
+or financial consequences.</p>
+
+<p>On the other hand, being discovered probably doesn't propagate through
+ones whole social circle, and often probably has very small effects.</p>
+
+<p>I model this as having a certain probability of being discovered as
+a daygamer for every approach. Being found out more than once has
+logarithmically increasing costs with the number of being found out.</p>
+
+<p>I'll (somewhat arbitrarily) set the cost of first being found at \$500,
+and the probability of being found out at any approach to 0.1%.</p>
+
+<p>The probability of being discovered <code>n</code> times with
+<code>x</code> approaches can be calculated using the <a href="https://en.wikipedia.org/wiki/Binomial_distribution">binomial
+distribution</a>.</p>
+
+<p>To make the code run faster, only the scenarios with a cost of more than
+\$0.01 are being considered.</p>
+
+<pre><code>fcbfo::300
+pbfo::0.001
+cbfo::{[t];t::x;+/{b.pmf(x;t;pbfo)*fcbfo*ln(e*x)}'1+!{(x&lt;t)&amp;00.1&lt;b.pmf(x;t;pbfo)*fcbfo*ln(e*x)}{x+1}:~1}
+</code></pre>
+
 <h3>Value in the Complex Model</h3>
 
 <p>The global optimum is now calculated the same way as <a href="#Value">here</a>:</p>
 
 <pre><code>    optim::*&gt;vals
-1092
+1024
     vals@*&gt;vals
-2378.70879018822807
+2110.1350422531768
 </code></pre>
 
 <p>The more complex model with additional considerations therefore recommends
-1092 approaches, with a value of ~\$2378.71.</p>
+1024 approaches, with a value of ~\$2110.13.</p>
 
 <p>Graphically:</p>
 
@@ -1145,6 +1178,8 @@ it'd be good to make a Monte-Carlo version of the model using the website
 <p><!--</p>
 
 <h2>Appendix B: A Slightly More Complex Guesstimate Model of the Value</h2>
+
+<h3>Inputs</h3>
 
 <p>--></p>
 
