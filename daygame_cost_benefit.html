@@ -28,14 +28,21 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 </script>
 
 <script>
+var anchorhash={}
 function addAnchor(element) {
-	cnt=element.textContent
+	var cnt=element.textContent
 	if(cnt==="home")
 		return;
-	ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
 	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+i;anchorhash[ref+i]===1;i++, newref=ref+i)
+			;
+	ref=newref
 	element.setAttribute("id", `${ref}`)
 	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
 }
 document.addEventListener('DOMContentLoaded', function () {
 	// Add anchor links to all headings
@@ -43,12 +50,18 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (headers) {
 		headers.forEach(addAnchor)
 	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
 });
 </script>
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-12-25, modified: 2020-04-11, language: english, status: in progress, importance: 4, confidence: remote</em></p>
+<p><em>author: niplav, created: 2019-12-25, modified: 2020-04-12, language: english, status: in progress, importance: 4, confidence: remote</em></p>
 
 <blockquote>
   <p><strong>Is daygame worth it, and if yes, how much? I first present a simple
@@ -56,10 +69,11 @@ document.addEventListener('DOMContentLoaded', function () {
   that daygame is probably worth ~\$1000 maximum, at ~500 approaches,
   though the number varies strongly under different assumptions. After
   that, I modify the model to capture more of the nuance, and arrive at
-  _. I then perform a Monte-Carlo estimation to determine the uncertainty
-  around the expected value and find that in the simple case the value of
-  daygame ranges from -\$3300 to \$3200 (5th/95th percentile), with a
-  median of \$900 and a mean of \$550, and in the complex case _.</strong></p>
+  ~\$2100 of value for ~1000 approaches. I then perform a Monte-Carlo
+  estimation to determine the uncertainty around the expected value and
+  find that in the simple case the value of daygame ranges from -\$3300 to
+  \$3200 (5th/95th percentile), with a median of \$900 and a mean of \$550,
+  and in the complex case _.</strong></p>
 </blockquote>
 
 <h1>Daygame Cost-Benefit Analysis</h1>

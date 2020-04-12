@@ -28,14 +28,21 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 </script>
 
 <script>
+var anchorhash={}
 function addAnchor(element) {
-	cnt=element.textContent
+	var cnt=element.textContent
 	if(cnt==="home")
 		return;
-	ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
 	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+i;anchorhash[ref+i]===1;i++, newref=ref+i)
+			;
+	ref=newref
 	element.setAttribute("id", `${ref}`)
 	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
 }
 document.addEventListener('DOMContentLoaded', function () {
 	// Add anchor links to all headings
@@ -43,12 +50,18 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (headers) {
 		headers.forEach(addAnchor)
 	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
 });
 </script>
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-04-02, modified: 2020-03-29, language: english, status: in progress, importance: 3, confidence: log</em></p>
+<p><em>author: niplav, created: 2019-04-02, modified: 2020-04-12, language: english, status: in progress, importance: 3, confidence: log</em></p>
 
 <blockquote>
   <p><strong>A monthly review of changes on this website.</strong></p>
@@ -62,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <ul>
 <li><a href="./daygame_cost_benefit.html#A-Slightly-More-Complex-Model">A Slightly More Complex Model for the Value of Daygame</a></li>
-<li><a href="./naive_set_theory_solutions.html#Section-6-Exercise-1">Solutions for Exercises in Section 6 &amp; 7 in “Naive Set Theory”</a></li>
+<li><a href="./naive_set_theory_solutions.html">Solutions for Exercises in “Naive Set Theory”</a>: Sections <a href="./naive_set_theory_solutions.html#Section-6">6</a> &amp; <a href="./naive_set_theory_solutions.html#Section-7">7</a></li>
 <li><a href="./99_problems_klong_solution.html#A-Generative-Solution">A Generative Solution for P60</a> in the <a href="./99_problems_klong_solution.html">99 Problems Klong Solution</a></li>
 <li><a href="./considerations_on_cryonics.html#Appendix-A-A-Guesstimate-Model">A Monte-Carlo Simulation for the Value of Cryonics</a></li>
 </ul>

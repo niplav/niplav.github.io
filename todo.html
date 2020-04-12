@@ -28,14 +28,21 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 </script>
 
 <script>
+var anchorhash={}
 function addAnchor(element) {
-	cnt=element.textContent
+	var cnt=element.textContent
 	if(cnt==="home")
 		return;
-	ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
 	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+i;anchorhash[ref+i]===1;i++, newref=ref+i)
+			;
+	ref=newref
 	element.setAttribute("id", `${ref}`)
 	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
 }
 document.addEventListener('DOMContentLoaded', function () {
 	// Add anchor links to all headings
@@ -43,19 +50,25 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (headers) {
 		headers.forEach(addAnchor)
 	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
 });
 </script>
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-09-09, modified: 2020-04-09, language: english, status: notes, importance: 2, confidence: log</em></p>
+<p><em>author: niplav, created: 2019-09-09, modified: 2020-04-12, language: english, status: notes, importance: 2, confidence: log</em></p>
 
 <blockquote>
   <p><strong>Notes and ideas for texts &amp; programs that will be written decades
   in the future, as well as music.</strong></p>
 </blockquote>
 
-<h1>TODO</h1>
+<h1>Todo</h1>
 
 <h2>Site</h2>
 
@@ -69,10 +82,8 @@ document.addEventListener('DOMContentLoaded', function () {
 <li>Improve citation (both to wikipedia and to papers)</li>
 <li>Make all scripted programs banged</li>
 <li>Link tooltips at the beginning of lines break the links</li>
-<li>Anchor links may be duplicated, update code</li>
 <li>Description of images in italics below</li>
 <li>Move from Python2 to Python3</li>
-<li>USe correct titles</li>
 </ul>
 
 <h2>Texts</h2>
@@ -441,14 +452,14 @@ discarded methods of writing mathematics.</li>
 <li>Discarded Methods
 <ul>
 <li>https://en.wikipedia.org/wiki/Begriffsschrift</li>
-<li>https://en.wikipedia.org/wiki/Newton%27s<em>notation#Newton's</em>notation</li>
+<li>https://en.wikipedia.org/wiki/Newton%27s_notation#Newton's_notation</li>
 </ul></li>
 <li>New Notations
 <ul>
 <li>General
 <ul>
 <li>https://www.stephenwolfram.com/publications/mathematical-notation-past-future/</li>
-<li>/usr/local/doc/unread/towards<em>a</em>better<em>notation</em>for<em>mathematics</em>olah<em>2010.pdf</li>
+<li>/usr/local/doc/unread/towards_a_better_notation_for_mathematics_olah_2010.pdf</li>
 </ul></li>
 <li>Triangle of Power
 <ul>
@@ -459,7 +470,7 @@ discarded methods of writing mathematics.</li>
 </ul></li>
 <li>Read
 <ul>
-<li>/usr/local/doc/unread/notation/notation<em>as</em>a<em>tool</em>of<em>thought</em>iverson</em>1986.pdf</li>
+<li>/usr/local/doc/unread/notation/notation_as_a_tool_of_thought_iverson_1986.pdf</li>
 </ul></li>
 </ul></li>
 <li>Cryonics in Germany FAQ</li>
@@ -579,11 +590,11 @@ Inspired by <a href="http://unsongbook.com/">Unsong</a></li>
 </ul></li>
 <li>Tegmark's Mathematical Universe
 <ul>
-<li>/usr/local/doc/unread/physics/our<em>mathematical</em>universe<em>tegmark</em>2014.epub</li>
+<li>/usr/local/doc/unread/physics/our_mathematical_universe_tegmark_2014.epub</li>
 </ul></li>
 <li>Symmetry Theory of Valence
 <ul>
-<li>/usr/local/doc/unread/principia<em>qualia</em>johnson_2017.pdf</li>
+<li>/usr/local/doc/unread/principia_qualia_johnson_2017.pdf</li>
 </ul></li>
 <li>Scott Alexander's Solution to Theodicy
 https://slatestarcodex.com/2015/03/15/answer-to-job/</li>

@@ -28,14 +28,21 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 </script>
 
 <script>
+var anchorhash={}
 function addAnchor(element) {
-	cnt=element.textContent
+	var cnt=element.textContent
 	if(cnt==="home")
 		return;
-	ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
 	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+i;anchorhash[ref+i]===1;i++, newref=ref+i)
+			;
+	ref=newref
 	element.setAttribute("id", `${ref}`)
 	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
 }
 document.addEventListener('DOMContentLoaded', function () {
 	// Add anchor links to all headings
@@ -43,12 +50,18 @@ document.addEventListener('DOMContentLoaded', function () {
 	if (headers) {
 		headers.forEach(addAnchor)
 	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
 });
 </script>
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2020-04-03, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2020-04-12, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -60,10 +73,14 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h1>Solutions to “Naive Set Theory“</h1>
 
-<p>A <code>$\TeX$</code> version of this solution is available
-<a href="./code/naive_set_theory/exercises.pdf">here</a>.</p>
+<!--
+A `$\TeX$` version of this solution is available
+[here](./code/naive_set_theory/exercises.pdf).
+-->
 
-<h2>Section 3, Exercise 1</h2>
+<h2>Section 3</h2>
+
+<h3>Exercise 1</h3>
 
 <p>It seems like there is no way one could use either insetting (putting
 a given set into another set) and pairing or pairing on two different
@@ -83,7 +100,9 @@ at least one element not in <code>$\{c,d\}$</code>.</p>
 
 <p>□</p>
 
-<h2>Section 4, Exercise 1</h2>
+<h2>Section 4</h2>
+
+<h3>Exercise 1</h3>
 
 <p>I am not exactly sure what I'm supposed to do here. I guess
 "observe" means "prove" here, so "prove that the condition
@@ -101,7 +120,9 @@ has nothing to do with the set B".</p>
 
 <p>□</p>
 
-<h2>Section 5, Some easy exercises</h2>
+<h2>Section 5</h2>
+
+<h3>Some Easy Exercises</h3>
 
 <p><code>$A-B=A \cap B'$</code></p>
 
@@ -189,7 +210,7 @@ doesn't change the equation.</p>
 
 <p>□</p>
 
-<h2>Section 5, Exercise 1</h2>
+<h3>Exercise 1</h3>
 
 <p>To be shown: The power set of a set with n elements has <code>$2^n$</code> elements.
 Proof by induction.</p>
@@ -218,7 +239,7 @@ therefore <code>$|P(A \cup \{a\})|=|P(A)|+|N|=2*|P(A)|=2*2^{|A|}=2^{|A|+1}$</cod
 
 <p>□</p>
 
-<h2>Section 5, Exercise 2</h2>
+<h3>Exercise 2</h3>
 
 <p>To be shown:</p>
 
@@ -348,7 +369,9 @@ clear that <code>$E \subset {\cal{P}}(E)$</code>, as for all other subsets of <c
 
 <p>□</p>
 
-<h2>Section 6, A non-trivial exercise</h2>
+<h2>Section 6</h2>
+
+<h3>A Non-Trivial Exercise</h3>
 
 <p>"find an intrinsic characterization of those sets of subsets of A that
 correspond to some order in A"</p>
@@ -383,7 +406,7 @@ the size of <code>$A$</code> is the size of <code>$M$</code>.</p>
 <p>These conditions characterise <code>$\cal{M}$</code> intrinsically and are the solution
 to the question.</p>
 
-<h2>Section 6, Exercise 1</h2>
+<h3>Exercise 1</h3>
 
 <p>(i) To be shown: <code>$(A \cup B) \times X=(A \times X) \cup (B \times X)$</code></p>
 
@@ -433,7 +456,9 @@ and there is a contradiction.</p>
 
 <p>□</p>
 
-<h2>Section 7, Exercise 1</h2>
+<h2>Section 7</h2>
+
+<h3>Exercise 1</h3>
 
 <p>Reflexive, but neither symmetric nor transitive (symmetry violation:
 <code>$(b,a)\not\in$</code>, transitivity violation: <code>$(a,c)\not\in$</code>):
@@ -447,7 +472,7 @@ and there is a contradiction.</p>
 violation: <code>$(a,a)\not\in$</code>, symmetry violation: <code>$(b,a)\not\in$</code>):
 <code>$\{(a,b),(b,c),(a,c)\}$</code></p>
 
-<h2>Section 7, Exercise 2</h2>
+<h3>Exercise 2</h3>
 
 <blockquote>
   <p>We shall write <code>$X/R$</code> for the set of all equivalence classe. (Pronounce
@@ -466,3 +491,44 @@ violation: <code>$(a,a)\not\in$</code>, symmetry violation: <code>$(b,a)\not\in$
 <p><code>$X/R=\{E: (\forall x, y \in E: x R y) \land E \in {\cal{P}}(X) \} \subset {\cal{P}}(X)$</code></p>
 
 <p>□, I guess?</p>
+
+<h2>Section 8</h2>
+
+<h3>Exercise 1</h3>
+
+<p>Basically, the question is "Which projections are one-to-one", or,
+"Which projections are injective"?</p>
+
+<p>The answer is: A projection <code>$p: X\times Y \mapsto X$</code> is injective iff
+<code>$\forall (x,y)\in X \times Y: \nexists (x,z) \in X \times Y: z \neq y$</code>.
+Or, simpler: Every element of <code>$X$</code> occurs at most once in the relation.
+This can be extended easily to relations composed of more than 2 sets.</p>
+
+<h3>Exercise 2</h3>
+
+<p>(i) To be shown: <code>$Y^{\emptyset}=\{\emptyset\}$</code></p>
+
+<p>1. <code>$\emptyset:\emptyset \rightarrow Y$</code> (the empty set is a function
+from <code>$\emptyset$</code> to <code>$Y$</code>).</p>
+
+<p>This is true because <code>$\emptyset$</code> is a relation so that
+<code>$\emptyset \subset \emptyset \times Y$</code>, and <code>$\forall x \in \emptyset: \exists (x,y) \in \emptyset$</code>.
+Or: <code>$\emptyset$</code> is a set of pairs that maps all elements in
+<code>$\emptyset$</code> to <code>$X$</code>, and therefore a function from <code>$\emptyset$</code> to
+<code>$X$</code>.</p>
+
+<p>2. Assume <code>$\exists x \in Y^{\emptyset}: x \neq \emptyset$</code></p>
+
+<p>Then <code>$x: \emptyset \rightarrow Y$</code>, and <code>$x \subset \emptyset \times Y$</code>.
+But <code>$\emptyset \times X$</code> can only be <code>$\emptyset$</code>, but it was assumed
+that <code>$x \neq \emptyset$</code>. Therefore, no such <code>$x$</code> can exist.</p>
+
+<p>(ii) To be shown: <code>$X \neq \emptyset \Rightarrow \emptyset^{X}=\emptyset$</code></p>
+
+<p>Assume <code>$\exists f \in \emptyset^{X}$</code>. Then
+<code>$f \subset X \times \emptyset \land \forall x \in X: \exists (x,y) \in f: y \in \emptyset$</code>
+(or: <code>$f$</code> maps all elements of <code>$X$</code> to an element in
+<code>$\emptyset$</code>). However there are no elements in the empty set (that I
+know of), so <code>$f$</code> can't exist.</p>
+
+<p>However, if <code>$X=\emptyset$</code>, then (i) applies. So <code>$\emptyset^{\emptyset}=\{\emptyset\}$</code>.</p>
