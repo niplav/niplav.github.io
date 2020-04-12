@@ -37,7 +37,7 @@ function addAnchor(element) {
 	ref=ref.replace(/ /mg, "-")
 	var newref=ref;
 	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+i;anchorhash[ref+i]===1;i++, newref=ref+i)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+i]===1;i++, newref=ref+"_"+i)
 			;
 	ref=newref
 	element.setAttribute("id", `${ref}`)
