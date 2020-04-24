@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-02-10, modified: 2020-03-19, language: english, status: in progress, importance: 3, confidence: possible</em></p>
+<p><em>author: niplav, created: 2019-02-10, modified: 2020-04-24, language: english, status: in progress, importance: 3, confidence: possible</em></p>
 
 <blockquote>
   <p><strong>Solutions to the <a href="./99_klong_problems.html" title="99 Klong
@@ -770,7 +770,7 @@ and now has to be converted into
 convert -size 750x750 runtimes25.eps runtimes25.png
 </code></pre>
 
-<p><img src="./img/99_klong/runtimes25.png" alt="Runtimes for the solutions to problem 3" title="Runtimes for the solutions to problem 3. Fisher-Yates shuffle is alot slower than the shorter Grading shuffle (Fisher-Yates takes 3 seconds for 9K elements, Grading shuffle only 0.6 seconds), and also grows quicker." /></p>
+<p><img src="./img/99_klong/runtimes25.png" alt="Runtimes for the solutions to problem 3" title="Runtimes for the solutions to problem 3. Fisher-Yates shuffle is alot slower than the shorter Grading shuffle (Fisher-Yates takes 3 seconds for 9k elements, Grading shuffle only 0.6 seconds), and also grows quicker." /></p>
 
 <p>The Fisher-Yates shuffle implementation seems to grow with <code>$\cal{O}(n^2)$</code>,
 but the growth behavior of the Grading Shuffle is not entirely
@@ -1010,7 +1010,7 @@ of x).</p>
 <p>Even quick performance tests reveal massive differences between these
 four functions (the result always is the average runtime in seconds):</p>
 
-<p>Testing <code>s31.1</code> with 100 random values &gt;100K:</p>
+<p>Testing <code>s31.1</code> with 100 random values &gt;100k:</p>
 
 <pre><code>    .l("time")
     s31.1::{:[[0 1]?x;0:|x=2;1;[]~(x!2+!x-2)?0]}
@@ -1026,7 +1026,7 @@ four functions (the result always is the average runtime in seconds):</p>
 0.05924128
 </code></pre>
 
-<p>Testing <code>s31.3</code> with 100 random values &gt;10K:</p>
+<p>Testing <code>s31.3</code> with 100 random values &gt;10k:</p>
 
 <pre><code>    .l("time")
     s31.3::{[a v];a::x;v::1;x=*{a&gt;*x}{v::v+2;:[[]~(v!x)?0;v,x;x]}:~[2]}
@@ -1034,7 +1034,7 @@ four functions (the result always is the average runtime in seconds):</p>
 2.87354341
 </code></pre>
 
-<p>Testing <code>s31.4</code> with 100 random values &gt;10K:</p>
+<p>Testing <code>s31.4</code> with 100 random values &gt;10k:</p>
 
 <pre><code>    .l("time")
     s31.4::{[n p];n::x;p::[2];{~x&gt;n}{:[&amp;/x!p;p::p,x;0];x+2}:~3;:[x&lt;2;0;x=*|p]}
@@ -1042,7 +1042,7 @@ four functions (the result always is the average runtime in seconds):</p>
 5.4216601
 </code></pre>
 
-<p>Testing <code>s31.5</code> with 100 random values &gt;100K:</p>
+<p>Testing <code>s31.5</code> with 100 random values &gt;100k:</p>
 
 <pre><code>    .l("time")
     s31.5::{:[x&lt;2;0:|x=2;1;&amp;/x!:\2_!x]}
@@ -1066,7 +1066,7 @@ the omission of even divisors).</p>
 
 <p>One can now check the performance of the first two functions to find
 out about their runtime behavior (notice that both have similar growth
-behavior at 100K and 10G, respectively).</p>
+behavior at 100k and 10b, respectively).</p>
 
 <p>Measuring runtimes of <code>s31.1</code> and generating the graph:</p>
 
@@ -1085,7 +1085,7 @@ text(300;300;"s31.1")
 draw()
 </code></pre>
 
-<p><img src="./img/99_klong/runtimes31_1.png" alt="Runtimes of s31.1" title="Runtimes of s31.1. The runtime grows linearly, with spikes in the runtime around the values 300K, 500K and 700K." /></p>
+<p><img src="./img/99_klong/runtimes31_1.png" alt="Runtimes of s31.1" title="Runtimes of s31.1. The runtime grows linearly, with spikes in the runtime around the values 300k, 500k and 700k." /></p>
 
 <p>Measuring runtimes of <code>s31.2</code> and generating the graph:</p>
 
@@ -1123,7 +1123,7 @@ text(300;300;"s31.5")
 draw()
 </code></pre>
 
-<p><img src="./img/99_klong/runtimes31_5.png" alt="Runtimes of s31.5" title="Runtimes of s31.5. It is not clear whether the function grows linearly or quadratically. But it also has spikes, this time around 100K, 200K, 400K and 650K. It takes around 3 seconds for a value of 600K." /></p>
+<p><img src="./img/99_klong/runtimes31_5.png" alt="Runtimes of s31.5" title="Runtimes of s31.5. It is not clear whether the function grows linearly or quadratically. But it also has spikes, this time around 100k, 200k, 400k and 650k. It takes around 3 seconds for a value of 600k." /></p>
 
 <p>As one can see, both grow approximately linearly, and <code>s31.5</code> is around
 twice as slow as <code>s31.1</code>, while having the same growth behavior. I am
