@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-12-25, modified: 2020-06-02, language: english, status: in progress, importance: 4, confidence: remote</em></p>
+<p><em>author: niplav, created: 2019-12-25, modified: 2020-06-10, language: english, status: in progress, importance: 4, confidence: remote</em></p>
 
 <blockquote>
   <p><strong>Is daygame worth it, and if yes, how much? I first present a simple
@@ -1212,15 +1212,32 @@ it'd be good to make a Monte-Carlo version of the model using the website
 
 <p>Log:</p>
 
+<p>2 datasets, first containing approaches, 2nd containing approach sessions</p>
+
+<p>1st file datapoints (in CSV):</p>
+
 <ul>
-<li>Date ratio</li>
-<li>Lay ratio</li>
-<li>Number of dates
+<li>Approach index number</li>
+<li>Datetime</li>
+<li>Location (country)</li>
+<li>Blowout</li>
+<li>Contact info ∈{number,instagram,facebook,skype,snapchat etc.,other}</li>
+<li>Idate length (minutes)</li>
+<li>Idate cost (euro)</li>
+<li>Flake before 1st date (boolean)</li>
+<li>Date before first sex [1..10] cost (euro)</li>
+<li>Date before first sex [1..10] length (minutes)</li>
+<li>Sex number of times (roughly)</li>
+<li>Attractiveness (∈[1..10])</li>
+</ul>
+
+<p>2nd file:</p>
+
 <ul>
-<li>How many nth dates?</li>
-</ul></li>
-<li>Cost per date</li>
-<li>Retention ratio
+<li>Datetime start</li>
+<li>Datetime end</li>
+<li>Approaches index number range</li>
+<li>Number of approaches (evtl.)
 -->
 <!--
 Second one: fix costs &amp; other stuff
