@@ -1,0 +1,137 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2020-06-25, modified: 2020-06-25, language: english, status: in progress, importance: 1, confidence: log</em></p>
+
+<blockquote>
+  <p><strong>.</strong></p>
+</blockquote>
+
+<h1>List of Movies I have Watched</h1>
+
+<p>These are the movies I have watched since december 2018 (newest additions
+first).</p>
+
+<ul>
+<li><a href="https://www.imdb.com/title/tt0121766/">Star Wars: Episode III - Revenge of the Sith</a></li>
+<li><a href="https://www.imdb.com/title/tt2543164/">Arrival</a></li>
+<li><a href="https://www.imdb.com/title/tt3748528/">Rogue One: A Star Wars Story</a></li>
+<li><a href="https://www.imdb.com/title/tt0457430/">Pan's Labyrinth</a></li>
+<li><a href="https://www.imdb.com/title/tt0104652/">Porco Rosso</a></li>
+<li><a href="https://www.imdb.com/title/tt2013293/">The Wind Rises</a></li>
+<li><a href="https://www.imdb.com/title/tt2316204/">Alien: Covenant</a></li>
+<li><a href="https://www.imdb.com/title/tt6292852/">I am Mother</a></li>
+<li><a href="https://www.imdb.com/title/tt0416449/">300</a></li>
+<li><a href="https://www.imdb.com/title/tt0388795">Brokeback Mountain</a></li>
+<li><a href="https://www.imdb.com/title/tt0167260/">The Lord of the Rings: The Return of the King</a></li>
+<li><a href="https://www.imdb.com/title/tt0167261/">The Lord of the Rings: The Two Towers</a></li>
+<li><a href="https://www.imdb.com/title/tt0120737/">The Lord of the Rings: The Fellowship of the Ring</a></li>
+<li><a href="https://www.imdb.com/title/tt0347149/">Howl's Moving Castle</a></li>
+<li><a href="https://www.imdb.com/title/tt0449088/">Pirates of the Caribbean: At World's End</a></li>
+<li><a href="https://www.imdb.com/title/tt0383574/">Pirates of the Caribbean: Dead Man's Chest</a></li>
+<li><a href="https://www.imdb.com/title/tt0499549/">Avatar</a></li>
+<li><a href="https://www.imdb.com/title/tt0325980/">Pirates of the Caribbean: The Curse of the Black Pearl</a></li>
+<li><a href="https://www.imdb.com/title/tt0119698/">Princess Mononoke</a></li>
+<li><a href="https://www.imdb.com/title/tt0092972/">Epidemic</a></li>
+<li><a href="https://www.imdb.com/title/tt0245429/">Spirited Away</a></li>
+<li><a href="https://www.imdb.com/title/tt0101829/">Europa</a></li>
+<li><a href="https://www.imdb.com/title/tt0096283/">My Neighbour Totoro</a></li>
+<li><a href="https://www.imdb.com/title/tt0092067/">Castle in the Sky</a></li>
+<li><a href="https://www.imdb.com/title/tt1136608/">District 9</a></li>
+<li><a href="https://m.imdb.com/title/tt3315342/">Logan</a></li>
+<li><a href="https://www.imdb.com/title/tt4263482/">The VVitch: A New-England Folktale</a></li>
+<li><a href="https://www.imdb.com/title/tt1677720/">Reader Player One</a></li>
+<li><a href="https://www.imdb.com/title/tt3183660/">Fantastic Beasts and Where to Find Them</a></li>
+<li><a href="https://www.imdb.com/title/tt0120762/">Mulan</a></li>
+<li><a href="https://www.imdb.com/title/tt7984766/">The King</a></li>
+<li><a href="https://www.imdb.com/title/tt0831387/">Godzilla</a></li>
+<li><a href="https://www.imdb.com/title/tt7984734/">The Lighthouse</a></li>
+<li><a href="https://www.imdb.com/title/tt1302006/">The Irishman</a></li>
+<li><a href="https://www.imdb.com/title/tt6751668/">Parasite</a></li>
+<li><a href="https://www.imdb.com/title/tt1856101/">Blade Runner 2049</a></li>
+<li><a href="https://www.imdb.com/title/tt1706620/">Snowpiercer</a></li>
+<li><a href="https://www.imdb.com/title/tt3501632/">Thor: Ragnarok</a></li>
+<li><a href="https://www.imdb.com/title/tt7131622/">Once Upon a Time… in Hollywood</a></li>
+<li><a href="https://www.imdb.com/title/tt0361748/">Inglorious Basterds</a></li>
+<li><a href="https://www.imdb.com/title/tt0169858/">Neon Genesis Evangelion: The End of Evangelion</a></li>
+<li><a href="https://www.imdb.com/title/tt1192628/">Rango</a></li>
+<li><a href="https://www.imdb.com/title/tt7282468/">Burning</a></li>
+<li><a href="https://www.imdb.com/title/tt0052893/">Hiroshima Mon Amour</a></li>
+<li><a href="https://www.imdb.com/title/tt0449467/">Babel</a></li>
+<li><a href="https://www.imdb.com/title/tt3741700/">Godzilla: King of the Monsters</a></li>
+<li><a href="https://www.imdb.com/title/tt0078748/">Alien</a></li>
+<li><a href="https://www.imdb.com/title/tt4827558/">High Life</a></li>
+<li><a href="https://www.imdb.com/title/tt9588298/">The Trial of Ratko Mladic</a></li>
+<li><a href="https://www.imdb.com/title/tt9495224/">Black Mirror: Bandersnatch</a></li>
+<li><a href="https://www.imdb.com/title/tt3576084/">Zero Motivation</a></li>
+<li><a href="https://www.imdb.com/title/tt5013056/">Dunkirk</a></li>
+<li><a href="https://www.imdb.com/title/tt1270797/">Venom</a></li>
+<li><a href="https://www.imdb.com/title/tt4633694/">Spider-Man: Into the Spider-Verse</a></li>
+<li><a href="https://www.imdb.com/title/tt0780180/">Wer früher stirbt, ist länger tot</a></li>
+<li><a href="https://www.imdb.com/title/tt5478478/">Hostiles</a></li>
+<li><a href="https://www.imdb.com/title/tt0860907/">Evangelion: 3.0: You Can (Not) Redo</a></li>
+<li><a href="https://www.imdb.com/title/tt0860906/">Evangelion: 2.0: You Can (Not) Advance</a></li>
+<li><a href="https://www.imdb.com/title/tt0887883/">Burn after Reading</a></li>
+<li><a href="https://www.imdb.com/title/tt0923811/">Evangelion: 1.01 - You Are (Not) Alone</a></li>
+<li><a href="https://www.imdb.com/title/tt0051378/">Ascenseur pour l'échafaud</a></li>
+</ul>
