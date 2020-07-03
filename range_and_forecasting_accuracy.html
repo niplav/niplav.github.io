@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2020-03-24, modified: 2020-06-30, language: english, status: notes, importance: 6, confidence: possible</em></p>
+<p><em>author: niplav, created: 2020-03-24, modified: 2020-07-03, language: english, status: notes, importance: 6, confidence: possible</em></p>
 
 <blockquote>
   <p><strong>This text looks at the accuracy of forecasts in relation
@@ -840,6 +840,59 @@ which works because the datasets are just too small (4 &amp; 10 for Metaculus
 and PredictionBook, respectively)? Or is it picking up on a real effect
 only visible with ranges as high as years? I don't know.</p>
 
-<p><!--TODO: Images--></p>
+<p>And now: linear regressions and scatterplots!</p>
+
+<p>The following are scatterplots with range on the X-axis and accuracy
+(calculated using the Brier score) on the Y-axis. Again, red dots/lines
+are for Metaculus data, and blue dots/lines are for Predictionbook data.</p>
+
+<p><img src="img/range_and_forecasting_accuracy/allqdays.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in days)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in days)" /></p>
+
+<p><em>Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in days)</em></p>
+
+<p><img src="img/range_and_forecasting_accuracy/allqweeks.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in weeks)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in weeks)" /></p>
+
+<p><em>Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in weeks)</em></p>
+
+<p><img src="img/range_and_forecasting_accuracy/allqmonths.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in months)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in months)" /></p>
+
+<p><em>Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in months)</em></p>
+
+<p><img src="img/range_and_forecasting_accuracy/allqyears.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in years)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in years)" /></p>
+
+<p><em>Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in years)</em></p>
+
+<p>Note that these are indeed different from the results in the <a href="#Results">analysis
+on between-forecast accuracy</a>. Especially, it seems like the
+linear regressions are less steep:</p>
+
+<pre><code>lreg(dmetdiffbrier)
+    [-0.0000372520623478135807 0.190620666721820704]
+lreg(dqmetbrier)
+    [-0.00000947572947427605725 0.177148138436629167]
+</code></pre>
+
+<p>The general trend seems to be: questions with a higher range have
+a higher accuracy than questions with a lower range. In itself,
+this is already a fascinating finding, and might explain some of
+the effect seen with accuracy between forecasts in the <a href="#Accuracy-Between-Forecasts">previous
+section</a>). On the other hand, the data is
+still very noisy, and the interpolation on PredictionBook data shows no
+relation at all for the four timespans, while having questions with a
+much higher range than Metaculus.</p>
+
+<p>All in all, it's plausible that the relation of range and accuracy
+between questions explains the the weird relation for accuracy and range
+between forecasts, but I don't know enough statistics to tease these
+out exactly. My intuition tells me that the effect on accuracy between
+questions is too small to explain the whole anomaly between forecasts.</p>
 
 <h2>Accuracy Within Questions</h2>
+
+<h2>Conclusion</h2>
+
+<p><!TODO: in 1/2/5/10 years, will the linear regression coefficients for
+these datasets still be positive/negative?--></p>
+
+<p>I hope these will become clearer once the datasets become bigger,
+especially in the higher ranges.</p>
