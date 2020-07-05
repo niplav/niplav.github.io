@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2020-03-24, modified: 2020-07-03, language: english, status: notes, importance: 6, confidence: possible</em></p>
+<p><em>author: niplav, created: 2020-03-24, modified: 2020-07-04, language: english, status: notes, importance: 6, confidence: possible</em></p>
 
 <blockquote>
   <p><strong>This text looks at the accuracy of forecasts in relation
@@ -216,7 +216,7 @@ it easier to train ones calibration on real-world questions and become
 less wrong in the process.</p>
 
 <p>However, both sites differ in their approach to writing, judging and
-scoring forecasts. Predictionbook is much older than Metaculus: the
+scoring forecasts. PredictionBook is much older than Metaculus: the
 former was first released in 2008, the latter started in 2015. It is also
 much less formal than Metaculus: it doesn't require stringent resolution
 criteria, making possible for everybody to judge a question (unrelated
@@ -224,7 +224,7 @@ to whether the person has even made a prediction on the question
 themselves!), while Metaculus requires a short text explaining the context
 and resolution criteria for a question, with the questions being resolved
 by moderators or admins. This leads to Metaculus having less questions
-than Predictionbook, each question having more predictions on it. Of the
+than PredictionBook, each question having more predictions on it. Of the
 two, Metaculus is much more feature-rich: It supports not only binary
 questions, but also range questions with probability distributions,
 comment threads, having closed questions (questions that haven't yet been
@@ -235,7 +235,7 @@ links-->), as well as the Metaculus prediction, a weighted aggregation
 of the forecasts of the best forecasters on the site.</p>
 
 <p>Another significant difference between these two websites is the amount of
-data they publish: Predictionbook shows every single forecast made, while
+data they publish: PredictionBook shows every single forecast made, while
 on Metaculus one can only see the community forecast (a the time-weighted
 median of the forecasts made on the question). This is relevant for this
 analysis: The two approaches must be analysed separately.</p>
@@ -359,7 +359,7 @@ def showforecasts(linkp, res):
     urlp="https://predictionbook.com{}".format(linkp)
     reqp=urllib2.Request(urlp, headers={"User-Agent" : "Firefox"})
     try:
-        conp=urllib2.urlopen(reqp)
+        conp=urllib2.urlopen(reqp, timeout=10)
     except (urllib2.HTTPError, urllib2.URLError) as e:
         return
     datap=conp.read()
@@ -844,7 +844,7 @@ only visible with ranges as high as years? I don't know.</p>
 
 <p>The following are scatterplots with range on the X-axis and accuracy
 (calculated using the Brier score) on the Y-axis. Again, red dots/lines
-are for Metaculus data, and blue dots/lines are for Predictionbook data.</p>
+are for Metaculus data, and blue dots/lines are for PredictionBook data.</p>
 
 <p><img src="img/range_and_forecasting_accuracy/allqdays.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in days)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range (in days)" /></p>
 
