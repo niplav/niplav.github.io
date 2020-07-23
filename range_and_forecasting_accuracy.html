@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2020-03-24, modified: 2020-07-20, language: english, status: notes, importance: 6, confidence: possible</em></p>
+<p><em>author: niplav, created: 2020-03-24, modified: 2020-07-22, language: english, status: notes, importance: 6, confidence: possible</em></p>
 
 <blockquote>
   <p><strong>This text looks at the accuracy of forecasts in relation
@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <p><em>– <a href="https://en.wikipedia.org/wiki/Eliezer_Yudkowsky">Eliezer Yudkowsky</a>, <a href="https://www.lesswrong.com/posts/a7n8GdKiAZRX86T5A/making-beliefs-pay-rent-in-anticipated-experiences">“Making Beliefs Pay Rent (in Anticipated Experiences)“</a>, 2007</em></p>
 
 <p><!--Maybe do the same thing with range
-predictions?  Metric could be one described in
+predictions? Metric could be one described in
 /usr/local/doc/unread/calibration<em>scoring</em>rules<em>for</em>practical<em>prediction</em>training<em>greenberg</em>2018.pdf-->
 <!--Add paragraph on the difference in quality between the two datasets,
 Metaculus better-->
@@ -692,7 +692,7 @@ ymetss::{(ymetdiffs@*x),#x}'ymetdg
 ymetss::ymetss@&lt;ymetss
     ymetss
 [[0 34487] [1 7129] [2 2182] [3 507]]
-        ypbss
+    ypbss
 [[0 29724] [1 4257] [2 1966] [3 1491] [4 909] [5 374] [6 287] [7 155] [8 143] [9 107] [10 6]]
     34487%(34487+7129+2182+507)
 0.77839972915020878
@@ -707,7 +707,7 @@ PredictionBook), but still relevant:</p>
 
 <pre><code>    10#dmetss
 [[0 406] [1 543] [2 633] [3 464] [4 546] [5 477] [6 440] [7 307] [8 240] [9 297]]
-        10#dpbss
+    10#dpbss
 [[0 3267] [1 1142] [2 754] [3 611] [4 625] [5 426] [6 507] [7 440] [8 283] [9 246]]
 </code></pre>
 
@@ -818,19 +818,19 @@ interesting:</p>
 
 <pre><code>    cor@dqmetbrier
 -0.021357561237633882
-        cor@+wqmetbrier
+    cor@+wqmetbrier
 -0.0564522173076630489
-        cor@+mqmetbrier
+    cor@+mqmetbrier
 -0.134945120480158162
-        cor@+yqmetbrier
+    cor@+yqmetbrier
 -0.459895122605089935
-        cor@+dqpbbrier
+    cor@+dqpbbrier
 0.00977369255430785951
-        cor@+wqpbbrier
+    cor@+wqpbbrier
 0.0350359685890036469
-        cor@+mqpbbrier
+    cor@+mqpbbrier
 0.00195160822503737404
-        cor@+yqpbbrier
+    cor@+yqpbbrier
 -0.542853871095691028
 </code></pre>
 
@@ -1021,7 +1021,12 @@ with elements removed so that the length was always 101.</p>
 <p>I mailed the support address on the site, asking for a full timeseries
 on resolved binary questions.</p>
 
-<p><!--TODO: either update or become more penetrant--></p>
+<p>After the support address had not responded to my inquiry, I contacted
+one of the admins of the site on the Discord, but was informed that
+updating the API would be too difficult to do (which is understandable,
+the Metaculus developers do not exist to cater to my whims, and are doing
+a phenomenal job). So, unfortunately I'll have postpone a more complete
+analysis to later.</p>
 
 <hr />
 
@@ -1054,9 +1059,9 @@ of the forecasts on that question within that chunk.</p>
 it to zero outside the range of the oldest and newest chunks:</p>
 
 <pre><code>sketch::{q::x;
-    setrgb(.rn();.rn();.rn());
-    pltr::{:[(x&gt;**q)|x&lt;**|q;0;lr(x;lreg(q))]};
-    plot(pltr)}
+setrgb(.rn();.rn();.rn());
+pltr::{:[(x&gt;**q)|x&lt;**|q;0;lr(x;lreg(q))]};
+plot(pltr)}
 sketch'pchsmetq
 </code></pre>
 
@@ -1133,7 +1138,7 @@ accuracy than questions with short and medium ranges.</p>
 to reverse: The questions asked with very high range are not very
 different from questions with medium range, and have a lot less
 information available to make useful predictions on them; <a href="https://en.wikipedia.org/wiki/Butterfly_effect">butterfly
-effects</a>start kicking
+effects</a> start kicking
 in in systems that are relatively slow moving on human timescales (thus
 easier to predict on medium timescales), but nearly completely random at
 the scale of decades and/or centuries; the questions asked about longer
