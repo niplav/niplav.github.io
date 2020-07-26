@@ -1,0 +1,120 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2020-07-22, modified: 2020-07-26, language: english, status: draft, importance: 7, confidence: unlikely</em></p>
+
+<blockquote>
+  <p><strong>.</strong></p>
+</blockquote>
+
+<h1>An Exploratory Toy AI Takeoff Model</h1>
+
+<blockquote>
+  <p>Warning: Beware things that are fun to argue.</p>
+</blockquote>
+
+<p><em>– <a href="https://en.wikipedia.org/wiki/Eliezer_Yudkowsky">Eliezer Yudkowsky</a>, <a href="./doc/converging_preference_utilitarianism/coherent_extrapolated_volition_yudkowsky_2004.pdf" title="Coherent Extrapolated Volition">“Coherent Extrapolated Volition”</a>, 2004</em></p>
+
+<blockquote>
+  <p>Paraphrasing Roache (2008) the state of play is such that nobody
+  believes the result of a simulation, except the person who performed
+  the simulation, and everybody believes the result of an experiment,
+  except the person who ran the experiment.</p>
+</blockquote>
+
+<p><em>– Ryan G. McClarren, “Uncertainty Quantification and Predictive Computational Science“ p. 9, 2018</em></p>
+
+<p>(Although the quote apparently goes back to Einstein, see “The
+advancement of science, and its burdens” p. 13, only there with "theory"
+instead of "simulation").</p>
+
+<!--Articles:
+* https://aiimpacts.org/historical-growth-trends/
+* https://aiimpacts.org/likelihood-of-discontinuous-progress-around-the-development-of-agi/
+* https://intelligence.org/ai-foom-debate/
+* https://intelligence.org/files/IEM.pdf
+* https://longtermrisk.org/the-future-of-growth-near-zero-growth-rates/
+* https://sideways-view.com/2018/02/24/takeoff-speeds/
+* https://www.lesswrong.com/posts/5WECpYABCT62TJrhY/will-ai-undergo-discontinuous-progress
+* https://www.lesswrong.com/posts/66FKFkWAugS8diydF/modelling-continuous-progress
+* https://www.lesswrong.com/posts/77xLbXs6vYQuhT8hq/why-ai-may-not-foom
+* https://www.lesswrong.com/posts/CjW4axQDqLd2oDCGG/misconceptions-about-continuous-takeoff
+* https://www.lesswrong.com/posts/JBadX7rwdcRFzGuju/recursive-self-improvement
+* https://www.lesswrong.com/posts/YgNYA6pj2hPSDQiTE/distinguishing-definitions-of-takeoff
+* https://www.lesswrong.com/posts/cxgtQXnH2uDGBJJGa/redefining-fast-takeoff
+* https://www.lesswrong.com/posts/tjH8XPxAnr6JRbh7k/hard-takeoff
+-->
+
+<h2>Introduction</h2>
+
+<h3>Existing Approaches</h3>
+
+<h2>The Model</h2>
+
+<h3>Generating the Search Space</h3>
+
+<h4>N-Dimensional Diamond Square</h4>
+
+<h3>Gradient Descent</h3>
+
+<h2>Conclusion</h2>

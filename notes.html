@@ -872,3 +872,34 @@ intellectual progress (<a href="./doc/thoughts_on_open_borders/differential_inte
 and thereby increasing the probability of <a href="https://en.wikipedia.org/wiki/Global_catastrophic_risk">global catastrophic
 risks</a> through
 novel technologies.</p>
+
+<h3>Pseudocode for an Algorithm for Finding Supermaximal Repeats Using a Suffix Array</h3>
+
+<p><a href="doc/supermaximal_repeats_pseudo/the_enhanced_suffix_array_and_its_implications_to_genome_analysis_abouelhoda_et_al_2002.pdf" title="The Enhanced Suffix Array and Its Applications to Genome Analysis">Abouelhoda et al.
+2002</a>
+introduce the enhanced suffix array and describe an algorithm for finding
+<a href="https://en.wikipedia.org/wiki/Maximal_pair">supermaximal repeats</a> and
+maximum unique matches using it in <code>${\cal{O}}(n)$</code> time (<code>$n=|S|$</code>,
+where <code>$S$</code> is the string searched). However, their description lacks
+pseudocode, which I show here:</p>
+
+<pre><code>maxstart ← 0
+result ← ∅
+for i in 0..n − 1 do
+    if lcptab[i] &gt; lcptab[i − 1] and i &gt; 0 then
+        maxstart ← i
+        supmaxrep ← true
+        preceding ← ∅
+    else if lcptab[i] &lt; lcptab[i − 1] and  supmaxrep then
+        ω ← S[suftab[i − 1]..suftab[i − 1] + lcptab[i − 1]]
+        result ← result ∪ {(ω, maxstart, i − 1)}
+        supmaxrep ← false
+    end if
+    if bwttab[i] ∈ preceding then
+        supmaxrep ← false
+    else
+        preceding ← preceding ∪ bwttab[i]
+    end if
+end for
+return result
+</code></pre>
