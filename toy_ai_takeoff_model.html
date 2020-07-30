@@ -64,16 +64,30 @@ document.addEventListener('DOMContentLoaded', function () {
 <p><em>author: niplav, created: 2020-07-22, modified: 2020-07-26, language: english, status: draft, importance: 7, confidence: unlikely</em></p>
 
 <blockquote>
-  <p><strong>.</strong></p>
+  <p><strong>In <a href="https://en.wikipedia.org/wiki/AI_control_problem">AI safety</a>,
+  significant time has been spent on the question of
+  the intelligence of AI systems over time, especially during
+  <a href="https://en.wikipedia.org/wiki/Technological_singularity#Hard_vs._soft_takeoff">takeoff</a>.
+  An underappreciated argument in the debate has been the idea that the more
+  intelligent an AI system becomes, the better it can search the space of
+  possible optimization algorithms. This post proposes a computational model
+  of this process by creating a search space using the <a href="https://en.wikipedia.org/wiki/Diamond-square_algorithm">diamond-square
+  algorithm</a>
+  generalized to n dimensions and then running a very simple
+  <a href="https://en.wikipedia.org/wiki/Hill_climbing">hill-climbing</a> algorithm
+  and brute-force search on that space. Possible further improvements to
+  the model are suggested.</strong></p>
 </blockquote>
 
 <h1>An Exploratory Toy AI Takeoff Model</h1>
 
 <blockquote>
-  <p>Warning: Beware things that are fun to argue.</p>
+  <p>Libre de la metáfora y del mito <br />
+  labra un arduo cristal: el infinito <br />
+  mapa de Aquel que es todas Sus estrellas.</p>
 </blockquote>
 
-<p><em>– <a href="https://en.wikipedia.org/wiki/Eliezer_Yudkowsky">Eliezer Yudkowsky</a>, <a href="./doc/converging_preference_utilitarianism/coherent_extrapolated_volition_yudkowsky_2004.pdf" title="Coherent Extrapolated Volition">“Coherent Extrapolated Volition”</a>, 2004</em></p>
+<p><em>– <a href="https://en.wikipedia.org/wiki/Jorge_Luis_Borges">Jorge Luis Borges</a>, <a href="https://thefunambulist.net/literature/litterature-spinoza-by-borges">“Spinoza”</a>, 1964</em></p>
 
 <blockquote>
   <p>Paraphrasing Roache (2008) the state of play is such that nobody
@@ -105,16 +119,52 @@ instead of "simulation").</p>
 * https://www.lesswrong.com/posts/tjH8XPxAnr6JRbh7k/hard-takeoff
 -->
 
+<!--
+https://en.wikipedia.org/wiki/Brownian_surface
+https://en.wikipedia.org/wiki/Fractal_landscape
+https://en.wikipedia.org/wiki/Fractional_Brownian_motion
+https://en.wikipedia.org/wiki/Gradient_descent
+https://en.wikipedia.org/wiki/Hill_climbing
+https://en.wikipedia.org/wiki/Newton%27s_method
+https://en.wikipedia.org/wiki/OpenSimplex_noise
+https://en.wikipedia.org/wiki/Perlin_noise
+https://en.wikipedia.org/wiki/Simplex_noise
+https://github.com/buckinha/DiamondSquare
+https://nullprogram.com/blog/2007/11/20/
+-->
+
 <h2>Introduction</h2>
 
 <h3>Existing Approaches</h3>
+
+<h2>The Argument</h2>
 
 <h2>The Model</h2>
 
 <h3>Generating the Search Space</h3>
 
+<h4>Desiderata for the Search Space</h4>
+
 <h4>N-Dimensional Diamond Square</h4>
 
-<h3>Gradient Descent</h3>
+<h5>Square</h5>
+
+<h5>Diamond</h5>
+
+<h4>Results</h4>
+
+<h3>Searching the Space</h3>
+
+<h4>Hill Climbing</h4>
+
+<h4>Brute Force Search</h4>
+
+<h2>Results</h2>
+
+<h3>Uniform Values</h3>
+
+<h3>Lognormal Values</h3>
+
+<h2>Limitations</h2>
 
 <h2>Conclusion</h2>

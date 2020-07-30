@@ -1,0 +1,8 @@
+extrfact=0.5
+dim=5
+size=33
+minval=0
+maxval=255
+rounds=4096
+growth=1.001
+-------------
