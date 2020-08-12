@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-10-18, modified: 2020-08-04, language: english, status: in progress, importance: 6, confidence: remote</em></p>
+<p><em>author: niplav, created: 2019-10-18, modified: 2020-08-08, language: english, status: in progress, importance: 6, confidence: remote</em></p>
 
 <blockquote>
   <p><strong>Is cryonics worth it, and if yes, should one
@@ -116,6 +116,15 @@ Why not a Pascal's mugging?
 * No adversary
 * Probability not <em>that</em> low
 * Here assumed rather low bound on payoff to prevent
+--></p>
+
+<p><!--
+Death causes by age:
+https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310039401&amp;pickMembers%5B0%5D=2.1&amp;pickMembers%5B1%5D=3.1&amp;cubeTimeFrame.startYear=2018&amp;cubeTimeFrame.endYear=2018&amp;referencePeriods=20180101%2C20180101
+https://www.advisory.com/daily-briefing/2019/01/16/deaths
+https://injuryfacts.nsc.org/all-injuries/deaths-by-demographics/deaths-by-age/data-details/
+https://www.worldlifeexpectancy.com/usa-cause-of-death-by-age-and-gender
+https://injuryfacts.nsc.org/all-injuries/deaths-by-demographics/deaths-by-age/data-details/
 --></p>
 
 <blockquote>
@@ -1014,6 +1023,75 @@ contact to their cryonics organisation.</p>
 
 <pre><code>prob_pres=0.6
 </code></pre>
+
+<h3>Quality of Preservation</h3>
+
+<p>A common reason for cryocrastination seems to be the belief that deaths
+at an earlier age have causes that make successful cryopreservation less
+likely, and that it is therefore not worth it to sign up early.</p>
+
+<p>To determine whether this is correct, one can investigate the leading
+causes of death by age group and estimate their penalty on successful
+cryopreservation. Note that my medical knowledge is very slim, and I might
+be missing many obvious factors.</p>
+
+<p>I obtain the 10 leading causes of death by age group from <a href="./doc/considerations_on_cryonics/10_leading_causes_of_death_by_age_group_cdc_2018.pdf" title="10 Leading Causes of Death by Age Group, United States – 2018">2018 CDC
+report</a>.</p>
+
+<p>The causes of death, and their effect on successful cryopreservation
+(as a percentage; reduction in probability of successful reuscitation
+counterfactually to ideal conditions, e.g. controlled voluntary
+deanimation), as well as sometimes explanation for reasoning for the
+number:</p>
+
+<ul>
+<li>&lt;1 year:
+<ul>
+<li>Cause 1: <a href="https://en.wikipedia.org/wiki/Birth_defect">Congenital Anomalies</a>: 70%; brain might already be damaged at birth, or become damaged during birth, but many deaths seem to be due to <a href="https://en.wikipedia.org/wiki/Congenital_heart_defect">congenital heart defects</a>, which only decreases oxygen supply, and <a href="https://en.wikipedia.org/wiki/Neural_tube_defect">neural tube defect</a>, which directly affets the nervous system and often the brain</li>
+<li>Cause 2: <a href="https://en.wikipedia.org/wiki/Gestation">Short Gestation</a>: 90%; might reduce damage to the brain because of smaller head, but also baby might be born already dead for a while</li>
+<li>Cause 3: <a href="https://en.wikipedia.org/wiki/Complications_of_pregnancy">Pregnancy Complication</a>: 75%</li>
+<li>Cause 4: <a href="https://en.wikipedia.org/wiki/Sudden_infant_death_syndrome">Sudden Infant Death Syndrome</a>: 50%; since death usually occurs during sleep, it might take quite a long time until death is noticed and cooling/cryopreservation is initiated</li>
+<li>Cause 5: <a href="https://en.wikipedia.org/wiki/Accident">Accident/Unintentional Injury</a>: 55%; see also <a href="https://en.wikipedia.org/wiki/Preventable_causes_of_death#Among_children_worldwide">unintentional injuries in children worldwide</a>, traffic accidents, falls and toxins seem to especially harmful to the brain</li>
+<li>Cause 6: Placenta Cord. Membranes (I didn't find the wikipedia page for this): 60%; but I have no clue what this is, just taking a guessed baserate</li>
+<li>Cause 7: <a href="https://en.wikipedia.org/wiki/Sepsis">Bacterial Sepsis</a>: 65%; the brain seems to be the second most commonly infected, after the lungs</li>
+<li>Cause 8: <a href="https://en.wikipedia.org/wiki/Cardiovascular_disease">Circulatory System Disease</a>: 80%; should be noted quickly, but problems with providing oxygen to brain</li>
+<li>Cause 9: <a href="https://en.wikipedia.org/wiki/Infant_respiratory_distress_syndrome">Respiratory Distress</a>: 70%; wikipedia says it may cause <a href="https://en.wikipedia.org/wiki/Intracranial_hemorrhage">intracranial hemmorhage</a></li>
+<li>Cause 10: <a href="https://en.wikipedia.org/wiki/Subgaleal_hemorrhage">Neonatal hemorrhage</a>: 40%; bleeding inside the brain &amp; dying as a result is probably pretty bad</li>
+</ul></li>
+<li>1-4 years:
+<ul>
+<li>Cause 1: <a href="https://en.wikipedia.org/wiki/Accident">Accident/Unintentional Injury</a>: 55%</li>
+<li>Cause 2: <a href="https://en.wikipedia.org/wiki/Birth_defect">Congenital Anomalies</a>: 75%; here already slightly less because if somebody survived one year, the damage can't be as subsantial</li>
+<li>Cause 3: <a href="https://en.wikipedia.org/wiki/Homicide">Homicide</a>: 50%; I didn't look for the exact causes of death in infant homicide (<em>shudder</em>), but a lot is probably very damaging to the brain and/or collateral to homicide in the rest of the family? Perhaps also by the infant being killed by parents (probably shaking/suffocation)</li>
+<li>Cause 4: <a href="https://en.wikipedia.org/wiki/Cancer">Malignant Neoplasms</a>: 60%; Wikipedia says that "In children, acute lymphoblastic leukemia and brain tumors are most common", death probably occurs in a hospital which makes the number not too low</li>
+<li>Cause 5: <a href="https://en.wikipedia.org/wiki/Influenza">Influenza</a> and <a href="https://en.wikipedia.org/wiki/Pneumonia">Pneumonia</a>: 85%; seems to primarily damage the lungs, perhaps collateral brain damage due to lack of oxygen</li>
+<li>Cause 6: <a href="https://en.wikipedia.org/wiki/Cardiovascular_disease">Heart Disease</a>: 85%; similar to above</li>
+<li>Cause 7: <a href="https://en.wikipedia.org/wiki/Prenatal_development#perinatal">Perinatal Period</a>: 60%; This seems to just refer to a period in human fetal development and I don't understand why it is listed as a cause of death, so I'm taking the prior from above.</li>
+<li>Cause 8: <a href="https://en.wikipedia.org/wiki/Sepsis">Septicemia</a>: 65%; taken from bacterial sepsis above</li>
+<li>Cause 9: <a href="https://en.wikipedia.org/wiki/Respiratory_disease">Chronic Low. Respiratory Disease</a>: 85%; not sure what exactly this is referring to, so just taking the numbers from influenza and pneumonia</li>
+<li>Cause 10: <a href="https://en.wikipedia.org/wiki/Cerebrovascular_disease">Cerebrovascular Disease</a>: 30%; this directly affects the brain. Bad.</li>
+</ul></li>
+<li>5-9 years:
+<ul>
+<li>Cause 1: <a href="https://en.wikipedia.org/wiki/Accident">Accident/Unintentional Injury</a>: 55%</li>
+<li>Cause 2: <a href="https://en.wikipedia.org/wiki/Cancer">Malignant Neoplasms</a>: 60%</li>
+<li>Cause 3: <a href="https://en.wikipedia.org/wiki/Birth_defect">Congenital Anomalies</a>: 75%</li>
+<li>Cause 4: <a href="https://en.wikipedia.org/wiki/Homicide">Homicide</a>: 50%</li>
+<li>Cause 5: <a href="https://en.wikipedia.org/wiki/Influenza">Influenza</a> and <a href="https://en.wikipedia.org/wiki/Pneumonia">Pneumonia</a>: 85%</li>
+<li>Cause 6: <a href="https://en.wikipedia.org/wiki/Respiratory_disease">Chronic Low. Respiratory Disease</a>: 85%</li>
+<li>Cause 7: <a href="https://en.wikipedia.org/wiki/Cardiovascular_disease">Heart Disease</a>: 85%</li>
+<li>Cause 8: <a href="https://en.wikipedia.org/wiki/Cerebrovascular_disease">Cerebrovascular Disease</a>: 30%</li>
+<li>Cause 9: <a href="https://en.wikipedia.org/wiki/Sepsis">Septicemia</a>: 65%</li>
+<li>Cause 10: <a href="https://en.wikipedia.org/wiki/Benign_tumor">Benign Neoplasms</a>: 30%; if this leads to death, it usually happens in the brain: "Unlike most benign tumors elsewhere in the body, benign brain tumors can be life-threatening."</li>
+</ul></li>
+<li>10-14 years:</li>
+<li>14-24 years:</li>
+<li>25-34 years:</li>
+<li>35-44 years:</li>
+<li>45-54 years:</li>
+<li>55-64 years:</li>
+<li>&gt;64 years:</li>
+</ul>
 
 <h3>Surviving Until LEV</h3>
 
