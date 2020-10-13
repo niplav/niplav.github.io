@@ -1,0 +1,138 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2020-10-07, modified: 2020-10-13, language: english, status: notes, importance: 3, confidence: log</em></p>
+
+<blockquote>
+  <p><strong>Various things I tried, why I tried them, the effects they had,
+  and whether I recommend these things.</strong></p>
+</blockquote>
+
+<h1>Reports</h1>
+
+<!--What I did, why I did it, what the effects were, and whether I
+recommend the thing-->
+
+<p>Sometimes, I perform little (and not so little) informal experiments.
+Although I don't collect any data during the experiment, subjective
+reports on their effects might be helpful for other people. Don't take
+them too seriously.</p>
+
+<h2>Countings Smarts</h2>
+
+<h3>What I Did</h3>
+
+<p>When I was around 9 years old, I decided to create a counter in my head
+that would increment when I saw a car of the brand <a href="">Smart</a><!--TODO:
+wiki link-->. I did this for around half a year, eventually reaching
+over 6000 (I don't remember the exact number anymore, what a shame).
+During this time, I created some rules:</p>
+
+<ul>
+<li>I was not actively seeking out Smarts, but was looking out for them</li>
+<li>Because I'd learned the positions for Smarts in the village we were living in, I created a rule that a period of one hour was necessary for double-counting the same car</li>
+<li>Smarts of all varieties were valid<!--TODO: links--></li>
+</ul>
+
+<p>I remember location mattering a lot, a 2-week holiday in the US increasing
+the counter by only 1 or two, and a weekend in a big european city
+pushing the counter up by several hundred.</p>
+
+<h3>Why I Did It</h3>
+
+<p>I don't remember my reasons for starting this. Perhaps I did it because
+Smarts are relatively recognizable and I was bored.</p>
+
+<h3>Whether It Was A Good Idea</h3>
+
+<p>I think the effects on my life were (and are) pretty neutral, though my
+visual classifier for Smarts is still much better than for other cars. I
+also still get a little bolt of attention when I see a Smart.</p>
+
+<p>Also, the sportscar variant of Smarts looks kind of neat, besides the
+Tesla Cybertruck my preferred aesthetic for cars.<!--TODO: links for
+these--></p>
+
+<p>If you're a bored 9 year old, this is probably not too bad.</p>
+
+<p><strong>5.5/10</strong></p>
+
+<h2>Eating Only Every Second Day</h2>
+
+<h2>Walking Barefoot</h2>
+
+<h2>Kissing Hand as Goodbye</h2>
+
+<h2>Riding the Bike a Lot</h2>
+
+<h2>Cutting My Nails Regularly</h2>
+
+<h2>Becoming Marginally More Productive</h2>
+
+<h2>Melatonin</h2>
+
+<h2>Buying Socks of One Kind</h2>
+
+<h2>Attempted 7-day Meditation Retreat at Home</h2>
+
+<h2>Meditation for 250 hours</h2>
