@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-10-18, modified: 2020-10-12, language: english, status: finished, importance: 6, confidence: remote</em></p>
+<p><em>author: niplav, created: 2019-10-18, modified: 2020-10-15, language: english, status: finished, importance: 6, confidence: remote</em></p>
 
 <blockquote>
   <p><strong>Is cryonics worth it, and if yes, should one
@@ -70,15 +70,15 @@ document.addEventListener('DOMContentLoaded', function () {
   <a href="https://en.wikipedia.org/wiki/Betteridge's_law_of_headlines">Betteridge's law of
   headlines</a>
   only applies partially here: Yes, it is probably worth it (under
-  plausible assumptions \$2m for a 20 year old, and more for older
+  plausible assumptions \$2.7m for a 20 year old, and more for older
   people), and no, cryocrastination is usually irrational. A cost-benefit
   analysis written in Lua.
   I also perform a <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Monte-Carlo
   simulation</a> using
   <a href="https://www.getguesstimate.com/" title="Official website">Guesstimate</a>,
   and find that signing up for cryonics at age 20 is worth in the
-  mean \$35m , median -\$100k (90% confidence interval: -\$1.59m,
-  \$63.2m). It therefore seems recommendable to sign up for cryonics
+  mean \$18m , median -\$100k (90% confidence interval: -\$2.16m,
+  \$58.25m). It therefore seems recommendable to sign up for cryonics
   immediately.</strong></p>
 </blockquote>
 
@@ -116,15 +116,6 @@ Why not a Pascal's mugging?
 * No adversary
 * Probability not <em>that</em> low
 * Here assumed rather low bound on payoff to prevent
---></p>
-
-<p><!--
-Death causes by age:
-https://www150.statcan.gc.ca/t1/tbl1/en/tv.action?pid=1310039401&amp;pickMembers%5B0%5D=2.1&amp;pickMembers%5B1%5D=3.1&amp;cubeTimeFrame.startYear=2018&amp;cubeTimeFrame.endYear=2018&amp;referencePeriods=20180101%2C20180101
-https://www.advisory.com/daily-briefing/2019/01/16/deaths
-https://injuryfacts.nsc.org/all-injuries/deaths-by-demographics/deaths-by-age/data-details/
-https://www.worldlifeexpectancy.com/usa-cause-of-death-by-age-and-gender
-https://injuryfacts.nsc.org/all-injuries/deaths-by-demographics/deaths-by-age/data-details/
 --></p>
 
 <blockquote>
@@ -1204,44 +1195,37 @@ number:</p>
 
 <p>These numbers are entered into a Lua table of the following format:</p>
 
-<pre><code>deathcause_impact=
+<pre><code>deathcause=
 {
     {
         lowbound=0,
         upbound=1,
-        total_deaths=19339
-        rest_deaths=3627
-        rest_probability=0.6
-        probabilities={0.7, 0.9, 0.75, 0.5, 0.55, 0.6, 0.65, 0.8, 0.7, 0.4},
+        total_deaths=19339,
+        rest_deaths=3627,
+        rest_probability=0.6,
+        impact={0.7, 0.9, 0.75, 0.5, 0.55, 0.6, 0.65, 0.8, 0.7, 0.4},
         numbers={4473, 3679, 1358, 1334, 1168, 724, 579, 428, 390, 375}
     },
     …
 }
 </code></pre>
 
-<p>The total deaths were calculated under the assumption
-that the top 10 causes of deaths account for 73.8% of
-the total number of deaths in that age group (see <a href="doc/considerations_on_cryonics/mortality_in_the_united_states_xu_et_al_2020.pdf">Xu et al.
+<p>For the age groups starting from age 15, <a href="./doc/considerations_on_cryonics/data_brief_mortality_in_the_united_states_nchs_2018.pdf" title="Data Brief 355. Mortality in the United States, 2018">NCHS
+2018</a>
+provided the number of deaths by age group (I don't understand why they
+had to start at age 15 and not just include the whole data).</p>
+
+<p>For the missing first 4 categories (0 to 1 year, 1-4 years, 5-9 years,
+and 10-14 years), total deaths were calculated under the
+assumption that the top 10 causes of deaths account for 73.8%
+of the total number of deaths in that age group (see <a href="doc/considerations_on_cryonics/mortality_in_the_united_states_xu_et_al_2020.pdf" title="Mortality in the United States, 2018">Xu et al.
 2020</a>
-p. 2). It was also assumed that the average preservation quality for the
-remaining causes of death was 60%. I plan to collect better data on the
-number of deaths per age group, but some quick checksums tell me they're
-adequate for the time being.</p>
+p. 2).</p>
 
-<p><!--TODO: find numbers of death by age group, enter them into the program,
-remove loop--></p>
+<p>For every age group, it was assumed that the average preservation quality
+for the remaining causes of death was 60%.</p>
 
-<p><!--
-I also extracted the number of deaths for each cause and age
-group from the table. Unfortunately, since the total number of
-deaths per age group was not in the document, I had to search for
-it elsewhere. The best source for the years 2018 I found was <a href="./doc/considerations_on_cryonics/mortality_in_the_united_states_xu_et_al_2020.pdf">Xu et al.
-2020</a>.
-They report only deaths per 100k per age group, and don't report data
-for age groups &lt;15 years.
---></p>
-
-<p>One can now write another function that calculates the expected quality
+<p>I can now write another function that calculates the expected quality
 of cryopreservation given that one signs up at a certain age.</p>
 
 <p>This can be done by "simulating" signing up at a certain age, and then
@@ -1258,36 +1242,33 @@ deaths if they're above the signup age:</p>
 <pre><code>for i=1, #deathcause_impact do
     local l=deathcause_impact[i].lowbound
     local u=deathcause_impact[i].upbound
+    local factor=1
 </code></pre>
 
 <p>If the signup age is in the given age group, one needs to calculate a
-weighing for the time the cryonicists will spend in the given age group:</p>
+weighing factor for the time the cryonicists will spend in the given
+age group:</p>
 
 <pre><code>if l&lt;age and u&gt;age then
-    local factor=(age-l)/(u-l)
-    alldeaths=alldeaths+factor*deathcause_impact[i].total_deaths
-</code></pre>
-
-<p>Then, one can calculate the deaths weighted by impact on cryopreservation
-and prevalence (and, in this case, the factor for the time spent in the
-age group):</p>
-
-<pre><code>for j=1, #deathcause_impact[i].numbers do
-    weighteddeaths=weighteddeaths+deathcause_impact[i].numbers[j]*deathcause_impact[i].probabilities[j]*factor
+    factor=(age-l)/(u-l)
 end
 </code></pre>
 
-<p>The other disjunction deals with either age groups still to come. This
-is dealt with in the same way as if the cryonicist is in the age group,
-but without the factor.</p>
+<p>Then, in case the age group lies further ahead in the future than <code>age</code>,
+one can calculate the deaths weighted by impact on cryopreservation
+and prevalence (and, in one case, the factor for the time spent in the
+age group):</p>
 
-<pre><code>    elseif age&lt;l then
-        alldeaths=alldeaths+deathcause_impact[i].total_deaths
-        for j=1, #deathcause_impact[i].numbers do
-            weighteddeaths=weighteddeaths+deathcause_impact[i].numbers[j]*deathcause_impact[i].probabilities[j]
-        end
+<pre><code>if age&lt;=u then
+    alldeaths=alldeaths+factor*deathcause[i].total_deaths
+    for j=1, #deathcause[i].numbers do
+        weighteddeaths=weighteddeaths+factor*deathcause[i].numbers[j]*deathcause[i].impact[j]
     end
+end
 </code></pre>
+
+<p>This adds up the deaths that have occured, as well as the deaths weighted
+by (hypothetical) preservation quality.</p>
 
 <p>Now, <code>weighteddeaths</code> should contain a number whose meaning is roughly
 "number of deaths that lead to successful cryopreservation, relative
@@ -1304,22 +1285,21 @@ function executes</p>
 <p>Now we can simulate whether, in this model, age of signing up has any
 impact on the quality of preservation:</p>
 
-<pre><code>&gt; avg_pres_quality(20)
-0.48968363992782
-&gt; avg_pres_quality(30)
-0.49077040743736
+<pre><code>&gt; avg_pres_quality(30)
+0.64963177178483
 &gt; avg_pres_quality(40)
-0.49227261183324
+0.65111068607725
 &gt; avg_pres_quality(50)
-0.49326741549294
+0.6520624345423
 &gt; avg_pres_quality(60)
-0.49246258290012
+0.65100001940528
 &gt; avg_pres_quality(70)
-0.49106415544244
+0.64929715809787
 </code></pre>
 
-<p>Apparently, the differences in quality of preservation are negligible,
-although the low expected quality of preservation is quite shocking.</p>
+<p>Apparently, the differences in quality of preservation by age are
+negligible, although the low expected quality of preservation is quite
+shocking.</p>
 
 <p>The low amount of variation is probably due to the fact that most people
 die of old age and not due to accidents during their lifetime.</p>
@@ -1373,11 +1353,11 @@ punishes the procrastination quite heavily.</p>
 <h4>Currently 20 years old</h4>
 
 <p>At the age of 20 years, the value of signing up for cryonics the
-same year is \$2024960 (~<code>$\$2*10^6$</code>) according to this model,
-prolonging the decision until one is 30 reduces this number to \$1209206
-(~<code>$\$1.2*10^6$</code>), and waiting until 40, 50 and 60 years yields a value
-of \$715047 (~<code>$\$7.1*10^5$</code>), \$408254 (~<code>$\$4*10^5$</code>) and \$209321
-(~<code>$\$2*10^5$</code>), respectively.</p>
+same year is \$2718928 (~<code>$\$2.7*10^6$</code>) according to this model,
+prolonging the decision until one is 30 reduces this number to \$1622285
+(~<code>$\$1.6*10^6$</code>), and waiting until 40, 50 and 60 years yields a value
+of \$958279 (~<code>$\$9.5*10^5$</code>), \$546862 (~<code>$\$5.4*10^5$</code>) and \$280704
+(~<code>$\$2.8*10^5$</code>), respectively.</p>
 
 <pre><code>.l("nplot")
 
@@ -1397,7 +1377,7 @@ draw()
 
 <p>The values of signing up for cryonics look very similar to the values
 for a 20 year old. Performing the signup immediately at age 40 is worth
-\$4838037 (~<code>$\$4.8*10^6$</code>) at age 40 and is the best time to do it.</p>
+\$6434231 (~<code>$\$6.4*10^6$</code>) at age 40 and is the best time to do it.</p>
 
 <pre><code>.l("nplot")
 
@@ -1436,20 +1416,20 @@ draw()
 <p><img src="./img/considerations_on_cryonics/no_drift_val.png" alt="Value of signing up for cryonics in n years at age 20, no motivation drift." title="Value of signing up for cryonics in n years at age 20, no motivation drift. In the first 30 years, there is very little decline in value, but the the value starts decreasing rapidly." /></p>
 
 <pre><code>$ lua cryoyear.lua 20 50000 0.05 0.6 4500 1 | sort -n | tail -10
-1310079.9980328: 23
-1310518.4672018: 29
-1310807.789262: 22
-1310957.4878688: 25
-1311478.6240208: 21
-1311570.6780271: 24
-1311775.4882545: 28
-1312098.3705379: 20
-1313229.8787237: 27
-1314283.4300778: 26
+1770851.3434545: 29
+1771271.4463869: 24
+1772258.6631463: 23
+1772455.258346: 28
+1772578.3116184: 25
+1773160.8544677: 22
+1773986.7306506: 21
+1774219.6984224: 27
+1774744.1202585: 20
+1775550.165284: 26
 </code></pre>
 
 <p>It is now optimal to wait for 6 years, with an added value of more than
-\$2000! This is probably due to very slight variations in the quality
+\$800! This is probably due to very slight variations in the quality
 of cryopreservation at different ages of death.</p>
 
 <p>So in the case of high self-trust, it seems possible that limited amounts
@@ -1464,7 +1444,7 @@ signing up immediately:</p>
 2076784.4016749: 26
 </code></pre>
 
-<p>For ages 18-25, it recommends waiting until the age of 26.</p>
+<p>For ages 20-25, it recommends waiting until the age of 26.</p>
 
 <h3>The Critic's Scenario</h3>
 
@@ -1485,16 +1465,16 @@ decay=1
 to 0 the older one gets:</p>
 
 <pre><code>$ lua cryoyear.lua 20 50000 0.01 0.6 50 1 | sort -n | tail -10
--82080.951400224: 69
--80149.578640533: 70
--78520.237872212: 71
--76327.181298906: 72
--73997.543362709: 73
--71916.477875802: 74
--69284.438390344: 75
--66501.098629224: 76
--63914.195743901: 77
--60810.635085998: 78
+-81533.552305999: 69
+-79644.977781056: 70
+-78060.880368866: 71
+-75915.347114195: 72
+-73635.266812914: 73
+-71605.456094135: 74
+-69025.930083615: 75
+-66295.81565389: 76
+-63762.191486437: 77
+-60711.195331299: 78
 </code></pre>
 
 <p>Please note that the following graph should have negative values on the
