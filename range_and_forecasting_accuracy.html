@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2020-03-24, modified: 2020-10-15, language: english, status: finished, importance: 6, confidence: possible</em></p>
+<p><em>author: niplav, created: 2020-03-24, modified: 2020-10-26, language: english, status: finished, importance: 6, confidence: possible</em></p>
 
 <blockquote>
   <p><strong>This text looks at the accuracy of forecasts in relation
@@ -181,13 +181,6 @@ https://www.lesswrong.com/s/pvim9PZJ6qHRTMqD3/p/5K7CMa6dEL7TN7sae
 <p><!--
 Distinction between {probabilistic,non-probabilistic}
 {model-based,intuition-based} forecasting
---></p>
-
-<p><!--
-Tetlock-style forecasting is "Worse is Better"
-If we can't develop explicit numerical models, why
-not train people in becoming good at estimating the future,
-but this time with probabilistic estimates?
 --></p>
 
 <h2>Metaculus and PredictionBook</h2>
@@ -395,13 +388,90 @@ for page in range(1,400):
 predictions on binary resolved questions: ~48k for Metaculus, and ~44k
 for PredictionBook.</p>
 
-<p><!--</p>
+<h2>Three Different Analyses: An Illustrative Example</h2>
 
-<h2>Three Different Analyses</h2>
+<p>In this text, I analyze the relation between accuracy and range in
+forecasting, considering three different aspects:</p>
 
-<p>TODO: write example for explaining the difference between 'Between
-Forecasts', 'Between Questions', and 'Within Questions'.
---></p>
+<ul>
+<li>Between forecasts</li>
+<li>Between questions</li>
+<li>Within questions</li>
+</ul>
+
+<p>What exactly does this mean?</p>
+
+<p>Let's say there are two people: Bessie and Heloïse. They are trying
+to make predictions about the weather about different time horizons
+(it is currently end of August):</p>
+
+<ol>
+<li>Will it rain tomorrow? (resolution: no/0)</li>
+<li>Will the average temperature in August in 1 year be higher than 20°C? (resolution: no/0)</li>
+</ol>
+
+<p>Let's say that they make the following predictions:</p>
+
+<ul>
+<li>Bessie: 0.3 for 1, 0.85 for 2</li>
+<li>Heloïse: 0.1 for 1, 0.6 for 2</li>
+</ul>
+
+<p>Let's also say that they make their predictions in alphabetical order
+of their names, one hour after another (Bessie at 00:00 and Heloïse at
+01:00).</p>
+
+<h3>Judging Between Forecasts</h3>
+
+<p>Evaluating the relation between forecasts would be as following: Each
+forecast, its resolution and its timespan are independently analyzed.</p>
+
+<p>We have four predictions:</p>
+
+<ol>
+<li>One with a range of 23 hours, a probability of 0.1 (Heloïses prediction on 1), and a resolution of 0</li>
+<li>One with a range of 24 hours, a probability of 0.3, (Bessies prediction on 1) and a resolution of 0</li>
+<li>One with a range of <code>$24h/d*365d-1h=8759h$</code> (it's not a leap year), a probability of 0.6 (Heloïses prediction on 2), and a resolution 0</li>
+<li>One with a range of <code>$24h/d*365d=8760h$</code>, a probability of 0.85 (Bessies prediction on 2), and a resolution 0</li>
+</ol>
+
+<p>The Brier scores for ranges are then 0.01 for 23h, 0.09 for 24h, 0.36
+for 8759h, and 0.7225 for 8760h. Here, higher range between forecasts is
+correlated with worse performance.</p>
+
+<h3>Judging Between Questions</h3>
+
+<p>Judging the performance between questions now means looking at the
+forecasts made on each question and evaluating the performance
+of forecasts on that question.</p>
+
+<p>Question 1 has a range of 24h, and question 2 has a range of 8760h.
+The Brier score for predictions on question 1 is 0.05, and the Brier
+score for predictions on question 2 is 0.54125. In this case, a higher
+range seems to be worse for performance on questions (Brier scores are
+lower/better for question 1).</p>
+
+<h3>Judging Within Questions</h3>
+
+<p>Within questions one examines each question separately.</p>
+
+<p>On question 1, the forecast with the higher range has a Brier score of
+0.09, and the forecast with the lower range has a brier score of 0.01. So
+for question 1, higher range is correlated with worse performance.</p>
+
+<p>For question 2, it is similar, the forecast with the higher range (8760h)
+has a score of 0.7225, while the forecast with the lower range (8759h)
+has a score of 0.36. Here also higher range is correlated with worse
+performance.</p>
+
+<p>One can now try to aggregate the findings from the two questions and
+could tentatively conclude that generally range within questions is
+correlated negatively with accuracy of forecasts.</p>
+
+<hr />
+
+<p>These were of course only illustrative examples, but I hope that now
+the different approaches in this text are clearer than before.</p>
 
 <h2>Accuracy Between Forecasts</h2>
 
