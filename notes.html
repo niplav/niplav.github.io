@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-05-22, modified: 2020-11-03, language: english, status: in progress, importance: 3, confidence: other</em></p>
+<p><em>author: niplav, created: 2019-05-22, modified: 2020-11-21, language: english, status: in progress, importance: 3, confidence: other</em></p>
 
 <blockquote>
   <p><strong>Short texts on different topics.</strong></p>
@@ -91,11 +91,13 @@ following method:</p>
 
 <p>Read <a href="https://en.wikipedia.org/wiki/Portal:Contents/Outlines">Wikipedia's
 Contents:Outlines</a>
-from top to bottom. If a link is a link to a Wikipedia article, open it
-and read it, without opening any further links. If a link leads to an
-outline, open the link and recursively apply the same procedure to the
-outline. If an article is opened a second time, it can be discarded. Lists
-can also be ignored.</p>
+from top to bottom. If a link is a link to a Wikipedia article, open
+it and read it, without opening any further links. If a link leads to
+an outline, open the link and recursively apply the same procedure
+to the outline. If an article is opened a second time, it can be
+discarded. Lists can also be ignored. (This is basically applying
+<a href="https://en.wikipedia.org/wiki/Depth-first_search">depth-first search</a>,
+though without a success condition).</p>
 
 <p>This method results in a corpus of considerable size.<!--(TODO: how much text?)--></p>
 
@@ -649,7 +651,7 @@ people one would loose by killing everybody over the age of 55:
 </code></pre>
 
 <p>However, what we really care about is the number of life-years lost
-(among other things). For simplicities sake, I'll assume that all life
+(among other things). For simplicity's sake, I'll assume that all life
 years are equally valuable.</p>
 
 <p>The average life expectancy on earth is around 70 years, so one can use
@@ -877,7 +879,7 @@ and thereby increasing the probability of <a href="https://en.wikipedia.org/wiki
 risks</a> through
 novel technologies.</p>
 
-<h3>Pseudocode for an Algorithm for Finding Supermaximal Repeats Using a Suffix Array</h3>
+<h2>Pseudocode for an Algorithm for Finding Supermaximal Repeats Using a Suffix Array</h2>
 
 <p><a href="doc/supermaximal_repeats_pseudo/the_enhanced_suffix_array_and_its_implications_to_genome_analysis_abouelhoda_et_al_2002.pdf" title="The Enhanced Suffix Array and Its Applications to Genome Analysis">Abouelhoda et al.
 2002</a>

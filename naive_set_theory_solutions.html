@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2020-11-11, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2020-11-14, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -72,11 +72,6 @@ document.addEventListener('DOMContentLoaded', function () {
 </blockquote>
 
 <h1>Solutions to “Naive Set Theory“</h1>
-
-<!--
-A `$\TeX$` version of this solution is available
-[here](./code/naive_set_theory/exercises.pdf).
--->
 
 <h2>Section 3</h2>
 
@@ -656,6 +651,31 @@ which means that <code>$e$</code> is also in their intersection.</p>
 
 <p>1. <code>$(\bigcap_{i \in I} A_{i}) \cup (\bigcap_{j \in J} B_{j}) \subset \bigcap_{(i,j) \in I \times J} (A_{i} \cup B_{j})$</code></p>
 
+<p>Let <code>$e \in (\bigcap_{i \in I} A_{i}) \cup (\bigcap_{j \in J}B_{j})$</code>.
+Then <code>$e$</code> is an element of all of <code>$A_{i}$</code> or an element of all of
+<code>$B_{j}$</code> (or both). Since that is the case, <code>$e$</code> is always an element of
+<code>$A_{i} \cup B_{j}$</code>. Then <code>$e$</code> is also an element of the intersection
+of all of these unions <code>$\bigcap_{(i,j) \in I \times J} (A_{i} \cup B_{j})$</code>.</p>
+
+<p>This can be written down more formally as well:</p>
+
+<div>
+    $$e \in (\bigcap_{i \in I} A_{i}) \cup (\bigcap_{j \in J} B_{j}) \Rightarrow \\
+    e \in (\bigcap_{i \in I} A_{i}) \lor e \in (\bigcap_{j \in J} B_{j}) \Rightarrow \\
+    \forall i \in I: e \in A_{i} \lor \forall j \in J: e \in B_{j} \Rightarrow \\
+    \forall i \in I: \forall j \in J: e \in A_{i} \lor e \in B_{j} \Rightarrow \\
+    \forall i \in I: \forall j \in J: e \in A_{i} \cup B_{j} \Rightarrow \\
+    e \in \bigcap_{(i,j) \in I \times J} (A_{i} \cup B_{j})$$
+</div>
+
 <p>2. <code>$(\bigcap_{i \in I} A_{i}) \cup (\bigcap_{j \in J} B_{j}) \supset \bigcap_{(i,j) \in I \times J} (A_{i} \cup B_{j})$</code></p>
+
+<p>Let <code>$e \in \bigcap_{(i,j) \in I \times J} (A_{i} \cup B_{j})$</code>. Then
+for every <code>$i$</code> and <code>$j$</code>, <code>$e \in A_{i} \cup B_{j}$</code>. That means that
+for every <code>$i$</code>, <code>$e \in  A_{i}$</code>: if there is just one <code>$j$</code> so that <code>$e \not \in B_{j}$</code>,
+for the last sentence to be true, <code>$A_{i}$</code> must compensate for that. Or,
+if not an <code>$e$</code> in every <code>$A_{i}$</code>, then this must be true for every
+<code>$B_{j}$</code> (with a similar reasoning as for <code>$A_{i}$</code>). But if <code>$e$</code> in
+every <code>$A_{i}$</code> or every <code>$B_{j}$</code>, it surely must be in their union.</p>
 
 <p>□</p>
