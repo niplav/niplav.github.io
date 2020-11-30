@@ -1,3 +1,21 @@
+# nick: niplav
+# url: https://niplav.github.io/twtxt.txt
+# following:
+#     deadguy https://dgy.fuckup.club/twtxt.txt
+#     sdk https://codevoid.de/tw.txt
+#     xandkar https://xandkar.net/twtxt.txt
+#     josuah https://z0.is/~josuah/
+#     mdom https://www.domgoergen.com/twtxt/mdom.txt
+#     adiabetic https://www.frogorbits.com/twtxt.txt
+#     von https://tilde.town/~von/twtxt.txt
+#     vain https://www.uninformativ.de/twtxt.txt
+#     ech https://emmas.site/blog/twtxt.txt
+#     dgold https://dgold.eu/twtxt.txt
+#     z3bra http://phroxy.z3bra.org/g.nixers.net:70/0/~z3bra/twtxt.txt
+#     allgebrah https://www.synkretie.net/twtxt
+#     johanbove https://johanbove.info/twtxt.txt
+#     quite https://lublin.se/twtxt.txt
+#     kt84 https://twtxt.net/user/kt84/twtxt.txt
 2020-11-26T14:43:42.000000Z	I used to have a twitter, but then I got addicted to it and shut it down (https://twitter.com/niplavyushtun). I think I'll put similar stuff on here, and maybe more extreme experimental takes, because there's no risk of getting banned.
 2020-11-26T15:06:04.000000Z	If it's not insightful enough for the LessWrong shortform, not in context enough for reddit, and not long enough for my website, it goes on here.
 2020-11-26T15:06:56.000000Z	BTW, website! I can be found at https://niplav.github.io. If you want to read things I thought about for more than 5 seconds, that's the place to go.
@@ -33,3 +51,4 @@
 2020-11-29T15:57:29.000000Z	sapolskywave
 2020-11-29T22:08:03.000000Z	Fashion seems to operate on two different timescales: 'high fashion' (?) on ½ or 1 year cycles, and 'macro fashion', which changes on the scale of 5 to 10 years
 2020-11-30T10:14:19.000000Z	https://grahamkarta.bandcamp.com now that's my kind of music
+2020-11-30T10:22:54.000000Z	PSA: SL4≠seL4
