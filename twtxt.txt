@@ -70,3 +70,4 @@
 2020-12-02T08:59:23.000000Z	Ochoch
 2020-12-02T15:05:30.000000Z	The new LW books :face_with_heart_eyes:
 2020-12-02T15:06:19.000000Z	"Which is for people, that is for people and objects." -> From a /lit/ thread.
+2020-12-02T15:06:37.000000Z	TeX is Long Software. LaTeX is not.
