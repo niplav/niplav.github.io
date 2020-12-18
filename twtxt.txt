@@ -98,3 +98,4 @@
 2020-12-18T08:38:28.000000Z	Alternative names for 'rationalism': map-making, cartography
 2020-12-18T08:39:18.000000Z	”If everyone just…“ ”See, there's your problem already”
 2020-12-18T08:39:49.000000Z	Signaling/countersignaling are nuclear weapons for nerdy thinking: they explain 99% of social behavior in an easy, slightly demeaning way.
+2020-12-18T08:40:08.000000Z	Most advice is basically “become better at signaling”, or it is itself signaling.
