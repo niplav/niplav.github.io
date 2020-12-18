@@ -92,3 +92,4 @@
 2020-12-16T11:18:56.000000Z	HoPwave
 2020-12-16T11:19:28.000000Z	On a related note, 'hopwag' sounds like a music genre
 2020-12-18T08:29:50.000000Z	A robot that constantly twitches
+2020-12-18T08:30:14.000000Z	There are two types of computer programmers: Those who think that computers are the problem, and those who think that programmers are the problem.
