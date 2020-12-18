@@ -109,3 +109,4 @@
 2020-12-18T08:43:16.000000Z	Take all the bacteria in the world and dump them into a big hole. How does this look like?
 2020-12-18T08:43:37.000000Z	Can one encode if-statements by using modulo?
 2020-12-18T09:16:52.000000Z	“Subreddits could achieve this without a schism” heh (https://www.lesswrong.com/posts/v7c47vjta3mavY3QC/is-science-slowing-down?commentId=e9T3hF9957pT5h2ex), two years ago
+2020-12-18T09:31:59.000000Z	Some people on the LW team are increasing their Brier scores pretty hard right now bc of the number of orders for the books
