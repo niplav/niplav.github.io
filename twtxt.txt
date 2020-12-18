@@ -107,3 +107,4 @@
 2020-12-18T08:42:41.000000Z	Oh die Tyrannei der Mühle, oh die Medizin der Mühle!
 2020-12-18T08:43:04.000000Z	Evolution is going to destroy everything you love and then piss on the shards.
 2020-12-18T08:43:16.000000Z	Take all the bacteria in the world and dump them into a big hole. How does this look like?
+2020-12-18T08:43:37.000000Z	Can one encode if-statements by using modulo?
