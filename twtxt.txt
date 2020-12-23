@@ -117,3 +117,4 @@
 2020-12-22T15:18:40.000000Z	https://www.lesswrong.com/posts/xdwbX9pFEr7Pomaxv/meta-honesty-firming-up-honesty-around-its-edge-cases?commentId=rfYQjT8SfzfQPLWYH lel
 2020-12-23T21:57:33.000000Z	To all the people arguing for putting the comma inside the quotation marks: You are nitpicking and biased, I win, bye bye
 2020-12-23T22:10:40.000000Z	@<pbatch (3 days ago)> "that's it. I'm sticking to this txtnish client." Solid choice.
+2020-12-23T22:19:37.000000Z	Current status: High moral/ontologicial/metaphysical/empirical uncertainty. Thus: Relative conservativism, plus progression in direction of more cooperation, increasing option value/attainable utility. More concretely: Prevent wars, prevent extinction, freeze people, don't destroy ecosystems (for now). Possible flaws: Assumes we will be able to coordinate even better in the future. Seems more likely to me than not, but otherwise, flip the whole thing and go exploit on current morality.
