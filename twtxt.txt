@@ -130,3 +130,4 @@
 2020-12-26T12:32:35.000000Z	Life-extension/superhappiness are not answers to the question of meaning, just frames for making the search for meaning easier and more likely to succeed in the long run.
 2020-12-26T12:32:52.000000Z	Lisp is like minarchism.
 2020-12-26T12:33:06.000000Z	Project idea: search for books that are most effective at converting people from one ideology to another, for any two ideologies.
+2020-12-26T12:33:23.000000Z	0th Potentiality: Doing something
