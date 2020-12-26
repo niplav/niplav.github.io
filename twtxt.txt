@@ -134,3 +134,4 @@
 2020-12-26T12:33:32.000000Z	1st Potentiality: Having the ability to do something
 2020-12-26T12:33:47.000000Z	2nd Potentiality: Having the ability to acquire abilities (intelligence)
 2020-12-26T12:33:55.000000Z	3rd Potentiality: Having the ability to increase 2nd potentiality (having the ability to increase intelligence)
+2020-12-26T12:34:03.000000Z	4th Potentiality: Having the ability to increase 3rd potentiality (being able to acquire intelligence-amplifying technology)
