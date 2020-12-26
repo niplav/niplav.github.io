@@ -131,3 +131,4 @@
 2020-12-26T12:32:52.000000Z	Lisp is like minarchism.
 2020-12-26T12:33:06.000000Z	Project idea: search for books that are most effective at converting people from one ideology to another, for any two ideologies.
 2020-12-26T12:33:23.000000Z	0th Potentiality: Doing something
+2020-12-26T12:33:32.000000Z	1st Potentiality: Having the ability to do something
