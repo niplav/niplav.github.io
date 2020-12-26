@@ -128,3 +128,4 @@
 2020-12-26T12:32:03.000000Z	I have a feeling that the first step in solving any coordination problem is “bring all relevant parties in a room, and lock them in there with water, food & sanitation until they have either found a solution or killed each other”
 2020-12-26T12:32:17.000000Z	Thinking about founding an organization that does exactly that.
 2020-12-26T12:32:35.000000Z	Life-extension/superhappiness are not answers to the question of meaning, just frames for making the search for meaning easier and more likely to succeed in the long run.
+2020-12-26T12:32:52.000000Z	Lisp is like minarchism.
