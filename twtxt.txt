@@ -121,5 +121,6 @@
 2020-12-23T22:21:21.000000Z	My LW shortform was not appreciated as much as I expected – was I subtly wrong, or did I miss discussion about the choice of TM in Solomonoff induction?
 2020-12-24T14:03:11.000000Z	If you're an average man, my calculation tells me that freezing your sperm & getting a vasectomy is worth ~ in expectation (https://niplav.github.io/notes.html#Vasectomy--Sperm-Freezing-CostBenefit) (in the US, caveat caveat caveat)
 2020-12-24T14:05:57.000000Z	I've always found the 'suicide is selfish' argument weird. Someone is making the most important (and most tragic) decision in their life, and people are talking about themselves?
-2020-12-24T14:17:41.000000Z	Actualy, embedded agency is a super good name for a movement, and I could see it replacing the horrid 'rationalism' over time. Plus, 'embags' is a really good abbreviation.
+2020-12-24T14:17:41.000000Z	Actually, embedded agency is a super good name for a movement, and I could see it replacing the horrid 'rationalism' over time. Plus, 'embags' is a really good abbreviation.
 2020-12-24T23:47:20.000000Z	https://www.gwern.net/newsletter/2020/12#fn1 is extremely important, but people fall into the anthropomorphization trap again and again
+2020-12-26T11:09:36.000000Z	My internal monologue is somewhere in my right hemisphere, more on the outside than the inside. Sort of above my right ear.
