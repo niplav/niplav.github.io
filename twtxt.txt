@@ -125,3 +125,4 @@
 2020-12-24T23:47:20.000000Z	https://www.gwern.net/newsletter/2020/12#fn1 is extremely important, but people fall into the anthropomorphization trap again and again
 2020-12-26T11:09:36.000000Z	My internal monologue is somewhere in my right hemisphere, more on the outside than the inside. Sort of above my right ear.
 2020-12-26T11:50:05.000000Z	Inner alignment is a problem when you train the reward function & the policy function jointly.
+2020-12-26T12:32:03.000000Z	I have a feeling that the first step in solving any coordination problem is “bring all relevant parties in a room, and lock them in there with water, food & sanitation until they have either found a solution or killed each other”
