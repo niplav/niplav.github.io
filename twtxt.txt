@@ -142,3 +142,4 @@
 2020-12-26T12:34:56.000000Z	tangle ←→ distangle ←→ entangle ←→ untangle ←→ disentangle ←→ endistangle ←→ disuntangle ←→ endisuntangle
 2020-12-26T12:37:46.000000Z	Hot damn good post https://www.lesswrong.com/posts/2G8j8D5auZKKAjSfY
 2020-12-28T13:41:53.000000Z	Oh yeah, you know pain? Have you ever had your contact lenses on the wrong way, with ~½ a dioptrie difference?
+2020-12-28T14:33:07.000000Z	(slightly nasally) …and also for vingean reasons
