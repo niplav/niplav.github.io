@@ -177,3 +177,4 @@
 2021-01-05T11:06:18.000000Z	Niplav Yushtun, PhD in Memetodynamics
 2021-01-05T15:59:25.000000Z	Unless the world has been adversarially structured against you, you can do better by just trying. This holds both for bayesianism & consequentialism.
 2021-01-05T16:00:12.000000Z	In other words: you can expect the mistakes you make to be normally distributed around 0 if you're not trying.
+2021-01-05T16:01:00.000000Z	Some people, paradoxically, can help the world most by first helping themselves. Often enough, those people are the ones most pre-disposed to helping the world.
