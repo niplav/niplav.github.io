@@ -183,3 +183,4 @@
 2021-01-07T09:38:33.000000Z	Only 4^391 programs. That shouldn't be _that_ hard!
 2021-01-07T09:54:37.000000Z	Subtly phenomenologically tainted words lead to anthropomorphization in discussions about AI
 2021-01-07T09:54:54.000000Z	e.g. desire, want, reason, think
+2021-01-07T16:26:03.000000Z	@<sdk https://codevoid.de/tw.txt> "Oh fun. I was not active on txtnish for a while and now all the feeds are 404 :( I miss you guys..." Same.
