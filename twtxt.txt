@@ -182,3 +182,4 @@
 2021-01-07T09:38:01.000000Z	A bit tempted to trying to dovetail to find the shortest brainfuck quine.
 2021-01-07T09:38:33.000000Z	Only 4^391 programs. That shouldn't be _that_ hard!
 2021-01-07T09:54:37.000000Z	Subtly phenomenologically tainted words lead to anthropomorphization in discussions about AI
+2021-01-07T09:54:54.000000Z	e.g. desire, want, reason, think
