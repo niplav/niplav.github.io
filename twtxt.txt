@@ -1,21 +1,80 @@
 # nick: niplav
 # url: https://niplav.github.io/twtxt.txt
 # following:
-#     deadguy https://dgy.fuckup.club/twtxt.txt
-#     sdk https://codevoid.de/tw.txt
-#     xandkar https://xandkar.net/twtxt.txt
-#     josuah https://z0.is/~josuah/
-#     mdom https://www.domgoergen.com/twtxt/mdom.txt
-#     adiabetic https://www.frogorbits.com/twtxt.txt
-#     von https://tilde.town/~von/twtxt.txt
-#     vain https://www.uninformativ.de/twtxt.txt
-#     ech https://emmas.site/blog/twtxt.txt
-#     dgold https://dgold.eu/twtxt.txt
-#     z3bra http://phroxy.z3bra.org/g.nixers.net:70/0/~z3bra/twtxt.txt
-#     allgebrah https://www.synkretie.net/twtxt
-#     johanbove https://johanbove.info/twtxt.txt
-#     quite https://lublin.se/twtxt.txt
-#     kt84 https://twtxt.net/user/kt84/twtxt.txt
+#	71m https://timmorgan.org/twtxt.txt
+#	TaMeR https://4069.twt.social/user/tamer
+#	adi https://twtxt.net/user/adi/twtxt.txt
+#	alip https://dev.exherbo.org/~alip/twtxt.txt
+#	angel https://triptico.com/twtxt.txt
+#	anonixers gopher://g.nixers.net/~anon/twtxt.txt
+#	antonio https://twtxt.net/user/antonio/twtxt.txt
+#	astrophotography https://twtxt.net/user/astrophotography/twtxt.txt
+#	benaiah https://benaiah.me/twtxt.txt
+#	birb https://twtxt.net/user/birb/twtxt.txt
+#	buckket https://buckket.org/twtxt.txt
+#	c-keen http://pestilenz.org/~ckeen/twtxt.txt
+#	codebalion http://twtxt.prismdragon.net/twtxt.txt
+#	dave https://davebucklin.com/twtxt.txt
+#	deadguy https://dgy.fuckup.club/twtxt.txt
+#	dooven https://twtxt.net/user/dooven/twtxt.txt
+#	eli_oat https://txt.eli.li/twtxt/twtxt.txt
+#	esc http://escowles.github.io/tw.txt
+#	fegffb https://feg-ffb.de/twtxt.txt
+#	felixp7 https://twtxt.net/user/felixp7/twtxt.txt
+#	freemor https://freemor.homelinux.net/~freemor/twtxt.txt
+#	frogorbits.com https://www.frogorbits.com/twtxt.txt
+#	fundor333 https://fundor333.com/twtxt.txt
+#	gbmor https://gbmor.dev/twtxt.txt
+#	gil https://tilde.pt/~gil/twtxt.txt
+#	gmj http://www.port111.com/george/twtxt.txt
+#	hecanjog https://hecanjog.com/twtxt.txt
+#	hiltjo https://codemadness.org/twtxt.txt
+#	hjacobs https://hjacobs.codeberg.page/twtxt.txt
+#	hjertnes https://hjertnes.social/twtxt.txt
+#	iolfree https://tilde.club/~iolfree/twtxt.txt
+#	ionores https://twtxt.net/user/ionores/twtxt.txt
+#	jb55 https://jb55.com/twtxt.txt
+#	jcolag https://john.colagioia.net/twtxt.txt
+#	jlj http://ctrl-c.club/~jlj/tw.txt
+#	johanbove https://johanbove.info/twtxt.txt
+#	kernel-pancake https://kernel-pancake.nl/twtxt.txt
+#	koehr https://koehr.in/twtxt.txt
+#	kt84 https://twtxt.net/user/kt84/twtxt.txt
+#	lahvak http://lahvak.github.io/twtxt/twtxt.txt
+#	leo https://www.gkbrk.com/twtxt.txt
+#	lucidiot https://tilde.town/~lucidiot/twtxt.txt
+#	lyse https://lyse.isobeef.org/twtxt.txt
+#	lyxal https://twtxt.net/user/lyxal/twtxt.txt
+#	marado https://tilde.pt/~marado/twtxt.txt
+#	mdosch https://mdosch.de/twtxt.txt
+#	melyanna http://tilde.club/~melyanna/twtxt.txt
+#	news https://twtxt.net/user/news/twtxt.txt
+#	niplav https://niplav.github.io/twtxt.txt
+#	nonlinear https://nonlinear.radiofreqs.space/twtxt.txt
+#	notizblog https://notiz.blog/feed/twtxt
+#	nristen https://karl.theharrisclan.net/twtxt.txt
+#	pbatch https://pbat.ch/twtxt.txt
+#	pwr https://skeletons.cc/twtxt.txt
+#	quite https://lublin.se/twtxt.txt
+#	reednj http://twtxt.xyz/u/reednj.txt
+#	rho https://electro.pizza/twtxt.txt
+#	robbinaer https://robbinaer.info/twtxt.txt
+#	sdk https://codevoid.de/tw.txt
+#	sixbitproxywax https://sixbitproxywax.com/twtxt.txt
+#	sysdharma https://twtxt.rodolpho.onoeck.de/twtxt.txt
+#	tfurrows https://grex.org/~tfurrows/twtxt.txt
+#	tux0r https://twtxt.rosaelefanten.org/
+#	twet https://lublin.se/twet.txt
+#	twtxt https://buckket.org/twtxt_news.txt
+#	tx https://shroom.party/twtxt.txt
+#	vain https://www.uninformativ.de/twtxt.txt
+#	vang https://kecyk.com/twtxt.txt
+#	vnm gopher://g.nixers.net/0/~vnm/twtxt.txt
+#	von https://tilde.town/~von/twtxt.txt
+#	webi https://twtxt.opstack.info/twtxt.txt
+#	xandkar https://xandkar.net/twtxt.txt
+#	xuu https://txt.sour.is/user/xuu/twtxt.txt
+#	z3bra gopher://g.nixers.net/0/~z3bra/twtxt.txt
 2020-11-26T14:43:42.000000Z	I used to have a twitter, but then I got addicted to it and shut it down (https://twitter.com/niplavyushtun). I think I'll put similar stuff on here, and maybe more extreme experimental takes, because there's no risk of getting banned.
 2020-11-26T15:06:04.000000Z	If it's not insightful enough for the LessWrong shortform, not in context enough for reddit, and not long enough for my website, it goes on here.
 2020-11-26T15:06:56.000000Z	BTW, website! I can be found at https://niplav.github.io. If you want to read things I thought about for more than 5 seconds, that's the place to go.
@@ -169,7 +228,7 @@
 2021-01-04T10:21:05.000000Z	Umeshism: If you can follow your own ethical rules, your own ethical rules are not demanding enough.
 2021-01-04T10:21:14.000000Z	Infuriating: With the Euro, 50 ct. coins are bigger than 1€ coins.
 2021-01-04T10:25:30.000000Z	caveet
-2021-01-04T10:26:17.000000Z	the problem of matter
+2021-01-04T10:26:17.000000Z	the hard problem of matter
 2021-01-04T10:29:19.000000Z	IF YOU BELIEVE A THING, THAT DOESN'T MEAN YOU __HAVE__ TO SAY IT
 2021-01-04T10:29:28.000000Z	BE WILLING TO MAKE BETS
 2021-01-04T10:30:14.000000Z	“You only ever see the map, but you walk the territory.”
