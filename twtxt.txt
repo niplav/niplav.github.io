@@ -261,3 +261,4 @@
 2021-01-10T13:30:04.000000Z	@(frogorbits.com) "@niplav Re: rats:  YOU ARE NOT ALONE" https://i.ytimg.com/vi/2sbUDWU3Fjk/maxresdefault.jpg
 2021-01-10T13:49:47.000000Z	@<felixp7 https://twtxt.net/user/felixp7/twtxt.txt> "Yo, crypto-heads. Encrypted communication doesn't protect your privacy. Laws …" I guess crypto-heads are often happy with acknowledging this, but also arguing that e.g. deniable crypto is a useful way out here (and, of course, just doing illegal stuff if it gets really rough).
 2021-01-10T13:50:58.000000Z	One should probably have a bunch of hard-drives with random content (not some files, but really random) lying around to being able to believably glomarize towards law enforcement
+2021-01-10T13:52:33.000000Z	Disadvantage of twtxt: less incentives to reply to people since it's not certain they'll ever see it. My current solution to that is to follow everybody on the we-are-twtxt and only unfollow if they twt a lot of stuff I'm not interested in
