@@ -265,3 +265,4 @@
 2021-01-10T13:53:21.000000Z	Maybe I could write a script that trawls the we-are-twtxt list and notifies me when I'm mentioned–the name should be unique enough.
 2021-01-10T14:00:57.000000Z	@<prologic https://twtxt.net/user/prologic/twtxt.txt> "What the hell does [cartesianly](https://www.thefreedictionary.com/cartesianly) mean?! 😳" Me inventing a new adjective for "there is only a one-way flow of information" ^^
 2021-01-10T14:01:31.000000Z	`curl https://raw.githubusercontent.com/jointwt/we-are-twtxt/master/we-are-twtxt.txt | grep -v '^niplav ' | field 2 | xargs curl ^/dev/null | grep niplav` here we go
+2021-01-10T14:07:17.000000Z	I should probably just add a `mentions` command to txtnish
