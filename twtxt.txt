@@ -268,3 +268,4 @@
 2021-01-10T14:07:17.000000Z	I should probably just add a `mentions` command to txtnish
 2021-01-10T14:20:12.000000Z	New post: https://niplav.github.io/toy_ai_takeoff_model.html.
 2021-01-11T09:06:25.000000Z	Oedipedia
+2021-01-11T09:06:34.000000Z	Care less about organic food
