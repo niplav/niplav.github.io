@@ -1,0 +1,269 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2021-01-13, modified: 2021-01-13, language: english, status: in progress, importance: 2, confidence: remote</em></p>
+
+<blockquote>
+  <p><strong>After a discussion with a friend of mine, I thought it would be
+  useful to structure my current thoughts about politics and economics
+  in order to facilitate my progress on that topic. Many of these points
+  are only rough ideas, or me collecting unrelated ideas I find good and
+  useful. Therefore, this text might already be out of date.</strong></p>
+</blockquote>
+
+<h1>Thoughts on Politics, Especially Economics</h1>
+
+<h2>Before I Get to the Object-Level Stuff</h2>
+
+<p>What can be done before talking about object-level policies.</p>
+
+<h3>Improve Political Epistemology</h3>
+
+<p>Forecasting, track records, public rationality.</p>
+
+<h3>Copy What Successful Countries are Doing</h3>
+
+<h3>This Text Is About Doing Even Better (Maybe)</h3>
+
+<h2>What Politics Is For</h2>
+
+<p>Maximize aggregate preferences of humans currently living in the country
+(as citizens).</p>
+
+<p>Not (although that would be nice) The One True Good Consequentialism,
+or Our Best Guess of Morality With Moral Uncertainty, since you can't
+coordinate around that.</p>
+
+<h3>This Is Not An Adequate View!</h3>
+
+<p>I know. People don't really have stable, coherent preferences.</p>
+
+<h2>Caveat: Empirical Versus Theoretical Knowledge About Politics/Economics</h2>
+
+<h3>Biases More Prevalent on the Object Level, Right?</h3>
+
+<h3>A Lot of Empirical Knowledge About Politics Might Not Be Useful</h3>
+
+<p>More just signals.</p>
+
+<h3>How To Evaluate?</h3>
+
+<h2>Assumptions</h2>
+
+<h3>Economic Progress is Usually Good</h3>
+
+<p>Has been so far.</p>
+
+<p>Although caveats with regulation/taxation</p>
+
+<h3>Markets are (at least at the Moment) Mostly Aligned</h3>
+
+<p>Alignment of markets is &gt;90%.</p>
+
+<h2>Different Aspects of Libertarianism</h2>
+
+<h3>Amount of Regulation</h3>
+
+<h3>Amount of Taxation</h3>
+
+<h3>Amount of Redistribution</h3>
+
+<h3>Amount of Inequality</h3>
+
+<h2>Two (Maybe Three or Four) Problems With Pure Libertarianism</h2>
+
+<h3>Externalities</h3>
+
+<h3>Funding Public Goods</h3>
+
+<h4>How Much Are Public Goods?</h4>
+
+<p>E.g. is animal suffering in factory farming a public good?</p>
+
+<h3>Human Manipulation and Addiction</h3>
+
+<h3>Increasing Marginal Returns</h3>
+
+<p>Many economists believe diminishing marginal returns, what reasons do
+they have?</p>
+
+<h2>Two Taxes I Like, One I Dislike, And One I'm Unsure About</h2>
+
+<h3>Taxes I Like</h3>
+
+<h4>Harberger Taxes</h4>
+
+<h4>Pigou Taxes</h4>
+
+<p>Problem: Hard to compute.</p>
+
+<h3>Taxes I Dislike</h3>
+
+<h4>Exchange Taxes</h4>
+
+<p>Stifling pareto improvements.</p>
+
+<h3>Unsure</h3>
+
+<h4>Land-Value Taxes</h4>
+
+<h2>The Problems With Regulation</h2>
+
+<h3>Regulations Are Usually Not Tested</h3>
+
+<h3>Regulations Are Usually Very Inflexible</h3>
+
+<h3>Regulations Are Usually Not Retracted</h3>
+
+<h2>How Much To Redistribute is an Empirical Question</h2>
+
+<p>Heuristic against: Disincentivizes production, since more redistribution
+makes production more like a public good, and public goods are hard
+to fund.</p>
+
+<p>Heuristic against: People <em>do</em> seem motivated by large amounts of money.</p>
+
+<p>Heuristic in favour: There are strong social incentives for people to
+want to work.</p>
+
+<p>Heuristic in favour: Shlegeris says so.</p>
+
+<h2>Some Low-key Utopias</h2>
+
+<h3>A-Btopia</h3>
+
+<p>Test your damn laws.</p>
+
+<h3>Decaytopia</h3>
+
+<p>At least it's not forever.</p>
+
+<h3>Futarchy</h3>
+
+<p>Spectrum from "Politicians sometimes look at prediction markets" to
+"“What do you mean by politicians? We quadratically vote our values,
+then the markets optimize for us.”"/Raikoth</p>
+
+<h4>Problems With Futarchy</h4>
+
+<h5>Correlation of Payout-Currency and Policies</h5>
+
+<p>Possible solution: create a stable independent currency (maybe with
+crypto, isn't there a Wei currency that tries to achieve this?)</p>
+
+<h5>Goodhardts Law</h5>
+
+<p>Mild optimization by reducing size/funding for prediction markets.</p>
+
+<p>Resulting problem: this makes manipulation easier.</p>
+
+<h5>Reward Hacking</h5>
+
+<p>Don't know how to approach this one, maybe secret cabal of data
+collectors? Data collectors are not allowed to trade?</p>
+
+<h2>Miscellania</h2>
+
+<h3>Democracy</h3>
+
+<h4>Democracy Is Good For One Thing We Don't Really Use It For</h4>
+
+<p>Discovering values, not policies.</p>
+
+<h4>Modern Democracies Are Highly Indirect For A Reason</h4>
+
+<h4>Voting Is Participating In A Public Good</h4>
+
+<h3>Inequality</h3>
+
+<h4>Inequality Might be About Grabbing</h4>
+
+<h4>Why So Specific Inequality?</h4>
+
+<h3>Most Complaints About Capitalism are Complaints About Other People Not Caring</h3>
+
+<h3>Unions Seem Good, Let's Regulate Them Like Companies!</h3>
+
+<p>Use the same cartel laws for unions as for companies.</p>
+
+<h3>Regulate/Tax Companies Proportional to Size</h3>
+
+<h3>Nate Soares Should Release His Notes on this Topic</h3>
+
+<h3>Some Infuriating Anti-Capitalist Arguments</h3>
+
+<h4>If We Fix Climate-Change and it Wasn't A Concern, We Will Have Lost Nothing</h4>
+
+<p>Opportunity cost, huge: around $100b per year.</p>
+
+<h4>We Should Regulate Companies Rather Than Encouraging Individual Actions</h4>
+
+<p>Regulating companies propagates down higher prices to customers, since
+what you want to regulate is more ineffective than current practices
+(i.e. costs more).</p>
+
+<p>There are other reasons why regulating companies might be better (more
+concentrated leverage points, more fine-grained control).</p>
+
+<p>But there's no free lunch here, people will probably suffer because
+of this.</p>

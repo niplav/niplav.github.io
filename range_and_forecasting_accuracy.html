@@ -642,23 +642,9 @@ regressions</a> shows a
 very similar picture (red dots are for Metaculus forecasts, blue dots
 are for PredictionBook forecasts):</p>
 
-<p><!--HERE--></p>
+<p><img src="img/range_and_forecasting_accuracy/allscatter.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in days)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in seconds)" /></p>
 
-<p><img src="img/range_and_forecasting_accuracy/alldays.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in days)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in days)" /></p>
-
-<p><em>Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in days)</em></p>
-
-<p><img src="img/range_and_forecasting_accuracy/allweeks.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in weeks)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in weeks)" /></p>
-
-<p><em>Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in weeks)</em></p>
-
-<p><img src="img/range_and_forecasting_accuracy/allmonths.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in months)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in months)" /></p>
-
-<p><em>Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in months)</em></p>
-
-<p><img src="img/range_and_forecasting_accuracy/allyears.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in years)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in years)" /></p>
-
-<p><em>Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in years)</em></p>
+<p><em>Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in seconds)</em></p>
 
 <p>The high amounts of noise are probably due to the low number of
 predictions for single days (or, in the case of weeks and months, for
@@ -667,7 +653,7 @@ have resolved yet).</p>
 
 <h3>Why Assume Accuracy will Increase?</h3>
 
-<p>I believe that this finding is quite surprising.</p>
+<p>I believe that the finding of PredictionBook is quite surprising.</p>
 
 <p>A priori, one would believe that beliefs about the near future are
 generally more accurate than beliefs about the far future: We can predict
@@ -695,10 +681,14 @@ reasons come to mind.</p>
 <h4>Range and Biased Questions</h4>
 
 <p>The most obvious solution is that the analysis above is absolute bogus and
-completely meaningless: It compares questions about global catastrophic
-risks to popular banana brands <!--TODO: link both Ragnarök series &amp;
-banana question-->, very different kinds of questions with very different
-kinds of forecasts.</p>
+completely meaningless: It compares <a href="https://www.metaculus.com/questions/2568/ragnar%25C3%25B6k-question-series-results-so-far/">questions about global catastrophic
+risks</a>
+to <a href="https://www.metaculus.com/questions/1558/the-rise-and-fall-of-the-banana-will-the-current-main-export-cultivar-the-cavendish-be-replaced-by-2035/">questions about the extinction of banana
+brands</a>,
+very different kinds of questions with very different kinds of forecasts.</p>
+
+<p><!--TODO: replace these with PredictionBook questions that are that
+different, since the weird result is for PredictionBook, not Metaculus--></p>
 
 <p>Here, one would assume that the longer-term questions asked are generally
 easier to predict, and that the effect goes away when one compares
@@ -741,13 +731,11 @@ make findings much less reliable.</p>
 
 <p><!--TODO: find a way to test the statistical significance here, sometime later--></p>
 
+<p><!--HERE--></p>
+
 <p>To get a rough overview over the sample sizes, on can look at the
 number of samples for each bucket. I generated charts for sample
-sizes for <a href="./img/range_and_forecasting_accuracy/dss_plot.png">days</a>,
-<a href="./img/range_and_forecasting_accuracy/wss_plot.png">weeks</a>,
-<a href="./img/range_and_forecasting_accuracy/mss_plot.png">months</a> and
-<a href="./img/range_and_forecasting_accuracy/yss_plot.png">years</a>, but I'll
-only show the chart for months (the others are quite similar):</p>
+sizes for <a href="./img/range_and_forecasting_accuracy/wss_plot.png">weeks</a>:</p>
 
 <pre><code>mssplot::.oc("mss_plot.eps")
 .tc(mssplot)
@@ -1196,6 +1184,8 @@ lower range. Everything else would have been surprising.</p>
 <p><!--</p>
 
 <h2>Limitations</h2>
+
+<h3>Metaculus Dataset is Only Community Timeseries</h3>
 
 <p>Oh boy.
 TODO:
