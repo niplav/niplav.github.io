@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2020-12-12, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2021-01-13, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -739,3 +739,42 @@ e \in (\bigcap_{i} A_{i}) \times (\bigcap_{j} B_{j}) $$
 </div>
 
 <p>□</p>
+
+<h2>Section 10</h2>
+
+<h3>Exercise 1</h3>
+
+<p>(i) To be shown: <code>$f(\bigcup_{i} A_{i}) = \bigcup_{i} f(A_{i}$</code></p>
+
+<p>If <code>$e \in f(\bigcup_{i} A_{i})$</code>, then there exists an <code>$i$</code> for which
+<code>$e \in f(A_{i})$</code>. Then also <code>$e \in \bigcup_{i}f(A_{i})$</code> (since the
+same set of indices is iterated over).</p>
+
+<p>If otherwise <code>$e \in \bigcup_{i} f(A_{i})$</code>, then there is also an <code>$i$</code>
+for which <code>$e \in f(A_{i}$</code>. Then <code>$e$</code> is at least once an element of
+<code>$f(\bigcup_{i} A_{i})$</code>.</p>
+
+<p>(ii) To be shown: <code>$f(\bigcap_{i} A_{i}) \neq \bigcap_{i} f(A_{i}$</code></p>
+
+<p>Example:
+<code>$I=\{1, 2\}, A_1=\{1\}, A_2=\{2\}, f(\{1\})=\{a\}, f(\{2\})=\{a\}, f(\emptyset)=\emptyset, f(\{1,2\})=\{a\}$</code></p>
+
+<p>Then <code>$f(\bigcap_{i} A_{i})=f(\{1\} \cap \{2\})=f(\emptyset)=\emptyset$</code>,
+but <code>$\bigcap_{i} f(A_{i})=\{a\} \cap \{a\}=\{a\}$</code>.</p>
+
+<h3>Exercise 2</h3>
+
+<blockquote>
+  <p>A necessary and sufficient condition that <code>$f$</code> map <code>$X$</code> onto <code>$Y$</code>
+  is that the inverse image under <code>$f$</code> of each non-empty subset of <code>$Y$</code>
+  be a non-empty subset of <code>$X$</code>. (Proof?)</p>
+</blockquote>
+
+<p>But that's – false? Unless I understand something different by "map"
+(which I just take as relates from one set to another, possibly in a
+many-to-one relation).</p>
+
+<p>Example:</p>
+
+<p><code>$X=\{1,2\}, Y=\{a,b\}$</code>. <code>$f(\{1\})=\{a\}, f(\{2\})=\{a\}$</code>, etc for
+all subsets of $X$. Then <code>$f^{-1}(\{b\})=\emptyset$</code>.</p>
