@@ -291,4 +291,3 @@
 2021-01-19T00:45:32.000000Z	https://pbs.twimg.com/media/Er-MPNfW4AA1KLv?format=png&name=large https://www.youtube.com/watch?v=yw8NSHgT1o8
 2021-01-19T00:56:37.000000Z	my plan would involve writing the code for a seed asi and giving it a completely senseless goal, such as maximizing the number of paperclips & spreading as far as possible. this would benefit no one & cause untold damage. i will take no questions
 2021-01-19T08:29:45.000000Z	@<lucidiot https://tilde.town/~lucidiot/twtxt.txt> "nuclear realtor" I like this twtxt. [meta: I guess I'll often just reply with "I like this" or <3, although perhaps liking could be a primitive. I'll do it rarely enough to not clutter my timeline tho]
-2021-01-19T08:34:09.000000Z	`curl https://raw.githubusercontent.com/jointwt/we-are-twtxt/master/we-are-twtxt.txt | grep -v '^niplav ' | field 2 | xargs curl ^/dev/null | grep niplav` here we go
