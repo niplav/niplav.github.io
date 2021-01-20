@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2021-01-13, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2021-01-19, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -770,6 +770,9 @@ but <code>$\bigcap_{i} f(A_{i})=\{a\} \cap \{a\}=\{a\}$</code>.</p>
   be a non-empty subset of <code>$X$</code>. (Proof?)</p>
 </blockquote>
 
+<!--TODO: with "maps onto", he probably means "surjective", i.e. all
+values are mapped to-->
+
 <p>But that's – false? Unless I understand something different by "map"
 (which I just take as relates from one set to another, possibly in a
 many-to-one relation).</p>
@@ -778,3 +781,67 @@ many-to-one relation).</p>
 
 <p><code>$X=\{1,2\}, Y=\{a,b\}$</code>. <code>$f(\{1\})=\{a\}, f(\{2\})=\{a\}$</code>, etc for
 all subsets of $X$. Then <code>$f^{-1}(\{b\})=\emptyset$</code>.</p>
+
+<h3>Exercise 3</h3>
+
+<p>To be proven: $h(gf)=(hg)f$</p>
+
+<p>Proof:</p>
+
+<p>$((hg)f)(x)=((hg)(f(x)))=h(g(f(x)))=h(gf(x))$</p>
+
+<h3>Query 1</h3>
+
+<blockquote>
+  <p>what do $R^{-1}$, $S^{-1}$, $RS$, and $R^{-1}S^{-1}$ mean?"</p>
+</blockquote>
+
+<p>$yR^{-1}x$: y father of x, $z S^{-1}y$: z is brother of y. $xRSy$:
+x nephew of y. $xR^{-1}S^{-1}$.</p>
+
+<h3>Exercise 4</h3>
+
+<p>To be proven: $(SR)^{-1}=R^{-1}S^{-1}$</p>
+
+<p>Proof:</p>
+
+<p>Let $(z,x) \in (SR)^{-1}$. Then $xSRz$. Then $\exists y: xSy \land yRs$. Then
+$yS^{-1}x$ and $zR^{-1}y$, and then $zR^{-1}S^{-1}x$.</p>
+
+<h3>Query 2</h3>
+
+<blockquote>
+  <p>is there a connection among I, $RR^{-1}$, and $R^{-1}R$?</p>
+</blockquote>
+
+<p>Shouldn't $I=RR^{-1}$? No. Because if $xRy$ and $zRy$, then
+$xRR^{-1}z$. But $I \subset RR^{-1}$, and $I \subset R^{-1}R$. I think
+alsso that $RR^{-1}=(R^{-1}R)^{-1}$, and $R^{-1}R=(RR^{-1})^{-1}$
+(which is true by the previously proven theorem). I don't think there's
+any further connections here.</p>
+
+<h3>Exercise 5</h3>
+
+<p>(i) Given $g: Y \rightarrow X$ and $gf(x)=x$, then $f$ is "one-to-one"
+and "$g$ maps $Y$ onto $X$".</p>
+
+<p>Judging from what I understand, "$f$ is one-to-one" would mean that $f$
+is <a href="https://en.wikipedia.org/wiki/Injective_function">injective</a>,
+and "$g$ maps $X$ onto $X$" just means that $g$ is
+<a href="https://en.wikipedia.org/wiki/Surjective_function">surjective</a>?</p>
+
+<p>Wikipedia agrees with these hunches.</p>
+
+<p><code>$\forall x_1, x_2 \in X: x_1 \neq x_2 \Leftrightarrow f(x_1) \neq f(x_2)$</code>,
+because if <code>$f(x_1)=f(x_2)=y$</code> for <code>$x_1 \neq x_2$</code>, then
+<code>$f(y)=x_1$</code> and $f(y)=x_2$, which is not possible.</p>
+
+<p>$g$ is surjective, since every element in <code>$\hbox{dom } f \subset Y$</code> has
+exactly one corresponding element in $X$ through $g$, but elements in <code>$Y - \hbox{dom } f$</code>
+must also be mapped to $X$ (it could be that
+<code>$Y - \hbox{dom } f=\emptyset$</code>, but that is not guaranteed).</p>
+
+<p>□</p>
+
+<p>(ii) To be proven: <code>$f(A \cap B)=f(A) \cap f(B)$</code> iff for all subsets
+of $A$ and $B$ $f$ injective.</p>
