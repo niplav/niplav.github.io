@@ -296,3 +296,4 @@
 2021-01-20T22:27:14.000000Z	Quines are poems. Don't @ me
 2021-01-22T10:00:00.000000Z	2x2 {what we're able to do now, what we have to do now}
 2021-01-22T10:00:32.000000Z	move solving metaphilosophy & similar problems into the future
+2021-01-22T10:01:27.000000Z	if we loose control soon (or just decreasing control), grab all value that you can, otherwise delegate as much as possible into the future
