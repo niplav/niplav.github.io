@@ -294,3 +294,4 @@
 2021-01-20T14:36:36.000000Z	bootstrap loading icons are spinning clockwise in their RTL cheatsheet. heh.
 2021-01-20T22:26:57.000000Z	“is socially constructed” is socially constructed
 2021-01-20T22:27:14.000000Z	Quines are poems. Don't @ me
+2021-01-22T10:00:00.000000Z	2x2 {what we're able to do now, what we have to do now}
