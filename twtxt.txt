@@ -304,3 +304,4 @@
 2021-01-23T12:43:08.000000Z	Modulo the cost of generating them, quantified uncertainties are always more useful than unquantified uncertainties
 2021-01-23T14:19:07.000000Z	old carrots taste horrible
 2021-01-23T14:35:13.000000Z	Is the common usage of overly violent examples an example of memetic decay?
+2021-01-23T14:45:12.000000Z	music genre: softbot
