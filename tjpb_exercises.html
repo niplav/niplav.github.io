@@ -1,0 +1,129 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2020-07-23, modified: 2020-07-29, language: english, status: draft, importance: 5, confidence: log</em></p>
+
+<blockquote>
+  <p><strong><a href="https://en.wikipedia.org/wiki/The_Jazz_Piano_Book">The Jazz Piano
+  Book</a> by <a href="https://en.wikipedia.org/wiki/Mark_Levine_(musician)">Mark
+  Levine</a> is a jazz
+  piano textbook (who knew!). Because it's very useful to regularly practice
+  voicings, scales etc, this page collects the exercises from that book.</strong></p>
+</blockquote>
+
+<h1>Exercises for “The Jazz Piano Book”</h1>
+
+<h2>Exercises</h2>
+
+<h3>Chapter One</h3>
+
+<p><!--</p>
+
+<blockquote>
+  <p>The chart that follows shows all the intervals, both ascending
+  and descending, as they occur in tunes from the standard jazz
+  repertoire. […] Play each example and <em>sing</em> the interval. […]
+  Listen carefully to all the voicings in the examples.</p>
+</blockquote>
+
+<p><em>– p. 1</em></p>
+
+<p>I usually just hit a random note on the keyboard and try to sing the
+next interval starting from that note, iterating through the intervals.
+-->
+<!--TODO: Image of all possible intervals here--></p>
+
+<blockquote>
+  <p>Practice singing the intervals, both ascending and descending. Sing
+  the melody, or "head," of standards, bebop, and other jazz tunes while
+  listening to records.</p>
+</blockquote>
+
+<p><em>– p. 9</em></p>
+
+<blockquote>
+  <p>Play the major, minor, diminished, and augmented triads in all keys
+  and all inversions.</p>
+</blockquote>
+
+<p><em>– p. 12</em></p>
+
+<p>I usually follow the circle of fiths.</p>
+
+<h3>Chapter 2</h3>
+
+<blockquote>
+  <p>Memorize the II-V-I progression in every key. Go through all twelve
+  keys saying the II-V-I chords aloud both sitting at, and away from,
+  the piano. Make a mantra of it until you have the progressions
+  memorized. <em>Always practice everything in every key</em>.</p>
+</blockquote>
+
+<p><em>– p. 16</em></p>
+
+<h3>Chapter 3</h3>
+
+<p>Not an explicitely given practice instruction, but nonetheless probably
+useful:</p>
+
+<p>Play the II-V-I progression in every key, in three-note voicings.</p>
