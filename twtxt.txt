@@ -306,4 +306,5 @@
 2021-01-23T14:35:13.000000Z	Is the common usage of overly violent examples an example of memetic decay?
 2021-01-23T14:45:12.000000Z	music genre: softbot
 2021-01-23T15:28:32.000000Z	eating : drinking :: feeding : ?
-2021-01-25T11:21:44.000000Z	using ontologically basic categories for deciding moral relevance is of practical importance, it prevents others from being able to slippery-sloping one into moral stances one dislikes
+2021-01-25T11:21:44.000000Z	using ontologically basic categories for deciding moral relevance is of practical importance, it prevents others from being able to slippery-sloping one into moral stances one dislikes on reflection
+2021-01-25T11:26:26.000000Z	bc objects from ontologically basic categories have no continuous transformation between them, e.g. there's no continuous transformation from the number e to an oak (or from the quale of a piano chord to an iron atom), but there is a continuous transformation from a human into a pig, or from a pig into a superintelligent pig
