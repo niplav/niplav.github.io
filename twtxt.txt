@@ -306,3 +306,4 @@
 2021-01-23T14:35:13.000000Z	Is the common usage of overly violent examples an example of memetic decay?
 2021-01-23T14:45:12.000000Z	music genre: softbot
 2021-01-23T15:28:32.000000Z	eating : drinking :: feeding : ?
+2021-01-25T11:21:44.000000Z	using ontologically basic categories for deciding moral relevance is of practical importance, it prevents others from being able to slippery-sloping one into moral stances one dislikes
