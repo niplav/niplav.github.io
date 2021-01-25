@@ -322,3 +322,4 @@
 2021-01-25T14:37:14.000000Z	It matters how many life years are lost in car crashes, not how many lives.
 2021-01-25T14:39:55.000000Z	Different utilitarian approaches to COVID-19 vaccination order, by order of complexity: Maximize {probability of infection*probability of counterfactual death, probability of infection*expected life years lost, probability of infection*expected severity of illness, probability of infection*expected severity of illness+probability of infecting n others*fudging for spreading}
 2021-01-25T14:40:11.000000Z	Good/quick life extension technology would, for the first 2/3 decades, decrease the average age of death, since more people would die young in accidents etc. than of old age.
+2021-01-25T14:40:18.000000Z	If hell exists, then it is reserved for those who don't rebel against it.
