@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
   stated exercises and problems in that book.</strong></p>
 </blockquote>
 
-<h1>Solutions to “Naive Set Theory“</h1>
+<h1>Solutions to “Naïve Set Theory“</h1>
 
 <h2>Section 3</h2>
 
@@ -476,7 +476,7 @@ violation: <code>$(a,a)\not\in$</code>, symmetry violation: <code>$(b,a)\not\in$
   exactly the subset <code>$X/R$</code> of the power set <code>${\cal{P}}(X)$</code>).</p>
 </blockquote>
 
-<p><em>– <a href="https://en.wikipedia.org/wiki/Paul_Halmos">Paul Halmos</a>, <a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set Theory“</a> p. 38, 1960</em></p>
+<p><em>– <a href="https://en.wikipedia.org/wiki/Paul_Halmos">Paul Halmos</a>, <a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naïve Set Theory“</a> p. 38, 1960</em></p>
 
 <p>To be honest, I'm not quite sure what exactly I am supposed to do here.
 <code>$X/R$</code> has been defined as being a set, how can I prove a definition?</p>
@@ -843,5 +843,25 @@ must also be mapped to $X$ (it could be that
 
 <p>□</p>
 
-<p>(ii) To be proven: <code>$f(A \cap B)=f(A) \cap f(B)$</code> iff for all subsets
-of $A$ and $B$ $f$ injective.</p>
+<p>(ii) To be proven: <code>$f(A \cap B)=f(A) \cap f(B)$</code> iff for all subsets of
+<code>$A$</code> and <code>$B$</code>, <code>$f$</code> injective.</p>
+
+<p>First case: <code>$f$</code> injective <code>$\Rightarrow f(A \cap B) = f(A) \cap f(B)$</code>.</p>
+
+<p>Let <code>$y \in f(A \cap B)$</code>, then there exists exactly one <code>$x \in X$</code>
+so that <code>$f(x)=y$</code>.
+That means <code>$x \in A \land x \in B$</code>. Then <code>$e \in f(A) \land e \in f(B)$</code>.</p>
+
+<p>Second case: <code>$f(A \cap B)=f(A) \cap f(B) \Rightarrow f$</code> injective.</p>
+
+<p>More formal:</p>
+
+<p><code>$f(A \cap B)=f(A) \cap f(B) \Rightarrow \forall x_1 \neq x_2 \in X, f(x_1) \neq f(x_2)$</code>.</p>
+
+<p>Let then <code>$x_1 \neq x_2 \in X$</code>, so that <code>$f(x_1)=f(x_2)=y$</code>. Let then
+<code>$A, B$</code> so that <code>$x_1 \in A \backslash B$</code> and <code>$x_2 \in B \backslash A$</code>.</p>
+
+<p>Then <code>$y \in f(A) \cap f(B)$</code>, but <code>$y \not \in f(A \cap B)$</code>. So those
+<code>$x_1, x_2$</code> can't exist, therefore f is injective.</p>
+
+<p>□</p>

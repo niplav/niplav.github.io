@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-01-21, modified: 2021-01-23, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-01-21, modified: 2021-01-29, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">“Artificial Intelligence: A Modern
@@ -201,122 +201,486 @@ TODO: do exercises 6 through 15
 
 
 
-md5-d088914d99dfab00c321028b02d2ee71
+md5-c5882418774fce336c07193d8f89d554
 
 
 
 
 
-md5-33813905bdd487bd6191a090a98cf6f0
+md5-4b0b41fb777ef20ccaf923ca988a901c
 
 
 
 
 
-md5-fe0a0a5e4b9ea850aa3e63fc8145d98c
+md5-82163ef48da41de35fd9056df633b80f
 
 
 
 
 
-md5-bc266c0ccfabe871f8386ca1a795e01e
+md5-f79679b05ddab7879ecd98bb385e025c
 
 
 
 
 
-md5-9c28d4a610b035003014a0fba626d2d6
+md5-ab89e407fdeab43ae2f15ec0317d5410
 
 
 
 
 
-md5-38ca7fcad1bcd04615dd78e56fca070a
+md5-21ef177b59425fc31bb47b8772d6f881
 
 
 
 
 
-md5-42339d252da3776f9c6511c23172abac
+md5-fc2178ee3982f5e062838a6b588a907c
 
 
 
 
 
-md5-5c59fb1f1e8fde617f46e1d903890045
+md5-0a6761a5ba83fff6d59fc90148fc5f44
 
 
 
 
 
-md5-aa64b6c06bcde4011434b7b75aceabb5
+md5-904ade6f58032ea7ef1077c8adc05e40
 
 
 
 
 
-md5-56eccaaff346d20ba6e050f357b11806
+md5-9eeb62763832cc9eae4a1b427433ca2b
 
 
 
 
 
-md5-e9c186700d9f3abe20553934cfb895f2
+md5-2812c0d95619c21aa60327b0352f3d2b
 
 
 
 
 
-md5-80fab8ffcb4565c65f5f6b9a01cb2e0e
+md5-ed3cad9a22e59bbfd263044cc7157cbe
 
 
 
 
 
-md5-452ecb2adf98b6fe79e43dc4c26f564a
+md5-63b20f982b26fe7cf2e863092710780b
 
 
 
 
 
-md5-713072b3de8b3849667e8ec9632fb037
+md5-d2b490e9b28339164cfbb287fa7034b4
 
 
 
 
 
-md5-3234cea596d39f6c3533771b20f7c675
+md5-790ccf42fed0585b6bc6797e0cb04fc6
 
 
 
 
 
-md5-3e216b3ffaadd9a9ecf1d956a35eb03c
+md5-da055f2c435861e2de81c3e5efed8a3c
 
 
 
 
 
-md5-4d5a9f1c807931012456a9493978bf52
+md5-b2a5e034bb801f12b7f3771f19631dd5
 
 
 
 
 
-md5-4915e1a64edc9984286601f7df73868d
+md5-af3a4d04f292288c90e6e2d68a22b723
 
 
 
 
 
-md5-d71029fa18720e90bff6b3992381ed21
+md5-bf7cfeb3e24884ba963ffa31aba183e2
 
 
 
 
 
-md5-c55dfb8a0be2790fb2e7daf77033b1c8
+md5-9a4320371b38dc7db8d3a0d250be5d76
 
 
 
 -->
+
+<h2>Chapter 2</h2>
+
+<h3>2.1</h3>
+
+<blockquote>
+  <p>Suppose that the performance measure is concerned with just the first
+  T time steps of the environment and ignores everything thereafter. Show
+  that a rational agent’s action may depend not just on the state of
+  the environment but also on the time step it has reached.</p>
+</blockquote>
+
+<p>Example: Let's say that we are in an environment with a button,
+and pressing the button causes a light to go on in the next timestep.
+The agent cares that the light is on (obtaining 1 util per timestep the
+light is on for the first T timesteps).</p>
+
+<p>However, pressing the button incurs a cost of ½ on the agent.</p>
+
+<p>Then, at timestep T, the agent will not press the button, since it does
+not care about the light being on at timestep T+1, and wants to avoid
+the cost ½. At timesteps <T it will press the button, with the light
+currently being on, at timestep T it will not press the button, under
+the same environmental conditions.</p>
+
+<!--
+
+### 2.2
+
+> Let us examine the rationality of various vacuum-cleaner agent
+functions.
+
+> a. Show that the simple vacuum-cleaner agent function described in
+Figure 2.3 is indeed rational under the assumptions listed on page 38.  
+> b. Describe a rational agent function for the case in which each movement
+costs one point.  Does the corresponding agent program require internal
+state?  
+> c. Discuss possible agent designs for the cases in which clean squares
+can become dirty and the geography of the environment is unknown. Does it
+make sense for the agent to learn from its experience in these cases? If
+so, what should it learn? If not, why not?
+
+-->
+
+<h3>2.3</h3>
+
+<blockquote>
+  <p>For each of the following assertions, say whether it is true or
+  false and support your answer with examples or counterexamples where
+  appropriate.</p>
+  
+  <p>a. An agent that senses only partial information about the state cannot
+  be perfectly rational.  </p>
+</blockquote>
+
+<p>False. An agent that senses only partial information about the state could
+infer missing information by making deductions (logical or statistical)
+about the state of the environment, coming to full knowledge of the
+environment, and making perfectly rational choices using that information.</p>
+
+<p>For example, a chess-playing agent that can't see exactly one square
+could infer the piece standing on that square by observing which piece
+is missing from the rest of the board.</p>
+
+<blockquote>
+  <p>b. There exist task environments in which no pure reflex agent can
+  behave rationally.  </p>
+</blockquote>
+
+<p>True. In an environment in which the next reward depends on the current
+state and the previous state, a simple reflex agent will get outperformed
+by agents with an internal world-model.</p>
+
+<p>An example for this is a stock-trading agent: The future prices of stocks
+doesn't just depend on the current prices, but on the history of prices.</p>
+
+<blockquote>
+  <p>c. There exists a task environment in which every agent is rational.  </p>
+</blockquote>
+
+<p>True. It is the environment where the agent has no options to act.</p>
+
+<blockquote>
+  <p>d. The input to an agent program is the same as the input to the
+  agent function.  </p>
+</blockquote>
+
+<p>Not sure. Both the agent function and the agent program receive percepts,
+but sometimes the agent program also needs information that is not a
+percept (e.g. priors for bayesian agents). Is that counted as input,
+or simply as program-specific data?</p>
+
+<blockquote>
+  <p>e. Every agent function is implementable by some program/machine
+  combination.  </p>
+</blockquote>
+
+<p>False. An agent function could be uncomputable
+(e. g. <a href="https://en.wikipedia.org/wiki/AIXI">AIXI</a>), and therefore not
+be implementable on a real-world machine.</p>
+
+<blockquote>
+  <p>f. Suppose an agent selects its action uniformly at random from the
+  set of possible actions. There exists a deterministic task environment
+  in which this agent is rational.  </p>
+</blockquote>
+
+<p>True, that would be the environment in which every action scores equally
+well on the performance measure.</p>
+
+<blockquote>
+  <p>g. It is possible for a given agent to be perfectly rational in two
+  distinct task environments.  </p>
+</blockquote>
+
+<p>True. Given two agents <code>$A_X$</code> and <code>$A_Y$</code>, and two task environments
+<code>$X$</code> (giving percepts from the set <code>$\{x_1, \dots, x_n\}$</code>) and <code>$Y$</code>
+(giving percepts from the set <code>$\{y_1, \dots, y_n\}$</code>), with <code>$A_X$</code> being
+perfectly rational in <code>$X$</code> and <code>$A_Y$</code> being perfectly rational in <code>$Y$</code>
+an agent that is perfectly rational in two distinct task environments
+could be implemented using the code:</p>
+
+<pre><code>p=percept()
+if p∈X
+    A_X(p)
+    while p=percept()
+        A_X(p)
+if p∈Y
+    A_Y(p)
+    while p=percept()
+        A_Y(p)
+</code></pre>
+
+<blockquote>
+  <p>h. Every agent is rational in an unobservable environment.  </p>
+</blockquote>
+
+<p>False. Given an unobservable environment in which moving results in
+the performance measure going up (e.g. by knocking over ugly vases),
+agents that move a lot are more rational than agents that do not move.</p>
+
+<blockquote>
+  <p>i. A perfectly rational poker-playing agent never loses.</p>
+</blockquote>
+
+<p>False. Given incomplete knowledge, a rational poker-playing agent can
+only win in expectation.</p>
+
+<!--
+
+### 2.4
+
+> For each of the following activities, give a PEAS description of the
+task environment and characterize it in terms of the properties listed
+in Section 2.3.2.
+
+> * Playing soccer.
+> * Exploring the subsurface oceans of Titan.
+> * Shopping for used AI books on the Internet.
+> * Playing a tennis match.
+> * Practicing tennis against a wall.
+> * Performing a high jump.
+> * Knitting a sweater.
+> * Bidding on an item at an auction.
+
+### 2.5
+
+> Define in your own words the following terms: agent, agent function,
+agent program, rationality, autonomy, reflex agent, model-based agent,
+goal-based agent, utility-based agent, learning agent.
+
+### 2.6
+
+> This exercise explores the differences between agent functions and
+agent programs.
+
+> a. Can there be more than one agent program that implements a given
+agent function? Give an example, or show why one is not possible.  
+> b. Are there agent functions that cannot be implemented by any agent
+program?  
+> c. Given a fixed machine architecture, does each agent program implement
+exactly one agent function?  
+> d. Given an architecture with n bits of storage, how many different
+possible agent programs are there?  
+> e. Suppose we keep the agent program fixed but speed up the machine
+by a factor of two. Does that change the agent function?
+
+### 2.7
+
+> Write pseudocode agent programs for the goal-based and utility-based
+agents.  The following exercises all concern the implementation of
+environments and agents for the vacuum-cleaner world.
+
+### 2.8
+
+> Implement a performance-measuring environment simulator for
+the vacuum-cleaner world depicted in Figure 2.2 and specified on
+page 38. Your implementation should be modular so that the sensors,
+actuators, and environment characteristics (size, shape, dirt placement,
+etc.) can be changed easily. (Note: for some choices of programming
+language and operating system there are already implementations in the
+online code repository.)
+
+### 2.9
+
+> Implement a simple reflex agent for the vacuum environment in Exercise
+2.8. Run the environment with this agent for all possible initial dirt
+configurations and agent locations.  Record the performance score for
+each configuration and the overall average score.
+
+### 2.10
+
+> Consider a modified version of the vacuum environment in Exercise 2.8,
+in which the agent is penalized one point for each movement.
+
+> a. Can a simple reflex agent be perfectly rational for this
+environment? Explain.  
+> b. What about a reflex agent with state? Design such an agent.  
+> c. How do your answers to a and b change if the agent’s percepts
+give it the clean/dirty status of every square in the environment?
+
+### 2.11
+
+> Consider a modified version of the vacuum environment in Exercise 2.8,
+in which the geography of the environment—its extent, boundaries,
+and obstacles—is unknown, as is the initial dirt configuration. (The
+agent can go Up and Down as well as Left and Right.)
+
+> a. Can a simple reflex agent be perfectly rational for this
+environment? Explain.  
+> b. Can a simple reflex agent with a randomized agent function outperform
+a simple reflex agent? Design such an agent and measure its performance
+on several environments.  
+> c. Can you design an environment in which your randomized agent will
+perform poorly? Show your results.  
+> d. Can a reflex agent with state outperform a simple reflex
+agent? Design such an agent and measure its performance on several
+environments. Can you design a rational agent of this type?
+
+### 2.12
+
+> Repeat Exercise 2.11 for the case in which the location sensor
+is replaced with a “bump” sensor that detects the agent’s
+attempts to move into an obstacle or to cross the boundaries of the
+environment. Suppose the bump sensor stops working; how should the
+agent behave?
+
+### 2.13
+
+> The vacuum environments in the preceding exercises have all been
+deterministic. Discuss possible agent programs for each of the following
+stochastic versions:
+
+> a. Murphy’s law: twenty-five percent of the time, the Suck action
+fails to clean the floor if it is dirty and deposits dirt onto the floor
+if the floor is clean. How is your agent program affected if the dirt
+sensor gives the wrong answer 10% of the time?  
+> b. Small children: At each time step, each clean square has a 10%
+chance of becoming dirty. Can you come up with a rational agent design
+for this case?  
+
+-->
+
+<h2>Chapter 13</h2>
+
+<h3>13.1</h3>
+
+<blockquote>
+  <p>Show from first principile that <code>$P(a|b \land a) = 1$</code>.</p>
+</blockquote>
+
+<p>I'm not sure whether this counts as "from first principles", but</p>
+
+<p><code>$P(a|b \land a)=\frac{P(a \land a \land b)}{P(a \land b)}=\frac{P(a \land b)}{P(a \land b)}=1$</code></p>
+
+<p>is my solution.</p>
+
+<h3>13.2</h3>
+
+<blockquote>
+  <p>Using the axioms of probability, prove that any probability distribution
+  on a discrete random variable must sum to 1.</p>
+</blockquote>
+
+<p>We know that <code>$\sum_{\omega \in \Omega} P(\omega)=1$</code>.</p>
+
+<p>Given a discrete random variable X (X is discrete (and therefore also
+countable?)), and a probability distribution <code>$P: X \rightarrow [0;1]$</code>.</p>
+
+<p>Then, setting <code>$\Omega=X$</code>, one can see that <code>$\sum_{x \in X} P(x)=1$</code>.</p>
+
+<!--Possible problem: What about other variables & their distributions?
+Conditional on those in joint, the result is still 1, but would be
+worthwhile to write down.-->
+
+<h3>13.3</h3>
+
+<blockquote>
+  <p>For each of the following statements, either prove it is true or give
+  a counterexample.</p>
+  
+  <p>a. If <code>$P(a|b,c)=P(b|a,c)$</code>, then <code>$P(a|c)=P(b|c)$</code></p>
+</blockquote>
+
+<div>
+    $$P(a|b,c)=P(b|a,c) \Leftrightarrow \\
+    \frac{P(a,b,c)}{P(b,c)}=\frac{P(a,b,c)}{P(a,c)} \Leftrightarrow \\
+    P(a,c)=P(b,c) \Leftrightarrow \\
+    \frac{P(a,c)}{P(c)}=\frac{P(b,c)}{P(c)} \Leftrightarrow \\
+    P(a|c)=P(b|c)$$
+</div>
+
+<p>True.</p>
+
+<blockquote>
+  <p>b. If <code>$P(a|b,c)=P(a)$</code>, then <code>$P(b|c)=P(b)$</code></p>
+</blockquote>
+
+<p>False: If
+<code>$P(a)=P(a|b,c)=P(a|\lnot b,c)=P(a|b, \lnot c)=P(a|\lnot b,\lnot c)=0.1$</code>
+(<code>$P(\lnot a)$</code> elided for brevity), then still can b be dependent on c,
+for example <code>$P(b|c)=0.2$</code>, <code>$P(\lnot b|c)=0.8$</code>, <code>$P(b|\lnot c)=0.3$</code>,
+<code>$P(\lnot b|\lnot c)=0.7$</code>, and <code>$P(c)=P(\lnot c)=0.5$</code> (which would
+make <code>$P(b)=\sum_{c \in C} P(b|c)*P(c)=0.5*0.2+0.5*0.3=0.25$</code> and
+<code>$P(\lnot b)=\sum_{c \in C} P(\lnot b|c)*P(c)=0.5*0.8+0.5*0.7=0.75$</code>).</p>
+
+<!--
+
+
+md5-996f84eb0bbdbcc60fd9e72207c19332
+
+
+
+![](./img/aima_solutions/13_3_bayes_diagram.png)
+
+I am stupid. TODO.
+-->
+
+<h3>13.4</h3>
+
+<blockquote>
+  <p>Would it be rational for an agent to hold the three beliefs <code>$P(A)=0.4, P(B)=0.3$</code>,
+  and <code>$P(A \lor B)=0.5$</code>? If so, what range of probabilities
+  would be rational for the agent to hold for <code>$A \land B$</code>? Make up
+  a table like the one in Figure 13.2, and show how it supports your
+  argument about rationality. Then draw another version of the table where
+  <code>$P(A \lor B)=0.7$</code>. Explain why it is rational to have this probability,
+  even though the table shows one case that is a loss and three that just
+  break even. (<em>Hint</em>: what is Agent 1 commited to about the probability
+  of each of the four cases, especially the case that is a loss?</p>
+</blockquote>
+
+<p>It is rational for an agent to believe <code>$P(A)=0.4, P(B)=0.3$</code> and
+<code>$P(A \lor B)=0.5$</code>, if
+<code>$P(A \land B)=P(A)+P(B)-P(A \lor B)=0.4+0.3-0.5=0.2$</code>.</p>
+
+<table>
+<thead>
+    <tr>
+        <td>Proposition</td>
+        <td>Belief</td>
+    </tr>
+</thead>
+</table>
