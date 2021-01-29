@@ -349,3 +349,4 @@
 2021-01-29T11:07:58.000000Z	Let TM1 and TM2 be turing machines. Let p_{1 on 2} be the shortest program that emulates TM1 on TM2, and p_{2 on 1} be the shortest program that emulates TM2 on TM1. TM1≺TM2 iff |p_{1 on 2}|<|p_{2 on 1}| (and TM1~TM2 iff |p_{1 on 2}|=|p_{2 on 1}|). Is ≺ then transitive?
 2021-01-29T11:10:59.000000Z	Or is that undecidable?
 2021-01-29T18:59:55.000000Z	@<pbatch https://pbat.ch/twtxt.txt> "Writing a "tweet" is low-friction, and the medium forces you to chunk out ideas into (mostly) self-contained thoughts." <3
+2021-01-29T22:29:20.000000Z	https://twitter.com/gregbglw/status/1354258643697475586 and then it just leaves!
