@@ -352,3 +352,4 @@
 2021-01-29T22:29:20.000000Z	https://twitter.com/gregbglw/status/1354258643697475586 and then it just leaves!
 2021-01-29T22:38:01.000000Z	https://www.lesswrong.com/posts/cumc876woKaZLmQs5/lessons-i-ve-learned-from-self-teaching I should have started using Anki earlier as well.
 2021-01-30T09:07:20.000000Z	two sigma male
+2021-01-30T16:43:49.000000Z	learning dril tweets & morse code using spaced repetition
