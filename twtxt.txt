@@ -355,3 +355,4 @@
 2021-01-30T16:43:49.000000Z	learning dril tweets & morse code using spaced repetition
 2021-01-30T16:53:05.000000Z	@<jlj https://twt.nfld.uk/user/jlj/twtxt.txt> "Wow. I think much of what drew me to zettlekasten -- and then letting it languish :-( -- really belongs in Anki." <3 i have only used SRS for ~3 months now, so I'm not sure how long i'll continue
 2021-01-31T12:02:03.000000Z	(me making up words): qualia internalism: the properties of a quale are internal to the quale, and therefore the properties of different qualia can be projected onto a cardinal scale with zero point.
+2021-01-31T12:05:30.000000Z	(cont): qualia relationism: the properties of qualia are defined by their relations to other qualia (but distinguish ordinal rankings for properties of qualia without a zero-point from cardinal properties of qualia without a zero-point). E.g., the hedonic treadmill is not accidental, but a deep fact of the universe.
