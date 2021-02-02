@@ -364,3 +364,4 @@
 2021-02-02T15:52:35.000000Z	masturbyte
 2021-02-02T15:52:41.000000Z	masturbit
 2021-02-02T15:52:46.000000Z	maturyte
+2021-02-02T15:59:42.000000Z	could we build a blockchain which auctions off computing power to companies who wish to solve NP-hard problems as proof of work?
