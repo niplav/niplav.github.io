@@ -201,121 +201,121 @@ TODO: do exercises 6 through 15
 
 
 
-md5-c5882418774fce336c07193d8f89d554
+md5-07ec45cd23cfa4100614e912c44ae1c8
 
 
 
 
 
-md5-4b0b41fb777ef20ccaf923ca988a901c
+md5-589b2ce00e2b07209c511cc07e4400f6
 
 
 
 
 
-md5-82163ef48da41de35fd9056df633b80f
+md5-62e0ec299b1ed08fd9d445986e644081
 
 
 
 
 
-md5-f79679b05ddab7879ecd98bb385e025c
+md5-92405e1c8c60e612a71f4724143434b3
 
 
 
 
 
-md5-ab89e407fdeab43ae2f15ec0317d5410
+md5-a32432d87ba32f5483d3c33ec0d37d80
 
 
 
 
 
-md5-21ef177b59425fc31bb47b8772d6f881
+md5-c9221977575e06b2ee4a5b9cee4f37ed
 
 
 
 
 
-md5-fc2178ee3982f5e062838a6b588a907c
+md5-8ada65958a70d4808b2f6512cda24090
 
 
 
 
 
-md5-0a6761a5ba83fff6d59fc90148fc5f44
+md5-73396aa9308a22e440021faf136678ef
 
 
 
 
 
-md5-904ade6f58032ea7ef1077c8adc05e40
+md5-13d6bfccac89b63fe47b0f997278c935
 
 
 
 
 
-md5-9eeb62763832cc9eae4a1b427433ca2b
+md5-1954846c53443d8aedb4df8ad8546040
 
 
 
 
 
-md5-2812c0d95619c21aa60327b0352f3d2b
+md5-50605189481550d782fbb2c4d8dfaf43
 
 
 
 
 
-md5-ed3cad9a22e59bbfd263044cc7157cbe
+md5-6757242ae51780b65bdafb41af4d2b24
 
 
 
 
 
-md5-63b20f982b26fe7cf2e863092710780b
+md5-08cc303e32793bf1826b07f388af9516
 
 
 
 
 
-md5-d2b490e9b28339164cfbb287fa7034b4
+md5-b567173de8b756e5cf235efcdb6abfe6
 
 
 
 
 
-md5-790ccf42fed0585b6bc6797e0cb04fc6
+md5-34e86328ede730274827064658d0eec6
 
 
 
 
 
-md5-da055f2c435861e2de81c3e5efed8a3c
+md5-dd2aeaf544fccb46e2a2dc740b1efbdc
 
 
 
 
 
-md5-b2a5e034bb801f12b7f3771f19631dd5
+md5-bee1f1983aae09a42ac63a93a63609d4
 
 
 
 
 
-md5-af3a4d04f292288c90e6e2d68a22b723
+md5-a83168d04a17ba2028b269c889240c88
 
 
 
 
 
-md5-bf7cfeb3e24884ba963ffa31aba183e2
+md5-dd82754d130e12a11de7f74dd55fca51
 
 
 
 
 
-md5-9a4320371b38dc7db8d3a0d250be5d76
+md5-7879d38f2e25c4482592fad4fba55ebf
 
 
 
@@ -646,41 +646,37 @@ for example <code>$P(b|c)=0.2$</code>, <code>$P(\lnot b|c)=0.8$</code>, <code>$P
 make <code>$P(b)=\sum_{c \in C} P(b|c)*P(c)=0.5*0.2+0.5*0.3=0.25$</code> and
 <code>$P(\lnot b)=\sum_{c \in C} P(\lnot b|c)*P(c)=0.5*0.8+0.5*0.7=0.75$</code>).</p>
 
+<blockquote>
+  <p>c. If <code>$P(a|b)=P(a)$</code>, then <code>$P(a|b,c)=P(a|c)$</code></p>
+</blockquote>
+
+<p><code>$a$</code> and <code>$b$</code> are independent. However, this does not imply conditional
+independence given <code>$c$</code>. E.g.:</p>
+
+<p><code>$P(a)=0.5, P(b)=0.5, P(c|a, b)=1, P(c|\lnot a, \lnot b)=0, P(c|\lnot a, b)=1, P(c|a, \lnot b)=1$</code></p>
+
+<p>So this is false.</p>
+
 <!--
 
 
-md5-996f84eb0bbdbcc60fd9e72207c19332
+md5-387dbcc38fdea7cd2c5070a7eea8d92c
 
 
 
-![](./img/aima_solutions/13_3_bayes_diagram.png)
 
-I am stupid. TODO.
+
+md5-11614195b274b64ffd24a2a8136f0c46
+
+
+
+It is rational for an agent to believe `$P(A)=0.4, P(B)=0.3$` and
+`$P(A \lor B)=0.5$`, if
+`$P(A \land B)=P(A)+P(B)-P(A \lor B)=0.4+0.3-0.5=0.2$`.
+
+
+
+md5-998ca0c2d6b4d1fce6253a8b52c3799a
+
+
 -->
-
-<h3>13.4</h3>
-
-<blockquote>
-  <p>Would it be rational for an agent to hold the three beliefs <code>$P(A)=0.4, P(B)=0.3$</code>,
-  and <code>$P(A \lor B)=0.5$</code>? If so, what range of probabilities
-  would be rational for the agent to hold for <code>$A \land B$</code>? Make up
-  a table like the one in Figure 13.2, and show how it supports your
-  argument about rationality. Then draw another version of the table where
-  <code>$P(A \lor B)=0.7$</code>. Explain why it is rational to have this probability,
-  even though the table shows one case that is a loss and three that just
-  break even. (<em>Hint</em>: what is Agent 1 commited to about the probability
-  of each of the four cases, especially the case that is a loss?</p>
-</blockquote>
-
-<p>It is rational for an agent to believe <code>$P(A)=0.4, P(B)=0.3$</code> and
-<code>$P(A \lor B)=0.5$</code>, if
-<code>$P(A \land B)=P(A)+P(B)-P(A \lor B)=0.4+0.3-0.5=0.2$</code>.</p>
-
-<table>
-<thead>
-    <tr>
-        <td>Proposition</td>
-        <td>Belief</td>
-    </tr>
-</thead>
-</table>
