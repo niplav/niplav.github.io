@@ -366,3 +366,4 @@
 2021-02-02T15:52:46.000000Z	maturyte
 2021-02-02T15:59:42.000000Z	could we build a blockchain which auctions off computing power to companies who wish to solve NP-hard problems as proof of work?
 2021-02-02T21:58:30.000000Z	high effect-size male
+2021-02-03T13:30:43.000000Z	shoot me if i ever say that X should require Educational Attainment Y
