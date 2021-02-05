@@ -375,3 +375,4 @@
 2021-02-05T10:48:06.000000Z	rationalist ∟ postrationalist
 2021-02-05T10:49:24.000000Z	or, longer: in the cartesian product of the space of minds by their rationality and mind-states by their emotional well-being on the high end the tails may come apart, but they are not anti-correlated
 2021-02-05T11:15:25.000000Z	dislike of editing because it induces a prediction error for believing ”I'm already finished working on this text”
+2021-02-05T14:00:58.000000Z	v_v
