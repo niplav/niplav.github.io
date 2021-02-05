@@ -371,3 +371,4 @@
 2021-02-05T09:50:31.000000Z	how come there's a Hard Problem of Consciousness™, but no hard problem of matter?
 2021-02-05T10:11:50.000000Z	winner's curse for high discount rates
 2021-02-05T10:12:20.000000Z	high discounters force low discounters into high discounting
+2021-02-05T10:16:13.000000Z	humans are maybe better at solving common resource problems than more rational agents for adaption-executer reasons
