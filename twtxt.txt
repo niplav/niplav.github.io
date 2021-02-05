@@ -377,3 +377,4 @@
 2021-02-05T11:15:25.000000Z	dislike of editing because it induces a prediction error for believing ”I'm already finished working on this text”
 2021-02-05T14:00:58.000000Z	v_v
 2021-02-05T21:12:03.000000Z	gilgamesh ratfic
+2021-02-05T22:51:28.000000Z	I should fight for slack more.
