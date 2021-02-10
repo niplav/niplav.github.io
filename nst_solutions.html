@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2021-01-19, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2021-02-09, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -633,7 +633,7 @@ Since <code>$A_{i_{e}} \cap B_{j_{e}} \subset \bigcup_{(i,j) \in I \times J} (A_
     e \in (\bigcup_{i \in I} A_{i}) \land e \in (\bigcup_{j \in J} B_{j}) \Rightarrow \\
     (\exists i_{e} \in I: e \in A_{i_{e}}) \land (\exists j_{e} \in J: e \in B_{j_{e}}) \Rightarrow \\
     \exists i_{e} \in I: \exists j_{e} \in J: e \in A_{i_{e}} \land e \in B_{j_{e}} \Rightarrow \\
-    \exists (i_{e}, j_{e}) \in I \times J: e \in (A_{i_{e}} \cap  B_{j_{e}}) \Rightarrow \\
+    \exists (i_{e}, j_{e}) \in I \times J: e \in (A_{i_{e}} \cap B_{j_{e}}) \Rightarrow \\
     e \in \bigcup_{(i,j) \in I \times J} (A_{i} \cap B_{j})$$
 </div>
 
@@ -641,7 +641,7 @@ Since <code>$A_{i_{e}} \cap B_{j_{e}} \subset \bigcup_{(i,j) \in I \times J} (A_
 
 <p>Let <code>$e \in \bigcup_{(i,j) \in I \times J} (A_{i} \cap B_{j})$</code>.
 Then there exists <code>$(i_{e}, j_{e}) \in I \times J$</code> so that
-<code>$e \in (A_{i_{e}} \cap  B_{j_{e}})$</code>.
+<code>$e \in (A_{i_{e}} \cap B_{j_{e}})$</code>.
 But then <code>$e \in \bigcup_{i \in I} A_{i}$</code> and <code>$e \in \bigcup_{j \in J} B_{j}$</code>,
 which means that <code>$e$</code> is also in their intersection.</p>
 
@@ -672,7 +672,7 @@ of all of these unions <code>$\bigcap_{(i,j) \in I \times J} (A_{i} \cup B_{j})$
 
 <p>Let <code>$e \in \bigcap_{(i,j) \in I \times J} (A_{i} \cup B_{j})$</code>. Then
 for every <code>$i$</code> and <code>$j$</code>, <code>$e \in A_{i} \cup B_{j}$</code>. That means that
-for every <code>$i$</code>, <code>$e \in  A_{i}$</code>: if there is just one <code>$j$</code> so that <code>$e \not \in B_{j}$</code>,
+for every <code>$i$</code>, <code>$e \in A_{i}$</code>: if there is just one <code>$j$</code> so that <code>$e \not \in B_{j}$</code>,
 for the last sentence to be true, <code>$A_{i}$</code> must compensate for that. Or,
 if not an <code>$e$</code> in every <code>$A_{i}$</code>, then this must be true for every
 <code>$B_{j}$</code> (with a similar reasoning as for <code>$A_{i}$</code>). But if <code>$e$</code> in
@@ -863,5 +863,24 @@ That means <code>$x \in A \land x \in B$</code>. Then <code>$e \in f(A) \land e 
 
 <p>Then <code>$y \in f(A) \cap f(B)$</code>, but <code>$y \not \in f(A \cap B)$</code>. So those
 <code>$x_1, x_2$</code> can't exist, therefore f is injective.</p>
+
+<p>□</p>
+
+<p>(iii) To be proven: f injective <code>$\Leftrightarrow f(X-A) \subset Y-f(A)$</code>
+for all subsets of A.</p>
+
+<p>First case: f inj. <code>$\Rightarrow f(X-A) \subset Y-f(A)$</code></p>
+
+<p>Let <code>$e \in f(X-A)$</code> and <code>$e \not \in Y-f(A)$</code>. Then <code>$\exists x \in X-A$</code>
+so that <code>$f(x)=e$</code>, and there is no <code>$x_2 \in A: f(x_2)=e$</code>
+(since f is injective). But since <code>$e \in Y$</code> (by definition) and <code>$e \not \in f(A)$</code>,
+e must be in <code>$Y-f(A)$</code>.</p>
+
+<p>Second case: <code>$f(X-A) \subset Y-f(A) \Rightarrow f$</code> inj.</p>
+
+<p>Assume <code>$x_1, x_2 (x_1 \not = x_2)$</code> so that <code>$f(x_1)=f(x_2)=y$</code>. Let
+then <code>$x_1 \not \in A$</code> and <code>$x_2 \in A$</code>. Then <code>$y \in f(X-A)$</code>
+(since <code>$x_1 \in X-A$</code>). But since <code>$y \in f(A)$</code>, <code>$y \not \in Y-f(A)$</code>.
+Contradiction, f must be injective.</p>
 
 <p>□</p>
