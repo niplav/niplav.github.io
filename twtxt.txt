@@ -391,3 +391,4 @@
 2021-02-14T14:23:31.000002Z	piece piqued my interest: I'd been reading a critique of his earlier work -- in
 2021-02-14T14:23:31.000003Z	Overall's *Why Have Children?* -- that really wasn't up to scratch. Now I'm
 2021-02-14T14:23:31.000004Z	reading about pure replicators, which is a new concept, to me. :-)" -> Nice :-) Looking over my text reviews, they're not quite finished (especially the Benatar one), so take it with a grain of salt
+2021-02-14T14:34:33.000000Z	Wirth's law, but for economic growth and regulation instead
