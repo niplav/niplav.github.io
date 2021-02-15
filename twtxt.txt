@@ -414,3 +414,4 @@
 2021-02-15T11:55:43.000006Z	Complex,
 2021-02-15T11:55:43.000007Z	BUT
 2021-02-15T11:55:52.000000Z	It always bottoms out in valence somewhere.
+2021-02-15T11:56:02.000000Z	Intelligence is the technology creating technology.
