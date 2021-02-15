@@ -398,3 +398,4 @@
 2021-02-15T11:53:45.000000Z	Sure, give me all the negative space you want. I'll take the most comfortable spot.
 2021-02-15T11:53:50.000000Z	https://en.wikipedia.org/wiki/Orbifold#Music_theory
 2021-02-15T11:53:57.000000Z	Politics supervenes on ethics/epistemology.
+2021-02-15T11:54:12.000000Z	It's harder for me to be mindful of default states of mind (calm etc.) than very agitated states (nervousness, stress etc.).
