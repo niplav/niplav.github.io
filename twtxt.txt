@@ -421,3 +421,4 @@
 2021-02-15T11:57:11.000000Z	Approval directed behavior in the water supply
 2021-02-15T11:57:19.000000Z	Pareto diversity
 2021-02-15T11:57:29.000000Z	The singular of criteria is criterion goddamnit!
+2021-02-15T11:57:37.000000Z	Some of you haven't read the sequences and it shows.
