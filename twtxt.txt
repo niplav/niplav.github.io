@@ -405,3 +405,11 @@
 2021-02-15T11:54:57.000000Z	Omohundro monsters in the water supply.
 2021-02-15T11:55:22.000000Z	Play strange games, win strange prizes.
 2021-02-15T11:55:34.000000Z	value of perfect information in the water supply
+2021-02-15T11:55:43.000000Z	Doing a crucifix: Human
+2021-02-15T11:55:43.000001Z	–
+2021-02-15T11:55:43.000002Z	Values
+2021-02-15T11:55:43.000003Z	–
+2021-02-15T11:55:43.000004Z	Are
+2021-02-15T11:55:43.000005Z	–
+2021-02-15T11:55:43.000006Z	Complex,
+2021-02-15T11:55:43.000007Z	BUT
