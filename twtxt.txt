@@ -404,3 +404,4 @@
 2021-02-15T11:54:48.000000Z	A lot of social technology developed by nerds makes lying harder, and therefore won't be accepted except in nerd-only spaces.
 2021-02-15T11:54:57.000000Z	Omohundro monsters in the water supply.
 2021-02-15T11:55:22.000000Z	Play strange games, win strange prizes.
+2021-02-15T11:55:34.000000Z	value of perfect information in the water supply
