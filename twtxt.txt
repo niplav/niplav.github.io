@@ -427,3 +427,4 @@
 2021-02-15T11:59:46.000000Z	Echochamber of Guf.
 2021-02-16T11:00:36.000000Z	the emotion {≻,~,≺}
 2021-02-16T11:00:55.000000Z	looked better rendered by LaTeX, but whatevs
+2021-02-16T11:20:31.000000Z	naming my eye floaters
