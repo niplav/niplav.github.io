@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-01-21, modified: 2021-02-12, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-01-21, modified: 2021-02-16, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">“Artificial Intelligence: A Modern
@@ -201,121 +201,121 @@ TODO: do exercises 6 through 15
 
 
 
-md5-f1e6fd471f676892bd9a20e0fa791b69
+md5-3f4544171619658f7282b0aa087d4894
 
 
 
 
 
-md5-012517055ad1c414d190500660956e47
+md5-770d5ff7d5b135d2187960ebfcdcd322
 
 
 
 
 
-md5-425a75dbb333f82f9cfe0706215607da
+md5-51860b53d050046bcc3c3944306dca3c
 
 
 
 
 
-md5-9cbe60cd390f94f8a32372681bada0a1
+md5-79e660d2f0eb2e096c61a6dcb90e26fa
 
 
 
 
 
-md5-588ccaa22fe15e9734d0176f0e53e197
+md5-127512139f5805d87265f9d96857915b
 
 
 
 
 
-md5-e6fbd2961ae99d102c48fcfbd9fe030e
+md5-e106c34e67de23e2d6704b2e62c7ecd7
 
 
 
 
 
-md5-63c3adf459550c4e3b0ff742104ffba3
+md5-369132143d99e61124e4571e4ff58dd9
 
 
 
 
 
-md5-a10d77ddff0cdcbd8ffc98e31a4bac26
+md5-a647f57c18b3ae8a1978998c02e5df0a
 
 
 
 
 
-md5-331ff4ed64b484144d64669cfe9242e6
+md5-65d534a6033bd8d0f753f88077e9f762
 
 
 
 
 
-md5-a0a11a485a167f3743bd1975d9622c69
+md5-f57663a9b7a55e3e4f328eab598dfeaa
 
 
 
 
 
-md5-c122b5fb8926c1006c6684ca7c5fe91f
+md5-ac6cd6e6b6e0f56fbbc9057796afa84a
 
 
 
 
 
-md5-44e83f6f91c177c608d0febcae7dd41f
+md5-58177da1a906aeb8af5458bba503b05b
 
 
 
 
 
-md5-d4b5f2a2e1a679d11553ba550422c69a
+md5-d9e42565e7b743c941f07a79bd929ff2
 
 
 
 
 
-md5-3336515d80e7b8575dc1fd34f42c1c35
+md5-13c92fead6c420630d0ce44b629f9df9
 
 
 
 
 
-md5-2522be78cc8b93ea3cc8975ccdd7b1a4
+md5-62af378a7bfd19bf93a94ab9dc5ededa
 
 
 
 
 
-md5-aa9963e9c41a3d3add0d548da0fff0ee
+md5-9f0b454c70ef3cadb2e544e43b7992a5
 
 
 
 
 
-md5-87030a45eae8d8c798561d27a3017dfb
+md5-7c86259e4f31a5f447e47412e592a6a8
 
 
 
 
 
-md5-e80651cd51d4a9095e1f45a6ba2c7431
+md5-f9e9772f89a661e2019fd8c7b2ebaea8
 
 
 
 
 
-md5-744861f6d70e47aa34ab225b59349679
+md5-b78982b42d4054792685ea6e08adaee8
 
 
 
 
 
-md5-0dcf275281a5648cb840be593c35a8e6
+md5-4a40fe7de7c4c2128a22309f22509cb3
 
 
 
@@ -660,13 +660,13 @@ independence given <code>$c$</code>. E.g.:</p>
 <!--
 
 
-md5-5c1ce70e7a87abf4e6718f9dccfa3c26
+md5-1e4204ae6b8fe85dfa6cee9fc456455f
 
 
 
 
 
-md5-1429df1a52061286382ec3dc615c3531
+md5-585a05612d3a492dd432e01bdf7e00f1
 
 
 
@@ -676,7 +676,7 @@ It is rational for an agent to believe `$P(A)=0.4, P(B)=0.3$` and
 
 
 
-md5-ea875355101f5faeaeca5b93abaf18b1
+md5-d250a93a11a9215b860adfaf9741b45c
 
 
 -->
@@ -765,7 +765,7 @@ that makes the proposition true.</p>
 <code>$S_t$</code> for sleeping in class on day t, and <code>$R_t$</code> for having red eyes
 on day t.</p>
 
-<!--TODO: Make diagram of bayes network-->
+<p><img src="./img/aima_solutions/15_3_bayesnet.png" alt="Image of the resulting dynamic Bayesian network" title="The resulting dynamic Bayesian network, with E nodes in sequence, each parent of one R and one S node." /></p>
 
 <p>The conditional probabilities tables for the dynamic Bayesian network are:</p>
 
@@ -982,3 +982,193 @@ and
 it's the other way around for <code>$E_2$</code>.</p>
 
 <p>Otherwise, what's there to compare further?</p>
+
+<h2>Chapter 16</h2>
+
+<h3>16.1</h3>
+
+<blockquote>
+  <p>(Adapted from David Heckerman.) This exercise concerns the Almanac Game,
+  which is used by decision analysts to calibrate numeric estimation. For
+  each of the questions that follow, give your best guess of the answer,
+  that is, a number that you think is as likely to be too high as it is to
+  be too low. Also give your guess at a 25th percentile estimate, that is,
+  a number that you think has a 25% chance of being too high, and a 75%
+  chance of being too low. Do the same for the 75th percentile. (Thus,
+  you should give three estimates in all—low, median, and high—for
+  each question.)</p>
+</blockquote>
+
+<p>Using Klong for dealing with the arrays of values when doing calculations.</p>
+
+<blockquote>
+  <p>a. Number of passengers who flew between New York and Los Angeles in 1989.</p>
+</blockquote>
+
+<p>80k, 500k, 6m.</p>
+
+<blockquote>
+  <p>b. Population of Warsaw in 1992.</p>
+</blockquote>
+
+<p>Population of Warsaw today (2021): Around 2m, I think? Was probably
+lower back then. Assume growth of 1.5% a year.</p>
+
+<pre><code>    [600000 2000000 3000000]%(1.015^29)
+[389615.319813051588 1298717.73271017196 1948076.59906525794]
+</code></pre>
+
+<blockquote>
+  <p>c. Year in which Coronado discovered the Mississippi River.</p>
+</blockquote>
+
+<p>Hm, no idea. Mississippi is near to the east coast, so probably discovered
+relatively early. I know that Yucatán was discovered very early.</p>
+
+<p>1620, 1710, 1800.</p>
+
+<blockquote>
+  <p>d. Number of votes received by Jimmy Carter in the 1976 presidential election.</p>
+</blockquote>
+
+<p>Population of the US at that time around 250m? Electorate is probably
+~70% of population (maybe less because population was younger then,
+say 65%), combined with 60% participation in presidential elections,
+and presidents receiving on average ~50% of the vote.</p>
+
+<pre><code>    [180000000 250000000 300000000]*0.65*0.6*0.5
+[35100000.0 48750000.0 58500000.0]
+</code></pre>
+
+<blockquote>
+  <p>e. Age of the oldest living tree, as of 2002.</p>
+</blockquote>
+
+<p>1.5k, 4k, 10k.</p>
+
+<blockquote>
+  <p>f. Height of the Hoover Dam in feet.</p>
+</blockquote>
+
+<p>~3 feet in a meter.</p>
+
+<pre><code>    [50 85 180]*3
+[120 255 540]
+</code></pre>
+
+<blockquote>
+  <p>g. Number of eggs produced in Oregon in 1985.</p>
+</blockquote>
+
+<p>Let's say every Oregonian eats an egg a day, and Oregon produces all
+its own eggs.</p>
+
+<pre><code>    [100000 300000 1500000]*365
+[36500000 109500000 547500000]
+</code></pre>
+
+<p>Maybe even less for the smallest value, because Oregone might not produce
+all its eggs on its own.</p>
+
+<p>10m, 109.5m, 547.5m</p>
+
+<blockquote>
+  <p>h. Number of Buddhists in the world in 1992.</p>
+</blockquote>
+
+<p>World population in 1992: Around 6b, I think? I vaguely remembers
+Buddhists making up 2% of the world population.</p>
+
+<pre><code>    6000000000*[0.003 0.02 0.1]
+[18000000.0 120000000.0 600000000.0]
+</code></pre>
+
+<p>Other method: Most buddhists probably live in China/India/Japan. China
+had 1b, India had ~700m (?), Japan had ~100m. Let's say 20% in each of
+those countries (major religion, being generous because other countries
+are not included). Median comes out to</p>
+
+<pre><code>    0.2*700000000+1000000000+100000000
+360000000.0
+</code></pre>
+
+<p>That's not that far off of the other number. Let's say 100m, 240m (the
+mean of the two estimates for the median), 600m.</p>
+
+<blockquote>
+  <p>i. Number of deaths due to AIDS in the United States in 1981.</p>
+</blockquote>
+
+<p>0 (when did AIDS start exactly?), 50k, 250k.</p>
+
+<blockquote>
+  <p>j. Number of U.S. patents granted in 1901.</p>
+</blockquote>
+
+<p>Let's say 1 patent per year for every 1000/2000/10000 people, for
+100m/150m/200m people.</p>
+
+<p>That results in 10k, 75k, 200k. But that seems a bit much. How
+big could the patent office be? 10k patents would mean processing
+~25 patents a day. Let's knock these numbers down a little.</p>
+
+<p>5k, 50k, 150k.</p>
+
+<h4>Ranking My Answers</h4>
+
+<blockquote>
+  <p>The correct answers appear after the last exercise of this chapter. From
+  the point of view of decision analysis, the interesting thing is not
+  how close your median guesses came to the real answers, but rather how
+  often the real answer came within your 25% and 75% bounds. If it was
+  about half the time, then your bounds are accurate. But if you’re like
+  most people, you will be more sure of yourself than you should be, and
+  fewer than half the answers will fall within the bounds. With practice,
+  you can calibrate yourself to give realistic bounds, and thus be more
+  useful in supplying information for decision making.</p>
+</blockquote>
+
+<p>a. Lies in my given range, but I was a bit pessimistic. <br />
+b. Again, I was pessimistic, but I wasn't so bad, only 300k off. <br />
+c. Yeah, I didn't perform well on this one. I guess I should have been more aggressive in my estimation how early much of the US was explored. Still, 1541 is surprising (the American continent was discovered in 1492, and only 50 years later they find the Mississippi?). <br />
+d. I'm proud of this one–only 7m too optimistic, for a question I know next to nothing about (I couldn't name a single thing Jimmy Carter did during his presidency). <br />
+e. I roughly knew the order of magnitude for this one for today, with the major hurdle being to estimate what the state of knowledge about tree age was in 2002. <br />
+f. Pretty accurate on this one, too. I corrected the number down a couple of times before checking, reflecting on dams probably not being <em>that</em> high. <br />
+g. I was way too pessimistic about this one. I didn't know whether Oregon was a major agricultural state (is it?) and I didn't include the possibility that Oregon overproduces eggs. Too bad. <br />
+h. Also proud of this one. 50m off of the real number (and too low! I was fearing I was being too optimistic, being exposed to Buddhism much more than other religions). Glad I did the dialectical bootstrapping here. <br />
+g. I presume 1980 was just at the start of the AIDS pandemic. I was careful enough to go very low, but I suspected that AIDS started in the 70s, and shit really hit the fan in the 90s, but wasn't sure how bad exactly the 80s were. Still, 250k as an upper range was way too careful (COVID-19 killed ~200k in the US in 2020, and that was the biggest pandemic since the Spanish Flu). <br />
+h. Very proud of this one. Bit too optimistic about the capabilities of the US patent office, but still in the right range.</p>
+
+<p>Summing up: 1 below my 25th percentile estimate, 4 between the 25th
+percentile and the median, 4 between the median and the 75th percentile,
+and 1 above the 75th percentile. While I am not biased (at least not in
+this set of answers), I am too careful (unless most people–probably
+the result of doing a bunch of forecasting and being punished for
+overconfidence once too often). I should have set my ranges to be
+narrower.</p>
+
+<!--
+TODO:
+
+> Try this second set of questions and see if there is any improvement:
+
+> a. Year of birth of Zsa Zsa Gabor.
+
+> b. Maximum distance from Mars to the sun in miles.
+
+> c. Value in dollars of exports of wheat from the United States in 1992.
+
+> d. Tons handled by the port of Honolulu in 1991.
+
+> e. Annual salary in dollars of the governor of California in 1993.
+
+> f. Population of San Diego in 1990.
+
+> g. Year in which Roger Williams founded Providence, Rhode Island.
+
+> h. Height of Mt. Kilimanjaro in feet.
+
+> i. Length of the Brooklyn Bridge in feet.
+
+> j. Number of deaths due to automobile accidents in the United States in 1992.
+-->
