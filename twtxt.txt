@@ -434,3 +434,4 @@
 2021-02-19T09:56:56.000000Z	“concept handle” is jargon for “jargon”
 2021-02-19T09:58:06.000000Z	@<ionores https://twtxt.net/user/ionores/twtxt.txt> "Perseverance ! 👏🎉😀" <3
 2021-02-20T11:49:33.000000Z	@<jlj https://twt.nfld.uk/user/jlj/twtxt.txt> "Anyone running [Urbit](https://github.com/urbit/urbit)? Thinking about having a play with a comet. ☄🌒" -> Just as @<movq https://www.uninformativ.de/twtxt.txt> has problems with his reading queue, I have problems with my "things to explore" queue. I even bought a planet a while back, but haven't had time to dive into the extradimensional madness of the urbit system. Subjective impressions & reviews highly anticipated!
+2021-02-20T23:48:29.000000Z	it's uncool on purpose to avoid you clicking
