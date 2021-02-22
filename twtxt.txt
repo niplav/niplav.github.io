@@ -440,3 +440,4 @@
 2021-02-22T10:44:56.000000Z	Minimax, maximin, minimin, maximax
 2021-02-22T10:45:12.000000Z	A jam is a very vibey object.
 2021-02-22T10:45:19.000000Z	Concreteness leaking out of your abstractions there.
+2021-02-22T10:45:26.000000Z	How do you cooperate with suboptimal allies?
