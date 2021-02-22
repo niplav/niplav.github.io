@@ -437,3 +437,4 @@
 2021-02-20T23:48:29.000000Z	it's uncool on purpose to avoid you clicking
 2021-02-21T21:11:55.000000Z	I'm skeptical about having a model of utility actually being sufficient to solve optimizers curse. isn't that just kicking the can down the road, finding something that fools both your utility and your utility model?
 2021-02-22T10:43:31.000000Z	technocratsacy
+2021-02-22T10:44:56.000000Z	Minimax, maximin, minimin, maximax
