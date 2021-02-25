@@ -455,3 +455,4 @@
 2021-02-24T11:22:12.000000Z	Being rational is virtuous
 2021-02-25T10:18:15.000000Z	when thinking about metaphysics, i always feel as if i'm either reinventing the aristotelian substance/form distinction or parmenidesian monism or badly compressing deleuze.
 2021-02-25T10:19:17.000000Z	Daily annoyance: When the change in a metric is given, but it's not clear whether this change was good or bad, because I don't know the metric.
+2021-02-25T10:19:28.000000Z	Axistentialism
