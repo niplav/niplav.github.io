@@ -470,3 +470,4 @@
 2021-02-25T10:28:34.000000Z	The automatic mental cut between “I believe this” and “I have to say this”
 2021-02-25T10:30:05.000000Z	rationalist who is cryocrastinating
 2021-02-25T10:30:20.000000Z	rationalist who hasn't touched his 100-card anki deck in half a year
+2021-02-25T10:30:32.000000Z	rationalist who is okay-ish at forecasting
