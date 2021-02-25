@@ -453,3 +453,4 @@
 2021-02-22T10:48:53.000000Z	I get very squeamish when people are insistent on me saying “X is Y”. It's usually a bad sign.
 2021-02-22T10:49:09.000000Z	The epistemic commons are worth protecting. Go and do your signalling with donations or fashion.
 2021-02-24T11:22:12.000000Z	Being rational is virtuous
+2021-02-25T10:18:15.000000Z	when thinking about metaphysics, i always feel as if i'm either reinventing the aristotelian substance/form distinction or parmenidesian monism or badly compressing deleuze.
