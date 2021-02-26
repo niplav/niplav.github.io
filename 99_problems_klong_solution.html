@@ -10,7 +10,7 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 </style>
 
 <script type="text/javascript" async
-	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
 </script>
 
 <script type="text/x-mathjax-config">
@@ -2865,9 +2865,10 @@ levelorder::s62c
 
 <h3>P63 (*) Construct a complete binary tree.</h3>
 
-<p>s63::{:[0=x;[];{(:x,:[y&lt;2<em>x;[];,.f(x</em>2;y)]),:[y=2<em>x;,[]:|y&lt;1+2</em>x;[];,.f(1+2<em>x;y)]}:(1;x)]}
+<pre><code>s63::{:[0=x;[];{(:x,:[y&lt;2*x;[];,.f(x*2;y)]),:[y=2*x;,[]:|y&lt;1+2*x;[];,.f(1+2*x;y)]}:(1;x)]}
 s63::{:[x=0;[]:|x=1;(:x,,[]),,[];(:x,,.f((2^1+_ln(x%2)%ln(2))-1)),,.f(x-(2^1+_ln(x%2)%ln(2)))]}
-s63::{[v];v:::[x&lt;2;0;2^_ln(x%2)%ln(2)];.p(v);:[~x;[]:|x=1;(:x,,[]),,[];(:x,,.f((v&amp;x-v-1)+v-1)),,.f((0|x-2</em>v-1)+v-1)]}</p>
+s63::{[v];v:::[x&lt;2;0;2^_ln(x%2)%ln(2)];.p(v);:[~x;[]:|x=1;(:x,,[]),,[];(:x,,.f((v&amp;x-v-1)+v-1)),,.f((0|x-2*v-1)+v-1)]}
+</code></pre>
 
 <p><!--</p>
 
@@ -2878,3 +2879,4 @@ s63::{[v];v:::[x&lt;2;0;2^_ln(x%2)%ln(2)];.p(v);:[~x;[]:|x=1;(:x,,[]),,[];(:x,,.
 <h2>Miscellaneous Problems</h2>
 
 <p>--></p>
+</html>

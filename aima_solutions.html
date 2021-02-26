@@ -10,7 +10,7 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 </style>
 
 <script type="text/javascript" async
-	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML">
+	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
 </script>
 
 <script type="text/x-mathjax-config">
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-01-21, modified: 2021-02-16, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-01-21, modified: 2021-02-26, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">“Artificial Intelligence: A Modern
@@ -196,131 +196,6 @@ If Aplysia has 20k neurons, then it can be expected to have
 `$2*10^{4}\hbox{ neurons }*\frac{10 \hbox{ to } 10^{5} \hbox{ synapses }}{\hbox{neuron}}=2*10^{5}\hbox{ to } 2*10^{9} \hbox{ neurons}$`
 -->
 
-<!--
-TODO: do exercises 6 through 15
-
-
-
-md5-3f4544171619658f7282b0aa087d4894
-
-
-
-
-
-md5-770d5ff7d5b135d2187960ebfcdcd322
-
-
-
-
-
-md5-51860b53d050046bcc3c3944306dca3c
-
-
-
-
-
-md5-79e660d2f0eb2e096c61a6dcb90e26fa
-
-
-
-
-
-md5-127512139f5805d87265f9d96857915b
-
-
-
-
-
-md5-e106c34e67de23e2d6704b2e62c7ecd7
-
-
-
-
-
-md5-369132143d99e61124e4571e4ff58dd9
-
-
-
-
-
-md5-a647f57c18b3ae8a1978998c02e5df0a
-
-
-
-
-
-md5-65d534a6033bd8d0f753f88077e9f762
-
-
-
-
-
-md5-f57663a9b7a55e3e4f328eab598dfeaa
-
-
-
-
-
-md5-ac6cd6e6b6e0f56fbbc9057796afa84a
-
-
-
-
-
-md5-58177da1a906aeb8af5458bba503b05b
-
-
-
-
-
-md5-d9e42565e7b743c941f07a79bd929ff2
-
-
-
-
-
-md5-13c92fead6c420630d0ce44b629f9df9
-
-
-
-
-
-md5-62af378a7bfd19bf93a94ab9dc5ededa
-
-
-
-
-
-md5-9f0b454c70ef3cadb2e544e43b7992a5
-
-
-
-
-
-md5-7c86259e4f31a5f447e47412e592a6a8
-
-
-
-
-
-md5-f9e9772f89a661e2019fd8c7b2ebaea8
-
-
-
-
-
-md5-b78982b42d4054792685ea6e08adaee8
-
-
-
-
-
-md5-4a40fe7de7c4c2128a22309f22509cb3
-
-
-
--->
-
 <h2>Chapter 2</h2>
 
 <h3>2.1</h3>
@@ -344,25 +219,6 @@ not care about the light being on at timestep T+1, and wants to avoid
 the cost ½. At timesteps <code>$&lt;T$</code> it will press the button, with the light
 currently being on, at timestep T it will not press the button, under
 the same environmental conditions.</p>
-
-<!--
-
-### 2.2
-
-> Let us examine the rationality of various vacuum-cleaner agent
-functions.
-
-> a. Show that the simple vacuum-cleaner agent function described in
-Figure 2.3 is indeed rational under the assumptions listed on page 38.  
-> b. Describe a rational agent function for the case in which each movement
-costs one point. Does the corresponding agent program require internal
-state?  
-> c. Discuss possible agent designs for the cases in which clean squares
-can become dirty and the geography of the environment is unknown. Does it
-make sense for the agent to learn from its experience in these cases? If
-so, what should it learn? If not, why not?
-
--->
 
 <h3>2.3</h3>
 
@@ -468,121 +324,6 @@ agents that move a lot are more rational than agents that do not move.</p>
 <p>False. Given incomplete knowledge, a rational poker-playing agent can
 only win in expectation.</p>
 
-<!--
-
-### 2.4
-
-> For each of the following activities, give a PEAS description of the
-task environment and characterize it in terms of the properties listed
-in Section 2.3.2.
-
-> * Playing soccer.
-> * Exploring the subsurface oceans of Titan.
-> * Shopping for used AI books on the Internet.
-> * Playing a tennis match.
-> * Practicing tennis against a wall.
-> * Performing a high jump.
-> * Knitting a sweater.
-> * Bidding on an item at an auction.
-
-### 2.5
-
-> Define in your own words the following terms: agent, agent function,
-agent program, rationality, autonomy, reflex agent, model-based agent,
-goal-based agent, utility-based agent, learning agent.
-
-### 2.6
-
-> This exercise explores the differences between agent functions and
-agent programs.
-
-> a. Can there be more than one agent program that implements a given
-agent function? Give an example, or show why one is not possible.  
-> b. Are there agent functions that cannot be implemented by any agent
-program?  
-> c. Given a fixed machine architecture, does each agent program implement
-exactly one agent function?  
-> d. Given an architecture with n bits of storage, how many different
-possible agent programs are there?  
-> e. Suppose we keep the agent program fixed but speed up the machine
-by a factor of two. Does that change the agent function?
-
-### 2.7
-
-> Write pseudocode agent programs for the goal-based and utility-based
-agents. The following exercises all concern the implementation of
-environments and agents for the vacuum-cleaner world.
-
-### 2.8
-
-> Implement a performance-measuring environment simulator for
-the vacuum-cleaner world depicted in Figure 2.2 and specified on
-page 38. Your implementation should be modular so that the sensors,
-actuators, and environment characteristics (size, shape, dirt placement,
-etc.) can be changed easily. (Note: for some choices of programming
-language and operating system there are already implementations in the
-online code repository.)
-
-### 2.9
-
-> Implement a simple reflex agent for the vacuum environment in Exercise
-2.8. Run the environment with this agent for all possible initial dirt
-configurations and agent locations. Record the performance score for
-each configuration and the overall average score.
-
-### 2.10
-
-> Consider a modified version of the vacuum environment in Exercise 2.8,
-in which the agent is penalized one point for each movement.
-
-> a. Can a simple reflex agent be perfectly rational for this
-environment? Explain.  
-> b. What about a reflex agent with state? Design such an agent.  
-> c. How do your answers to a and b change if the agent’s percepts
-give it the clean/dirty status of every square in the environment?
-
-### 2.11
-
-> Consider a modified version of the vacuum environment in Exercise 2.8,
-in which the geography of the environment—its extent, boundaries,
-and obstacles—is unknown, as is the initial dirt configuration. (The
-agent can go Up and Down as well as Left and Right.)
-
-> a. Can a simple reflex agent be perfectly rational for this
-environment? Explain.  
-> b. Can a simple reflex agent with a randomized agent function outperform
-a simple reflex agent? Design such an agent and measure its performance
-on several environments.  
-> c. Can you design an environment in which your randomized agent will
-perform poorly? Show your results.  
-> d. Can a reflex agent with state outperform a simple reflex
-agent? Design such an agent and measure its performance on several
-environments. Can you design a rational agent of this type?
-
-### 2.12
-
-> Repeat Exercise 2.11 for the case in which the location sensor
-is replaced with a “bump” sensor that detects the agent’s
-attempts to move into an obstacle or to cross the boundaries of the
-environment. Suppose the bump sensor stops working; how should the
-agent behave?
-
-### 2.13
-
-> The vacuum environments in the preceding exercises have all been
-deterministic. Discuss possible agent programs for each of the following
-stochastic versions:
-
-> a. Murphy’s law: twenty-five percent of the time, the Suck action
-fails to clean the floor if it is dirty and deposits dirt onto the floor
-if the floor is clean. How is your agent program affected if the dirt
-sensor gives the wrong answer 10% of the time?  
-> b. Small children: At each time step, each clean square has a 10%
-chance of becoming dirty. Can you come up with a rational agent design
-for this case?  
-
--->
-
 <h2>Chapter 13</h2>
 
 <h3>13.1</h3>
@@ -658,17 +399,17 @@ independence given <code>$c$</code>. E.g.:</p>
 <p>So this is false.</p>
 
 <!--
+### 13.4
 
-
-md5-1e4204ae6b8fe85dfa6cee9fc456455f
-
-
-
-
-
-md5-585a05612d3a492dd432e01bdf7e00f1
-
-
+> Would it be rational for an agent to hold the three beliefs `$P(A)=0.4, P(B)=0.3$`,
+and `$P(A \lor B)=0.5$`? If so, what range of probabilities
+would be rational for the agent to hold for `$A \land B$`? Make up
+a table like the one in Figure 13.2, and show how it supports your
+argument about rationality. Then draw another version of the table where
+`$P(A \lor B)=0.7$`. Explain why it is rational to have this probability,
+even though the table shows one case that is a loss and three that just
+break even. (*Hint*: what is Agent 1 commited to about the probability
+of each of the four cases, especially the case that is a loss?)
 
 It is rational for an agent to believe `$P(A)=0.4, P(B)=0.3$` and
 `$P(A \lor B)=0.5$`, if
@@ -676,7 +417,7 @@ It is rational for an agent to believe `$P(A)=0.4, P(B)=0.3$` and
 
 
 
-md5-d250a93a11a9215b860adfaf9741b45c
+md5-edfc572a3744a4fc5a42413291449893
 
 
 -->
@@ -735,6 +476,106 @@ The set of these atomic events exactly entails the proposition.</p>
 <p>One can then simply create the conjunction of sentences
 <code>$\bigwedge_{i=1}^{n} a_i$</code> that is true only if we use an assignment
 that makes the proposition true.</p>
+
+<h2>Chapter 14</h2>
+
+<h3>14.1</h3>
+
+<blockquote>
+  <p>We have a bag of three biased coins a, b, and c with probabilities of
+  coming up heads of 20%, 60%, and 80%, respectively. One coin is drawn
+  randomly from the bag (with equal likelihood of drawing each of the
+  three coins), and then the coin is flipped three times to generate the
+  outcomes $X<em>1$, $X</em>2$, and $X_3$.</p>
+  
+  <p>a. Draw the Bayesian network corresponding to this setup and define
+  the necessary CPTs.</p>
+</blockquote>
+
+<p><img src="./img/aima_solutions/14_1_bayesnet.png" alt="A Bayesian network for drawing the coin &amp; throwing it thrice" title="A Bayesian network for drawing the coin &amp; throwing it thrice. The first parent node contains the coin, the three independent children are the three throws." /></p>
+
+<table>
+<thead>
+    <tr>
+        <td>$Coin$</td>
+        <td>$P(Coin)$</td>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>a</td>
+        <td>1/3</td>
+    </tr>
+    <tr>
+        <td>b</td>
+        <td>1/3</td>
+    </tr>
+    <tr>
+        <td>c</td>
+        <td>1/3</td>
+    </tr>
+</tbody>
+</table>
+
+<p>The three conditional tables for <code>$X_1, X_2, X_3$</code> are very the same.</p>
+
+<table>
+<thead>
+    <tr>
+        <td>$Coin$</td>
+        <td>$P(\{X_1, X_2, X_3\}=Head)$</td>
+    </tr>
+</thead>
+<tbody>
+    <tr>
+        <td>a</td>
+        <td>0.2</td>
+    </tr>
+    <tr>
+        <td>b</td>
+        <td>0.6</td>
+    </tr>
+    <tr>
+        <td>c</td>
+        <td>0.8</td>
+    </tr>
+</tbody>
+</table>
+
+<p>Furthermore, <code>$X_1, X_2, X_3$</code> are mutually conditionally independent
+given <code>$Coin$</code>.</p>
+
+<blockquote>
+  <p>b. Calculate which coin was most likely to have been drawn from the
+  bag if the observed flips come out heads twice and tails once.</p>
+</blockquote>
+
+<p><code>$C=\underset{coin \in \{a,b,c\}}{\hbox{argmax}} P(coin|H_1, H_2, T_3)$</code></p>
+
+<div>
+    $$P(coin|H_1, H_2, T_3)=\\
+    \frac{P(H_1, H_2, T_3|coin)*P(coin)}{P(H_1, H_2, H_3)}=\\
+    \frac{P(H_1, H_2, T_3|coin)*P(coin)}{P(H_1|Coin)*P(H_2|Coin)*P(T_3|Coin)}=\\
+    \frac{P(H_1, H_2, T_3|coin)*P(coin)}{\sum_{v \in \{a,b,c\}}(P(H_1|v)*P(v))*\sum_{v \in \{a,b,c\}}(P(H_2|v)*P(v))*\sum_{v \in \{a,b,c\}}(P(T_3|v)*P(v))}=\\
+    \frac{P(H_1|coin)*P(H_2|coin)*P(T_3|coin)*P(coin)}{\sum_{v \in \{a,b,c\}}(P(H_1|v)*P(v))^2*\sum_{v \in \{a,b,c\}}(P(T_3|v)*P(v))}=\\
+    \frac{P(H_1|coin)*P(H_2|coin)*P(T_3|coin)*P(coin)}{(0.2*1/3+0.6*1/3+0.8*1/3)^2*(0.8*1/3+0.4*1/3+0.2*1/3)}=\\
+    \frac{P(H_1|coin)*P(H_2|coin)*P(T_3|coin)*P(coin)}{0.1327407}$$
+</div>
+
+<p>Now we plug in the values for <code>$coin$</code>:</p>
+
+<div>
+    $$P(a|H_1, H_2, T_3)=\frac{P(H_1|a)*P(H_2|a)*P(T_3|a)*P(a)}{0.1327407}=\frac{0.2*0.2*0.8*1/3}{0.1327407}=0.0803571\\
+    P(b|H_1, H_2, T_3)=\frac{P(H_1|b)*P(H_2|b)*P(T_3|b)*P(b)}{0.1327407}=\frac{0.6*0.6*0.4*1/3}{0.1327407}=0.36160725384\\
+    P(c|H_1, H_2, T_3)=\frac{P(H_1|c)*P(H_2|c)*P(T_3|c)*P(c)}{0.1327407}=\frac{0.8*0.8*0.2*1/3}{0.1327407}=0.32142867$$
+</div>
+
+<p>Thus, I conclude that it is most likely that coin b was pulled out of
+the bag.</p>
+
+<p><em>Note</em>: the probabilities for <code>$P(coin|H_1, H_2, T_3)$</code> don't sum to
+1. I'm not sure what's up with that, but it's a good indicator that I
+have done something horribly wrong. Don't copy this solution.</p>
 
 <h2>Chapter 15</h2>
 
@@ -1147,28 +988,181 @@ the result of doing a bunch of forecasting and being punished for
 overconfidence once too often). I should have set my ranges to be
 narrower.</p>
 
-<!--
-TODO:
+<blockquote>
+  <p>Try this second set of questions and see if there is any improvement:</p>
+  
+  <p>a. Year of birth of Zsa Zsa Gabor.</p>
+</blockquote>
 
-> Try this second set of questions and see if there is any improvement:
+<p>I'm not sure who this is.</p>
 
-> a. Year of birth of Zsa Zsa Gabor.
+<p>1775, 1830, 1930</p>
 
-> b. Maximum distance from Mars to the sun in miles.
+<blockquote>
+  <p>b. Maximum distance from Mars to the sun in miles.</p>
+</blockquote>
 
-> c. Value in dollars of exports of wheat from the United States in 1992.
+<p>The average distance of the Earth from the sun is 150m km (~90m miles).</p>
 
-> d. Tons handled by the port of Honolulu in 1991.
+<pre><code>    [1.5 2 5]*150%1.6
+[140.625 187.5 468.75]
+</code></pre>
 
-> e. Annual salary in dollars of the governor of California in 1993.
+<!--TODO: Mars missions take how long there? That should be the minimum distance-->
 
-> f. Population of San Diego in 1990.
+<blockquote>
+  <p>c. Value in dollars of exports of wheat from the United States in 1992.</p>
+</blockquote>
 
-> g. Year in which Roger Williams founded Providence, Rhode Island.
+<p>The US GDP today is ~1t, right? Then it was probably around half of
+that back then. Maybe exports is 10% of that, and wheat is ~0.1%/1%/4%
+of exports.</p>
 
-> h. Height of Mt. Kilimanjaro in feet.
+<pre><code>    500000000000*0.1*[0.001 0.01 0.04]
+[50000000.0 500000000.0 2000000000.0]
+</code></pre>
 
-> i. Length of the Brooklyn Bridge in feet.
+<p>50m, 500m, 2b.</p>
 
-> j. Number of deaths due to automobile accidents in the United States in 1992.
--->
+<blockquote>
+  <p>d. Tons handled by the port of Honolulu in 1991.</p>
+</blockquote>
+
+<p>Let's say 1/4/10 ships a day, with 20/100/500 tons cargo?</p>
+
+<pre><code>    [1 4 10]*[20 100 1000]*365
+[7300 146000 3650000]
+</code></pre>
+
+<blockquote>
+  <p>e. Annual salary in dollars of the governor of California in 1993.</p>
+</blockquote>
+
+<p>Sometimes politicians get only symbolic salaries, right? Though, that
+seems unlikely here. Also, consider inflation.</p>
+
+<pre><code>    [80 130 350]%1.02^30
+[44.1656711183929545 71.7692155673885511 193.224811142969175]
+</code></pre>
+
+<blockquote>
+  <p>f. Population of San Diego in 1990.</p>
+</blockquote>
+
+<p>300k, 1m, 2.5m.</p>
+
+<blockquote>
+  <p>g. Year in which Roger Williams founded Providence, Rhode Island.</p>
+</blockquote>
+
+<p>Providence is quite old, right? West-coast, Lovecraft already writes
+about it as a very old city.</p>
+
+<p>1600, 1750, 1810.</p>
+
+<blockquote>
+  <p>h. Height of Mt. Kilimanjaro in feet.</p>
+</blockquote>
+
+<p>The Kilimanjaro is somwhere between 5500 m and 6000 m. A meter is ~3 feet.</p>
+
+<pre><code>    [5500 5850 6000]*3
+[16500 17550 18000]
+</code></pre>
+
+<blockquote>
+  <p>i. Length of the Brooklyn Bridge in feet.</p>
+</blockquote>
+
+<p>I remember taking ~10 minutes to walk over the Brooklyn Bridge (although
+we were walking slowly, a speed of ~4km/h).</p>
+
+<pre><code>    3*4000*[8 12 15]%60
+[1599.99999999999999 2400.0 3000.0]
+</code></pre>
+
+<blockquote>
+  <p>j. Number of deaths due to automobile accidents in the United States in 1992.</p>
+</blockquote>
+
+<p>Car safety was probably worse back then. The US population was probably
+smaller (today it's ~310m). I think I remember something of ~20k car
+deaths in the US some years ago?</p>
+
+<pre><code>    1.05*[5000 20000 50000]*290%310
+[4911.29032258064515 19645.1612903225806 49112.9032258064515]
+</code></pre>
+
+<h3>Ranking My Answers</h3>
+
+<p>a. I was a bit too careful on the lower rankings (maybe I should have taken into account that being a popstar was really hard before 1880, just because the media didn't exist) <br />
+b. I was quite close to the lower bound, which surprises me. I maybe estimated the orbit of Mars to be more elliptical than circular. <br />
+c. My estimate is way too low. I was probably decomposing too hard here. <br />
+d. Again, my estimate was too low. Probably underestimated the amount of cargo in one ship? Also, duh, Honolulu is in the middle of the Pacific, of course there's going to be a lot of cargo. <br />
+e. I'm quite happy with this one. <br />
+f. Ditto. <br />
+g. This one was close. I shouldn't underestimate how long the history of the US is, and how early the West Coast got explored. <br />
+h. My value for the number of feet per meter was probably too low. <br />
+i. Just below my lower estimate. We were walking pretty slow, I should have taken that more into account. <br />
+j. Again, my estimates were a bit low. I've overestimated the number of deaths in car crashes, was corrected for that, and probably overcorrected here.</p>
+
+<p>Summing up: 1 below my 25th percentile estimate, 2 between the 25th
+percentile and the median, 4 between the median and the 75th percentile,
+and 3 above the 75th percentile.</p>
+
+<p>Here, I show some bias towards underestimating the values. Maybe because
+I decomposed more?</p>
+
+<h3>16.3</h3>
+
+<blockquote>
+  <p>In 1713, Nicolas Bernoulli stated a puzzle, now called the
+  St. Petersburg paradox, which works as follows. You have the opportunity
+  to play a game in which a fair coin is tossed repeatedly until it comes
+  up heads. If the first heads appears on the nth toss, you win <code>$2^n$</code>
+  dollars.</p>
+  
+  <p>a. Show that the expected monetary value of this game is infinite.</p>
+</blockquote>
+
+<div>
+    $$EU=\underset{n \rightarrow \infty}{\lim} \sum_{i=1}^{n} \frac{1}{2^i}*2^i=\\
+    \underset{n \rightarrow \infty}{\lim} \sum_{i=1}^{n} 1=\\
+    \underset{n \rightarrow \infty}{\lim} n$$
+</div>
+
+<blockquote>
+  <p>b. How much would you, personally, pay to play the game?</p>
+</blockquote>
+
+<p>I'm not sure. Maybe ~\$20? I guess I value money linearly up to that
+range.</p>
+
+<blockquote>
+  <p>c. Nicolas’s cousin Daniel Bernoulli resolved the apparent
+  paradox in 1738 by suggesting that the utility of money is measured
+  on a logarithmic scale (i.e., <code>$U(S_n) = a log_2 n+b$</code>, where <code>$S_n$</code>
+  is the state of having \$n). What is the expected utility of the game
+  under this assumption?</p>
+</blockquote>
+
+<div>
+    $$EU=\underset{n \rightarrow \infty}{\lim} \sum_{i=1}^{n} \frac{a*log_2(2^i+b)}{2^i}=\\
+    \underset{n \rightarrow \infty}{\lim} a*\sum_{i=1}^{n} \frac{log_2(2^i+b)}{2^i}=\\
+    \underset{n \rightarrow \infty}{\lim} a*\sum_{i=1}^{n} \frac{i}{2^i}=\\
+    \underset{n \rightarrow \infty}{\lim} a*\sum_{i=1}^{n} \frac{1}{2^i \ln(2)}= \\
+    \frac{a}{\ln(2)}$$
+</div>
+
+<p><code>$2^i+b$</code> converges towards <code>$2^i$</code>.</p>
+
+<blockquote>
+  <p>d. What is the maximum amount that it would be rational to pay to play
+  the game, assuming that one’s initial wealth is \$k ?</p>
+</blockquote>
+
+<p>I assume that "the maximum amount" refers to "the maximum number of
+times".</p>
+
+<!--TODO: actually solve this.-->
+</html>
