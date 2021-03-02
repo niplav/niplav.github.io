@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2021-02-09, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2021-03-02, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -884,4 +884,19 @@ then <code>$x_1 \not \in A$</code> and <code>$x_2 \in A$</code>. Then <code>$y \
 Contradiction, f must be injective.</p>
 
 <p>□</p>
+
+<p>(iv) To be shown: <code>$\forall y : \exists x: f(x)=y \Leftrightarrow Y-f(A) \subset f(X-A)$</code></p>
+
+<p>First case: f surj. <code>$\Rightarrow \forall A \subset X: Y-f(A) \subset f(X-A)$</code></p>
+
+<p>Assume <code>$y \in Y$</code> and <code>$y \not \in fNA)$</code>. If <code>$y \not \in f(X-A)$</code>, then
+<code>$\lnot \exists x \in X-A$</code> so that <code>$f(x)=y$</code>. But since f is surjective,
+there must be an x so that <code>$f(x)=y$</code> and <code>$x \not \in A$</code>! Contradiction.</p>
+
+<p>Second case:
+<code>$\forall A \subset X: Y-f(A) \subset f(X-A) \Rightarrow \forall y: \exists x: f(x)=y$</code>.</p>
+
+<p>Assume <code>$ \exists y \in Y: \lnot \exists x: f(x)=y$</code>. Then <code>$y \in Y-f(A)$</code>
+for all A, but <code>$y \not \in f(X-A)$</code> (since y is not in the
+range). Contradiction of the assumption, such a y can't exist.</p>
 </html>
