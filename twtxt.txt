@@ -487,3 +487,4 @@
 2021-03-03T23:54:37.000000Z	when forecasting, babble 10 unexpected things that might derail the forecast
 2021-03-05T09:20:33.000000Z	it's fascinating (and by that i mean dumb) that we still use signatures written with pens to sign documents instead of signing them with private keys like civilized people.
 2021-03-05T21:22:38.000000Z	look att me! Im Moldbug! I want to appoint $PROGRESSIVE_ICON as king/queen!
+2021-03-05T21:39:36.000000Z	@frogorbits.com @<niplav https://niplav.github.io/twtxt.txt> "I sign a lot less stuff these days now that my phone can pretend to be a credit card. Also: an impostor with a quantum computer can’t pretend to  sign documents on my behalf…" -> It's good that pen signatures are completely unfakeable. They're unbelievably reliable. We can't just copy & photoshop around the edges. Better worry about those definitely-soon-to-exist quantum computers that might crack cryptography.
