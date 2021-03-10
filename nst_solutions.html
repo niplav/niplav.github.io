@@ -899,4 +899,37 @@ there must be an x so that <code>$f(x)=y$</code> and <code>$x \not \in A$</code>
 <p>Assume <code>$ \exists y \in Y: \lnot \exists x: f(x)=y$</code>. Then <code>$y \in Y-f(A)$</code>
 for all A, but <code>$y \not \in f(X-A)$</code> (since y is not in the
 range). Contradiction of the assumption, such a y can't exist.</p>
+
+<h2>Section 11</h2>
+
+<h3>Exercise 1</h3>
+
+<blockquote>
+  <p>Since the intersection of every (non-empty) family of successor sets
+  is a successor set itself (proof?)</p>
+</blockquote>
+
+<p>Let <code>$\{S_i\}$</code> be a family of successor sets.</p>
+
+<p>Every <code>$s_i \in \{S_i\}$</code> is a successor set, then it is guaranteed that
+<code>$0 \in s_i$</code>. One can assume that <code>$\forall s_i \in \{S_i\}: x \in s_i$</code>,
+which implies that <code>$x \in \bigcap_{i \in I} s_i$</code>. But since all <code>$s_i$</code>
+are successor sets, <code>$x^+$</code> must also be an element of all <code>$s_i$</code> Then
+<code>$x^+ \in \bigcap_{i \in I} s_i$</code>, and the intersection of the family
+is a successor set.</p>
+
+<p>□</p>
+
+<p>However, remember the definition of a family: a family of sets is
+a function that maps from an index set into the powerset of a set,
+so this function is <code>$f: I \rightarrow \mathcal{P}(A)$</code>.</p>
+
+<p>In this case, we could set <code>$I=\{\emptyset\}$</code> and
+<code>$\hbox{ran} f=\{\{\{\emptyset, \{\emptyset\}\}\}\}$</code>,
+with <code>$f(\emptyset)=\{\{\emptyset, \{\emptyset\}\}\}$</code>. That
+would make f a non-empty family, but
+<code>$\bigcap_{i \in I} s_i=\{\{\{\emptyset, \{\emptyset\}\}\}\}$</code>,
+which is definitely not a successor set. Since the solution I presented
+above seems exactly like the thing Halmos would want me to do, I guess
+I have misunderstood the definition for "family of sets".</p>
 </html>
