@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-01-21, modified: 2021-03-05, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-01-21, modified: 2021-03-15, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">“Artificial Intelligence: A Modern
@@ -465,6 +465,68 @@ a format that computers can deal with. Formulating the problem before
 the goal has no “anchor” as to what to formalize, the goal gives
 information on what to concentrate on.</p>
 
+<h3>3.2</h3>
+
+<blockquote>
+  <p>Your goal is to navigate a robot out of a maze. The robot starts in the
+  center of the maze facing north. You can turn the robot to face north,
+  east, south, or west. You can direct the robot to move forward a certain
+  distance, although it will stop before hitting a wall.</p>
+  
+  <p>a. Formulate this problem. How large is the state space?</p>
+</blockquote>
+
+<p>Assumption: The maze has size <code>$n*m$</code>. Size of the state space: <code>$4*n*m$</code>.</p>
+
+<blockquote>
+  <p>b. In navigating a maze, the only place we need to turn is at the
+  intersection of two or more corridors. Reformulate this problem using
+  this observation. How large is the state space now?</p>
+</blockquote>
+
+<p>Let i be the number of intersections. Then there are <code>$2*((n*m)-i)+i*4$</code>
+different states (2 for each non-intersection state (walking forward
+or backward, and 4 for each intersection state, for each direction the
+agent can go).</p>
+
+<p>However, this does not consider dead ends or intersections where there
+are only 3 valid directions. If there are <code>$i_d$</code> dead ends, <code>$i_3$</code>
+intersections with 3 possible directions, and <code>$i_4$</code> intersections
+with 4 possible directions, the number of possible states is instead
+<code>$i_d+3*i_3+4*i_4+2*((n*m)-(i_d+i_3+i_4))$</code>.</p>
+
+<blockquote>
+  <p>c. From each point in the maze, we can move in any of the four
+  directions until we reach a turning point, and this is the only action
+  we need to do. Reformulate the problem using these actions. Do we need
+  to keep track of the robot’s orientation now?</p>
+</blockquote>
+
+<p>Since we don't have to turn before moving, we're equivalent to an
+unchanging directionless dot (only the position changes). We don't
+need to keep track of the orientation anymore, since we don't have to
+a specific direction before moving.</p>
+
+<blockquote>
+  <p>d. In our initial description of the problem we already abstracted
+  from the real world, restricting actions and removing details. List
+  three such simplifications we made.</p>
+</blockquote>
+
+<p>Only 4 different directions allowed, not being able to run into walls,
+the robot will move the given distance (and not experience battery
+failure/fall into a hole etc.).</p>
+
+<h2>Chapter 6</h2>
+
+<h3>6.1</h3>
+
+<ul>
+<li>2 colors: 0 possible solutions</li>
+<li>3 colors: <code>$3*3*2=18$</code> possible solutions (TA and SA are free, and then the WA-NT-Q-NSW-V chain can only be colored with 2 different colors, which have to be alternating)</li>
+<li>4 colors: <code>$4*4*(3*2*2*2*2)=768$</code> possible solutions (again, TA and SA are free, and then WA-NT-Q-NSW-V have 3 colors left, but no same color twice, which means 3 colors for the first option, and two for each successor)</li>
+</ul>
+
 <h2>Chapter 13</h2>
 
 <h3>13.1</h3>
@@ -558,7 +620,7 @@ It is rational for an agent to believe `$P(A)=0.4, P(B)=0.3$` and
 
 
 
-md5-c9fe553fba332800160e9c6a6d990b25
+md5-f4629418643504be2f0579543b4caf81
 
 
 -->
