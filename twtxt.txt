@@ -501,3 +501,4 @@
 2021-03-23T12:37:17.000000Z	Chapman's sites are wonderfully wgettable
 2021-03-24T20:46:53.000000Z	@<alip https://dev.exherbo.org/~alip/twtxt.txt> "We are calling for Richard M. Stallman to be removed from all leadership positions, including the GNU Project. https://rms-open-letter.github.io/" highly contextual/simulacrous memeplexes exclude high-variance impact neuroatypicals, nobody thinks about incentives?
 2021-03-24T20:48:25.000000Z	RMS would have been well advised to learn some [Kolmogorov complicity](https://slatestarcodex.com/2017/10/23/kolmogorov-complicity-and-the-parable-of-lightning/) – unfortunately he's more on the Kantorovich side, and hadn't gotten bitten as hard before
+2021-03-24T20:52:54.000000Z	but now, for something enjoyable: [commmutative hyperoperators](https://observablehq.com/@ishi/arithmetic) and [their implementation](https://niplav.github.io/notes.html#Implementing-Commutative-Hyperoperators)
