@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-01-21, modified: 2021-03-19, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-01-21, modified: 2021-03-25, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">“Artificial Intelligence: A Modern
@@ -547,28 +547,111 @@ Constraints:</p>
 <p>Replacing the Alldiff constraint with binary constraints:</p>
 
 <div>
-    $$C \leftarrow (C \backslash \{\langle F, T, U, W, R, O \rangle: Alldiff(F, T, U, W, R, O)\}) \cup \{ \langle x_1, x_2 \rangle: x_1 \not = x_2 | x_1, x_2 \in \{ F, T, U, W, R, O \} \}$$
+    $$C := (C \backslash \{\langle F, T, U, W, R, O \rangle: Alldiff(F, T, U, W, R, O)\}) \cup \\{ \langle x_1, x_2 \rangle: x_1 \not = x_2 | x_1, x_2 \in \{ F, T, U, W, R, O \} }$$
 </div>
 
 <p>Replacing the other trinary constraints with binary ones:</p>
 
-<!--TODO: replace trinary constraints above as well-->
+<p>New variables <code>$X_1, X_2 \in [10] \times \{0, 1\}$</code>.</p>
 
-<p>Variables sorted by domain size: <code>$F: 10, T: 10, U: 10, W: 10, R: 10, O: 10, C_1: 2, C_2: 2, C_3: 2$</code>.</p>
+<p>We remove the constraints</p>
 
-<p>Variables sorted by degree: <code>$O: 8, W: 7, T: 7, R: 6, U: 6, F: 6, C_3: 2, C_2: 1, C_1: 1$</code></p>
+<div>
+    $$\{\langle W, U, C_1 \rangle: W+W+C_1 \mod 10=U, \\
+    \langle T, O, C_2 \rangle: T+T+C_2 \mod 10=O, \\
+    \langle C_2, W, C_1 \rangle: C_2=1 \hbox{ if } W+W+C_1>9 \hbox { else } 0, \\
+    \langle C_3, T, C_2 \rangle: C_3=1 \hbox{ if } T+T+C_2>9 \hbox { else } 0 \} $$
+</div>
+
+<p>and add some constraints to replace the trinary with binary constraints on
+<code>$X_{1 \hbox{ to } 4}$</code>. The result looks like this:</p>
+
+<div>
+    $$ C := \{ \langle X_1, U \rangle: U=fst(X_1)+fst(X_1)+snd(X_1) \mod 10, \\
+    \langle X_2, O \rangle: O=fst(X_2)+fst(X_2)+snd(X_2) \mod 10, \\
+    \langle X_1, C_2 \rangle: C_2=1 \hbox{ if } fst(X_1)+fst(X_1)+snd(X_1)>9 \hbox { else } 0, \\
+    \langle X_2, C_3 \rangle: C_3=1 \hbox{ if } fst(X_2)+fst(X_2)+snd(X_2)>9 \hbox { else } 0, \\
+    \langle X_1, W \rangle: W=fst(X_1), \\
+    \langle X_1, C_1 \rangle: C_1=snd(X_1), \\
+    \langle X_2, T \rangle: T=fst(X_2), \\
+    \langle X_2, C_2 \rangle: C_2=snd(X_2), \\
+    \langle O, R \rangle: O+O \mod 10=R, \\
+    \langle C_1, O \rangle: C_1=1 \hbox{ if } O+O>9 \hbox { else } 0, \\
+    \langle F, C_3 \rangle: F=C_3 \} \\ \cup
+    \{ \langle x_1, x_2 \rangle: x_1 \not = x_2 | x_1, x_2 \in \{ F, T, U, W, R, O \} $$
+</div>
+
+<p>Variables sorted by domain size: <code>$X_1: 20, X_2: 20, F: 10, T: 10, U: 10, W: 10, R: 10, O: 10, C_1: 2, C_2: 2, C_3: 2$</code></p>
+
+<p>Variables sorted by degree: <code>$O: 8, W: 6, T: 6, R: 6, U: 6, F: 6, X_1: 4, X_2: 4, C_1: 2, C_2: 2, C_3: 2$</code></p>
+
+<p>Now, one can do the actual searching and inference:</p>
 
 <ul>
-<li>Assign: <code>$C_3=0$</code>
+<li>Assign (tie between <code>$C_1, C_2, C_3$</code> in remaining values, choosing <code>$C_1$</code> randomly): <code>$C_1=1$</code>
 <ul>
-<li>Infer: <code>$F \in \{0\}$</code></li>
-<li>Infer: <code>$T \in \{1, 2, 3, 4\}$</code></li>
-<li>Infer: <code>$O \in \{2, 4, 6, 8\}$</code></li>
-<li>Infer: <code>$R \in \{4, 8, 2\}$</code></li>
+<li>Infer: <code>$X_1 \in [10] \times \{1\}$</code></li>
+<li>Infer: <code>$O \in \{5,6,7,8,9\}$</code></li>
+<li>Infer: <code>$X_2 \in \{2,3,4,7,8,9\} \times \{0, 1\}$</code></li>
+<li>Infer: <code>$R \in \{0,2,4,6,8\}$</code></li>
+<li>Infer: <code>$T \in \{2,3,4,7,8,9\}$</code></li>
+<li>Assign: (tie between <code>$C_2, C_3$</code> in remaining values, choosing <code>$C_2$</code> next): <code>$C_2=1$</code>
+<ul>
+<li>Infer from <code>$C_2$</code>: <code>$X_1 \in \{5,6,7,8,9\} \times \{1\}$</code></li>
+<li>Infer from <code>$C_2$</code>: <code>$X_2 \in \{2,3,4,7,8,9\} \times \{1\}$</code></li>
+<li>Infer from <code>$X_1$</code>: <code>$U \in \{1, 3, 5, 7, 9\}$</code></li>
+<li>Infer from <code>$X_1$</code>: <code>$W \in \{5,6,7,8,9\}$</code></li>
+<li>Infer from <code>$X_2$</code>: <code>$O \in \{5,7,9\}$</code></li>
+<li>Infer from <code>$X_2$</code>: <code>$T \in \{2,3,4,7,8,9\}$</code></li>
+<li>Infer from <code>$O$</code>: <code>$R \in \{0, 4, 8\}$</code></li>
+<li>Assign: <code>$C_3=1$</code>
+<ul>
+<li>Infer from <code>$C_3$</code>: <code>$X_2 \in \{7,8,9\} \times \{1\}$</code></li>
+<li>Infer from <code>$C_3$</code>: <code>$F=1$</code></li>
+<li>Infer from <code>$F$</code>: <code>$U \in \{3,5,7,9\}$</code></li>
+<li>Infer from <code>$U$</code>: <code>$X_1 \in \{6,7,8,9\} \times \{1\}$</code></li>
+<li>Infer from <code>$X_1$</code>: <code>$W \in \{6,7,8,9\}$</code></li>
+<li>Assign: <code>$R=0$</code>
+<ul>
+<li>Infer from <code>$R$</code>: <code>$O \in \emptyset$</code></li>
+</ul></li>
+<li>Backtrack, assign: <code>$R=4$</code>
+<ul>
+<li>Infer from <code>$R$</code>: <code>$O=7$</code></li>
+<li>Infer from <code>$R$</code>: <code>$T \in \{2,3,7,8,9\}$</code></li>
+<li>Infer from <code>$O$</code>: <code>$X_2=(8,1)$</code></li>
+<li>Infer from <code>$O$</code>: <code>$T \in \{2,3,8,9\}$</code></li>
+<li>Infer from <code>$O$</code>: <code>$W \in \{6,8,9\}$</code></li>
+<li>Infer from <code>$X_2$</code>: <code>$T=8$</code></li>
+<li>Infer from <code>$W$</code>: <code>$X_1 \in \{6,8,9\} \times \{1\}$</code></li>
+<li>Infer from <code>$T$</code>: <code>$W \in \{6,9\}$</code></li>
+<li>Infer from <code>$W$</code>: <code>$X_1 \in \{6,9\} \times \{1\}$</code></li>
+<li>Infer from <code>$X_1$</code>: <code>$U \in \{3,9\}$</code></li>
+<li>Assign: <code>$W=6$</code>
+<ul>
+<li>Infer from <code>$W$</code>: <code>$X_1=(6,1)$</code></li>
+<li>Infer from <code>$X_1$</code>: <code>$U=3$</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
 </ul></li>
 </ul>
 
-<!--TODO-->
+<p>The assignments are
+<code>$C_1=1, C_2=1, C_3=1, F=1, T=8, U=3, W=6, R=4, O=7, X_1=(6,4), X_2=(8,1).$</code>
+Or, in the puzzle:</p>
+
+<div>
+    $$
+    \matrix {
+        & 8 & 6 & 7 \cr
+        + & 8 & 6 & 7 \cr
+        \hline{}
+        1 & 7 & 3 & 4 \cr
+    }
+    $$
+</div>
 
 <h2>Chapter 7</h2>
 
@@ -639,7 +722,7 @@ Smoke=True, the sentence is true.</p>
 <div>
     $$(Smoke \Rightarrow Fire) \Rightarrow ((Smoke \land Heat) \Rightarrow Fire) \equiv \\
     \lnot (\lnot Smoke \lor Fire) \lor (\lnot (Smoke \land Heat) \lor Fire) \equiv \\
-    (Smoke \land \lnot Fire) \lor \not Smoke \lor \lnot Heat \lor Fire \equiv \\
+    (Smoke \land \lnot Fire) \lor \not Smoke \lor \lnot Heat \lor Fire \equiv $$
 </div>
 
 <p>This sentence is valid. If Smoke=True, Heat=True and Fire=False, then
@@ -808,7 +891,7 @@ It is rational for an agent to believe `$P(A)=0.4, P(B)=0.3$` and
 
 
 
-md5-5bb7cd19ff9e3009d85af2c8ae64f671
+md5-3b07c7a6033b0bf5ee9496f2f97135c4
 
 
 -->
