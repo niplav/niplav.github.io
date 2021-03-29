@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <p><em>author: niplav, created: 2020-03-24, modified: 2021-01-18, language: english, status: finished, importance: 6, confidence: possible</em></p>
 
-<h1>This post contains information that is misleading. While the calculations and description of the approach contain no mistakes in themselves, the approach is misguided. Only reference the results if you have understood the approach. This will be fixed.</h1>
+<h1>This post is being rewritten. In its current state, it's wrong and misleading.</h1>
 
 <blockquote>
   <p><strong>This text looks at the accuracy of forecasts in relation
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <p><em>– <a href="https://en.wikipedia.org/wiki/Eliezer_Yudkowsky">Eliezer Yudkowsky</a>, <a href="https://www.lesswrong.com/posts/a7n8GdKiAZRX86T5A/making-beliefs-pay-rent-in-anticipated-experiences">“Making Beliefs Pay Rent (in Anticipated Experiences)“</a>, 2007</em></p>
 
-<p><!--Maybe do the same thing with range
+<p><!--Maybe do the same thing with distribution
 predictions? Metric could be one described in
 /usr/local/doc/unread/calibration<em>scoring</em>rules<em>for</em>practical<em>prediction</em>training<em>greenberg</em>2018.pdf-->
 <!--Add paragraph on the difference in quality between the two datasets,
@@ -982,12 +982,119 @@ more accurate than forecasts made on a question earlier?</p>
 
 <h3>Analysis</h3>
 
+<p>In order to do this, one can compute the Brier score for each prediction,
+and then perform one linear regression/compute the correlation per
+question to discern whether the relation is positive or not.</p>
+
+<p>With <code>metquestions</code> and <code>pbquestions</code>, we already have the necessary
+data available to perform the analysis.</p>
+
+<p>We can create a list of the form <code>[[[brier_scores][ranges]]*]</code>:</p>
+
+<pre><code>wmetqbrier::{(,x@4),,((x@2)-x@3)^2}'metquestions
+wpbqbrier::{(,x@4),,((x@2)-x@3)^2}'pbquestions
+</code></pre>
+
+<p>Since <code>lreg</code> can't deal with datasets of size 1, we have to filter those
+out of <code>wpbqbrier</code> (they don't make much sense in our analysis either):</p>
+
+<pre><code>wpbqbrier::flr({1&lt;#*x};wpbqbrier)
+</code></pre>
+
+<p>One can play around and calculate the correlation between range and
+accuracy for every question:</p>
+
+<pre><code>    4#{cor@x}'wmetqbrier
+[0.763628932400678817 0.46136759691608953 -0.139435096904356686 -0.882370278576558711]
+    4#{cor@x}'wpbqbrier
+[-1.0 -1.0 -1.0 -1.0]
+</code></pre>
+
+<p>The perfect negative correlation comes from the fact that the first
+questions in the dataset have only two predictions, which all by chance
+anti-correlate with the range. This is not the case for all
+questions:</p>
+
+<pre><code>    #'*'4#wpbqbrier
+[2 2 2 2]
+    4#|{cor@x}'wpbqbrier
+[0.89254316971805467 1.0 0.950010315421882544 0.801892491489916431]
+</code></pre>
+
+<p>However, we won't be using that information here.</p>
+
+<p>For the linear regression, one needs to convert the data for each question
+from a two lists of values into x/y pairs:</p>
+
+<pre><code>wmetqbrier::+'wmetqbrier
+wpbqbrier::+'wpbqbrier
+</code></pre>
+
+<p>One can then compute the linear regression on the datasets for each question:</p>
+
+<pre><code>    4#lreg'wmetqbrier
+[[0.0000000011767800408891019 0.00710923979466614] [0.000000000617896058360111251 -0.00048849375750407371] [-0.00000000341699728537160739 0.174909387397966508] [-0.0000000862529408862358451 2.97369568231620124]]
+    4#lreg'wpbqbrier
+kg: error: plus: type error: [:undefined :undefined]
+</code></pre>
+
+<p>The result for <code>wpbqbrier</code> is unexpected. The culprit turns out to be a
+question on which the same prediction has been made, twice, at the
+exact same second, which confuses the linear regression algorithm:</p>
+
+<pre><code>    wpbqbrier@[1381]
+[[[35029.0 0.09] [35029.0 0.09]]]
+</code></pre>
+
+<p><!--TODO--></p>
+
+<p>We can also visualise the linear regression for each question by setting
+it to zero outside the range of the oldest and newest chunks:</p>
+
+<pre><code>sketch::{q::x;
+    setrgb(.rn();.rn();.rn());
+    pltr::{:[(x&gt;**q)|x&lt;**|q;0;lr(x;lreg(q))]};
+    plot(pltr)}
+sketch'pchsmetq
+</code></pre>
+
+<p><img src="./img/range_and_forecasting_accuracy/perquestion.png" alt="Linear regressions for the accuracy of questions by range" title="Linear regressions for the accuracy of questions by range" /></p>
+
+<p><em>Linear regressions for the accuracy of questions by range (only Metaculus data).</em></p>
+
+<p>The vertical bars are artifacts stemming from the fact that Klong
+attempts to makes the discontinuous function continuous, connecting 0
+and the linear regression.</p>
+
+<p>Although the plot is kind of cool to look at, I'm not really sure what
+it can tell us. My <em>guess</em> would be that it somewhat shows a trend
+with higher ranges responding to higher Brier scores (and therefore
+lower accuracy).</p>
+
+<p>We can test whether this suspicion is acually correct by calculating the
+average offset and the average ascension – if the ascension is positive,
+our suspicion is confirmed.</p>
+
+<pre><code>    mu'+lreg'pchsmetq
+[0.00198030517003624986 0.0105472685809891273]
+</code></pre>
+
+<p>So it is true that accuracy within question <em>generally</em> is higher with
+lower range. Everything else would have been surprising.</p>
+
+<p><img src="./img/range_and_forecasting_accuracy/withintotal.png" alt="Mean of linear regressions on accuracy within questions" title="Mean of linear regressions on accuracy within questions" /></p>
+
+<p><em>Mean of linear regressions on accuracy within questions (red is Metaculus data, blue is PredictionBook data).</em></p>
+
 <p><!--HERE--></p>
 
-<p>In order to do this, it seems like questions with higher numbers of
-forecasts on them are are more likely to give clearer results than
-questions with only a dozen or so forecasts. The Metaculus dataset
-contains predictions on 557 questions, the PredictionBook dataset 13356:</p>
+<h3>Sample Sizes</h3>
+
+<p>One might, again, be interested in the sample sizes. How many predictions
+to questions receive?</p>
+
+<p>As we know, the Metaculus dataset contains predictions on 557 questions,
+the PredictionBook dataset 13356:</p>
 
 <pre><code>    #metquestions
 557
@@ -995,15 +1102,13 @@ contains predictions on 557 questions, the PredictionBook dataset 13356:</p>
 13356
 </code></pre>
 
-<p>I filtered out questions with <code>&lt;100</code> predictions on them, resulting
-in 323 questions from the Metaculus dataset and 0 (!) questions from
+<p>We can out questions with <code>&lt;100</code> predictions on them, resulting in
+323 questions from the Metaculus dataset and 0 (!) questions from
 PredictionBook:</p>
 
-<pre><code>    wmetq::flr({100&lt;#x@2};metquestions)
-    wpbq::flr({100&lt;#x@2};pbquestions)
-    #wmetq
+<pre><code>    #flr({100&lt;#x@2};metquestions)
 323
-    #wpbq
+    #flr({100&lt;#x@2};pbquestions)
 0
 </code></pre>
 
@@ -1120,44 +1225,6 @@ of the forecasts on that question within that chunk.</p>
 <pre><code>    2#lreg'pchsmetq
 [[0.00011329877152681667 0.0038764502832194274] [0.0000675414847161572049 -0.00123699272197962153]]
 </code></pre>
-
-<p>We can also visualise the linear regression for each question by setting
-it to zero outside the range of the oldest and newest chunks:</p>
-
-<pre><code>sketch::{q::x;
-setrgb(.rn();.rn();.rn());
-pltr::{:[(x&gt;**q)|x&lt;**|q;0;lr(x;lreg(q))]};
-plot(pltr)}
-sketch'pchsmetq
-</code></pre>
-
-<p><img src="./img/range_and_forecasting_accuracy/perquestion.png" alt="Linear regressions for the accuracy of questions by range in chunks of size 50" title="Linear regressions for the accuracy of questions by range in chunks of size 50" /></p>
-
-<p><em>Linear regressions for the accuracy of questions by range in chunks of size 50.</em></p>
-
-<p>The vertical bars are artifacts stemming from the fact that Klong
-attempts to makes the discontinuous function continuous, connecting 0
-and the linear regression.</p>
-
-<p>Although the plot is kind of cool to look at, I'm not really sure what
-it can tell us. My <em>guess</em> would be that it somewhat shows a trend
-with higher ranges responding to higher Brier scores (and therefore
-lower accuracy).</p>
-
-<p>We can test whether this suspicion is acually correct by calculating the
-average offset and the average ascension – if the ascension is positive,
-our suspicion is confirmed.</p>
-
-<pre><code>    mu'+lreg'pchsmetq
-[0.00198030517003624986 0.0105472685809891273]
-</code></pre>
-
-<p>So it is true that accuracy within question <em>generally</em> is higher with
-lower range. Everything else would have been surprising.</p>
-
-<p><img src="./img/range_and_forecasting_accuracy/withintotal.png" alt="Mean of linear regressions on accuracy within questions" title="Mean of linear regressions on accuracy within questions" /></p>
-
-<p><em>Mean of linear regressions on accuracy within questions.</em></p>
 
 <p><!--</p>
 

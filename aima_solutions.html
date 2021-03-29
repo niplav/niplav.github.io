@@ -61,7 +61,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-01-21, modified: 2021-03-25, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<!--TODO: Exercises 6.6, 7.4, 7.5, 9.10, 13.18, 13.21, 15.14, 16.17, 17.1 -->
+
+<p><em>author: niplav, created: 2021-01-21, modified: 2021-03-27, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">“Artificial Intelligence: A Modern
@@ -214,7 +216,7 @@ the same environmental conditions.</p>
   appropriate.</p>
   
   <p>a. An agent that senses only partial information about the state cannot
-  be perfectly rational.  </p>
+  be perfectly rational.</p>
 </blockquote>
 
 <p>False. An agent that senses only partial information about the state could
@@ -228,7 +230,7 @@ is missing from the rest of the board.</p>
 
 <blockquote>
   <p>b. There exist task environments in which no pure reflex agent can
-  behave rationally.  </p>
+  behave rationally.</p>
 </blockquote>
 
 <p>True. In an environment in which the next reward depends on the current
@@ -239,14 +241,14 @@ by agents with an internal world-model.</p>
 doesn't just depend on the current prices, but on the history of prices.</p>
 
 <blockquote>
-  <p>c. There exists a task environment in which every agent is rational.  </p>
+  <p>c. There exists a task environment in which every agent is rational.</p>
 </blockquote>
 
 <p>True. It is the environment where the agent has no options to act.</p>
 
 <blockquote>
   <p>d. The input to an agent program is the same as the input to the
-  agent function.  </p>
+  agent function.</p>
 </blockquote>
 
 <p>Not sure. Both the agent function and the agent program receive percepts,
@@ -256,7 +258,7 @@ or simply as program-specific data?</p>
 
 <blockquote>
   <p>e. Every agent function is implementable by some program/machine
-  combination.  </p>
+  combination.</p>
 </blockquote>
 
 <p>False. An agent function could be uncomputable
@@ -266,7 +268,7 @@ be implementable on a real-world machine.</p>
 <blockquote>
   <p>f. Suppose an agent selects its action uniformly at random from the
   set of possible actions. There exists a deterministic task environment
-  in which this agent is rational.  </p>
+  in which this agent is rational.</p>
 </blockquote>
 
 <p>True, that would be the environment in which every action scores equally
@@ -274,7 +276,7 @@ well on the performance measure.</p>
 
 <blockquote>
   <p>g. It is possible for a given agent to be perfectly rational in two
-  distinct task environments.  </p>
+  distinct task environments.</p>
 </blockquote>
 
 <p>True. Given two agents <code>$A_X$</code> and <code>$A_Y$</code>, and two task environments
@@ -296,7 +298,7 @@ if p∈Y
 </code></pre>
 
 <blockquote>
-  <p>h. Every agent is rational in an unobservable environment.  </p>
+  <p>h. Every agent is rational in an unobservable environment.</p>
 </blockquote>
 
 <p>False. Given an unobservable environment in which moving results in
@@ -798,6 +800,99 @@ reduced down to only disjunctions of literals.</p>
 
 <p>This sentence can be represented in Horn form, and is also a tautology.</p>
 
+<h2>Chapter 9</h2>
+
+<h3>9.9</h3>
+
+<blockquote>
+  <p>Suppose you are given the following axioms:</p>
+  
+  <ol>
+  <li><code>$0 \le 3$</code>.</li>
+  <li><code>$ 7 \le 9$</code>.</li>
+  <li><code>$\forall x: x \le x$</code>.</li>
+  <li><code>$\forall x: x \le x+0$</code>.</li>
+  <li><code>$\forall x: x+0 \le x$</code>.</li>
+  <li><code>$\forall x, y: x+y \le y+x$</code>.</li>
+  <li><code>$\forall w, x, y, z: w \le y \land x \le z \Rightarrow w+x \le y+z$</code>.</li>
+  <li><code>$\forall x, y, z: x \le y \land y \le z \Rightarrow x \le z$</code>.</li>
+  </ol>
+  
+  <p>a. Give a backward-chaining proof of the sentence <code>$7 \le 3 + 9$</code>. (Be
+  sure, of course, to use only the axioms given here, not anything else
+  you may know about arithmetic.) Show only the steps that leads [sic]
+  to success, not the irrelevant steps.</p>
+</blockquote>
+
+<ul>
+<li>Proof: <code>$7 \le 3+9$</code>
+<ul>
+<li>Rule 8: <code>$\{7/x, 3+9/z\}$</code></li>
+<li>Proof: <code>$7 \le y \land y \le 3+9$</code>
+<ul>
+<li>Substitute <code>$\{0+7/y\}$</code></li>
+<li>Proof: <code>$7 \le 0+7$</code>
+<ul>
+<li>Rule 8: <code>$7 \le y \land y \le 0+7$</code></li>
+<li>Substitute: <code>$\{y/7+0\}$</code></li>
+<li>Proof: <code>$7+0 \le 0+7$</code>
+<ul>
+<li>Rule 6: <code>$7+0 \le 0+7$</code></li>
+</ul></li>
+<li>Proof: <code>$7 \le 7+0$</code>
+<ul>
+<li>Rule 4: <code>$7 \le 7+0$</code></li>
+</ul></li>
+</ul></li>
+<li>Proof: <code>$0+7 \le 3+9$</code></li>
+<li>Rule 7: <code>$\{0/w, 7/x, 3/y, 9/z\}$</code></li>
+<li>Proof: <code>$0 \le 3 \land 7 \le 9$</code>:
+<ul>
+<li>Rule 1: <code>$0 \le 3$</code></li>
+<li>Rule 2: <code>$7 \le 9$</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<blockquote>
+  <p>b. Give a forward-chaining proof of the sentence <code>$7 \le 3+9$</code>. Again,
+  show only the steps that lead to success.</p>
+</blockquote>
+
+<ul>
+<li>Known: <code>$0 \le 3, 7 \le 9$</code></li>
+<li>Rule 7: <code>$\{0/w, 7/x, 3/y, 9/z\}$</code></li>
+<li>Known: <code>$0+7 \le 3+9$</code></li>
+<li>Rule 7: <code>$\{x/7\}$</code></li>
+<li>Known: <code>$7 \le 7+0$</code></li>
+<li>Rule 6: <code>$\{7/x, 0/y\}$</code></li>
+<li>Known: <code>$7+0 \le 0+7$</code></li>
+<li>Rule 8: <code>$\{7/x, 7+0/y, 0+7/z\}$</code></li>
+<li>Known: <code>$7 \le 0+7$</code></li>
+<li>Rule 8: <code>$\{7/0, 0+7/y, 3+9/z$</code></li>
+<li>Known: <code>$7 \le 3+9$</code></li>
+</ul>
+
+<!--
+TODO
+
+### 9.10
+
+> A popular children's riddle is “Brothers and sisters have I none,
+but that man's father is my father's son.” Use the rules of the family
+domain (Section 8.3.2 on page 301) to show who that man is. You may
+apply any of the inference methods described in this chapter. Why do
+you think that this riddle is difficult?
+
+Constants: `$I$`, referring to the speaker, `$T$` referring to "that man".
+
+Variables: `$x, y, z$`.
+
+Known facts: `$\lnot \exists x: Sibling(x, I), Father(y, T), Father(z, I), y=z$`.
+
+-->
+
 <h2>Chapter 13</h2>
 
 <h3>13.1</h3>
@@ -891,7 +986,7 @@ It is rational for an agent to believe `$P(A)=0.4, P(B)=0.3$` and
 
 
 
-md5-3b07c7a6033b0bf5ee9496f2f97135c4
+md5-5a9b4f194d9f8e06c4287033926899d0
 
 
 -->
@@ -1715,4 +1810,38 @@ times".</p>
 </blockquote>
 
 <p>Sam should buy the book, since that yields the highest expected utility.</p>
+
+<h2>Chapter 17</h2>
+
+<h3>17.3</h3>
+
+<blockquote>
+  <p>Suppose that we define the utility of a state sequence to be the
+  <em>maximum</em> reward obtained in any state in the sequence. Show that this
+  utility function does not result in stationary preferences between state
+  sequences. Is it still possible to define a utility function on states
+  such that MEU decsion making gives optimal behavior?</p>
+</blockquote>
+
+<p>Preferences between state sequences are stationary iff
+<code>$[s_0, s_1, \dots] \bullet [s_0', s_1', s_2', \dots] \Rightarrow [s_1, s_2, \dots] \bullet [s_1', s_2', \dots]$</code>
+for a fixed <code>$\bullet \in \{\succ, \sim, \prec\}$</code> and <code>$s_0=s_0'$</code>.</p>
+
+<p>Asumme that <code>$s_0=s_0'$</code> is the maximum of the two state
+sequences <code>$S_1, S_2$</code>. Then <code>$S_1 \sim S_2.$</code> Assume that
+<code>$\max(S_1(1..))&gt;\max(S_2(1..))$</code>. Then <code>$S_1(1..) \succ S_2(1..)$</code>,
+even though they two sequences start with the same value. Stationarity
+violated.</p>
+
+<p>However, not all hope is lost. Given a sequence of rewards on states,
+one can define the utility to be the maximum of the average of all
+rewards in the sequence. This utility should be stationary.</p>
+
+<p>Disclaimer: I'm not sure what is exactly being asked in the second
+part of the question. We have sequences of rewards, we have the utility
+function that ranks sequences based on the maximum, and we then have an
+agent that acts based on these utilities. Is my job to modify the reward
+sequence so that using the maximum utility function is still optimal? Or
+do I have to modify the utility function itself? In the second case,
+I set the utility to be the sum of rewards (discounted, if you will).</p>
 </html>
