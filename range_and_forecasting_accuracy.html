@@ -61,9 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2020-03-24, modified: 2021-01-18, language: english, status: finished, importance: 6, confidence: possible</em></p>
-
-<h1>This post is being rewritten. In its current state, it's wrong and misleading.</h1>
+<p><em>author: niplav, created: 2020-03-24, modified: 2021-03-29, language: english, status: finished, importance: 6, confidence: possible</em></p>
 
 <blockquote>
   <p><strong>This text looks at the accuracy of forecasts in relation
@@ -73,13 +71,14 @@ document.addEventListener('DOMContentLoaded', function () {
   accuracy higher within questions? These questions are analyzed
   using data from <a href="https://predictionbook.com/">PredictionBook</a> and
   <a href="https://www.metaculus.com/questions/">Metaculus</a>, the answers turn
-  out to be no, no and yes. Possible reasons are discussed.</strong></p>
+  out to be yes, no and yes for Metaculus data; and no, no and no for
+  PredictionBook data. Possible reasons are discussed.</strong></p>
 </blockquote>
 
 <h1>Range and Forecasting Accuracy</h1>
 
 <blockquote>
-  <p>Above all, don’t ask what to believe—ask what to anticipate. Every
+  <p>Above all, don’t ask what to believe — ask what to anticipate. Every
   question of belief should flow from a question of anticipation, and that
   question of anticipation should be the center of the inquiry. Every guess
   of belief should begin by flowing to a specific guess of anticipation,
@@ -97,7 +96,6 @@ Metaculus better-->
 <!--Also look at this guy:
 https://en.wikipedia.org/wiki/J.<em>Scott</em>Armstrong#Forecasting
 -->
-<!--https://en.wikipedia.org/wiki/Simpson's_paradox-->
 <!--http://foresightr.com/2016/05/06/a-brief-history-of-forecasting-->
 <!--Seems like a similar work:
 https://onlinelibrary.wiley.com/doi/abs/10.1111/risa.12127--></p>
@@ -108,6 +106,8 @@ methods</a>
 is a comparatively simple idea. Basically, one needs to have only very few tools at one's
 disposal to being ready to start forecasting:</p>
 
+<p><!--TODO: give more weight to the fact that it is humans doing this--></p>
+
 <ul>
 <li>View of belief as probabilistic (perhaps with some bayesian epistemology)</li>
 <li>Track records (grading results of forecasts using for example brier scores or log scores)</li>
@@ -115,10 +115,10 @@ disposal to being ready to start forecasting:</p>
 </ul>
 
 <p>Since the 1980s, forecasting has slowly but surely matured from "X is
-going to happen because my intuition/divine revelation told me so" to
-"my probability distribution on the outcome of this random variable
-is an X distribution with the following parameters", or alternatively
-"I assign a probability of X% to this event".</p>
+going to happen because divine revelation told me so" to "my probability
+distribution on the outcome of this random variable is an X distribution
+with the following parameters", or alternatively "I assign a probability
+of X% to this event".</p>
 
 <p>However, since this kind of forecasting is relatively recent, information
 about the accuracy of long-range forecasting is basically non-existent:</p>
@@ -157,19 +157,21 @@ about the accuracy of long-range forecasting is basically non-existent:</p>
 
 <p>In this text, I will try to look at the accuracy of short-term and
 mid-term forecasting, which may shine some light on the relation between
-the range of forecasts and their accuracy in general. The range of a
-forecast is defined as the length of the timespan between the forecast
-and the resolution of the forecast. Keeping with
-<a href="https://www.openphilanthropy.org/blog/how-feasible-long-range-forecasting" title="How Feasible Is Long-range Forecasting?">Muehlhauser 2019</a>,
-I will define short-term forecasts as forecasts with a range of less than
-a year, mid-range forecasts as forecasts with a range between 1 and 10
-years, and long-term forecasts as forecasts with a range of more than 10
-years (this distinction is not central to the following analysis, though).</p>
+the range of forecasts and their accuracy in general.</p>
+
+<p>The <em>range</em> of a forecast is defined as the length of the timespan between
+the forecast and the resolution of the forecast. Keeping with <a href="https://www.openphilanthropy.org/blog/how-feasible-long-range-forecasting
+&quot;How Feasible Is Long-range Forecasting?&quot;">Muehlhauser
+2019</a>, I will define short-term
+forecasts as forecasts with a range of less than a year, mid-range
+forecasts as forecasts with a range between 1 and 10 years, and
+long-term forecasts as forecasts with a range of more than 10 years
+(this distinction is not central to the following analysis, though).</p>
 
 <p>Fortunately, for short- and mid-range forecasts, two easily accessible
-sources of forecasts and their resolutions are available online: The
-two forecasting websites <a href="https://predictionbook.com">PredictionBook</a>
-and <a href="https://www.metaculus.com">Metaculus</a>.</p>
+sources of forecasts and their resolutions are available online: The two
+forecasting websites <a href="https://predictionbook.com">PredictionBook</a> and
+<a href="https://www.metaculus.com">Metaculus</a>, frequented mostly by hobbyists.</p>
 
 <p>To find out about the range of forecasts, I download, parse &amp; analyse
 forecasting data from these sites using Python, and then analyze the
@@ -178,7 +180,9 @@ data using <a href="http://t3x.org/klong/index.html">Klong</a>.</p>
 <p><!--
 Make a point here that making forecasts is one of the best existing
 practical method of rationality verification &amp; exercises:
-https://www.lesswrong.com/s/pvim9PZJ6qHRTMqD3/p/5K7CMa6dEL7TN7sae
+https://www.lesswrong.com/s/pvim9PZJ6qHRTMqD3/p/5K7CMa6dEL7TN7sae</p>
+
+<p>Not necessary, move elsewhere.
 --></p>
 
 <p><!--
@@ -189,12 +193,13 @@ Distinction between {probabilistic,non-probabilistic}
 <h2>Metaculus and PredictionBook</h2>
 
 <p><a href="https://predictionbook.com">PredictionBook</a> and
-<a href="https://www.metaculus.com">Metaculus</a> are both forecasting focussed
-sites, though not prediction markets, but rather function on the base
-of merit and track records: although you don't win money by being right,
-you can still boast about it (it is an open question whether other people
-will be impressed). Besides that, these sites make it easier to train ones
-calibration on real-world questions and become less wrong in the process.</p>
+<a href="https://www.metaculus.com">Metaculus</a> are both forecasting websites
+for hobbyists.  They are not prediction markets, but rather function
+on the base of merit and track records: although you don't win money
+by being right, you can still boast about it (it is an open question
+whether other people will be impressed). Besides that, these sites make
+it easier to train ones calibration on real-world questions and become
+less wrong in the process.</p>
 
 <p>However, both sites differ in their approach to writing questions
 and judging and scoring forecasts. PredictionBook is much older than
@@ -205,7 +210,7 @@ a question (unrelated to whether the person has even made a prediction
 on the question themselves!), while Metaculus requires a short text
 explaining the context and resolution criteria for a question, with
 the questions being resolved by moderators or admins. This leads to
-Metaculus having less questions than PredictionBook, but each question
+Metaculus having fewer questions than PredictionBook, but each question
 having more predictions on it. Of the two, Metaculus is much more
 featureful: It supports not only binary questions, but also range
 questions with probability distributions, comment threads, closed
@@ -231,7 +236,7 @@ a reasonable format. This works nicer for Metaculus, and is a bit more
 difficult to achieve for PredictionBook.</p>
 
 <p>The resulting data from Metaculus is <a href="./data/met.csv">here</a>, for
-PredictionBook it's <a href="./data/pb.csv">here</a>.</p>
+PredictionBook it's available <a href="./data/pb.csv">here</a>.</p>
 
 <h3>For Metaculus</h3>
 
@@ -295,7 +300,7 @@ for page in jsondata:
                 print("{},{},{},{},{}".format(question["id"], qtimediff, question["resolution"], pred["community_prediction"], timediff))
 </code></pre>
 
-<p>The resulting CSV file contains over 40k predictions.</p>
+<p>The resulting CSV file contains nearly 50k predictions.</p>
 
 <h3>For PredictionBook</h3>
 
@@ -527,7 +532,8 @@ after the retroactive resolution are still included in the data.</p>
 <p>For PredictionBook, users can still predict after any resolution. The
 script fetches the first resolution, making some predictions retroactive.
 I could instead retrieve the result of the last resolution, but I'm not
-sure it would be worth the effort, or improve the result very much.</p>
+sure it would be worth the effort, or improve the quality of the data
+very much.</p>
 
 <p>Examples:</p>
 
@@ -923,7 +929,7 @@ forecasts, which is slightly steeper.</p>
 
 <p>In both cases, there was a negative correlation between the brier score
 and the range (to be precise, the higher the range, the lower the brier
-score &amp; the higher the accuracy). For the Metaculus data, this effect was
+score/the higher the accuracy). For the Metaculus data, this effect was
 not as pronounced as for the PredictionBook data, though both correlations
 were quite weak. The two linear regressions also showed the same effect
 (lower accuracy at shorter ranges/higher accuracy at higher ranges),
@@ -1046,9 +1052,22 @@ exact same second, which confuses the linear regression algorithm:</p>
 [[[35029.0 0.09] [35029.0 0.09]]]
 </code></pre>
 
-<p><!--TODO--></p>
+<p>One can find that there are several such datapoints:</p>
 
-<p>We can also visualise the linear regression for each question by setting
+<pre><code>    flr({((*x)~x@1)&amp;2=#x};wpbqbrier)
+[[[35029.0 0.09] [35029.0 0.09]] [[21824.0 0.0625] [21824.0 0.0625]] [[21804.0 0.0025] [21804.0 0.0025]] [[31684.0 0.04] [31684.0 0.04]] [[31793.0 0.25] [31793.0 0.25]] [[31717109.0 0.2025] [31717109.0 0.2025]] [[31717385.0 0.16] [31717385.0 0.16]] [[31717456.0 0.0225] [31717456.0 0.0225]] [[31717127.0 0.2025] [31717127.0 0.2025]] [[31717353.0 0.0225] [31717353.0 0.0225]] [[31717361.0 0.25] [31717361.0 0.25]]]
+</code></pre>
+
+<p>However, they can be filtered out pretty easily:</p>
+
+<pre><code>    wpbqbrier::flr({(~(*x)~x@1)|2&lt;#x};wpbqbrier)
+    #wpbqbrier
+7596
+</code></pre>
+
+<h3>Result</h3>
+
+<p>We can now visualise the linear regression for each question by setting
 it to zero outside the range of the oldest and newest chunks:</p>
 
 <pre><code>sketch::{q::x;
@@ -1075,18 +1094,20 @@ lower accuracy).</p>
 average offset and the average ascension – if the ascension is positive,
 our suspicion is confirmed.</p>
 
-<pre><code>    mu'+lreg'pchsmetq
-[0.00198030517003624986 0.0105472685809891273]
+<pre><code>    mu'+lreg'wmetqbrier
+[0.0000000343952235958370255 0.0375813222857496718]
+    mu'+lreg'wpbqbrier
+[0.0000359749784304593045 -238.963047593209695]
 </code></pre>
 
 <p>So it is true that accuracy within question <em>generally</em> is higher with
-lower range. Everything else would have been surprising.</p>
+lower range for Metaculus data. Everything else would have been surprising.</p>
+
+<p><!--TODO: However, explain PredictionBook data?--></p>
 
 <p><img src="./img/range_and_forecasting_accuracy/withintotal.png" alt="Mean of linear regressions on accuracy within questions" title="Mean of linear regressions on accuracy within questions" /></p>
 
 <p><em>Mean of linear regressions on accuracy within questions (red is Metaculus data, blue is PredictionBook data).</em></p>
-
-<p><!--HERE--></p>
 
 <h3>Sample Sizes</h3>
 
@@ -1094,92 +1115,74 @@ lower range. Everything else would have been surprising.</p>
 to questions receive?</p>
 
 <p>As we know, the Metaculus dataset contains predictions on 557 questions,
-the PredictionBook dataset 13356:</p>
+the PredictionBook dataset 13356, but there are way fewer questions with
+more than 1 unique prediction in the PredictionBook dataset:</p>
 
 <pre><code>    #metquestions
 557
     #pbquestions
 13356
+    #wmetqbrier
+557
+    #wpbqbrier
+7596
 </code></pre>
 
-<p>We can out questions with <code>&lt;100</code> predictions on them, resulting in
-323 questions from the Metaculus dataset and 0 (!) questions from
-PredictionBook:</p>
+<p>Let's first create sorted lists containing the numbers of forecasts on
+each question:</p>
 
-<pre><code>    #flr({100&lt;#x@2};metquestions)
-323
-    #flr({100&lt;#x@2};pbquestions)
-0
+<pre><code>metlens::#'wmetqbrier
+metlens::metlens@&lt;metlens
+pblens::#'wpbqbrier
+pblens::pblens@&lt;pblens
 </code></pre>
 
-<p>This is not wholly surprising: Metaculus makes creating new questions
-much harder, and more strongly encourages users to predict on existing
-questions, with an elaborate tagging system for questions. PredictionBook
-on the other hand simplifies the questions creation process, leaving
-out moderation, complex resolution criteria etc. Still, I'm surprised
-– there must be at least <em>one</em> PredictionBook question popular enough
-for 100 forecasts! But apparently not.</p>
+<p>One can now look at some central values for those datasets: the maximum,
+mimimum, mean, median, and mode:</p>
 
-<p>So, what is the highest number of predictions a PredictionBook question
-has gotten?</p>
-
-<pre><code>    pbl::{#x@2}'pbquestions
-    pbl::pbl@&lt;pbl
-    |/pbl
+<pre><code>    &amp;/metlens
+2
+    |/metlens
+101
+    mu(metlens)
+86.8348294434470377
+    M(metlens)
+101
+    mo(metlens)
+[101]
+    &amp;/pblens
+2
+    |/pblens
 99
+    mu(pblens)
+5.07253817798841496
+    M(pblens)
+3.0
+    mo(pblens)
+[2]
 </code></pre>
 
-<p>You got to be kidding me.</p>
-
-<p>Anyway, within the usable questions with <code>&gt;100</code> predictions, the
-predictions of each question are first sorted by range (here time between
-forecast and resolution) and then separated into chunks containing 50
-predictions each, so that the resulting structure of <code>cwmetq</code> looks like this:</p>
-
-<pre><code>[
-    [
-        [[result_array] [50_earliest_predictions] [ranges]]
-        [[result_array] [50_next_predictions] [ranges]]
-        …
-    ]
-    …
-]
-</code></pre>
-
-<p>The code works by iterating the function <code>sac</code> over every question,
-first sorting the values by range and then cutting the predictions into
-chunks of size 50.</p>
-
-<pre><code>chl::50
-sac::{t::+2_x;+'(chl*1+!(#t):%chl):_t}
-chsmetq::sac'wmetq
-</code></pre>
+<p>This is – surprising, to say the least. Metaculus makes creating
+new questions much harder, and more strongly encourages users to
+predict on existing questions, with an elaborate tagging system for
+questions. PredictionBook on the other hand simplifies the questions
+creation process, leaving out moderation, complex resolution criteria
+etc. Still, I'm surprised – there must be at least <em>one</em> PredictionBook
+question popular enough for 100 forecasts! But apparently not.</p>
 
 <h4>Interlude: It's Under 102</h4>
 
-<p>When I first ran this code, I then also wanted to check how many chunks
-each question had:</p>
-
-<pre><code>    #'chsmetq
-[3 3 3 3 3 3 … 3 3 ]
-</code></pre>
-
-<p>The result was, to say the least, confusing – where did all those 3s
-come from‽ Surely, there are questions with more than 150 forecasts
-(which I knew, <a href="https://www.metaculus.com/questions/126/will-2016-be-the-warmest-year-on-record/">this question about 2016 being the warmest year on
+<p>One result here is, to say the least, confusing – where did
+all those 101s come from in the Metaculus data‽ Surely,
+there are questions with more than 101 forecasts (which
+I <strong>know</strong>, <a href="https://www.metaculus.com/questions/126/will-2016-be-the-warmest-year-on-record/">this question about 2016 being the warmest year on
 record</a>
 has 765 forecasts)!</p>
-
-<pre><code>    10#{#x@3}'metquestions
-[101 101 94 60 101 61 101 101 101 68]
-    |/{#x@3}'metquestions
-101
-</code></pre>
 
 <p><img src="./img/range_and_forecasting_accuracy/api_incomplete.png" alt="If an item does not appear in our records, it does not exist" title="If an item does not appear in our records, it does not exist" /></p>
 
 <p>I initially suspected a bug in my code, but to my surprise, after further
-investigation, it turned out that the Metaculus API returns timeseries
+investigation, it turns out that the Metaculus API returns timeseries
 with elements removed so that the length was always 101.</p>
 
 <p>I can think of two reasons to do this:</p>
@@ -1198,33 +1201,6 @@ updating the API would be too difficult to do (which is understandable,
 the Metaculus developers do not exist to cater to my whims, and are doing
 a phenomenal job). So, unfortunately I'll have postpone a more complete
 analysis to later.</p>
-
-<hr />
-
-<p>Now for each chunk of size 50 we can compute the brier score and the mean
-of the range, and subsequently convert the ranges from seconds to days:</p>
-
-<pre><code>pchsmetq::{+mu(*|x),brier@2#x}'x}'chsmetq
-pchsmetq::{{((_*x):%(3600*24)),1_x}'x}'pchsmetq
-</code></pre>
-
-<p>The dataset then has elements like this:</p>
-
-<pre><code>    2#pchsmetq
-[[[294 0.036422] [72 0.015188] [1 0.0016]]
-[[57 0.002532] [35 0.001462] [28 0.0004]]]
-</code></pre>
-
-<p>Each element contains the mean range of a chunk in days and the accuracy
-of the forecasts on that question within that chunk.</p>
-
-<h3>Results</h3>
-
-<p>We can now compute the linear regression for the chunks in each question:</p>
-
-<pre><code>    2#lreg'pchsmetq
-[[0.00011329877152681667 0.0038764502832194274] [0.0000675414847161572049 -0.00123699272197962153]]
-</code></pre>
 
 <p><!--</p>
 
