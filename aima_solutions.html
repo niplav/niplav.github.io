@@ -61,9 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<!--TODO: Exercises 6.6, 7.4, 7.5, 9.10, 13.18, 13.21, 15.14, 16.17, 17.1 -->
-
-<p><em>author: niplav, created: 2021-01-21, modified: 2021-03-27, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-01-21, modified: 2021-03-31, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">“Artificial Intelligence: A Modern
@@ -72,11 +70,13 @@ document.addEventListener('DOMContentLoaded', function () {
   Russell</a> and <a href="https://en.wikipedia.org/wiki/Peter_Norvig">Peter
   Norvig</a>, is probably the most
   well-known textbook on artificial intelligence. Here, I write down my
-  solutions to exercises in that book. I use the 2010 edition, because the
-  exercises for the 2020 edition were moved online.</strong></p>
+  solutions to exercises in that book. I use the 3rd edition from 2010, because the
+  exercises for the 4th edition were moved online.</strong></p>
 </blockquote>
 
 <h1>Solutions to “Artificial Intelligence: A Modern Approach”</h1>
+
+<!--TODO: Exercises 6.6, 7.4, 7.5, 9.10, 13.18, 13.21, 17.1 -->
 
 <h2>Chapter 1</h2>
 
@@ -745,9 +745,9 @@ Otherwise, any of the other disjunctions make the sentence true.</p>
   <p>According to some political pundits, a person who is radical (R) is
   electable (E) if he/she is conservative (C), but otherwise not electable.</p>
   
-  <p>a. Which of the following are correct representations of this assertion?
-  (i) <code>$R \land E \Leftrightarrow C$</code>
-  (ii) <code>$R \Rightarrow (E \Leftrightarrow C)$</code>
+  <p>a. Which of the following are correct representations of this assertion? <br />
+  (i) <code>$R \land E \Leftrightarrow C$</code> <br />
+  (ii) <code>$R \Rightarrow (E \Leftrightarrow C)$</code> <br />
   (iii) <code>$R \Rightarrow ((C \Rightarrow E) \lor \lnot E)$</code></p>
 </blockquote>
 
@@ -889,7 +889,11 @@ Constants: `$I$`, referring to the speaker, `$T$` referring to "that man".
 
 Variables: `$x, y, z$`.
 
-Known facts: `$\lnot \exists x: Sibling(x, I), Father(y, T), Father(z, I), y=z$`.
+Known facts: `$\lnot Sibling(x, I), Father(T)=Son(Father(I))$`
+
+We don't know whether the speaker is male.
+
+Let's say we have a hunch that it is the case that `$Father(T)=I$`
 
 -->
 
@@ -986,7 +990,7 @@ It is rational for an agent to believe `$P(A)=0.4, P(B)=0.3$` and
 
 
 
-md5-5a9b4f194d9f8e06c4287033926899d0
+md5-bdcb0082d254dcc3082173d4543cf997
 
 
 -->
@@ -1810,6 +1814,87 @@ times".</p>
 </blockquote>
 
 <p>Sam should buy the book, since that yields the highest expected utility.</p>
+
+<h3>16.17</h3>
+
+<blockquote>
+  <p>(Adapted from Pearl (1988). A used-car buyer can decide to carry out
+  various tests with various costs (e.g., kick the tires, take the car to
+  a qualified mechanic) and then, depending on the outcome of the tests,
+  decide which car to buy. We will assume that the buyer is deciding
+  whether to buy car <code>$c_1$</code>, that there is time to carry out at most
+  one test, and that <code>$t_1$</code> is the test of <code>$c_1$</code> and costs \$50. A car
+  can be in good shape (quality <code>$q^+$</code>) or bad shape (quality <code>$q^-$</code>),
+  and the tests might help indicate what shape the car is in. Car <code>$c_1$</code>
+  costs \$1,500, and its market value is \$2,000 if it is in good shape;
+  if not, \$700 in repairs will be needed to make it in good shape. The
+  buyer's estimate is that <code>$c_1$</code> has a 70% chance of being in good shape.</p>
+  
+  <p>a. Draw the decision network that represents this problem.</p>
+</blockquote>
+
+<p><img src="img/aima_solutions/16_17_decisionnet.png" alt="Decision network for 16.17" title="A decision network for exercise 16.17. A rectangle T and B, an oval Q, and a diamond U. Arrow from T to Q and B, from Q to B, and from B to U." /></p>
+
+<blockquote>
+  <p>b. Calculate the expected net gain from buying <code>$c_1$</code>, given no test.</p>
+</blockquote>
+
+<p><code>$E(U|b, \lnot t)=0.7*(\$2000-\$1500)+0.3*(\$2000-(\$700+\$1500))=\$290$</code></p>
+
+<blockquote>
+  <p>c. Tests can be described by the probability that the car will pass
+  or fail the test given that the car is in good or bad shape. We have
+  the following information: <br />
+  <code>$P(pass(c_1, t_1)|q^+(c_1))=0.8$</code> <br />
+  <code>$P(pass(c_1, t_1)|q^-(c_1))=0.35$</code> <br />
+  Use Bayes' theorem to calculate the probability that the car will pass
+  (or fail) its test and hence the probability that it is in good (or bad)
+  shape given each possible test outcome.</p>
+</blockquote>
+
+<div>
+    $$P(q^+(c_1)|pass(c_1, t_1))=\\
+    \frac{P(pass(c_1, t_1)|q^+(c_1)*P(q^+(c_1))}{P(pass(c_1, t_1))}=\\
+    \frac{0.8*0.7}{\sum_{i \in \{q^+(c_1), q^-(c_1)\}} P(pass(c_1, t_1)|i)*P(i)}=\\
+    \frac{0.8*0.7}{0.8*0.7+0.35*0.3} \approx 0.8421$$
+</div>
+
+<p>With that, <code>$P(q^-(c_1)|pass(c_1, t_1)) \approx 0.1579$</code>.</p>
+
+<div>
+    $$P(q^+(c_1)|\lnot pass(c_1, t_1))=\\
+    \frac{P(\lnot pass(c_1, t_1)|q^+(c_1)*P(q^+(c_1))}{P(\lnot pass(c_1, t_1))}=\\
+    \frac{0.2*0.7}{\sum_{i \in \{q^+(c_1), q^-(c_1)\}} P(\lnot pass(c_1, t_1)|i)*P(i)}=\\
+    \frac{0.2*0.7}{0.2*0.7+0.65*0.3} \approx 0.4179$$
+</div>
+
+<p>With that, <code>$P(\lnot q^-(c_1)|\lnot pass(c_1, t_1) \approx 0.5821$</code>.</p>
+
+<blockquote>
+  <p>d. Calculate the optimal decisions given either a pass or a fail,
+  and their expected utilities.</p>
+</blockquote>
+
+<div>
+    $$E(U|b, t, pass(c_1, t_1))=0.8421*(\$2000-\$1500)+0.1579*(\$2000-(\$1500+\$700))=\$389.47 \\
+    E(U|\lnot b, t, pass(c_1, t_1))=\$0 \\
+    E(U|b, t, \lnot pass(c_1, t_1))=0.4179*(\$2000-\$1500)+0.5821*(\$2000-(\$1500+\$700))=\$92.53 \\
+    E(U|\lnot b, t, \lnot pass(c_1, t_1))=0.4179*(-\$50)+0.5821*(-\$50)=\$0$$
+</div>
+
+<blockquote>
+  <p>e. Calculate the value of information of the test, and derive an
+  optimal conditional plan for the buyer.</p>
+</blockquote>
+
+<div>
+    $$VOI(pass(c_1, t_1))=(P(pass(c_1, t_1))*EU(b|t, pass(c_1, t_1)+P(\lnot pass(c_1, t_1))*EU(b|t, \lnot pass(c_1, t_1)))-EU(b|\lnot t)=\\
+    ((0.8*0.7+0.35*0.3)*\$389.47+(0.2*0.7+0.65*0.3)*\$92.53)-\$290 \approx \\
+    \$0$$
+</div>
+
+<p>This makes sense, since in all cases (even if the test says that the
+car is a lemon!), the optimal decision is to buy the car.</p>
 
 <h2>Chapter 17</h2>
 
