@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2020-03-24, modified: 2021-03-29, language: english, status: finished, importance: 6, confidence: possible</em></p>
+<p><em>author: niplav, created: 2020-03-24, modified: 2021-04-03, language: english, status: finished, importance: 6, confidence: possible</em></p>
 
 <blockquote>
   <p><strong>This text looks at the accuracy of forecasts in relation
@@ -648,9 +648,9 @@ regressions</a> shows a
 very similar picture (red dots are for Metaculus forecasts, blue dots
 are for PredictionBook forecasts):</p>
 
-<p><img src="img/range_and_forecasting_accuracy/allscatter.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in days)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in days)" /></p>
+<p><img src="./img/range_and_forecasting_accuracy/allscatter.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in seconds)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in seconds)" /></p>
 
-<p><em>Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in days)</em></p>
+<p><em>Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in seconds)</em></p>
 
 <p>The high amounts of noise are probably due to the low number of
 predictions for single days (or, in the case of weeks and months, for
@@ -659,7 +659,8 @@ have resolved yet).</p>
 
 <h3>Why Assume Accuracy will Increase?</h3>
 
-<p>I believe that the finding of PredictionBook is quite surprising.</p>
+<p>I believe that the finding for the PredictionBook data is quite
+surprising.</p>
 
 <p>A priori, one would believe that beliefs about the near future are
 generally more accurate than beliefs about the far future: We can predict
@@ -753,8 +754,7 @@ pbss::{#pbss?x}'1+!maxval
 metss::{#metss?x}'1+!maxval
 </code></pre>
 
-<p>I generated charts for the sample sizes in
-<a href="./img/range_and_forecasting_accuracy/ss_plot.png">weeks</a>:</p>
+<p>I generated charts for the sample sizes in weeks:</p>
 
 <pre><code>ssplot::.oc("ss_plot.eps")
 .tc(ssplot)
@@ -941,7 +941,7 @@ but again the slope of the linear regression was not very steep.</p>
 (calculated using the Brier score) on the Y-axis. Again, red dots/lines
 are for Metaculus data, and blue dots/lines are for PredictionBook data.</p>
 
-<p><img src="img/range_and_forecasting_accuracy/allq.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range" /></p>
+<p><img src="./img/range_and_forecasting_accuracy/allq.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range" /></p>
 
 <p><em>Scatterplot with linear regression for Metaculus &amp; PredictionBook question accuracy by range</em></p>
 
