@@ -515,3 +515,4 @@
 2021-03-28T15:12:23.000000Z	maybe gods have the problem that they only can create beings slightly weaker than themselves, so they don't create as much as they would want to (this would be the reason why Zeus rapes/seduces random women and doesn't just create mistresses – the mistresses might build a coalition & turn against him
 2021-03-30T09:11:10.000000Z	Skolem constants are just Skolem functions of arity 0, they have no universal quantifiers around them.
 2021-03-31T22:29:59.000000Z	@<adi https://twtxt.net/user/adi/twtxt.txt> "@niplav Your reasoning is that if Zeus would create mistresses he would create _too many_ people?" -> Nope, that he wouldn't be able to control them (since they are only slightly less powerful than him), and “you cannot put down what you have conjured up”
+2021-04-05T18:19:55.000000Z	3-word horror story: law of conversation of valence
