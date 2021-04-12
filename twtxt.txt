@@ -524,3 +524,4 @@
 2021-04-11T12:39:58.000000Z	universes with more life probably more compressible
 2021-04-11T13:27:13.000000Z	life is quined matter
 2021-04-11T21:00:48.000000Z	female spiders eat males after mating bc males won't provide for offspring, so they might as well provide nutrients for the mother
+2021-04-12T22:25:18.000000Z	the universe needs to meditate
