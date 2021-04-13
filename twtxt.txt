@@ -528,3 +528,4 @@
 2021-04-12T22:26:44.000000Z	@<hecanjog https://hecanjog.com/twtxt.txt> "Just discovered an unsaved vim buffer sitting in a local tmux session I forgot about for days now. Yikes. At least it was easy to remember where I left off. :)" -> Hopefully something important
 2021-04-12T22:28:51.000000Z	@<off_grid_living https://twtxt.net/user/off_grid_living/twtxt.txt> "Beautiful sunny day today, at Dululu." <3
 2021-04-13T18:25:23.000000Z	violation of schelling point as indicators of antimemetic infestation.
+2021-04-13T20:45:41.000000Z	quantilizing porn
