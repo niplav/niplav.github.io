@@ -532,3 +532,4 @@
 2021-04-13T21:42:21.000000Z	humiliating how long it took me to realise that the Metamorphosis by Kafka was about disability.
 2021-04-14T19:32:14.000000Z	@<movq https://www.uninformativ.de/twtxt.txt> "Random thought: Would be great if you could do `for i in ...; do something "$i" & done ; wait` in a Shell script, but with the Shell only spawning one process per CPU." -> Interesting which annoyances stay in the back of the head – I'd never articulated this, but it's absolutely true that this would be great.
 2021-04-14T19:32:46.000000Z	@<hecanjog https://hecanjog.com/twtxt.txt> "Maybe Satoshi was an anti-capitalist after all?" -> Why do you think that?
+2021-04-14T21:33:32.000000Z	if you're weird, spending time around non-weird people is not going to make you more normal. but if you spend time with marginally less weird people, you're probably going to become less weird.
