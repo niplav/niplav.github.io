@@ -530,3 +530,4 @@
 2021-04-13T18:25:23.000000Z	violation of schelling point as indicators of antimemetic infestation.
 2021-04-13T20:45:41.000000Z	quantilizing porn
 2021-04-13T21:42:21.000000Z	humiliating how long it took me to realise that the Metamorphosis by Kafka was about disability.
+2021-04-14T19:32:14.000000Z	@<movq https://www.uninformativ.de/twtxt.txt> "Random thought: Would be great if you could do `for i in ...; do something "$i" & done ; wait` in a Shell script, but with the Shell only spawning one process per CPU." -> Interesting which annoyances stay in the back of the head – I'd never articulated this, but it's absolutely true that this would be great.
