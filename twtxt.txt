@@ -549,3 +549,4 @@
 2021-04-17T21:51:15.000003Z	X
 2021-04-17T21:51:15.000004Z	is
 2021-04-17T21:51:15.000005Z	not
+2021-04-17T21:52:58.000000Z	2x3: {lives in social/physical reality}×{views things generally as positive/zero/negative sum}. To be honest, I think there's relatively few people in social positive sum reality frames.
