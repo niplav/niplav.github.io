@@ -541,3 +541,4 @@
 2021-04-17T10:15:50.000000Z	“Break at the Byte”, a programmer adventure story.
 2021-04-17T20:34:01.000000Z	Just because things are impossible doesn't mean they wouldn't be good
 2021-04-17T21:44:17.000000Z	sharing beliefs < sharing evidence < sharing models < sharing ontologies
+2021-04-17T21:45:12.000000Z	maybe that's my queasiness around emotional arguers: they share beliefs more than evidence, and nearly never models
