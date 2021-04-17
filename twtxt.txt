@@ -546,3 +546,4 @@
 2021-04-17T21:52:58.000000Z	2x3: {lives in social/physical reality}×{views things generally as positive/zero/negative sum}. To be honest, I think there's relatively few people in social positive sum reality frames.
 2021-04-17T22:03:49.000000Z	A: “X is number”. B: “Thats not true, X is not number”. If B doesnt provide an alternative number (or an explanation of why a number is not applicable here), Im often more inclined towards believing A.
 2021-04-17T22:06:32.000000Z	a b c d e f g h i j k l m n o p q r s t u v w x y z
+2021-04-17T22:29:57.000000Z	Whether to invest in stocks is moral tracks with whether general economic growth is moral.
