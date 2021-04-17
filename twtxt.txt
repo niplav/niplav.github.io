@@ -543,10 +543,20 @@
 2021-04-17T21:44:17.000000Z	sharing beliefs < sharing evidence < sharing models < sharing ontologies
 2021-04-17T21:45:12.000000Z	maybe that's my queasiness around emotional arguers: they share beliefs more than evidence, and nearly never models
 2021-04-17T21:49:13.000000Z	the counterpoint would be that I'm already begging the question with that attitude, though.
-2021-04-17T21:51:15.000000Z	A: "X is $number". B: "Thats
-2021-04-17T21:51:15.000001Z	not
-2021-04-17T21:51:15.000002Z	true,
-2021-04-17T21:51:15.000003Z	X
-2021-04-17T21:51:15.000004Z	is
-2021-04-17T21:51:15.000005Z	not
 2021-04-17T21:52:58.000000Z	2x3: {lives in social/physical reality}×{views things generally as positive/zero/negative sum}. To be honest, I think there's relatively few people in social positive sum reality frames.
+2021-04-17T22:03:49.000000Z	A: “X is number”. B: “Thats
+2021-04-17T22:03:49.000001Z	not
+2021-04-17T22:03:49.000002Z	true,
+2021-04-17T22:03:49.000003Z	X
+2021-04-17T22:03:49.000004Z	is
+2021-04-17T22:03:49.000005Z	not
+2021-04-17T22:03:49.000006Z	number”.
+2021-04-17T22:03:49.000007Z	If
+2021-04-17T22:03:49.000008Z	B
+2021-04-17T22:03:49.000009Z	doesnt provide an alternative number (or an explanation of why a number is not applicable here), Im
+2021-04-17T22:03:49.000010Z	often
+2021-04-17T22:03:49.000011Z	more
+2021-04-17T22:03:49.000012Z	inclined
+2021-04-17T22:03:49.000013Z	towards
+2021-04-17T22:03:49.000014Z	believing
+2021-04-17T22:03:49.000015Z	A.
