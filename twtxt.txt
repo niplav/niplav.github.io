@@ -542,3 +542,4 @@
 2021-04-17T20:34:01.000000Z	Just because things are impossible doesn't mean they wouldn't be good
 2021-04-17T21:44:17.000000Z	sharing beliefs < sharing evidence < sharing models < sharing ontologies
 2021-04-17T21:45:12.000000Z	maybe that's my queasiness around emotional arguers: they share beliefs more than evidence, and nearly never models
+2021-04-17T21:49:13.000000Z	the counterpoint would be that I'm already begging the question with that attitude, though.
