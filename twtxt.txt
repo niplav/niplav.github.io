@@ -553,3 +553,4 @@
 2021-04-20T11:14:19.000000Z	(⋅,⋅)
 2021-04-20T11:55:12.000000Z	i'm sure people have studied this: maybe strategically voting iteratively reaches a fixed point in which point report their actual preferences?
 2021-04-20T12:29:47.000000Z	AIXI for polynomial curve fitting
+2021-04-21T17:27:54.000000Z	Paint is not the unit of effort
