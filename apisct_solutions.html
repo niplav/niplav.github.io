@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-04-18, modified: 2021-04-18, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-04-18, modified: 2021-04-21, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>.</strong></p>
@@ -69,5 +69,52 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h1>Solutions to “A Primer in Social Choice Theory”</h1>
 
+<p>Note: Instead of using <code>$xIy, xRy$</code> and <code>$xPy$</code>,
+I will write <code>$x \sim y, x \succeq y$</code> and <code>$x \succ y$</code>
+like any normal person.</p>
+
 <h2>Chapter 1</h2>
+
+<h3>1.1</h3>
+
+<blockquote>
+  <p>Show that if R is reflexive, complete, and transitive, then for all <code>$x, y, z \in X$</code>: <br />
+  (a) <code>$(xIy \land yIz) \rightarrow xIz$</code>;  </p>
+</blockquote>
+
+<p>We know that <code>$x \sim y \Leftrightarrow x \succeq y \land x \preceq y$</code>.</p>
+
+<p>Then:</p>
+
+<div>
+    $$(x \sim y \land y \sim z) \Leftrightarrow \\
+    x \succeq y \land x \preceq y \land y \succeq z \land z \succeq y \Rightarrow \\
+    x \succeq z \land x \preceq z \Rightarrow \\
+    x \sim y $$
+</div>
+
+<blockquote>
+  <p>(b) <code>$(xPy \land yRz) \rightarrow xPz$</code></p>
+</blockquote>
+
+<div>
+    $$ x \succ y \land y \succeq z \Leftrightarrow \\
+    x \succ y \land (y \succ z \lor y \sim z) \Leftrightarrow \\
+    (x \succ y \land y \succ z) \lor (x \succ y \land y \sim z) \Rightarrow \\
+    (x \succ z) \lor (x \succ z) \Rightarrow \\
+    x \succ z $$
+</div>
+
+<h3>1.2</h3>
+
+<blockquote>
+  <p>Suppose that R is an ordering over the set <code>$X=\{x,y,z,w\}$</code> with
+  <code>$xIy$</code>, <code>$yPz$</code>, and <code>$zPw$</code>. Determine the choice set.</p>
+</blockquote>
+
+<p><code>$R$</code> is complete, reflexive and transitive. We therefore know:</p>
+
+<p><code>$x \sim y \succ z \succ w$</code>. The choice set is the set of all best
+elements, that is the set of all elements who at least as good as any
+other element. So, here the choice set is <code>$\{x,y\}$</code>.</p>
 </html>
