@@ -69,9 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h1>Solutions to “A Primer in Social Choice Theory”</h1>
 
-<p>Note: Instead of using <code>$xIy, xRy$</code> and <code>$xPy$</code>,
-I will write <code>$x \sim y, x \succeq y$</code> and <code>$x \succ y$</code>
-like any normal person.</p>
+<p>Note: Instead of using <code>$xIy, xRy$</code> and <code>$xPy$</code>, I will <em>sometimes</em>
+write <code>$x \sim y, x \succeq y$</code> and <code>$x \succ y$</code>.</p>
 
 <h2>Chapter 1</h2>
 
@@ -117,4 +116,57 @@ like any normal person.</p>
 <p><code>$x \sim y \succ z \succ w$</code>. The choice set is the set of all best
 elements, that is the set of all elements who at least as good as any
 other element. So, here the choice set is <code>$\{x,y\}$</code>.</p>
+
+<h3>1.3</h3>
+
+<blockquote>
+  <p>Show that if <code>$S \subset X$</code> is finite and R is reflexive, complete,
+  and quasi-transitive over S, then <code>$C(S, R)$</code> is non-empty.</p>
+</blockquote>
+
+<p>If S contains exactly one element (<code>$S=\{x\}$</code>), then that element is
+automatically the best element (due to reflexivity: <code>$xRx$</code>).</p>
+
+<p>If S contains exactly two elements (<code>$S=\{x, y\}$</code>), then we have either
+<code>$xPy, yPx \text{ or } xIy$</code> (due to completeness), with <code>$\{x\}, \{y\} \text{ and } \{x,y\}$</code>
+being the choice sets.</p>
+
+<p>If S contains three or more elements, due to completeness we know
+that for an element <code>$x$</code>, there is a finite set <code>$g(x):=\{y: yRx\} \backslash \{x\}$</code>.
+If <code>$g(x)=\emptyset$</code>, <code>$x$</code> is the best element. If <code>$g(x)$</code> is not
+empty, we can pick an element <code>$y \in g(x)$</code> and generate <code>$g(y)$</code>. We
+know that <code>$|g(y)|&lt;g(x)|$</code> (because we're removing at least one element
+from <code>$g(x)$</code>, namely <code>$y$</code>). If we repeat the procedure (finitely many
+times, since <code>$g(x) \subset S$</code> is finite), we finally arrive at a set
+<code>$g(z)$</code> with size <code>$|g(z)|=1$</code>. The element of <code>$g(z)$</code> is a chosen
+element.</p>
+
+<h3>1.7</h3>
+
+<blockquote>
+  <p>Let F stand for Fahrenheit and C stand for Celsius. 32° in F are
+  the same as 0° in C; and 68° in F are the same as 20° in C. Please
+  specify the mapping F(C) and C(F). Do these mappings have the property
+  that F values are based on a positive affine transformation of C values,
+  and vice versa?</p>
+</blockquote>
+
+<p>I'm unsure what is asked here. The raw mapping given in set form is just
+<code>$F(C)=\{(32, 0), (68, 20)\}$</code> and <code>$C(F)=\{(0, 32), (20, 68)\}$</code>.</p>
+
+<p>The conversion formula for degrees Fahrenheit to Celsius, based on the
+given values, can be determined easily from the set of linear equations</p>
+
+<div>
+    $$ a+32b=0 \\
+    a+36b=20 $$
+</div>
+
+<p>Upon solving, one determines that
+<code>$a=-32*\frac{5}{9} \approx -17.7778, b=\frac{5}{9} \approx 0.5556$</code>,
+so <code>$F(C) \approx -17.7778+0.5556*C$</code>
+and <code>$C(F)=-0.05625*C-1.8$</code>. Since <a href="https://en.wikipedia.org/wiki/Affine_transformation#Over_the_real_numbers">Wikipedia
+says</a>
+that a linear transformation in <code>$ℝ$</code> is an affine transformation,
+this is an affine transformation.</p>
 </html>
