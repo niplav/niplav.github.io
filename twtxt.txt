@@ -562,3 +562,4 @@
 2021-04-28T09:33:01.000000Z	fake liminal space
 2021-04-28T11:44:31.000000Z	in meditation, the only standard one _can_ set for ones own performance is ones own.
 2021-04-28T17:34:48.000000Z	ratiome
+2021-04-30T13:55:10.000000Z	every permutation is a bijection, not every bijection is a permutation. this wasn't obvious to me!
