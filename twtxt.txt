@@ -567,3 +567,4 @@
 2021-05-02T00:15:39.000000Z	FreeBSDitties
 2021-05-02T08:32:18.000000Z	major difference between updating on evidence vs. morals: we know that a bayesian is converging (monotonically?) towards truth with each piece of evidence, while with moral progress, it seems likely that we are not bounded in how wrong our updates can be (even if we grant that the arc bends towards justice in the end). we might need to escape moral local maxima. therefore, it seems good to preserve option value.
 2021-05-02T08:37:19.000000Z	discount rates seem to spring mostly from being sure of ones own death. beings without aging would have extremely low discount rates, I think?
+2021-05-02T08:37:42.000000Z	much lower than we'd expect from naively extrapolating just to the increased lifespan.
