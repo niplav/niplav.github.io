@@ -569,3 +569,4 @@
 2021-05-02T08:37:19.000000Z	discount rates seem to spring mostly from being sure of ones own death. beings without aging would have extremely low discount rates, I think?
 2021-05-02T08:37:42.000000Z	much lower than we'd expect from naively extrapolating just to the increased lifespan.
 2021-05-02T08:40:18.000000Z	“memeticist” as a description of someone who makes memes
+2021-05-07T12:53:35.000000Z	Surely people have thought about this, but is it _so_ useful to include proofs in textbooks?
