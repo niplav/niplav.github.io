@@ -572,3 +572,4 @@
 2021-05-07T12:53:35.000000Z	Surely people have thought about this, but is it _so_ useful to include proofs in textbooks?
 2021-05-07T13:30:21.000000Z	what is a good prior over sentences in propositional logic?
 2021-05-07T13:42:16.000000Z	probably similar to solomonoff, just in the number of variables, and without the computability aspect (since we know that prop-formulas can be evaluated in exponential time)
+2021-05-11T14:43:49.000000Z	caviarance
