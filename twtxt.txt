@@ -577,3 +577,4 @@
 2021-05-12T17:47:32.000000Z	@frogorbits.com Would you recommend it?
 2021-05-13T20:13:36.000000Z	status-acquisition more anti-inductive than money-acquistition?
 2021-05-16T21:29:56.000000Z	I think I understand 5-10 now. It basically says “Let's say I jumped out of the airplane. I would only do that if I had a parachute. So, any version of me that jumps out of the airplane has a parachute. Therefore, if I jump out of the airplane, I'll have a parachute. Let's jump out of the airplane!”
+2021-05-17T13:19:53.000000Z	chopping wood and carrying water: an endocrinological approach
