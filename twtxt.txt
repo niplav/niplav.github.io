@@ -590,3 +590,4 @@
 2021-05-24T21:04:28.000000Z	marvel and be wary
 2021-05-25T13:52:47.000000Z	guy who is building AGI on a discord server with his buddies instead of getting himself a girlfriend
 2021-05-25T13:53:01.000000Z	guy who has had unkind thoughts about Eliezer Yudkowsky
+2021-05-26T09:52:53.000000Z	deontology more embedded than consequentialism?
