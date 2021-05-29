@@ -1,0 +1,258 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2021-05-23, modified: 2021-05-28, language: english, status: notes, importance: 3, confidence: highly unlikely</em></p>
+
+<blockquote>
+  <p><strong>.</strong></p>
+</blockquote>
+
+<h1>Notes on Predictions</h1>
+
+<h2>Total Tesla Sales in 2021</h2>
+
+<p><a href="https://www.metaculus.com/questions/5582/total-tesla-sales-in-2021/">Link</a>.</p>
+
+<p>Question body states 90.65k sales in Q2 2020, and 139k sales in Q3 2020.
+That's a <code>139000/90650=1.53</code> fold increase, and an increase in 50k.</p>
+
+<p>Interpolating exponentially, that would be <code>213138</code> for Q4 2020, and</p>
+
+<pre><code>    +/{213138*1.533^x}'1+!4
+2772646.96740497209
+</code></pre>
+
+<p>for all of 2021.</p>
+
+<p>Interpolating linearly, that would be <code>139000+50000=189000</code>, and</p>
+
+<pre><code>    +/189000+'50000*1+!4
+1256000
+</code></pre>
+
+<p>for all of 2021.</p>
+
+<p>Overall, I trust the linear extrapolation more – a growth of 50% seems
+quite a lot, even for Tesla. But even the linear extrapolation is high.</p>
+
+<h2>India GDP growth in Q1-Q3 2021</h2>
+
+<p><a href="https://www.metaculus.com/questions/6316/india-gdp-growth-in-q1-q3-2021/">Link</a>.</p>
+
+<p>Assuming GDP growth per quarter iid (which it isn't, but I can't be
+bothered otherwise).</p>
+
+<p>Assuming 70% chance of positive growth in any quarter. Then chance of
+only growth in all quarter <code>0.7^3=0.343</code>.</p>
+
+<h2>Number of commercial flights on 30 June 2021</h2>
+
+<p><a href="https://www.metaculus.com/questions/5931/number-of-commercial-flights-on-30-june-2021/">Link</a>.</p>
+
+<p>Assuming 2021 numbers are a constant fraction of 2019 numbers, I sample
+the first date of every month (maybe this introduces bias? I could also
+use the CSV, but can't be bothered to):</p>
+
+<pre><code>    (+/[68909 60576 68976 78173 78207]%[102167 104960 108395 109471 114037])%5
+0.657569826823178416
+</code></pre>
+
+<p>June 30th 2019 had 123304 commercial flights 7-day averaged.</p>
+
+<p>Naively, we then expect <code>0.657569826823178416*123304=81080.9899266051914</code>
+flights. This might be increased by higher vaccination numbers, but
+not by much – relatively few in the world mostly vaccinated, and many
+destinations not sufficiently vaccinated.</p>
+
+<h2>Will Scott Morrison be Prime Minister of Australia on 1 July 2021?</h2>
+
+<p><a href="https://www.metaculus.com/questions/4774/will-scott-morrison-be-prime-minister-of-australia-on-1-july-2021/">Link</a>.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Leadership_spill">Wikipedia</a> states that</p>
+
+<blockquote>
+  <p>There were 72 leadership spills between 1970 and 2015; the phenomenon
+  became increasingly more commen in the early 21st century. None occurred
+  in the 1960s, 10 in the 1970s, 18 in the 1980s, 130 in the 1990s, and 31
+  between 2000 and 2015. […] five changes of Prime Ministers between
+  2010 and 2018</p>
+</blockquote>
+
+<p>Specifically, leadership spills occurred in 2010, 2012, twice in 2013,
+twice in 2015, twice in 2018, and once in 2020. That gives 9 leadership
+spills in 120 months (~7.5% chance of a spill per month).</p>
+
+<h2>Initial Jobless Claims in May 2021</h2>
+
+<p><a href="https://www.metaculus.com/questions/7212/initial-jobless-claims-in-may-2021/">Link</a>.</p>
+
+<p>Current average
+(<a href="https://www.investing.com/economic-calendar/initial-jobless-claims-294">source</a>):
+<code>(444+473+498)%3=471.666666666666667</code>. Probably less, because US mostly
+vaccinated. Trend decreasing as well.</p>
+
+<h2>Date administered doses/capita &gt;0.5 in NL</h2>
+
+<p><a href="https://www.metaculus.com/questions/6779/date-administered-dosescapita-05-in-nl/">Link</a>.</p>
+
+<p>Data in Klong array (I should learn R) (<a href="https://ourworldindata.org/covid-vaccinations">source</a>):</p>
+
+<pre><code>    nlvaccperc::[[15 0.2][17 0.45][24 0.97][31 2.04][38 3.20][45 4.06][59 6.5][66 7.73][73 8.9][80 9.41][87 10.59][94 12.59][101 15.6][108 19.71][115 22.74][122 26.04][129 29.21][136 33.05][142 33.5]]
+</code></pre>
+
+<p>Linear regression:</p>
+
+<pre><code>    lr(221;lreg(nlvaccperc))
+50.0988848758083841
+</code></pre>
+
+<p>Calculating back (by hand, <code>date</code> couldn't do what I wanted it to),
+this gives 2021-07-09 as the date for &gt;50% vaccinations. I'm not sure
+whether to be more pessimistic or optimistic, while there hasn't been
+any growth in the last week, the overall trend looks kind of superlinear
+(maybe because of systems for vaccine distribution being put in place &amp;
+optimized over time).</p>
+
+<h2>How many NASA "space launch system" (SLS) launches before 2030?</h2>
+
+<p><a href="https://www.metaculus.com/questions/1503/how-many-nasa-space-launch-system-sls-launches-before-2030/">Link</a>.</p>
+
+<p>Feels like a "too big to fail halfway through" situation. Either they
+scrap it before anything launches, or they carry out at least one mission
+with it before stopping the program.</p>
+
+<p>I want to look up how often (&amp; how early) NASA cancels projects like
+these.  Being a big organisation, I expect them to fall prey to sunk-cost
+thinking, but on the other hand, it's still a bunch of engineers.</p>
+
+<h2>When will India send their first own astronauts to space?</h2>
+
+<p><a href="https://www.metaculus.com/questions/1434/when-will-india-send-their-first-own-astronauts-to-space/">Link</a>.</p>
+
+<p>COVID-19 hitting India hard reduces GDP growth (though there is a
+question of how long-term this reduction is), and also slows down highly
+collaborative projects (such as sending people to space).</p>
+
+<p>We probably can't expect widespread vaccinations for a while
+(at the time of writing, <a href="https://ourworldindata.org/covid-vaccinations">India has a vaccination rate of
+10.81%</a>).</p>
+
+<p>I wish I had an equivalent of the <a href="https://web.archive.org/web/20210302224031/https://anthony.boyles.cc/Essays/portfolio/ElonMuskFor
+ecastCorrectionFunction.html">Musk forecast correction
+function</a> for announcements by the average politician.</p>
+
+<h2>Elon Musk's Net Worth at the End of 2021</h2>
+
+<p><a href="https://www.metaculus.com/questions/4790/elon-musks-net-worth-at-the-end-of-2021/">Link</a>.</p>
+
+<p>According to the <a href="https://www.bloomberg.com/billionaires/">Bloomberg
+index</a>, Musk's networth currently
+is $167b.</p>
+
+<p>If we predict 2.5% more economic growth this year, and Musk's networth
+tracks with that, we can expect his networth to be ~$171b.</p>
+
+<h2>Date COVID-19 epidemic subsides in Russia.</h2>
+
+<p><a href="https://www.metaculus.com/questions/4737/when-will-the-covid-19-epidemic-subside-in-russia/">Link</a>.</p>
+
+<p><a href="https://covid19.who.int/region/euro/country/ru">WHO</a> says that the last
+week with &lt;1000 cases of COVID-19 was March 30 2020.</p>
+
+<p>Extremely naively starting with the <a href="https://en.wikipedia.org/wiki/Lindy_effect">Lindy
+effect</a>, we assume it's going
+to take as long to subside as it took to get to this point, we calculate:</p>
+
+<pre><code>    $ date -d '2020-03-30' '+%s'
+1585519200
+    $ date '+%s'
+1622222618
+    $ bc
+1622222618+(1622222618-1585519200)
+1658926036
+    $ date -d '@1658926036' --iso-8601
+2022-07-27
+</code></pre>
+
+<p>WHO also states that ~26.5m vaccine doses have been administered.
+Russia has a population of ~150m people, so that would be at ~15%
+vaccination rate.</p>
+
+<p>They probably started vaccinating beginning of March (+15% vaccination
+rate in 3 months), so to reach ~75% vaccination rate (gut-estimate for
+what vaccination rate is necessary for &lt;1k cases per week, probably
+more). Assuming they vaccinate at similar rate as previously, this gives
+<code>((75-15)/15)*3=12</code> more months.</p>
+
+<p>This is too pessimistic: vaccine dose prices will fall when richer
+countries have more vaccinations, &amp; also over time with economies of
+scale and other optimizations. Infection rates will shrink as there's
+less cross-infection from other countries with better vaccination rates,
+the russian government will figure out how to distribute vaccines faster
+and to more people.</p>
+
+<p>Still, I think Russia will need at median 9 more months before they
+reach this level of immunity (and after that a relatively long tail,
+because 1k cases per week is actually really fricking low, and there's
+still the scenario of COVID-19 becoming endemic).</p>
+</html>
