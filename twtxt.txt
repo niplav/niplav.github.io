@@ -607,3 +607,4 @@
 2021-06-08T22:53:15.000000Z	PIPO
 2021-06-09T14:16:14.000000Z	bayesically,
 2021-06-09T21:25:06.000000Z	mesamodernism
+2021-06-09T21:25:22.000000Z	“Attention is all you need”. Fucking prophetic
