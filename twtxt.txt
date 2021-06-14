@@ -616,3 +616,4 @@
 2021-06-14T10:26:43.000000Z	I dislike it when people use two en dashes for an em dash
 2021-06-14T10:28:04.000000Z	or, worse, a minus
 2021-06-14T17:47:15.000000Z	how much would you X yourself?
+2021-06-14T20:43:30.000000Z	Robin Hanson is pretty good evidence for the Orthogonality Hypothesis
