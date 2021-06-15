@@ -617,3 +617,4 @@
 2021-06-14T10:28:04.000000Z	or, worse, a minus
 2021-06-14T17:47:15.000000Z	how much would you X yourself?
 2021-06-14T20:43:30.000000Z	Robin Hanson is pretty good evidence for the Orthogonality Hypothesis
+2021-06-15T22:25:54.000000Z	“showing that you care” type signalling depends on the sunk cost fallacy; or, there was selection pressure against the sunk cost fallacy (modulo reputation effects)
