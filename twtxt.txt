@@ -622,3 +622,4 @@
 2021-06-16T09:32:22.000000Z	DSOTM=Doesn't seem obvious to me.
 2021-06-16T10:32:10.000000Z	That's pretty Markov of you, my friend
 2021-06-16T10:32:39.000000Z	markov as inverse lindy
+2021-06-16T22:24:16.000000Z	yay ingroup
