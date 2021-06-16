@@ -619,3 +619,4 @@
 2021-06-14T20:43:30.000000Z	Robin Hanson is pretty good evidence for the Orthogonality Hypothesis
 2021-06-15T22:25:54.000000Z	“showing that you care” type signalling depends on the sunk cost fallacy; or, there was selection pressure against the sunk cost fallacy (modulo reputation effects)
 2021-06-15T22:46:22.000000Z	philosophical bullets i'm not (yet) willing to bite: illusionism, accepting the repugnant conclusion.
+2021-06-16T09:32:22.000000Z	DSOTM=Doesn't seem obvious to me.
