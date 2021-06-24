@@ -640,3 +640,4 @@
 2021-06-22T09:55:09.000000Z	even an ASI would defer to an even smarter version of itself. does this solve the problem of fully updated deference?
 2021-06-23T22:58:33.000000Z	heiliges römisches rotes kreuz deutscher nation
 2021-06-23T23:00:12.000000Z	internal/external validity for attractiveness rankings
+2021-06-24T10:43:42.000000Z	Gotami said: “why is experience bad so often?” Upon hearing this, the nun got enlightened.
