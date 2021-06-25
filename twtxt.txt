@@ -641,3 +641,4 @@
 2021-06-23T22:58:33.000000Z	heiliges römisches rotes kreuz deutscher nation
 2021-06-23T23:00:12.000000Z	internal/external validity for attractiveness rankings
 2021-06-24T10:43:42.000000Z	Gotami said: “why is experience bad so often?” Upon hearing this, the nun got enlightened.
+2021-06-25T18:41:17.000000Z	forecasting questions can be divided into “we have an indicator, let the people forecast it” and “we have a question, let's find an indicator/indicators to concretise it”
