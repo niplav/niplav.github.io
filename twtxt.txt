@@ -645,3 +645,4 @@
 2021-06-25T20:50:13.000000Z	https://www.lesswrong.com/s/7CdoznhJaLEKHwvJW/p/LfGzAduBWzY5gq6FE uses color really well in proofs. I will need to copy that.
 2021-06-26T09:06:42.000000Z	“improve the system” is not an atomic action
 2021-06-26T12:09:59.000000Z	gridworlds scenario with corrigible/noncorrigible subagents
+2021-06-29T21:24:48.000000Z	ancestral social environment probably most comparable with today's high school – everybody is very near each other a lot of the time, high amounts of common knowledge. differences: existence of age gaps in AE, more common tasks
