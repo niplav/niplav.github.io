@@ -649,3 +649,4 @@
 2021-06-29T21:25:02.000000Z	makes me update towards the awfulness of ancestral environment
 2021-06-29T21:27:55.000000Z	todo: find some nice population axiologies where the bound is a parameter
 2021-06-29T21:30:38.000000Z	a date with a human model
+2021-06-29T21:30:44.000000Z	what a strange optimizer it is
