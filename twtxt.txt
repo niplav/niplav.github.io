@@ -647,3 +647,4 @@
 2021-06-26T12:09:59.000000Z	gridworlds scenario with corrigible/noncorrigible subagents
 2021-06-29T21:24:48.000000Z	ancestral social environment probably most comparable with today's high school – everybody is very near each other a lot of the time, high amounts of common knowledge. differences: existence of age gaps in AE, more common tasks
 2021-06-29T21:25:02.000000Z	makes me update towards the awfulness of ancestral environment
+2021-06-29T21:27:55.000000Z	todo: find some nice population axiologies where the bound is a parameter
