@@ -668,3 +668,4 @@
 2021-07-01T19:51:09.000000Z	rational people can use very irrational people as babble generators in conversations, if the rational people are high prune (which they usually are).
 2021-07-02T10:48:55.000000Z	does the buddha have maze nature?
 2021-07-02T14:54:07.000000Z	ikto verso lapido
+2021-07-03T16:45:33.000000Z	formalise early, formalise often
