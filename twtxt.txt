@@ -674,3 +674,4 @@
 2021-07-04T18:57:38.000000Z	and, not to forget the obvious contender,
 2021-07-04T18:57:43.000000Z	………women
 2021-07-05T10:49:53.000000Z	no canonical universal turing machine for solomonoff induction
+2021-07-06T08:55:26.000000Z	left not as good at babble as it used to be? more pruney, definitely
