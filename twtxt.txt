@@ -683,3 +683,4 @@
 2021-07-08T22:41:52.000000Z	nice bullett you got there. would be a shame if someone were to…… bite it
 2021-07-09T09:19:33.000000Z	https://www.lesswrong.com/posts/phgigGpzxHLTb9jrQ/some-thoughts-on-my-psychiatry-practice?commentId=oP2fBrTJkJZ2niX5t
 2021-07-09T09:25:12.000000Z	don't be middle class
+2021-07-09T10:53:59.000000Z	basin of corrigibility seems to be a reasonably large crux for prosaic alignment vs. miri debates
