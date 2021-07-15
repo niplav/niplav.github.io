@@ -692,3 +692,4 @@
 2021-07-15T18:19:30.000000Z	why no paradise engineering companies?
 2021-07-15T18:22:37.000000Z	Niplav Yushtun, treasurer of the “Clone John von Neumann a Million Times” party
 2021-07-15T18:24:50.000000Z	Ah! “Logical Prior Probability” (Demski 2008). Of course
+2021-07-15T20:28:19.000000Z	gonna start crediting Carl Shulman for some of my ideas, seems trendy right now
