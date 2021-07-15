@@ -688,3 +688,4 @@
 2021-07-14T20:12:00.000000Z	bullett
 2021-07-15T17:54:56.000000Z	impact measures depend on, rather than specify, inaction baselines
 2021-07-15T18:15:47.000000Z	the singular of equilibria is equilibrium goddamnit!
+2021-07-15T18:16:22.000000Z	not reading
