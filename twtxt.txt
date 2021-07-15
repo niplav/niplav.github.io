@@ -680,7 +680,10 @@
 2021-07-06T08:58:50.000000Z	because prune needs to be more calibrated than babble
 2021-07-06T20:01:13.000000Z	metis, doxa, episteme, gnosis, techne – did I forget anything?
 2021-07-07T13:45:06.000000Z	impac
-2021-07-08T22:41:52.000000Z	nice bullett you got there. would be a shame if someone were to…… bite it
+2021-07-08T22:41:52.000000Z	nice bullet you got there. would be a shame if someone were to…… bite it
 2021-07-09T09:19:33.000000Z	https://www.lesswrong.com/posts/phgigGpzxHLTb9jrQ/some-thoughts-on-my-psychiatry-practice?commentId=oP2fBrTJkJZ2niX5t
 2021-07-09T09:25:12.000000Z	don't be middle class
 2021-07-09T10:53:59.000000Z	basin of corrigibility seems to be a reasonably large crux for prosaic alignment vs. miri debates
+2021-07-14T20:11:00.000000Z	meditation techniques have inbuilt anti-abuse mechanism if they reduce agency and/or wanting
+2021-07-14T20:12:00.000000Z	bullett
+2021-07-15T17:54:56.000000Z	impact measures depend on, rather than specify, inaction baselines
