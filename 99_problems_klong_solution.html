@@ -65,10 +65,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <blockquote>
   <p><strong>Solutions to the <a href="./99_klong_problems.html" title="99 Klong
-  Problems">99 problems</a> in <a href="http://t3x.org/klong/index.html">Klong</a> in a <a href="https://en.wikipedia.org/wiki/Literate_programming">literate
-  programming</a>
-  style. Attempts to produce the shortest complete solution to these
-  problems up to date.</strong></p>
+Problems">99 problems</a> in <a href="http://t3x.org/klong/index.html">Klong</a> in a <a href="https://en.wikipedia.org/wiki/Literate_programming">literate
+programming</a>
+style. Attempts to produce the shortest complete solution to these
+problems up to date.</strong></p>
 </blockquote>
 
 <h1>99 Problems Klong Solutions</h1>
@@ -83,8 +83,8 @@ provided a <a href="https://old.reddit.com/r/apljk/comments/59asq0/pack_duplicat
 elegant</a>
 s9 on <a href="https://old.reddit.com/r/apljk/">/r/apljk</a>. Dave
 Long provided a much more elegant s8, s26, c1, s49 and
-s55 over email. s31 is from the <a href="https://en.wikipedia.org/wiki/K_(programming_language)#Examples">Wikipedia article about
-K</a>.</p>
+s55 over email. s31 is from the <a href="https://en.wikipedia.org/wiki/K_(programming_language">Wikipedia article about
+K</a>#Examples).</p>
 
 <h2>Code</h2>
 
@@ -214,7 +214,7 @@ compare <code>x</code> and its reversion that way.</p>
 <h3>P07 (**) Flatten a nested list structure.</h3>
 
 <p>This solution is taken from the Klong
-<a href="(http://t3x.org/klong/klong-ref.txt.html)">documentation</a>, while fixing
+<a href="(http://t3x.org/klong/klong-ref.txt.html">documentation</a>), while fixing
 a little problem. The original solution was <code>s7::{,/:~x}</code>, which applied
 the concatenation operator to the sublists of a list as long as the
 list changes with each operation, and then returned the list. However,
@@ -245,15 +245,14 @@ myflatten::s7
 [[] [] []]
 </code></pre>
 
-<p><!--TODO: Find a solution that doesn't do this.-->
+<!--TODO: Find a solution that doesn't do this.-->
 <!--
-Idea:</p>
+Idea:
 
-<pre><code>s7::{{:[@,/x;,,/x;,/x]}:~x}
-</code></pre>
+    s7::{{:[@,/x;,,/x;,/x]}:~x}
 
-<p>Returns <code>[[]]</code> for s7([[] [[]] [[][]]]).
---></p>
+Returns `[[]]` for s7([[] [[]] [[][]]]).
+-->
 
 <h3>P08 (**) Eliminate consecutive duplicates of list elements.</h3>
 
@@ -350,7 +349,7 @@ encodemodified::s11
 [1]
 </code></pre>
 
-<p><!--TODO: Fix this.--></p>
+<!--TODO: Fix this.-->
 
 <p>It works fine with <code>[]</code>, though:</p>
 
@@ -414,7 +413,7 @@ the indirect solution:</p>
 <p>As one can see, the more complex solution <code>s13</code> is much slower than the
 more idiomatic <code>s11</code>.</p>
 
-<p><!--TODO: Explore further why <code>s13</code> is so much slower.--></p>
+<!--TODO: Explore further why `s13` is so much slower.-->
 
 <h3>P14 (*) Duplicate the elements of a list.</h3>
 
@@ -502,7 +501,7 @@ kg: error: rem: type error: [[] 1]
 include a simple conditional statement to return the empty list
 if <code>x</code> is <code>[]</code>: <code>s16::{:[x~[];[];x@&amp;(y-1)&gt;(!#x)!y]}</code>.</p>
 
-<p><!--TODO: Think about including this into the full text.--></p>
+<!--TODO: Think about including this into the full text.-->
 
 <h3>P17: (*) Split a list into two parts, the length of the first part is given.</h3>
 
@@ -779,7 +778,7 @@ to the Fisher-Yates Shuffle implementation in terms of performance.
 There is probably a Klong verb that runs in <code>$\cal{O}(n^2)$</code> and was used in
 <code>s20</code> or <code>s25.2</code>.</p>
 
-<p><!--TODO: this shuffle might (very rarely) contain duplicates--></p>
+<!--TODO: this shuffle might (very rarely) contain duplicates-->
 
 <h3>P26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list.</h3>
 
@@ -963,8 +962,8 @@ between conciseness and performance. This seems only partially applicable in Klo
 
 <p>Here, I compare four different primality tests written in Klong. The
 first three were written by me, and the fourth is a slightly adapted
-version from the Klong standard math library. The fifth one is <a href="https://en.wikipedia.org/wiki/K_(programming_language)#Examples">from
-wikipedia</a>,
+version from the Klong standard math library. The fifth one is <a href="https://en.wikipedia.org/wiki/K_(programming_language">from
+wikipedia</a>#Examples),
 and the sixth is an adaption of the wikipedia version.</p>
 
 <p><code>s31.1</code> is the simplest and therefore the shortest of these four
@@ -1012,7 +1011,7 @@ of x).</p>
 <p>Even quick performance tests reveal massive differences between these
 four functions (the result always is the average runtime in seconds):</p>
 
-<p>Testing <code>s31.1</code> with 100 random values &gt;100k:</p>
+<p>Testing <code>s31.1</code> with 100 random values >100k:</p>
 
 <pre><code>    .l("time")
     s31.1::{:[[0 1]?x;0:|x=2;1;[]~(x!2+!x-2)?0]}
@@ -1020,7 +1019,7 @@ four functions (the result always is the average runtime in seconds):</p>
 0.08203387
 </code></pre>
 
-<p>Testing <code>s31.2</code> with 100 random values &gt;1G:</p>
+<p>Testing <code>s31.2</code> with 100 random values >1G:</p>
 
 <pre><code>    .l("time")
     s31.2::{:[[0 1]?x;0:|[2 3 5]?x;1;&amp;/(x!2,3+2*!_sqr(x)%2)]}
@@ -1028,7 +1027,7 @@ four functions (the result always is the average runtime in seconds):</p>
 0.05924128
 </code></pre>
 
-<p>Testing <code>s31.3</code> with 100 random values &gt;10k:</p>
+<p>Testing <code>s31.3</code> with 100 random values >10k:</p>
 
 <pre><code>    .l("time")
     s31.3::{[a v];a::x;v::1;x=*{a&gt;*x}{v::v+2;:[[]~(v!x)?0;v,x;x]}:~[2]}
@@ -1036,7 +1035,7 @@ four functions (the result always is the average runtime in seconds):</p>
 2.87354341
 </code></pre>
 
-<p>Testing <code>s31.4</code> with 100 random values &gt;10k:</p>
+<p>Testing <code>s31.4</code> with 100 random values >10k:</p>
 
 <pre><code>    .l("time")
     s31.4::{[n p];n::x;p::[2];{~x&gt;n}{:[&amp;/x!p;p::p,x;0];x+2}:~3;:[x&lt;2;0;x=*|p]}
@@ -1044,7 +1043,7 @@ four functions (the result always is the average runtime in seconds):</p>
 5.4216601
 </code></pre>
 
-<p>Testing <code>s31.5</code> with 100 random values &gt;100k:</p>
+<p>Testing <code>s31.5</code> with 100 random values >100k:</p>
 
 <pre><code>    .l("time")
     s31.5::{:[x&lt;2;0:|x=2;1;&amp;/x!:\2_!x]}
@@ -1052,7 +1051,7 @@ four functions (the result always is the average runtime in seconds):</p>
 0.28281745
 </code></pre>
 
-<p>Testing <code>s31.6</code> with 100 values &gt;1G:</p>
+<p>Testing <code>s31.6</code> with 100 values >1G:</p>
 
 <pre><code>    .l("time")
     s31.6::{:[x&lt;2;0:|x&gt;3;&amp;/x!:\2,3+2*!_sqr(x)%2;1]}
@@ -1206,7 +1205,7 @@ coprime::s33
 
 <blockquote>
   <p>Euler's so-called totient function phi(m) is defined as the number of
-  positive integers r (1 &lt;= r &lt; m) that are coprime to m.</p>
+positive integers r (1 &lt;= r &lt; m) that are coprime to m.</p>
 </blockquote>
 
 <p><em>– niplav, <a href="./99_klong_problems.html#P34--Calculate-Eulers-totient-function-phim">“P34“ in 99 Klong Problems</a>, 2019</em></p>
@@ -1287,18 +1286,16 @@ kg: error: plus: type error: [1 []]
 1.095063
 </code></pre>
 
-<p><!--
+<!--
 TODO:
-<a href="https://github.com/kevinlawler/kona/wiki/K-99%3A-Ninety-Nine-K-Problems#problem-30-202">Here</a>
-is a better solution for factoring (it is shorter etc.), but</p>
+[Here](https://github.com/kevinlawler/kona/wiki/K-99%3A-Ninety-Nine-K-Problems#problem-30-202)
+is a better solution for factoring (it is shorter etc.), but
 
-<ol>
-<li>I don't understand it.</li>
-<li>It is written in K.</li>
-</ol>
+1. I don't understand it.
+2. It is written in K.
 
-<p>Solve these two problems, and adopt it!
---></p>
+Solve these two problems, and adopt it!
+-->
 
 <h3>P36 (**) Determine the prime factors of a given positive integer (2).</h3>
 
@@ -1632,19 +1629,15 @@ s46::{[f];f::x;.p'{x,"  ",y}/'${x,f@x}'c2(2)}
 <p>Note that this is just code saved for a later point where I might
 revisit P47 and P48 to solve them appropriately as well.</p>
 
-<p><!--</p>
+<!--
+### P47 (*) Truth tables for logical expressions (2).
 
-<h3>P47 (*) Truth tables for logical expressions (2).</h3>
+    s47::{s46(x)}
 
-<pre><code>s47::{s46(x)}
-</code></pre>
+### P48 (**) Truth tables for logical expressions (3).
 
-<h3>P48 (**) Truth tables for logical expressions (3).</h3>
-
-<pre><code>s48::{c3(x;y)}
-</code></pre>
-
-<p>--></p>
+    s48::{c3(x;y)}
+-->
 
 <h3>P49 (**) Gray code.</h3>
 
@@ -2140,45 +2133,40 @@ draw()
 forms a sort of "hill" pattern, where the number of trees increases to
 higher values, with an increasing height of steps.</p>
 
-<p><!--
+<!--
 TODO: Find some nice mathematical description for this hill pattern!
---></p>
+-->
 
-<p><!--
+<!--
 I have written some code that examines the different runtimes between
-the even-optimized and unoptimized versions,but it looks like <code>s58</code>
-shoots into Klongs stack and bugs everything out.</p>
+the even-optimized and unoptimized versions,but it looks like `s58`
+shoots into Klongs stack and bugs everything out.
 
-<blockquote>
-  <p>This … is a bug.
-  My god.
-  There's more.
-  No.</p>
-</blockquote>
+> This … is a bug.
+> My god.
+> There's more.
+> No.
 
-<p>Occurs on this code:</p>
+Occurs on this code:
 
-<pre><code>    d1::{:x,(,x),,y}
-    d2::{x{y d1:/x}:\y}
-    s55::{:[x=0;,[];,/{:[x~y;d2(x;x);d2(x;y),d2(y;x)]}@.f'{(x:%2),x-x:%2}@x-1]}
-    s56::{:[3=#x;{:[[]~x,y;1:|(^x)~^y;.f(x@1;y@2)&amp;.f(x@2;y@1);0]}@(1_x):|x~[];1;0]}
-    s58::{flr({s56(x)};s55(x))}
-    #'s58'!40
-kg: error: call: type error: [[6 :triad %call1 %pop1]
-</code></pre>
+        d1::{:x,(,x),,y}
+        d2::{x{y d1:/x}:\y}
+        s55::{:[x=0;,[];,/{:[x~y;d2(x;x);d2(x;y),d2(y;x)]}@.f'{(x:%2),x-x:%2}@x-1]}
+        s56::{:[3=#x;{:[[]~x,y;1:|(^x)~^y;.f(x@1;y@2)&.f(x@2;y@1);0]}@(1_x):|x~[];1;0]}
+        s58::{flr({s56(x)};s55(x))}
+        #'s58'!40
+    kg: error: call: type error: [[6 :triad %call1 %pop1]
 
-<p>For <code>#'s58'!36</code> it is:</p>
+For `#'s58'!36` it is:
 
-<pre><code>kg: error: wrong arity: :monad
-</code></pre>
+    kg: error: wrong arity: :monad
 
-<p>For <code>#'s58'!39</code> it is:</p>
+For `#'s58'!39` it is:
 
-<pre><code>kg: error: call: type error: [6]
-</code></pre>
+    kg: error: call: type error: [6]
 
-<p>TODO: minimalize, then report
---></p>
+TODO: minimalize, then report
+-->
 
 <h3>P59 (**) Construct height-balanced binary trees.</h3>
 
@@ -2292,9 +2280,9 @@ it would take roughly <code>$2.1s*2^{100} \approx 2.662*10^{30}s$</code>, which 
 of course only a rough estimate, and may turn out to be entirely wrong
 if Group and Range don't have an exponential time complexity after all.</p>
 
-<p><!--TODO: more closely examine the code in the Klong implementation
-and perhaps write a replacement for Range? It doesn't <em>have</em> to be
-that slow. Note: this is not the case for integers. Why?--></p>
+<!--TODO: more closely examine the code in the Klong implementation
+and perhaps write a replacement for Range? It doesn't _have_ to be
+that slow. Note: this is not the case for integers. Why?-->
 
 <h3>P60 (**) Construct height-balanced binary trees with a given number of nodes.</h3>
 
@@ -2816,8 +2804,8 @@ atlevel::s62b
 
 <blockquote>
   <p>Using <code>atlevel</code>, it is easy to construct a function <code>levelorder</code> which
-  creates the level-order sequence of the nodes. However, there are more
-  efficient ways to do that.</p>
+creates the level-order sequence of the nodes. However, there are more
+efficient ways to do that.</p>
 </blockquote>
 
 <p><em>– niplav, <a href="./99_klong_problems.html#P62B--Collect-the-nodes-at-a-given-level-in-a-list">“P62B“ in 99 Klong Problems</a>, 2019</em></p>
@@ -2870,13 +2858,14 @@ s63::{:[x=0;[]:|x=1;(:x,,[]),,[];(:x,,.f((2^1+_ln(x%2)%ln(2))-1)),,.f(x-(2^1+_ln
 s63::{[v];v:::[x&lt;2;0;2^_ln(x%2)%ln(2)];.p(v);:[~x;[]:|x=1;(:x,,[]),,[];(:x,,.f((v&amp;x-v-1)+v-1)),,.f((0|x-2*v-1)+v-1)]}
 </code></pre>
 
-<p><!--</p>
+<!--
+Multiway Trees
+--------------
 
-<h2>Multiway Trees</h2>
+Graphs
+------
 
-<h2>Graphs</h2>
-
-<h2>Miscellaneous Problems</h2>
-
-<p>--></p>
+Miscellaneous Problems
+----------------------
+-->
 </html>

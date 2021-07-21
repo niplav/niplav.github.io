@@ -65,16 +65,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <blockquote>
   <p><strong>In <a href="https://en.wikipedia.org/wiki/AI_control_problem">AI safety</a>,
-  significant time has been spent on the question of
-  the intelligence of AI systems over time, especially during
-  <a href="https://en.wikipedia.org/wiki/Technological_singularity#Hard_vs._soft_takeoff">takeoff</a>.
-  An underappreciated argument in the debate has been the idea that the more
-  intelligent an AI system becomes, the better it can search the space of
-  possible optimization algorithms. This post proposes a computational model
-  of this process by creating an n-dimensional search space and then running
-  a very simple <a href="https://en.wikipedia.org/wiki/Hill_climbing">hill-climbing</a>
-  algorithm and brute-force search on that space. Possible further
-  improvements to the model are suggested, and implications are discussed.</strong></p>
+significant time has been spent on the question of
+the intelligence of AI systems over time, especially during
+<a href="https://en.wikipedia.org/wiki/Technological_singularity#Hard_vs._soft_takeoff">takeoff</a>.
+An underappreciated argument in the debate has been the idea that the more
+intelligent an AI system becomes, the better it can search the space of
+possible optimization algorithms. This post proposes a computational model
+of this process by creating an n-dimensional search space and then running
+a very simple <a href="https://en.wikipedia.org/wiki/Hill_climbing">hill-climbing</a>
+algorithm and brute-force search on that space. Possible further
+improvements to the model are suggested, and implications are discussed.</strong></p>
 </blockquote>
 
 <!--
@@ -88,17 +88,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <blockquote>
   <p>Libre de la metáfora y del mito <br />
-  labra un arduo cristal: el infinito <br />
-  mapa de Aquel que es todas Sus estrellas.</p>
+labra un arduo cristal: el infinito <br />
+mapa de Aquel que es todas Sus estrellas.</p>
 </blockquote>
 
 <p><em>– <a href="https://en.wikipedia.org/wiki/Jorge_Luis_Borges">Jorge Luis Borges</a>, <a href="https://thefunambulist.net/literature/litterature-spinoza-by-borges">“Spinoza”</a>, 1964</em></p>
 
 <blockquote>
   <p>Paraphrasing Roache (2008) the state of play is such that nobody
-  believes the result of a simulation, except the person who performed
-  the simulation, and everybody believes the result of an experiment,
-  except the person who ran the experiment.</p>
+believes the result of a simulation, except the person who performed
+the simulation, and everybody believes the result of an experiment,
+except the person who ran the experiment.</p>
 </blockquote>
 
 <p><em>– Ryan G. McClarren, “Uncertainty Quantification and Predictive Computational Science“ p. 9, 2018</em></p>
@@ -109,11 +109,11 @@ instead of "simulation").</p>
 
 <blockquote>
   <p>And let me just make an aside. There’s a lot of meta-debate that goes
-  on in the AI safety community which I don’t understand why: it’s not
-  as if we haven’t got enough real work to do. So now we have meta-debates
-  about whether you should focus on short-term or long-term, or whether
-  we should try to reduce the conflict between the short-termers and the
-  long-termers and it’s like, there doesn’t need to be a conflict.</p>
+on in the AI safety community which I don’t understand why: it’s not
+as if we haven’t got enough real work to do. So now we have meta-debates
+about whether you should focus on short-term or long-term, or whether
+we should try to reduce the conflict between the short-termers and the
+long-termers and it’s like, there doesn’t need to be a conflict.</p>
 </blockquote>
 
 <p><em>– <a href="https://en.wikipedia.org/wiki/Stuart_J._Russell">Stuart J. Russell</a>, <a href="https://80000hours.org/podcast/episodes/stuart-russell-human-compatible-ai/#what-most-needs-to-be-done-015014">“The flaws that make today’s AI architecture unsafe and a new approach that could fix it”</a> (Episode 80 of the <a href="https://80000hours.org/podcast/">80,000 hours podcast</a>), 2020</em></p>
@@ -124,7 +124,7 @@ instead of "simulation").</p>
 crucial<!--TODO: citation needed-->: when will AGI first be
 developed? Will the development be slow, moderate, or fast (in
 economic doublings, or in wallclock time)? Will one AGI system become a
-<a href="https://en.wikipedia.org/wiki/Singleton_(global_governance)">singleton</a>,
+<a href="https://en.wikipedia.org/wiki/Singleton_(global_governance">singleton</a>),
 i.e come to dominate the whole world (individual vs. collective
 takeoff)? Will AGIs <a href="https://intelligence.org/ai-foom-debate/">FOOM</a>, i.e growing unexpectedly
 fast? And: will there be one or more discontinuity when AI systems
@@ -142,13 +142,11 @@ intelligence:</p>
 <li>By <a href="https://en.wikipedia.org/wiki/Brute-force_search">brute-force searching</a> the space of possible optimization algorithms, possibly in the vincinity of the current algorithm</li>
 </ul>
 
-<p><!--</p>
+<!--
+### Existing Approaches
+TODO: collect & write up.
 
-<h3>Existing Approaches</h3>
-
-<p>TODO: collect &amp; write up.</p>
-
-<p>Articles:
+Articles:
 * https://aiimpacts.org/historical-growth-trends/
 * https://aiimpacts.org/likelihood-of-discontinuous-progress-around-the-development-of-agi/
 * https://intelligence.org/ai-foom-debate/
@@ -164,7 +162,7 @@ intelligence:</p>
 * https://www.lesswrong.com/posts/cxgtQXnH2uDGBJJGa/redefining-fast-takeoff
 * https://www.lesswrong.com/posts/tjH8XPxAnr6JRbh7k/hard-takeoff
 * https://www.openphilanthropy.org/focus/global-catastrophic-risks/potential-risks-advanced-artificial-intelligence/ai-timelines
---></p>
+-->
 
 <h2>The Argument</h2>
 
@@ -178,7 +176,7 @@ intelligence:</p>
 <li>There is a space of algorithms, and each algorithm in that space can be given a number according to its optimization power</li>
 <li>The space of algorithms has certain properties
 <ul>
-<li>There are algorithms that have positive optimization power (&gt;0)</li>
+<li>There are algorithms that have positive optimization power (>0)</li>
 <li>There are algorithms that have vastly more optimization power than others</li>
 </ul></li>
 </ul>
@@ -188,7 +186,7 @@ construct an algorithm that attempts to find the best algorithm according
 to its optimization power:</p>
 
 <ul>
-<li>Start with an algorithm with optimization power &gt;0</li>
+<li>Start with an algorithm with optimization power >0</li>
 <li>Let the algorithm search part of the search space for a better algorithm
 <ul>
 <li>If it finds one, it modifies itself to become that better algorithm</li>
@@ -278,7 +276,7 @@ searches the neighbouring space.</p>
 <h3>Generating the Search Space</h3>
 
 <p>The search space the AI would be inquiring into here is the
-<a href="https://en.wikipedia.org/wiki/Space_(mathematics)">space</a>
+<a href="https://en.wikipedia.org/wiki/Space_(mathematics">space</a>)
 of all possible algorithms. While I'm not very knowledgeable
 about the structure of the space of algorithms, it seems
 plausible to me that it would be isomorphic to the perfect <a href="https://en.wikipedia.org/wiki/Binary_tree">binary
@@ -286,10 +284,10 @@ tree</a> with infinite depth (for
 any given <a href="https://en.wikipedia.org/wiki/Turing_machine">turing machine</a>
 with a binary tape).</p>
 
-<p><!--At the nth level, the parents describe the preceding bits, and the
-node describes whether the nth bit is 0 or 1.--></p>
+<!--At the nth level, the parents describe the preceding bits, and the
+node describes whether the nth bit is 0 or 1.-->
 
-<p><!--Perhaps trinary tree? 0/1/$ for bits and ending--></p>
+<!--Perhaps trinary tree? 0/1/$ for bits and ending-->
 
 <p>However, since I do not know algorithms that would assign
 possible values to nodes in the tree, as well as fitting
@@ -306,7 +304,7 @@ space=np.zeros([size]*dim)
 <p>However, I might return to more accurate representations of the space
 of possible algorithms.</p>
 
-<p><!--TODO: actually do that--></p>
+<!--TODO: actually do that-->
 
 <h3>Filling the Search Space</h3>
 
@@ -317,16 +315,14 @@ of possible algorithms.</p>
 the search space of intelligent algorithms could look like, I start by
 generalizing the Diamond-Square algorithm to n dimensions.</p>
 
-<p><!--
-TODO:</p>
+<!--
+TODO:
 
-<h4>Desiderata for the Search Space</h4>
+#### Desiderata for the Search Space
 
-<ul>
-<li>Sparse: Most algorithms don't really do any optimization work at all</li>
-<li>"Spiky": Some optimization algorithms are vastly stronger than other, very similar algorithms
---></li>
-</ul>
+* Sparse: Most algorithms don't really do any optimization work at all
+* "Spiky": Some optimization algorithms are vastly stronger than other, very similar algorithms
+-->
 
 <h4>Diamond-Square</h4>
 
@@ -465,7 +461,7 @@ change with different AI designs (especially more clean and algorithmic
 designs might improve faster, while fuzzy &amp; big neural nets might take
 much longer).</p>
 
-<p><!--TODO: add analysis with growth mode of current ML models--></p>
+<!--TODO: add analysis with growth mode of current ML models-->
 
 <h2>Parameters</h2>
 
@@ -484,7 +480,7 @@ with <code>$a$</code> elements). The biggest search space contained 43m elements
 
 <p>Each iteration ran through 2048 timesteps, with a growth of 1.001.</p>
 
-<p><!--TODO: add explanations for minval, maxval &amp; extrfact--></p>
+<!--TODO: add explanations for minval, maxval & extrfact-->
 
 <pre><code>datagen(1, 8193, 0, 256, 0.5, 2048, 1.001)
 datagen(1, 16385, 0, 256, 0.5, 2048, 1.001)
@@ -579,15 +575,13 @@ due to hill-climbing to the local maximum.</p>
 246.0,248.47109957172174
 </code></pre>
 
-<p><!--</p>
+<!--
+### Uniform Values
 
-<h3>Uniform Values</h3>
+### Normal Values
 
-<h3>Normal Values</h3>
-
-<h3>Lognormal Values</h3>
-
-<p>--></p>
+### Lognormal Values
+-->
 
 <h2>Limitations</h2>
 
@@ -652,12 +646,11 @@ obsolete, unless the algorithm is so weak that the brute-force search
 has a radius of less than 1: all hill-climbing steps are already included
 in the portion of the search space searched in with brute-force.</p>
 
-<p><!--</p>
+<!--
+### Hill Climbing
 
-<h3>Hill Climbing</h3>
-
-<p>Or something stronger, such as gradient descent?
---></p>
+Or something stronger, such as gradient descent?
+-->
 
 <h3>Small Dataset</h3>
 
@@ -679,12 +672,11 @@ biggest containing ~43m points, and the rest being around 25m points big.</p>
 <p>This makes inferences about how AI systems will optimize in much bigger
 (perhaps even infinite) search spaces harder.</p>
 
-<p><!--</p>
+<!--
+### Additional Factors
 
-<h3>Additional Factors</h3>
-
-<p>What else? Problems with continuity?
---></p>
+What else? Problems with continuity?
+-->
 
 <h2>Conclusion</h2>
 
@@ -696,8 +688,8 @@ diamond square algorithm.</p>
 discontinuities indeed occur, and I hypothesize that in larger search
 spaces discontinuities occur later, and are larger.</p>
 
-<p><!--TODO: this makes sense: $n^t*c<n^{t+k}*c$, i.e. later jumps of the
-same factor are larger--></p>
+<!--TODO: this makes sense: $n^t*c<n^{t+k}*c$, i.e. later jumps of the
+same factor are larger-->
 
 <p>However, due to multiple limitations, these conclusions are very
 haphazard.</p>
@@ -770,15 +762,15 @@ under which conditions no discontinuities occur.</p>
 
 <p><em>A run in <code>$\mathbb{F}_{9}^{8}$</code>, with two early discontinuities</em></p>
 
-<p><!--
-https://en.wikipedia.org/wiki/Brownian<em>surface
-https://en.wikipedia.org/wiki/Fractal</em>landscape
-https://en.wikipedia.org/wiki/Fractional<em>Brownian</em>motion
-https://en.wikipedia.org/wiki/Gradient<em>descent
-https://en.wikipedia.org/wiki/Newton%27s</em>method
-https://en.wikipedia.org/wiki/OpenSimplex<em>noise
-https://en.wikipedia.org/wiki/Perlin</em>noise
+<!--
+https://en.wikipedia.org/wiki/Brownian_surface
+https://en.wikipedia.org/wiki/Fractal_landscape
+https://en.wikipedia.org/wiki/Fractional_Brownian_motion
+https://en.wikipedia.org/wiki/Gradient_descent
+https://en.wikipedia.org/wiki/Newton%27s_method
+https://en.wikipedia.org/wiki/OpenSimplex_noise
+https://en.wikipedia.org/wiki/Perlin_noise
 https://en.wikipedia.org/wiki/Simplex_noise
 https://github.com/buckinha/DiamondSquare
---></p>
+-->
 </html>

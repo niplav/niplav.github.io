@@ -1,0 +1,1863 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2019-09-09, modified: 2021-05-22, language: english, status: notes, importance: 2, confidence: log</em></p>
+
+<blockquote>
+  <p><strong>Notes and ideas for texts &amp; programs that will be written decades
+in the future, as well as music.</strong></p>
+</blockquote>
+
+<h1>Todo</h1>
+
+<h2>Site</h2>
+
+<ul>
+<li>Make more mobile-friendly</li>
+<li>Add tooltips to links (Title of Text)</li>
+<li>Find out how to make the site more inclusive</li>
+<li>(a) link for archives?</li>
+<li>Get rid of "we", use "I" instead.</li>
+<li>Confidence intervals for some values</li>
+<li>Improve citation (both to wikipedia and to papers)</li>
+<li>Make all scripted programs banged</li>
+<li>Link tooltips at the beginning of lines break the links</li>
+<li>Description of images in italics below</li>
+<li>Move from Python2 to Python3</li>
+<li>Add two targets for make: <code>offline</code> and <code>online</code></li>
+<li>Convert all the expensive image generating scripts into single ones that only run once, with multiple outputs
+<ul>
+<li>Done:
+<ul>
+<li>Range and Forecasting Accuracy</li>
+<li>Daygame Cost-Benefit Analysis</li>
+</ul></li>
+</ul></li>
+<li>Toy AI Takeoff Model
+<ul>
+<li>Re-run model where I accidentally took 255 as size</li>
+</ul></li>
+<li>Switch to MathJax 3?</li>
+<li>Edit texts:
+<ul>
+<li>Considerations on Cryonics
+<ul>
+<li>Mainly done</li>
+<li>Expand the section on the Guesstimate model</li>
+<li>Incorporate new Alcor membership costs</li>
+</ul></li>
+</ul></li>
+<li>AIMA flashcards:
+<ul>
+<li>Add tags for chapters/sort by chapters</li>
+<li>Prune flagged cards?</li>
+</ul></li>
+<li>Administrativa for Textbooks:
+<ul>
+<li>Add Programming in Lua stuff</li>
+</ul></li>
+</ul>
+
+<h2>Texts</h2>
+
+<h3>Arguments</h3>
+
+<ul>
+<li>Why Still Choose C?
+<ul>
+<li>Long-term reliability/stability</li>
+<li>Performance</li>
+<li>Portability</li>
+<li>→ Caveat: Only portable if very reliably/portably written</li>
+</ul></li>
+<li>Unix is Not About Reimplementing Unix
+<ul>
+<li>Examples for claim:
+<ul>
+<li><a href="http://blog.izs.me/post/48281998870/unix-philosophy-and-nodejs">Node JS</a></li>
+<li><a href="https://victorops.com/blog/internet-age-unix-philosophy/">The Internet</a></li>
+<li><a href="https://www.reddit.com/r/vim/comments/22w1li/a_fair_comparison_between_vim_and_emacs/cgqyqst/">Vim</a></li>
+<li>https://gist.github.com/rjsteinert/f3823f3cdc9971779c17</li>
+</ul></li>
+<li><a href="http://www.catb.org/esr/writings/taoup/html/ch01s06.html">"Do one thing, and do it well. Use text streams, since that is the universal interface"</a></li>
+<li>Most systems reimplement unix ("Those who don't understand unix are doomed to reimplement it, poorly.")</li>
+</ul></li>
+<li>Libertarianism is too Simple
+<ul>
+<li>Libertarianism is a very simple method of organising society,
+so it must have been tried in the history of societies. However,
+none of those societies have survived, which makes it an
+unsuccessful way of structuring societies</li>
+<li>Counter-argument: Humans are consistently biased against liberty</li>
+<li>Counter-argument: Libertarianism is very well suited for
+<em>modern</em> (capitalist, technological) societies, which haven't
+existed for very long</li>
+</ul></li>
+<li>Antinatalism and Consent</li>
+<li>Limit “Philosophy” and “Art”</li>
+<li>Against Advertising
+<ul>
+<li>Strong claim: Advertising is always bad</li>
+<li>Weak claim: Advertising in public spaces is bad</li>
+<li>Does this hold up to a good consequentialist calculation?</li>
+</ul></li>
+<li>Against News
+<ul>
+<li>Priming → News+Wikipedia≤Wikipedia</li>
+</ul></li>
+<li>On the Importance of
+<ul>
+<li>Qualia Engineering</li>
+<li>Track Records, Forecasting and Prediction Markets</li>
+<li>The Difference in Sexual Behavior Between Men and Women</li>
+<li>Pick Up
+<ul>
+<li>Combines Near (Sex) with Far (Abstract thinking)</li>
+</ul></li>
+</ul></li>
+<li>In Favor of Selling Glee
+<ul>
+<li>Pointing out problems with the ideas in <a href="http://slatestarcodex.com/2016/03/23/the-price-of-glee-in-china/">The Price Of Glee In China</a></li>
+<li>General idea: When you find out that making people wealthier
+doesn't make them happier, you start thinking about how to make
+them happier instead of trying to find reasons why making them
+wealthier is still a good idea.</li>
+<li>Read the post carefully</li>
+<li>Read up on the research</li>
+<li>Perhaps re-emphasize as "Easterlin's Paradox"?</li>
+</ul></li>
+<li>Missing the Movement
+<ul>
+<li>"Most Hedonists end up sad!"</li>
+<li>"Utilitarianism leads to bad results!"</li>
+<li>"Rationalism leads to believing wrong things!"</li>
+<li>Related text: <a href="https://www.lesswrong.com/s/pvim9PZJ6qHRTMqD3/p/oZNXmHcdhb4m7vwsv">Incremental Progress and the Valley</a></li>
+</ul></li>
+<li>In Favor of Gish-Gallop
+<ul>
+<li>https://en.wikipedia.org/wiki/Gish_gallop</li>
+</ul></li>
+<li>An Anthropic Argument in Favour of Eventual Existential Security
+<ul>
+<li>Worlds in which existential risk eventually declines contain
+more observer-moments than worlds in which existential risk
+becomes or stays very likely.</li>
+<li>Therefore, we're more likely to be in a world where
+there are more observer-moments and we're in world 1</li>
+<li>This doesn't work: your reference class is not just
+people ever living, but people looking back on a
+population of X</li>
+<li>Abandon or rephrase as a something learned</li>
+</ul></li>
+<li>Forecasting is Worse is Better
+<ul>
+<li>The <a href="https://en.wikipedia.org/wiki/Brier_score">Brier score</a> was invented
+in 1950, <a href="https://en.wikipedia.org/wiki/Bayes'_theorem">Bayes' theorem</a>
+was first described in 1763, and <a href="https://en.wikipedia.org/wiki/Probability_theory">probability
+theory</a> was properly
+invented at the beginning of the 18th century.</li>
+<li>However, attempting to use forecasting to seriously determine the
+probability of future events, training &amp; selecting
+people for their forecasting ability and creating
+procedures that incorporate both intuition-based
+and model-based predictions have only been around
+since the mid 1980s <!--TODO: citation needed-->,
+mostly popularized by the work of <a href="https://en.wikipedia.org/wiki/Ehpilp_E._Tetlock">Philip
+Tetlock</a>.</li>
+<li>Tetlock-style forecasting is "Worse is Better"
+If we can't develop explicit numerical models, why
+not train people in becoming good at estimating the future,
+but this time with probabilistic estimates?</li>
+</ul></li>
+<li>Why not Earlier Forecasting?
+<ul>
+<li>Maybe not Big Advantage?</li>
+<li>Needs Infrastructure: Takes months/years to bring fruits</li>
+<li>People would be wrong</li>
+<li>Focus on explicit models instead</li>
+</ul></li>
+<li>Forecasting, Science and Crystal Balls</li>
+<li>Forecasting Contra Credentials
+<ul>
+<li>Forecasting Stays Relevant to the Topic</li>
+<li>Forecasting Remembers, the Public May Not</li>
+<li>Forecasting has Faster Feedback</li>
+<li>Is Forecasting Harder to Game?</li>
+<li>Less Susceptible to Social Biases like Charisma</li>
+</ul></li>
+<li>The Hedonic Treadmill and Politics
+<ul>
+<li>Inequality</li>
+<li>Pareto Improvements</li>
+<li>Hedonic Treadmill</li>
+<li>Progress</li>
+<li>Easterlin's Paradox</li>
+<li>Status Games</li>
+</ul></li>
+<li>In Praise of Cost-Benefit Analyses</li>
+<li>Intentional vs. Non-Intentional Consciousness
+<ul>
+<li>The reason why, even if, strictly speaking, trees are "conscious", we don't have to worry about damaging them as much as we have to worry about damaging animals</li>
+</ul></li>
+<li>Creating Utility Monsters or Repugnant Beings
+<ul>
+<li>Marginal returns of investment on the well-being of single persons are probably monotonically increasing/decreasing</li>
+<li>If so, we end up with utility monsters or in a repugnant conclusion</li>
+<li>If not, we are lucky</li>
+</ul></li>
+<li>Separating Arguments From Inconsistency and Questions About Inconsistency
+<ul>
+<li>The thing Hanson does when arguing about ethics</li>
+</ul></li>
+<li>Reflections on Pseudonymity</li>
+<li>In Non-Adversarial Universes, Systematic Trying Dominates Other Approaches
+<ul>
+<li>In short: trying to think better/act better can expected to yield monotonically increasing results with effort put in</li>
+<li>Result: Utilitarianism works by its own standards, rationalism works by its own standards</li>
+</ul></li>
+<li>The Overlap Argument for Learning Latin does not Hold</li>
+<li>Wither Humanity?
+<ul>
+<li>Would a bigger humanity be a good idea?</li>
+<li>Against:
+<ul>
+<li>Coordination</li>
+<li>Resources</li>
+<li>Safety from Malthusian Trap</li>
+</ul></li>
+<li>For:
+<ul>
+<li>Growth
+<ul>
+<li>Specialization</li>
+</ul></li>
+<li>Aggregative Arguments</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h3>Analyses</h3>
+
+<ul>
+<li>Modelling the Dream-Time (Population will probably start growing again)
+<ul>
+<li>How likely is another malthusian trap, how much time do we have got?</li>
+<li>What kinds of scenarios lead to malthusian condition?
+<ul>
+<li>Base case biological humans</li>
+<li>Base case without aging</li>
+<li>Em case</li>
+</ul></li>
+<li>What can be done against?
+<ul>
+<li>Population control</li>
+<li>Monitoring</li>
+</ul></li>
+<li>Reasons against worrying
+<ul>
+<li>Too far in the future</li>
+<li>Number of children not heritable</li>
+</ul></li>
+</ul></li>
+<li>Dumpster Diving</li>
+<li>Hitch Hiking</li>
+<li>Keyboards
+<ul>
+<li>Hardware
+<ul>
+<li>Hands too near each other</li>
+<li>Staggered keys maybe increase learning time, possibly
+increase typing time (sqr(2) instead of 1 movement distance)</li>
+</ul></li>
+<li>Software
+<ul>
+<li>Layouts are a problem</li>
+<li>Two modes: key position on keyboard &amp; character presented by key</li>
+</ul></li>
+</ul></li>
+<li>Table Diving</li>
+<li>Walking Barefoot</li>
+<li>Pick Up
+<ul>
+<li>Direct Number on Street</li>
+<li>Direct Date on Street</li>
+<li>Direct Date off Street</li>
+</ul></li>
+<li>Actuarial tables for dictators</li>
+<li>Ideology Transition Graphs
+<ul>
+<li>When people move along ideologies, which paths do they take?</li>
+<li>How long do they stay at certain ideologies?</li>
+<li>What are the overall transition probabilities, what are the "sinks" (look up on markov chains)</li>
+<li>Survey on /r/CapitalismVSocialism</li>
+<li>One part with selected ideologies:
+<ul>
+<li>Centrism, Apolitical</li>
+<li>Social Democracy, Socialism, Communism</li>
+<li>Liberalism, Left Liberalism, Anarchism</li>
+<li>Libertarianism, Minarchism, Anarcho-Capitalism</li>
+<li>Conservativism, Alt-Right, National Socialism, Fascism</li>
+</ul></li>
+<li>One part with freely choosable ideologies</li>
+</ul></li>
+<li>Dice Chains
+<ul>
+<li>Throw n dice as long as the sum of their values is higher
+than the previous throw. What is the probability
+distribution on the length of the run?</li>
+<li>Simulation from ../prog/dicechain/dicechain.lua</li>
+</ul></li>
+<li>Algorithm for distributing production of goods among different
+producers according to comparative advantage
+<ul>
+<li>producers: {2,n}</li>
+<li>products: {2,n}</li>
+<li>transformation curves: {linear, marginal, any}</li>
+<li>indifference curves: {linear, fixed number, any}</li>
+</ul></li>
+<li>Building A Big Tower
+<ul>
+<li>500 years, ~\$1t, stable technology, build a tower as big as possible</li>
+<li>considerations
+<ul>
+<li>location
+<ul>
+<li>some mountains nearby for material</li>
+<li>very stable ground (tower doesn't sink into the ground)</li>
+</ul></li>
+<li>energy production
+<ul>
+<li>nuclear, probably</li>
+</ul></li>
+</ul></li>
+<li>base of the tower probably square
+<ul>
+<li>length 5-10 km</li>
+</ul></li>
+<li>pyramid shaped
+<ul>
+<li>100 m for every layer, 20-50m distance to the edge of the last layer</li>
+</ul></li>
+<li>big blocks
+<ul>
+<li>use lava to form them, from pulverized mountains
+<ul>
+<li>pump up powder/sand/little stones or magma?</li>
+<li>in the former case, one also needs electricity at the top</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Nuking the Amazon Cost-Benefit Analysis</li>
+<li>What is the most common word I don't use?</li>
+<li>How Strong is the Gender Difference In Sex Drive?
+<ul>
+<li>/usr/local/doc/unread/blackpill/is_there_a_gender_difference_in_strength_of_sex_drive_baumeister_et_al_2001.pdf</li>
+<li>/usr/local/doc/unread/blackpill/in_heterosexual_relationships_men_masturbate_more_than_women_waterink_2014.pdf</li>
+</ul></li>
+<li>Do eggs burst when they're not poked before boiling?
+<ul>
+<li>Blinded, person needs to poke &amp; write down, but not tell</li>
+<li>Student's t-test</li>
+<li>N=200</li>
+<li>Pre-register</li>
+</ul></li>
+<li>Precommit to Enlightenment
+<ul>
+<li>precommit to performing the steps from TMI &amp; MCTB2 for
+5000 hours over 10 years (~1h30m every day on average),
+then report back what the effects were</li>
+<li>frame as experiment (is that actually legit?)</li>
+</ul></li>
+<li>Proposed Solutions to Pascal's Mugging
+<ul>
+<li>Bite the Bullet</li>
+<li>Abandon Utility-Maximization</li>
+<li>Bounded Probability</li>
+<li>Bounded Utility</li>
+<li>Abstain From Assigning Probabilities to Some Events
+<ul>
+<li>Probability of X is undefined</li>
+</ul></li>
+<li>Maxipok</li>
+<li>Links to relevant texts here:
+<ul>
+<li>https://gwern.net/mugging</li>
+<li>https://gwern.net/Mugging-DP</li>
+<li>https://nintil.com/pascals-mugging/</li>
+<li>https://nickbostrom.com/papers/pascal.pdf</li>
+<li>https://en.wikipedia.org/wiki/Pascal%27s_mugging</li>
+<li>https://patrickjuli.us/2019/11/10/pascals-mugging/</li>
+<li>https://www.lesswrong.com/posts/9WZAqFzNJ4KrhsqJ7/pascal-s-mugging-solved</li>
+<li>https://www.lesswrong.com/posts/gjyvXPqvCZPEtCKLB/tactics-against-pascal-s-mugging</li>
+<li>https://risingentropy.com/pascals-mugging/</li>
+<li>https://wiki.lesswrong.com/wiki/Pascal%27s_mugging</li>
+<li>https://wmbriggs.com/post/20492/</li>
+<li>https://medium.com/@SunBurntSky/pascals-mugging-787c37e76bc3</li>
+<li>https://utilitarianism.fandom.com/wiki/Pascal%27s_Mugging</li>
+<li>https://www.lesswrong.com/posts/Ap4KfkHyxjYPDiqh2/pascal-s-muggle-infinitesimal-priors-and-strong-evidence</li>
+<li>https://www.lesswrong.com/posts/KDzXTWSTg8ArwbhRR/pascal-s-muggle-short-version</li>
+<li>https://www.lesswrong.com/posts/CaPgNwxEFHh3Ahvf7/pascal-s-muggle-pays</li>
+<li>https://www.lesswrong.com/posts/8FRzErffqEW9gDCCW/against-the-linear-utility-hypothesis-and-the-leverage</li>
+<li>https://www.lesswrong.com/posts/NoYXhJLtoKpLoZhRf/pascal-s-mugging-finite-or-unbounded-resources</li>
+<li>In defence of fanaticism (Hayden Wilkinson, 2020)</li>
+</ul></li>
+</ul></li>
+<li>Creatine &amp; Vegetarianism IQ?</li>
+<li>How difficult is it to manipulate real existing prediction markets?
+<ul>
+<li>PredictIt</li>
+<li>BetFair</li>
+</ul></li>
+<li>Survey advanced meditators about their attainments and their monetary worth
+<ul>
+<li>That is, how much is your meditative attainment worth to you?</li>
+</ul></li>
+<li>Comparing Forecasting Accuracy Between the Good Judgment Project and Metaculus
+<ul>
+<li>https://www.openphilanthropy.org/blog/forecasting-covid-19-pandemic</li>
+<li>https://pandemic.metaculus.com/questions/</li>
+</ul></li>
+<li>Masturbation Spacing
+<ul>
+<li>Space masturbation to make it more enjoyable</li>
+<li>Form:
+<ul>
+<li>Spacing between 2 and 12 days</li>
+<li>10 spacings</li>
+<li>Between changing spacing, 1 or 2 1-day spacings</li>
+<li>Record:
+<ul>
+<li>Spacing [2..12]</li>
+<li>Enjoyment of orgasm [-5..5]</li>
+<li>Counterfactual experience during everyday life [-5..5]</li>
+<li>Type of pornography {none,text,audio,image,video}</li>
+</ul></li>
+</ul></li>
+<li>Precommit to:
+<ul>
+<li>n: 6 9 11 8 3 10 5 12 7 4 2</li>
+<li>i: 11 4 5 7 12 6 3 2 10 9 8</li>
+<li>v: 12 9 8 11 7 2 4 6 10 3 5</li>
+<li>t: 10 4 7 3 8 9 5 11 2 6 12</li>
+<li>a: 4 2 3 8 9 11 10 7 12 6 5</li>
+</ul></li>
+<li><code>set k 0; for i in 4 2 3 8 9 11 10 7 12 6 5; for j in (seq 1 10); set k (echo "\$k+\$i" | bc); date -I'date' -d "2028-11-17 +$k days"; end; end | xsel -psb</code></li>
+</ul></li>
+<li>Ingredients to Moloch
+<ul>
+<li>Tragedy of the Commons</li>
+<li>Nash Equilibria</li>
+<li>Unilateralist's Curse</li>
+<li>Pure Replicator Hell</li>
+<li>Convergent Instrumental Goals</li>
+</ul></li>
+<li>Egoistic Cost-Benefit Analysis of focusing on AI alignment</li>
+<li>Voting Cost-Benefit Analysis
+<ul>
+<li>Altruistic, egoistic</li>
+</ul></li>
+<li>Subjective time experience for advanced meditators</li>
+<li>Timeline of the Odyssee</li>
+<li>Requirements for AI Safety via Debate</li>
+<li>Roomba Cost-Benefit Analysis</li>
+<li>A History of the Term “Rationalist”</li>
+<li>Weather Affects Daygame Success/Divorce Rates?</li>
+</ul>
+
+<h3>Ideas</h3>
+
+<ul>
+<li>Ends of Discussions
+<ul>
+<li>Dissolving the question
+<ul>
+<li>Discussion about the meaning of a word</li>
+<li>Disagreement about an arbitrary category (morality/aethetics)</li>
+</ul></li>
+<li>Bet</li>
+<li>Agreement</li>
+<li>Related to "Varieties of Argumentative Experience"</li>
+</ul></li>
+<li>The End of History Fallacy</li>
+<li>The “If Everyone Just” Argument
+<ul>
+<li>The argument just assumes one of the biggest problems away: coordination and cooperation</li>
+<li>Related: <a href="https://www.scottaaronson.com/blog/?p=418">Malthusianisms</a></li>
+<li>Related: https://squareallworthy.tumblr.com/post/163790039847/everyone-will-not-just</li>
+</ul></li>
+<li>Information and Markets:
+<ul>
+<li>Explanation
+<ul>
+<li>Information as a non-scarce good</li>
+</ul></li>
+<li>Existing solution
+<ul>
+<li>Copyright</li>
+<li>Patents</li>
+</ul></li>
+<li>Problems with patents/copyright
+<ul>
+<li>creates a temporary monopoly</li>
+<li>→ all regular problems with monopolies as result
+<ul>
+<li>no competition</li>
+<li>therefore, less/no innovation</li>
+<li>higher prices</li>
+<li>prevention of further work based on the innovation</li>
+<li>copying is inherent to (all but quantum) information,
+preventing it is theoretically (and for the most part also
+practically) impossible</li>
+<li>possible overcompensation: some people get a lot more money
+than appropriate for the work they put in, some get nothing</li>
+<li>it's ontologically confused</li>
+</ul></li>
+</ul></li>
+<li>Possible solutions:
+<ul>
+<li>Pay for production
+<ul>
+<li>Patreon</li>
+<li>Kickstarter</li>
+</ul></li>
+<li>Premium models</li>
+<li>Advertising
+<ul>
+<li>Problem: getting harder the more products come into the information domain</li>
+</ul></li>
+<li>Open-source model: free work</li>
+</ul></li>
+<li>This is essentially a discussion about how to finance public goods</li>
+</ul></li>
+<li>Aesthematics
+<ul>
+<li>Infinite Fractal Meta Recursion
+<ul>
+<li>This is possibly just the ordinal numbers</li>
+</ul></li>
+<li>Mendeljew Operator</li>
+<li>Supersymmetric Copying</li>
+</ul></li>
+<li>Preference Frustration Auctions</li>
+<li>The Tyranny of the Mill
+<ul>
+<li>The Hedonic Treadmill is very good &amp; very bad</li>
+</ul></li>
+<li>Moral progress as an EA cause area?
+<ul>
+<li>Just Global Priorities Research, dummy</li>
+</ul></li>
+<li>Writing system based on all binary trees with maximal height 2
+<ul>
+<li>no 's' sounds</li>
+</ul></li>
+<li>Moving the Lever Closer
+<ul>
+<li>Due to an asymmetry in human decision making, making somebody
+causally more responsible for a negative action makes them less
+likely to take that action</li>
+<li>Related: The bystander effect</li>
+</ul></li>
+<li>Salty fries
+<ul>
+<li>Buy something, that creates a need for something else (software &lt;-> support, salty fries &lt;-> drinks)</li>
+</ul></li>
+<li>Running Away from Your Problems
+<ul>
+<li>Examples (?)
+<ul>
+<li>Anti-biotics</li>
+<li>de Grey anti-aging proposal</li>
+</ul></li>
+</ul></li>
+<li>Cryptographic Agreement on Bribing</li>
+<li>Encoding Conditionals Using Modulo</li>
+<li>Extracting Probabilities from Stock Markets</li>
+<li>Population Ethics Test Suite
+<ul>
+<li>Look at comments on “An Impossibility Theorem for Welfarist Axiologies” (Arrhenius 2000)</li>
+</ul></li>
+<li>Three-level population ethics
+<ul>
+<li>Symmetrical critical level</li>
+<li>If any life below -critlevel, level 3</li>
+<li>If all lifes above critlevel, level 1</li>
+<li>Otherwise level 2</li>
+<li>Average in Level 2, total in Level 1/3?</li>
+<li>Prevents hijacking through efficient just-positive lives</li>
+<li>Violates Mere Addition Principle</li>
+<li>Has a symmetry (critlevel &amp; -critlevel are symmetric), but also 2 discontinuities</li>
+<li>Also somewhat counter-intuitive: Adding a person with
+critlevel-ε can make a populations welfare infinitely
+worse</li>
+<li>Of course, still repugnant conclusion with critlevel+ε, but that's okay</li>
+<li>But also many -critlevel+ε lives infinitely better than one
+life -critlevel-ε (actively repugnant conclusion)</li>
+<li>And also one person with critlevel+ε infinitely better
+than many with critlevel-ε</li>
+<li><code>tlpe::{:[(&amp;/x)&lt;-cl;+/x:|(-cl)&lt;(&amp;/x)&lt;cl;ω++/x;(2*ω)++/x}</code></li>
+</ul></li>
+<li>Auras as synesthesia between visual perception and emotional perception
+<ul>
+<li>Maybe a survey?</li>
+</ul></li>
+<li>Refactoring Rational Feelings
+<ul>
+<li>Relation between emotions, goals, strategy/planning, moral
+development etc.</li>
+</ul></li>
+<li>Yang Wenli and Reinhard von Lohengramm – Taoism and Confucianism?
+<ul>
+<li>Yang's "Win without fighting" is Wu Wei</li>
+</ul></li>
+<li>The Argument from Explanation of Intuition
+<ul>
+<li>When you explain an intuition by its causal origin (e.g. a moral
+one by evolutionary psychology), it often loses its bite</li>
+</ul></li>
+<li>The "At-the-time best possible forecast"
+<ul>
+<li>Not literally best possible forecast</li>
+<li>But for humans at the time with the available information</li>
+</ul></li>
+<li>Semi-Natalism
+<ul>
+<li>If I reason out that I am not the type of agent that would have children otherwise, I should have children</li>
+<li>If I indeed reason out that I am the type of agent that would have children, I should not have children</li>
+<li>Reasoning: If propensity to have children is heritable, this kind of decision will prevent my ancestors from becoming pure replicators</li>
+<li>It is slightly paradoxical, though</li>
+</ul></li>
+<li>About Longtermist's Children
+<ul>
+<li>Disclaimer:
+<ul>
+<li>If people want to have children for egoistic reasons, it is not useful to argue against</li>
+<li>Trying to convince people to not do things they deeply desire is bad, even under consequentialist reasoning</li>
+</ul></li>
+<li>People argue that effective altruists (and especially longtermists) ought to have children
+<ul>
+<li>Most arguments for having children are bad</li>
+</ul></li>
+<li>However:
+<ul>
+<li>Children are expensive, opportunity cost
+<ul>
+<li>Perhaps better: invest time/energy into life-extension tech
+<ul>
+<li>Or spreading ones memes
+<ul>
+<li>Memes under heavy selective pressure too, though</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Traits we like are only moderately heritable, and will be washed out in a few generations (especially under selective pressure)
+<ul>
+<li>On each EA-related trait 50% heritability → very likely not EA (seems like specific combination of personality characteristics)</li>
+</ul></li>
+<li>Parents seem to have relatively little influence on the values of their children (Is this true?)</li>
+<li>Humanity will very likely not die out due to people stopping to breed
+<ul>
+<li>Indeed, It seems to me much more likely that if we wait long enough, we fall back into the malthusian trap</li>
+</ul></li>
+</ul></li>
+<li>Why I Dislike This Argument
+<ul>
+<li>It comes from the genre of "Let's outbreed the other/bad people", which is very molochian</li>
+<li>It leads to a malthusian trap/pure replicator hell with no value and no option to get out (in the long run)</li>
+</ul></li>
+<li>However, maybe in the medium run this makes sense (not short enough for the really important stuff to happen during our lifetimes, not long enough for us to worry about malthusian traps)
+<ul>
+<li>Even then, however, just trying to build better institutions is more useful?</li>
+</ul></li>
+<li>Would people prefer procreating to indefinite longevity?</li>
+</ul></li>
+<li>Sitting in X
+<ul>
+<li>You analyze everything under light of X</li>
+<li>You believe that everyone else also intuitively analyzes everything under the light of X</li>
+</ul></li>
+<li>The Generalized Concept of Addiction</li>
+<li>Implications of Attainable Utility Preservation on practical rationality
+<ul>
+<li>Further argument why death is bad:
+<ul>
+<li>Removes many degrees of freedom for action</li>
+</ul></li>
+<li>Preserve option value, avoid irreversible actions
+<ul>
+<li>Be conservative:
+<ul>
+<li>Preserve humans, ecosystems, language, culture (losing them is really bad, perhaps)</li>
+</ul></li>
+</ul></li>
+<li>These are especially important for humans since our values change, in somewhat forseeable ways</li>
+</ul></li>
+<li>An Unreasonable Proposal
+<ul>
+<li>Merge India and the European Union</li>
+</ul></li>
+</ul>
+
+<h3>Collections</h3>
+
+<ul>
+<li>Simple Unsolved Math Problems</li>
+<li>Differences Between GNU and POSIX <code>make</code></li>
+<li>Better Mathematical Notation
+<ul>
+<li>Mathematical notation is not a planned and systematic
+endeavour, but the result of a long process of generation
+and selection of different notations. Here I collect
+contemporary ideas for better notation, and discuss old &amp;
+discarded methods of writing mathematics.</li>
+<li>Discarded Methods
+<ul>
+<li>https://en.wikipedia.org/wiki/Begriffsschrift</li>
+<li>https://en.wikipedia.org/wiki/Newton%27s_notation#Newton's_notation</li>
+<li>https://github.com/prathyvsh/notation</li>
+</ul></li>
+<li>New Notations
+<ul>
+<li>General
+<ul>
+<li>https://www.stephenwolfram.com/publications/mathematical-notation-past-future/</li>
+<li>/usr/local/doc/unread/towards_a_better_notation_for_mathematics_olah_2010.pdf</li>
+</ul></li>
+<li>Triangle of Power
+<ul>
+<li>https://www.youtube.com/watch?v=sULa9Lc4pck</li>
+<li>https://math.stackexchange.com/questions/30046/alternative-notation-for-exponents-logs-and-roots</li>
+<li>http://www.solidangl.es/2015/04/a-radical-new-look-for-logarithms.html</li>
+</ul></li>
+</ul></li>
+<li>Read
+<ul>
+<li>/usr/local/doc/unread/notation/notation_as_a_tool_of_thought_iverson_1986.pdf</li>
+</ul></li>
+<li>Substitution of variables in formulas: order is <em>bad</em> &amp; <em>wrong</em></li>
+</ul></li>
+<li>Recommendations
+<ul>
+<li>Activities/Movies/Series/Podcasts/Books/Blogposts</li>
+</ul></li>
+<li>Cool Things Humans Can Learn
+<ul>
+<li>Inspiration from <a href="https://www.lesswrong.com/posts/knLZY52Yx9G23u3Ka/insufficiently-awesome?commentId=4AevGHrCQMbWaoan9">here</a></li>
+</ul></li>
+<li>Notes on a Grand Plan to Learn Everything
+<ul>
+<li>Exploration
+<ul>
+<li>Read Wikipedia with <a href="./notes.html#Getting-an-Overview-Over-Everything">this method</a></li>
+<li>Read SEP
+<ul>
+<li>randomly?</li>
+</ul></li>
+</ul></li>
+<li>Learning
+<ul>
+<li>Reading textbooks (Natural sciences and engineering)
+<ul>
+<li>Mathematics
+<ul>
+<li>https://intelligence.org/research-guide/</li>
+<li>https://www.ocf.berkeley.edu/~abhishek/chicmath.htm</li>
+<li>https://math.ucr.edu/home/baez/books.html#math</li>
+</ul></li>
+<li>Science
+<ul>
+<li>Physics
+<ul>
+<li>Feynman Lectures on Physics</li>
+<li>https://www.susanjfowler.com/blog/2016/8/13/so-you-want-to-learn-physics</li>
+<li>https://www.ocf.berkeley.edu/~abhishek/chicphys.htm</li>
+<li>https://math.ucr.edu/home/baez/books.html#physics</li>
+</ul></li>
+<li>Chemistry</li>
+<li>Social Sciences
+<ul>
+<li>Economics</li>
+</ul></li>
+<li>Life Sciences
+<ul>
+<li>Biology
+<ul>
+<li>https://old.reddit.com/r/biology/wiki/faq#Suggestedtextbooks</li>
+<li>Campbell Biology</li>
+<li>Molecular Biology of the Gene</li>
+<li>Molecular Biology of the Cell</li>
+<li>Principles of Biochemistry (Leininger)</li>
+<li>Evolutionary Biology (Futuyma)</li>
+<li>Zoology</li>
+</ul></li>
+<li>Ecology</li>
+<li>Paleontology</li>
+</ul></li>
+<li>Earth Sciences
+<ul>
+<li>Geology</li>
+<li>Meteorology</li>
+</ul></li>
+<li>Psychology
+<ul>
+<li>Cognitive Psychology</li>
+<li>Developmental Psychology</li>
+<li>Neuropsychology</li>
+<li>Industrial-Organizational Psychology</li>
+<li>Social Psychology</li>
+<li>Forensic Psychology</li>
+<li>Evolutionary Psychology
+<ul>
+<li>Evolutionary Psychology (Buss)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Engineering
+<ul>
+<li>Computer Science
+<ul>
+<li>https://teachyourselfcs.com/</li>
+</ul></li>
+<li>Electrical Engineering</li>
+<li>Mechanical Engineering</li>
+<li>Chemical Engineering</li>
+<li>Bioengineering</li>
+<li>Civil Engineering</li>
+<li>Geoengineering</li>
+<li>Medicine</li>
+</ul></li>
+</ul></li>
+<li>Doing the exercises</li>
+</ul></li>
+<li>Rehearsal
+<ul>
+<li>Creating flashcards from the textbooks, rehearsing them
+<ul>
+<li>Flashcard creation is pretty liberal in what is accepted</li>
+<li>Use a system that supports images/LaTeX
+<ul>
+<li>Anki</li>
+</ul></li>
+<li>bifot: bifot is flashcards of textbooks</li>
+<li>pof: pile of facts (from Wikipedia)</li>
+<li>φf: Philosophy facts (from SEP)</li>
+</ul></li>
+</ul></li>
+<li>Testing
+<ul>
+<li>Forecasting
+<ul>
+<li>Metaculus</li>
+<li>Spend relatively long on each question (15 minutes)</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>Explaining "Mental Motions"
+<ul>
+<li>Find mentions of this, and write up what the term means.</li>
+</ul></li>
+<li>Anecdotes About the Running Times of Test Suites in the Software Industry</li>
+<li>Ways in which people have misspelled "Kurzgesagt" on the internet</li>
+<li>Ranking, Reviewing and Rating Patricia Taxxon's Music</li>
+<li>Meanings of "so" in German</li>
+<li>Heuristics for Friendly Conversation on the Internet</li>
+<li>Much More Than You Wanted to Know
+<ul>
+<li>Vandwelling</li>
+<li>UBI</li>
+<li>Wireheading
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Electrical_brain_stimulation">Electrical Brain Stimulation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Wirehead_(science_fiction">Wireheading</a>)</li>
+<li><a href="https://en.wikipedia.org/wiki/Brain_stimulation_reward">Brain Stimulation Reward</a></li>
+<li>Questions:
+<ul>
+<li>How much wireheading research has been/is being done?</li>
+<li>Why is there so little wireheading research/why is it not very prominent?</li>
+<li>Do animals (especially humans) develop tolerance to intracranial stimulation?</li>
+<li>Do animals (especially humans) develop an addiction to intracranial stimulation?</li>
+<li>Is wireheading reversible? (in principle, in practice so far)</li>
+<li>How long can one wirehead until it leads to negative health outcomes (in principle, in practice)</li>
+<li>How good does intracranial stimulation feel? (compared to other positive experiences)</li>
+<li>Is wireheading actually pleasurable or just compelling? (in the sense that one wants to continue being wireheaded although it doesn't strictly "feel good")</li>
+<li>How does intracranial stimulation work?</li>
+</ul></li>
+<li>Desiderata:
+<ul>
+<li>Reversibility</li>
+<li>Non-adaption</li>
+<li>Non-addiction</li>
+<li>Safety</li>
+<li>Ability preservation</li>
+<li>Anti-slipperiness</li>
+</ul></li>
+</ul></li>
+<li>Shipping</li>
+<li>The Uyghurs and China</li>
+<li>Cryonics in Germany</li>
+<li>Cryonics in Europe</li>
+<li>Extremely Long-Lived Institutions</li>
+</ul></li>
+<li>Elon Musk Forecast Correction Function
+<ul>
+<li>Code: <code>1.8239233 * (forecasted-forecast_made) + 48.0502205</code> (days)</li>
+<li><a href="https://web.archive.org/web/20210302224031/https://anthony.boyles.cc/Essays/portfolio/ElonMuskForecastCorrectionFunction.html">Original</a></li>
+</ul></li>
+<li>My Current Understanding of Wireheading</li>
+<li>Impact Measures Depend on, Rather Than Specify, Inaction Baselines</li>
+<li>Auctioning off Your Body
+<ul>
+<li>https://www.humanmicrobes.org/</li>
+<li>Kidney</li>
+<li>Sperm, Eggs</li>
+<li>Plasma/Blood</li>
+</ul></li>
+</ul>
+
+<h3>Notes</h3>
+
+<ul>
+<li>Be Liberal in what you Accept, but Conservative in what you Emit</li>
+<li>Believing Something Doesn't Mean You to Tell it to Everyone</li>
+<li>You Actually Don't Need to Convice Idiots</li>
+<li>Hug the Objective
+<ul>
+<li>When trying to achieve something, work directly on that thing</li>
+<li>Related to: yak-shaving</li>
+<li>"Do the real thing" by Scott Young</li>
+<li>Buffers by Rollo Tomassi</li>
+</ul></li>
+<li>No One Knows &amp; No One Can Know
+<ul>
+<li>This argument infuriates me: did you try to find out what people actually know?</li>
+</ul></li>
+<li>Sometimes People have the same Credences but still Disagree</li>
+<li>Teaching Oneself vs. Being Taught
+<ul>
+<li>Two different mindsets</li>
+</ul></li>
+<li>Blogging as an Act of Benevolence
+<ul>
+<li>Mindset of "making a gift"</li>
+</ul></li>
+<li>Most People Have No Power At All
+<ul>
+<li>Therefore it's probably not very important what most people think</li>
+</ul></li>
+<li>Hail Cyclists
+<ul>
+<li>Positive Externalities: Environment, Attractiveness</li>
+</ul></li>
+<li>Hail Long Content
+<ul>
+<li>Most Topics are Too Short for Books</li>
+</ul></li>
+<li>There is no Continous Probability Distribution without a Mode</li>
+<li>Sharing Beliefs vs. Evidence vs. Models vs. Ontologies
+<ul>
+<li>With examples:
+<ul>
+<li>Beliefs: Very common, but no crisp example?</li>
+<li>Evidence: Most of Metaculus comments, most of Wikipedia</li>
+<li>Models: Textbooks</li>
+<li>Ontologies: Grand philosophy books (e.g. The Sequences, the Tao te Ching, Die Welt als Wille und Vorstellung</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h3>Reports</h3>
+
+<ul>
+<li>How I organize my information diet</li>
+<li>Becoming Marginally More Productive
+<ul>
+<li>Follow Alexey Guzey's Advice, Leave the House</li>
+<li>Internet Abstinence</li>
+</ul></li>
+<li>Buying Socks of One Kind</li>
+<li>Tracking A Lot</li>
+<li>Chatting Up Random People
+<ul>
+<li>Asking the Hamming Question, "What is art?", "What is
+justice?", or simply, "Would you like to hold a conversation?"</li>
+</ul></li>
+<li>Weekly 1-on-1s</li>
+<li>Kissing Hands as Greeting/Goodbye</li>
+<li>Future:
+<ul>
+<li>Remembering Names</li>
+<li>Fixing My Voice</li>
+<li>Experiments with Butt Stuff</li>
+<li>Fixing my Posture</li>
+<li>52 Weeks of Meditation Techniques
+<ul>
+<li>Concentration of the Breath</li>
+<li>Concentration on Sound</li>
+<li>Concentration on Heartbeat</li>
+<li>Fast Noting</li>
+<li>Slow Labelling</li>
+<li>Metta</li>
+<li>Bodyscanning</li>
+<li>Kasina on Candle Flame</li>
+<li>Kasina on Colored Disk</li>
+<li>Kasina on Water</li>
+<li>Open Monitoring
+<ul>
+<li>Clear the desk, just watch out for pre-thoughts</li>
+</ul></li>
+<li>Do Nothing</li>
+<li>Zen stuff?</li>
+<li>Mantra stuff?</li>
+<li>Transcendental meditation stuff?</li>
+<li>Chanting?</li>
+<li>Visualization?</li>
+<li>Yogic stuff? (Mudra)</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h3>Misc</h3>
+
+<ul>
+<li>Evolution as a Tautology
+<ul>
+<li>Structures that are Better at Self-Replication will Eventually be More Common than the Ones Which are Not</li>
+</ul></li>
+<li>A Collection of Screenshots from “Legend of the Galactic Heroes”</li>
+<li>Very Specific Psychedelic Qualia
+<ul>
+<li>№1: “Inverse Capgraps Syndrome”
+<ul>
+<li>You locate a specific person while also being fully able to understand
+that the person is not visible, audible, and can not be felt or smelled.
+For example, you would say: "I perceive Steven sitting on the chair"
+while not seeing Steven, hearing or feeling him, and being fully aware
+of these facts.</li>
+</ul></li>
+<li>№2: “The Infinite Room-Accordion Thinks Itself”</li>
+<li>№3: “Very Very Long Now”</li>
+<li>№4: “Young &amp; Blocky Consciousness“</li>
+</ul></li>
+<li>Coding Standards
+<ul>
+<li>General Project Setup</li>
+<li>C</li>
+<li>Shell Scripting</li>
+</ul></li>
+<li>Mistakes</li>
+<li>Open Questions
+<ul>
+<li>Why Not Nano-Apartments?</li>
+</ul></li>
+<li>Good Ideas
+<ul>
+<li>Some ideas I've read about &amp; found good</li>
+<li>Forecasting
+<ul>
+<li>Track records</li>
+<li>Prediction platforms</li>
+<li>Prediction markets (https://en.wikipedia.org/wiki/Prediction_market)</li>
+<li>Decision markets</li>
+<li>Futarchy</li>
+</ul></li>
+<li>Voting methods
+<ul>
+<li>Approval voting</li>
+<li>Maybe quadratic voting, although I haven't looked into it too much</li>
+</ul></li>
+<li>Taxes
+<ul>
+<li>Pigovian taxes instead of strict rules on damaging public goods
+<ul>
+<li>How computationally tractable are these?</li>
+<li>Which computational complexity?</li>
+</ul></li>
+<li>Harberger taxes (COST)
+<ul>
+<li>The thing Glen Weyl is talking about</li>
+</ul></li>
+</ul></li>
+<li>Sokalling
+<ul>
+<li>Look up tweet by David Chapman</li>
+<li>Adversarial submitting of fraudulent papers to journals</li>
+</ul></li>
+<li>Besides stdin, stdout and stderr, add usrin and usrout as
+standard unix files: latter is for confirming decisions,
+status bars etc. I read this proposal a few years back,
+but can't find it again.</li>
+<li>Programming languages without operator precedence:
+APL/K/J. Why? One less detail to keep in mind, structured
+data flow. Downside: Inconsistency with mathematics,
+not relevant in languages with little use of operators.</li>
+<li>Status tags ({prototype, in progress, maintenance,
+finished, hiatus, abandoned}) for open source projects.</li>
+<li>Mental tool: How would you solve this if you had a hypercomputer?
+<ul>
+<li>Unbounded Analysis on arbital, problem relaxation as a tactic on LW</li>
+</ul></li>
+<li>Cryonics</li>
+<li>Daygame</li>
+</ul></li>
+<li>Cryonics Zine</li>
+<li>The Grand Picture</li>
+<li>Fundamentals</li>
+</ul>
+
+<blockquote>
+  <p>we should be far more explicit about the assumed background against
+which we intend to communicate.</p>
+</blockquote>
+
+<p><em>– John Nerst, <a href="https://everythingstudies.com/2018/07/16/30-fundamentals/">“30 Fundamentals”</a>, 2018</em></p>
+
+<h3>Fiction</h3>
+
+<ul>
+<li>A Religion
+<ul>
+<li>A pseudo-mathematical religion combining several
+unrelated ideas is presented and explained.
+Inspired by <a href="http://unsongbook.com/">Unsong</a></li>
+<li>Ingredients
+<ul>
+<li>Timelessness
+<ul>
+<li>Plotinus</li>
+</ul></li>
+<li>Tegmark's Mathematical Universe
+<ul>
+<li>/usr/local/doc/unread/physics/our_mathematical_universe_tegmark_2014.epub</li>
+</ul></li>
+<li>Symmetry Theory of Valence
+<ul>
+<li>/usr/local/doc/unread/principia_qualia_johnson_2017.pdf</li>
+</ul></li>
+<li>Scott Alexander's Solution to Theodicy
+https://slatestarcodex.com/2015/03/15/answer-to-job/</li>
+</ul></li>
+<li>Explanation
+<ul>
+<li>Creation</li>
+<li>God</li>
+<li>Heaven
+<ul>
+<li>Compute "path" of mind from existence in the world as a mathematical shape into n-dimensional (72-dimensional?) ball</li>
+<li>hedonium has maximal symmetry, which should just be the ball, but little information content</li>
+<li>hold this computation in timelessness so that the mind experiences the path indefinitely long</li>
+</ul></li>
+<li>Hell</li>
+</ul></li>
+</ul></li>
+<li>Dishwasher Paper Titles
+<ul>
+<li>Maybe with Abstracts</li>
+</ul></li>
+<li>Homeless Super-Mathematicians
+<ul>
+<li>Perhaps in the SCP format?</li>
+</ul></li>
+<li>Blue Reality
+<ul>
+<li>Like the Red Reality SCP, but people in there are really well (think MDMA)</li>
+</ul></li>
+<li>The Intentionality of the Tyrannical Object
+<ul>
+<li>SCP format</li>
+<li>Abstract Tyrannical Object as a thing in the real world</li>
+<li>Has the property of intentionality (except for celibate men?)</li>
+<li>Text by german early 20th century continental philosopher about this object</li>
+<li>Fragments by a 11th century german monk about this</li>
+</ul></li>
+<li>Guten Morgen</li>
+<li>Qui Custodiet?
+<ul>
+<li>A group of AI alignment researchers by accident
+stumbles upon cognitive enhancement and willpower direction
+technologies. Because AGI seems imminent, they reluctanctly start
+using the technology. They manage to always stay a step or two
+ahead of the AI systems growing in capability, but continue
+having to self-modify in order to devise new strategies. The
+world watches as increasingly unaligned alignment researchers and
+unaligned artificial intelligence battle for attainable utility…</li>
+</ul></li>
+<li>A History of Names</li>
+<li>Skalpell Bizeps</li>
+</ul>
+
+<blockquote>
+  <p>11-uhr-luft liegt rauh auf dem parkplatzboden. in den ritzen des
+asphalt streitet sich krepierender löwenzahn mit ausgeblichenen
+zigarettenstummeln um platz. abblätternde farbe liegt dazwischen,
+obwohl die altbauten noch ein paar hundert meter entfernt liegen.</p>
+</blockquote>
+
+<ul>
+<li>myzel</li>
+</ul>
+
+<blockquote>
+  <p>moderne kapitalistische verteilung ist weder zentralisiert noch
+dezentralisiert, sie ist myzelisch, verwaberndes, meist unsichtbares
+gewebe in einem fruchtbaren umfeld, mit anhäufungen, ballungen und
+kumulationen von produktionszentren – zur festigkeit verdichtetes
+gewebe dort fassbar, wo es sich am wenigsten äußert. werden als
+eine kontingente verschmelzung von fast-sein und konkretheit"</p>
+</blockquote>
+
+<h3>Translations</h3>
+
+<ul>
+<li>Kodomulo Manifesto (translation of “A Hacker Manifesto”)</li>
+</ul>
+
+<h3>Archiving</h3>
+
+<ul>
+<li>Type up John Nash's Thesis in LaTeX</li>
+</ul>
+
+<h2>Data Sets</h2>
+
+<p>Collect data on</p>
+
+<ul>
+<li>Bag Spreading</li>
+<li><a href="./daygame_cost_benefit.html#Appendix-C-Empirically-Checking-the-Assumptions">Daygame</a></li>
+<li><a href="./masturbation_and_attractiveness.html#Method">Masturbation and Attractiveness</a></li>
+<li><a href="./estimated_life_expectancy.html#Data-Collection-Method">Subjective Life Expectancy</a></li>
+<li>Meditation</li>
+<li><a href="./data/masturbations.csv">Masturbation</a></li>
+<li>A Large Dataset of Forecasts and Outcomes</li>
+</ul>
+
+<h2>Music</h2>
+
+<h3>Clarinet</h3>
+
+<ul>
+<li>Clarinet Concerto (Mozart)</li>
+</ul>
+
+<h3>Piano</h3>
+
+<ul>
+<li>The People United Will Never be Defeated (Rzewski)</li>
+<li>Das Wohltemperirte Clavier (Bach)</li>
+<li>Beethoven Piano Sonatas (Beethoven)</li>
+<li>Impromptus (Schubert)</li>
+<li>Nocturnes (Chopin)</li>
+<li>Gymnopédies/Gnosiemmes (Satie)</li>
+<li>Rhapsodie in Blue (Gershwin)</li>
+</ul>
+
+<h2>Programming</h2>
+
+<ul>
+<li>cap
+<ul>
+<li>simple language for assembling different files into one. syntax very
+sed/ed like, mostly like this: <code>[line,]line@file[&lt;|^|&gt;][line,]line[|comm]</code>
+where line is a regex enclosed in '/' with an optional number suffix
+or a line number, file is a filename and comm is a shell command in
+single quotes. the text from each file is inserted into a buffer and
+printed at the end of the cap script.</li>
+</ul></li>
+<li>toc
+<ul>
+<li>time out cat, which prints its input unless there was no
+input for more than argv[1] seconds (try different
+versions, settle for the most exact version that is
+not unbearably slow).</li>
+</ul></li>
+<li><p>lvst</p>
+
+<ul>
+<li>print levensthein distances of strings</li>
+<li>option '-f' for the field separator</li>
+<li>can be used for fuzzy search</li>
+<li><p>usage:</p>
+
+<pre><code>$ lvst "test"
+foo
+3:test:foo
+bar
+4:test:bar
+</code></pre></li>
+</ul></li>
+<li><p>cy</p>
+
+<ul>
+<li>A very simple version control system, written in rc. inspiration from put and get, from "the unix programming environment".</li>
+<li>supports 3 operations
+<ul>
+<li>init (initialize a repository)</li>
+<li>put (make a commit)</li>
+<li>get (go back to a certain commit)</li>
+</ul></li>
+<li>tracks changes within files and deletion/creation of files</li>
+<li>reason: git/hg are good, but way too huge for private, simple, linear, personal repositories.</li>
+<li>inspiration: svn/rvn/eie<!--TODO: links for these--></li>
+</ul></li>
+<li>fle
+<ul>
+<li>suckless pager</li>
+<li>commands
+<ul>
+<li>[f]orwards</li>
+<li>[b]ackwards</li>
+<li>[u]p</li>
+<li>[d]own</li>
+<li>[j] (line up)</li>
+<li>[k] (line down)</li>
+<li>[g] (first line)</li>
+<li>[G] (last line)</li>
+<li>[/] for searching</li>
+<li>[n]ext and [p]revious match</li>
+</ul></li>
+<li>support for arbitrary length files, loading lazily, unicode is displayed properly, big lines are dealt with properly.</li>
+</ul></li>
+<li>recog
+<ul>
+<li>program that accepts one backus-naur form grammar and checks if it's input or other files match that grammar.</li>
+<li>BNF -(Convert to Chomsky Normal Form)> CNF -(Cocke-Younger-Kasami algorithm)> Boolean</li>
+<li>Relevant material:
+<ul>
+<li>RFC 2234</li>
+<li>RFC 4234</li>
+<li>RFC 5234</li>
+<li>RFC 7405</li>
+</ul></li>
+<li>Possible BNF forms:
+<ul>
+<li>ABNF (RFCs)</li>
+<li>EBNF</li>
+<li>naive &amp; simple form (similar to the one used on Wikipedia)
+<ul>
+<li><symbol\></li>
+<li>optionality: '?'</li>
+<li>repetition: '+'</li>
+<li>repetition with optionality: '*'</li>
+<li>alternative symbols: '|'</li>
+<li>assignment: '::='</li>
+<li>"string"</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>sif
+<ul>
+<li>simple text processing filter that takes only one instruction</li>
+<li>(single instruction filter)</li>
+<li>instruction form:
+<ul>
+<li><code>[^]/str/[,[^]/str/]((a|i|c)/str/)|d|p</code></li>
+<li>str is a literal string here (no regex)</li>
+<li>a=>append, i=>insert, c=>change, d=>delete, p=>print</li>
+<li>'^' means that the following str is excluded from the matched text</li>
+</ul></li>
+<li>sif does not do input/output buffering and does treat whitespace as any other character.</li>
+<li>normally, everything is printed, unless the option '-n' is used.</li>
+</ul></li>
+<li>pau
+<ul>
+<li>vis-digraph reads from the terminal input directly and emulates the input of the corresponding character
+<ul>
+<li>uses table from RFC 1345
+<ul>
+<li>Seems not extendable, damn</li>
+</ul></li>
+</ul></li>
+<li>if vis-digraph extendable, add:
+<ul>
+<li>Interrobang   ‽ ?!</li>
+<li>Join  ⋈ >&lt;</li>
+<li>Expected value    𝔼    |E</li>
+<li>Real numbers  ℝ |R</li>
+<li>Integers  ℤ |Z</li>
+<li>Natural numbers   ℕ |N</li>
+<li>Triple e  ≡ 3=</li>
+<li>Approximately e   ≈ ~~</li>
+<li>Subscript a   ₐ _a / as</li>
+<li>Subscript e   ₑ _e / es</li>
+<li>Subscript h   ₕ _h / hs</li>
+<li>Subscript k   ₖ _k / ks</li>
+<li>Subscript l   ₗ _l / ls</li>
+<li>Subscript m   ₘ _m / ms</li>
+<li>Subscript n   ₙ _n / ns</li>
+<li>Subscript o   ₒ _o / os</li>
+<li>Subscript p   ₚ _p / ps</li>
+<li>Subscript s   ₛ _s / ss</li>
+<li>Subscript t   ₜ _t / ts</li>
+<li>Superscript i ⁱ ^i</li>
+<li>Superscript n ⁿ ^n</li>
+</ul></li>
+<li>daemon that catches such digraphs and emulates them as
+if they were typed, using vis-digraph</li>
+</ul></li>
+<li>mtfs
+<ul>
+<li>plan9 file server for a file that returns the current metric time on read</li>
+</ul></li>
+<li>libbruch
+<ul>
+<li>rational numbers with libzahl</li>
+<li>some functions:
+<ul>
+<li>badd(bruch a, bruch b, bruch c): a:=b+c</li>
+<li>bsub(bruch a, bruch b, bruch c): a:=b-c</li>
+<li>bdiv(bruch a, bruch b, bruch c): a:=b÷c</li>
+<li>bmul(bruch a, bruch b, bruch c): a:=a⋅c</li>
+<li>binv(bruch a, bruch b): a=b^(-1)</li>
+</ul></li>
+<li>more functions:
+<ul>
+<li>bset, bseti, bsets, bsetu, bstr, bfloor, bceil,
+bmod, bcmp, bcmpu, bsqrt, binit, bfree, bsave,
+bload, bsetup, bunsetup, berror, bperror</li>
+</ul></li>
+</ul></li>
+<li>nager
+<ul>
+<li>sxhkd for the mouse</li>
+<li>syntax: <code>[MOUSEEVENT] [, MOUSEEVENT] [ /*possibly nested*/ COMMAND ]</code></li>
+</ul></li>
+<li>erle
+<ul>
+<li>rlwrap alternative, takes ideas from the fish shell interactive mode</li>
+<li>normal readline like behavior (but using something simpler, like linenoise/dietline)</li>
+<li>history file is loaded during startup</li>
+<li><code>&lt;text&gt;[UP]</code> shows the last command containing <code>&lt;text&gt;</code>,
+again <code>[UP]</code> the one before that, and so on</li>
+<li><code>&lt;word1&gt; &lt;word2&gt;[TAB]</code> expands <code>&lt;word2&gt;</code> into the last word
+(string separated from the others with a newline/space)
+beginning with <code>&lt;word2&gt;</code></li>
+<li>no input for more than half a second/a second shows a suggestion
+of the last command beginning with the current line.</li>
+<li>ideas for speeding it up:
+<ul>
+<li>use <code>char**</code> for storing each history and words</li>
+<li>benchmark and optimise, of course</li>
+</ul></li>
+</ul></li>
+<li>pandeck
+<ul>
+<li>convert files from different spaced repetition softwares into another
+<ul>
+<li>fulgurate .crd</li>
+<li>mnemosyne</li>
+<li>anki</li>
+</ul></li>
+</ul></li>
+<li>unitspheretransform
+<ul>
+<li>VR application that visualizes the transformation of the unit sphere in 3-dimensional space</li>
+<li>also unit circle transform</li>
+<li>color code the original vectors</li>
+<li>interpolate them?</li>
+</ul></li>
+<li>hedonium
+<ul>
+<li>look up different information-processing centric ideas about consciousness</li>
+<li>combine them with the symmetry theory of valence</li>
+<li>implement the best approximation of these</li>
+</ul></li>
+<li>minspantree
+<ul>
+<li>implement all algorithms for the minimum spanning tree in a functional programming language</li>
+<li>like sml/ocaml</li>
+<li>/usr/local/doc/unread/cs/state_of_the_art_algorithms_for_minimum_spanning_trees_eisner_1997.pdf</li>
+</ul></li>
+<li>nenio
+<ul>
+<li>a suckless prolog implementation</li>
+<li>ISO prolog</li>
+</ul></li>
+<li>rien
+<ul>
+<li>suckless sml implementation, sml '97</li>
+<li>maybe build on mosml</li>
+</ul></li>
+<li>curve
+<ul>
+<li>C with significant whitespace</li>
+<li>indentation instead of braces</li>
+<li>optional semicolons &amp; optional parentheses around for/while/if/switch</li>
+</ul></li>
+<li>jmp
+<ul>
+<li>j/z for rc</li>
+<li>jumps into frecent directories</li>
+<li>should also work on plan9</li>
+</ul></li>
+<li>ladder
+<ul>
+<li>datastructure where key and value are interchangeable</li>
+<li>two arrays/slice, sorted, where each element has a pointer to the corresponding element in the other list</li>
+<li>searching has the speed of binary search</li>
+<li>insertion has the speed of the underlying datastructure, but twice</li>
+</ul></li>
+<li>openspace
+<ul>
+<li>Given a rectangle with many inscribed rectangles, what is the
+biggest open rectangle in there?</li>
+<li>Seems like a packing problem</li>
+</ul></li>
+<li>species
+<ul>
+<li>browsable tree of all currently known biological species</li>
+<li>starting from the highest classification</li>
+</ul></li>
+<li>texdown
+<ul>
+<li>small TeX library that offers basic markdown-like functionality:
+<ul>
+<li>Numbered lists</li>
+<li>Unnumbered lists</li>
+<li>code listings</li>
+<li>quotes</li>
+<li>bold/italic text</li>
+<li>links</li>
+<li>images</li>
+<li>paragraph headings</li>
+</ul></li>
+</ul></li>
+<li>librule
+<ul>
+<li>C library for raku rules</li>
+<li>read about:
+<ul>
+<li>backtracking</li>
+<li>regex implementation (swtch.com?)</li>
+<li>raku rules</li>
+</ul></li>
+<li>example program: far (find after rule, grep; but with raku rules)</li>
+<li>github.com/zorgnax/librx</li>
+</ul></li>
+<li>nest
+<ul>
+<li>program dealing with nested data structures</li>
+<li>similar to lisp, but without execution</li>
+<li>am I NIHing this?</li>
+</ul></li>
+<li>noise
+<ul>
+<li>utility for producing white/pink/brown/&amp;c noise</li>
+</ul></li>
+<li>spiel
+<ul>
+<li>utility for logging/visualizing daygame stats</li>
+</ul></li>
+<li>orakel
+<ul>
+<li>utility for making/ranking/visualizing forecasts</li>
+</ul></li>
+<li>dukkha
+<ul>
+<li>utility for logging/visualizing meditation stats</li>
+<li>get inspiration from meditavo</li>
+</ul></li>
+<li>tomate
+<ul>
+<li>little pomodoro utility</li>
+</ul></li>
+<li>sent2tex
+<ul>
+<li>converts a sent presentation to a pdf presentation</li>
+</ul></li>
+<li>1on1match: Platform that connects people who'd like to do 1-on-1s,
+by personality style</li>
+<li>Offline version of guesstimate</li>
+<li>A reddit bot on /r/gonewildstories that does a gender analysis for
+the writing and posts the result</li>
+<li>choiceworth
+<ul>
+<li>A small program implementing the method by MacAskill, Ord &amp; Bykvist 2020 in “Moral Uncertainty”</li>
+<li>Using MEC, variance voting, and the Borda rule</li>
+</ul></li>
+<li>socialchoice: Library implementing most of the concepts from social choice theory, e.g. (not inclusive):
+<ul>
+<li>Tournament graphs</li>
+<li>Top cycle, Banks set, Uncovered set</li>
+<li>Majority voting, plurality, Borda score, Kemeny rule</li>
+<li>Methods for checking manipulability, single-peakedness</li>
+</ul></li>
+</ul>
+
+<h3>Klong Libraries</h3>
+
+<ul>
+<li>combin.kg
+<ul>
+<li>combinatorics library for klong</li>
+<li>exponentiation</li>
+<li>tetration</li>
+<li>n-tation</li>
+<li>factorial</li>
+<li>binomial coefficient</li>
+<li>stirling numbers (1st/2nd kind)</li>
+<li>eulerian numbers (1st order, 2nd order)</li>
+<li>catalan numbers</li>
+<li>counting partitions</li>
+</ul></li>
+<li>date.kg
+<ul>
+<li>date/time library for klong: convert different date formats to another</li>
+</ul></li>
+<li>utf8.kg
+<ul>
+<li>unicode decoding/encoding library</li>
+<li>see how myrddin/lua/libutf/plan9 did it</li>
+</ul></li>
+<li>linalg.kg
+<ul>
+<li>linear algebra library for klong</li>
+<li>function for the determinant</li>
+<li>function for gaussian elimination</li>
+<li>function for matrix multiplication</li>
+<li>function for matrix inversion</li>
+<li>function for the calculation of polynomial division</li>
+</ul></li>
+<li>statests.kg
+<ul>
+<li>library for statistical tests</li>
+</ul></li>
+</ul>
+
+<h3>Contributions</h3>
+
+<ul>
+<li>mupdf
+<ul>
+<li>implement unicode search</li>
+<li>improve search overall, lacking</li>
+<li>why don't ← and → work for next/prev page?</li>
+</ul></li>
+<li>myrddin
+<ul>
+<li>documentation: "and modern features with a high cost-benefit ratio"</li>
+<li>cost/benefit is high? Clarify</li>
+</ul></li>
+<li>vis
+<ul>
+<li>add C-a and C-e for beginning of line and end of line in insert mode</li>
+<li>add C-← and C-→ for jumping words in insert mode (equivalent of b and e)</li>
+<li>fix syntax highlighting for ocaml with single quotes: 'a takes the whole line</li>
+<li>Syntax highlighting of inline code in markdown is annoying (dark blue background!)</li>
+<li>Using '=' for formatting text is not unicode-respecting, formatting
+"∸∸∸∸∸ ∸∸∸∸ ∸∸∸∸ ∸∸∸∸∸
+∸∸∸∸∸ However, in a sense, maxichoice
+contraction functions in general produce contractions"</li>
+</ul></li>
+</ul>
+
+<p>produces</p>
+
+<pre><code>∸∸∸∸∸ ∸∸∸∸ ∸∸∸∸ ∸∸∸∸∸
+∸∸∸∸∸ However, in a sense, maxichoice contraction
+functions in general produce contractions
+</code></pre>
+
+<ul>
+<li>sad
+<ul>
+<li>implement features that weren't finished</li>
+<li>care for it</li>
+</ul></li>
+<li>toxcore
+<ul>
+<li>maybe</li>
+<li>single/group</li>
+<li>chat/audio/video</li>
+<li>not much more, really</li>
+</ul></li>
+<li>neo2
+<ul>
+<li>port neo2 to plan9/9front/Haiku OS</li>
+</ul></li>
+<li><p>klong</p>
+
+<ul>
+<li>receiving output of shell commands (maybe via pipe?)</li>
+<li>self adverb (options are :!, :&amp;, :,, :;, :&lt;, :>, :?)
+<ul>
+<li>:&lt; and :> should be reserved for something symetric</li>
+<li>:; is not fit because ; is not really a verb or adverb</li>
+<li>:!, :&amp;, :? and :, are the best options</li>
+</ul></li>
+<li>support for complex numbers
+<ul>
+<li>logarithms for complex numbers</li>
+</ul></li>
+<li><p>nplot</p>
+
+<ul>
+<li>Support for multiple bargraphs</li>
+<li>Bargraphs with negative values</li>
+<li>Logarithmic scales for graphs</li>
+<li>setrgb doesn't work properly: after setting the color once, it can only be reset to black</li>
+<li><p>Example:</p>
+
+<pre><code>.l("nplot")
+grid([0 100 10];[0 100 10])
+text(250;60;"Foo")
+setrgb(0;0;1)
+text(200;250;"Bar")
+setrgb(1;1;0)
+text(100;100;"Baz")
+draw()
+</code></pre></li>
+</ul></li>
+<li><p>nstat</p>
+
+<ul>
+<li>n% confidence interval</li>
+<li>polynomial/exponential/logarithmic (?) fit for a dataset</li>
+</ul></li>
+<li>Range is extremely slow for anything but integers, why?</li>
+<li>error with klong: <code>#'s58'!40</code> returns <code>kg: error: call: type error: [6 :triad %call1 %pop1]</code>
+<ul>
+<li>bug, report</li>
+</ul></li>
+<li>Pivot in the gauss/elim implementations</li>
+</ul></li>
+<li>fzf
+<ul>
+<li>Why doesn't fzf cope well with shuffled or repeated letters?</li>
+<li>'niiiiiplav' and 'nlapiv' both take me to the wrong directory, they're obviously meant for my home directory</li>
+</ul></li>
+<li>txtnish
+<ul>
+<li>add a <code>mentions</code> command</li>
+</ul></li>
+<li>dc 9base manpage:
+<ul>
+<li>typo in the order of operations in the manpage</li>
+</ul></li>
+</ul>
+
+<blockquote>
+  <p>+ - / * % ^
+  Add subtract multiply divide remainder or exponentiate the top
+  two values on the stack.</p>
+</blockquote>
+
+<h3>Wikipedia Articles</h3>
+
+<h4>Create</h4>
+
+<ul>
+<li>Enhanced/Extended Suffix Array</li>
+<li>Shapley Saddle</li>
+<li>List of Animals by Number of Eyes</li>
+<li>Weisfeiler-Lehman algorithm</li>
+</ul>
+
+<h4>Improve</h4>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Maximal_pair">Maximal pair</a>
+<ul>
+<li>Add examples</li>
+<li>Add description of MUMs</li>
+</ul></li>
+</ul>
+
+<h3>Metaculus Questions</h3>
+
+<ul>
+<li>A question that tries to gauge how much Metaculus forecasters are incentivized by points vs. simply accuracy</li>
+<li>A question about the discovery of a <a href="https://en.wikipedia.org/wiki/Euler_brick#Perfect_cuboid">perfect cuboid</a></li>
+<li>A question about the average temperature in 2050 in central Europe (Gulf Stream reversal)</li>
+<li>A question about SGSS (?) data for virginity/no sex in last year for 2025-2030</li>
+<li>A question about antibiotic resistant strains</li>
+</ul>
+
+<h3>LW Posts</h3>
+
+<ul>
+<li>Port "Shoulding at the Universe" over?</li>
+</ul>
+
+<h2>Structure</h2>
+
+<ul>
+<li>Top-level:
+<ul>
+<li>Translations
+<ul>
+<li>English to Esperanto</li>
+</ul></li>
+<li>Music
+<ul>
+<li>Clarinet</li>
+<li>Piano</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h2>General</h2>
+
+<ul>
+<li>Send typos to people, let them correct them</li>
+</ul>
+</html>

@@ -65,13 +65,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">“Artificial Intelligence: A Modern
-  Approach”</a>,
-  written by <a href="https://en.wikipedia.org/wiki/Stuart_J._Russell">Stuart
-  Russell</a> and <a href="https://en.wikipedia.org/wiki/Peter_Norvig">Peter
-  Norvig</a>, is probably the most
-  well-known textbook on artificial intelligence. Here, I write down my
-  solutions to exercises in that book. I use the 3rd edition from 2010, because the
-  exercises for the 4th edition were moved online.</strong></p>
+Approach”</a>,
+written by <a href="https://en.wikipedia.org/wiki/Stuart_J._Russell">Stuart
+Russell</a> and <a href="https://en.wikipedia.org/wiki/Peter_Norvig">Peter
+Norvig</a>, is probably the most
+well-known textbook on artificial intelligence. Here, I write down my
+solutions to exercises in that book. I use the 3rd edition from 2010, because the
+exercises for the 4th edition were moved online.</strong></p>
 </blockquote>
 
 <h1>Solutions to “Artificial Intelligence: A Modern Approach”</h1>
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <blockquote>
   <p>Define in your own words: (a) intelligence, (b) artificial intelligence,
-  (c) agent, (d) rationality, (e) logical reasoning</p>
+(c) agent, (d) rationality, (e) logical reasoning</p>
 </blockquote>
 
 <h4>Intelligence</h4>
@@ -139,8 +139,8 @@ anyway.</p>
 
 <blockquote>
   <p>Suppose we extend Evans’s ANALOGY program so that it can score 200
-  on a standard IQ test. Would we then have a program more intelligent
-  than a human? Explain.</p>
+on a standard IQ test. Would we then have a program more intelligent
+than a human? Explain.</p>
 </blockquote>
 
 <p>No. (At least not for any useful definition of intelligence). IQ
@@ -158,11 +158,11 @@ on ANALOGY anymore.</p>
 
 <blockquote>
   <p>The neural structure of the sea slug Aplysia has been widely studied
-  (first by Nobel Laureate Eric Kandel) because it has only about 20,000
-  neurons, most of them large and easily manipulated. Assuming that the
-  cycle time for an Aplysia neuron is roughly the same as for a human
-  neuron, how does the computational power, in terms of memory updates
-  per second, compare with the high-end computer described in Figure 1.3?</p>
+(first by Nobel Laureate Eric Kandel) because it has only about 20,000
+neurons, most of them large and easily manipulated. Assuming that the
+cycle time for an Aplysia neuron is roughly the same as for a human
+neuron, how does the computational power, in terms of memory updates
+per second, compare with the high-end computer described in Figure 1.3?</p>
 </blockquote>
 
 <!--TODO: un-fuck the dimensional analysis here-->
@@ -188,9 +188,9 @@ If Aplysia has 20k neurons, then it can be expected to have
 
 <blockquote>
   <p>Suppose that the performance measure is concerned with just the first
-  T time steps of the environment and ignores everything thereafter. Show
-  that a rational agent’s action may depend not just on the state of
-  the environment but also on the time step it has reached.</p>
+T time steps of the environment and ignores everything thereafter. Show
+that a rational agent’s action may depend not just on the state of
+the environment but also on the time step it has reached.</p>
 </blockquote>
 
 <p>Example: Let's say that we are in an environment with a button,
@@ -210,11 +210,11 @@ the same environmental conditions.</p>
 
 <blockquote>
   <p>For each of the following assertions, say whether it is true or
-  false and support your answer with examples or counterexamples where
-  appropriate.</p>
-  
-  <p>a. An agent that senses only partial information about the state cannot
-  be perfectly rational.</p>
+false and support your answer with examples or counterexamples where
+appropriate.</p>
+
+<p>a. An agent that senses only partial information about the state cannot
+be perfectly rational.</p>
 </blockquote>
 
 <p>False. An agent that senses only partial information about the state could
@@ -228,7 +228,7 @@ is missing from the rest of the board.</p>
 
 <blockquote>
   <p>b. There exist task environments in which no pure reflex agent can
-  behave rationally.</p>
+behave rationally.</p>
 </blockquote>
 
 <p>True. In an environment in which the next reward depends on the current
@@ -246,7 +246,7 @@ doesn't just depend on the current prices, but on the history of prices.</p>
 
 <blockquote>
   <p>d. The input to an agent program is the same as the input to the
-  agent function.</p>
+agent function.</p>
 </blockquote>
 
 <p>Not sure. Both the agent function and the agent program receive percepts,
@@ -256,7 +256,7 @@ or simply as program-specific data?</p>
 
 <blockquote>
   <p>e. Every agent function is implementable by some program/machine
-  combination.</p>
+combination.</p>
 </blockquote>
 
 <p>False. An agent function could be uncomputable
@@ -265,8 +265,8 @@ be implementable on a real-world machine.</p>
 
 <blockquote>
   <p>f. Suppose an agent selects its action uniformly at random from the
-  set of possible actions. There exists a deterministic task environment
-  in which this agent is rational.</p>
+set of possible actions. There exists a deterministic task environment
+in which this agent is rational.</p>
 </blockquote>
 
 <p>True, that would be the environment in which every action scores equally
@@ -274,7 +274,7 @@ well on the performance measure.</p>
 
 <blockquote>
   <p>g. It is possible for a given agent to be perfectly rational in two
-  distinct task environments.</p>
+distinct task environments.</p>
 </blockquote>
 
 <p>True. Given two agents <code>$A_X$</code> and <code>$A_Y$</code>, and two task environments
@@ -314,12 +314,12 @@ only win in expectation.</p>
 
 <blockquote>
   <p>For each of the following activities, give a PEAS description of the
-  task environment and characterize it in terms of the properties listed
-  in Section 2.3.2</p>
-  
-  <ul>
-  <li>Playing soccer.</li>
-  </ul>
+task environment and characterize it in terms of the properties listed
+in Section 2.3.2</p>
+
+<ul>
+<li>Playing soccer.</li>
+</ul>
 </blockquote>
 
 <p>Performance measure: <code>$goals_{own}-goals_{enemy}$</code>; environment: soccer
@@ -334,8 +334,8 @@ stochastic, very small unobservable effects can have large consequences)</p>
 
 <blockquote>
   <ul>
-  <li>Exploring the subsurface oceans of Titan.</li>
-  </ul>
+<li>Exploring the subsurface oceans of Titan.</li>
+</ul>
 </blockquote>
 
 <p>Performance measure: surface explored; environment: subsurface
@@ -350,8 +350,8 @@ vents/life), stochastic.</p>
 
 <blockquote>
   <ul>
-  <li>Shopping for used AI books on the internet.</li>
-  </ul>
+<li>Shopping for used AI books on the internet.</li>
+</ul>
 </blockquote>
 
 <p>Performance measure: <code>$\frac{n_{books}}{\sum_{b \in books} p(b)}$</code> (price
@@ -365,8 +365,8 @@ static (again, unless bidding against others), deterministic</p>
 
 <blockquote>
   <ul>
-  <li>Playing a tennis match.</li>
-  </ul>
+<li>Playing a tennis match.</li>
+</ul>
 </blockquote>
 
 <p>Performance measure: <code>$points_{own}-points_{enemy}$</code> (I think tennis
@@ -380,8 +380,8 @@ right?), dynamic, stochastic (similar caveats as in soccer example)</p>
 
 <blockquote>
   <ul>
-  <li>Practicing tennis against a wall.</li>
-  </ul>
+<li>Practicing tennis against a wall.</li>
+</ul>
 </blockquote>
 
 <p>Performance measure: number of balls hit; environment: place with wall;
@@ -394,8 +394,8 @@ as in soccer example)</p>
 
 <blockquote>
   <ul>
-  <li>Performing a high jump.</li>
-  </ul>
+<li>Performing a high jump.</li>
+</ul>
 </blockquote>
 
 <p>Performance measure: height of the jump; environment: a place with a
@@ -408,8 +408,8 @@ and not being able to get up again), static, deterministic (unless wind)</p>
 
 <blockquote>
   <ul>
-  <li>Knitting a sweater.</li>
-  </ul>
+<li>Knitting a sweater.</li>
+</ul>
 </blockquote>
 
 <p>Performance measure: beauty, robustness and comfortableness of the
@@ -423,8 +423,8 @@ again is an option), static, deterministic</p>
 
 <blockquote>
   <ul>
-  <li>Bidding on an item at an auction.</li>
-  </ul>
+<li>Bidding on an item at an auction.</li>
+</ul>
 </blockquote>
 
 <p>Performance measure: <code>$\frac{nitems}{\sum_{i \in items} price(item)}$</code>;
@@ -455,19 +455,19 @@ information on what to concentrate on.</p>
 
 <blockquote>
   <p>Your goal is to navigate a robot out of a maze. The robot starts in the
-  center of the maze facing north. You can turn the robot to face north,
-  east, south, or west. You can direct the robot to move forward a certain
-  distance, although it will stop before hitting a wall.</p>
-  
-  <p>a. Formulate this problem. How large is the state space?</p>
+center of the maze facing north. You can turn the robot to face north,
+east, south, or west. You can direct the robot to move forward a certain
+distance, although it will stop before hitting a wall.</p>
+
+<p>a. Formulate this problem. How large is the state space?</p>
 </blockquote>
 
 <p>Assumption: The maze has size <code>$n*m$</code>. Size of the state space: <code>$4*n*m$</code>.</p>
 
 <blockquote>
   <p>b. In navigating a maze, the only place we need to turn is at the
-  intersection of two or more corridors. Reformulate this problem using
-  this observation. How large is the state space now?</p>
+intersection of two or more corridors. Reformulate this problem using
+this observation. How large is the state space now?</p>
 </blockquote>
 
 <p>Let i be the number of intersections. Then there are <code>$2*((n*m)-i)+i*4$</code>
@@ -483,9 +483,9 @@ with 4 possible directions, the number of possible states is instead
 
 <blockquote>
   <p>c. From each point in the maze, we can move in any of the four
-  directions until we reach a turning point, and this is the only action
-  we need to do. Reformulate the problem using these actions. Do we need
-  to keep track of the robot’s orientation now?</p>
+directions until we reach a turning point, and this is the only action
+we need to do. Reformulate the problem using these actions. Do we need
+to keep track of the robot’s orientation now?</p>
 </blockquote>
 
 <p>Since we don't have to turn before moving, we're equivalent to an
@@ -495,8 +495,8 @@ a specific direction before moving.</p>
 
 <blockquote>
   <p>d. In our initial description of the problem we already abstracted
-  from the real world, restricting actions and removing details. List
-  three such simplifications we made.</p>
+from the real world, restricting actions and removing details. List
+three such simplifications we made.</p>
 </blockquote>
 
 <p>Only 4 different directions allowed, not being able to run into walls,
@@ -509,7 +509,7 @@ failure/fall into a hole etc.).</p>
 
 <blockquote>
   <p>How many solutions are there for the map-coloring problem in Figure
-  6.1? How many solutions if four colors are allowed? Two colors?</p>
+6.1? How many solutions if four colors are allowed? Two colors?</p>
 </blockquote>
 
 <ul>
@@ -522,8 +522,8 @@ failure/fall into a hole etc.).</p>
 
 <blockquote>
   <p>Solve the cryptarithmetic problem in Figure 6.2 by hand, using
-  the strategy of backtracking with forward checking and the MRV and
-  least-constraining-value heuristics.</p>
+the strategy of backtracking with forward checking and the MRV and
+least-constraining-value heuristics.</p>
 </blockquote>
 
 <p><img src="./img/aima_solutions/figure_6_2.png" alt="Figure 6.2" title="Figure 6.2 (a) A cryptarithmetic problem. Each letter stands for a distinct digit; the aim is to find a substitution of digits for letters such that the resulting sum is arithmetically correct, with the added restriction that no leading zeroes are allowed. (b) The constraint hypergraph for the cryptarithmetic problem, showing the Alldiff constraint (square box at the top) as well as the column addition constraints (four square boxes in the middle). The variables C1, C2, and C3 represent the carry digits for the three columns." /></p>
@@ -659,10 +659,10 @@ Or, in the puzzle:</p>
 
 <blockquote>
   <p>Decide whether each of the following sentences is valid, unsatisfiable,
-  or neither. Verify your decisions using truth tables or the equivalence
-  rules of Figure 7.11 (page 249).</p>
-  
-  <p>a. <code>$Smoke \Rightarrow Smoke$</code></p>
+or neither. Verify your decisions using truth tables or the equivalence
+rules of Figure 7.11 (page 249).</p>
+
+<p>a. <code>$Smoke \Rightarrow Smoke$</code></p>
 </blockquote>
 
 <div>
@@ -741,12 +741,12 @@ Otherwise, any of the other disjunctions make the sentence true.</p>
 
 <blockquote>
   <p>According to some political pundits, a person who is radical (R) is
-  electable (E) if he/she is conservative (C), but otherwise not electable.</p>
-  
-  <p>a. Which of the following are correct representations of this assertion? <br />
-  (i) <code>$R \land E \Leftrightarrow C$</code> <br />
-  (ii) <code>$R \Rightarrow (E \Leftrightarrow C)$</code> <br />
-  (iii) <code>$R \Rightarrow ((C \Rightarrow E) \lor \lnot E)$</code></p>
+electable (E) if he/she is conservative (C), but otherwise not electable.</p>
+
+<p>a. Which of the following are correct representations of this assertion? <br />
+(i) <code>$R \land E \Leftrightarrow C$</code> <br />
+(ii) <code>$R \Rightarrow (E \Leftrightarrow C)$</code> <br />
+(iii) <code>$R \Rightarrow ((C \Rightarrow E) \lor \lnot E)$</code></p>
 </blockquote>
 
 <p>(i) Would mean that a conservative is only electable if they are radical
@@ -804,22 +804,22 @@ reduced down to only disjunctions of literals.</p>
 
 <blockquote>
   <p>Suppose you are given the following axioms:</p>
-  
-  <ol>
-  <li><code>$0 \le 3$</code>.</li>
-  <li><code>$ 7 \le 9$</code>.</li>
-  <li><code>$\forall x: x \le x$</code>.</li>
-  <li><code>$\forall x: x \le x+0$</code>.</li>
-  <li><code>$\forall x: x+0 \le x$</code>.</li>
-  <li><code>$\forall x, y: x+y \le y+x$</code>.</li>
-  <li><code>$\forall w, x, y, z: w \le y \land x \le z \Rightarrow w+x \le y+z$</code>.</li>
-  <li><code>$\forall x, y, z: x \le y \land y \le z \Rightarrow x \le z$</code>.</li>
-  </ol>
-  
-  <p>a. Give a backward-chaining proof of the sentence <code>$7 \le 3 + 9$</code>. (Be
-  sure, of course, to use only the axioms given here, not anything else
-  you may know about arithmetic.) Show only the steps that leads [sic]
-  to success, not the irrelevant steps.</p>
+
+<ol>
+<li><code>$0 \le 3$</code>.</li>
+<li><code>$ 7 \le 9$</code>.</li>
+<li><code>$\forall x: x \le x$</code>.</li>
+<li><code>$\forall x: x \le x+0$</code>.</li>
+<li><code>$\forall x: x+0 \le x$</code>.</li>
+<li><code>$\forall x, y: x+y \le y+x$</code>.</li>
+<li><code>$\forall w, x, y, z: w \le y \land x \le z \Rightarrow w+x \le y+z$</code>.</li>
+<li><code>$\forall x, y, z: x \le y \land y \le z \Rightarrow x \le z$</code>.</li>
+</ol>
+
+<p>a. Give a backward-chaining proof of the sentence <code>$7 \le 3 + 9$</code>. (Be
+sure, of course, to use only the axioms given here, not anything else
+you may know about arithmetic.) Show only the steps that leads [sic]
+to success, not the irrelevant steps.</p>
 </blockquote>
 
 <ul>
@@ -855,7 +855,7 @@ reduced down to only disjunctions of literals.</p>
 
 <blockquote>
   <p>b. Give a forward-chaining proof of the sentence <code>$7 \le 3+9$</code>. Again,
-  show only the steps that lead to success.</p>
+show only the steps that lead to success.</p>
 </blockquote>
 
 <ul>
@@ -913,7 +913,7 @@ Let's say we have a hunch that it is the case that `$Father(T)=I$`
 
 <blockquote>
   <p>Using the axioms of probability, prove that any probability distribution
-  on a discrete random variable must sum to 1.</p>
+on a discrete random variable must sum to 1.</p>
 </blockquote>
 
 <p>We know that <code>$\sum_{\omega \in \Omega} P(\omega)=1$</code>.</p>
@@ -931,9 +931,9 @@ worthwhile to write down.-->
 
 <blockquote>
   <p>For each of the following statements, either prove it is true or give
-  a counterexample.</p>
-  
-  <p>a. If <code>$P(a|b,c)=P(b|a,c)$</code>, then <code>$P(a|c)=P(b|c)$</code></p>
+a counterexample.</p>
+
+<p>a. If <code>$P(a|b,c)=P(b|a,c)$</code>, then <code>$P(a|c)=P(b|c)$</code></p>
 </blockquote>
 
 <div>
@@ -988,7 +988,7 @@ It is rational for an agent to believe `$P(A)=0.4, P(B)=0.3$` and
 
 
 
-md5-fe005549ccb348f084879fef2f7ea6e8
+d004900b35d1cde5a03f5e812b9258f6
 
 
 -->
@@ -997,17 +997,17 @@ md5-fe005549ccb348f084879fef2f7ea6e8
 
 <blockquote>
   <p>This question deals with the properties of possible worlds, defined
-  on page 488 as assignments to all random variables. We will work with
-  propositions that correspond to exactly one possible world because they
-  pin down the assignments of all the variables. In probability theory,
-  such propositions are called <strong>atomic events</strong>. For example, with Boolean
-  variables <code>$X_1, X_2, X_3$</code>, the proposition <code>$x_1 \land \lnot x_2 \land \lnot x_3$</code>
-  fixes the assignment of the variables,; in the language of
-  propositional logic, we would say it has exactly one model.</p>
-  
-  <p>a. Prove, for the case of <code>$n$</code> Boolean variables, that any two distinct
-  atomic events are mutually exclusive; that is, their conjunction is
-  equivalent to <em>false</em>.</p>
+on page 488 as assignments to all random variables. We will work with
+propositions that correspond to exactly one possible world because they
+pin down the assignments of all the variables. In probability theory,
+such propositions are called <strong>atomic events</strong>. For example, with Boolean
+variables <code>$X_1, X_2, X_3$</code>, the proposition <code>$x_1 \land \lnot x_2 \land \lnot x_3$</code>
+fixes the assignment of the variables,; in the language of
+propositional logic, we would say it has exactly one model.</p>
+
+<p>a. Prove, for the case of <code>$n$</code> Boolean variables, that any two distinct
+atomic events are mutually exclusive; that is, their conjunction is
+equivalent to <em>false</em>.</p>
 </blockquote>
 
 <p>Let <code>$s_1, s_2$</code> be two distinct atomic events. That means there exists at
@@ -1026,7 +1026,7 @@ and <code>$\lnot x_i$</code> is part of the conjunction in <code>$s_2$</code>.</
 
 <blockquote>
   <p>b. Prove that the disjunction of all possible atomic events is logically
-  equivalent to <em>true</em>.</p>
+equivalent to <em>true</em>.</p>
 </blockquote>
 
 <p>For every atomic event <code>$s$</code>, there is an atomic event
@@ -1035,7 +1035,7 @@ disjunction of all atomic events contains <code>$s \lor s' \lor \dots=True$</cod
 
 <blockquote>
   <p>c. Prove that any proposition is logically equivalent to the disjunction
-  of the atomic events that entail its truth.</p>
+of the atomic events that entail its truth.</p>
 </blockquote>
 
 <p>Let <code>$\mathcal{A}$</code> be the set of <code>$n$</code> assignments that make the proposition
@@ -1074,13 +1074,13 @@ that makes the proposition true.</p>
 
 <blockquote>
   <p>We have a bag of three biased coins a, b, and c with probabilities of
-  coming up heads of 20%, 60%, and 80%, respectively. One coin is drawn
-  randomly from the bag (with equal likelihood of drawing each of the
-  three coins), and then the coin is flipped three times to generate the
-  outcomes <code>$X_1$</code>, <code>$X_2$</code>, and <code>$X_3$</code>.</p>
-  
-  <p>a. Draw the Bayesian network corresponding to this setup and define
-  the necessary CPTs.</p>
+coming up heads of 20%, 60%, and 80%, respectively. One coin is drawn
+randomly from the bag (with equal likelihood of drawing each of the
+three coins), and then the coin is flipped three times to generate the
+outcomes <code>$X_1$</code>, <code>$X_2$</code>, and <code>$X_3$</code>.</p>
+
+<p>a. Draw the Bayesian network corresponding to this setup and define
+the necessary CPTs.</p>
 </blockquote>
 
 <p><img src="./img/aima_solutions/14_1_bayesnet.png" alt="A Bayesian network for drawing the coin &amp; throwing it thrice" title="A Bayesian network for drawing the coin &amp; throwing it thrice. The first parent node contains the coin, the three independent children are the three throws." /></p>
@@ -1138,7 +1138,7 @@ given <code>$Coin$</code>.</p>
 
 <blockquote>
   <p>b. Calculate which coin was most likely to have been drawn from the
-  bag if the observed flips come out heads twice and tails once.</p>
+bag if the observed flips come out heads twice and tails once.</p>
 </blockquote>
 
 <p><code>$C=\underset{coin \in \{a,b,c\}}{\hbox{argmax}} P(coin|H_1, H_2, T_3)$</code></p>
@@ -1174,23 +1174,23 @@ have done something horribly wrong. Don't copy this solution.</p>
 
 <blockquote>
   <p>A professor wants to know if students are getting enough sleep. Each
-  day, the professor observes whether the students sleep in class, and
-  whether they have red eyes. The professor has the following domain theory:</p>
-  
-  <ul>
-  <li>The prior probability of getting enough sleep, with no observations, is 0.7.</li>
-  <li>The probability of getting enough sleep on night t is 0.8 given
-  that the student got enough sleep the previous night, and 0.3
-  if not.</li>
-  <li>The probability of having red eyes is 0.2 if the student got enough sleep, and 0.7 if not.</li>
-  <li>The probability of sleeping in class is 0.1 if the student got enough sleep, and 0.3 if not.</li>
-  </ul>
-  
-  <p>Formulate this information as a dynamic Bayesian network that
-  the professor could use to filter or predict from a sequence of
-  observations. Then reformulate it as a hidden Markov model that has only
-  a single observation variable. Give the complete probability tables for
-  the model.</p>
+day, the professor observes whether the students sleep in class, and
+whether they have red eyes. The professor has the following domain theory:</p>
+
+<ul>
+<li>The prior probability of getting enough sleep, with no observations, is 0.7.</li>
+<li>The probability of getting enough sleep on night t is 0.8 given
+that the student got enough sleep the previous night, and 0.3
+if not.</li>
+<li>The probability of having red eyes is 0.2 if the student got enough sleep, and 0.7 if not.</li>
+<li>The probability of sleeping in class is 0.1 if the student got enough sleep, and 0.3 if not.</li>
+</ul>
+
+<p>Formulate this information as a dynamic Bayesian network that
+the professor could use to filter or predict from a sequence of
+observations. Then reformulate it as a hidden Markov model that has only
+a single observation variable. Give the complete probability tables for
+the model.</p>
 </blockquote>
 
 <p>There are three variables: <code>$E_t$</code> for getting enough sleep in night t,
@@ -1309,16 +1309,16 @@ are conditionally independent given <code>$E_t$</code>:</p>
 
 <blockquote>
   <p>For the DBN specified in Exercise 15.13 and for the evidence values</p>
-  
-  <ul>
-  <li>e1 = not red eyes, not sleeping in class</li>
-  <li>e2 = red eyes, not sleeping in class</li>
-  <li>e3 = red eyes, sleeping in class</li>
-  </ul>
-  
-  <p>perform the following computations:</p>
-  
-  <p>a. State estimation: Compute <code>$P(EnoughSleep_t|e_{1:t})$</code> for each of t = 1, 2, 3.</p>
+
+<ul>
+<li>e1 = not red eyes, not sleeping in class</li>
+<li>e2 = red eyes, not sleeping in class</li>
+<li>e3 = red eyes, sleeping in class</li>
+</ul>
+
+<p>perform the following computations:</p>
+
+<p>a. State estimation: Compute <code>$P(EnoughSleep_t|e_{1:t})$</code> for each of t = 1, 2, 3.</p>
 </blockquote>
 
 <p>Note: In the previous exercise, I used e as a symbol for getting enough
@@ -1421,14 +1421,14 @@ it's the other way around for <code>$E_2$</code>.</p>
 
 <blockquote>
   <p>(Adapted from David Heckerman.) This exercise concerns the Almanac Game,
-  which is used by decision analysts to calibrate numeric estimation. For
-  each of the questions that follow, give your best guess of the answer,
-  that is, a number that you think is as likely to be too high as it is to
-  be too low. Also give your guess at a 25th percentile estimate, that is,
-  a number that you think has a 25% chance of being too high, and a 75%
-  chance of being too low. Do the same for the 75th percentile. (Thus,
-  you should give three estimates in all—low, median, and high—for
-  each question.)</p>
+which is used by decision analysts to calibrate numeric estimation. For
+each of the questions that follow, give your best guess of the answer,
+that is, a number that you think is as likely to be too high as it is to
+be too low. Also give your guess at a 25th percentile estimate, that is,
+a number that you think has a 25% chance of being too high, and a 75%
+chance of being too low. Do the same for the 75th percentile. (Thus,
+you should give three estimates in all—low, median, and high—for
+each question.)</p>
 </blockquote>
 
 <p>Using Klong for dealing with the arrays of values when doing calculations.</p>
@@ -1550,14 +1550,14 @@ big could the patent office be? 10k patents would mean processing
 
 <blockquote>
   <p>The correct answers appear after the last exercise of this chapter. From
-  the point of view of decision analysis, the interesting thing is not
-  how close your median guesses came to the real answers, but rather how
-  often the real answer came within your 25% and 75% bounds. If it was
-  about half the time, then your bounds are accurate. But if you’re like
-  most people, you will be more sure of yourself than you should be, and
-  fewer than half the answers will fall within the bounds. With practice,
-  you can calibrate yourself to give realistic bounds, and thus be more
-  useful in supplying information for decision making.</p>
+the point of view of decision analysis, the interesting thing is not
+how close your median guesses came to the real answers, but rather how
+often the real answer came within your 25% and 75% bounds. If it was
+about half the time, then your bounds are accurate. But if you’re like
+most people, you will be more sure of yourself than you should be, and
+fewer than half the answers will fall within the bounds. With practice,
+you can calibrate yourself to give realistic bounds, and thus be more
+useful in supplying information for decision making.</p>
 </blockquote>
 
 <p>a. Lies in my given range, but I was a bit pessimistic. <br />
@@ -1581,8 +1581,8 @@ narrower.</p>
 
 <blockquote>
   <p>Try this second set of questions and see if there is any improvement:</p>
-  
-  <p>a. Year of birth of Zsa Zsa Gabor.</p>
+
+<p>a. Year of birth of Zsa Zsa Gabor.</p>
 </blockquote>
 
 <p>I'm not sure who this is.</p>
@@ -1708,12 +1708,12 @@ I decomposed more?</p>
 
 <blockquote>
   <p>In 1713, Nicolas Bernoulli stated a puzzle, now called the
-  St. Petersburg paradox, which works as follows. You have the opportunity
-  to play a game in which a fair coin is tossed repeatedly until it comes
-  up heads. If the first heads appears on the nth toss, you win <code>$2^n$</code>
-  dollars.</p>
-  
-  <p>a. Show that the expected monetary value of this game is infinite.</p>
+St. Petersburg paradox, which works as follows. You have the opportunity
+to play a game in which a fair coin is tossed repeatedly until it comes
+up heads. If the first heads appears on the nth toss, you win <code>$2^n$</code>
+dollars.</p>
+
+<p>a. Show that the expected monetary value of this game is infinite.</p>
 </blockquote>
 
 <div>
@@ -1731,10 +1731,10 @@ range.</p>
 
 <blockquote>
   <p>c. Nicolas’s cousin Daniel Bernoulli resolved the apparent
-  paradox in 1738 by suggesting that the utility of money is measured
-  on a logarithmic scale (i.e., <code>$U(S_n) = a \log_2 n+b$</code>, where <code>$S_n$</code>
-  is the state of having \$n). What is the expected utility of the game
-  under this assumption?</p>
+paradox in 1738 by suggesting that the utility of money is measured
+on a logarithmic scale (i.e., <code>$U(S_n) = a \log_2 n+b$</code>, where <code>$S_n$</code>
+is the state of having \$n). What is the expected utility of the game
+under this assumption?</p>
 </blockquote>
 
 <div>
@@ -1749,7 +1749,7 @@ range.</p>
 
 <blockquote>
   <p>d. What is the maximum amount that it would be rational to pay to play
-  the game, assuming that one’s initial wealth is \$k ?</p>
+the game, assuming that one’s initial wealth is \$k ?</p>
 </blockquote>
 
 <p>I assume that "the maximum amount" refers to "the maximum number of
@@ -1761,26 +1761,26 @@ times".</p>
 
 <blockquote>
   <p>Consider a student who has the choice to buy or not buy a textbook for a
-  course. We’ll model this as a decision problem with one Boolean decision
-  node, B, indicating whether the agent chooses to buy the book, and two
-  Boolean chance nodes, M, indicating whether the student has mastered the
-  material in the book, and P, indicating whether the student passes the
-  course. Of course, there is also a utility node, U. A certain student,
-  Sam, has an additive utility function: 0 for not buying the book and
-  -\$100 for buying it; and \$2000 for passing the course and 0 for not
-  passing. Sam’s conditional probability estimates are as follows:</p>
-  
-  <p><code>$P(p|b, m) = 0.9$</code> <br />
-  <code>$P(m|b) = 0.9$</code> <br />
-  <code>$P(p|b, \lnot m) = 0.5$</code> <br />
-  <code>$P(m|\lnot b) = 0.7$</code> <br />
-  <code>$P(p|\lnot b, m) = 0.8$</code> <br />
-  <code>$P(p|\lnot b, \lnot m) = 0.3$</code></p>
-  
-  <p>You might think that P would be independent of B given M, But [sic]
-  this course has an open-book final – so having the book helps.</p>
-  
-  <p>a. Draw the decision network for this problem.</p>
+course. We’ll model this as a decision problem with one Boolean decision
+node, B, indicating whether the agent chooses to buy the book, and two
+Boolean chance nodes, M, indicating whether the student has mastered the
+material in the book, and P, indicating whether the student passes the
+course. Of course, there is also a utility node, U. A certain student,
+Sam, has an additive utility function: 0 for not buying the book and
+-\$100 for buying it; and \$2000 for passing the course and 0 for not
+passing. Sam’s conditional probability estimates are as follows:</p>
+
+<p><code>$P(p|b, m) = 0.9$</code> <br />
+<code>$P(m|b) = 0.9$</code> <br />
+<code>$P(p|b, \lnot m) = 0.5$</code> <br />
+<code>$P(m|\lnot b) = 0.7$</code> <br />
+<code>$P(p|\lnot b, m) = 0.8$</code> <br />
+<code>$P(p|\lnot b, \lnot m) = 0.3$</code></p>
+
+<p>You might think that P would be independent of B given M, But [sic]
+this course has an open-book final – so having the book helps.</p>
+
+<p>a. Draw the decision network for this problem.</p>
 </blockquote>
 
 <p><img src="img/aima_solutions/16_15_decisionnet.png" alt="Decision network for 16.15" title="A decision network for exercise 16.15. A rectangle B, an oval M and P, and a diamond U. Arrow from B to P and U, from M to P, and from P to U." /></p>
@@ -1817,18 +1817,18 @@ times".</p>
 
 <blockquote>
   <p>(Adapted from Pearl (1988). A used-car buyer can decide to carry out
-  various tests with various costs (e.g., kick the tires, take the car to
-  a qualified mechanic) and then, depending on the outcome of the tests,
-  decide which car to buy. We will assume that the buyer is deciding
-  whether to buy car <code>$c_1$</code>, that there is time to carry out at most
-  one test, and that <code>$t_1$</code> is the test of <code>$c_1$</code> and costs \$50. A car
-  can be in good shape (quality <code>$q^+$</code>) or bad shape (quality <code>$q^-$</code>),
-  and the tests might help indicate what shape the car is in. Car <code>$c_1$</code>
-  costs \$1,500, and its market value is \$2,000 if it is in good shape;
-  if not, \$700 in repairs will be needed to make it in good shape. The
-  buyer's estimate is that <code>$c_1$</code> has a 70% chance of being in good shape.</p>
-  
-  <p>a. Draw the decision network that represents this problem.</p>
+various tests with various costs (e.g., kick the tires, take the car to
+a qualified mechanic) and then, depending on the outcome of the tests,
+decide which car to buy. We will assume that the buyer is deciding
+whether to buy car <code>$c_1$</code>, that there is time to carry out at most
+one test, and that <code>$t_1$</code> is the test of <code>$c_1$</code> and costs \$50. A car
+can be in good shape (quality <code>$q^+$</code>) or bad shape (quality <code>$q^-$</code>),
+and the tests might help indicate what shape the car is in. Car <code>$c_1$</code>
+costs \$1,500, and its market value is \$2,000 if it is in good shape;
+if not, \$700 in repairs will be needed to make it in good shape. The
+buyer's estimate is that <code>$c_1$</code> has a 70% chance of being in good shape.</p>
+
+<p>a. Draw the decision network that represents this problem.</p>
 </blockquote>
 
 <p><img src="img/aima_solutions/16_17_decisionnet.png" alt="Decision network for 16.17" title="A decision network for exercise 16.17. A rectangle T and B, an oval Q, and a diamond U. Arrow from T to Q and B, from Q to B, and from B to U." /></p>
@@ -1841,13 +1841,13 @@ times".</p>
 
 <blockquote>
   <p>c. Tests can be described by the probability that the car will pass
-  or fail the test given that the car is in good or bad shape. We have
-  the following information: <br />
-  <code>$P(pass(c_1, t_1)|q^+(c_1))=0.8$</code> <br />
-  <code>$P(pass(c_1, t_1)|q^-(c_1))=0.35$</code> <br />
-  Use Bayes' theorem to calculate the probability that the car will pass
-  (or fail) its test and hence the probability that it is in good (or bad)
-  shape given each possible test outcome.</p>
+or fail the test given that the car is in good or bad shape. We have
+the following information: <br />
+<code>$P(pass(c_1, t_1)|q^+(c_1))=0.8$</code> <br />
+<code>$P(pass(c_1, t_1)|q^-(c_1))=0.35$</code> <br />
+Use Bayes' theorem to calculate the probability that the car will pass
+(or fail) its test and hence the probability that it is in good (or bad)
+shape given each possible test outcome.</p>
 </blockquote>
 
 <div>
@@ -1870,7 +1870,7 @@ times".</p>
 
 <blockquote>
   <p>d. Calculate the optimal decisions given either a pass or a fail,
-  and their expected utilities.</p>
+and their expected utilities.</p>
 </blockquote>
 
 <div>
@@ -1882,7 +1882,7 @@ times".</p>
 
 <blockquote>
   <p>e. Calculate the value of information of the test, and derive an
-  optimal conditional plan for the buyer.</p>
+optimal conditional plan for the buyer.</p>
 </blockquote>
 
 <div>
@@ -1900,10 +1900,10 @@ car is a lemon!), the optimal decision is to buy the car.</p>
 
 <blockquote>
   <p>Suppose that we define the utility of a state sequence to be the
-  <em>maximum</em> reward obtained in any state in the sequence. Show that this
-  utility function does not result in stationary preferences between state
-  sequences. Is it still possible to define a utility function on states
-  such that MEU decsion making gives optimal behavior?</p>
+<em>maximum</em> reward obtained in any state in the sequence. Show that this
+utility function does not result in stationary preferences between state
+sequences. Is it still possible to define a utility function on states
+such that MEU decsion making gives optimal behavior?</p>
 </blockquote>
 
 <p>Preferences between state sequences are stationary iff
