@@ -720,3 +720,4 @@
 2021-08-06T17:58:33.000000Z	collecting large STEM datasets for training huge models a good step for avoiding human models?
 2021-08-06T21:19:33.000000Z	people who use kilowatt-hours of something should go f**k themselves
 2021-08-06T21:25:14.000000Z	not a big fan of retributive justice, but considering the fact that mosquitoe-borne diseases have killed **half of all humans that have ever lived**, we might consider exterminating the fuckers just because they deserve it.
+2021-08-10T14:45:28.000000Z	children are also just self-replicating probes
