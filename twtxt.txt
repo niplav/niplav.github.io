@@ -725,3 +725,4 @@
 2021-08-10T23:25:46.000000Z	https://pbs.twimg.com/media/E8W9k1SXoA8Khmf?format=jpg&name=4096x4096
 2021-08-10T23:48:54.000000Z	at some point you realise that david pearce is right about everything, nick cammarata is right about everything, andrés gomez emilsson is right about everything.
 2021-08-11T13:25:51.000000Z	lol, just realised that standard AI risk is just environmental disaster risk amped up to 10^(10^10), only that the direct perpetrator isn't humanity (we're only the proximate perpetrator). huh
+2021-08-15T23:02:59.000000Z	on the other hand, induction has also never worked before for anti-inductionists, so they might try it.
