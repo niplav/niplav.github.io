@@ -738,3 +738,4 @@
 2021-08-28T22:09:50.000000Z	joule supremacy
 2021-08-28T22:10:46.000000Z	bigword bigwords bigword2
 2021-08-28T22:50:55.000000Z	foq: (ten to the) fifty-one QALYs
+2021-08-28T22:51:27.000000Z	we probably have a kilofoq of value in this universe, probably more (https://arbital.com/p/cosmic_endowment/)
