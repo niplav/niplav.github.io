@@ -749,3 +749,4 @@
 2021-09-01T11:18:48.000000Z	limited wireheaders seem safe but useless (modulo experimentability)
 2021-09-04T18:59:06.000000Z	kind of insane that the average life expectancy in 1800 was nearly half as much as the one in the country with the lowest life expectancy today (28.5 years then, 50.7 years today in Lesotho)
 2021-09-05T15:47:25.000000Z	what is the value of knowing the action of a more powerful optimizer in a single universe-state?
+2021-09-05T20:26:04.000000Z	a pride flag for heterosexual men who don't like women
