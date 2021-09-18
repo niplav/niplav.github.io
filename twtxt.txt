@@ -756,3 +756,4 @@
 2021-09-11T17:24:20.000000Z	note: the previous twt does _not_ assert the equivalence of these ideas.
 2021-09-11T17:34:08.000000Z	alternative formulation of orthogonality hypothesis: the size of the space of possible goals for an agent correlates positively, rather than negatively, with an agent's optimization power
 2021-09-11T18:06:22.000000Z	what kind of job does one do if one is exceptionally motivated to (and reasonably good at) organising physical objects?
+2021-09-18T19:39:43.000000Z	if you tickle a sub, is the result a bottom contraction?
