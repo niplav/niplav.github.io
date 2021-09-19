@@ -758,3 +758,4 @@
 2021-09-11T18:06:22.000000Z	what kind of job does one do if one is exceptionally motivated to (and reasonably good at) organising physical objects?
 2021-09-18T19:39:43.000000Z	if you tickle a sub, is the result a bottom contraction?
 2021-09-18T19:46:58.000000Z	mathematics is the science of the infinite, computer science is the science of the finite
+2021-09-19T13:41:37.000000Z	@<movq https://www.uninformativ.de/twtxt.txt> "How does one interpret those numbers? Does it mean that people usually died at about 30 years or is that really an average, meaning lots of children died but those who survived still reached something like 70 years?" -> It's the mean, so there is a lot of bias in there w/r to infant mortality. I don't know about median age of death.
