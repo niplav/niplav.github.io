@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-10-18, modified: 2021-09-04, language: english, status: finished, importance: 6, confidence: remote</em></p>
+<p><em>author: niplav, created: 2019-10-18, modified: 2021-10-11, language: english, status: finished, importance: 6, confidence: remote</em></p>
 
 <blockquote>
   <p><strong>Is cryonics worth it, and if yes, should one
@@ -77,8 +77,8 @@ with Alcor<!--TODO: link-->.
 I also perform a <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Monte-Carlo
 simulation</a> using
 <a href="https://www.getguesstimate.com/" title="Official website">Guesstimate</a>,
-and find that signing up for cryonics at age 20 is worth in the
-mean \$18m, median -\$100k (90% confidence interval: -\$2.16m,
+and find that signing up for cryonics at age 20 is worth
+\$18m in the mean, median -\$100k (90% confidence interval: -\$2.16m,
 \$58.25m). It therefore seems recommendable to sign up for cryonics
 immediately.</strong></p>
 </blockquote>
@@ -146,11 +146,17 @@ Will never happen to you</p>
 up for cryonics until a later point in their life. This has often
 been explained by the fact that signing up for cryonics <a href="https://www.lesswrong.com/posts/hiDkhLyN5S2MEjrSE/normal-cryonics" title="Normal Cryonics">requires high
 conscientiousness</a>
-and can be easily be delayed until another point in life: "I'll get
-around to doing it eventually" – person who was cremated. However, it
-hasn't yet been explored whether this procrastination might be rational
-if eventually followed through with: Many cryonics organisations have
-high membership fees, which might be avoided by waiting.</p>
+and can be easily be delayed until another point in life.</p>
+
+<blockquote>
+  <p>I'll get around to doing it eventually</p>
+</blockquote>
+
+<p><em>– person who was cremated</em></p>
+
+<p>However, it hasn't yet been explored whether this procrastination might be
+rational if eventually followed through with: Many cryonics organisations
+have high membership fees, which might be avoided by waiting.</p>
 
 <p>To find this out, I first present a point-estimate model of
 whether (and if yes, when) to sign up for cryonics. The model is
@@ -165,13 +171,11 @@ of cryonics. For a popular introduction to the topic that
 clarifies many common misconceptions about the practice, see <a href="https://waitbutwhy.com/2016/03/cryonics.html" title="Why Cryonics Makes Sense">Urban
 2016</a>.</p>
 
-<p>For more basic information about the topic, the <a href="http://www.benbest.com/cryonics/CryoFAQ.html">Cryonics
-FAQ</a> by Ben Best, a former
-director of the Cryonics Institute, answers many questions, as well as
-<a href="https://alcor.org/FAQs/index.html">Alcor's Cryonics FAQ</a>.</p>
-
-<p>These texts should answer most questions people usually have about
-cryonics.</p>
+<p>For more basic information about the topic, there are the <a href="http://www.benbest.com/cryonics/CryoFAQ.html">Cryonics
+FAQ</a> by Ben Best,
+a former director of the Cryonics Institute, as well as <a href="https://alcor.org/FAQs/index.html">Alcor's
+Cryonics FAQ</a>, which should answer
+most questions people usually have about cryonics.</p>
 
 <p>If you have decided that you indeed do want to sign up for
 cryonics, the best existing resource is the <a href="https://www.lesswrong.com/s/weBHYgBXg9thEQNEe">Cryonics Signup
@@ -287,13 +291,15 @@ it develops over time (some people might regain motivation
 after some time), but intuitively it seems like a <a href="https://en.wikipedia.org/wiki/Geometric_distribution">geometric
 distribution</a>. The
 reasoning is as follows: Imagine that a thousand people have the
-motivation to perform a given action n years into the future. Every year,
-a certain percentage p of the people who were still motivated loses
-interest in performing that action and drop out. After n years, the
+motivation to perform a given action <code>$n$</code> years into the future. Every year,
+a certain percentage <code>$p$</code> of the people who were still motivated loses
+interest in performing that action and drop out. After <code>$n$</code> years, the
 number of people who perform the action is <code>$1000*p^n$</code> (the percentage
-of people still motivated is <code>$p^n$</code>).</p>
+of people still motivated is <code>$p^n$</code>). This also works if some people
+get motivated again to do something after a number of years, as long as
+their decisions are independently and identically distributed.</p>
 
-<p>When trying to find out what the value of p is for oneself, one can
+<p>When trying to find out what the value of <code>$p$</code> is for oneself, one can
 imagine a thousand independent identical copies of oneself planning on
 executing a complex plan one year ahead. How many of those would actually
 follow through on that plan? Intuitively, I'd say that it can't be much
@@ -759,7 +765,7 @@ draw()
 
 <p><img src="./img/considerations_on_cryonics/avg_fut_year_val.png" alt="Probability distribution over the value of a lifeyear in the future" title="The probability distribution over the value of a lifeyear in the future. The distribution is a normal distribution with an expected value of 50000 and a standard deviation of ~22000." /></p>
 
-<p>Note that this graph is not based on real data and only for illustrative purposes.</p>
+<p><em>this graph is not based on real data and only here for illustrative purposes</em></p>
 
 <p>But one can take another factor into account: Most negative future
 scenarios don't lead to resuscitation (civilisational collapse, stable
@@ -796,7 +802,7 @@ draw()
 
 <!--TODO: wouldn't that just shift the normal curve rightwards? Think about it.-->
 
-<p>Note that this graph is not based on real data and only for illustrative purposes.</p>
+<p><em>this graph is also not based on real data and only here for illustrative purposes</em></p>
 
 <h4>Negative Scenarios</h4>
 
@@ -850,10 +856,11 @@ long time, with little regard for their well-being.</p>
 
 <p>A relatively common worry that prevents people from signing up for
 cryonics is a scenario in which their brain is scanned and they are
-transformed into a whole-brain emulation. This is often accompanied by
-linking <a href="https://qntm.org/lena">qntm 2021</a>.</p>
+transformed into a whole-brain emulation, which will then be used
+for slave labour or worse. This is often accompanied by linking <a href="https://qntm.org/lena">qntm
+2021</a>.</p>
 
-<p>For this to happen, several things need to happen:</p>
+<p>For this to occur, several things need to happen:</p>
 
 <ol>
 <li>The technology for whole-brain emulations is developed</li>
@@ -874,12 +881,12 @@ being that option:</p>
 <ul>
 <li>If whole-brain emulation is wide-spread, and copying of whole-brain emulations is easy:
 <ul>
-<li>Competition among whole-brain emulations is likely fierce, and labor by emulations would be as cheap as slave-labour (so there is no particular reason to enslave emulations)</li>
+<li>Competition among whole-brain emulations is likely fierce, and labor by emulations would be as cheap as slave labour (so there is no particular reason to enslave emulations)</li>
 <li>The average emulation is likely very competent and elite, and a much better worker than the average college-educated persoe (<a href="https://ageofem.com" title="The Age of Em">Hanson 2016 pp. 161-163</a> estimates that most ems are going to be copies of fewer than a thousand or so original humans, each most likely again selected from several thousand individual childhoods to select the most capable educational lineage)</li>
 </ul></li>
-<li>Uploading a vitrified brain seems to be at least as difficult as scanning a freshly deceased brain or a living brain, and possibly much more difficult, so it would not be necessarily more economically viable</li>
-<li>There would be no laws protecting cryogenically preserved humans (or the emulations resulting from them)</li>
+<li>Uploading a vitrified brain seems to be at least as difficult as scanning a freshly deceased brain or a living brain, and possibly much more difficult, since one would need to repair structural damage done by outdated cryopreservation methods (why not vitrify a recently deanimated person with the newest cryogenic technology, and then scan &amp; upload them, instead of trying to fix old somewhat broken brains?), so it would probably not be more economically viable</li>
 <li>It appears more likely than not that cryonics organisations will attempt to prevent the theft of preserved humans (although the organisations could fail and abandon or sell the preserved humans)</li>
+<li>There would have to be no laws protecting cryogenically preserved humans (or the emulations resulting from them), but laws protecting living or recently deanimated people</li>
 </ul>
 
 <p>That said, if scanning living or recently deceased humans is illegal
@@ -1735,14 +1742,36 @@ principle</a> might
 be much more wary of doing anything rash before futures with negative
 value can be ruled out.</p>
 
-<!--
-Now What?
----------
+<h2>Now What?</h2>
 
-Okay, let's say you're now convinced that you should sign up for cryonics.
+<!--TODO: Yudkowsky quote about signing up immediately-->
 
-What is the next course of action?
--->
+<p>In case you're now convinced that signing up for cryonics is the right
+thing to do for you, great! I encourage you strongly to <strong>sign up as
+quickly as possible</strong>, if your finances allow you to (there are cheaper
+associate memberships at Alcor, which get you over most of the hump of
+signing up at a much lower cost, which can then be activated at a later
+point in time into a full membership quickly, and memberships at the
+<a href="https://cryonics.org">Cryonics Institute</a>, which also much cheaper
+than Alcor, but require much higher amount of initiative to assure a
+quick preservation)).</p>
+
+<p>Generally, the <a href="https://www.lesswrong.com/s/weBHYgBXg9thEQNEe">Cryonics Signup
+Guide</a> is the best
+resource for anyone to guide you through the signup process, though it
+lacks information for people outside of the US.</p>
+
+<p>Good luck, and may we see each other one day.</p>
+
+<p>If you are not convinced, that's also fine. If you think you have found a
+good counterargument or a flaw in this cost-benefit analysis, feel free
+to <a href="./about.html#Contact">contact me</a> (though note that I'm generally
+quite unsympathetic to the prevalent position that death and aging are
+not clearly and strictly bad, and might be uninterested in discussion
+about that particular topic).</p>
+
+<p>I would also appreciate good write-ups countering the arguments for
+cryonics<!--TODO: link Paul Crowley's call for these-->.</p>
 
 <!--
 From todo.md:

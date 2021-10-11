@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2021-03-02, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2021-09-20, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -935,50 +935,31 @@ I have misunderstood the definition for "family of sets".</p>
 
 <h2>Section 12</h2>
 
-<!--
-TODO
-### Exercise 1
+<h3>Exercise 1</h3>
 
-> Prove that if $n$ is a natural number, then `$n \not = n^{+}$`
+<blockquote>
+  <p>Prove that if $n$ is a natural number, then <code>$n \not = n^{+}$</code></p>
+</blockquote>
 
-Let `$n^-$` be the number such that `${n^-}^+=n$`, and `${n^-}^-$` be
-the number so that `${{n^-}^-}^+=n^-$`. Then
+<p>For <code>$n=0=\emptyset$</code>, <code>$n \not = n^+$</code>:</p>
 
+<div>
+    $$n^+=\\
+    n \cup \{n\}=\\
+    \emptyset \cup \{\emptyset\}=\\
+    \{\emptyset\}\not =\\
+    \emptyset=\\
+    n$$
+</div>
 
+<p>Let <code>$n^-$</code> be the number such that <code>${n^-}^+=n$</code>, and assume that
+<code>$n^- \not =n$</code>.</p>
 
-8c1a58d624b61b14a244b04acba5cd43
+<p>Then for <code>$n^+=n \cup \{n\}=n^- \cup \{n^-\} \cup \{n\}$</code> to be equal to
+<code>$n$</code>, <code>$\{n\}$</code> would need to be equal to <code>$n^-$</code> or <code>$\{n^-\}$</code>.
+That would contradict the assumption, so <code>$n^+ \not =n$</code>.</p>
 
-
-
-and
-
-
-
-6aa14177467a2ee46003f7c2e9dc5026
-
-
-
-Since `$n^+$` contains an element that `$n$` doesn't contain,
-`$n \not=n^+$`.
-
-For `$n=0=\emptyset$`, `$n \not = n^+$`:
-
-
-
-4483c89ca583e15fc249a39a3cb351f0
-
-
-
-Let `$n^-$` be the number such that `${n^-}^+=n$`, and assume that
-`$n^- \not =n$`.
-
-Then `$n^+=n \cup \{n\}=n^- \cup \{n^-\} \cup \{n\}$`.
-
-Suppose that `$n^+=n$`. That would mean that `$n^+ \subset n=n \cup \{n\}$`.
-This would imply that `$n \in n$`.
-
-We know that `$n \subset n^+$` since `$n^+=n \cup \{n\}$`.
--->
+<p>□</p>
 
 <h3>Exercise 2</h3>
 
@@ -994,4 +975,10 @@ successor set <code>$ω$</code>". Then, if <code>$n \in ω$</code>, there must b
 <code>$n^-$</code> of <code>$ω$</code> so that <code>${n^-}^+=n$</code> (by the second Peano axiom and
 the condition that <code>$ω$</code> can contain no superfluous elements, which
 would be the third Peano axiom).</p>
+
+<h3>Exercise 3</h3>
+
+<blockquote>
+  <p>Prove that <code>$ω$</code> is transitive.</p>
+</blockquote>
 </html>

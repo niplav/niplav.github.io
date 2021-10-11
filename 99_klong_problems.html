@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-01-14, modified: 2021-01-05, language: english, status: in progress, importance: 4, confidence: other</em></p>
+<p><em>author: niplav, created: 2019-01-14, modified: 2021-10-11, language: english, status: in progress, importance: 4, confidence: other</em></p>
 
 <blockquote>
   <p><strong>The list of 99 problems was original written by Werner Hett for
@@ -867,7 +867,7 @@ the node has length N-1. The root node is at level 1. Write a function
 creates the level-order sequence of the nodes. However, there are more
 efficient ways to do that.</p>
 
-<h3>P63 (*) Construct a complete binary tree.</h3>
+<h3>P63 (**) Construct a complete binary tree.</h3>
 
 <p>A complete binary tree with height H is defined as follows: the levels
 1,2,3,…,H-1 contain the maximum number of nodes (i.e <code>$2^{i-1}$</code> at
@@ -889,6 +889,35 @@ following property holds: The address of X's left and right successors are
 can be used to elegantly construct a complete binary tree structure. Write
 a function <code>completebintree</code> which returns a complete binary tree for
 a given number of nodes.</p>
+
+<p>Test your function in an appropriate way.</p>
+
+<h3>P64 (**) Layout a binary tree (1).</h3>
+
+<p>Given a binary tree as the usual list containing <code>:x</code>, a left subtree
+and a right subtree (or <code>[]</code>).</p>
+
+<p>As a preparation for drawing the tree, a layout algorithm is required
+to determine the position of each node in a rectangular grid. Several
+layout methods are conceivable, one of them is shown in the illustration
+below<!--TODO: get or imitate illustration!-->.</p>
+
+<p>In this layout strategy, the position of a node <code>$v$</code> is obtained by
+the following two rules:</p>
+
+<ul>
+<li><code>$x(v)$</code> is equal to the position of the node <code>$v$</code> in the inorder sequence</li>
+<li><code>$y(v)$</code> is equal to the depth of the node <code>$v$</code> in the tree</li>
+</ul>
+
+<p>In order to store the position of the nodes, we extend the format for
+representing a node (and its successors) as follows: <code>[:w x y l r]</code>
+represents a (non-empty) binary tree with a root with the value <code>:w</code>
+"positioned" at <code>(x,y)</code>, and subtrees <code>l</code> and <code>r</code> (them again in the
+same format).</p>
+
+<p>Write a function <code>layoutbinarytree</code> that returns a "positioned" binary
+tree obtained from its argument.</p>
 
 <p>Test your function in an appropriate way.</p>
 </html>

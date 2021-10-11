@@ -61,11 +61,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-02-10, modified: 2020-12-13, language: english, status: in progress, importance: 3, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2019-02-10, modified: 2021-10-11, language: english, status: in progress, importance: 3, confidence: highly likely</em></p>
 
 <blockquote>
   <p><strong>Solutions to the <a href="./99_klong_problems.html" title="99 Klong
-Problems">99 problems</a> in <a href="http://t3x.org/klong/index.html">Klong</a> in a <a href="https://en.wikipedia.org/wiki/Literate_programming">literate
+Problems">99 problems</a> in <a href="http://t3x.org/klong/index.html">Klong</a>, <a href="https://en.wikipedia.org/wiki/Literate_programming">literate
 programming</a>
 style. Attempts to produce the shortest complete solution to these
 problems up to date.</strong></p>
@@ -83,8 +83,8 @@ provided a <a href="https://old.reddit.com/r/apljk/comments/59asq0/pack_duplicat
 elegant</a>
 s9 on <a href="https://old.reddit.com/r/apljk/">/r/apljk</a>. Dave
 Long provided a much more elegant s8, s26, c1, s49 and
-s55 over email. s31 is from the <a href="https://en.wikipedia.org/wiki/K_(programming_language">Wikipedia article about
-K</a>#Examples).</p>
+s55 over email. s31 is from the <a href="https://en.wikipedia.org/wiki/K_(programming_language)#Examples">Wikipedia article about
+K</a>.</p>
 
 <h2>Code</h2>
 
@@ -92,7 +92,7 @@ K</a>#Examples).</p>
 
 <p>The pure Klong code, without tests, explanations, comments or performance
 tests is available <a href="./code/99_klong/sol.kg">here</a>. It currently implements
-solutions for all problems up to P63 (excluding P47 and P48), in 2304
+solutions for all problems up to P63 (excluding P47 and P48), in 2262
 bytes.</p>
 
 <h2>Conventions</h2>
@@ -101,9 +101,10 @@ bytes.</p>
 several concessions concerning completeness have to be made. There
 is nearly no checking for correct arguments, except for empty lists.
 Variables are declared locally. The solution for problem N is called
-<code>sN</code>, helper functions are numbered <code>aN</code> for the Nth helper function
-in <strong>Working with lists</strong>, <code>bN</code> in <strong>Arithmetic</strong>, <code>cN</code> in <strong>Logic and
-Codes</strong> and so on.</p>
+<code>sN</code>, helper functions are numbered <code>aN</code> for the Nth helper function in
+<a href="./99_klong_problems.html#Working-with-lists"><strong>Working with lists</strong></a>,
+<code>bN</code> in <a href="./99_klong_problems.html#Arithmetic"><strong>Arithmetic</strong></a>, <code>cN</code> in
+<a href="./99_klong_problems.html#Logic-and-Codes"><strong>Logic and Codes</strong></a> and so on.</p>
 
 <h2>Prerequisites</h2>
 
@@ -2560,7 +2561,8 @@ code and the performance it has).</p>
 <p><code>d7</code> takes two lists, and generates their cartesian product<!--TODO:
 wikipedia link-->. Why not take the cartesian product <code>cp</code> from set.kg,
 the set library included in Klong, you ask? Because <code>cp</code> has problems
-with lists of lists, while <code>d7</code> deals with them easily:</p>
+with lists of lists, while <code>d7</code> deals with them easily<!--TODO: submit
+to standard library as a fix-->:</p>
 
 <pre><code>    .l("set")
     d7::{,/y{(,y){x,,y}:\x}:\x}
@@ -2841,21 +2843,69 @@ levelorder::s62c
 
 <p>and test the solution:</p>
 
-<pre><code>s62c([])
+<pre><code>levelorder([])
 []
-    s62c([:x [] []])
+    levelorder([:x [] []])
 [[:x]]
-    s62c([:a [:b [] []] []])
+    levelorder([:a [:b [] []] []])
 [[:a] [:b]]
-    s62c([:a [:b [:c [] []] [:d [] []]] [:e [] []]])
+    levelorder([:a [:b [:c [] []] [:d [] []]] [:e [] []]])
 [[:a] [:b :e] [:c :d]]
 </code></pre>
 
 <h3>P63 (*) Construct a complete binary tree.</h3>
 
-<pre><code>s63::{:[0=x;[];{(:x,:[y&lt;2*x;[];,.f(x*2;y)]),:[y=2*x;,[]:|y&lt;1+2*x;[];,.f(1+2*x;y)]}:(1;x)]}
-s63::{:[x=0;[]:|x=1;(:x,,[]),,[];(:x,,.f((2^1+_ln(x%2)%ln(2))-1)),,.f(x-(2^1+_ln(x%2)%ln(2)))]}
-s63::{[v];v:::[x&lt;2;0;2^_ln(x%2)%ln(2)];.p(v);:[~x;[]:|x=1;(:x,,[]),,[];(:x,,.f((v&amp;x-v-1)+v-1)),,.f((0|x-2*v-1)+v-1)]}
+<!--
+Other solution approach: investigate to shave off bytes TODO
+
+Generally, the number of nodes in a complete binary tree can be described
+using the form `$2^n-1+r$`: a perfect binary tree with `$2^n-1$` nodes,
+and a set of residual nodes added on the last layer, where `$r<2^n-1$`
+(if `$r=2^n-1$`, then the last layer is full and no other layer has yet
+started).<!--TODO: image would perhaps be helpful--> A complete binary
+tree also has another interesting property: its left and right subtree
+are both complete binary trees, with one even being a perfect binary
+tree.<!--TODO: proof?-->
+
+<p>Indeed, if <code>$r \ge \frac{2^n}{2}$</code>, then the left subtree is perfect,
+if <code>$r \le \frac{2^n}{2}$</code>, the right subtree is perfect. This knowledge
+allows us to create a recursive algorithm for generating complete trees with
+-->
+<!--
+    s63::{:[0=x;[];{(:x,:[y&lt;2*x;[];,.f(x*2;y)]),:[y=2*x;,[]:|y&lt;1+2*x;[];,.f(1+2*x;y)]}:(1;x)]}
+    s63::{:[x=0;[]:|x=1;(:x,,[]),,[];(:x,,.f((2^1+_ln(x%2)%ln(2))-1)),,.f(x-(2^1+_ln(x%2)%ln(2)))]}
+    s63::{[v];v:::[x&lt;2;0;2^_ln(x%2)%ln(2)];.p(v);:[~x;[]:|x=1;(:x,,[]),,[];(:x,,.f((v&amp;x-v-1)+v-1)),,.f((0|x-2*v-1)+v-1)]}
+--></p>
+
+<p>Since every node has a specific address, one can write a simple recursive
+function that passes the number of nodes and the address of the current
+node, and if the address of the current node is greater than the total
+number of nodes, return the empty list (otherwise generate a node and
+recurse with children with addresses <code>2*y</code> and <code>1+2*y</code>. To actually glue
+the trees together, one can use <code>d1</code> from earlier to save some bytes.</p>
+
+<pre><code>s63::{{:[y&gt;x;[];d1(.f(x;2*y);.f(x;1+2*y))]}:(x;1)}
+completebintree::s63
+</code></pre>
+
+<p>Tests:</p>
+
+<pre><code>    completebintree(0)
+[]
+    completebintree(1)
+[:x [] []]
+    completebintree(2)
+[:x [:x [] []] []]
+    completebintree(3)
+[:x [:x [] []] [:x [] []]]
+    completebintree(7)
+[:x [:x [:x [] []] [:x [] []]] [:x [:x [] []] [:x [] []]]]
+</code></pre>
+
+<p>This one is also <em>actually safe</em> with negative numbers!</p>
+
+<pre><code>    completebintree(-3)
+[]
 </code></pre>
 
 <!--
