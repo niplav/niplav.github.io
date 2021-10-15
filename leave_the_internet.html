@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-03-02, modified: 2021-05-22, language: english, status: notes, importance: 6, confidence: possible</em></p>
+<p><em>author: niplav, created: 2021-03-02, modified: 2021-10-14, language: english, status: notes, importance: 6, confidence: possible</em></p>
 
 <blockquote>
   <p><strong>.</strong></p>
@@ -87,33 +87,14 @@ https://www.lesswrong.com/posts/qKvn7rxP2mzJbKfcA/persuasion-tools-ai-takeover-w
 https://www.lesswrong.com/posts/YicoiQurNBxSp7a65/is-clickbait-destroying-our-general-intelligence
 -->
 
+<blockquote>
+  <p>New religions and mystery cults explode across the planet; much of
+the Net is unusable, flattened by successive semiotic jihads.</p>
+</blockquote>
+
+<p><em>– <a href="https://en.wikipedia.org/wiki/Charles_Stross">Charles Stross</a>, <a href="https://en.wikipedia.org/wiki/Accelerando">“Accelerando”</a> p. 169, 2005</em></p>
+
 <h2>The Basic Argument</h2>
-
-<h3>Defining “Addictive Process”</h3>
-
-<h4>Modified-Self Approval</h4>
-
-<h5>Transparency</h5>
-
-<h5>Weak Amplification</h5>
-
-<h5>Approval Chaining</h5>
-
-<h5>Why This Definition is Still Unsatisfactory</h5>
-
-<h4>Distinguishing Information Hazards from Attention Hazards</h4>
-
-<h4>Present-Time Examples</h4>
-
-<h5>Food Optimizer</h5>
-
-<h5>Sexuality Optimizer</h5>
-
-<h5>Attention Optimizer</h5>
-
-<h5>Status Optimizer</h5>
-
-<h4>Possible Future Examples</h4>
 
 <h3>Two Different Growth Modes</h3>
 
@@ -135,76 +116,31 @@ https://www.lesswrong.com/posts/YicoiQurNBxSp7a65/is-clickbait-destroying-our-ge
 <li>Remaining episodes of the <a href="./podcasts_list.html">podcasts I listen to</a></li>
 <li>All music I want to listen to</li>
 <li>A large collection (several thousands) of books and papers I want to read</li>
-<li>Websites:
-<ul>
-<li>Rationality
-<ul>
-<li><a href="https://everythingstudies.com/">Everything Studies</a></li>
-<li><a href="http://www.overcomingbias.com/">Overcoming Bias</a></li>
-<li><a href="http://paulgraham.com/articles.html">Paul Graham Essays</a></li>
-<li><a href="http://slatestarcodex.com/">Slate Star Codex</a></li>
-</ul></li>
-<li>Programming
-<ul>
-<li><a href="https://blog.codinghorror.com/">Coding Horror</a></li>
-<li><a href="https://drewdevault.com/">Drew DeVault's Blog</a></li>
-<li><a href="https://www.joelonsoftware.com/">Joel On Software</a></li>
-<li><a href="http://nullprogram.com/">Null Program</a></li>
-</ul></li>
-<li>Mathematics
-<ul>
-<li><a href="https://blog.cryptographyengineering.com/">A Few Thoughts on Cryptographic Engineering</a></li>
-<li><a href="http://bit-player.org/">Bit-Player</a></li>
-<li><a href="https://jeremykun.com/">Math ∩ Programming</a></li>
-<li><a href="https://www.scottaaronson.com/blog">Shtetl-Optimized</a></li>
-</ul></li>
-<li>Philosophy
-<ul>
-<li><a href="https://entirelyuseless.com/">Entirely Useless</a></li>
-<li><a href="http://metamoderna.org/?lang=en">Metamoderna</a></li>
-<li><a href="https://plato.stanford.edu/">Stanford Encyclopedia of Philosophy</a></li>
-</ul></li>
-<li>Politics
-<ul>
-<li><a href="https://therealmovement.wordpress.com/">The Real Movement</a></li>
-<li><a href="https://unqualified-reservations.org/">Unqualified Reservations</a></li>
-</ul></li>
-<li>Effective Altruism
-<ul>
-<li><a href="https://forum.effectivealtruism.org/allposts">Effective Altruism Forum</a></li>
-<li><a href="https://reducing-suffering.org">Reducing Suffering</a></li>
-</ul></li>
-<li>General Knowledge
-<ul>
-<li><a href="https://www.gwern.net/">Gwern.net</a></li>
-<li><a href="https://en.wikipedia.org/">Wikipedia</a> using <a href="https://kiwix.org">Kiwix</a></li>
-</ul></li>
-<li>Fiction
-<ul>
-<li><a href="http://www.scp-wiki.net/">SCP Wiki</a></li>
-<li><a href="https://zerohplovecraft.wordpress.com/">Zero HP Lovecraft</a></li>
-</ul></li>
-<li>Misc
-<ul>
-<li><a href="https://hotelconcierge.tumblr.com/">Hotel Concierge</a></li>
-<li><a href="https://thelastpsychiatrist.com/">The Last Psychiatrist</a></li>
-<li><a href="https://samzdat.com/">sam[]zdat</a></li>
-</ul></li>
-</ul></li>
+<li><a href="./sites.html">Websites I like</a></li>
 </ul>
 
 <p>To download a website, I usually used the command wget<!--TODO: link-->:</p>
 
-<pre><code>wget -c -R '*replytocom*,*like_comment*,*p=*,*test-preview=*,*test-expand=*,*url=*,*share=*,*commentId=*,*sortedBy=*,*after=*,*before=*,*limit=*,*filter=*' --mirror -p --html-extension --convert-links -e robots=off -P . www.example.com
+<pre><code>wget --page-requisites -e robots=off -p -k -c -r --mirror -p --html-extension -R '*replytocom*,*like_comment*,*p=*,*test-preview=*,*test-expand=*,*url=*,*share=*,*commentId=*,*sortedBy=*,*after=*,*before=*,*limit=*,*filter=*,*showPostCount=*,*useTagName=*,*///*,*social-media/*,*updated-max=*,*max-results=*,*reverse-paginate=*,*showComment=*,*filters_and=*,*following%5C*,*https:%5C*,*fsnapshot*' -P . www.example.com
 </code></pre>
 
 <p>This excludes downloading the same page for every comment with wordpress
 sites, and different versions of the allPosts pages for the EA forum and
 LessWrong. Unfortunately, both the EA forum and LessWrong are not very
 amenable to being downloaded this way, and I will have to experiment
-with other approaches.</p>
+with other approaches. It also sadly can't distinguish between resources
+(like images) hosted on other sites and other websites, and so those are
+missing (if <code>-H</code> is turned on, it begins downloading the entire internet).</p>
+
+<p>To download a webpage, I use this command:</p>
+
+<pre><code>wget -H -e robots=off -p -k www.example.com/resource.html
+</code></pre>
 
 <h3>Have a Designated “Internet Location” Which is Not At Home</h3>
+
+<p>Optionally: Separate work with internet, work without internet, fun with
+internet, fun without internet spaces</p>
 
 <h2>Possible Counterarguments</h2>
 
@@ -227,4 +163,30 @@ attention/ability to work, this prevents more capable AI systems from
 being built, but also destroys any options for progress.</p>
 
 <p>This might end up in an equilibrium.</p>
+
+<h2>Appendix A: Defining “Addictive Process”</h2>
+
+<h3>Modified-Self Approval</h3>
+
+<h4>Transparency</h4>
+
+<h4>Weak Amplification</h4>
+
+<h4>Approval Chaining</h4>
+
+<h4>Why This Definition is Still Unsatisfactory</h4>
+
+<h3>Distinguishing Information Hazards from Attention Hazards</h3>
+
+<h3>Present-Time Examples</h3>
+
+<h4>Food Optimizer</h4>
+
+<h4>Sexuality Optimizer</h4>
+
+<h4>Attention Optimizer</h4>
+
+<h4>Status Optimizer</h4>
+
+<h3>Possible Future Examples</h3>
 </html>
