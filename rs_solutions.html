@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-10-14, modified: 2021-10-14, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-10-14, modified: 2021-10-18, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>.</strong></p>
@@ -69,5 +69,47 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h1>Solutions to “Reactive Systems”</h1>
 
-<h2>Chapter 1</h2>
+<h2>Chapter 2</h2>
+
+<h3>2.1</h3>
+
+<blockquote>
+  <p>Give a CCS process which describes a clock that ticks at least once
+and may stop ticking after each clock tick.</p>
+</blockquote>
+
+<p><code>$\text{Clock} \overset{def}{=} (\text{tick}.\mathbf{0}+\text{tick}.\text{Clock})$</code></p>
+
+<h3>2.2</h3>
+
+<blockquote>
+  <p>Give a CCS process which describes a coffee machine that may behave
+like that given by (2.1) but may also steal the money it receives and
+fail at any time.</p>
+</blockquote>
+
+<p>This exercise is not quite well-defined. Should it sometimes take the
+money and offer nothing in return, but continue functioning, or should
+it actually fail sometimes and break down? The former case would be
+described by</p>
+
+<p><code>$\text{CTM} \overset{def}{=} \text{coin}.(\text{CTM}+\overline{\text{coffee}}.\text{CTM}+\overline{\text{tea}}.\text{CTM})$</code>,</p>
+
+<p>the latter by</p>
+
+<p><code>$\text{CTM} \overset{def}{=} \text{coin}.(\text{CTM}+\mathbf{0}+\overline{\text{coffee}}.\text{CTM}+\overline{\text{tea}}.\text{CTM})$</code></p>
+
+<p>Hey look! <code>$+$</code> is commutatitve here!</p>
+
+<h3>2.3</h3>
+
+<blockquote>
+  <p>A finite process graph <code>$T$</code> is a quadruple <code>$(\mathcal{Q}, A, \delta, q_0)$</code>, where <br />
+• <code>$\mathcal{Q}$</code> is a finite set of states, <br />
+• <code>$A$</code> is a finite set of label, <br />
+• <code>$q_0 \in \mathcal{Q}$</code> is the start state, and <br />
+• <code>$\delta: \mathcal{Q} \times A \rightarrow 2^{\mathcal{Q}}$</code> is the transition function.  </p>
+
+<p>Using the operators introduced so far, give a CCS process that describes <code>$T$</code>.</p>
+</blockquote>
 </html>
