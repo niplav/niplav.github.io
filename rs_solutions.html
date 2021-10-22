@@ -99,17 +99,27 @@ described by</p>
 
 <p><code>$\text{CTM} \overset{def}{=} \text{coin}.(\text{CTM}+\mathbf{0}+\overline{\text{coffee}}.\text{CTM}+\overline{\text{tea}}.\text{CTM})$</code></p>
 
-<p>Hey look! <code>$+$</code> is commutatitve here!</p>
+<p>Hey look! <code>$+$</code> is commutative here!</p>
 
 <h3>2.3</h3>
 
 <blockquote>
   <p>A finite process graph <code>$T$</code> is a quadruple <code>$(\mathcal{Q}, A, \delta, q_0)$</code>, where <br />
 • <code>$\mathcal{Q}$</code> is a finite set of states, <br />
-• <code>$A$</code> is a finite set of label, <br />
+• <code>$A$</code> is a finite set of labels, <br />
 • <code>$q_0 \in \mathcal{Q}$</code> is the start state, and <br />
 • <code>$\delta: \mathcal{Q} \times A \rightarrow 2^{\mathcal{Q}}$</code> is the transition function.  </p>
 
 <p>Using the operators introduced so far, give a CCS process that describes <code>$T$</code>.</p>
 </blockquote>
+
+<div>
+    $$ T=q_0.\underset{a \in A}{\mathbf{+}} (a. \underset{q_1 \in δ(q_0, a)}{\mathbf{+}} (q_1.\underset{a \in A}{\mathbf{+}} (a. \underset{q_2 \in δ(q_1)}{\mathbf{+}} (q_2. \cdots))))$$
+</div>
+
+<p>where <code>$\mathbf{+}$</code> is <em>supposed</em> to be a big iterative operator like
+<code>$\sum$</code>, if only I could get MathJax to accept <code>\scalerel</code>. The equation
+is nested infinitely deep at most places that result in a loop that
+doesn't include <code>$q_0$</code>, and in some places end with <code>$.T$</code>, if <code>$q_0
+\in δ(q_n,a)$</code>.</p>
 </html>

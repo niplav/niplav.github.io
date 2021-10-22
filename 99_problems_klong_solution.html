@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-02-10, modified: 2021-10-11, language: english, status: in progress, importance: 3, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2019-02-10, modified: 2021-10-21, language: english, status: in progress, importance: 3, confidence: highly likely</em></p>
 
 <blockquote>
   <p><strong>Solutions to the <a href="./99_klong_problems.html" title="99 Klong
@@ -2862,20 +2862,20 @@ Generally, the number of nodes in a complete binary tree can be described
 using the form `$2^n-1+r$`: a perfect binary tree with `$2^n-1$` nodes,
 and a set of residual nodes added on the last layer, where `$r<2^n-1$`
 (if `$r=2^n-1$`, then the last layer is full and no other layer has yet
-started).<!--TODO: image would perhaps be helpful--> A complete binary
+started).TODO: image would perhaps be helpful-> A complete binary
 tree also has another interesting property: its left and right subtree
 are both complete binary trees, with one even being a perfect binary
-tree.<!--TODO: proof?-->
+tree.TODO: proof?->
 
-<p>Indeed, if <code>$r \ge \frac{2^n}{2}$</code>, then the left subtree is perfect,
-if <code>$r \le \frac{2^n}{2}$</code>, the right subtree is perfect. This knowledge
+Indeed, if `$r \ge \frac{2^n}{2}$`, then the left subtree is perfect,
+if `$r \le \frac{2^n}{2}$`, the right subtree is perfect. This knowledge
 allows us to create a recursive algorithm for generating complete trees with
 -->
 <!--
-    s63::{:[0=x;[];{(:x,:[y&lt;2*x;[];,.f(x*2;y)]),:[y=2*x;,[]:|y&lt;1+2*x;[];,.f(1+2*x;y)]}:(1;x)]}
+    s63::{:[0=x;[];{(:x,:[y<2*x;[];,.f(x*2;y)]),:[y=2*x;,[]:|y<1+2*x;[];,.f(1+2*x;y)]}:(1;x)]}
     s63::{:[x=0;[]:|x=1;(:x,,[]),,[];(:x,,.f((2^1+_ln(x%2)%ln(2))-1)),,.f(x-(2^1+_ln(x%2)%ln(2)))]}
-    s63::{[v];v:::[x&lt;2;0;2^_ln(x%2)%ln(2)];.p(v);:[~x;[]:|x=1;(:x,,[]),,[];(:x,,.f((v&amp;x-v-1)+v-1)),,.f((0|x-2*v-1)+v-1)]}
---></p>
+    s63::{[v];v:::[x<2;0;2^_ln(x%2)%ln(2)];.p(v);:[~x;[]:|x=1;(:x,,[]),,[];(:x,,.f((v&x-v-1)+v-1)),,.f((0|x-2*v-1)+v-1)]}
+-->
 
 <p>Since every node has a specific address, one can write a simple recursive
 function that passes the number of nodes and the address of the current
