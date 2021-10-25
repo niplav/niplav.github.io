@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-10-14, modified: 2021-10-18, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-10-14, modified: 2021-10-24, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>.</strong></p>
@@ -122,4 +122,39 @@ described by</p>
 is nested infinitely deep at most places that result in a loop that
 doesn't include <code>$q_0$</code>, and in some places end with <code>$.T$</code>, if <code>$q_0
 \in δ(q_n,a)$</code>.</p>
+
+<h3>2.4</h3>
+
+<blockquote>
+  <p>Consider the following LTS:</p>
+</blockquote>
+
+<p><img src="./img/rs_solutions/diagram_2_4.png" alt="A cyclic diagram for exercise 2.4, described further below." title="A cyclic diagram for exercise 2.4, described further below." /></p>
+
+<blockquote>
+  <p>Define the LTS as a triple
+<code>$(\text{Proc}, \text{Act}, \{\overset{α}{\rightarrow}|α \in \text{Act}\})$</code>.
+Use sketches to illustrate the reflexive closure, symmetric closure and
+transitive closure of the binary relation <code>$\overset{α}{\rightarrow}$</code>?</p>
+</blockquote>
+
+<p>The process, in triple form, is
+<code>$(\{s, s_1, s_2, s_3\}, \{a\}, \overset{a}{\rightarrow}=\{(s, s_1), (s_1, s_2), (s_2, s_3), (s_3, s)\})$</code>.</p>
+
+<p>I'm not sure about the sketch part, but I can try to describe the
+different closures.</p>
+
+<p>The reflexive closure of <code>$\overset{a}{\rightarrow}$</code> would additionally
+contain the elements
+<code>$\{(s,s), (s_1, s_1), (s_2, s_2), (s_3, s_3)\}$</code>.</p>
+
+<p>The symmetric closure is similarly easy to generate: it additionally
+contains the elements <code>$\{(s_1, s), (s_2, s_1), (s_3, s_2), (s, s_3)\}$</code>.</p>
+
+<p>The transitive closure additionally contains the elements from the set
+<code>$\{(s, s_2), (s, s_3), (s_1, s_3), (s_1, s), (s_2, s), (s_2, s_1), (s_3, s_1), (s_3, s_2)\}$</code>.</p>
+
+<h3>2.5</h3>
+
+<p>The set of reachable states includes all states: <code>$p, p_1$</code> and <code>$p_2$</code>.</p>
 </html>
