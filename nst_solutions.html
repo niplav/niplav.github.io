@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2021-10-12, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2021-11-01, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -988,4 +988,46 @@ would be the third Peano axiom).</p>
 <blockquote>
   <p>Prove that <code>$ω$</code> is transitive.</p>
 </blockquote>
+
+<p>I don't understand what is being asked from me here. <code>$ω$</code> is not a
+relation since it's not a set of ordered sets with two elements (tuples),
+so this question is underspecified.</p>
+
+<h3>Exercise 4</h3>
+
+<blockquote>
+  <p>Prove that if <code>$E$</code> is a non-empty subset of some natural number, then
+there exists an element <code>$k$</code> in <code>$E$</code> such that <code>$k \in $</code> whenever
+<code>$m$</code> is an element of <code>$E$</code> distinct from <code>$k$</code>.</p>
+</blockquote>
+
+<p>Trying to decode this first into first-order logic and then natural
+language again, I get that if <code>$E \subset N \in ℕ</code>$, then
+<code>$∃k\in E: ∀ m \not = k \in E: k \in m$</code>. Decoding into natural
+language, this roughly means that for every subset of the natural numbers,
+that subset has a minimum.</p>
+
+<h4>Lemma: Any Successor of <code>$n$</code> Contains <code>$n$</code></h4>
+
+<p>Statement: <code>$n \in n^{+_k}$</code> for all <code>$k$</code>.</p>
+
+<p>Basis: For <code>$k=1: n \in \{n\} \subset n^+$</code>.</p>
+
+<p>Assume this holds for <code>$k-1$</code>.</p>
+
+<p>Step <code>$n^{+_k}=n^{+_{k-1}} \cup \{n^{+_{k-1}}\}$</code>. <code>$n \in \{n^{+_{k-1}}\}$</code>,
+so <code>$n \in n^{+_k}$</code>.</p>
+
+<hr />
+
+<p>Assume such a <code>$k$</code> did not exist. Then for every <code>$k_i$</code>, it would hold
+that there is some <code>$m_i \not= k$</code> so that <code>$k_i \not \in m_i$</code>.</p>
+
+<p>But thene it must hold that <code>$m_i \in k_i$</code> (it can't be that <code>$m_i \not \in k_i$</code>
+and <code>$k_i \not \in m_i$</code> for natural numbers). If that isn't
+the case (so <code>$m_i \not \in k_i$</code>), then there must exists some <code>$r_i$</code>
+that <code>$m_i \not \in r_i$</code>. But since <code>$E$</code> contains only finitely many
+elements, this leads to a cycle (which is not possible, since that would
+mean that <code>$k_i \not \in k_j$</code> and <code>$k_j \not \in k_i$</code>). So such a
+<code>$k$</code> must exist.</p>
 </html>

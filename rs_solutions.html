@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-10-14, modified: 2021-10-24, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-10-14, modified: 2021-11-01, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>.</strong></p>
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
 and may stop ticking after each clock tick.</p>
 </blockquote>
 
-<p><code>$\text{Clock} \overset{def}{=} (\text{tick}.\mathbf{0}+\text{tick}.\text{Clock})$</code></p>
+<p><code>$\text{Clock} \overset{\text{def}}{=} (\text{tick}.\mathbf{0}+\text{tick}.\text{Clock})$</code></p>
 
 <h3>2.2</h3>
 
@@ -93,11 +93,11 @@ money and offer nothing in return, but continue functioning, or should
 it actually fail sometimes and break down? The former case would be
 described by</p>
 
-<p><code>$\text{CTM} \overset{def}{=} \text{coin}.(\text{CTM}+\overline{\text{coffee}}.\text{CTM}+\overline{\text{tea}}.\text{CTM})$</code>,</p>
+<p><code>$\text{CTM} \overset{\text{def}}{=} \text{coin}.(\text{CTM}+\overline{\text{coffee}}.\text{CTM}+\overline{\text{tea}}.\text{CTM})$</code>,</p>
 
 <p>the latter by</p>
 
-<p><code>$\text{CTM} \overset{def}{=} \text{coin}.(\text{CTM}+\mathbf{0}+\overline{\text{coffee}}.\text{CTM}+\overline{\text{tea}}.\text{CTM})$</code></p>
+<p><code>$\text{CTM} \overset{\text{def}}{=} \text{coin}.(\text{CTM}+\mathbf{0}+\overline{\text{coffee}}.\text{CTM}+\overline{\text{tea}}.\text{CTM})$</code></p>
 
 <p>Hey look! <code>$+$</code> is commutative here!</p>
 
@@ -114,7 +114,7 @@ described by</p>
 </blockquote>
 
 <div>
-    $$ T=q_0.\underset{a \in A}{\mathbf{+}} (a. \underset{q_1 \in δ(q_0, a)}{\mathbf{+}} (q_1.\underset{a \in A}{\mathbf{+}} (a. \underset{q_2 \in δ(q_1)}{\mathbf{+}} (q_2. \cdots))))$$
+    $$ T=q_0.\underset{a_1 \in A}{\mathbf{+}} (a_1. \underset{q_1 \in δ(q_0, a_1)}{\mathbf{+}} (q_1.\underset{a_2 \in A}{\mathbf{+}} (a_2. \underset{q_2 \in δ(q_1, a_2)}{\mathbf{+}} (q_2. \cdots))))$$
 </div>
 
 <p>where <code>$\mathbf{+}$</code> is <em>supposed</em> to be a big iterative operator like
@@ -157,4 +157,36 @@ contains the elements <code>$\{(s_1, s), (s_2, s_1), (s_3, s_2), (s, s_3)\}$</co
 <h3>2.5</h3>
 
 <p>The set of reachable states includes all states: <code>$p, p_1$</code> and <code>$p_2$</code>.</p>
+
+<h3>2.6</h3>
+
+<ul>
+<li><code>$a.b.A+B$</code> ✓</li>
+<li><code>$(a.\mathbf{0}.\overline{a}.A)\backslash \{a,b\}$</code> ✓</li>
+<li><code>$(a.\mathbf{0}|\overline{a}.A)\backslash \{a,τ\}$</code> ✗: <code>$τ$</code> can't be excluded</li>
+<li><code>$a.B+[a/b]$</code> ✗: a renaming is not a process</li>
+<li><code>$τ.τ.B+\mathbf{0}$</code> ✓</li>
+<li><code>$(a.B+b.B)[a/b, b/a]$</code> ✓</li>
+<li><code>$(a.B+τ.B)[a/τ, b/a]$</code> ✓</li>
+<li><code>$(a.b.A+\overline{a}.\mathbf{0})|B$</code> ✓</li>
+<li><code>$(a.b.A+\overline{a}.\mathbf{0}).B$</code> ✗: the object in the parentheses is not a label, but a process</li>
+<li><code>$(a.b.A+\overline{a}.\mathbf{0})+B$</code> ✓</li>
+<li><code>$(\mathbf{0}|\mathbf{0})+\mathbf{0}$</code> ✓</li>
+</ul>
+
+<h3>2.7</h3>
+
+<blockquote>
+  <p>Use the rules of SOS semantics for CCS to derive the LTS for the
+process <code>$\text{SmUni}$</code> defined by (2.4). (Use the definition of CS in
+Table 2.1.)</p>
+</blockquote>
+
+<p>As a refresher:</p>
+
+<ul>
+<li><code>$\text{SmUni}\overset{\text{def}}{=}(\text{CM}|\text{CS})\backslash \text{coin} \backslash \text{coffee}$</code></li>
+<li><code>$\text{CM}\overset{\text{def}}{=}\text{coin}.\overline{\text{coffee}}.\text{CM}$</code></li>
+<li><code>$\text{CS}\overset{\text{def}}{=}\overline{\text{pub}}.\overline{\text{coin}}.\text{coffee}.\text{CS}$</code></li>
+</ul>
 </html>
