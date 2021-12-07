@@ -61,11 +61,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-10-14, modified: 2021-11-18, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-10-14, modified: 2021-11-25, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>This page contains some solutions to exercises from the textbook
-“Reactive Systems” by Ingólfsdóttir et al.</strong></p>
+“Reactive Systems” by Ingólfsdóttir et al. 2007.</strong></p>
 </blockquote>
 
 <h1>Solutions to “Reactive Systems”</h1>
@@ -175,23 +175,21 @@ contains the elements <code>$\{(s_1, s), (s_2, s_1), (s_3, s_2), (s, s_3)\}$</co
 <li><code>$(\mathbf{0}|\mathbf{0})+\mathbf{0}$</code> ✓</li>
 </ul>
 
-<h3>2.7</h3>
+<!--
+### 2.7
 
-<blockquote>
-  <p>Use the rules of SOS semantics for CCS to derive the LTS for the
-process <code>$\text{SmUni}$</code> defined by (2.4). (Use the definition of CS in
-Table 2.1.)</p>
-</blockquote>
+> Use the rules of SOS semantics for CCS to derive the LTS for the
+process `$\text{SmUni}$` defined by (2.4). (Use the definition of CS in
+Table 2.1.)
 
-<p>As a refresher:</p>
+As a refresher:
 
-<ul>
-<li><code>$\text{SmUni}\overset{\text{def}}{=}(\text{CM}|\text{CS})\backslash \text{coin} \backslash \text{coffee}$</code></li>
-<li><code>$\text{CM}\overset{\text{def}}{=}\text{coin}.\overline{\text{coffee}}.\text{CM}$</code></li>
-<li><code>$\text{CS}\overset{\text{def}}{=}\overline{\text{pub}}.\overline{\text{coin}}.\text{coffee}.\text{CS}$</code></li>
-</ul>
+* `$\text{SmUni}\overset{\text{def}}{=}(\text{CM}|\text{CS})\backslash \text{coin} \backslash \text{coffee}$`
+* `$\text{CM}\overset{\text{def}}{=}\text{coin}.\overline{\text{coffee}}.\text{CM}$`
+* `$\text{CS}\overset{\text{def}}{=}\overline{\text{pub}}.\overline{\text{coin}}.\text{coffee}.\text{CS}$`
 
-<!--TODO-->
+TODO
+-->
 
 <h2>Chapter 3</h2>
 
@@ -202,7 +200,7 @@ relation is.  The standard <code>$\le$</code> relation is not an equivalence rel
 (but it is a preorder, since it is an order). However, the parity relation
 <code>$M_2$</code> is.</p>
 
-<h3>Unnumbered Exercise</h3>
+<h3>Stray Exercise 1</h3>
 
 <blockquote>
   <p>To answer these questions, consider the coffee and tea machine CTM
@@ -326,4 +324,171 @@ strongly bisimilar via <code>$β$</code>, then they are also string bisimilar vi
 <code>$σ=β$</code>.</p>
 
 <h3>3.12</h3>
+
+<!--TODO-->
+
+<h3>3.37</h3>
+
+<p><code>$s \not \sim t$</code>. Winning strategy for the attacker:</p>
+
+<ul>
+<li><code>$t \overset{a}{\rightarrow} t_1$</code>, defender answers with <code>$s \overset{a}{\rightarrow} s_1$</code></li>
+<li><code>$t_1 \overset{b}{\rightarrow} t_2$</code>, defender answers with <code>$s_1 \overset{b}{\rightarrow} s_2$</code></li>
+<li><code>$s_2 \overset{b}{\rightarrow} s_2$</code>, defender can't transition anywhere using <code>$b$</code></li>
+</ul>
+
+<p><code>$s \sim u$</code>. Winning strategy for the defender:</p>
+
+<ul>
+<li>In <code>$(s, u)$</code>
+<ul>
+<li>If the attacker plays <code>$\overset{a}{\rightarrow} s_1$</code>, play <code>$\overset{a}{\rightarrow} u_1$</code></li>
+<li>If the attacker plays <code>$\overset{a}{\rightarrow} u_1$</code>, play <code>$\overset{a}{\rightarrow} s_1$</code></li>
+</ul></li>
+<li>In <code>$(s_1, u_1)$</code>
+<ul>
+<li>If the attacker plays <code>$\overset{b}{\rightarrow} s_2$</code>, play <code>$\overset{b}{\rightarrow} u_3$</code></li>
+<li>If the attacker plays <code>$\overset{b}{\rightarrow} u_3$</code>, play <code>$\overset{b}{\rightarrow} s_2$</code></li>
+</ul></li>
+<li>In <code>$(s_2, u_3)$</code>
+<ul>
+<li>If the attacker plays <code>$\overset{b}{\rightarrow} s_2$</code>, play <code>$\overset{b}{\rightarrow} u_2$</code></li>
+<li>If the attacker plays <code>$\overset{b}{\rightarrow} u_2$</code>, play <code>$\overset{b}{\rightarrow} s_2$</code></li>
+<li>If the attacker plays <code>$\overset{a}{\rightarrow} s$</code>, play <code>$\overset{a}{\rightarrow} u$</code></li>
+<li>If the attacker plays <code>$\overset{a}{\rightarrow} u$</code>, play <code>$\overset{a}{\rightarrow} s$</code></li>
+</ul></li>
+<li>In <code>$(s_2, u_2)$</code>
+<ul>
+<li>If the attacker plays <code>$\overset{b}{\rightarrow} s_2$</code>, play <code>$\overset{b}{\rightarrow} u_2$</code></li>
+<li>If the attacker plays <code>$\overset{b}{\rightarrow} u_2$</code>, play <code>$\overset{b}{\rightarrow} s_2$</code></li>
+<li>If the attacker plays <code>$\overset{a}{\rightarrow} s$</code>, play <code>$\overset{a}{\rightarrow} u$</code></li>
+<li>If the attacker plays <code>$\overset{a}{\rightarrow} u$</code>, play <code>$\overset{a}{\rightarrow} s$</code></li>
+</ul></li>
+</ul>
+
+<p>Strong bisimulation relating the pair of processes:
+<code>$\mathcal{R}=\{(u,s), (u_1, s_1), (u_3, s_2), (u_2, s_2)\}$</code>.</p>
+
+<p><code>$s\not \sim v$</code>. Winning strategy for the attacker:</p>
+
+<ul>
+<li><code>$s \overset{a}{\rightarrow} s_1$</code>, defender answers with <code>$v \overset{a}{\rightarrow} v_1$</code></li>
+<li><code>$s_1 \overset{b}{\rightarrow} s_2$</code>
+<ul>
+<li>defender answers with <code>$v_1 \overset{b}{\rightarrow} v_2$</code>
+<ul>
+<li><code>$s_2 \overset{b}{\rightarrow} s_2$</code></li>
+<li>defender can't transition using <code>$b$</code> from <code>$v_2$</code></li>
+</ul></li>
+<li>defender answers with <code>$v_1 \overset{b}{\rightarrow} v_3$</code>
+<ul>
+<li><code>$s_2 \overset{a}{\rightarrow} s$</code></li>
+<li>defender can't transition using <code>$a$</code> from <code>$v_3$</code></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<!--
+### 3.41
+TODO
+-->
+
+<h3>Stray Exercise 2</h3>
+
+<blockquote>
+  <p>For example, you should be able to convince yourself
+that the LTS associated with the CCS expression
+<code>$a_1.\mathbf{0}|a_2.\mathbf{0}|\dots|a_n.\mathbf{0}$</code> has <code>$2^n$</code> states.</p>
+</blockquote>
+
+<p>Actually, I don't have a good idea of how to put this into LTS form?
+I would have to invent a starting state <code>$s_0$</code>, or maybe a set of
+<code>$n$</code> starting states, or perhaps <code>$2^n$</code> starting states? Then those
+would transition to <code>$\mathbf{0}$</code> via any subset of
+<code>$\{a_1, a_2, \dots, a_n\}$</code>.</p>
+
+<p>I should clarify how this is done.</p>
+
+<h2>Chapter 4</h2>
+
+<h3>4.1</h3>
+
+<p>Show that the set of strings <code>$A^*$</code> over an alphabet <code>$A$</code> with prefix
+ordering <code>$\le$</code> is a poset (prefix ordering is for all <code>$s, t \in A^*: s \le t$</code>
+iff there exists a <code>$w \in A^*$</code> so that <code>$sw=t$</code>).</p>
+
+<ul>
+<li>Reflexive: Yes, <code>$s$</code> is a prefix for <code>$s$</code> with <code>$w=ε$</code>.</li>
+<li>Antisymmetric: Yes, if <code>$sw=t$</code> and <code>$tw=s$</code>, then <code>$sw=tw$</code>, so <code>$s=t$</code> and <code>$w=ε$</code>.</li>
+<li>Transitive: Yes, if <code>$r$</code> is a prefix for <code>$s$</code> with <code>$v$</code> and <code>$s$</code> is a prefix for <code>$t$</code> with <code>$w$</code>, then <code>$r$</code> is a prefix for <code>$t$</code> with <code>$vw$</code>.</li>
+</ul>
+
+<!--TODO: finish with other examples?-->
+
+<h3>4.2</h3>
+
+<blockquote>
+  <p>Is the poset <code>$(2^S, \subseteq)$</code> totally ordered?</p>
+</blockquote>
+
+<p>No: Let <code>$S=\{a,b,c\}$</code>, then it is the case that
+<code>$\{a,b\} \not \subseteq \{b,c\}$</code> and <code>$\{b,c\} \not \subseteq \{a,b\}$</code>.</p>
+
+<h3>4.3</h3>
+
+<blockquote>
+  <p>Prove that the lub and the glb of <code>$X$</code> are unique, if they exist.</p>
+</blockquote>
+
+<p><code>$d$</code> must be an upper bound for <code>$X$</code>, and <code>$d \sqsubseteq d'$</code> for every
+upper bound <code>$d' \in D$</code> of <code>$X$</code>. Per antisymmetry of <code>$\sqsubseteq$</code>,
+there can be no <code>$d'$</code> so that <code>$d' \sqsubseteq d$</code> and <code>$d \sqsubseteq
+d'$</code> with <code>$d' \not = d$</code>. And for <code>$d$</code> to be an upper bound, then it
+must be comparable to every other upper bound of <code>$X$</code>, so there is no
+uncomparable least other upper bound <code>$d'$</code>.</p>
+
+<p>The same argument applies symmetrically to the greatest lower bound,
+and is not worth elaborating.</p>
+
+<!--
+### Stray Exercise 3
+
+p. 99, prove snd part of Tarski's fixed point theorem.
+
+TODO
+-->
+
+<h3>4.9</h3>
+
+<p>Least fixed point:</p>
+
+<p>Start with <code>$d=\emptyset$</code>. Then <code>$f^0(d)=\{2\}$</code>, and <code>$f^1(d)=\{2\}$</code>
+as well. So <code>$\{2\}$</code> is the least fixed point.</p>
+
+<p>Largest fixed point:</p>
+
+<p>Start with <code>$d=\{0,1,2\}$</code>. Then <code>$f^0(d)=\{1,2\}$</code>, and
+<code>$f^1(d)=\{1,2\}$</code>. So <code>$\{1,2\}$</code> is the largest fixed point.</p>
+
+<h3>Stray Exercise 4</h3>
+
+<blockquote>
+  <p>We note that if <code>$\mathcal{R}, \mathcal{S} \in 2^{(\text{Proc} \times \text{Proc})}$</code>
+and <code>$\mathcal{R} \subseteq \mathcal{S}$</code> then
+<code>$\mathcal{F}(\mathcal{R}) \subseteq \mathcal{F}(\mathcal{S})$</code>,
+that is, the function <code>$\mathcal{F}$</code> is monotonic over
+<code>$(2^{(\text{Proc} \times \text{Proc})}, \subseteq)$</code>.</p>
+</blockquote>
+
+<p>Assume that <code>$\mathcal{R} \subseteq \mathcal{S}$</code>, but
+<code>$\mathcal{F}(\mathcal{R}) \not \subseteq \mathcal{F}(\mathcal{S})$</code>
+(that is, <code>$\mathcal{F}(\mathcal{S}) \subset \mathcal{F}(\mathcal{R})$</code>).</p>
+
+<p>Then there must be a <code>$(p,q) \in \mathcal{F}(\mathcal{R})$</code>
+(<code>$p, q \in \text{Proc}$</code>) that is not in <code>$\mathcal{F}(\mathcal{S})$</code>.</p>
+
+<p>Then there are <code>$(p', q') \in \mathcal{R}$</code> so that <code>$p, q$</code> can transition
+to <code>$p', q'$</code> via some <code>$α$</code>, and <code>$(p', q') \not \in \mathcal{S}$</code>. But
+that can't be the case, since we assumed that <code>$\mathcal{R} \subseteq \mathcal{S}$</code>.
+This is a contradiction.</p>
 </html>
