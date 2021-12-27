@@ -175,23 +175,56 @@ contains the elements <code>$\{(s_1, s), (s_2, s_1), (s_3, s_2), (s, s_3)\}$</co
 <li><code>$(\mathbf{0}|\mathbf{0})+\mathbf{0}$</code> ✓</li>
 </ul>
 
-<!--
-### 2.7
+<h3>2.7</h3>
 
-> Use the rules of SOS semantics for CCS to derive the LTS for the
-process `$\text{SmUni}$` defined by (2.4). (Use the definition of CS in
-Table 2.1.)
+<blockquote>
+  <p>Use the rules of SOS semantics for CCS to derive the LTS for the
+process <code>$\text{SmUni}$</code> defined by (2.4). (Use the definition of CS in
+Table 2.1.)</p>
+</blockquote>
 
-As a refresher:
+<p>As a refresher:</p>
 
-* `$\text{SmUni}\overset{\text{def}}{=}(\text{CM}|\text{CS})\backslash \text{coin} \backslash \text{coffee}$`
-* `$\text{CM}\overset{\text{def}}{=}\text{coin}.\overline{\text{coffee}}.\text{CM}$`
-* `$\text{CS}\overset{\text{def}}{=}\overline{\text{pub}}.\overline{\text{coin}}.\text{coffee}.\text{CS}$`
+<ul>
+<li><code>$\text{SmUni}\overset{\text{def}}{=}(\text{CM}|\text{CS})\backslash \text{coin} \backslash \text{coffee}$</code></li>
+<li><code>$\text{CM}\overset{\text{def}}{=}\text{coin}.\overline{\text{coffee}}.\text{CM}$</code></li>
+<li><code>$\text{CS}\overset{\text{def}}{=}\overline{\text{pub}}.\overline{\text{coin}}.\text{coffee}.\text{CS}$</code></li>
+</ul>
 
-TODO
--->
+<p>I'm not going to draw all the images, I'm way too lazy for that.</p>
+
+<ul>
+<li>Using COM1: SmUni transitions to <code>$(\text{CM}|\text{CS}_1)\backslash\{\text{coin},\text{coffee}\}$</code> via <code>$\overline{\text{pub}}$</code></li>
+<li>Using COM3: <code>$(\text{CM}|\text{CS}_1)\backslash\{\text{coin},\text{coffee}\}$</code> transitions to <code>$(\text{CM}_1|\text{CS}_2)\backslash\{\text{coin},\text{coffee}\}$</code> via <code>$τ$</code>, internally <code>$\text{coin}$</code></li>
+<li>Using COM3: <code>$(\text{CM}_1|\text{CS}_2)\backslash\{\text{coin},\text{coffee}\}$</code> transitions to SmUni via <code>$τ$</code>, internally <code>$\text{coffee}$</code></li>
+</ul>
 
 <h3>2.12</h3>
+
+<h4>Defining a Bag</h4>
+
+<p><code>$\text{Bag} \overset{\text{def}}{=} (\text{Cell}|\text{Cell}).\text{Bag}$</code></p>
+
+<p>This definition works by keeping two Cells running in parallel. If both
+cells are emptied, the Bag restarts, otherwise it keeps its state.</p>
+
+<h4>Defining a FIFO queue</h4>
+
+<p>The two-place FIFO queue should have the following traces available
+(for different values of <code>$x$</code> and <code>$y$</code>):</p>
+
+<ul>
+<li><code>$\text{in}(x) \rightarrow \text{in}(y) \rightarrow \overline{\text{out}}(x) \rightarrow \overline{\text{out}}(y).\text{FIFO}$</code></li>
+<li><code>$\text{in}(x) \rightarrow \overline{\text{out}}(x).\text{FIFO}$</code></li>
+</ul>
+
+<p>(The case where <code>$x$</code> is input and output, and then <code>$y$</code> is input and
+output, is equivalent to the second trace).</p>
+
+<p><code>$\text{FIFO} \overset{\text{def}}{=} (\text{Cell}+(\text{in}(x).\text{in}(y).\text{Cell}(x).\text{Cell}(y)).\text{FIFO}$</code></p>
+
+<p>This is much uglier than I thought it would be. Maybe there's a nicer
+version? Just concatenating two cells doesn't work, of course.</p>
 
 <h2>Chapter 3</h2>
 
@@ -327,7 +360,7 @@ strongly bisimilar via <code>$β$</code>, then they are also string bisimilar vi
 
 <h3>3.12</h3>
 
-<!--TODO-->
+<p>To be shown: <code>$\{(P|Q, Q|P) |\text{where }P,Q \text{ are CCS processes}\}$</code> is a bisimulation.</p>
 
 <h3>3.37</h3>
 
