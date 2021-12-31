@@ -777,3 +777,4 @@
 2021-12-18T11:15:11.000000Z	your incentives are bad, and so are you
 2021-12-18T11:39:09.000000Z	valley of bad rationality girl
 2021-12-29T18:05:38.000000Z	gnonomics
+2021-12-31T00:35:25.000000Z	well, what if my values include a constraint that my values shouldn't be optimized by an outside optimizer?
