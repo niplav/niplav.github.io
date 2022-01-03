@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-10-14, modified: 2021-11-25, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-10-14, modified: 2022-01-03, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>This page contains some solutions to exercises from the textbook
@@ -360,7 +360,42 @@ strongly bisimilar via <code>$β$</code>, then they are also string bisimilar vi
 
 <h3>3.12</h3>
 
-<p>To be shown: <code>$\{(P|Q, Q|P) |\text{where }P,Q \text{ are CCS processes}\}$</code> is a bisimulation.</p>
+<p>To be shown: <code>$\{(P|Q, Q|P) |\text{where }P,Q \text{ are CCS processes}\}$</code>
+is a strong bisimulation.</p>
+
+<p>I am slightly confused: doesn't strong bisimilarity apply to <em>states</em>,
+and aren't <code>$P|Q$</code> and <code>$Q|P$</code> processes?</p>
+
+<p>If there is no <code>$α$</code> so that either <code>$P$</code> or <code>$Q$</code> can transition to
+another state, <code>$P|Q$</code> and <code>$Q|P$</code> are strongly bisimilar.</p>
+
+<p>If <code>$P|Q \overset{α}{\rightarrow} P'|Q$</code>, then <code>$Q|P \overset{α}{\rightarrow} Q|P'$</code>
+by first applying COM1 and then COM2, and so <code>$P'|Q$</code> and <code>$Q|P'$</code>
+are strongly bisimilar.</p>
+
+<p>Another idea: we can prove this by backward induction, e.g. assuming that
+there is a final state <code>$P_f|Q_f$</code>, which can't transition further, and
+then proving that every <code>$α$</code> transition that lands there is a strong
+bisimulation, and induced back as well?</p>
+
+<p>The same holds if <code>$Q$</code> can transition via <code>$α$</code>.</p>
+
+<p>If <code>$(P|Q)\backslash \{α\} \overset{τ}{\rightarrow} P'|Q'$</code>, then
+similarly <code>$(Q|P)\backslash \{α\} \overset{τ}{\rightarrow} Q|P$</code>
+per COM3, so they're strongly bisimilar.</p>
+
+<p>To be shown: <code>$\{(P|\mathbf{0}, P) |\text{where }P \text{ is a CCS process}\}$</code>
+is a strong bisimulation.</p>
+
+<p>Isn't this trivial? If <code>$P \overset{α}{\rightarrow} P'$</code>, then surely
+also <code>$P|\mathbf{0} \overset{α}{\rightarrow} P'|\mathbf{0}$</code>, and if
+<code>$P|\mathbf{0} \overset{α}{\rightarrow} P'|\mathbf{0}$</code>, then
+<code>$P \overset{α}{\rightarrow} P'$</code>. <code>$τ$</code>-transitions are not possible here.</p>
+
+<!--
+To be shown: `$\{((P|Q)|R,P|(Q|R)) |\text{where }P,Q,R \text{ are CCS processes}\}$`
+is a strong bisimulation.
+TODO-->
 
 <h3>3.37</h3>
 
@@ -458,7 +493,7 @@ iff there exists a <code>$w \in A^*$</code> so that <code>$sw=t$</code>).</p>
 <li>Transitive: Yes, if <code>$r$</code> is a prefix for <code>$s$</code> with <code>$v$</code> and <code>$s$</code> is a prefix for <code>$t$</code> with <code>$w$</code>, then <code>$r$</code> is a prefix for <code>$t$</code> with <code>$vw$</code>.</li>
 </ul>
 
-<!--TODO: finish with other examples?-->
+<!--TODO: finish with other examples-->
 
 <h3>4.2</h3>
 
