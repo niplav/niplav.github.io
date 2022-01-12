@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-10-14, modified: 2022-01-03, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-10-14, modified: 2022-01-08, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>This page contains some solutions to exercises from the textbook
@@ -392,10 +392,79 @@ also <code>$P|\mathbf{0} \overset{α}{\rightarrow} P'|\mathbf{0}$</code>, and if
 <code>$P|\mathbf{0} \overset{α}{\rightarrow} P'|\mathbf{0}$</code>, then
 <code>$P \overset{α}{\rightarrow} P'$</code>. <code>$τ$</code>-transitions are not possible here.</p>
 
-<!--
-To be shown: `$\{((P|Q)|R,P|(Q|R)) |\text{where }P,Q,R \text{ are CCS processes}\}$`
-is a strong bisimulation.
-TODO-->
+<p>To be shown: <code>$\{((P|Q)|R,P|(Q|R)) |\text{where }P,Q,R \text{ are CCS processes}\}$</code>
+is a strong bisimulation.</p>
+
+<p>Assume that <code>$(P|Q)|R$</code> makes an <code>$α$</code> transition. Then:</p>
+
+<ul>
+<li>If <code>$(P|Q)$</code> made the transition, then:
+<ul>
+<li>If <code>$P$</code> made the transition, then on the right side <code>$P$</code> can also make the transition</li>
+<li>If <code>$Q$</code> made the transition, then on the right side <code>$(Q|R)$</code> can make the transition (e.g. to <code>$(Q'|R)$</code>)</li>
+</ul></li>
+<li>If <code>$R$</code> made the transition, then on the right side <code>$(Q|R)$</code> can make the transition (e.g. to <code>$(Q|R')$</code>)</li>
+</ul>
+
+<p>Otherwise asume that <code>$(P|Q)|R \overset{τ}{\rightarrow} (P|Q')|R'$</code>. Then
+there must be a <code>$β$</code> so that <code>$Q \overset{β}{\rightarrow} Q'$</code>
+and <code>$R \overset{\overline{β}}{\rightarrow} R'$</code> (or <code>$R$</code> outputs
+<code>$β$</code> and <code>$Q$</code> inputs <code>$β$</code>, but that's symmetric). Then similarly
+<code>$P|(Q|R) \overset{τ}{\rightarrow} P|(Q'|R')$</code> by the same internal
+<code>$β$</code> transitions.</p>
+
+<p>All other cases are symmetric, and I won't enumerate them here.</p>
+
+<p>Since these relations are all bisimulations, it is clear that for any
+<code>$P,Q,R$</code>, the mentioned combined processes are bisimilar.</p>
+
+<blockquote>
+  <p>Find three CCS processes <code>$P,Q,R$</code> such that <code>$(P+Q)|R \not \sim (P|R)+(Q|R)$</code>.</p>
+</blockquote>
+
+<p>I haven't been able to solve this completely yet. Let's take something
+like <code>$P \overset{\text{def}}{=}a.a.a.a.a$</code>, <code>$Q \overset{\text{def}}{=}a.a.a.a.b$</code>
+and <code>$R \overset{\text{def}}{=}a.a.a.a.(a+b)$</code>. Then it <em>could</em> be the
+case that in a bisimulation game, the attacker has chosen the <code>$P$</code>
+path on the left hand side, while the defender has chosen the <code>$Q$</code>
+path on the right hand side. But this is not guaranteed.</p>
+
+<h3>3.30</h3>
+
+<blockquote>
+  <p>Show that observational equivalence is the largest symmetric relation
+<code>$\mathcal{R}$</code> satisfying that whenever <code>$s_1 \mathcal{R} s_2$</code> then, for
+each action <code>$α$</code> (including <code>$τ$</code>), if <code>$s_1 \overset{α}{\Rightarrow}
+s_1'$</code> then there is a transition <code>$s_2 \overset{α}{\Rightarrow} s_2'$</code>
+such that <code>$s_1' \mathcal{R} s_2'$</code>.</p>
+</blockquote>
+
+<p>Assume there is a relation <code>$\mathcal{R}_{\star}$</code> which satisfies the
+conditions given for <code>$\mathcal{R}$</code> above. Then there must be two states
+<code>$s_{\star}, t_{\star}$</code> so that if
+<code>$s_{\star} \overset{α}{\Rightarrow} s_{\star}'$</code>, then there must be
+a transition <code>$t_{\star} \overset{α}{\Rightarrow} t_{\star}'$</code> so that
+<code>$s_{\star}' \mathcal{R}_{\star} t_{\star}'$</code>. Since
+<code>$\mathcal{R}_{\star}$</code> is supposed to be symmetric, the same must hold
+for <code>$t_{\star}$</code>: <code>$t_{\star} \overset{α}{\Rightarrow} t_{\star}'$</code>
+implies that there is a transition <code>$s_{\star} \overset{α}{\Rightarrow} s_{\star}'$</code>
+so that <code>$t_{\star}' \mathcal{R}_{\star} s_{\star}'$</code>.</p>
+
+<p>We now have to determine whether, if we know that <code>$s_{\star} \mathcal{R}_{\star} t_{\star}$</code>,
+we also know that <code>$s_{\star} \approx t_{\star}$</code>. Then there are four different
+cases:</p>
+
+<ul>
+<li>If <code>$s_{\star} \overset{α}{\Rightarrow} s_{\star}'$</code> is realized by <code>$s_{\star} \overset{α}{\rightarrow} s_{\star}'$</code> in the LTS, then this is equivalent to the definition of observational equivalence.</li>
+<li>If <code>$s_{\star} \overset{α}{\Rightarrow} s_{\star}'$</code> is realized by <code>$s_{\star} \overset{α}{\rightarrow} s_{\star}'' \overset{τ}{\rightarrow} s_{\star}'$</code> in the LTS, then there must be a <code>$t_{\star}''$</code> so that <code>$s_{\star}'' \mathcal{R}_{\star} t_{\star}''$</code> (per definition in the exercise), so we can take that relation as belonging to <code>$\approx$</code>.</li>
+<li>If <code>$s_{\star} \overset{α}{\Rightarrow} s_{\star}'$</code> is realized by <code>$s_{\star} \overset{τ}{\rightarrow} s_{\star}'' \overset{α}{\rightarrow} s_{\star}'$</code> in the LTS, then there must be a <code>$t_{\star}''$</code> so that <code>$s_{\star}'' \mathcal{R}_{\star} t_{\star}''$</code>, only this time via a <code>$τ$</code> transition (i.e. <code>$t_{\star} \overset{τ}{\rightarrow} t_{\star}''$</code>). So we can take that relation as belonging to <code>$\approx$</code>. (This doesn't work! What if <code>$t_{\star} \overset{α}{\Rightarrow} t_{\star}'$</code> is realized by <code>$t_{\star} \overset{α}{\rightarrow} t_{\star}'' \overset{τ}{\rightarrow} t_{\star}'$</code>? Then we can't just take the first part of the transition and declare it to be a <code>$τ$</code> transition. Hmmm.)</li>
+<li>If <code>$s_{\star} \overset{α}{\Rightarrow} s_{\star}'$</code> is realized by <code>$s_{\star} \overset{α}{\rightarrow} s_{\star}'' \overset{τ}{\rightarrow} s_{\star}'$</code>, then we can again just chop off the last transition and declare the rest to be the <code>$α$</code> transition, so that now <code>$s_{\star} \approx t_{\star}$</code> and <code>$s_{\star}'' \approx t_{\star}'$</code>.</li>
+</ul>
+
+<p>Since every <code>$\rightarrow$</code> transition is also a weak transition,
+there can be no observational equivalence that isn't also in
+<code>$\mathcal{R}_{\star}$</code>. So <code>$\mathcal{R}_{\star}$</code> is the biggest
+observational equivalence <code>$\approx$</code>.</p>
 
 <h3>3.37</h3>
 
@@ -458,10 +527,17 @@ TODO-->
 </ul></li>
 </ul>
 
-<!--
-### 3.41
-TODO
--->
+<h3>3.41</h3>
+
+<p>Assume that there is some <code>$α$</code> that the attacker would be able to play
+<code>$s \overset{α}{\Rightarrow} s_3$</code>, but not <code>$s \overset{α}{\rightarrow}
+s'$</code>. Then the <code>$\overset{α}{\Rightarrow}$</code> would decompose into
+<code>$s \overset{τ}{\rightarrow}^+ s_1 \overset{α}{\rightarrow} s_2 \overset{τ}{\rightarrow}^* s_3$</code>.
+So the only additional possible action the attacker could additionally
+play would be <code>$τ$</code>. But in this case, the defender can answer by doing
+nothing, i.e. idling on the same state (see p. 89). So the additional
+<code>$τ$</code> transition doesn't give the attacker any useful moves, and both
+versions of the game are equivalent.</p>
 
 <h3>Stray Exercise 2</h3>
 
@@ -561,4 +637,12 @@ that is, the function <code>$\mathcal{F}$</code> is monotonic over
 to <code>$p', q'$</code> via some <code>$α$</code>, and <code>$(p', q') \not \in \mathcal{S}$</code>. But
 that can't be the case, since we assumed that <code>$\mathcal{R} \subseteq \mathcal{S}$</code>.
 This is a contradiction.</p>
+
+<h2>Chapter 5</h2>
+
+<h3>5.1</h3>
+
+<p><code>$\langle \cdot b \cdot \rangle \{s_1, t_1\}=\{t_1\}$</code></p>
+
+<p><code>$[ \cdot b \cdot ] \{s_1, t_1\}=\{s,t,t_1\}$</code></p>
 </html>

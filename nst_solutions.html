@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2021-11-01, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2022-12-08, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -71,7 +71,7 @@ introduction to set theory. Here, I present solutions to the explicitely
 stated exercises and problems in that book.</strong></p>
 </blockquote>
 
-<h1>Solutions to “Naïve Set Theory“</h1>
+<h1>Solutions to “Naïve Set Theory”</h1>
 
 <h2>Section 3</h2>
 
@@ -1033,12 +1033,83 @@ mean that <code>$k_i \not \in k_j$</code> and <code>$k_j \not \in k_i$</code>). 
 
 <h2>Section 13</h2>
 
-<!--
-### Stray Exercise 1
+<h3>Stray Exercise 1</h3>
 
-> The discovery and establishment of the properties of powers, as well
+<blockquote>
+  <p>The discovery and establishment of the properties of powers, as well
 as the detailed proofs of the statements about products, can safely be
-left as exercises to the readers.
+left as exercises to the readers.</p>
+</blockquote>
 
--->
+<p>To be shown: <code>$k \cdot (m+n)=k \cdot m+k \cdot n$</code>.</p>
+
+<p>Induction over <code>$n$</code>.</p>
+
+<p>Induction base: <code>$k \cdot (m+0)=k \cdot m=k \cdot m+k \cdot 0$</code>.</p>
+
+<p>Induction assumption: <code>$k \cdot (m+n)=k \cdot m+k \cdot n$</code>.</p>
+
+<p>Induction step: <code>$k \cdot (m+n^+)=k \cdot (m+n)^+=k \cdot (m+n)+k=(k \cdot m+k\cdot n)+k=k \cdot m+(k \cdot n + k)=k \cdot m + k \cdot n^+$</code></p>
+
+<hr />
+
+<p>To be shown: <code>$m \cdot n=n \cdot m$</code>.</p>
+
+<p>First, <code>$1 \cdot n=n$</code> because <code>$1 \cdot 0=0$</code>, and if <code>$1 \cdot n=n$</code>,
+then <code>$1 \cdot n^+=(1 \cdot n)+1=n+1=n^+$</code>.</p>
+
+<p>Second, <code>$m^+ \cdot n=(m \cdot n)+m$</code> for <code>$n \ge 1$</code>, because
+<code>$m^+ \cdot n=(m+1) \cdot n=(m \cdot n)+m$</code> (as per distributivity).</p>
+
+<p>Induction over <code>$m$</code>.</p>
+
+<p>Induction base: If <code>$m=0$</code>, then <code>$m \cdot n=0 \cdot n=0=n \cdot 0=n \cdot m$</code>.</p>
+
+<p>Induction assumption: <code>$m \cdot n=n \cdot m$</code>.</p>
+
+<p>Induction step: <code>$m^+ \cdot n=(m \cdot n)+n=(n \cdot m)+n=n \cdot m^+$</code>
+(as per definition of the product).</p>
+
+<hr />
+
+<p>To be shown: <code>$(k \cdot m) \cdot n=k \cdot (m \cdot n)$</code>.</p>
+
+<p>Induction over <code>$n$</code>.</p>
+
+<p>Induction base: If <code>$n=0$</code>, then <code>$(k \cdot m) \cdot 0=0=k \cdot (m \cdot 0)$</code>
+(since <code>$p_{k \cdot m}(0)=0$</code>).</p>
+
+<p>Induction assumption: <code>$(k \cdot m) \cdot n=k \cdot (m \cdot n)$</code></p>
+
+<p>Induction step: <code>$k \cdot (m \cdot n^+)=k \cdot ((m \cdot n)+m)=k \cdot (m \cdot n)+k \cdot m=(k \cdot m) \cdot n+k \cdot m=(k \cdot m) \cdot n^+$</code> (using distributivity).</p>
+
+<hr />
+
+<p>As for the properties of the power, I don't really want to spend much
+time and energy proving them. Let it suffice to say that the powers are
+neither associative (counterexample: <code>$2^{(3^2)}=512 \not =64=(2^3)^2$</code>)
+nor commutative (counterexample: <code>$2^3=8\not =9=3^2$</code>) nor distributive
+over either addition (counterexample: <code>$2^{3+4}=128 \not =24=2^3+2^4$</code>)
+or multiplication (counterexample: <code>$2^{3 \cdot 4}=4068 \not=128=2^3 \cdot 2^4$</code>).</p>
+
+<p>They have two interesting properties: <code>$a^{b\cdot c}=(a^b)^c$</code>, and
+<code>$a^{b+c}=a^b \cdot a^c$</code>. <!--TODO: prove these someday--></p>
+
+<p>For commutative hyperoperators, see <a href="https://observablehq.com/@ishi/arithmetic" title="Hyperlogarithmic Arithmetic">Ghalimi 2019</a>.</p>
+
+<h3>Exercise 1</h3>
+
+<p>To be shown: if <code>$m&lt;n$</code>, then <code>$m+k &lt; n+k$</code></p>
+
+<p>Induction over <code>$k$</code></p>
+
+<p>Induction base: If <code>$k=0$</code>, then <code>$m+k=m&lt;n=n+k$</code></p>
+
+<p>Induction assumption: <code>$m+k&lt;n+k$</code></p>
+
+<p>Induction step: <!--TODO--></p>
+
+<hr />
+
+<p>To be shown: if <code>$m&lt;n$</code> and <code>$k \not =0$</code>, then <code>$m \cdot k&lt;n \cdot k$</code>.</p>
 </html>
