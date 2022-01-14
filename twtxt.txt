@@ -805,3 +805,4 @@
 2022-01-13T12:35:55.000000Z	this holds for mathematics as well
 2022-01-13T19:42:19.000000Z	gah, can't snarf evince
 2022-01-13T19:42:34.000000Z	non-linked & linked back footnotes in pdfs are annoying
+2022-01-14T11:59:26.000000Z	[coherent & sensible screaming]
