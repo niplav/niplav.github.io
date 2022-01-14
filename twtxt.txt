@@ -807,3 +807,4 @@
 2022-01-13T19:42:34.000000Z	non-linked & linked back footnotes in pdfs are annoying
 2022-01-14T11:59:26.000000Z	[coherent & sensible screaming]
 2022-01-14T17:01:25.000000Z	professor gives us data in a dxn ndarray, where d is the number of features and n is the num of datapoints. r-worded
+2022-01-14T17:02:20.000000Z	i wonder whether this is to teach us about the r-wordedness of data in the real world.
