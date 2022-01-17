@@ -830,3 +830,4 @@
 2022-01-17T18:40:20.000000Z	the cocke-younger-kasami algorithm
 2022-01-17T18:41:05.000000Z	the hindley-milner algorithm
 2022-01-17T21:04:18.000000Z	disappointed beyond measure that payer doesn't mean “to country” in french
+2022-01-17T21:12:35.000000Z	petasus, petasī: not a type of horse
