@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-10-14, modified: 2022-01-08, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-10-14, modified: 2022-01-15, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>This page contains some solutions to exercises from the textbook
@@ -134,7 +134,7 @@ doesn't include <code>$q_0$</code>, and in some places end with <code>$.T$</code
 
 <blockquote>
   <p>Define the LTS as a triple
-<code>$(\text{Proc}, \text{Act}, \{\overset{α}{\rightarrow}|α \in \text{Act}\})$</code>.
+<code>$(\textbf{Proc}, \text{Act}, \{\overset{α}{\rightarrow}|α \in \text{Act}\})$</code>.
 Use sketches to illustrate the reflexive closure, symmetric closure and
 transitive closure of the binary relation <code>$\overset{α}{\rightarrow}$</code>?</p>
 </blockquote>
@@ -619,11 +619,11 @@ as well. So <code>$\{2\}$</code> is the least fixed point.</p>
 <h3>Stray Exercise 4</h3>
 
 <blockquote>
-  <p>We note that if <code>$\mathcal{R}, \mathcal{S} \in 2^{(\text{Proc} \times \text{Proc})}$</code>
+  <p>We note that if <code>$\mathcal{R}, \mathcal{S} \in 2^{(\textbf{Proc} \times \textbf{Proc})}$</code>
 and <code>$\mathcal{R} \subseteq \mathcal{S}$</code> then
 <code>$\mathcal{F}(\mathcal{R}) \subseteq \mathcal{F}(\mathcal{S})$</code>,
 that is, the function <code>$\mathcal{F}$</code> is monotonic over
-<code>$(2^{(\text{Proc} \times \text{Proc})}, \subseteq)$</code>.</p>
+<code>$(2^{(\textbf{Proc} \times \textbf{Proc})}, \subseteq)$</code>.</p>
 </blockquote>
 
 <p>Assume that <code>$\mathcal{R} \subseteq \mathcal{S}$</code>, but
@@ -631,7 +631,7 @@ that is, the function <code>$\mathcal{F}$</code> is monotonic over
 (that is, <code>$\mathcal{F}(\mathcal{S}) \subset \mathcal{F}(\mathcal{R})$</code>).</p>
 
 <p>Then there must be a <code>$(p,q) \in \mathcal{F}(\mathcal{R})$</code>
-(<code>$p, q \in \text{Proc}$</code>) that is not in <code>$\mathcal{F}(\mathcal{S})$</code>.</p>
+(<code>$p, q \in \textbf{Proc}$</code>) that is not in <code>$\mathcal{F}(\mathcal{S})$</code>.</p>
 
 <p>Then there are <code>$(p', q') \in \mathcal{R}$</code> so that <code>$p, q$</code> can transition
 to <code>$p', q'$</code> via some <code>$α$</code>, and <code>$(p', q') \not \in \mathcal{S}$</code>. But
@@ -645,4 +645,70 @@ This is a contradiction.</p>
 <p><code>$\langle \cdot b \cdot \rangle \{s_1, t_1\}=\{t_1\}$</code></p>
 
 <p><code>$[ \cdot b \cdot ] \{s_1, t_1\}=\{s,t,t_1\}$</code></p>
+
+<h3>5.2</h3>
+
+<h4>1</h4>
+
+<div>
+    $$ ⟦ [\text{coffee}] \langle \text{biscuit} \rangle \textit{t}\!\textit{t}⟧=\\
+    [\cdot \text{coffee} \cdot ] ⟦ \langle \text{biscuit} \rangle \textit{t}\!\textit{t} ⟧=\\
+    [\cdot \text{coffee} \cdot ] \langle \cdot \text{biscuit} \cdot \rangle ⟦\textit{t}\!\textit{t} ⟧=\\
+    [\cdot \text{coffee} \cdot ](\langle \cdot \text{biscuit} \cdot \rangle \textbf{Proc})= \\
+    [\cdot \text{coffee} \cdot ] \{p \in \textbf{Proc} | p \overset{\text{biscuit}}{\rightarrow} p' \text{ and } p' \in \textbf{Proc} \text{ for some } p'\}= \\
+    [\cdot \text{coffee} \cdot ] \{p \in \textbf{Proc} | p \overset{\text{biscuit}}{\rightarrow}\} \\
+    \{p \in \textbf{Proc} | p \overset{\text{coffee}}{\rightarrow} p' \Rightarrow p' \overset{\text{biscuit}}{\rightarrow}\} $$
+</div>
+
+<p>An element would exactly not be in that set if the computer scientist
+were to not eat a biscuit after drinking coffee.</p>
+
+<h4>2</h4>
+
+<ul>
+<li><code>$(\langle \text{coffee} \rangle \textit{t}\!\textit{t}) \lor (\langle \text{tea} \rangle \textit{t}\!\textit{t})$</code></li>
+<li><code>$(\langle \text{coffee} \rangle \textit{t}\!\textit{t}) \land ([ \text{tea} ] \textit{f}\!\textit{f})$</code></li>
+<li><code>$[\text{coffee}] [\text{coffee}] \langle \text{tea} \rangle \textit{t}\!\textit{t}$</code></li>
+</ul>
+
+<h4>3</h4>
+
+<ul>
+<li><code>$\langle a \rangle \textit{f}\!\textit{f}$</code>: It is not possible to perform action <code>$\text{a}$</code> now, since there is no <code>$p' \in \emptyset$</code></li>
+<li><code>$[a] \textit{t}\!\textit{t}$</code>: This is trivially true for every process: if you can perform action <code>$\text{a}$</code>, you end up in <code>$\textbf{Proc}$</code></li>
+</ul>
+
+<h3>5.3</h3>
+
+<h4>1</h4>
+
+<ul>
+<li><code>$s \overset{?}{\models} \langle a \rangle \textit{t}\!\textit{t}$</code> : ✓</li>
+<li><code>$s \overset{?}{\models} \langle b \rangle \textit{t}\!\textit{t}$</code> : ✗</li>
+<li><code>$s \overset{?}{\models} [a] \textit{f}\!\textit{f}$</code> : ✗ (e.g. <code>$s_1 \not \in \emptyset$</code>)</li>
+<li><code>$s \overset{?}{\models} [b] \textit{f}\!\textit{f}$</code> : ✓ (all quantification with no elements automatically right)</li>
+<li><code>$s \overset{?}{\models} [ a ] \langle b \rangle \textit{t}\!\textit{t}$</code> : ✓</li>
+<li><code>$s \overset{?}{\models} \langle a \rangle \langle b \rangle \textit{t}\!\textit{t}$</code> : ✗ (<code>$s_2$</code> can proceed with <code>$b$</code>)</li>
+<li><code>$s \overset{?}{\models} [ a ] \langle a \rangle [a] [b] \textit{f}\!\textit{f}$</code> : ✓ (<code>$[ a ] \langle a \rangle [a]$</code> ends up at <code>$s$</code> again, which has no <code>$b$</code> transitions, and an all quantification with no elements is automatically correct, even over unsatisfiable propositions like <code>$s_1 \in \emptyset$</code>)</li>
+<li><code>$s \overset{?}{\models} \langle a \rangle (\langle a \rangle \textit{t}\!\textit{t} \land \langle b \rangle \textit{t}\!\textit{t})$</code> : ✗ (it is not possible to <code>$b$</code>-transition from <code>$s_2$</code>)</li>
+<li><code>$s \overset{?}{\models} [ a ] (\langle a \rangle \textit{t}\!\textit{t} \lor \langle b \rangle \textit{t}\!\textit{t})$</code> : ✓</li>
+<li><code>$s \overset{?}{\models} \langle a \rangle ([b][a] \textit{f}\!\textit{f} \land \langle b \rangle \textit{t}\!\textit{t})$</code> : ✗ (it's impossible to transition from <code>$s_2$</code> via <code>$b$</code>)</li>
+<li><code>$s \overset{?}{\models} \langle a \rangle ([a] (\langle a \rangle \textit{t}\!\textit{t} \land [ b ] \textit{f}\!\textit{f}) \land \langle b \rangle \textit{f}\!\textit{f})$</code> : ✗ (since one can transition to <code>$s_1$</code> via <code>$a$</code>, and one can transition from <code>$s_1$</code> via <code>$b$</code>, which violates the <code>$\langle b \rangle \textit{f}\!\textit{f}$</code>)</li>
+</ul>
+
+<h4>2</h4>
+
+<ul>
+<li><code>$⟦[a][b]\textit{f}\!\textit{f}⟧=[\cdot a \cdot][\cdot b \cdot]\emptyset=[\cdot a \cdot]\{s, s_2, s_3, s_4\}=\{s_2, s_3, s_4\}$</code></li>
+<li><code>$⟦(\langle a \rangle (\langle a \rangle \textit{t}\!\textit{t} \land \langle b \rangle \textit{t}\!\textit{t})⟧=\langle \cdot a \cdot \rangle (⟦\langle a \rangle \textit{t}\!\textit{t}⟧ \cap ⟦\langle b \rangle \textit{t}\!\textit{t}⟧)=\langle \cdot a \cdot \rangle (\{s, s_1, s_2, s_3, s_4\} \cap \{s_1\})=\langle \cdot a \cdot \rangle \{s_1\}=\{s\}$</code></li>
+<li><code>$⟦[a][a][b] \textit{f}\!\textit{f}⟧=[\cdot a \cdot][\cdot a \cdot][\cdot b \cdot] \emptyset=[\cdot a \cdot][\cdot a \cdot]\{s, s_2, s_3, s_4\}=[\cdot a \cdot]\{s_2, s_3, s_4\}=\{s_2\}$</code></li>
+<li><code>$⟦[a][a][b] \textit{f}\!\textit{f}⟧=[\cdot a \cdot] \textbf{Proc}=\{s, s_1, s_2, s_3, s_4\}$</code></li>
+</ul>
+
+<!--
+TODO
+### 5.5
+
+It's MANDATORY
+-->
 </html>
