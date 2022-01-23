@@ -845,3 +845,4 @@
 2022-01-23T00:47:47.000000Z	one thousand Very Bad Takes About Alignment
 2022-01-23T15:20:51.000000Z	it annoys me way too much, it shuold be Caelum Conterrens Est. Latin is SOV
 2022-01-23T20:10:13.000000Z	the name Allosaurus is really funny to me for some reason. I imagine two biologists standing over a set of giant bones, and one saying to the other “Yeah, I think this is a different kind of lizard than what we usually have to deal with.”
+2022-01-23T20:10:19.000000Z	become oviparous
