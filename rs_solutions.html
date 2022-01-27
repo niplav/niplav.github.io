@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-10-14, modified: 2022-01-15, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-10-14, modified: 2022-01-26, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>This page contains some solutions to exercises from the textbook
@@ -711,4 +711,28 @@ TODO
 
 It's MANDATORY
 -->
+
+<h2>Chapter 6</h2>
+
+<h3>Stray Exercise 4</h3>
+
+<blockquote>
+  <p>What is the set <code>$\mathcal{O}_{[b]X}(\{p_2\})$</code>?</p>
+</blockquote>
+
+<p>That would be <code>$\{p_2, p_3\}$</code>.</p>
+
+<h3>6.4</h3>
+
+<blockquote>
+  <p>calculate <code>$\mathcal{O}_{[b]\textit{f}\!\textit{f} \land [a]X} (\{p_2\})$</code>.</p>
+</blockquote>
+
+<div>
+    $$\mathcal{O}_{[b]\textit{f}\!\textit{f} \land [a]X} (\{p_2\})=\\
+    \mathcal{O}_{[b]\textit{f}\!\textit{f}}(\{p_2\}) \cap \mathcal{O}_{[a]X}(\{p_2\})=\\
+    ([ \cdot b \cdot ] \emptyset) \cap ([ \cdot a \cdot ] \{p_2\})=\\
+    \{p_2, p_3\} \cap \{p_1\}=\\
+    \emptyset$$
+</div>
 </html>
