@@ -1169,4 +1169,25 @@ Proton decay follows a geometric distribution
 
 When will the last proton decay?
 -->
+
+<h2>A Simple Proof that in Hardy-Weinberg Mating, Allele Frequencies are Preserved</h2>
+
+<p>Assume <code>$n$</code> alleles <code>$A_1, \dots A_n$</code> with frequencies <code>$p_1, \dots, p_n$</code> so that <code>$\sum_{i=1}^{n} p_i=1$</code>.</p>
+
+<p>The genotypes resulting from these alleles are <code>$A_1 A_1, \dots, A_1, A_n, A_2, A_2, \dots, A_2, A_n, \dots, A_n A_n$</code>,
+where <code>$A_k A_k$</code> has frequency <code>$p_k^2$</code>, and <code>$A_i A_j$</code> (<code>$i \not =j$</code>)
+has frequency <code>$2 p_i p_j$</code>.</p>
+
+<p>Without loss of generality, let us prove that the frequency of <code>$A_1$</code>
+stays fixed.</p>
+
+<p>The total frequency of <code>$A_1$</code> in the next generation is</p>
+
+<div>
+    $$p_1^2+\sum_{i=2}^{n} \frac{1}{2}2 p_1 p_i=\\
+    p_1^2+\sum_{i=2}^{n} p_1 p_i=\\
+    p_1^2+p_1(1-(p_1+\sum_{i=3}^{n} p_i))+\sum_{i=3}^n p_1 p_i=\\
+    p_1^2+p_1-p_1^2-\sum_{i=3}^{n} p_1 p_i+\sum_{i=3}^n p_1 p_i=\\
+    p_1$$
+</div>
 </html>
