@@ -869,5 +869,6 @@
 2022-01-30T00:16:04.000000Z	the heart say “no”, the spleen says “hey ;-)”
 2022-01-30T18:00:45.000000Z	every copy of Jensen's inequality is personalized
 2022-01-30T18:01:14.000000Z	Jensen's inequality (black market edition)
-2022-01-30T18:02:02.000000Z	all the characters in logsumexp are actually dead
-2022-01-30T18:11:07.000000Z	saying “without loss of generality” is a great way to hide bullshit in a proof
+2022-01-30T18:02:02.000000Z	all the characters in the Kullback-Leibler divergence are actually dead
+2022-01-30T18:11:07.000000Z	saying “without loss of generality” is a great way to hide bullshit in a proof. i have applied it many times with huge success
+2022-01-30T18:59:25.000000Z	“i admire your optimism”=“wow, you are *way* more r-worded than i thought”
