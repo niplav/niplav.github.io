@@ -869,3 +869,4 @@
 2022-01-30T00:16:04.000000Z	the heart say “no”, the spleen says “hey ;-)”
 2022-01-30T18:00:45.000000Z	every copy of Jensen's inequality is personalized
 2022-01-30T18:01:14.000000Z	Jensen's inequality (black market edition)
+2022-01-30T18:02:02.000000Z	all the characters in logsumexp are actually dead
