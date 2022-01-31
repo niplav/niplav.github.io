@@ -872,3 +872,4 @@
 2022-01-30T18:02:02.000000Z	all the characters in the Kullback-Leibler divergence are actually dead
 2022-01-30T18:11:07.000000Z	saying “without loss of generality” is a great way to hide bullshit in a proof. i have applied it many times with huge success
 2022-01-30T18:59:25.000000Z	“i admire your optimism”=“wow, you are *way* more r-worded than i thought”
+2022-01-31T13:37:50.000000Z	i am not a successful person who has started reading lesswrong, i am a “novel rodent control agent”
