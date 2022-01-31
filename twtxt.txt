@@ -874,4 +874,5 @@
 2022-01-30T18:59:25.000000Z	“i admire your optimism”=“wow, you are *way* more r-worded than i thought”
 2022-01-31T13:37:50.000000Z	you are a successful person who has started recently reading lesswrong, i am a novel rodent control agent
 2022-01-31T15:22:29.000000Z	first option in the multiple choice quiz is “none of the above”. don't know what to think about this tbqh
-2022-01-31T22:27:00.000000Z	i am very ready to start a lesswrong shitstorm by asking for “a good book on causal inference, unlike the Pearl one”
+2022-01-31T22:27:00.000000Z	i am very ready to start a lesswrong shitstorm by asking for “a good textbook on causal inference, unlike the Pearl one”
+2022-01-31T23:37:05.000000Z	lecturer is describing von Neumann as an economist, which, yeah, isn't entirely incorrect, but…
