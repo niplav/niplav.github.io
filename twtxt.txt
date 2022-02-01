@@ -876,3 +876,4 @@
 2022-01-31T15:22:29.000000Z	first option in the multiple choice quiz is “none of the above”. don't know what to think about this tbqh
 2022-01-31T22:27:00.000000Z	i am very ready to start a lesswrong shitstorm by asking for “a good textbook on causal inference, unlike the Pearl one”
 2022-01-31T23:37:05.000000Z	lecturer is describing von Neumann as an economist, which, yeah, isn't entirely incorrect, but…
+2022-02-01T15:03:47.000000Z	“metamask”, “betamax”, coincidence?
