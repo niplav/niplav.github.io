@@ -880,3 +880,4 @@
 2022-02-01T21:37:57.000000Z	antisemanticity
 2022-02-01T22:34:46.000000Z	why does my latin anki vocab deck contain a card for rhodium, an element discovered in 1803‽
 2022-02-01T22:35:33.000000Z	one by one as they occurred.
+2022-02-01T22:58:47.000000Z	what's the cardinality of the set containing all uncomputable reals?
