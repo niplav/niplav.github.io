@@ -878,3 +878,4 @@
 2022-01-31T23:37:05.000000Z	lecturer is describing von Neumann as an economist, which, yeah, isn't entirely incorrect, but…
 2022-02-01T15:03:47.000000Z	“metamask”, “betamax”, coincidence?
 2022-02-01T21:37:57.000000Z	antisemanticity
+2022-02-01T22:34:46.000000Z	why does my latin anki vocab deck contain a card for rhodium, an element discovered in 1803‽
