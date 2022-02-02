@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-03-23, modified: 2021-10-11, language: english, status: notes, importance: 1, confidence: draft</em></p>
+<p><em>author: niplav, created: 2021-03-23, modified: 2022-02-01, language: english, status: notes, importance: 1, confidence: draft</em></p>
 
 <blockquote>
   <p><strong>People write mathematics in a specific way, and use different
@@ -70,23 +70,65 @@ conventions. Here I collect mine, mainly for myself.</strong></p>
 
 <h1>Mathematics Notation Convention</h1>
 
+<h3>Basics</h3>
+
 <ul>
-<li>Clearly differentiate between stating something being a proper subset or not: only use <code>$A \subset B$</code> if definitely <code>$A \not =B$</code>, otherwise say <code>$A \subseteq B$</code></li>
-<li><code>$0 \in \mathbb{N}$</code>, <code>$\mathbb{N}^+:=\mathbb{N}\backslash \{0\}$</code>. It makes much more sense when treating <code>$\mathbb{N}$</code> as a commutative monoid under addition (one could answer that it's equally possible to treat <code>$\mathbb{N}^+$</code> as a commutative monoid under multiplication, to which my answer is that addition is a more fundamental operation than multiplication)
-<ul>
-<li>However, one could ditch the whole thing and do notation as such: One starts with the integers <code>$\mathbb{Z}$</code>, and then specifies when one wants only the positive numbers (<code>$\mathbb{Z}^+$</code>), the positive numbers with 0 (<code>$\mathbb{Z}^+_0$</code>), the negative numbers (<code>$\mathbb{Z}^-$</code>) and the negative numbers with 0 (<code>$\mathbb{Z}^-_0$</code>). That would be much nicer, since <code>$\mathbb{Z}$</code> is a ring under addition and multiplication.</li>
-</ul></li>
-<li>Set difference is written with a backslash <code>$\backslash$</code>, not with a minus <code>$-$</code>.</li>
-<li>If e is not an element of S, then <code>$e \not \in S$</code> (and not something like <code>$e \in' S$</code>)</li>
-<li><code>$[n] = \{x \in \mathbb{N} | 1 \le x \le n \}$</code></li>
 <li>Use <code>$:=$</code> for assignment, not <code>$\rightarrow$</code> or <code>$\leftarrow$</code></li>
 <li>When denoting choosing elements from a set based on some criterion, use the bar |: <code>$\{x|x \in P(x) \land \forall y \in S: x \succ y\}$</code> (some people use a colon)</li>
-<li>I write the expectation of the probability distribution <code>$X$</code> as <code>$\mathbb{E}[X]$</code> and the variance of <code>$X$</code> as <code>$\mathbb{V}[X]$</code>. Unfortunately, <code>$\mathbb{C}$</code> is already taken for the complex numbers, so I am forced to write <code>$\text{cov}[X,Y]$</code> for the covariance, and <code>$\text{cor}[X,Y]$</code> for the correlation.
-<ul>
-<li>Perhaps I could write the first/second/third and so on moment as <code>$\mathbb{M_{1}}, \mathbb{M_{2}}, \mathbb{M_{3}}$</code></li>
-</ul></li>
-<li>In logic, use <code>$\Rightarrow$</code> or <code>$\Leftarrow$</code> for implication and <code>$\Leftrightarrow$</code> for the biconditional instead of <code>$\leftarrow$</code> or <code>$\rightarrow$</code> and <code>$\leftrightarrow$</code>.</li>
 <li>Usually, with <code>$\bigcup/\bigvee/\sum/\prod$</code> etc, use <code>$i$</code> and <code>$j$</code> as the variables. If there are more, use <code>$i_1, i_2, \dots$</code>.</li>
 <li>A variable with the name "abcd" is written as <code>$\text{abcd}$</code>, <code>$abcd$</code> is the product of four variables <code>$a, b, c$</code> and <code>$d$</code>.</li>
+<li><code>$0 \in \mathbb{N}$</code>, <code>$\mathbb{N}^+:=\mathbb{N}\backslash \{0\}$</code>. It makes much more sense when treating <code>$\mathbb{N}$</code> as a commutative monoid under addition (one could answer that it's equally possible to treat <code>$\mathbb{N}^+$</code> as a commutative monoid under multiplication, to which my answer is that addition is a more fundamental operation than multiplication)</li>
+<li><code>$[n] = \{x \in \mathbb{N} | 1 \le x \le n \}$</code></li>
+</ul>
+
+<h3>Set Theory</h3>
+
+<ul>
+<li>Clearly differentiate between stating something being a proper subset or not: only use <code>$A \subset B$</code> if definitely <code>$A \not =B$</code>, otherwise write <code>$A \subseteq B$</code>.</li>
+<li>Set difference is written with a backslash <code>$\backslash$</code>, not with a minus <code>$-$</code>.</li>
+<li>If e is not an element of S, then <code>$e \not \in S$</code> (and not something like <code>$e \in' S$</code>).</li>
+</ul>
+
+<h3>Logic</h3>
+
+<ul>
+<li>Use <code>$\Rightarrow$</code> or <code>$\Leftarrow$</code> for implication and <code>$\Leftrightarrow$</code> for the biconditional instead of <code>$\leftarrow$</code> or <code>$\rightarrow$</code> and <code>$\leftrightarrow$</code>.</li>
+</ul>
+
+<h3>Probability Theory and Statistics</h3>
+
+<ul>
+<li>I write the expectation of the probability distribution <code>$X$</code> as <code>$\mathbb{E}[X]$</code> and the variance of <code>$X$</code> as <code>$\mathbb{V}[X]$</code>. Unfortunately, <code>$\mathbb{C}$</code> is already taken for the complex numbers, so I am forced to write <code>$\text{cov}[X,Y]$</code> for the covariance, and <code>$\text{cor}[X,Y]$</code> for the correlation.</li>
+</ul>
+
+<h3>Game Theory</h3>
+
+<p>(Or social choice theory/decision theory/utility theory…)</p>
+
+<ul>
+<li>Some people use <code>$P, R, I$</code> instead of <code>$\prec, \preceq, \sim$</code>. I don't.</li>
+</ul>
+
+<h2>Things I Would Like To Do But I'm Not Brave Enough</h2>
+
+<ul>
+<li>Write the first/second/third and so on moment as <code>$\mathbb{M_{1}}, \mathbb{M_{2}}, \mathbb{M_{3}}$</code>.</li>
+<li>Use a big <code>$+$</code> and <code>$*$</code> instead of <code>$\sum$</code> and <code>$\prod$</code>.</li>
+<li><a href="https://www.youtube.com/watch?v=sULa9Lc4pck">This notation</a> for logarithms, exponents and roots.</li>
+<li>Start with the integers <code>$\mathbb{Z}$</code>, and then specifies when one wants only the positive numbers (<code>$\mathbb{Z}^+$</code>), the positive numbers with 0 (<code>$\mathbb{Z}^+_0$</code>), the negative numbers (<code>$\mathbb{Z}^-$</code>) and the negative numbers with 0 (<code>$\mathbb{Z}^-_0$</code>). That would be much nicer than using <code>$\mathbb{N}$</code>, since <code>$\mathbb{Z}$</code> is a ring under addition and multiplication.</li>
+<li>Treat <code>$-$</code> and <code>$+$</code> as <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a> operators for making expressions negative and positive, which sign flipping being done by explicitely multiplying with <code>$-1$</code>.
+<ul>
+<li>Alternatively, use the same notation as for the <a href="https://en.wikipedia.org/wiki/Complex_conjugate">complex conjugate</a>.</li>
+</ul></li>
+</ul>
+
+<h2>Things I'm Unsure About</h2>
+
+<ul>
+<li>In multiplication of reals (and maybe complex numbers), is it best to just use concatenation <code>$abc$</code>, asterisks <code>$a*b*c$</code> or central dots <code>$a \cdot b \cdot c$</code>?
+<ul>
+<li>Or just be flexible?</li>
+</ul></li>
+<li>Basically every usage of <code>$\ell$</code> feels weird to me (except for the <code>$\ell_p$</code> norm and <code>$\ell^p$</code> space maybe). It often seems too important/out of place for a simple variable (or, <em>god forbid</em>, an index).</li>
 </ul>
 </html>
