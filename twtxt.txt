@@ -891,4 +891,5 @@
 2022-02-04T09:26:22.000000Z	See also “A Chronicle of the Bay Area Cults”, Vol. 2, pg. 773-776.
 2022-02-04T10:07:34.000000Z	Eliezer Yudkowsky wins every Dollar Auction.
 2022-02-04T10:07:58.000000Z	Your model of Eliezer Yudkowsky is faster than you at precommitting to not swerving.
-2022-02-04T10:33:45.000000Z	Pairs of pickup artists using Toki Pona as a cryptolect
+2022-02-04T10:33:45.000000Z	Pickup artist cryptolect
+2022-02-04T23:44:45.000000Z	10% Bodhisattva vow
