@@ -131,6 +131,39 @@ forecasts is:</p>
 
 <ul>
 <li>The argument <em>for</em> having a score of <code>$~1$</code> for every finesse (assuming a large <code>$n$</code>) is that inferring the correct way to make forecasts from this calibration plot is trivial: With forecasts of probability <code>$f_i&gt;0.5$</code>, re-assign a probability <code>$f_i:=1-f_i$</code>.</li>
-<li>The argument <em>against</em> giving a score of <code>$~1$</code> is that extending this rule would mean that at every kind of correction on the plot is valid, but there is no clear cutoff point that prevents us from applying this to individual predictions ("If you predict 99% instead of 43%, and 1% instead of 13%, and 1% instead of 23%, and […], then you achieve perfect resolution and calibration.")</li>
+<li><p>The argument <em>against</em> giving a score of <code>$~1$</code> is that extending this rule would mean that at every kind of correction on the plot is valid, but there is no clear cutoff point that prevents us from applying this to individual predictions ("If you predict 99% instead of 43%, and 1% instead of 13%, and 1% instead of 23%, and […], then you achieve perfect resolution and calibration.")</p></li>
+<li><p>Algorithms for quantifying the finesse of calibration plots</p>
+
+<ul>
+<li>Input: A list of <code>n</code> forecasts and their resolutions</li>
+<li>First idea:
+<ul>
+<li>For i=2, n
+<ul>
+<li>Segment the forecasts into i different segments, ordered by probability</li>
+<li>Calculate average outcome</li>
+<li>For two adjacent segments, calculate the slope for those values</li>
+<li>Append the mean of all slopes of adjacent segments to the array <code>output</code></li>
+</ul></li>
+<li>Return <code>output</code></li>
+</ul></li>
+<li>Second idea:
+<ul>
+<li>For i=2, n
+<ul>
+<li>Segment the forecasts into i different segments, ordered by probability</li>
+<li>Re-scale each segment to give probabilities from 0 to 1</li>
+<li>Use a proper scoring rule? Idk I haven't thought this through</li>
+</ul></li>
+</ul></li>
+<li>Third idea:
+<ul>
+<li>Something like the first idea, but with a sliding window</li>
+</ul></li>
+<li>Fourth idea:
+<ul>
+<li>Average linear regression of all subsequences with length<code>$\ge \mathcal{F}$</code></li>
+</ul></li>
+</ul></li>
 </ul>
 </html>
