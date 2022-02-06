@@ -901,4 +901,5 @@
 2022-02-06T18:04:32.000000Z	rijndaelites
 2022-02-06T21:38:13.000000Z	the adiabatic sutra, the inframeasure sutra, the acausal sutra
 2022-02-06T21:42:24.000000Z	i think india is actually the source of written religions. seriously, the tripitaka is so gigantic (50 volumes) that it hasn't been completely translated *until this day* (acessintoinsight.org summarizing it with the words “if you want to read the whole tripitaka, you'll have to learn pali”), and i can't find a description of how long the vedas are (except the 20379 mantras figure on wikipedia, which would be ~10,000 pages judging from the length of a mantra in the incomplete pdfs i've found online). a shelf copy of the mahabharata takes up 10 volumes
-2022-02-06T22:40:10.000000Z	apparently the tibetan canon is *checks* 73 million words long.
+2022-02-06T22:40:10.000000Z	apparently the tibetan canon is *checks* 73 million words long. which would be 173,000 pages. yea
+2022-02-06T22:43:53.000000Z	i think if wikipedia says that the chinese buddhist canon is 52,382,960 characters long, that would be around 50,000,000 words. mental
