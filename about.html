@@ -91,7 +91,7 @@ time that argument happens anywhere.</p>
 
 <h3>Content</h3>
 
-<p>This website contains essays on different topics, ranging
+<p>This website contains texts on different topics, ranging
 from programming over philosophy to discussions of odd social
 behavior, as well as translations, transcriptions, music
 recordings and programming projects. It follows the idea of <a href="https://www.gwern.net/About#long-content">Long
@@ -119,9 +119,9 @@ presenting mainly new information to the reader.</p>
 <p>The content on this website is licensed under <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons
 4.0</a>.</p>
 
-<h4>Essays</h4>
+<h4>Texts</h4>
 
-<p>The essays contain mainly new material, both short arguments and
+<p>The texts contain mainly new material, both short arguments and
 collections of links, but also longer descriptions of new ideas or
 analyses of concepts where existing descriptions (e.g. on Wikipedia or
 other blogs) were deemed incomplete. It is of course not possible to
@@ -134,8 +134,40 @@ be new to most readers.</p>
 text about the idea I was thinking about. Then the time spent researching
 whether the idea exists already should stop take at most <code>$\frac{t}{2}$</code>.</p>
 
-<p>There are, of course, some essays that were written about existing and
+<p>There are, of course, some texts that were written about existing and
 well-known ideas. These were written mainly for my own enjoyment.</p>
+
+<h5>Not Really a Blog</h5>
+
+<blockquote>
+  <p>A blog (a truncation of "weblog") is a discussion or informational
+website published on the World Wide Web consisting of discrete, often
+informal diary-style text entries (posts). Posts are typically displayed
+in reverse chronological order, so that the most recent post appears
+first, at the top of the web page.</p>
+</blockquote>
+
+<p><em>– <a href="https://en.wikipedia.org/wiki/Wikipedia">Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Blog">“Blog”</a>, 2021</em></p>
+
+<p>I don't think this website can be classified as a blog—it strongly
+lacks the chronological element of the standard blog format, except for
+the <a href="./changelog.html">changelog</a>.</p>
+
+<p>I agree with Gwern that blogs are the victory of the hare over the
+tortoise, and I'm deeply unhappy that short-term and unorganized forms of
+content aggregation have prevailed on the web over long-term &amp; maintained
+sites (culminating in abominations such as discord servers holding large
+amounts of local knowledge—at least you could link to a forum or lurk
+without creating an account!). I do, however, sometimes participate in the
+guilty pleasure of <a href="https://schelling.pt/@niplav">ephemeral shitposting</a>.</p>
+
+<p>I'm not big into linguistic prescriptivism (although it
+is another one of those guilty pleasures I <a href="./language.html#Better-Names-for-Things">sometimes engage
+in</a>), so call this a blog if you
+like. I personally prefer the term simple term "website" or "personal
+website". If you want to talk about me as if I had prestige, "essays"
+is also okay. (It might send incorrect signals about <a href="./masturbation_and_attractiveness.html">how prestigeworthy
+I really am</a>, though).</p>
 
 <h4>Translations, Transcriptions &amp; Archives</h4>
 
@@ -433,29 +465,29 @@ similar to those of the minimalist unix and <a href="https://en.wikipedia.org/wi
 
 <p>Various measures of size for the website (excluding automatically generated content and transcriptions):</p>
 
-<pre><code>$ cat (l *.md | g -v chrono | g -v tao | g -v list) | pr | grep -Eo 'Page [0-9]+' | tail -1
-Page 413
+<pre><code>$ cat (l *.md | g -v chrono | g -v tao | g -v list | g -v exercise) | pr | grep -Eo 'Page [0-9]+' | tail -1
+Page 468
 $ wc (l *.md | g -v chrono | g -v tao | g -v list) | tail -1
-23102  125434  905988 total
+28390  153710 1106568 tota
 </code></pre>
 
 <p>Benford's law:</p>
 
-<pre><code>$ grep -ho '[0-9]' *.md | sort | uniq -c | sort -n
-5770 4
-6662 6
-6906 9
-7036 3
-7045 8
-7286 5
-7397 7
-25223 1
-27196 2
-42394 0
+<pre><code>$ grep -ho '[0-9]' *.md | sort | uniq -c | sort -n | tail -10
+6106 4
+7128 9
+7130 6
+7297 8
+7423 3
+7750 5
+7803 7
+26734 1
+28876 2
+44173 0
 </code></pre>
 
 <p>(Note: as of the time of writing, the list of numbers above is not
-reflectively stable, that is, after I update the numbers, the distribution
+iteratively stable, that is, after I update the numbers, the distribution
 of digits on my website changes slightly (since the numbers above are
 part of the website), but it does not reach fixation at some point,
 but rather cycles).</p>

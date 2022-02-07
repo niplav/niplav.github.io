@@ -71,7 +71,7 @@ is, and describe algorithms that fulfill those conditions.</strong></p>
 
 <h1>Finesse of Sets of Forecasts</h1>
 
-<p><em>epistemic status: not just reinventing the wheel, but the whole bicycle</em></p>
+<p><em>epistemic status: likely not just reinventing the wheel, but the whole bicycle</em></p>
 
 <p>Say we have a set of resolved forecasts and can display them on a
 calibration plot.</p>
@@ -119,7 +119,7 @@ at <code>$\mathcal{F}$</code> and <code>$1$</code> if the forecasts are complete
 </ul></li>
 <li>For a sufficiently large <code>$n \rightarrow \infty$</code>, and a sufficiently small <code>$\frac{1}{n}&gt;ε&gt;0$</code>, and <code>$r(p)$</code> being 1 with probability <code>$p$</code> and 0 with probability <code>$1-p$</code>, it should hold that <code>$s(((ε,r(ε)),(2ε,r(2ε)), \dots, (\lfloor \frac{n}{2} \rfloor ε, r(\lfloor \frac{n}{2} \rfloor ε)), (\lceil \frac{n}{2} \rceil ε, r(\lceil \frac{n}{2} \rceil ε)), \dots, (nε, r(nε))), \mathcal{F})=1$</code> for any <code>$\mathcal{F}$</code>: If we have lots of datapoints, all perfectly calibrated, the score is nearly 0 at all finesses.</li>
 <li>In expectation, if we sample every <code>$o_i$</code> uniformly from <code>$\{0, 1\}$</code> with replacement, <code>$s(\mathbf{D}, \mathcal{F})=0$</code>.</li>
-<li>With <code>$\mathcal{F}_1&lt;\mathcal{F}_2$</code>, <code>$s(\mathbf{D}, \mathcal{F}_1)&lt;s(\mathbf{D}, \mathcal{F}_2)$</code> (smaller finesse shouldn't lead to a greater score, since if you're uncalibrated at a finesse of 10%, you're not going to be suddenly calibrated at a finesse of 5%)</li>
+<li>With <code>$\mathcal{F}_1&lt;\mathcal{F}_2$</code>, <code>$s(\mathbf{D}, \mathcal{F}_1) \le s(\mathbf{D}, \mathcal{F}_2)$</code> (smaller finesse shouldn't lead to a greater score, since if you're uncalibrated at a finesse of 10%, you're not going to be suddenly calibrated at a finesse of 5%)</li>
 </ul>
 
 <p>But what should be done about a calibration plot that looks like this?</p>
