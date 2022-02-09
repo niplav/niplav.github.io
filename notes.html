@@ -105,6 +105,18 @@ much text?)--> For a shorter approach, you could also just read all
 
 <h2>Approach Anxiety</h2>
 
+<blockquote>
+  <p>An die Rippen pocht das Männerherz, <br />
+Vorüber an hohlen Totengesichtern <br />
+Niederjagt die Front der Major, <br />
+Halt! <br />
+Und Regimenter fesselt das starre Kommando.  </p>
+
+<p>Lautlos steht die Front.</p>
+</blockquote>
+
+<p><em>– <a href="https://en.wikipedia.org/wiki/Friedrich_Schiller">Friedrich Schiller</a>, “Die Schlacht”, 1805</em></p>
+
 <p>I had very big problems when trying to overcome approach anxiety. Since
 this seems to be a common problem, it may be worth it to share a method
 that was successful for me to become more comfortable with it. To make
@@ -1190,4 +1202,16 @@ stays fixed.</p>
     p_1^2+p_1-p_1^2-\sum_{i=3}^{n} p_1 p_i+\sum_{i=3}^n p_1 p_i=\\
     p_1$$
 </div>
+
+<!--
+Computing Shapley Values in Klong
+----------------------------------
+
+First argument: the function, second argument: the given values, third
+argument: the fallback values.
+
+shapleyval::{f::x;g::y;d::z;{s::!#g;s::ps(&~s=x)}'!#y}
+shapleyval({(x@2)+(*x)^x@1};[2 4 4];[1 1 0])
+
+-->
 </html>
