@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2022-12-08, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2022-02-11, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -1107,9 +1107,57 @@ or multiplication (counterexample: <code>$2^{3 \cdot 4}=4068 \not=128=2^3 \cdot 
 
 <p>Induction assumption: <code>$m+k&lt;n+k$</code></p>
 
-<p>Induction step: <!--TODO--></p>
+<p>Induction step:</p>
+
+<div>
+    $$m+k^+ < n+k^+ \Leftrightarrow \\
+    (m+k)^+ < (n+k)^+ \Leftrightarrow \\
+    \{m+k\} \cup (m+k) \subset \{n+k\} \cup (n+k)$$
+</div>
+
+<p>We know that <code>$m+k \subset n+k$</code>.</p>
+
+<p>We can prove that <code>$\{m+k\} \subset n+k$</code>:</p>
+
+<p>In the base case, <code>$m+k^+=(m+k)^+=\{m+k\} \cup (m+k)=n+k$</code>, in which
+<code>$\{m+k\} \subset n+k$</code> clearly holds. Assume that <code>$m+k \subset n+k$</code>.
+Then <code>$n+k^+=(n+k)^+=\{n+k\} \cup (n+k) \supset n+k \supset m+k$</code>.</p>
+
+<p>Therefore, we know that <code>$\{m+k\} \subset n+k$</code> and therefore
+<code>$m+k \subset n+k$</code> and therefore <code>$m+k &lt; n+k$</code>.</p>
 
 <hr />
 
 <p>To be shown: if <code>$m&lt;n$</code> and <code>$k \not =0$</code>, then <code>$m \cdot k&lt;n \cdot k$</code>.</p>
+
+<p>Induction over <code>$k$</code>. Base case: <code>$m \cdot 1=m&lt;n=n \cdot 1$</code> (I don't
+think the text proves that <code>$p_1(n)=n$</code>, but I also don't think it would
+be <em>that</em> useful for me to do that here).</p>
+
+<p>Induction assumption: <code>$m \cdot k&lt;n \cdot k$</code>.</p>
+
+<p>Induction step:
+It must hold that
+<code>$m \cdot k^+=p_m(k)+m=(m \cdot k)+m&lt;(n \cdot k)+n=p_n(k)+n=n \cdot k^+$</code>.
+In general, if <code>$m&lt;n$</code> and <code>$k&lt;l$</code>, then <code>$m+k&lt;n+l$</code> because
+<code>$m+k&lt;n+k=k+n&lt;l+n$</code> (two applications of the theorem above, and using
+the commutativity of addition), so <code>$(m \cdot k)+m&lt;(n \cdot k)+n$</code>.</p>
+
+<p>Therefore, <code>$m \cdot k&lt;n \cdot k$</code>.</p>
+
+<hr />
+
+<p>To be shown: Ever non-empty set <code>$E \subset ℕ$</code> has a minimum.</p>
+
+<p>(I tried to prove this constructively, but the result was some weird
+amalgam of a constructive and and an inductive proof. Oh well.)</p>
+
+<p>Let <code>$e \in N$</code> be any element in <code>$E$</code>. Then if <code>$e=\emptyset$</code>,
+then there can be no element of <code>$E$</code> smaller than <code>$e$</code>, and <code>$e$</code>
+is smaller than any other natural number.</p>
+
+<p>If <code>$e \not=\emptyset$</code>, then for any <code>$e \in N$</code>, if we know that <code>$e \not \in E$</code>
+and <code>$e^+ \in E$</code>, then <code>$e^+$</code> is the number so that no natural number
+smaller than <code>$e^+ \in E$</code>, since we know that all numbers <code>$&lt; e^+$</code>
+are not in <code>$E$</code>.</p>
 </html>
