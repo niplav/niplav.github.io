@@ -925,3 +925,4 @@
 2022-02-14T11:54:37.000000Z	recursive grant-making
 2022-02-14T12:33:54.000000Z	SneLU
 2022-02-14T15:00:49.000000Z	why not a an esperanto prefix for thisness? similar to how one has ĉiam (ĉial for “for every reason”) for “always”, and neniam for “never” (nenial for “for no reason”), one could have e.g. “piam” for “now”, “pie” for “here”, “pial” for “for this (one) reason”, etc. one could argue that this purpose could also be fulfilled by “ĉi tie”, “ĉi tiam”, “ĉi tial”, but why not put it into one word?
+2022-02-14T15:01:09.000000Z	actually, scratch the “pi-” prefix, why not make “ĉit-” the prefix?
