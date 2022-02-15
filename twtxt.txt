@@ -931,3 +931,4 @@
 2022-02-15T10:12:12.000000Z	ghettoblaster
 2022-02-15T15:21:06.000000Z	some people, when they hear the word “technocracy”, think of “rule by technocrats”, others think of “rule by legible mechanisms”, which is a slight difference
 2022-02-15T19:10:15.000000Z	millenial woman who did a degree in *-studies and uses the word “communities” a lot
+2022-02-15T23:47:10.000000Z	someday i will descend upon the unicode consortium and add sub/superscript version of the whole latin alphabet
