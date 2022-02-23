@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-03-23, modified: 2022-02-14, language: english, status: notes, importance: 1, confidence: draft</em></p>
+<p><em>author: niplav, created: 2021-03-23, modified: 2022-02-22, language: english, status: notes, importance: 1, confidence: draft</em></p>
 
 <blockquote>
   <p><strong>People write mathematics in a specific way, and use different
@@ -70,6 +70,15 @@ conventions. Here I collect mine, mainly for myself.</strong></p>
 
 <h1>Mathematics Notation Convention</h1>
 
+<blockquote>
+  <p>Zum Schein nämlich steht das Ausdruckslose, wiewohl im Gegensatz,
+doch in derart notwendigem Verhältnis, daß eben das Schöne, ob auch
+selber nicht Schein, aufhört ein wesentlich Schönes zu sein, wenn der
+Schein von ihm schwindet.</p>
+</blockquote>
+
+<p><em>– Walter Benjamin, “Goethes Wahlverwandschaften”, 1925</em></p>
+
 <h3>Basics</h3>
 
 <ul>
@@ -77,8 +86,12 @@ conventions. Here I collect mine, mainly for myself.</strong></p>
 <li>When denoting choosing elements from a set based on some criterion, use the bar |: <code>$\{x|x \in P(x) \land \forall y \in S: x \succ y\}$</code> (some people use a colon)</li>
 <li>Usually, with <code>$\bigcup/\bigvee/\sum/\prod$</code> etc, use <code>$i$</code> and <code>$j$</code> as the variables. If there are more, use <code>$i_1, i_2, \dots$</code>.</li>
 <li>A variable with the name "abcd" is written as <code>$\text{abcd}$</code>, <code>$abcd$</code> is the product of four variables <code>$a, b, c$</code> and <code>$d$</code>.</li>
-<li><code>$0 \in \mathbb{N}$</code>, <code>$\mathbb{N}^+:=\mathbb{N}\backslash \{0\}$</code>. It makes much more sense when treating <code>$\mathbb{N}$</code> as a commutative monoid under addition (one could answer that it's equally possible to treat <code>$\mathbb{N}^+$</code> as a commutative monoid under multiplication, to which my answer is that addition is a more fundamental operation than multiplication)</li>
-<li><code>$[n] = \{x \in \mathbb{N} | 1 \le x \le n \}$</code></li>
+<li><code>$0 \in \mathbb{N}$</code>, <code>$\mathbb{N}^+:=\mathbb{N}\backslash \{0\}$</code>. It makes much more sense when treating <code>$\mathbb{N}$</code> as a commutative monoid under addition (one could answer that it's equally possible to treat <code>$\mathbb{N}^+$</code> as a commutative monoid under multiplication, to which my answer is that addition is a more fundamental operation than multiplication).</li>
+<li>Setting operator precedence and passing arguments to functions is done with parentheses <code>$()$</code>, sets are denoted using <code>$\{\}$</code>, and <code>$[]$</code> is sometimes used in the context of statistics (variance of a variable, mean of a variable, and so on). These are not mixed.
+<ul>
+<li><code>$[n] = \{x \in \mathbb{N} | 1 \le x \le n \}$</code> for <code>$n \in \mathbb{N}$</code>.</li>
+</ul></li>
+<li>For function definitions, use <code>$f: ℝ^n \mapsto ℝ$</code> instead of <code>$f: ℝ^n \rightarrow ℝ$</code></li>
 </ul>
 
 <h3>Set Theory</h3>
@@ -131,6 +144,5 @@ conventions. Here I collect mine, mainly for myself.</strong></p>
 <li>Or just be flexible?</li>
 </ul></li>
 <li>Basically every usage of <code>$\ell$</code> feels weird to me (except for the <code>$\ell_p$</code> norm and <code>$\ell^p$</code> space maybe). It often seems too important/out of place for a simple variable (or, <em>god forbid</em>, an index).</li>
-<li>What looks nicer for function definitions, <code>$f: ℝ^n \mapsto ℝ$</code> or <code>$f: ℝ^n \rightarrow ℝ$</code>?</li>
 </ul>
 </html>

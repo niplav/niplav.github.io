@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2022-02-04, modified: 2022-02-05, language: english, status: notes, importance: 4, confidence: likely</em></p>
+<p><em>author: niplav, created: 2022-02-04, modified: 2022-02-18, language: english, status: notes, importance: 4, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>I describe boundary conditions for a function that estimates how
@@ -107,20 +107,23 @@ at <code>$\mathcal{F}$</code> and <code>$1$</code> if the forecasts are complete
 
 <h2>Conditions for a Finesse Evaluation Function</h2>
 
-<ul>
+<ol>
 <li>If <code>$n=0$</code>, <code>$s(\emptyset, \mathcal{F})$</code> is undefined.</li>
 <li>If <code>$n=1$</code>, <code>$s(\mathbf{D}, \mathcal{F})=0$</code>: We are generally suspicious of any single forecast.
-<ul>
+<ol>
 <li>More generally, if <code>$\mathbf{D}$</code> contains an <code>$f_i$</code> so that there is no other prediction with a probability within <code>$[f_i-\frac{\mathcal{F}}{2}; f_i+\frac{\mathcal{F}}{2}]$</code>, then <code>$s(\mathbf{D}, \mathcal{F})=0$</code>. Yes, even if the set of forecasts is "dense" and non-random in other places.</li>
-</ul></li>
+</ol></li>
 <li>If <code>$n=2$</code>, then it should hold for an <code>$ε&gt;0$</code> (but close to 0): <code>$s(((ε, 0), (1-ε, 1)), 1)=1$</code>, and <code>$s(((ε, 0), (1-ε, 1)), 0.5)=0$</code>.
-<ul>
+<ol>
 <li>More generally, if we have only zeros in the left half and ones in the right half, with <code>$n \rightarrow \infty$</code>, and a sufficiently small <code>$\frac{1}{n}&gt;ε&gt;0$</code>, it should hold that <code>$s(((ε,0),(2ε,0), \dots, (\lfloor \frac{n}{2} \rfloor ε, 0), (\lceil \frac{n}{2} \rceil ε, 1), \dots, (nε, 1)), \mathcal{F})$</code> is <code>$1$</code> for <code>$\mathcal{F}=1$</code> and <code>$0$</code> for <code>$\mathcal{F} \le 0.5$</code>.</li>
-</ul></li>
+</ol></li>
 <li>For a sufficiently large <code>$n \rightarrow \infty$</code>, and a sufficiently small <code>$\frac{1}{n}&gt;ε&gt;0$</code>, and <code>$r(p)$</code> being 1 with probability <code>$p$</code> and 0 with probability <code>$1-p$</code>, it should hold that <code>$s(((ε,r(ε)),(2ε,r(2ε)), \dots, (\lfloor \frac{n}{2} \rfloor ε, r(\lfloor \frac{n}{2} \rfloor ε)), (\lceil \frac{n}{2} \rceil ε, r(\lceil \frac{n}{2} \rceil ε)), \dots, (nε, r(nε))), \mathcal{F})=1$</code> for any <code>$\mathcal{F}$</code>: If we have lots of datapoints, all perfectly calibrated, the score is nearly 0 at all finesses.</li>
 <li>In expectation, if we sample every <code>$o_i$</code> uniformly from <code>$\{0, 1\}$</code> with replacement, <code>$s(\mathbf{D}, \mathcal{F})=0$</code>.</li>
-<li>With <code>$\mathcal{F}_1&lt;\mathcal{F}_2$</code>, <code>$s(\mathbf{D}, \mathcal{F}_1) \le s(\mathbf{D}, \mathcal{F}_2)$</code> (smaller finesse shouldn't lead to a greater score, since if you're uncalibrated at a finesse of 10%, you're not going to be suddenly calibrated at a finesse of 5%)</li>
-</ul>
+<li>With <code>$\mathcal{F}_1&lt;\mathcal{F}_2$</code>, <code>$s(\mathbf{D}, \mathcal{F}_1) \le s(\mathbf{D}, \mathcal{F}_2)$</code> (smaller finesse shouldn't lead to a greater score, since if you're uncalibrated at a finesse of 10%, you're not going to be suddenly calibrated at a finesse of 5%)
+<ol>
+<li>We can't just do this by multiplying the result with the finesse, since that would violate condition 4</li>
+</ol></li>
+</ol>
 
 <p>But what should be done about a calibration plot that looks like this?</p>
 

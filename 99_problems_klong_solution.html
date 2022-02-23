@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-02-10, modified: 2021-10-21, language: english, status: in progress, importance: 3, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2019-02-10, modified: 2022-02-23, language: english, status: in progress, importance: 3, confidence: highly likely</em></p>
 
 <blockquote>
   <p><strong>Solutions to the <a href="./99_klong_problems.html" title="99 Klong
@@ -99,7 +99,7 @@ K</a>.</p>
 
 <p>The pure Klong code, without tests, explanations, comments or performance
 tests is available <a href="./code/99_klong/sol.kg">here</a>. It currently implements
-solutions for all problems up to P63 (excluding P47 and P48), in 2262
+solutions for all problems up to P64 (excluding P47 and P48), in 2428
 bytes.</p>
 
 <h2>Conventions</h2>
@@ -1850,7 +1850,7 @@ litter::{:[(1=#x)&amp;@*x;pt(*x;[];[]):|[]~x;x;pt(*x;.f(x@1);.f(x@2))]}
 </code></pre>
 
 <p><code>clean</code> removes the redundant empty lists, and <code>litter</code> converts a tree
-with atoms as leafs into with empty lists added.</p>
+with atoms as leaves into with empty lists added.</p>
 
 <p><code>pt</code> is a small helper function that receives three arguments and puts
 them together into a tree: an atom, and two lists as nodes.</p>
@@ -2295,15 +2295,15 @@ that slow. Note: this is not the case for integers. Why?-->
 <h3>P60 (**) Construct height-balanced binary trees with a given number of nodes.</h3>
 
 <p>Simple solution: generate all height-balanced trees from height
-<code>$min_{n}$</code> (the minimal height of trees with <code>$n$</code> nodes) to <code>$max_{n}$</code>
+<code>$\text{min}_{n}$</code> (the minimal height of trees with <code>$n$</code> nodes) to <code>$\text{max}_{n}$</code>
 (the maximal height of trees with <code>$n$</code> nodes) for the given number of
 nodes, then filter them for having the desired number of nodes.</p>
 
-<p><code>$min_{n}$</code> is <code>$\lfloor \ln_2(x) \rfloor$</code>, because</p>
+<p><code>$\text{min}_{n}$</code> is <code>$\lfloor \ln_2(x) \rfloor$</code>, because</p>
 
 <div>
-    $$x \ge 2^{min_{n}}-1\\
-    \ln_2(x+1) \ge min_{n}$$
+    $$x \ge 2^{\text{min}_{n}}-1\\
+    \ln_2(x+1) \ge \text{min}_{n}$$
 </div>
 
 <p>One can find the exact number by considering that for a number <code>$m=2^n-1$</code>
@@ -2312,15 +2312,15 @@ nodes, then filter them for having the desired number of nodes.</p>
 the height <code>$n$</code> (2). This is of course not a proof, only an illustration
 of the edge conditions in this problem.</p>
 
-<p><code>$min_{n}$</code> therefore is</p>
+<p><code>$\text{min}_{n}$</code> therefore is</p>
 
 <pre><code>d3::{:[x;_ln(x)%ln(2);0]}
 </code></pre>
 
-<p>For <code>$max_{n}$</code>, one first needs to introduce the inverse of the fibonacci
+<p>For <code>$\text{max}_{n}$</code>, one first needs to introduce the inverse of the fibonacci
 series. One can think of the fibonacci series as an injective function
 <code>$f : \mathbb{N} \rightarrow \mathbb{N}$</code>. This means that a straightforward
-inverse <code>$fib^{-1}$</code> is not a function, because e.g. 10 would have no value to
+inverse <code>$\text{fib}^{-1}$</code> is not a function, because e.g. 10 would have no value to
 be mapped to. However, one can define a function that maps a number to the
 inverse of the next lower fibonacci number: the next fibonacci number below
 10 is 8, which is the 6th fibonacci number. This creates a function that is
@@ -2328,31 +2328,31 @@ fit for the given purpose.</p>
 
 <p>Height-balanced trees have an intricate relation to the fibonacci numbers:
 In the best case, a heigh-balanced binary tree of height <code>$h$</code> has
-at least <code>$fib_{h+3}-1$</code> nodes. Proof:</p>
+at least <code>$\text{fib}_{h+3}-1$</code> nodes. Proof:</p>
 
 <ol>
 <li>Induction base: For height 0, the tree with the smallest amount
 of nodes has 1 node (a single, unconnected node). For height 1, the
 heigh-balanced tree with the smallest amount of nodes has 2 nodes (2
 connected nodes).</li>
-<li>Induction assumption: <code>$minnodes_{h}=fib_{h+3}-1$</code>.</li>
+<li>Induction assumption: <code>$\text{minnodes}_{h}=\text{fib}_{h+3}-1$</code>.</li>
 <li>Induction step: The height-balanced tree with height <code>$h+1$</code>
 with the minimal number of nodes can be constructed using
 the tree with height <code>$h$</code> and the tree with height <code>$h-1$</code>
 and combining them using another node as a root. This way,
-<code>$minnodes_{h+1}=minnodes_{h}+minnodes_{h-1}+1=fib_{h+3}-1+fib_{h+2}-1+1=fib_{h+4}-1$</code>.</li>
+<code>$\text{minnodes}_{h+1}=\text{minnodes}_{h}+\text{minnodes}_{h-1}+1=\text{fib}_{h+3}-1+\text{fib}_{h+2}-1+1=\text{fib}_{h+4}-1$</code>.</li>
 </ol>
 
 <p>To find out how high the maximum height of a height-balanced binary tree
 with <code>$n$</code> nodes, one can simply take the inverse of that. This way,
-<code>$max_{n}=fib^{-1}_{n+1}-3$</code>.</p>
+<code>$\text{max}_{n}=\text{fib}^{-1}_{n+1}-3$</code>.</p>
 
 <p>To implement this, one needs a
 <a href="https://stackoverflow.com/a/5162856">formula</a> for the inverse of the
 Fibonacci numbers:</p>
 
 <div>
-    $$fib^{-1}(n)=\lfloor \frac{\frac{1}{2}+n*\sqrt{5}}{\ln(\phi)} \rfloor$$
+    $$\text{fib}^{-1}(n)=\lfloor \frac{\frac{1}{2}+n*\sqrt{5}}{\ln(\phi)} \rfloor$$
 </div>
 
 <p>To implement it, one now needs only the value of the <a href="https://en.wikipedia.org/wiki/Golden_ratio">golden
@@ -2365,7 +2365,7 @@ ratio</a>, which is
 fibinv::{_ln(0.5+x*sqr(5))%ln(gr)}
 </code></pre>
 
-<p>For testing purposes, one can now also define <code>fib</code>:</p>
+<p>For testing purposes, one can now also define `\text{fib}g:</p>
 
 <pre><code>fib::{*(x-1){(+/2#x),x}:*[1 0]}
 </code></pre>
@@ -2388,11 +2388,11 @@ fibinv::{_ln(0.5+x*sqr(5))%ln(gr)}
 
 <p>Apparently, fibinv returns <code>-2</code> for 0.<!--TODO: This might pose a problem later?--></p>
 
-<p>Implementing <code>$max_{n}$</code> is implementing</p>
+<p>Implementing <code>$\text{max}_{n}$</code> is implementing</p>
 
 <div>
-    $$max_{n}\\
-    =fib^{-1}(n+1)-3\\
+    $$\text{max}_{n}\\
+    =\text{fib}^{-1}(n+1)-3\\
     =\lfloor \frac{\ln(\frac{1}{2}+(n+1)*\sqrt{5})}{\ln(\phi)} \rfloor-3\\
     =\lfloor \frac{\ln(\frac{1}{2}+\sqrt{5}+\sqrt{5}*n)}{\ln(\phi)} \rfloor-3\\
     =\lfloor \frac{\ln(\frac{1}{2}+\sqrt{5}+\sqrt{5}*n)}{\ln(\phi)}-3 \rfloor\\
@@ -2404,7 +2404,7 @@ fibinv::{_ln(0.5+x*sqr(5))%ln(gr)}
     \approx \lfloor \frac{\ln(0.6459+0.5279*n)}{0.4812} \rfloor$$
 </div>
 
-<p>This way, <code>$max_{n}$</code> can be implemented the following way:</p>
+<p>This way, <code>$\text{max}_{n}$</code> can be implemented the following way:</p>
 
 <pre><code>d4.1::{:[x;_ln(0.6459+x*0.5279)%0.4812;0]}
 </code></pre>
@@ -2415,7 +2415,7 @@ heights using the fact that they behave very similarly to the
 fibonacci numbers, and return the height as soon as the number
 of nodes becomes bigger than the argument.</p>
 
-<p>This implementation uses the fact that <code>$max_{n+1}=max_{n}+max_{n-1}+1$</code>.
+<p>This implementation uses the fact that <code>$\text{max}_{n+1}=\text{max}_{n}+\text{max}_{n-1}+1$</code>.
 It works by counting up in a recursive function, and returning the counter
 when it becomes smaller than the highest tree generated. <code>|!3</code> is the
 array <code>[2 1 0]</code>, representing the number of nodes in the sparsest tree
@@ -2915,14 +2915,61 @@ completebintree::s63
 []
 </code></pre>
 
+<h3>P64 (**) Layout a binary tree (1).</h3>
+
+<p>So, here's an abomination. At the heart we have a recursive function
+<code>d7</code> that takes three arguments: the tree itself, the current in-order
+position, and the current depth.</p>
+
+<p><code>d7</code> deals with three cases: If we are dealing with an empty tree,
+we return the empty tree. If the left tree is empty, we can give the
+current tree the highest position (i.e. giving it the current depth and
+in-order number), and then proceed recursively with the right tree.</p>
+
+<p>Things get a little trickier with a non-empty left tree. In this case, an
+unnamed function is called with the arguments (because Klong is finicky
+about multiple statements in conditionals), and first we recursively
+pass the left tree to <code>d7</code>, the result of which we assign to <code>l</code>. Then
+we have to discover the highest in-order number in the left tree.
+We could flatten the tree and run a maximum over it, but I decided it
+would be cleaner to pick out that number explicitely, which can be found
+in the right-most subtree of <code>l</code> with no right subtree. This is done
+via a little While adverb, and we assign that right-most subtree with
+no right subtree to the variable <code>o</code>.</p>
+
+<p>Then we can proceed in orderly fashion again: our current root node
+gets the in-order value of <code>o</code> plus one, and we deal recursively with
+the right subtree.</p>
+
+<pre><code>d7::{:[[]~x;[]:|
+    []~x@1;(*x),y,z,[[]],,.f(x@2;y+1;z+1);
+    {[l o];
+        l::d7(x@1;y;z+1);
+        o::{~[]~x@4}{x@4}:~l;
+        (*x),(1+o@1),z,(,l),,d7(x@2;2+o@1;z+1)}:(x;y;z)
+    ]}
+s64::{d7(x;1;1)}
+layoutbinarytree::s64
+</code></pre>
+
+<p>We can test this using the tree from the image in <a href="./99_klong_problems.html#P64--Layout-a-binary-tree-1">the statement of the problem</a>:</p>
+
+<pre><code>    t::[:n [:k [:c [:a [] []] [:h [:g [:e [] []] []] []]] [:m [] []]] [:u [:p [] [:s [:q [] []] []]] []]]
+    layoutbinarytree(t)
+[:n 8 1 [:k 6 2 [:c 2 3 [:a 1 4 [] []] [:h 5 4 [:g 4 5 [:e 3 6 [] []] []] []]] [:m 7 3 [] []]] [:u 12 2 [:p 9 3 [] [:s 11 4 [:q 10 5 [] []] []]] []]]
+    layoutbinarytree([:a [][]])
+[:a 1 1 [] []]
+    layoutbinarytree([])
+[]
+</code></pre>
+
+<p>This looks quite like what should happen, although it still feels like the
+code could be cleaner, but I haven't found a good way to shave off bytes
+(except deleting the whitespace in the code above, of course). Maybe <code>d7</code>
+could give two return values in a list, the current in-order number and
+the result?</p>
+
 <!--
-Multiway Trees
---------------
-
-Graphs
-------
-
-Miscellaneous Problems
-----------------------
+    s64::{:[[]~x;[]:|[]~x@1;(*x),y,z,[[]],,.f(x@2;y+1;z+1);{[l];l::s64(x@1;y;z+1);(*x),(1+l@1),z,,l,,s64(x@2;2+l@1;z+1)}:(x;y;z)]}
 -->
 </html>

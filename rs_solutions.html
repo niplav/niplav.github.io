@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-10-14, modified: 2022-01-26, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-10-14, modified: 2022-02-22, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>This page contains some solutions to exercises from the textbook
@@ -735,4 +735,95 @@ It's MANDATORY
     \{p_2, p_3\} \cap \{p_1\}=\\
     \emptyset$$
 </div>
+
+<h3>6.7</h3>
+
+<p><img src="./img/rs_solutions/6_7_lts.png" alt="The labeled transition system for problem 6.7" title="The labeled transition system for problem 6.7" /><!--TODO: more elaborate description--></p>
+
+<h4>1. <code>$s_1$</code> satisfies the formula <code>$X\overset{\text{max}}{=} \langle b \rangle \textit{t}\!\textit{t} \land [b] X$</code></h4>
+
+<ul>
+<li>Starting with the configuration <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t} \land [b] X)$</code>.</li>
+<li>The attacker can pick the next configuration
+<ul>
+<li>If they pick <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t})$</code>, the defender is next
+<ul>
+<li>The defender can only pick the configuration <code>$(s_2, \textit{t}\!\textit{t})$</code></li>
+<li>The defender wins</li>
+</ul></li>
+<li>If they pick <code>$(s_1, [b] X)$</code>
+<ul>
+<li>The attacker can pick the next state, which can only be <code>$(s_2, X)$</code></li>
+<li>The next move is made by the referee of the game, and results in <code>$(s_2, \langle b \rangle \textit{t}\!\textit{t} \land [b] X)$</code></li>
+<li>The attacker then can decide on two moves:
+<ul>
+<li>If they pick <code>$(s_2, \langle b \rangle \textit{t}\!\textit{t})$</code>, the defender is next
+<ul>
+<li>The defender can only pick the configuration <code>$(s_2, \textit{t}\!\textit{t})$</code></li>
+<li>The defender wins</li>
+</ul></li>
+<li>If they pick <code>$(s_2, [b] X)$</code>, the attacker is next
+<ul>
+<li>The attacker can only pick <code>$(s_2, X)$</code>, which brings us back to $(s_2, \langle b \rangle \textit{t}!\textit{t} \land [b] X)$`, which means the game is infinite here</li>
+<li>Since the formula is defined via <code>$\overset{\text{max}}{=}$</code>, the defender wins</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h4>2. <code>$s$</code> satisfies the formula <code>$Y\overset{\text{min}}{=} \langle b \rangle \textit{t}\!\textit{t} \lor \langle \{a,b\} \rangle Y$</code>, but <code>$t$</code> does not</h4>
+
+<p>For <code>$s$</code>:</p>
+
+<ul>
+<li>Starting with the configuration <code>$(s, \langle b \rangle \textit{t}\!\textit{t} \lor \langle \{a,b\} \rangle Y)$</code></li>
+<li>The defender picks the next configuration
+<ul>
+<li>They don't want to pick <code>$(s, \langle b \rangle \textit{t}\!\textit{t})$</code>, since then they are stuck</li>
+<li>They can pick <code>$(s, \langle \{a,b\} \rangle Y)$</code>, and then are next
+<ul>
+<li>The only possible resulting state is <code>$(s_1, Y)$</code>, which the referee resolves to <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t} \lor \langle \{a,b\} \rangle Y)$</code></li>
+<li>They can now pick <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t})$</code></li>
+<li>Then the next state is <code>$(s_1, \textit{t}\!\textit{t})$</code>, in which they win</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>For <code>$t$</code>:</p>
+
+<ul>
+<li>Starting with the configuration <code>$(t, \langle b \rangle \textit{t}\!\textit{t} \lor \langle \{a,b\} \rangle Y)$</code>
+<ul>
+<li>The defender can pick:
+<ul>
+<li><code>$(t, \langle b \rangle \textit{t}\!\textit{t})$</code>
+<ul>
+<li>Here they are stuck, and the attacker wins</li>
+</ul></li>
+<li><code>$(t, \langle \{a,b\} \rangle Y)$</code>
+<ul>
+<li>The next configuration they can choose is <code>$(t_1, \langle \{a,b\} \rangle Y)$</code></li>
+<li>From there, the defender can choose two configurations:
+<ul>
+<li><code>$(t_1, Y)$</code>
+<ul>
+<li>The referee resolves this to <code>$(t_1, \langle b \rangle \textit{t}\!\textit{t} \lor \langle \{a,b\} \rangle Y)$</code></li>
+<li>Either, the defender now cycles through <code>$t_1$</code> indefinitely, by always choosing the <code>$a$</code> transition, but then the attacker wins, since the formula is defined via <code>$\overset{\text{min}}{=}$</code>, or they transition to <code>$t_2$</code>, in which case the scenario described below happens, in which they also loose</li>
+</ul></li>
+<li><code>$(t_2, Y)$</code>
+<ul>
+<li>The referee resolves this to <code>$(t_2, \langle b \rangle \textit{t}\!\textit{t} \lor \langle \{a,b\} \rangle Y)$</code></li>
+<li>Now, the defender can either choose <code>$(t_2, \langle b \rangle \textit{t}\!\textit{t}$</code> or <code>$(t_2, \langle \{a,b\} \rangle Y)$</code>, but is then stuck in both of these, so the attacker wins</li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>A property that <code>$t$</code> satisfies is <code>$Z\overset{\text{max}}{=}\langle a \rangle Z$</code>,
+since we have a similar scenario to above, but the infinite
+loop on <code>$t_1$</code> makes it possible for the defender to win (since the
+formula is defined via <code>$\overset{\text{max}}{=}$</code>).</p>
 </html>
