@@ -972,4 +972,5 @@
 2022-02-23T21:30:14.000000Z	picoeconomics is a great word & concept, and I'm sad it hasn't been developed further
 2022-02-25T02:35:48.000000Z	heaventen thousandbooks
 2022-02-25T16:18:51.000000Z	pathological selfer
-2022-02-25T23:15:19.000000Z	The first two things that people usually say when they step out of the airplane at the central niplavistan airport are “Why is everyone dressed the same way” and “Why does everything look like it's built to withstand a nuclear explosion—no, wait, let me rephrase, why *is* everything here built to withstand a nuclear explosion?”
+2022-02-25T23:15:19.000000Z	The first two things that people usually say when they step out of the plane at the central niplavistan airport are “Why is everyone dressed the same way” and “Why does everything look like it's built to withstand a nuclear—no, wait, let me rephrase, why *is* everything here built to as if to withstand a nuclear strike?”
+2022-02-25T23:31:05.000000Z	Well, modulo each item of clothing being produced in 1024 different colors
