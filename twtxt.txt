@@ -979,3 +979,4 @@
 2022-02-28T08:53:48.000000Z	inter ni
 2022-02-28T09:07:19.000000Z	thricing
 2022-02-28T10:32:20.000000Z	hot philosophy student just answered a ping i sent a week ago, thank you uncle tom :folded_hands:
+2022-02-28T22:54:06.000000Z	in conways game of life, does chaos always spread strictly faster than order?
