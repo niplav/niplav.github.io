@@ -987,3 +987,4 @@
 2022-03-03T16:05:09.000000Z	there was a connection between one of the guys who wrote the first pickup advice in the 70s, and general semantics. i could investigate
 2022-03-03T17:15:12.000000Z	whether cryptocurrencies are more or less likely to be stable during a multipolar ai takeoff depends on whether our current cryptography is “endgame” or not, i.e. whether it's in practice basically uncrackable by any advanced actor
 2022-03-03T21:16:23.000000Z	I would never donate money to a fund that would accept me as a grantee.
+2022-03-03T21:35:48.000000Z	Moloch whose pilots are spectral
