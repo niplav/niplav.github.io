@@ -1171,4 +1171,66 @@ can't exist: there is at least one element too many in <code>$ω$</code> to be
 matched to <code>$n$</code>.</p>
 
 <p>Therefore, such an <code>$n$</code> can't exist, <code>$ω$</code> is infinite.</p>
+
+<h3>Exercise 3</h3>
+
+<p>The proof here is the same as the one in exercise 2.</p>
+
+<h3>Exercise 4</h3>
+
+<p>To be shown: the union of a finite set of finite sets is finite (wouldn't
+this better be if it was a finite family of finite sets? Whatever.).</p>
+
+<p>Proof: Let <code>$\mathcal{S}$</code> be our set, and <code>$\bigcup_{S \in \mathcal{S}} S$</code>
+be the union of the finitely many elements of <code>$\mathcal{S}$</code>.</p>
+
+<p>If <code>$\#(\mathcal{S})=0$</code>, then the union is the empty set <code>$\emptyset$</code>,
+which is clearly finite (equivalent to <code>$0$</code>.</p>
+
+<p>If <code>$\#(\mathcal{S})=1$</code>, then the resulting set is just the only element
+of <code>$\mathcal{S}$</code>, which is per definition finite.</p>
+
+<p>Assume that <code>$\#(\mathcal{S})=n$</code>, and that <code>$\bigcup_{S \in \mathcal{S}}
+S$</code> is finite. Let then <code>$\mathcal{S}'=\mathcal{S} \cup \{S_+\}$</code>,
+where <code>$S_+$</code> is a finite set. Then
+<code>$\bigcup_{S \in \mathcal{S}'} S=S_+ \cup \bigcup_{S \in \mathcal{S}} S$</code>.
+Since we know that both <code>$\bigcup_{S \in \mathcal{S}} S$</code> and <code>$S_+$</code>
+are finite, we know that <code>$\bigcup_{S \in \mathcal{S}'} S$</code> is therefore
+also finite, per the statement in the text that the union of two finite
+sets is also finite.</p>
+
+<p>But we can also prove that <code>$E \cup F$</code> is finite if <code>$E$</code> and <code>$F$</code> are
+finite: If <code>$f \in F$</code>, then <code>$E \cup \{f\}$</code> is still finite (either
+<code>$\#(E \cup \{f\})=\#(E)$</code> or <code>$\#(E \cup \{f\})=(\#(E))^+$</code>). We can
+then set <code>$F:=F \backslash \{f\}$</code> and <code>$E:=E \cup \{f\}$</code>. Since we can
+repeat this only finitely many times, the resulting <code>$E$</code> must be still
+finite when <code>$F=\emptyset$</code> (this is one of my very few constructive
+proofs, be gentle please).</p>
+
+<hr />
+
+<p>To be shown: if <code>$E$</code> is finite, then <code>$\mathcal{P}(E)$</code> is finite, and
+<code>$\#(\mathcal{P}(E))=2^{\#(E)}$</code>.</p>
+
+<p>Proof: This was shown in <a href="./nst_solutions.html#Exercise-1_2">Exercise 2 in Section
+5</a> (I use the notation of <code>$|E|$</code>
+for the size of a set there). Since we can construct the size of
+<code>$\mathcal{P}(E)$</code>, it is equivalent to some natural number, and
+therefore finite.</p>
+
+<hr />
+
+<p>To be shown: If <code>$E$</code> is a non-empty finite set of natural numbers, then
+there exists an element <code>$k$</code> in <code>$E$</code> such that <code>$m \le k$</code> for all
+<code>$m$</code> in <code>$E$</code>.</p>
+
+<p>We start and set <code>$k:=0$</code>. We then choose an element from <code>$m \in E$</code>,
+and set <code>$E:=E \backslash \{m\}$</code>.
+If <code>$k \le m$</code>, we set <code>$k:=m$</code>. Else we do nothing.
+We know this process is repeated finitely many times, and once we end
+up with <code>$E=\emptyset$</code>, we have created a <code>$k$</code> such that <code>$m \le k$</code>
+for all <code>$m \in E$</code>.</p>
+
+<p>(Is this a constructive proof? It feels like one, but also like writing
+code.)</p>
 </html>
