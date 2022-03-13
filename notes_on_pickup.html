@@ -1,0 +1,270 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2022-03-12, modified: 2022-03-12, language: english, status: in progress, importance: 2, confidence: other</em></p>
+
+<h2>Approach Anxiety</h2>
+
+<blockquote>
+  <p>An die Rippen pocht das Männerherz, <br />
+Vorüber an hohlen Totengesichtern <br />
+Niederjagt die Front der Major, <br />
+Halt! <br />
+Und Regimenter fesselt das starre Kommando.</p>
+
+<p>Lautlos steht die Front.</p>
+</blockquote>
+
+<p><em>– <a href="https://en.wikipedia.org/wiki/Friedrich_Schiller">Friedrich Schiller</a>, “Die Schlacht”, 1805</em></p>
+
+<p>I had very big problems when trying to overcome approach anxiety. Since
+this seems to be a common problem, it may be worth it to share a method
+that was successful for me to become more comfortable with it. To make
+progress on that front, I set a goal for several weeks in advance,
+similar to this:</p>
+
+<ul>
+<li>1st week: Ask 1 guy a day for his number</li>
+<li>2nd week: Ask 2 guys for their numbers</li>
+<li>3rd week: Ask 3 guys for their numbers</li>
+<li>4th week: Ask 3 guys and 1 woman for their numbers</li>
+<li>5th week: Ask 2 guys and 1 woman for their numbers</li>
+<li>6th week: Ask 1 guy and 2 women for their numbers</li>
+<li>7th week: Ask 3 women for their numbers</li>
+</ul>
+
+<p>If I failed in a week, I precommitted to donating a certain amount like
+5€ to an effective charity.</p>
+
+<p>In contrast to the other methods used and advertised by people who cold
+approach, this worked quite well. After the first 4 weeks, I took 1 week
+off, but went back to approaching the week after.</p>
+
+<p>This, of course, only can work if one is able to ask men for their
+numbers. For a reason that eludes me, this is easier for me than
+approaching women, though the gap is shrinking with exposure.</p>
+
+<h2>Ask About Frequency of Being Approached After Rejection</h2>
+
+<p>After having been rejected by a woman during a daygame approach, I usually
+ask her “How often does this kind of thing happen to you? Like, once a
+month, or once a week?”, unless the woman seems to be in a great hurry.
+The woman usually gives an answer (albeit often not a very quantitative
+one), and if it is quantitative enough, I note it into my spreadsheet
+after the approach (I am, at heart, still a gigantic nerd).</p>
+
+<p>This is useful for two reasons.</p>
+
+<p>It gives me a good feeling for which parts of the city I'm in are the
+target of many daygamers, and which are undergamed. That way, I can find
+out which areas are neglected and target those.  That has two advantages:
+egoistically, it gives me better results (also, there are fewer blow-outs
+and abrasive rejections), as women being approached frequently makes
+it lose the magic for them, altruistically, it puts less competitve
+pressure other daygamers (competition is weaker) and the good looking
+women in the areas (they don't get approached quite as frequently).</p>
+
+<p>It also gives me an idea which kinds of women are targeted by other
+daygamers, and find out whether I have a type of woman I like that is
+more niche. Also, I'm generally interested in whether better looking
+women are approached more frequently (tentative answer, eye-balling my
+spreadsheet: yes).</p>
+
+<p>There is of course a lot of noise in that data: Some very good looking
+women I have asked about this after rejection have told me that they
+get approached once a year or less (but, otoh, some women are apparently
+approached <em>every day</em>). I'm not sure I can chalk that discrepancy up to
+randomness+location+movement patterns (if a woman doesn't cross the city
+center that often, she'll naturally get approached less).</p>
+
+<p>That said, it's not a very precise question, and is likely interpreted
+in many different ways, so I don't put that much weight on the responses.</p>
+
+<p>Note that this makes sense only <em>after</em> the woman has rejected you. If
+you ask during the approach, you are doing two questionable things: (1)
+asking questions and (2) focusing on your competition, instead of the
+woman in front of you. See <a href="" title="The New Strategic Selling">Heiman et al. 1995 ch. 13</a>
+<!--TODO: link--> why this is generally a bad idea. This is also the
+strongest argument for why you shouldn't ask about approach frequency:
+In case you see the woman at some later point, she might have changed her
+mind, and asking her about approach frequency burns parts of that bridge.</p>
+
+<h2>She Needs to Know You're Not a Weirdo</h2>
+
+<blockquote>
+  <p>The number of normies out there is much vaster than the Internet
+realizes. If you are reading this you are probably not a normie. You
+are an alienated weirdo and need help to cultivate being normal enough
+to f**k hot chicks while not losing your weird edge.</p>
+</blockquote>
+
+<p><em>– <a href="https://theredquest.wordpress.com/">TheRedQuest</a>, <a href="https://theredquest.wordpress.com/2021/06/21/compassion-and-empathy-for-chicks/index.html">“Compassion and Empathy for Chicks”</a>, 2021</em></p>
+
+<p>A couple of days ago, I did an approach on a standing woman that was
+(apparently) waiting for someone.  In the beginning she was giving mostly
+1-word or 2-word answers, but warmed up over time. Even after rejecting
+me (I believe that she was waiting for her boyfriend), she asked me a
+couple of questions.</p>
+
+<p>After the approach, I got thinking about why this happened. Maybe she was
+just relieved that I was relaxed about being rejected. Maybe. But I also
+believe that upon getting approached, a women' prior on you being a weirdo
+is pretty high. Especially if you're a beginner at daygame and your body
+language is undecided and low status, the odds that you're a bad kind
+of weird (mentally ill/undersocialized/very unrelaxed about rejection)
+are probably pretty high.  It's your job to demonstrate that this is
+not the case, and that you're more normal than the situation might convey.</p>
+
+<p>On the other hand, I'm not sure how this interacts with women that get
+approached a lot – do they have a lower prior on bad weirdness from
+guys who approach? This probably interacts with how common daygame is
+in the environment.</p>
+
+<p>On a related note, women are probably right in being very suspicious of
+guys who approach them. Out of the 5 wings I've done daygame with, only 2
+were reasonably well-adjusted people to the extent that I would consider
+inviting them to a party I host (and I'm a pretty weird person myself).</p>
+
+<p>I wonder whether there is a
+<a href="https://www.lesswrong.com/s/uLEjM2ij5y3CXXW6c/p/vKbAWFZRDBhyD6K6A" title="Gears Level &amp; Policy Level (Abram Demski, 2017)">policy-level</a>
+consideration of trying to be more normal during approaches as a beginner,
+and then with becoming more advanced you slowly edge towards being
+less normal (talking more &amp; more openly about sex, being more direct)
+(if you're very uncool, becoming more normal makes you cooler, but this
+stops paying off at some point). On the other hand, this is probably
+swamped by object-level strategies.</p>
+
+<h2>Reductionism on Approach Difficulties</h2>
+
+<p>When trying to cold-approach women, nearly all men find that they manifest
+a psychological block about going up to a woman and talking her first. The
+most common variant is <em>approach anxiety</em>, which manifests itself as,
+well, anxiety: a sinking feeling in the stomach, hectic movements,
+undecisiveness and frustration. But another common variant is <em>approach
+fatigue</em>, in which you have a flat vibe and no motivation to do any
+approaches (“I <em>could</em> talk to her, but why bother?”).</p>
+
+<p>Approach difficulties seem to have a variety of different causes. While
+the best method is to go out, become more and more frustrated, and then
+force yourself to approach (you can also work with your emotional state,
+as described in <a href="">Krauser 2014</a><!--TODO: link to Daygame Mastery-->
+p. 64. There are different axes which can be intervened on independently:</p>
+
+<ol>
+<li>Cognitive Approach Difficulties: Do you believe that approaching is a good idea?
+<ul>
+<li>If no:
+<ul>
+<li>try it, you will probably have some positive experiences
+<ul>
+<li>unless you have very high expectations</li>
+</ul></li>
+<li>re-cast own identity as evil/mischievous</li>
+</ul></li>
+</ul></li>
+<li>Biological Approach Difficulties: Do you have an embodied need to interact with go ng women? Does you body want to get closer?
+<ul>
+<li>If no: try to increase sex drive
+<ul>
+<li>lifting</li>
+<li>stopping porn consumption</li>
+<li>stopping masturbation</li>
+<li>experimentally, you could take testosterone, but I haven't tried this and don't think I will</li>
+</ul></li>
+</ul></li>
+<li>Social Approach Difficulties: Are you in a social flow? Can you get into it?
+<ul>
+<li>If no:
+<ul>
+<li>do warm-ups:
+<ul>
+<li>compliments</li>
+<li>regular everyday smalltalk</li>
+<li>doing weird stuff
+<ul>
+<li>laying on the pavement</li>
+<li>climbing on trees</li>
+<li>doing push-ups</li>
+</ul></li>
+</ul></li>
+<li>get a wing</li>
+<li>get more social in general</li>
+</ul></li>
+</ul></li>
+<li>Attraction Approach Difficulties: Are you actually attracted to the women you see?
+<ul>
+<li>If no: try to lower standards, for example by not masturbating or watching porn</li>
+</ul></li>
+<li>Emotional Approach Difficulties: How nervous/lethargic are you before an approach?
+<ul>
+<li>Factors
+<ul>
+<li>walk more slowly</li>
+<li>be relentlessly positive about everything you see</li>
+</ul></li>
+</ul></li>
+</ol>
+
+<p>If the first four aspects are reduced, the last one should be easier to
+tackle as well.</p>
+</html>
