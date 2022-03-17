@@ -826,4 +826,23 @@ It's MANDATORY
 since we have a similar scenario to above, but the infinite
 loop on <code>$t_1$</code> makes it possible for the defender to win (since the
 formula is defined via <code>$\overset{\text{max}}{=}$</code>).</p>
+
+<h3>6.9</h3>
+
+<p>The sets corresponding to <code>$X=[a]Y, Y= \langle a \rangle X$</code> are
+<code>$([\cdot a \cdot ] S_2, \langle \cdot a \cdot \rangle S_1)$</code>.</p>
+
+<p>Start with <code>$S_2=\{p,q,r\}$</code> and <code>$S_1=\{p,q,r\}$</code>.</p>
+
+<p>Then <code>$([\cdot a \cdot ] \{p,q,r\}, \langle \cdot a \cdot \rangle \{p,q,r\})=(\{p,q,r\},\{p,q\})$</code>.</p>
+
+<p>That makes <code>$S_2=\{p,q\}$</code> and <code>$S_1=\{p,q,r\}$</code>.</p>
+
+<p>Then <code>$([\cdot a \cdot ] \{p,q\}, \langle \cdot a \cdot \rangle \{p,q,r\})=(\{p,q\},\{p,q\})$</code>.</p>
+
+<p>That makes <code>$S_2=\{p,q\}$</code> and <code>$S_1=\{p,q\}$</code>.</p>
+
+<p>Then <code>$([\cdot a \cdot ] \{p,q\}, \langle \cdot a \cdot \rangle \{p,q\})=(\{p,q\},\{p,q\})$</code>.</p>
+
+<p>We have reached a fixpoint.</p>
 </html>
