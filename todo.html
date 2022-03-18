@@ -90,18 +90,12 @@ in the future, as well as music.</strong></p>
 <li>Daygame Cost-Benefit Analysis</li>
 </ul></li>
 </ul></li>
-<li>Toy AI Takeoff Model
-<ul>
-<li>Re-run model where I accidentally took 255 as size</li>
-</ul></li>
 <li>Switch to MathJax 3?</li>
 <li>Edit texts:
 <ul>
 <li>Considerations on Cryonics
 <ul>
 <li>Mainly done</li>
-<li>Expand the section on the Guesstimate model</li>
-<li>Incorporate new Alcor membership costs &amp; updated Metaculus probabilities</li>
 </ul></li>
 </ul></li>
 <li>Flashcards:
@@ -111,6 +105,134 @@ in the future, as well as music.</strong></p>
 </ul></li>
 <li>Add content tables to pages?</li>
 <li>Add RSS feed (ugh)</li>
+</ul>
+
+<h2>Existing Texts</h2>
+
+<ul>
+<li>Range and Forecasting Accuracy
+<ul>
+<li>Add explanatory image for the <a href="./range_and_forecasting_accuracy.html#Three-Different-Analyses-An-Illustrative-Example">illustrative example</a></li>
+<li>Move the <a href="./range_and_forecasting_accuracy.html#For-PredictionBook">PredictionBook download code</a> to the PredictionBook API</li>
+<li>Rewrite the code in Python</li>
+<li>Extend the analysis to more datapoints
+<ul>
+<li>Extend the analysis to predictions with confidence intervals</li>
+<li>Extend the analysis to real Metaculus data</li>
+<li>Extend to more datasets</li>
+</ul></li>
+<li>Add a paragraph on the difference in quality between the two datasets, Metaculus is better</li>
+<li>Make more readable</li>
+<li>Prevent the OOD prediction, either
+<ul>
+<li>find a scoring rule that maps into all of ℝ</li>
+<li>curve-fit something other than a linear function</li>
+</ul></li>
+<li>Add a literature review
+<ul>
+<li><code>/usr/local/doc/unread/calibration_scoring_rules_for_practical_prediction_training_greenberg_2018.pdf</code></li>
+<li><code>https://en.wikipedia.org/wiki/J._Scott_Armstrong#Forecasting</code></li>
+<li><code>http://foresightr.com/2016/05/06/a-brief-history-of-forecasting</code></li>
+<li><code>https://onlinelibrary.wiley.com/doi/abs/10.1111/risa.12127</code></li>
+<li>Prediction: The long and short of it (Anthony Millner/Daniel Heyen, 2020)</li>
+</ul></li>
+</ul></li>
+<li>Considerations on Cryonics
+<ul>
+<li>Add a literature review
+<ul>
+<li><code>https://www.tandfonline.com/doi/pdf/10.1080/01459741003715391</code></li>
+<li><code>https://www.tandfonline.com/doi/full/10.1080/23311886.2016.1167576</code></li>
+<li><code>https://books.google.de/books?id=9C0ABAAAQBAJ&amp;pg=PA281&amp;lpg=PA281&amp;dq=Cryonics+cost+benefit+calculation&amp;source=bl&amp;ots=IIIVQtzzXt&amp;sig=ACfU3U3KMGKCBWhP1tvegvKvHTyCLtZNGA&amp;hl=en&amp;sa=X&amp;ved=2ahUKEwjc_O6v743qAhUKYcAKHXFVDsUQ6AEwDXoECAMQAQ#v=onepage&amp;q=Cryonics%20cost%20benefit%20calculation&amp;f=false</code></li>
+</ul></li>
+<li>Think about incorporating the Metaculus questions on Cryonics into the probability
+<ul>
+<li>Revival
+<ul>
+<li><code>https://www.metaculus.com/questions/3330/will-any-person-that-has-been-cryopreserved-for-more-than-1-year-be-resuscitated-or-emulated-before-2200/</code></li>
+<li><code>https://www.metaculus.com/questions/1626/before-1-january-2050-will-any-human-cryonically-preserved-for-at-least-1-year-be-successfully-revived/</code></li>
+<li><code>https://www.metaculus.com/questions/455/if-you-die-today-and-get-cryonically-frozen-will-you-wake-up/https://www.metaculus.com/questions/3332/will-james-bedford-be-revived-or-emulated-before-2200/</code></li>
+<li><code>https://www.metaculus.com/questions/3331/when-will-the-first-person-that-has-been-cryopreserved-for-more-than-1-year-be-resuscitated-or-uploaded/</code></li>
+<li><code>https://www.metaculus.com/questions/3382/what-will-the-earliest-preservation-date-of-any-resuscitated-cryonics-patient-be/</code></li>
+</ul></li>
+<li>Preservation:
+<ul>
+<li><code>https://www.metaculus.com/questions/3333/when-will-the-number-of-people-in-cryopreservation-preserved-before-2019-fall-to-less-than-50-of-the-current-value/</code></li>
+</ul></li>
+<li>Signup:
+<ul>
+<li><code>https://www.metaculus.com/questions/3478/how-many-patients-will-be-in-cryonic-suspension-at-the-cryonics-institute-in-2030/</code></li>
+<li><code>https://www.metaculus.com/questions/4052/if-cryonics-is-at-some-point-offered-for-free-what-percentage-of-americans-will-be-signed-up-within-10-years/</code></li>
+</ul></li>
+</ul></li>
+<li>Different value of money at different ages?</li>
+<li>Why not a Pascal's mugging?
+<ul>
+<li>No adversary</li>
+<li>Probability not <em>that</em> low</li>
+<li>Here assumed rather low bound on payoff to prevent</li>
+</ul></li>
+<li>Update to new Alcor payment structure</li>
+<li>Extend to other options/providers
+<ul>
+<li>Full-body presveration</li>
+<li>Cryonics Institute</li>
+<li>Oregon Cryonics</li>
+<li>Tomorrow Biostasis</li>
+<li>Southern Cryonics</li>
+<li>Kriorus (maybe not though, after the recent debacle)
+<ul>
+<li>Expand the section on the Guesstimate model</li>
+</ul></li>
+</ul></li>
+<li>Incorporate updated Metaculus probabilities</li>
+<li>Make interactive calculator</li>
+</ul></li>
+<li>Abstinence from Masturbation and Success from Cold Approach
+<ul>
+<li>Test
+<ul>
+<li>Instead of Student's t-test a survival analysis?
+<ul>
+<li>Such as a Kaplan-Meyer method &amp; log-rank test?</li>
+<li>Or a one-sided test?</li>
+</ul></li>
+<li>Cox-regression (proportional hazard).</li>
+<li>Will the data sets be normally distributed?
+<ul>
+<li>→ If not, use Mann-Whitney U-Test.</li>
+</ul></li>
+</ul></li>
+<li>What about abstinence ←→ masturbation ←→ pornography?</li>
+<li>Pre-register
+<ul>
+<li>PredictionBook</li>
+<li>Reddit</li>
+</ul></li>
+<li>Change so that in the male case, there's nothing beyond collecting contact info (no date invite/date)</li>
+<li>Elaborate on asking for contact info/date process</li>
+<li>Literature review
+<ul>
+<li><code>https://en.wikipedia.org/wiki/Masturbation</code></li>
+<li><code>https://en.wikipedia.org/wiki/Pornography</code></li>
+<li><code>/usr/local/doc/unread/blackpill/physical_attractiveness_research_adams_1977.pdf</code></li>
+<li><code>/usr/local/doc/unread/sexual_activity_is_inversely_related_to_womens_perceptions_of_male_facial_attractiveness_hess_et_al_2007.pdf</code></li>
+</ul></li>
+</ul></li>
+<li>Daygame Cost-Benefit Analysis
+<ul>
+<li>Incorporate new daygame stats from blogs</li>
+<li>Upload own data</li>
+<li>Adjust curve to fit Roy Walker &amp; Thomas Crown data better</li>
+<li>different diminishing returns in code, make all logarithmic/radical/hyperbolic?</li>
+<li>Expand or axe Fixed Costs &amp; Variable Costs section</li>
+<li>Create &amp; explain Guesstimate Models</li>
+<li>Upload data to Appendix C</li>
+</ul></li>
+<li>Toy AI Takeoff Model
+<ul>
+<li>Re-run model where I accidentally took 255 as size</li>
+</ul></li>
 </ul>
 
 <h2>Texts</h2>
@@ -207,11 +329,11 @@ but this time with probabilistic estimates?</li>
 <li>How do we incentivise good predictions on low-probability events?</li>
 <li>Is there any conceivable way of incentivizing good predictions on extinction events?</li>
 </ul></li>
-</ul></li>
 <li>How difficult is it to manipulate real existing prediction markets?
 <ul>
 <li>PredictIt</li>
 <li>BetFair</li>
+</ul></li>
 </ul></li>
 <li>An aggregation of all of Scott Alexander's forecasting results in one place</li>
 </ul>
@@ -1186,6 +1308,7 @@ discarded methods of writing mathematics.</li>
 <li>How long can growth continue if the maximal value of an atom is fixed?</li>
 <li>Growth might slow to cubic (sphere expanding at constant fraction of c)</li>
 </ul></li>
+<li>Panpsychism is a property of theories of consciousness, not a theory of consciousness</li>
 </ul>
 
 <h3>Reports</h3>
@@ -1239,7 +1362,7 @@ justice?", or simply, "Would you like to hold a conversation?"</li>
 </ul></li>
 <li>Taking LSD might have caused me erectile dysfunction
 <ul>
-<li>25% sure that one LSD trip caused ≥70% of my erectile dysfunction</li>
+<li>30% sure that one LSD trip caused ≥50% of my erectile dysfunction</li>
 </ul></li>
 </ul>
 
@@ -1276,6 +1399,7 @@ of these facts.</li>
 <ul>
 <li>Why Not Nano-Apartments?</li>
 <li>Why Not Prepping?</li>
+<li>~/etc/notes/questions</li>
 </ul></li>
 <li>Good Ideas
 <ul>
@@ -1434,6 +1558,11 @@ unaligned artificial intelligence battle for attainable utility…</li>
 </ul></li>
 <li>A History of Names</li>
 <li>Destructive Uplift Theory of the Boötes Void</li>
+<li>A Fanfiction of Edge of Tomorty: Rick Die Rickpeat, explaining the dangers of hypercomputation
+<ul>
+<li>If you have a closed timelike curve, you are probably uncleashing computational titans the likes of which you can not fathom, beings that would snack superintelligences like potato chips</li>
+<li>See also: Causal Noose by qntm, NP-complete Problems and Physical Reality Aaronson 2006</li>
+</ul></li>
 <li>Skalpell Bizeps</li>
 </ul>
 
@@ -1479,6 +1608,7 @@ eine kontingente verschmelzung von fast-sein und konkretheit"</p>
 <ul>
 <li>TheRedQuest</li>
 <li>hbdchick</li>
+<li>Traditions of Conflict</li>
 </ul></li>
 <li>Best of collections from blogs
 <ul>
@@ -1494,10 +1624,7 @@ eine kontingente verschmelzung von fast-sein und konkretheit"</p>
 
 <ul>
 <li>Bag Spreading</li>
-<li><a href="./daygame_cost_benefit.html#Appendix-C-Empirically-Checking-the-Assumptions">Daygame</a>
-<ul>
-<li>Add more informative flake statistics</li>
-</ul></li>
+<li><a href="./daygame_cost_benefit.html#Appendix-C-Empirically-Checking-the-Assumptions">Daygame</a></li>
 <li><a href="./masturbation_and_attractiveness.html#Method">Masturbation and Attractiveness</a></li>
 <li><a href="./estimated_life_expectancy.html#Data-Collection-Method">Subjective Life Expectancy</a></li>
 <li>Meditation</li>
