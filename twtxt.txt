@@ -1014,3 +1014,4 @@
 2022-03-18T01:10:13.000000Z	https://traditionsofconflict.com/blog/2019/10/4/sacred-metal, and now consider computer programming (especially the terminology of wizards/gurus, programming as magic, the SICP cover &c!)
 2022-03-18T02:37:55.000000Z	feedback loops are severely underrated as a concept. if you can choose between two activities, selecting the one with the tighter feedback loop is probably the better bet.
 2022-03-18T02:38:48.000000Z	that's why cold approach in person works so well, or why programming is easier than mathematics, or why you should build explicit models as quickly as possible (even if they're shit), or why meditation is so hard
+2022-03-18T19:52:32.000000Z	“What, of course I want to spend all of my time on this very specific spot on the happiness/productivity Pareto frontier, dummy.”
