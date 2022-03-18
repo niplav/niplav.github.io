@@ -1017,3 +1017,4 @@
 2022-03-18T19:52:32.000000Z	“What, of course I want to spend my entire life on this very specific spot on the happiness/productivity Pareto frontier, dummy.”
 2022-03-18T23:16:13.000000Z	cut your losses. slash their bodies wide open
 2022-03-18T23:55:23.000000Z	i think posting about personal meditation practice on the EA forum is *bad*, because personal meditation practice is as relevant to EA as advice on seducing people.
+2022-03-18T23:56:34.000000Z	that is to say, both might be relevant for personal effectiveness, and both are tangentially related to big problems (how do we bring about good states of consciousness & how does society organise sexuality so that everything works ~well), but not much beyond that.
