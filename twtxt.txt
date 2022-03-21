@@ -1028,4 +1028,4 @@
 2022-03-20T22:12:14.000000Z	continuous graph theory
 2022-03-20T22:26:28.000000Z	pump and dump? no, more like cuddle and befuddle
 2022-03-21T15:31:52.000000Z	All Cuboids Are Bwwwwwwwwwwwww
-2022-03-21T15:44:42.000000Z	annoyance: maximin/minimax has some deep symmetry breaking
+2022-03-21T15:44:42.000000Z	annoyance: terminology of "maximin"/"minimax" has some deep symmetry breaking

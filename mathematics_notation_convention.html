@@ -100,7 +100,7 @@ Schein von ihm schwindet.</p>
 <li>Clearly differentiate between stating something being a proper subset or not: only use <code>$A \subset B$</code> if definitely <code>$A \not =B$</code>, otherwise write <code>$A \subseteq B$</code>.</li>
 <li>Set difference is written with a backslash <code>$\backslash$</code>, not with a minus <code>$-$</code>.</li>
 <li>If e is not an element of S, then <code>$e \not \in S$</code> (and not something like <code>$e \in' S$</code>).</li>
-<li>The size of a set <code>$A$</code> is <code>$|A|$</code>, not <code>$#(A)$</code></li>
+<li>The size of a set <code>$A$</code> is <code>$|A|$</code>, not <code>$\#(A)$</code></li>
 </ul>
 
 <h3>Logic</h3>
@@ -121,7 +121,59 @@ Schein von ihm schwindet.</p>
 
 <ul>
 <li>Some people use <code>$P, R, I$</code> instead of <code>$\prec, \preceq, \sim$</code>. I often don't.</li>
+<li>As per <a href="https://en.wikipedia.org/wiki/Minimax#Maximin">Wikipedia</a>, the term "maximin" refers to the strategy of maximizing one's own minimum payoff in non-zero-sum games, while "minimax" is the strategy of minimizing the opponent's maximum payoff in zero-sum games
+<ul>
+<li>In zero-sum games, minimizing the opponent's maximum payoff is equivalent to maximizing one's own minimum payoff</li>
+<li>This is unfortunately asymmetric: What term would we use if we wanted to minimize our own maximum?
+<ul>
+<li>Looking at this symmetrically, it would create a set of strategies (some nonsensical):</li>
+</ul></li>
+</ul></li>
 </ul>
+
+<table>
+<tbody>
+    <tr>
+        <td>(Optimizing one's own value)</td>
+        <td>Maximum</td>
+        <td>Minimum</td>
+    </tr>
+    <tr>
+        <td>maximize</td>
+        <td>maximax</td>
+        <td>maximin</td>
+    </tr>
+    <tr>
+        <td>minimize</td>
+        <td>minimax</td>
+        <td>minimin</td>
+    </tr>
+</tbody>
+</table>
+
+<hr />
+
+<table>
+<tbody>
+    <tr>
+        <td>(Optimizing the other player's value)</td>
+        <td>Maximum</td>
+        <td>Minimum</td>
+    </tr>
+    <tr>
+        <td>maximize</td>
+        <td>maxmaxi</td>
+        <td>maxmini</td>
+    </tr>
+    <tr>
+        <td>minimize</td>
+        <td>minmaxi</td>
+        <td>minmini</td>
+    </tr>
+</tbody>
+</table>
+
+<p>(This is <em>not</em> the terminology I will use, but I would if I were brave enough)</p>
 
 <h2>Things I Would Like To Do But I'm Not Brave Enough</h2>
 

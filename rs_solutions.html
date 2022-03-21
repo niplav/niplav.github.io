@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-10-14, modified: 2022-02-22, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-10-14, modified: 2022-03-21, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>This page contains some solutions to exercises from the textbook
@@ -324,6 +324,69 @@ transitions to <code>$Q$</code> via <code>$b$</code>, with <code>$(P, Q)$</code>
 <code>$Q_3$</code> transitions to <code>$Q$</code> via <code>$b$</code>, and <code>$P_1$</code> transitions to <code>$P$</code>
 via <code>$b$</code>, with the same relation as above (and, similarly, also with
 <code>$c$</code> and <code>$Q_2$</code> instead of <code>$Q$</code>).</p>
+
+<h3>3.4</h3>
+
+<p>Assume that <code>$P \mathcal{R} Q$</code>. Then we transition via <code>$a$</code> (the only
+option), which works for all states <code>$P$</code> can transition into, and then
+know that it must also hold that</p>
+
+<ul>
+<li>We assume that <code>$P \mathcal{R} Q \equiv a.(b.\mathbf{0}+c.\mathbf{0}) \mathcal{R} a.b.\mathbf{0} + a.c.\mathbf{0}$</code>
+<ul>
+<li>We transition on the left side, which we can only do via <code>$a$</code>, with the resulting assumptions
+<ul>
+<li><code>$b.\mathbf{0}+c.\mathbf{0} \mathcal{R} b.\mathbf{0}$</code>
+<ul>
+<li>We can transition via <code>$b$</code>
+<ul>
+<li>which results in the relation <code>$\mathbf{0} \mathcal{R} \mathbf{0}$</code>, which is clearly true</li>
+</ul></li>
+<li>or via <code>$c$</code>, which has no equivalent on the right hand side, so we already encounter a problem, which tells us that this relation is not valid</li>
+</ul></li>
+<li><code>$b.\mathbf{0}+c.\mathbf{0} \mathcal{R} c.\mathbf{0}$</code>
+<ul>
+<li>We can transition via <code>$b$</code>
+<ul>
+<li>which again brings us into trouble, because we can't transition via <code>$b$</code> on the right side</li>
+</ul></li>
+<li>Transitioning via <code>$c$</code> is fine, since this brings us back to <code>$\mathbf{0} \mathcal{R} \mathbf{0}$</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>We thus know that <code>$P \not \mathcal{R} Q$</code>.</p>
+
+<p>I assume this exercise is an attempt at making the student invent the
+game-theoretic approach to checking bisimulation before it is introduced.</p>
+
+<h3>3.7</h3>
+
+<blockquote>
+  <p>show that the union of an arbitrary family of bisimulations is always a bisimulation.</p>
+</blockquote>
+
+<p><em>– Anna Ingólfsdóttir/Jiří Srba/Kim G. Larsen/Luca Aceto, “Reactive Systems” p. 63, 2007</em></p>
+
+<p>Let <code>$ℜ=\bigcup_i \mathcal{R}_i$</code> be the union of a family
+<code>$\{\mathcal{R}\}_i$</code> of bisimulations (<code>$i \in \mathbb{N}$</code>).</p>
+
+<p>For <code>$ℜ$</code> not to be a bisimulation, there must exist a
+<code>$(s_1, s_2) \in ℜ$</code> and an <code>$α$</code> with
+<code>$s_1 \overset{α}{\rightarrow} s_1'$</code> so that there is no <code>$s_2'$</code> such
+that <code>$s_2 \overset{α}{\rightarrow} s_2'$</code> with <code>$(s_1', s_2') \in ℜ$</code>.</p>
+
+<p>If such an <code>$(s_1, s_2)$</code> exists, then it must have been an element of
+a bisimulation <code>$\mathcal{R}_k$</code>. But, by definition, for that <code>$α$</code>
+so that <code>$s_1 \overset{α}{\rightarrow} s_1'$</code>, <code>$\mathcal{R}_k$</code>
+must have contained an element <code>$(s_1', s_2')$</code> such that
+<code>$s_2 \overset{α}{\rightarrow} s_2'$</code>, since <code>$\mathcal{R}_k$</code> is a
+bisimulation. So exactly that <code>$(s_1', s_2')$</code> must also be an element of
+<code>$ℜ$</code> because <code>$\mathcal{R}_k \subseteq ℜ$</code> and elements don't just
+get lost during a union.</p>
+
+<p>Therefore, such a pair <code>$(s_1, s_2) \in ℜ$</code> can't exist.</p>
 
 <h3>3.9</h3>
 
