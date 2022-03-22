@@ -1031,3 +1031,4 @@
 2022-03-21T15:44:42.000000Z	annoyance: terminology of "maximin"/"minimax" has some deep symmetry breaking
 2022-03-22T21:00:40.000000Z	a vector field is just a kind of graph, mathematicians are silly for inventing unnecessary stuff
 2022-03-22T21:14:13.000000Z	i wonder if miri is looking out for people reinventing parts of their hidden agendas, as a kind of validation set
+2022-03-22T21:36:05.000000Z	use known inconsistencies of human preferences as value-learning trip-wires: if the value learning algorithm hasn't learned them yet, it's operating at the wrong level of abstraction.
