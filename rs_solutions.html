@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-10-14, modified: 2022-03-21, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2021-10-14, modified: 2022-03-22, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>This page contains some solutions to exercises from the textbook
@@ -367,8 +367,6 @@ game-theoretic approach to checking bisimulation before it is introduced.</p>
   <p>show that the union of an arbitrary family of bisimulations is always a bisimulation.</p>
 </blockquote>
 
-<p><em>– Anna Ingólfsdóttir/Jiří Srba/Kim G. Larsen/Luca Aceto, “Reactive Systems” p. 63, 2007</em></p>
-
 <p>Let <code>$ℜ=\bigcup_i \mathcal{R}_i$</code> be the union of a family
 <code>$\{\mathcal{R}\}_i$</code> of bisimulations (<code>$i \in \mathbb{N}$</code>).</p>
 
@@ -491,6 +489,58 @@ and <code>$R \overset{\text{def}}{=}a.a.a.a.(a+b)$</code>. Then it <em>could</em
 case that in a bisimulation game, the attacker has chosen the <code>$P$</code>
 path on the left hand side, while the defender has chosen the <code>$Q$</code>
 path on the right hand side. But this is not guaranteed.</p>
+
+<h3>3.14</h3>
+
+<blockquote>
+  <p>Prove that <code>$\sim$</code> is preserved by action prefixing, summation and
+relabelling.</p>
+</blockquote>
+
+<p>Assume that <code>$P \sim Q$</code>. Then</p>
+
+<h4><code>$α.P \sim α.Q$</code> for each action <code>$α$</code></h4>
+
+<p><code>$α.P$</code> can make only one transition, that is, <code>$P.α
+\overset{α}{\rightarrow} P$</code>. Then there exists a transition <code>$α$</code>
+in <code>$α.Q$</code> so that the result of the transition is <code>$\sim$</code> to <code>$P$</code>,
+namely <code>$α.Q \overset{α}{rightarrow} Q$</code>, since <code>$P \sim Q$</code> by
+definition. Therefore, action prefixing preserves bisimilarity.</p>
+
+<h4><code>$P+R \sim Q+R$</code> and <code>$R+P \sim R+Q$</code> for each process <code>$R$</code></h4>
+
+<p>Two different cases:</p>
+
+<ul>
+<li><code>$P$</code> makes a <code>$P \overset{ಎ}{\rightarrow} P'$</code> transition: by definition of <code>$\sim$</code> there must be a <code>$Q \overset{ಎ}{\rightarrow}$</code> transition so that <code>$P' \sim Q'$</code>, if we decide to take the <code>$Q$</code> branch of the sum.</li>
+<li><code>$R$</code> makes a <code>$R \overset{ಫ}{\rightarrow} R'$</code> transition: then the right hand side can decide to make the same <code>$R \overset{ಫ}{\rightarrow} R'$</code> transition in the <code>$R$</code> branch of the decision.</li>
+</ul>
+
+<p>Since both <code>$\sim$</code> and <code>$+$</code> are symmetric, this is without loss of
+generality.</p>
+
+<h4><code>$P[f] \sim Q[f]$</code> for each relabelling <code>$f$</code></h4>
+
+<p>Let there be a transition <code>$P[f] \overset{ᰑ‎}{\rightarrow} P'[f]$</code>.
+Then either the same transition was also possible before
+the replacement (<code>$P \overset{ᰑ‎}{\rightarrow} P'$</code>), in which
+case no replacement took place, and the same transition should be
+possible for <code>$Q$</code> (<code>$Q \overset{ᰑ‎}{\rightarrow} Q'$</code>) because we
+assumed that <code>$P \mathcal{R} Q$</code>, or a replacement took place. In that case,
+the replacement would have replaced another variable <code>$α$</code> (perhaps
+because we thought that those greek variable names are <a href="./mathematics_notation_convention.html#Things-I-Would-Like-To-Do-But-Im-Not-Brave-Enough">boring after a
+while</a>),
+so we assume (witout loss of generality) that <code>$f(α)=ᰑ‎$</code>.</p>
+
+<p>Then we know that if <code>$P \mathcal{R} Q$</code> and <code>$P
+\overset{α}{\rightarrow}P'$</code>, then there is also a transition
+<code>$Q \overset{α}{\rightarrow} Q'$</code> so that <code>$P' \mathcal{R} Q'$</code>.
+Then the transition in the replacement version is
+<code>$P[f] \overset{f(α)=ᰑ‎}{\rightarrow} P'[f]$</code>, and the
+previous <code>$Q \overset{α}{\rightarrow} Q'$</code> becomes
+<code>$Q[f] \overset{f(α)=ᰑ‎}{\rightarrow} Q'[f]$</code>, so we know that
+<code>$P[f] \mathcal{R} Q[f]$</code> has the equivalent <code>$P'[f] \mathcal{R} Q'[f]$</code>
+for the <code>$ᰑ‎$</code> transition.</p>
 
 <h3>3.30</h3>
 
