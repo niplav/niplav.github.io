@@ -300,7 +300,7 @@ still occur.</p>
 the model:</p>
 
 <p>For <code>$(P,Q)$</code>: <code>$P$</code> transitions to <code>$P_1$</code> via <code>$a$</code>, and <code>$Q$</code>
-transitions to <code>$Q_1$</code> via <code>$a$</code>, with <code>$(P_1, Q_1)$</code> in <code>$\mathcal{R}$</code>. <br />
+transitions to <code>$Q_1$</code> via <code>$a$</code>, with <code>$(P_1, Q_1)$</code> in <code>$\mathcal{R}$</code>.
 <code>$Q$</code> transitions to <code>$Q_1$</code> via <code>$a$</code>, and <code>$P$</code> transitions to <code>$P_1$</code>
 via <code>$a$</code>, with the same relation as above.</p>
 
@@ -512,7 +512,7 @@ definition. Therefore, action prefixing preserves bisimilarity.</p>
 <p>Two different cases:</p>
 
 <ul>
-<li><code>$P$</code> makes a <code>$P \overset{ಎ}{\rightarrow} P'$</code> transition: by definition of <code>$\sim$</code> there must be a <code>$Q \overset{ಎ}{\rightarrow}$</code> transition so that <code>$P' \sim Q'$</code>, if we decide to take the <code>$Q$</code> branch of the sum.</li>
+<li><code>$P$</code> makes a <code>$P \overset{ಎ}{\rightarrow} P'$</code> transition: by definition of <code>$\sim$</code> there must be a <code>$Q \overset{ಎ}{\rightarrow} Q'$</code> transition so that <code>$P' \sim Q'$</code>, if we decide to take the <code>$Q$</code> branch of the sum.</li>
 <li><code>$R$</code> makes a <code>$R \overset{ಫ}{\rightarrow} R'$</code> transition: then the right hand side can decide to make the same <code>$R \overset{ಫ}{\rightarrow} R'$</code> transition in the <code>$R$</code> branch of the decision.</li>
 </ul>
 
@@ -541,6 +541,135 @@ previous <code>$Q \overset{α}{\rightarrow} Q'$</code> becomes
 <code>$Q[f] \overset{f(α)=ᰑ‎}{\rightarrow} Q'[f]$</code>, so we know that
 <code>$P[f] \mathcal{R} Q[f]$</code> has the equivalent <code>$P'[f] \mathcal{R} Q'[f]$</code>
 for the <code>$ᰑ‎$</code> transition.</p>
+
+<h3>3.17</h3>
+
+<h4>1.</h4>
+
+<blockquote>
+  <p>Prove that <code>$\underset{\sim}{\sqsubset}$</code> is a preorder and that
+<code>$\simeq$</code> is an equivalence relation.</p>
+</blockquote>
+
+<p>A preorder is reflexive and transitive.</p>
+
+<h5>Reflexivity</h5>
+
+<p><code>$\underset{\sim}{\sqsubset}$</code> is reflexive (<code>$s \underset{\sim}{\sqsubset} s$</code>)
+because, if we assume <code>$s$</code> can't make any transitions, the condition
+is trivially fulfilled. If <code>$s$</code> can make an <code>$α$</code> transition
+<code>$s \overset{α}{\rightarrow} s'$</code>, the same <code>$s$</code> on the right
+hand side can also make that <code>$α$</code> transition, and we know that
+<code>$s'\underset{\sim}{\sqsubset} s'$</code> by induction.</p>
+
+<h5>Transitivity</h5>
+
+<p>Assume that there are <code>$s, t, r$</code> so that
+<code>$s \underset{\sim}{\sqsubset} t$</code> and <code>$t \underset{\sim}{\sqsubset} r$</code>, and
+for every transition <code>$s \overset{α}{\rightarrow} s'$</code> and there is
+a <code>$t \overset{α}{\rightarrow} t'$</code> so that
+<code>$s' \underset{\sim}{\sqsubset} t'$</code>, and similarly for every
+transition <code>$t \overset{β}{\rightarrow} t'$</code> there is a
+<code>$r \overset{β}{\rightarrow} r'$</code> so that <code>$t' \underset{\sim}{\sqsubset} r'$</code>.</p>
+
+<p>Now let there be a <code>$γ$</code> so that <code>$s \overset{γ}{\rightarrow} s'$</code>,
+then there must be the equivalent <code>$γ$</code>-transition to a <code>$t'$</code>, and
+because that <code>$γ$</code>-transition exists for <code>$t$</code>, the equivalent
+<code>$r \overset{γ}{\rightarrow} r'$</code> must also exist.</p>
+
+<p>Therefore it must also be the case that <code>$s \underset{\sim}{\sqsubset} r$</code>.</p>
+
+<hr />
+
+<p>An equivalence relation is reflexive, symmetric, and transitive.</p>
+
+<h5>Reflexivity</h5>
+
+<p><code>$\simeq$</code> is reflexive iff for any <code>$s$</code>, <code>$s \underset{\sim}{\sqsubset}s$</code>
+and <code>$s \underset{\sim}{\sqsubset} s$</code> (it felt dumb typing both of those
+out). Since we proved reflexivity for <code>$\underset{\sim}{\sqsubset}$</code>,
+it is also given here.</p>
+
+<h5>Symmetry</h5>
+
+<p><code>$\simeq$</code> is symmetric iff <code>$s \simeq t \Leftrightarrow t \simeq s$</code>.
+We know that <code>$s \simeq t$</code> iff <code>$s \underset{\sim}{\sqsubset} t \land t \underset{\sim}{\sqsubset} s$</code>. Because of the symmetry of the logical and operator, we therefore know that</p>
+
+<div>
+    $$s \simeq t \equiv \\
+     s \underset{\sim}{\sqsubset} t \land t \underset{\sim}{\sqsubset} s \equiv \\
+    t \underset{\sim}{\sqsubset} s \land s \underset{\sim}{\sqsubset} t \equiv \\
+    t \simeq s$$
+</div>
+
+<h5>Transitivity</h5>
+
+<p>For <code>$\simeq$</code> to be transitive, it must hold that if <code>$s \simeq t$</code>
+and <code>$t \simeq r$</code>, then also <code>$s \simeq r$</code>.</p>
+
+<div>
+    $$s \simeq t \land t \simeq r \equiv \\
+    s \underset{\sim}{\sqsubset} t \land t \underset{\sim}{\sqsubset} s \land t \underset{\sim}{\sqsubset} r \land r \underset{\sim}{\sqsubset} t \equiv \\
+    s \underset{\sim}{\sqsubset} t \land t \underset{\sim}{\sqsubset} r \land r \underset{\sim}{\sqsubset} t \land t \underset{\sim}{\sqsubset} s \Rightarrow (\text{by the transitivity of } \underset{\sim}{\sqsubset})\\
+    s \underset{\sim}{\sqsubset} r \land r \underset{\sim}{\sqsubset} s \equiv
+    s \simeq r$$
+</div>
+
+<h4>2.</h4>
+
+<p>For <code>$a.\mathbf{0} \underset{\sim}{\sqsubset} a.a.\mathbf{0}$</code>,
+<code>$\mathcal{R}$</code> is
+<code>$\{(a.\mathbf{0}, a.a.\mathbf{0}), (\mathbf{0}, a.\mathbf{0})\}$</code>.</p>
+
+<p>The converse is not true: <code>$a.a.\mathbf{0}$</code> can make an <code>$a$</code>-transition,
+but then it's stuck in <code>$(a.\mathbf{0}, \mathbf{0})$</code>.</p>
+
+<p>For <code>$a.b.\mathbf{0} + a.c.\mathbf{0} \underset{\sim}{\sqsubset} a.(b.\mathbf{0}+c.\mathbf{0})$</code>,
+<code>$\mathcal{R}=\{(b.\mathbf{0}, (b.\mathbf{0}+c.\mathbf{0})), (c.\mathbf{0}, (b.\mathbf{0}+c.\mathbf{0}))\, (\mathbf{0}, \mathbf{0})\}$</code>.</p>
+
+<p>Here, as well, the converse relation does not hold: When we do
+the <code>$a$</code>-transition, we have to decide which branch on the left to
+take. But this brings us into a problematic situation: if we choose the
+<code>$b$</code> branch, we can't do the <code>$b$</code> transition on the right anymore,
+if we choose the <code>$c$</code> branch, we can't do the <code>$c$</code> transition on the
+right anymore.</p>
+
+<h4>3.</h4>
+
+<p>Let's recap the basic definitions.</p>
+
+<p>A binary relation <code>$R$</code> is a simulation equivalence iff whenever
+<code>$s_1 \mathcal s_2$</code> and <code>$α$</code> is an action:</p>
+
+<ul>
+<li>If <code>$s_1 \overset{α}{\rightarrow} s_1'$</code> then there is a transition <code>$s_2 \overset{α}{\rightarrow} s_2'$</code> so that <code>$s_1' \mathcal{R} s_2'$</code></li>
+<li>If <code>$s_2 \overset{α}{\rightarrow} s_2'$</code> then there is a transition <code>$s_1 \overset{α}{\rightarrow} s_1'$</code> so that <code>$s_2' \mathcal{R} s_1'$</code></li>
+</ul>
+
+<p>A binary relation <code>$R$</code> is a bisimulation iff whenever
+<code>$s_1 \mathcal{R} s_2$</code> and <code>$α$</code> is an action:</p>
+
+<ul>
+<li>If <code>$s_1 \overset{α}{\rightarrow} s_1'$</code> then there is a transition <code>$s_2 \overset{α}{\rightarrow} s_2'$</code> so that <code>$s_1' \mathcal{R} s_2'$</code></li>
+<li>If <code>$s_2 \overset{α}{\rightarrow} s_2'$</code> then there is a transition <code>$s_1 \overset{α}{\rightarrow} s_1'$</code> so that <code>$s_2' \mathcal{R} s_1'$</code></li>
+</ul>
+
+<p>A relation <code>$\sim$</code> is a strong bisimilarity iff there is a bisimulation
+that relates them (the book is not clear on the exact distinction between
+bisimulation and strong bisimulation, I have assumed they are the same).</p>
+
+<p>This makes it fairly easy to see that the definitions of bisimulation
+and simulation equivalence are the same. However, the definition of
+strong bisimilarity requires the maximal bisimulation. So, for example,
+for the processes <code>$a.\mathbf{0}$</code>, <code>$a.\mathbf{0}$</code>, <code>$\{(\mathbf{0},\mathbf{0})\}$</code>
+is a simulation equivalence and also a bisimulation, but it is not
+a strong bisimilarity equivalence (the maximal bisimulation being
+<code>$\{(\mathbf{0}, \mathbf{0}), (a.\mathbf{0}, a.\mathbf{0})\}$</code>).</p>
+
+<hr />
+
+<p>There is a process that simulates every other CCS process, the null
+process <code>$\mathbf{0}$</code>.</p>
 
 <h3>3.30</h3>
 
