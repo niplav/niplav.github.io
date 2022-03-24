@@ -1042,3 +1042,4 @@
 2022-03-24T14:56:13.000000Z	Bach was actually French. Checkmate, Teutons
 2022-03-24T15:07:48.000000Z	also beethoven was Austrian. sorry, I don't make the rules
 2022-03-24T18:00:31.000000Z	male evopsych researchers post your laycounts
+2022-03-24T18:55:58.000000Z	decision theory is applicable when nobody else in the environment is an agent relative to you, game theory is applicable when some things are as agent-like as you, and despair can be used when you are very un-agenty compared to everything else in the environment
