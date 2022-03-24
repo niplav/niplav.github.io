@@ -504,7 +504,7 @@ relabelling.</p>
 <p><code>$α.P$</code> can make only one transition, that is, <code>$P.α
 \overset{α}{\rightarrow} P$</code>. Then there exists a transition <code>$α$</code>
 in <code>$α.Q$</code> so that the result of the transition is <code>$\sim$</code> to <code>$P$</code>,
-namely <code>$α.Q \overset{α}{rightarrow} Q$</code>, since <code>$P \sim Q$</code> by
+namely <code>$α.Q \overset{α}{\rightarrow} Q$</code>, since <code>$P \sim Q$</code> by
 definition. Therefore, action prefixing preserves bisimilarity.</p>
 
 <h4><code>$P+R \sim Q+R$</code> and <code>$R+P \sim R+Q$</code> for each process <code>$R$</code></h4>
@@ -947,12 +947,48 @@ were to not eat a biscuit after drinking coffee.</p>
 <li><code>$⟦[a][a][b] \textit{f}\!\textit{f}⟧=[\cdot a \cdot] \textbf{Proc}=\{s, s_1, s_2, s_3, s_4\}$</code></li>
 </ul>
 
-<!--
-TODO
-### 5.5
+<h3>5.4</h3>
 
-It's MANDATORY
--->
+<div>
+    $$⟦[\text{tick}](\langle \text{tick} \rangle \textit{t}\!\textit{t} \land [\text{tock}] \textit{f}\!\textit{f})⟧=\\
+    [\cdot \text{tick} \cdot ](⟦\langle \text{tick} \rangle \textit{t}\!\textit{t} ⟧ \cap ⟦[ \text{tock} ] \textit{f}\!\textit{f} ⟧)=\\
+    [\cdot \text{tick} \cdot ]((\langle \cdot \text{tick} \cdot \rangle \mathbf{Proc}) \cap ([ \cdot \text{tock} \cdot ] \emptyset))$$
+</div>
+
+<p>Since we know that <code>$\mathbf{Proc}=\{\text{tick}.\text{Clock}\}$</code>,
+<code>$(\langle \cdot \text{tick} \cdot \rangle \mathbf{Proc})=\{\text{Clock}\}=\{\text{tick}.\text{Clock}\}$</code>,
+and also, since there are no <code>$\text{tock}$</code>
+transitions, that
+<code>$[ \cdot \text{tock} \cdot ] \emptyset=\mathbf{Proc}=\{\text{tick}.\text{Clock}\}$</code>.</p>
+
+<p>Finally,
+<code>$[\cdot \text{tick} \cdot ] \{\text{tick}.\text{Clock}\}=\{\text{Clock}\}=\mathbf{Proc}$</code>.</p>
+
+<p>Therefore, the process satisfies the formula.</p>
+
+<hr />
+
+<p>Proof that for any
+<a href="./mathematics_notation_convention.html#Basics"><code>$n \in ℕ$</code></a>,
+<code>$\text{Clock}$</code> satisfies
+<code>$\langle \text{tick} \rangle^n \textit{t}\!\textit{t}$</code>.</p>
+
+<p>Base case: For <code>$n=0$</code>, <code>$\text{Clock}$</code> satisfies
+<code>$\textit{t}\!\textit{t}$</code>.</p>
+
+<p>Assume <code>$\text{Clock} \models \langle \text{tick} \rangle^n \textit{t}\!\textit{t}$</code>.</p>
+
+<p>Then
+<code>$\text{Clock}=\text{tick}.\text{Clock} \models \langle \text{tick} \rangle \langle \text{tick} \rangle^n \textit{t}\!\textit{t}=\langle \text{tick} \rangle^{n+1} \textit{t}\!\textit{t}$</code>.</p>
+
+<h3>5.5</h3>
+
+<p><code>$\langle a \rangle (\langle b \rangle \textit{t}\!\textit{t} \land \langle c \rangle \textit{f}\!\textit{f})$</code>
+is satisfied by <code>$a.b.\mathbf{0}+a.c.\mathbf{0}$</code> but not
+<code>$a.(b.\mathbf{0}+c.\mathbf{0})$</code>.</p>
+
+<p><code>$[a]\langle b \rangle(\langle c \rangle \textit{t}\!\textit{t} \land \langle d \rangle \textit{f}\!\textit{f})$</code>
+is satisfied by <code>$a.(b.c.\mathbf{0}+b.d.\mathbf{0})$</code> but not <code>$a.b.c.\mathbf{0}+a.b.d.\mathbf{0}$</code>.</p>
 
 <h2>Chapter 6</h2>
 
@@ -976,6 +1012,110 @@ It's MANDATORY
     ([ \cdot b \cdot ] \emptyset) \cap ([ \cdot a \cdot ] \{p_2\})=\\
     \{p_2, p_3\} \cap \{p_1\}=\\
     \emptyset$$
+</div>
+
+<h3>6.5</h3>
+
+<p>Base case <code>$F=\textit{t}\!\textit{t}$</code>: If <code>$S_1 \subseteq S_2$</code>, then <code>$\mathcal{O}_{\textit{t}\!\textit{t}}(S_1)=\mathbf{Proc} \subseteq \mathbf{Proc}=\mathcal{O}_{\textit{t}\!\textit{t}}(S_2)$</code></p>
+
+<p>Base case <code>$F=\textit{f}\!\textit{f}$</code>: If <code>$S_1 \subseteq S_2$</code>, then <code>$\mathcal{O}_{\textit{f}\!\textit{f}}(S_1)=\emptyset \subseteq \emptyset=\mathcal{O}_{\textit{f}\!\textit{f}}(S_2)$</code></p>
+
+<p>Base case <code>$F=X$</code>: If <code>$S_1 \subseteq S_2$</code>, then <code>$\mathcal{O}_{X}(S_1)=S_1 \subseteq S_2=\mathcal{O}_{X}(S_2)$</code></p>
+
+<p>Assume that for <code>$F$</code>, if <code>$S_1 \subseteq S_2$</code>, then
+<code>$\mathcal{O}_F(S_1) \subseteq \mathcal{O}_F(S_2)$</code>.</p>
+
+<p>Case <code>$\langle a \rangle F$</code>: If <code>$S_1 \subseteq S_2$</code>, then</p>
+
+<div>
+    $$\mathcal{O}_{\langle a \rangle F}(S_1)=\\
+    \langle \cdot a \cdot \rangle \mathcal{O}_{F}(S_1)=\\
+    \{p \in \mathbf{Proc} | p \overset{a}{\rightarrow} p' \text{ and } p'\in S_1 \text{ for some } p'\}$$
+</div>
+
+<p>Then we can argue: If <code>$S_1 \subseteq S_2$</code>, then every <code>$p' \in S_1$</code>
+that can be reached via <code>$a$</code> from <code>$p$</code> can also be reached in <code>$S_2$</code>,
+and there might be some <code>$p^* \in S_2 \backslash S_1$</code> so that
+there are some <code>$p^+$</code> that can only reach those <code>$p^*$</code> via <code>$a$</code>,
+but no <code>$p' \in S_1$</code> exists so that <code>$p^+ \overset{a}{\rightarrow} p'$</code>.</p>
+
+<p>So</p>
+
+<div>
+    $$\{p \in \mathbf{Proc} | p \overset{a}{\rightarrow} p' \text{ and } p'\in S_1 \text{ for some } p'\} \subseteq \\
+    \{p \in \mathbf{Proc} | p \overset{a}{\rightarrow} p' \text{ and } p'\in S_2 \text{ for some } p'\}=\\
+    \langle \cdot a \cdot \rangle \mathcal{O}_{F}(S_2)=\\
+    \mathcal{O}_{\langle a \rangle F}(S_2)$$
+</div>
+
+<p>We can argue very similarly in the case <code>$[a]F$</code>: If <code>$S_1 \subseteq S_2$</code>, then</p>
+
+<div>
+    $$\mathcal{O}_{[ a ] F}(S_1)=\\
+    [ \cdot a \cdot ] \mathcal{O}_{F}(S_1)=\\
+    \{p \in \mathbf{Proc} | p \overset{a}{\rightarrow} p' \text{ implies } p'\in S_1 \text{ for each } p'\}$$
+</div>
+
+<p>Assume there is a <code>$p \in [ \cdot a \cdot ] \mathcal{O}_{F}(S_1)$</code> and
+<code>$p \not \in [ \cdot a \cdot ] \mathcal{O}_{F}(S_2)$</code>. Then either
+<code>$p \overset{a}{\not \rightarrow}$</code>, in which case it must be that
+<code>$p \in [ \cdot a \cdot ] \mathcal{O}_{F}(S_2)$</code> as well (since that
+would mean that <code>$S_1=\mathbf{Proc} \subseteq S_2$</code>), or there is some
+<code>$p'$</code> so that <code>$p' \not \in S_2$</code> but <code>$p' \in S_1$</code> (since that would
+violate the requirement that all <code>$a$</code>-descendants of <code>$p$</code> must be in
+the set following the <code>$[\cdot \cdot]$</code> operator).</p>
+
+<p>However, this would violate the assumption that <code>$S_1 \subseteq S_2$</code>.</p>
+
+<p>So</p>
+
+<div>
+    $$\{p \in \mathbf{Proc} | p \overset{a}{\rightarrow} p' \text{ implies } p'\in S_1 \text{ for each } p'\} \subseteq \\
+    \{p \in \mathbf{Proc} | p \overset{a}{\rightarrow} p' \text{ implies } p'\in S_2 \text{ for each } p'\}=\\
+    [ \cdot a \cdot ] \mathcal{O}_{F}(S_2)=\\
+    \mathcal{O}_{[ a ] F}(S_2)$$
+</div>
+
+<p>Case <code>$F=F_1 \land F_2$</code>:</p>
+
+<div>
+    $$\mathcal{O}_{F_1 \land F_2}(S_1)= \\
+    \mathcal{O}_{F_1}(S_1) \cap \mathcal{O}_{F_2}(S_1) \subseteq (\text{ adding elements to an intersection can only make it bigger})\\
+    \mathcal{O}_{F_1}(S_2) \cap \mathcal{O}_{F_2}(S_1) \subseteq (\text{ same here})\\
+    \mathcal{O}_{F_1}(S_2) \cap \mathcal{O}_{F_2}(S_2)= \\
+    \mathcal{O}_{F_1 \land F_2}(S_2)
+    $$
+</div>
+
+<p>Case <code>$F=F_1 \lor F_2$</code>:</p>
+
+<div>
+    $$\mathcal{O}_{F_1 \lor F_2}(S_1)= \\
+    \mathcal{O}_{F_1}(S_1) \cup \mathcal{O}_{F_2}(S_1) \subseteq (\text{ adding elements to a union can only make it bigger})\\
+    \mathcal{O}_{F_1}(S_2) \cup \mathcal{O}_{F_2}(S_1) \subseteq (\text{ same here})\\
+    \mathcal{O}_{F_1}(S_2) \cup \mathcal{O}_{F_2}(S_2)= \\
+    \mathcal{O}_{F_1 \lor F_2}(S_2)
+    $$
+</div>
+
+<hr />
+
+<p>How might we add negation to our logic?</p>
+
+<p>We could define
+<code>$\mathcal{O}_{\lnot F}(S)=\mathbf{Proc} \backslash \mathcal{O}_{F}(S)$</code>.</p>
+
+<p>However, this would violate monotonicity: If we define <code>$S_1=\emptyset \subseteq \mathbf{Proc}=S_2$</code> and <code>$F=X$</code>, then</p>
+
+<div>
+    $$\mathcal{O}_{\lnot X}(\emptyset)=\\
+    \mathbf{Proc} \backslash \mathcal{O}_{X}(\emptyset)=\\
+    \mathbf{Proc} \backslash \emptyset=\\
+    \mathbf{Proc} \not \subseteq \\
+    \emptyset=\\
+    \mathbf{Proc} \backslash \mathbf{Proc}=\\
+    \mathbf{Proc} \backslash \mathcal{O}_{X}(\mathbf{Proc})=\\
+    \mathcal{O}_{\lnot X}(\mathbf{Proc})$$
 </div>
 
 <h3>6.7</h3>

@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-12-25, modified: 2020-08-04, language: english, status: in progress, importance: 4, confidence: remote</em></p>
+<p><em>author: niplav, created: 2019-12-25, modified: 2022-03-24, language: english, status: in progress, importance: 4, confidence: remote</em></p>
 
 <blockquote>
   <p><strong>Is daygame worth it, and if yes, how much? I first present a simple
@@ -1234,4 +1234,60 @@ Approximate ratio per:
 1:50 for 1000-2000
 1:30 for everything afterwards
 -->
+
+<p>Sanitizing the sessions file:</p>
+
+<p>Converting f***ed up Google sheets date format (why does <strong>nobody</strong>
+use the perfect ISO-8601 when it's right there‽‽‽), then removing
+stray spaces after semicolons, then removing the <code>^M</code> from the end of
+each line, using structural regular expressions<!--TODO: link-->:</p>
+
+<pre><code>,x/([0-9]+)\/([0-9]+)\/([0-9]+) /c/\3-\1-\2T/
+,x/; /c/;/
+,x/.$/c//
+,x/(T[0-9]+:[0-9]+),/c/\1:00,/
+,x/-([0-9])-/c/-0\1-/
+</code></pre>
+
+<p>and some other minor fixes.</p>
+
+<p>Formatting the approaches file:</p>
+
+<pre><code>,x/.$/d
+,x/ ,/c/,/
+</code></pre>
+
+<p>Find incorrectly written locations:</p>
+
+<pre><code>$ awk -F, '{ print($2) }' &lt;daygame_stats_approaches.csv | sort | uniq
+</code></pre>
+
+<p>and manually correct them (this is useful for the other fields as well,
+just to check consistency).</p>
+
+<p>Anonymizing locations and the names of girls:</p>
+
+<pre><code>$ awk -F,  'BEGIN { OFS="," }
+{
+    if(loc[$2]=="" &amp;&amp; $2!="Location")
+    {
+        loc[$2]=""10*rand();
+        gsub(/,/, "", loc[$2]);
+    }
+    if(name[$8]=="" &amp;&amp; $8!="Name")
+    {
+        name[$8]=""10*rand();
+        gsub(/,/, "", name[$8])
+    }
+    if($2!="Location") { $2=loc[$2]; }
+    if($8!="Name") { $8=name[$8]; }
+    print($0);
+}' &lt;daygame_stats_approaches.csv &gt;daygame_stats_approaches_anon.csv
+$ mv daygame_stats_approaches.csv daygame_stats_approaches_deanon.csv
+$ mv daygame_stats_approaches_anon.csv daygame_stats_approaches.csv
+</code></pre>
+
+<p>The approaches file can be found
+<a href="./data/daygame_stats_approaches.csv">here</a>, the sesions file can be found
+<a href="./data/daygame_stats_sessions.csv">here</a>.</p>
 </html>
