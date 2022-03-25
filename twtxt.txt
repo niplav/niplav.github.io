@@ -1045,3 +1045,4 @@
 2022-03-24T18:55:58.000000Z	decision theory is applicable when nobody else in the environment is an agent relative to you, game theory is applicable when some things are as agent-like as you, and despair can be used when you are very un-agenty compared to everything else in the environment
 2022-03-24T21:43:36.000000Z	i notice my confusion: i would have expected many more and larger NN models by now, trained on larger amounts of data and displaying significant scaling. where are they? are orgs hiding them?
 2022-03-24T22:23:38.000000Z	why, of course extremal graph theory is, ahem, extremely relevant to ethics! who would have argued otherwise?
+2022-03-25T12:12:17.000000Z	if you're not special, generating passwords is like running from bears: you don't need to be good, you just need to be better than the majority
