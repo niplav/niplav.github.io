@@ -1,0 +1,233 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2022-03-04, modified: 2022-03-26, language: english, status: notes, importance: 8, confidence: likely</em></p>
+
+<blockquote>
+  <p><strong>Representing inconsistent preferences with specific mathematical
+structures can clarify thoughts about how to make those preferences
+consistent while only minimally changing them. This is discussed in
+the case of preferences over world states, represented by <a href="https://en.wikipedia.org/wiki/Directed_graph">directed
+graphs</a>; and preferences
+over <a href="https://en.wikipedia.org/wiki/Lottery_(probability)">lotteries</a>
+of world states, represented by <a href="https://en.wikipedia.org/wiki/Vector_field">vector
+fields</a> over probability
+<a href="https://en.wikipedia.org/wiki/Simplex">simplices</a>. Implications for
+scenarios such as ontological crises are discussed.</strong></p>
+</blockquote>
+
+<h1>Turning Some Inconsistent Preferences into Consistent Ones</h1>
+
+<blockquote>
+  <p>A kind of God-made (or evolution-created) fairness between species is
+also unexpectedly found.</p>
+</blockquote>
+
+<p><em>– <a href="https://en.wikipedia.org/wiki/Yew-Kwang_Ng">Yew-Kwang Ng</a>, <a href="./doc/better_words/towards_welfare_biology_evolutionary_economics_of_animal_consciousness_and_suffering_ng_1995.pdf">“Towards Welfare Biology: Evolutionary Economics of Animal Consciousness and Suffering”</a> p. 1, 1995</em></p>
+
+<blockquote>
+  <p>Random testing is simple in concept, often easy to implement, has been
+demonstrated to effectively detect failures, is good at exercising systems
+in unexpected ways (which may not occur to a human tester), and may be
+the only practical choice when the source code and the specifications
+are unavailable or incomplete.</p>
+</blockquote>
+
+<p><em>– Tsong Yueh Chen/Fei-Ching Kuo/Robert G. Merkel/T.H. Tse, <a href="./doc/turning/adaptive_random_testing_chen_et_al_2010.pdf">“Adaptive Random Testing: the ART of Test Case Diversity”</a>, 2010</em></p>
+
+<p>Consider an agent which displays (von Neumman-Morgenstern) inconsistent
+preferences, for example choosing two incompatible options in the two
+scenarios in the Allais paradox. We might want to interact with that
+agent, e.g. trade with it, help it, or generally know how it will act. But
+how to go about that if the agent displays inconsistent preferences?</p>
+
+<p>One way we could approach the problem is by trying to turn those
+inconsistent preferences consistent, i.e. constructing a function <code>$f: \succsim \mapsto \succeq$</code>
+that takes in an inconsistent preference and transforms it into a
+consistent preference, while retaining as much of the original structure
+of the preference as possible (it would make little sense if we replaced
+the original preference relation with indifference over all options).</p>
+
+<p>Representing inconsistent preferences turns out to be key to constructing
+<code>$f$</code>. I discuss two options for representing subsets of all possible
+inconsistent preferences:</p>
+
+<ol>
+<li>Inconsistent preferences over discrete options are represented via directed graphs</li>
+<li>Inconsistent preferences over lotteries of options are represented via vector fields on probability simplices</li>
+</ol>
+
+<h2>Discrete Case</h2>
+
+<p>When we have discrete sets of options <code>$O$</code>, we can represent some
+inconsistent preferences by using a directed graph <code>$G_{\succsim}=(V,E_{\succsim}), V=O, E_{\succsim} \subseteq O \times O$</code>.
+The presence of an edge <code>$(o_1, o_2)$</code> would mean that <code>$o_1 \succsim
+o_2$</code>, that is <code>$o_1$</code> is preferred to <code>$o_2$</code>.</p>
+
+<p>The consistent equivalent to an inconsistent preference represented by a
+directed graph would be a path graph <code>$G_{\succeq}=(V, E_{\succeq})$</code>
+over the same set of vertices <code>$O$</code>.  The method for transforming
+<code>$G_{\succsim}$</code> into <code>$G_{\succeq}$</code> would be by adding/deleting/merging
+the minimal amount vertices from <code>$E_{\succsim}$</code>.</p>
+
+<p>This leads to an interesting ethical consideration: is it a larger
+change to a preference relation to add new information, combine
+existing information, or remove information? It is discussed how to
+incorporate those weights into an algorithm for minimally transforming
+<code>$G_{\succsim}$</code> into <code>$G_{\succeq}$</code>.</p>
+
+<h3>Encoding Inconsistencies</h3>
+
+<p>The two relevant von Neumman-Morgenstern axioms are completeness and
+transitivity, with a directed graph one can also represent incompleteness
+and intransitivity.</p>
+
+<h4>Incompleteness</h4>
+
+<p>Incompleteness (or incomparability) between two options <code>$o_1, o_2$</code>
+can be represented by not specifying an edge between the two options,
+that is <code>$(o_1, o_2) \not \in E, (o_2, o_1) \not \in E$</code>.</p>
+
+<p><img src="./img/turning/incomplete.png" alt="" title="" /></p>
+
+<h4>Intransitivity</h4>
+
+<p>Intransitivity can be represented by cycles in the graph:</p>
+
+<p><img src="./img/turning/intransitive.png" alt="" title="" /></p>
+
+<h4>Non-Encodable Inconsistencies</h4>
+
+<p>With option set <code>$\{a,b\}$</code> have preference <code>$a \succsim b$</code>, with
+option set <code>$\{a,b,c\}$</code> have preferences
+<code>$b \succsim a, a \succsim c, b \succsim c$</code>.</p>
+
+<h3>Resolving Inconsistencies</h3>
+
+<p><img src="./img/turning/unbalanced_cycle.png" alt="" title="" /></p>
+
+<h4>Intransitivity</h4>
+
+<h4>Incompleteness</h4>
+
+<p>"Zipping" DAGs.</p>
+
+<h2>Continuous Case</h2>
+
+<h3>Vector Fields over Probability Simplices</h3>
+
+<p>Vector field over the probability simplex over the options (representing
+local preferences over lotteries).</p>
+
+<h4>Encoding Inconsistencies</h4>
+
+<h5>Incompleteness</h5>
+
+<ul>
+<li>Minima/maxima in the vector field</li>
+<li>Discontinuities</li>
+<li>Undifferentiable points</li>
+</ul>
+
+<h5>Intransitivity</h5>
+
+<p>Curl in the vector field?</p>
+
+<h5>Discontinuities</h5>
+
+<p>Can only exist with incompleteness?</p>
+
+<h5>Dependence of Irrelevant Alternatives</h5>
+
+<h4>Resolving Inconsistencies</h4>
+
+<p>Find mapping from vector field to another that makes the vector field
+consistent by minimizing the amount of turning/shrinking the vectors
+have to perform.</p>
+
+<h3>Graphons</h3>
+
+<p>?</p>
+
+<p>Look into extremal graph theory.</p>
+
+<h2>Implications for AI Alignment</h2>
+
+<h3>Ambitious Value Learning</h3>
+
+<p>Learn human values, check if known inconsistencies are encoded (to ensure
+learning at the correct level of abstraction), then make consistent.</p>
+
+<h3>Ontological Crises</h3>
+
+<p>If you know a mapping between objects from human to AI ontology, you
+could find the mapping from the (consistent) human probability simplex
+to the AI simplex?</p>
+
+<h2>Further Questions</h2>
+
+<ul>
+<li>Is there a canonical way to turn graphs into path graphs with a minimal number of "operations"?</li>
+<li>Does every graph <code>$G$</code> have a unique graph <code>$G'$</code> so that <code>$G$</code> is the transitive closure of <code>$G'$</code>?</li>
+</ul>
+</html>
