@@ -1048,3 +1048,4 @@
 2022-03-25T12:12:17.000000Z	if you're not special, generating passwords is like running from bears: you don't need to be good, you just need to be better than the majority
 2022-03-25T13:09:20.000000Z	wikipedia redirects shitcoin to cryptocurrency. heh
 2022-03-25T14:58:18.000000Z	if you believe that blue-collar republicans are voting against their own interest, well, what about white-collar democrats?
+2022-03-26T10:13:39.000000Z	for a given graph G, there is a set of graphs \mathcal{G} so that for every G' ∈ \mathcal{G}, the transitive closure of G' is G. does \mathcal{G} contain only one element?
