@@ -1050,3 +1050,4 @@
 2022-03-25T14:58:18.000000Z	if you believe that blue-collar republicans are voting against their own interest, well, what about white-collar democrats?
 2022-03-26T10:13:39.000000Z	for a given graph G, there is a set of graphs \mathcal{G} so that for every G' ∈ \mathcal{G}, the transitive closure of G' is G. does \mathcal{G} contain only one element?
 2022-03-26T15:15:03.000000Z	to fend off possible accusations of bias: good leftist humor was /r/liftcommunism, /leftypol/ was great too sometimes, and I liked the political catgirl comics. Existential Comics is __not__ funny (except the Beetle in the Box comic), although some of the old comics were indeed existenital. I don't have a strong opinion on /r/COMPLETEANARCHY and /r/FULLCOMMUNISM.
+2022-03-26T15:15:46.000000Z	I also mostly didn't get Chapo Trap House (although the stuff I did get was sometimes pretty funny)
