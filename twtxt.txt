@@ -1065,3 +1065,4 @@
 2022-03-28T19:43:10.000000Z	what's a bijection between ℝ and ℝ^2?
 2022-03-28T19:47:29.000000Z	some minds start cutting themselves if not dulled repeatedly.
 2022-03-28T20:48:11.000000Z	you know what's interesting? if you randomly replace some words with “redacted”, very few people will notice
+2022-03-28T20:53:05.000000Z	*Ramanujan voice* “Oh, AI alignment? That's just a continued fraction” *pulls out a notebook
