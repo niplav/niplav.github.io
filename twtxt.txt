@@ -1067,3 +1067,4 @@
 2022-03-28T20:48:11.000000Z	you know what's interesting? if you randomly replace some words in a conversation with “redacted”, very few people will notice
 2022-03-28T20:53:05.000000Z	*Ramanujan voice* “Oh, AI alignment? That's just a continued fraction” *pulls out a notebook*
 2022-03-28T21:58:46.000000Z	domain pestile.nz
+2022-03-28T22:06:34.000000Z	I wish people would number their podcast episodes
