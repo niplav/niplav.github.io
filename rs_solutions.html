@@ -497,7 +497,7 @@ path on the right hand side. But this is not guaranteed.</p>
 relabelling.</p>
 </blockquote>
 
-<p>Assume that <code>$P \sim Q$</code>. Then</p>
+<p>Assume that <code>$P \sim Q$</code>. Then:</p>
 
 <h4><code>$α.P \sim α.Q$</code> for each action <code>$α$</code></h4>
 
@@ -846,6 +846,14 @@ p. 99, prove snd part of Tarski's fixed point theorem.
 TODO
 -->
 
+<h3>4.7</h3>
+
+<p>To summarize, <code>$f: 2^ℕ \mapsto 2^ℕ$</code>,
+<code>$f(X)=\{1,2,3\} \text{ if } X=\{2\}, X \cup \{1,2\} \text{ otherwise}$</code>.</p>
+
+<p>This function is not monotonic: for <code>$X'=\{2\} \subset \{1,2\}= X$</code>,
+but <code>$f(X')=\{1,2,3\} \supset \{1,2\}=f(X)$</code>.</p>
+
 <h3>4.9</h3>
 
 <p>Least fixed point:</p>
@@ -994,6 +1002,30 @@ is satisfied by <code>$a.(b.c.\mathbf{0}+b.d.\mathbf{0})$</code> but not <code>$
 
 <p><img src="./img/rs_solutions/5_7.png" alt="" title="" />
 <!--TODO: add tooltip explainin the content of the image--></p>
+
+<h3>5.11</h3>
+
+<p><code>$b.a.\mathbf{0}+b.\mathbf{0}$</code> and <code>$b.(a.\mathbf{0}+b.\mathbf{0})$</code>:
+Not strongly bisimilar, the right expression fulfills
+<code>$\langle b \rangle \langle b \rangle \textit{t}\!\textit{t}$</code>
+while the left one does not.</p>
+
+<p><code>$a.(b.c.\mathbf{0}+b.d.\mathbf{0}$</code> and
+<code>$a.b.c.\mathbf{0}+a.b.d.\mathbf{0}$</code>: Not strongly bisimilar,
+the left formula fulfills
+<code>$[a]\langle b \rangle(\langle c \rangle \textit{t}\!\textit{t} \land \langle d \rangle \textit{t}\!\textit{t}$</code>,
+while the right one does not.</p>
+
+<p><code>$a.\mathbf{0}|b.\mathbf{0}$</code> and <code>$a.b.\mathbf{0}+b.a.\mathbf{0})$</code>
+are strongly bisimilar.</p>
+
+<p><code>$(a.\mathbf{0}|b.\mathbf{0})+c.a.\mathbf{0}$</code> and
+<code>$a.\mathbf{0}|(b.\mathbf{0}+c.\mathbf{0})$</code> are not strongly bisimilar,
+the right expression fulfills the formula
+<code>$\langle a \rangle \langle c \rangle \textit{t}\!\textit{t}$</code>,
+while the left one does not.</p>
+
+<!--TODO: check with concurrency workbench-->
 
 <h2>Chapter 6</h2>
 
