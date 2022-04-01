@@ -308,8 +308,6 @@ $ z site
 $ jq -s '[.]|flatten' &lt;/usr/local/src/metaculus/data-questions-raw.json &gt;data/metaculus.json
 </code></pre>
 
-<p>The resulting data is available <a href="./data/metaculus.json">here</a>.</p>
-
 <p>I then wrote a python script to convert the JSON data to CSV in the form
 <code>id,questionrange,result,probability,range</code>, while also filtering out
 yet unresolved questions and range questions. Here, <code>id</code> is a unique
