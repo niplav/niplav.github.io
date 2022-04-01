@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function () {
 rückhaltloses Bekenntnis zu ihm ist ihr Kennzeichen.</p>
 </blockquote>
 
-<p><em>– Walter Benjamin, “Erfahrung und Armut”, 1933</em></p>
+<p><em>— Walter Benjamin, “Erfahrung und Armut”, 1933</em></p>
 
 <blockquote>
   <p>But human nature being what it is, there are going to be some people on
@@ -85,7 +85,7 @@ group is going to be 100% right just like they always are every single
 time that argument happens anywhere.</p>
 </blockquote>
 
-<p><em>– Groon the Walker, “The Erogamer”, 2020</em></p>
+<p><em>— Groon the Walker, “The Erogamer”, 2020</em></p>
 
 <h2>The Site</h2>
 
@@ -107,7 +107,7 @@ person).</p>
   <p>Think Less Wrong, act Long Now and Suck Less.</p>
 </blockquote>
 
-<p><em>– paraphrasing <a href="https://www.gwern.net/">Gwern Branwen</a>, <a href="https://www.gwern.net/About">“About This Website”</a>, 2019</em></p>
+<p><em>— paraphrasing <a href="https://www.gwern.net/">Gwern Branwen</a>, <a href="https://www.gwern.net/About">“About This Website”</a>, 2019</em></p>
 
 <p>For this reason, articles are not published by date,
 but rather by category, both to make it easier to read
@@ -147,7 +147,7 @@ in reverse chronological order, so that the most recent post appears
 first, at the top of the web page.</p>
 </blockquote>
 
-<p><em>– <a href="https://en.wikipedia.org/wiki/Wikipedia">Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Blog">“Blog”</a>, 2021</em></p>
+<p><em>— <a href="https://en.wikipedia.org/wiki/Wikipedia">Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Blog">“Blog”</a>, 2021</em></p>
 
 <p>I don't think this website can be classified as a blog—it strongly
 lacks the chronological element of the standard blog format, except for
@@ -221,7 +221,7 @@ reviewing them to see what was still valuable and what was useless.</p>
   <p>What's the bottleneck to more things like "Slate Star Codex" or Gwern's site existing in the world?</p>
 </blockquote>
 
-<p><em>– <a href="https://old.reddit.com/user/arikr">arikir</a>, <a href="https://old.reddit.com/r/slatestarcodex/comments/ab3ry1/whats_the_bottleneck_to_more_things_like_slate/">“What's the bottleneck to more things like "Slate Star Codex" or Gwern's site existing in the world?”</a> on <a href="https://old.reddit.com/r/slatestarcodex/">/r/slatestarcodex</a>, 2019</em></p>
+<p><em>— <a href="https://old.reddit.com/user/arikr">arikir</a>, <a href="https://old.reddit.com/r/slatestarcodex/comments/ab3ry1/whats_the_bottleneck_to_more_things_like_slate/">“What's the bottleneck to more things like "Slate Star Codex" or Gwern's site existing in the world?”</a> on <a href="https://old.reddit.com/r/slatestarcodex/">/r/slatestarcodex</a>, 2019</em></p>
 
 <!--TODO: Lesswrong question: [What makes people intellectually
 active?](https://www.lesswrong.com/posts/XYYyzgyuRH5rFN64K/what-makes-people-intellectually-active)-->
@@ -288,13 +288,45 @@ been a net positive project for me.</p>
 <li>Broken citations</li>
 <li><a href="https://en.wikipedia.org/wiki/American_English">American English</a> ("labour" instead of "labor", "behaviour" instead of "behavior")</li>
 <li>Checking for unbalanced parentheses</li>
+<li>Update the metadata for PDF files according to <a href="https://www.gwern.net/Search#post-finding">Gwern 2022</a></li>
 </ul>
+
+<blockquote>
+  <p>I try to set at least title/​author/​DOI/​year/​subject,
+and stuff any additional topics &amp; bibliographic information into the
+“Keywords” field. Example of setting metadata:</p>
+
+<div>
+  exiftool -Author="Frank P. Ramsey" -Date=1930 -Title="On a Problem of Formal Logic" -DOI="10.1112/plms/s2-30.1.264"
+  -Subject="mathematics" -Keywords="Ramsey theory, Ramsey's theorem, combinatorics, mathematical logic, decidability,
+  first-order logic,  Bernays-Schönfinkel-Ramsey class of first-order logic, _Proceedings of the London Mathematical
+  Society_, Volume s2-30, Issue 1, 1930-01-01, pg264-286" 1930-ramsey.pdf
+</div>
+</blockquote>
+
+<p><em>—<a href="https://www.gwern.net/Links">Gwern Branwen</a>, <a href="https://www.gwern.net/Search">“Internet Search Tips”</a>, 2022</em></p>
+
+<p>I probably won't put as much information into the "Keywords" section, it feels abusive to me to stuff it like that. I also despaired about how to format the <a href="https://en.wikipedia.org/wiki/Digital_Object_Identifier">DOI</a>, Wikipedia says</p>
+
+<blockquote>
+  <p>Contrary to the DOI Handbook,
+<a href="https://en.wikipedia.org/wiki/CrossRef">CrossRef</a>, a major DOI
+registration agency, recommends displaying a URL (for example,
+<code>https://doi.org/10.1000/182</code>) instead of the officially specified format
+(for example, <a href="https://doi.org/10.1000/182"><code>doi:10.1000/182</code></a>)</p>
+</blockquote>
+
+<p><em>—<a href="https://en.wikipedia.org/wiki/English_Wikipedia">English Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Digital_Object_Identifier">“Digital Object Identifier”</a>, 2021</em></p>
+
+<p>After some thought, I have decided to go with the handbook recommendation.</p>
 
 <!--
 * links for authors to Wikipedia
 * capitalization of headings
 * proselint
 * fixing 404'ed links
+* twitter links are nitter.hu links
+* books are linked to goodreads page (instead of, say Amazon or Wikipedia)
 -->
 
 <!--TODO: What use "", “”, »«, ›‹ and ‘’ for? What should they differentiate?-->
@@ -532,6 +564,7 @@ the results.</p>
 <ul>
 <li><a href="https://github.com/niplav">Github</a></li>
 <li><a href="https://www.lesswrong.com/users/niplav">Lesswrong</a></li>
+<li><a href="https://forum.effectivealtruism.org/users/niplav">Effective Altruism Forum</a></li>
 <li><a href="https://www.metaculus.com/accounts/profile/112493/">Metaculus</a></li>
 <li><a href="https://old.reddit.com/u/niplav">Reddit</a></li>
 <li><a href="https://en.wikipedia.org/wiki/User:Niplav">Wikipedia</a></li>
