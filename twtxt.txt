@@ -1094,3 +1094,4 @@
 2022-04-04T13:15:20.000000Z	“there's still canyons worth of work this winter”
 2022-04-04T16:06:05.000000Z	okay, so here's a claim: axes of personal development à la Kegan are in principle orthogonal to meditative attainments
 2022-04-04T17:55:23.000000Z	the elephant seal in the brain
+2022-04-04T18:24:28.000000Z	idea: upvote-only lw shortforms posts: the karma isn't counted on the user karma score, but it also can't be downvoted, which encourages more wild and possibly wrong speculations
