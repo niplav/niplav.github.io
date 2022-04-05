@@ -1099,3 +1099,4 @@
 2022-04-04T21:47:09.000000Z	i remembered i liked structural regular expressions, but re-reading the paper reminds me of how cool they are
 2022-04-04T21:47:23.000000Z	truly Weapons From a More Civilized Age material
 2022-04-05T13:36:48.000000Z	who called it the psyche and not the egosystem
+2022-04-05T13:42:46.000000Z	Acausal Macroeconomics: A Semidecidable Perspective
