@@ -1101,3 +1101,4 @@
 2022-04-05T13:36:48.000000Z	who called it the psyche and not the egosystem
 2022-04-05T13:42:46.000000Z	Acausal Macroeconomics: A Semidecidable Perspective
 2022-04-05T13:49:56.000000Z	You know, Papadimitriou claims that PPAD stands for “Polynomial Parity Arguments on Directed graphs”, but it bears a suspicious resemblance to his name…
+2022-04-05T16:33:58.000000Z	trembling-hand best response dynamics?
