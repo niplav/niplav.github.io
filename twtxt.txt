@@ -1100,3 +1100,4 @@
 2022-04-04T21:47:23.000000Z	truly Weapons From a More Civilized Age material
 2022-04-05T13:36:48.000000Z	who called it the psyche and not the egosystem
 2022-04-05T13:42:46.000000Z	Acausal Macroeconomics: A Semidecidable Perspective
+2022-04-05T13:49:56.000000Z	You know, Papadimitriou claims that PPAD stands for “Polynomial Parity Arguments on Directed graphs”, but it bears a suspicious resemblance to his name…
