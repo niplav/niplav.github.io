@@ -1114,4 +1114,4 @@
 2022-04-07T00:03:09.000000Z	sometimes i think i should return to a cleaner state of mind, abandon all big never-to-be-finished projects, and write simple text-processing utilities on a raspberry pi running plan 9, improvising fractile jazz over a lonely lake and spend most of my remaining time meditating.
 2022-04-07T00:03:54.000000Z	to leave every Pile behind, to stop doing my Anki cards, recording data on my life, and just be Done.
 2022-04-07T00:04:48.000000Z	this is a partial answer to http://mindingourway.com/rest-in-motion/
-2022-04-07T00:19:59.000000Z	fun fact: there's around 10 mio. more bacteria on this planet than neurons
+2022-04-07T00:19:59.000000Z	fun fact: there's around 10 mio. times more bacteria on this planet than neurons

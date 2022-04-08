@@ -1,0 +1,100 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2022-04-05, modified: 2022-04-05, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+
+<blockquote>
+  <p><strong>Solutions to the textbook “Algorithmic Game Theory”.</strong></p>
+</blockquote>
+
+<h1>Solutions to “Algorithmic Game Theory”</h1>
+
+<h2>Chapter 1</h2>
+
+<!--
+TODO
+### 1.1
+
+Inputs: A set of actions `$A_1$` for player `$1$`, and `$A_2$` for player
+`$2$`, as well as utility functions `$u_1: A_1 \mapsto ℝ$` and
+`$u_2: A_2 \mapsto ℝ$` for the two players.
+
+    for $s_1, s_2$ in $2^{A_1} \times 2^{A_2}$:
+
+Uhhh…hmm. Let's think about this one.
+-->
+
+<h3>1.3</h3>
+
+<p>Let <code>$g$</code> be a two-player game. Now construct a 3-player zero-sum game
+<code>$g'$</code> as following: Add another player <code>$3$</code>, with one action, and let
+the utility of that player be
+<code>$u_3'(a_3, a_{-3})=0-(u_1(a_{-3})+u_2(a_{-3})$</code>.</p>
+
+<p>Then the Nash equilibria of <code>$G$'$</code> are the same as for <code>$g$</code>: player
+<code>$3$</code> can't deviate, and the utilities of the other players are not
+affected by the actions of <code>$3$</code>. Therefore, the Nash equilibria in <code>$g'$</code>
+are the same as for <code>$g$</code>, and equally hard to find—which means that
+Nash equilibria for three-player zero-sum games are at least as hard to
+find as for two-player games.</p>
+</html>
