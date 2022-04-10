@@ -1116,3 +1116,4 @@
 2022-04-07T00:04:48.000000Z	this is a partial answer to http://mindingourway.com/rest-in-motion/
 2022-04-07T00:19:59.000000Z	fun fact: there's around 10 mio. times more bacteria on this planet than neurons
 2022-04-09T08:34:00.000000Z	open your textbooks on page one.
+2022-04-10T23:54:21.000000Z	the hairy ball theorem of decision theory: it's always newcombeable
