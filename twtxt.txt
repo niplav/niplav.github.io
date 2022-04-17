@@ -1128,3 +1128,4 @@
 2022-04-15T03:35:01.000000Z	9 wikipedia edits today! yay me! (also a bunch of small scale contributions to other people's texts: https://niplav.github.io/contributions.html)
 2022-04-15T15:58:39.000000Z	at the moment, all medicine merely delays the moment of death
 2022-04-15T16:36:23.000000Z	tried to figure out how to use university springer access to download a textbook, gave up after two minutes and just used libgen. lmao
+2022-04-17T16:11:50.000000Z	https://en.wikipedia.org/w/index.php?title=Special:Contributions/Gwern&offset=&limit=500&target=Gwern
