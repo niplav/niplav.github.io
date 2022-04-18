@@ -1129,4 +1129,4 @@
 2022-04-15T15:58:39.000000Z	at the moment, all medicine merely delays the moment of death
 2022-04-15T16:36:23.000000Z	tried to figure out how to use university springer access to download a textbook, gave up after two minutes and just used libgen. lmao
 2022-04-17T16:11:50.000000Z	https://en.wikipedia.org/w/index.php?title=Special:Contributions/Gwern&offset=&limit=500&target=Gwern
-2022-04-17T16:38:47.000000Z	https://en.wikipedia.org/w/index.php?title=Special:Contributions/Gwern&offset=&limit=500&target=Gwern
+2022-04-18T20:23:00.000000Z	*stands up from the battlefield* “I am TetraspaceWest” *gets shot immediately*
