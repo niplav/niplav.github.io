@@ -1130,3 +1130,4 @@
 2022-04-15T16:36:23.000000Z	tried to figure out how to use university springer access to download a textbook, gave up after two minutes and just used libgen. lmao
 2022-04-17T16:11:50.000000Z	https://en.wikipedia.org/w/index.php?title=Special:Contributions/Gwern&offset=&limit=500&target=Gwern
 2022-04-18T20:23:00.000000Z	*stands up from the battlefield* “I am TetraspaceWest” *gets shot immediately*
+2022-04-18T20:31:03.000000Z	some people are better at some things than others. also, some people are better at nearly all things than others. maybe there are also people that are better at all things than some others.
