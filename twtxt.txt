@@ -1145,3 +1145,5 @@
 2022-04-22T13:07:23.000000Z	three aspects of feedback loops: 1. speed (how quickly do you get feedback); 2. thickness (how much information do you get about your performance); 3. signal (how related is that feedback to your performance)
 2022-04-22T13:30:14.000000Z	one then checks that the following diagrams commute [devil god diagram]
 2022-04-22T17:04:49.000000Z	SBF f-bomb counter
+2022-04-24T21:52:06.000000Z	list of emblems that contain landlines:
+2022-04-24T21:52:06.000001Z	• North Korea
