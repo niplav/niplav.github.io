@@ -110,6 +110,8 @@ at <code>$\mathcal{F}$</code> and <code>$1$</code> if the forecasts are complete
 
 <h2>Conditions for a Finesse Evaluation Function</h2>
 
+<p>Use finesse <code>$ᚠ$</code> and noise <code>$ⴟ$</code></p>
+
 <ol>
 <li>If <code>$n=0$</code>, <code>$s(\emptyset, \mathcal{F})$</code> is undefined.</li>
 <li>If <code>$n=1$</code>, <code>$s(\mathbf{D}, \mathcal{F})=0$</code>: We are generally suspicious of any single forecast.
@@ -183,4 +185,37 @@ forecasts is:</p>
 <li>Add more &amp; more noise to the forecasts and see how Brier score develops</li>
 <li>Start with perfect predictor, the level of noise at which its Brier score is equal to the dataset</li>
 </ul>
+
+<hr />
+
+<pre><code>import csv
+import statistics
+import numpy as np
+
+d1=np.array([[1,0.8],[0,0.4],[0,0.65],[1,0.99]]).T
+oc=d1[0]
+pr=d1[1]
+
+def mse(o,p):
+    return np.mean(np.abs(o-p)**2)
+
+def logit(p):
+    return np.log(p/(1-p))
+
+def logistic(p):
+    return 1/(1+np.exp(-p))
+
+np.random.default_rng().normal(0,1,len(d1[1]))
+
+def finesse(d, pert=1, s=100):
+    o=d[0]
+    p=d[1]
+    score=mse(o,p)
+    print(score)
+    pert_scores=[]
+    for i in range(0,s):
+        perturbed=logistic(logit(p)+np.random.default_rng().normal(0,pert,len(p)))
+        pert_scores.append(mse(o,perturbed))
+    return np.mean(pert_scores)-score
+</code></pre>
 </html>
