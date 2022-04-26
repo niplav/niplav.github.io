@@ -1161,3 +1161,4 @@
 2022-04-26T21:28:09.000000Z	I take a liking
 2022-04-26T21:28:12.000000Z	I take a shot
 2022-04-26T21:28:33.000000Z	Der omnipräsente Boymoder hing in der Luft wie ein schwerer Rock.
+2022-04-26T21:28:52.000000Z	I left my heart out in the streets—so many many many many many many many many times
