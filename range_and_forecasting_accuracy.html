@@ -76,6 +76,9 @@ out to be yes, no and yes for Metaculus data; and no, no and yes for
 PredictionBook data. Possible reasons are discussed.</strong></p>
 </blockquote>
 
+<!--TODO: fix instances of \* \*-->
+<!--TODO: fix predictionbook & metaculus capitalization-->
+
 <h1>Range and Forecasting Accuracy</h1>
 
 <blockquote>
@@ -561,31 +564,18 @@ Brier score and the range of the forecast.</p>
 
 <p>Now that the two datasets are available, they can be properly analyzed.</p>
 
-<p>First, the raw data is loaded from the two CSV files, removing the
-first line (the names of the variables, for other languages such as
-R). Then the ID is converted to integer, and the rest of the fields are
-converted to floats (the range is a float for some Metaculus questions,
-and while the result can only take on 0 or 1, using float there makes
-it easier to calculate the brier score using <code>mse.set</code>). After that,
-negative ranges are removed from the dataset, and ranges are converted
-from seconds to days, making them slightly easier to plot:</p>
-
-<p>TODO: remove</p>
-
-<pre><code>.fc(.ic("../../data/pb.csv"));pbraw::csv.load()
-.fc(.ic("../../data/met.csv"));metraw::csv.load()
-daysec::60*60*24
-pbdata::+flr({0&lt;*|x};{(1:$*x),1.0:$'1_x}'1_pbraw)
-pbdata::(,pbdata@0),(,(pbdata@1)%daysec),(pbdata@[2 3]),(,(pbdata@4)%daysec)
-metdata::+flr({0&lt;*|x};{(1:$*x),1.0:$'1_x}'1_metraw)
-metdata::(,metdata@0),(,(metdata@1)%daysec),(metdata@[2 3]),(,(metdata@4)%daysec)
-</code></pre>
-
-<hr />
+<p>First, the raw data is loaded from the two CSV files, removing the first
+line (the names of the variables, for other languages such as R). Then
+the ID is converted to integer, and the rest of the fields are converted
+to floats (the range is a float for some Metaculus questions, and while
+the result can only take on 0 or 1, using float there makes it easier
+to calculate the brier score later). After that, negative ranges are
+removed from the dataset, and ranges are converted from seconds to days,
+making them slightly easier to plot:</p>
 
 <pre><code>import csv
 import numpy as np
-import scipy as sp
+import scipy.stats as sps
 
 daysec=24*60*60
 
@@ -649,17 +639,6 @@ and give them names (handling the various indices is tiresome after
 a while). <code>ress</code> stands for results, <code>fcs</code> for forecasts, and <code>rngs</code>
 for ranges:</p>
 
-<pre><code>metress::metdata@2
-metfcs::metdata@3
-metrngs::metdata@4
-
-pbress::pbdata@2
-pbfcs::pbdata@3
-pbrngs::pbdata@4
-</code></pre>
-
-<hr />
-
 <pre><code>pbress=pb[2]
 pbfcs=pb[3]
 pbrngs=pb[4]
@@ -684,18 +663,28 @@ error in numpy‽-->
 
 <p>The Brier score is quite easy to implement:</p>
 
-<pre><code>brier::{mu((x-y)^2)}
+<pre><code>def brier(x, y):
+    return np.mean((x-y)* *2)
 </code></pre>
+
+<p>The first thing we can now do is to compare the forecasts from the
+two websites, and it turns out that Metaculus forecasts are slightly
+<em>less</em> good than PredictionBook forecasts:</p>
+
+<pre><code>&gt;&gt;&gt; brier(metfcs, metress)
+0.17085016230074224
+&gt;&gt;&gt; brier(pbfcs, pbress)
+0.16073690328405374
+</code></pre>
+
+<p>But this comparison is not telling us much, since the
+questions on the two websites and the strictness for
+resolving questions are radically different, as explained
+<a href="./range_and_forecasting_accuracy.html#Limitations">here</a>.</p>
 
 <p>Now, one can calculate the Brier score for each of the forecasts and
 outcomes, with the mean being unnecessary, because we want to examine
 the score of each forecast individually:</p>
-
-<pre><code>metbriers::(metress-metfcs)^2
-pbbriers::(pbress-pbfcs)^2
-</code></pre>
-
-<hr />
 
 <pre><code>pbbriers=(pbfcs-pbress)**2
 metbriers=(metfcs-metress)**2
@@ -707,14 +696,6 @@ metbriers=(metfcs-metress)**2
 The PredictionBook forecasts with the highest range span 3730 days
 (more than 10 years), for Metaculus it's 1387 days (nearly 4 years):</p>
 
-<pre><code>    |/metrngs
-1387.01877932435104
-    |/pbrngs
-3730.00945601851852
-</code></pre>
-
-<hr />
-
 <pre><code>&gt;&gt;&gt; np.max(metrngs)
 1387.018779324351
 &gt;&gt;&gt; np.max(pbrngs)
@@ -723,14 +704,6 @@ The PredictionBook forecasts with the highest range span 3730 days
 
 <p>One can now look at the correlation between range and Brier score first
 for Metaculus, and then for PredictionBook:</p>
-
-<pre><code>    cor(metbriers;metrngs)
-0.0216592389375953837
-    cor(pbbriers;pbrngs)
--0.0202455558749736788
-</code></pre>
-
-<hr />
 
 <pre><code>&gt;&gt;&gt; np.corrcoef(metbriers, metrngs)
 array([[1.        , 0.02165924],
@@ -756,31 +729,15 @@ are statistically significant.</p>
 <p>Now, one can also perform a linear regression to gauge what the relation
 of range and accuracy of a forecast is:</p>
 
-<pre><code>&gt;&gt;&gt; sp.stats.linregress(metrngs, metbriers)
+<pre><code>&gt;&gt;&gt; sps.linregress(metrngs, metbriers)
 LinregressResult(slope=1.4921976403559925e-05, intercept=0.16753867328019442, rvalue=0.021659238937630332, pvalue=1.89939817752528e-06, stderr=3.1319561138899387e-06)
-&gt;&gt;&gt; sp.stats.linregress(pbrngs, pbbriers)
+&gt;&gt;&gt; sps.linregress(pbrngs, pbbriers)
 LinregressResult(slope=-8.921762030379796e-06, intercept=0.16351703198845793, rvalue=-0.020307433721919746, pvalue=1.913246393632673e-05, stderr=2.0868414512480246e-06)
 </code></pre>
 
-<hr />
-
-<p>For this, I first create an x/y
-set with the brier score of a forecast being in the y axis and the range
-in the x axis:</p>
-
-<pre><code>mettab::+(,metrngs),,metbriers
-pbtab::+(,pbrngs),,pbbriers
-</code></pre>
-
-<p>Now, a linear regression is easy:</p>
-
-<pre><code>    lreg(mettab)
-[0.0000149219764035602802 0.167538673280194445
-    lreg(pbtab)
-[-0.00000889314678851551979 0.163484538869647844]
-</code></pre>
-
-<hr />
+<p>We can see that the <code>rvalue</code> is just the correlation, and that the
+<code>pvalue</code> is pretty good (&lt;0.00001 and &lt;.0001 for Metaculus and
+PredictionBook, respectively).</p>
 
 <p>These are not particularly surprising. The inferred brier score at range
 0 (the forecast directly before resolution) is ~0.16, which seems a bit
@@ -789,12 +746,21 @@ data and lower accuracy for higher ranges for PredictionBook data match
 the correlation. The steepness of the regression is quite low because
 the ranges are in days.</p>
 
-<p>Visualizing a subset of the forecasts (2048
-forecasts from each dataset, chosen randomly) with a
+<p>Visualizing the accuracies of the forecasts with a
 <a href="https://en.wikipedia.org/wiki/Scatter_plot">scatterplot</a> and <a href="https://en.wikipedia.org/wiki/Linear_regression">linear
 regressions</a> shows a
 very similar picture (red dots are for Metaculus forecasts, blue dots
 are for PredictionBook forecasts):</p>
+
+<pre><code>fig=plt.figure(figsize=(8,8))
+plt.xlabel("Range (days)")
+plt.ylabel("Accuracy (Brier score)")
+
+plt.plot(metrngs, metbriers, '.', color='red', markersize=1)
+plt.plot(pbrngs, pbbriers, '.', color='blue', markersize=1)
+
+plt.savefig("allscatter.png")
+</code></pre>
 
 <p><img src="./img/range_and_forecasting_accuracy/allscatter.png" alt="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in days)" title="Scatterplot with linear regression for Metaculus &amp; PredictionBook forecasts by range (in days)" /></p>
 
@@ -891,55 +857,35 @@ not always be easily judged from the scatterplot of datapoints.</p>
 
 <h4>Low Sample Sizes With High Ranges</h4>
 
-<!--HERE-->
-
 <p>Another question one might ask is: How big are the sample sizes at the
 tails when the range is high?</p>
 
 <p>This is important: low sample sizes increase noise dramatically, and
 make findings much less reliable.</p>
 
-<!--TODO: find a way to test the statistical significance here, sometime later-->
-
 <p>To get a rough overview over the sample sizes, on can look at the number
 of samples for each bucket. The sample sizes were calculated such that
-at position i in the array <code>{pb,met}ss</code> was the sample size for week i:</p>
+at position <code>i</code> in the array <code>{pb,met}ss</code> was the sample size for week <code>i</code>:</p>
 
-<pre><code>metss::_metrngs
-metss::metss@&lt;metss
-pbss::_pbrngs
-pbss::pbss@&lt;pbss
-
-maxval::|/pbss,metss
-maxlen::|/(#'=metss),#'=pbss
-
-pbss::{#pbss?x}'1+!maxval
-metss::{#metss?x}'1+!maxval
+<pre><code>metss=np.bincount(np.sort(np.floor(metrngs/30)).astype(int))
+pbss=np.bincount(np.sort(np.floor(pbrngs/30)).astype(int))
 </code></pre>
 
 <p>I generated charts for the sample sizes in days:</p>
 
-<pre><code>ssplot::.oc("ss_plot.eps")
-.tc(ssplot)
+<pre><code>fig=plt.figure(figsize=(8,8), clear=True)
+plt.xlabel("Range (months)")
+plt.ylabel("Number of datapoints)")
 
-setrgb(0;0;0)
-grid([0],maxlen,(maxlen:%20);[0],maxval,(maxval:%20))
-xtitle("Range (in days)")
-ytitle("Number of predictions")
+plt.plot(metss, '-', color='red')
+plt.plot(pbss, '-', color='blue')
 
-setrgb(0;0;1)
-segplot(metss)
-setrgb(1;0;0)
-segplot(pbss)
-
-draw()
-.fl()
-.cc(ssplot)
+plt.savefig("ss_plot.png")
 </code></pre>
 
-<p><img src="./img/range_and_forecasting_accuracy/ss_plot.png" alt="Sample sizes for predictions with a range of n months, sorted and graphed." title="Sample sizes for predictions with a range (in days), sorted and graphed." /></p>
+<p><img src="./img/range_and_forecasting_accuracy/ss_plot.png" alt="Sample sizes for predictions with a range of n months, sorted and graphed." title="Sample sizes for predictions with a range (in months), sorted and graphed." /></p>
 
-<p><em>Sample sizes for predictions with a range (in days), sorted and graphed.</em></p>
+<p><em>Sample sizes for predictions with a range (in months), sorted and graphed.</em></p>
 
 <p>The red graphs stands for Metaculus sample sizes, the blue graph stands
 for PredictionBook sample sizes.</p>
@@ -951,22 +897,118 @@ much compared to the expected range of some predictions on the platform,
 which might go into the thousands of years).</p>
 
 <p>This can be seen in the data as well: The median range of metaculus and
-predictionbook predictions is only a couple of months, and less than 25%
+PredictionBook predictions is only a couple of months, and less than 25%
 of questions have a range of more than one year:</p>
 
-<pre><code>Q(0.25;metrngs%365)
-    0.0937919114852302448
-Q(0.5;metrngs%365)
-    0.34114799258678412
-Q(0.75;metrngs%365)
-    0.917333030834854515
-Q(0.25;pbrngs%365)
-    0.0435826674277016743
-Q(0.5;pbrngs%365)
-    0.308100377346524606
-Q(0.75;pbrngs%365)
-    0.977603754439370878
+<pre><code>&gt;&gt;&gt; np.quantile(metrngs/365, 0.25)
+0.0938035443856715
+&gt;&gt;&gt; np.quantile(metrngs/365, 0.5)
+0.3411479925867841
+&gt;&gt;&gt; np.quantile(metrngs/365, 0.75)
+0.9173088057010588
+&gt;&gt;&gt; np.quantile(pbrngs/365, 0.25)
+0.04357030060882801
+&gt;&gt;&gt; np.quantile(pbrngs/365, 0.5)
+0.3080797501268392
+&gt;&gt;&gt; np.quantile(pbrngs/365, 0.75)
+0.9775999492643329
 </code></pre>
+
+<h5>Statistical Significance of Truncated Datasets</h5>
+
+<p>One could also be interested in how the statistical significance of the
+linear regression and correlation develops when we remove the forecasts
+with short ranges. This can be implemented quite easily by creating a
+function <code>val_shrinking_dataset</code> which first sorts the pre-computed
+Brier scores by range, and then calculates p-values and correlation
+coefficients, afterwards removing the earliest prediction from the dataset (I
+have no idea whether this is statistically acceptable, but it seemed like
+a reasonable thing to do, lest there's some problem here with p-hacking).
+The values are concatenated into arrays, which are then returned.</p>
+
+<pre><code>def val_shrinking_dataset(briers, ranges):
+        sortind=np.argsort(ranges)
+        chronbriers=briers[sortind]
+        chronranges=ranges[sortind]/30
+        dropranges=[]
+        pvalues=[]
+        rvalues=[]
+        for i in range(0, len(ranges)-2):
+                _, _, rval, pval, _=sps.linregress(chronranges, chronbriers)
+                pvalues.append(pval)
+                rvalues.append(rval)
+                dropranges.append(chronranges[0])
+                chronranges=chronranges[1::]
+                chronbriers=chronbriers[1::]
+        return np.vstack([pvalues, rvalues, dropranges])
+
+metpvals=val_shrinking_dataset(metbriers, metrngs)
+pbpvals=val_shrinking_dataset(pbbriers, pbrngs)
+</code></pre>
+
+<p>The resulting data can be plotted (correlation cofficients on the left
+y-axis, p-values on the (logarithmic) right y-axis). Here, the datapoint
+at range <code>x</code> would be the correlation coefficient and its p-value for
+all Brier scores <em>after</em> <code>x</code> (sorry for the legend in the upper right
+corner, I couldn't figure out how to move it to the right middle-bottom).</p>
+
+<pre><code>fig=plt.figure(figsize=(10,10), clear=True)
+
+_, ax1 = plt.subplots()
+
+ax1.set_xlabel("Range (months)")
+ax1.set_ylabel("Correlation value")
+ax1.plot(metpvals[2], metpvals[1], '-', linewidth=3, color='#ff4500', label="Metaculus truncated correlations")
+ax1.plot(pbpvals[2], pbpvals[1], '-', linewidth=3, color='#00bfff', label="PredictionBook truncated correlations")
+ax1.legend(loc='lower right')
+
+ax2=ax1.twinx()
+ax2.set_ylabel("p value")
+ax2.semilogy(metpvals[2], metpvals[0], '-', color='#ffa500', linewidth=1, label="Metaculus truncated p-values")
+ax2.semilogy(pbpvals[2], pbpvals[0], '-', color='cyan', linewidth=1, label="PredictionBook truncated p-values")
+ax2.legend(loc='upper right')
+
+plt.savefig("pvals_ss_plot.png")
+</code></pre>
+
+<p><img src="./img/range_and_forecasting_accuracy/pvals_plot.png" alt="Plot with four lines. Two are correlation coefficients, of Metaculus truncated correlations and PredictionBook truncated correlations. The Metaculus correlations are close to zero in the first ~15 months, then dip into negative correlations (around -0.2) until month ~35, then rise to positive correlations (around 0.15) until month 40, and then start oscillating wildly (shortly afterwards the data for Metaculus correlations ends). The PredictionBook correlations also start around 0, then rise slowly to ~0.05 at 60 months, at which point they start oscillating around 0 with larger and larger amplitudes until month 120. The p-values for Metaculus start out around 10⁻⁶, then jump around between 10⁻⁵ to 10⁻² in the first 15 months, and then dip down in the range of 10⁻²⁵ to 10⁻³⁵, and then recover back to 10⁻⁵ to 10⁻² until the end of the Metaculus dataset. The PredictionBook p-values start out at around 10⁻⁵, where they stay until 25 months, then rise to 10⁻¹ to 10⁻² until month 40, then drop down back to 10⁻⁵ until month 65, and then finally rise back up to 10⁻² to 10⁻³ month where they stay until the dataset ends." title="Plot with four lines. Two are correlation coefficients, of Metaculus truncated correlations and PredictionBook truncated correlations. The Metaculus correlations are close to zero in the first ~15 months, then dip into negative correlations (around -0.2) until month ~35, then rise to positive correlations (around 0.15) until month 40, and then start oscillating wildly (shortly afterwards the data for Metaculus correlations ends). The PredictionBook correlations also start around 0, then rise slowly to ~0.05 at 60 months, at which point they start oscillating around 0 with larger and larger amplitudes until month 120. The p-values for Metaculus start out around 10⁻⁶, then jump around between 10⁻⁵ to 10⁻² in the first 15 months, and then dip down in the range of 10⁻²⁵ to 10⁻³⁵, and then recover back to 10⁻⁵ to 10⁻² until the end of the Metaculus dataset. The PredictionBook p-values start out at around 10⁻⁵, where they stay until 25 months, then rise to 10⁻¹ to 10⁻² until month 40, then drop down back to 10⁻⁵ until month 65, and then finally rise back up to 10⁻² to 10⁻³ month where they stay until the dataset ends." /></p>
+
+<p>And the same chart, just without the Metaculus data to make it easier
+to read (<em>allegedly</em>):</p>
+
+<p><img src="./img/range_and_forecasting_accuracy/pvals_pb_plot.png" alt="The same plot, but without the outlier Metaculus p-values" title="The same plot, but without the outlier Metaculus p-values" /></p>
+
+<p>These graphs are quite interesting in several regards. First, we can see
+that the correlation coefficients don't have a clear development as one
+removes forecasts with low ranges from the dataset: for Metaculus the
+correlation first goes down, then up again. (This might be an artifact
+of having very little data for long ranges in the Metaculus dataset,
+though). PredictionBook data is a bit more consistent: the correlation
+between range and accuracy rises the more early datapoints we remove
+(again with the coefficient flailing around in the end because it just
+doesn't have enough data).</p>
+
+<p>But truly odd is the p-value here: The dip in the correlation coefficient
+for Metaculus data is judged to be <em>extremely unlikely</em> to have occurred
+randomly, down to <code>$10^{-35}$</code>, so that it makes the chart nearly unreadable
+even on a log-scale.</p>
+
+<p>I am…not quite sure what to make of this. Intuitively, I would expect
+the correlation between range and accuracy to start out strong with the
+whole dataset, and then become weaker, noisier and more likely to be
+random the more values I remove from the start of the dataset. Perhaps
+the short-range Metaculus forecasts just introduce a bunch of noise,
+because people scramble to get a last prediction in? But that doesn't
+explain why the correlation is then negative with an extremely low
+p-value with predictions with a range of less than 18 months removed.</p>
+
+<p>For PredictionBook, there is a more straight-forward story to tell,
+namely that short-range predictions seem to just introduce noise,
+and the longer the range, the stronger the correlation (although the
+relation to p-values doesn't look strong in any way, I wonder whether
+there is a way to test that).</p>
+
+<hr />
 
 <p>I hope that the dataset becomes richer the older these platforms become.</p>
 
@@ -1021,6 +1063,8 @@ question have been resolved?")).</p>
 <p>First, the dataset grouped by forecasts had to be grouped by the question
 ID, in both cases a positive integer. The resulting datastructure should
 have the structure</p>
+
+<!--HERE-->
 
 <pre><code>[[id open-resolve-timediff [outcomes] [forecasts] [forecast-resolve-timediffs]]*]`
 </code></pre>
