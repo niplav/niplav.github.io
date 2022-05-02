@@ -1178,3 +1178,4 @@
 2022-04-30T18:55:52.000000Z	from now on whenever the word “spirituality” or “consciousness” comes up in a discussion i will look slightly quizzical and ask “yeah, sure, but *can you feel your toes right now*?”
 2022-05-01T22:41:29.000000Z	new favorite color: space cadet (#1E2952) (not really)
 2022-05-02T09:48:59.000000Z	looks like blue tribe will end up anti agi risk. sucks, but should have been forseeable—the connection to gray tribe & techbros is too strong.
+2022-05-02T09:56:19.000000Z	which doesn't have to be this way! blue tribe & anti-agi risk people have mostly orthogonal concerns (i really don't see the overlap of algorithmic fairness & agent foundations, tbqhwy), and probably ample opportunities for trade (which blue-triber *actually cares* about compute governance etc.?) but i think zero-sum anti-trade genre affiliation thinking from blue-tribes side will prevent most of that mutually beneficial governance from happening.
