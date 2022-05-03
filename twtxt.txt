@@ -1193,3 +1193,4 @@
 2022-05-03T16:21:36.000000Z	we can't do it with cookies holding the private keys, since many people block cookie usage & cookies are readable by anyone. we'd need to have local storage that the server authenticates for, otherwise any server would be able to read out the private key from storage via js & send it to the attacking server…
 2022-05-03T16:23:10.000000Z	but maybe there's some obscure way to route around those concerns?
 2022-05-03T16:23:27.000000Z	but in that case, I'd worry about bugs in the obscure implementation of that feature.
+2022-05-03T16:24:32.000000Z	how do whatsapp/signal/telegram desktop clients work? you'd basically either need to transfer the private key (in which case the encryption isn't e2e anymore?), or generate new keys for every device.
