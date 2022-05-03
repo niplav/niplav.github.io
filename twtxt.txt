@@ -1194,3 +1194,4 @@
 2022-05-03T16:23:10.000000Z	but maybe there's some obscure way to route around those concerns?
 2022-05-03T16:23:27.000000Z	but in that case, I'd worry about bugs in the obscure implementation of that feature.
 2022-05-03T16:24:32.000000Z	how do whatsapp/signal/telegram desktop clients work? you'd basically either need to transfer the private key (in which case the encryption isn't e2e anymore?), or generate new keys for every device.
+2022-05-03T16:27:58.000000Z	concept: schelling.pt meetup at 0°0'0''N 0°0'0''E
