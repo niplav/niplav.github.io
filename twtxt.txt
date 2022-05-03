@@ -1194,6 +1194,7 @@
 2022-05-03T16:23:10.000000Z	but maybe there's some obscure way to route around those concerns?
 2022-05-03T16:23:27.000000Z	but in that case, I'd worry about bugs in the obscure implementation of that feature.
 2022-05-03T16:24:32.000000Z	how do whatsapp/signal/telegram desktop clients work? you'd basically either need to transfer the private key (in which case the encryption isn't e2e anymore?), or generate new keys for every device.
-2022-05-03T16:27:58.000000Z	concept: schelling.pt meetup at 0°0'0''N 0°0'0''E
+2022-05-03T16:27:58.000000Z	concept: schelling.pt meetup at 0°N 0°E (Null Island)
 2022-05-03T16:28:10.000000Z	with boats
 2022-05-03T16:29:34.000000Z	i imagine that arriving at vibecamp, the first thing you hear from afar is a chant: “Hot Moloch! Hot Moloch!”
+2022-05-03T20:50:59.000000Z	the infinitely abundant patience of the early lw commentariat
