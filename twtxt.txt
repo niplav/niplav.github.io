@@ -1212,3 +1212,4 @@
 2022-05-05T07:37:19.000000Z	(kind of tongue in cheek) maybe the worst action i could take right now would be to improve a bunch of reinforcement learning wikipedia pages.
 2022-05-05T13:16:03.000000Z	plan 9 is very much like lisp in that it is completely unlike lisp. genius.
 2022-05-05T13:27:04.000000Z	Basic Fortran in Warfare
+2022-05-05T13:29:36.000000Z	reply to this with your favourite line of code you have ever written
