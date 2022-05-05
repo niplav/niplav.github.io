@@ -1217,3 +1217,4 @@
 2022-05-05T13:32:57.000000Z	become unlinearizable
 2022-05-05T13:35:04.000000Z	maybe my website wants to become a collection of jupyter notebooks?
 2022-05-05T14:52:37.000000Z	im gonna turn into schmidhuber if im not careful
+2022-05-05T21:39:26.000000Z	listening to Gary Marcus right now on what would really impress him with AI advances, and, well,,,,,,,,,,
