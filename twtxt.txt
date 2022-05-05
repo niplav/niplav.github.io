@@ -1209,3 +1209,4 @@
 2022-05-05T06:34:51.000000Z	The Moser spindle
 2022-05-05T07:30:01.000000Z	Breaking News: On-site nuke at Deepmind headquarters in London detonated.
 2022-05-05T07:35:06.000000Z	Maybe it's true that intelligence depends on the environment, but consider: the environments where policy iteration performs better than RL with temporal difference learning are kind of dumb.
+2022-05-05T07:37:19.000000Z	(kind of tongue in cheek) maybe the worst action i could take right now would be to improve a bunch of reinforcement learning wikipedia pages.
