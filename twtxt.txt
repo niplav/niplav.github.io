@@ -1218,3 +1218,4 @@
 2022-05-05T13:35:04.000000Z	maybe my website wants to become a collection of jupyter notebooks?
 2022-05-05T14:52:37.000000Z	im gonna turn into schmidhuber if im not careful
 2022-05-05T21:39:26.000000Z	listening to Gary Marcus right now on what would really impress him with AI advances, and, well,,,,,,,,,,
+2022-05-05T22:41:46.000000Z	imagine the teeth-grinding if they give schmidhuber a turing award
