@@ -1226,3 +1226,4 @@
 2022-05-06T20:53:21.000000Z	who has taken the train to crazytown the furthest? (and hasn't suffered from nervous breakdown in the process)
 2022-05-06T20:55:38.000000Z	humans have invented mathematics surprisingly early (while the status of the number zero was still being debated in ancient greece), and programming surprisingly late (although algorithms were around for a long time, they didn't catch on until later, even though they seem like an at least equally intuitive concept?)
 2022-05-06T20:56:41.000000Z	if there's one field ripe for huge progress by a large swath of theoretical physicists invading it, it's probably educational research.
+2022-05-06T20:58:05.000000Z	looking from afar, the quality of science there looks quite abysmal, while the field is very important (finding out how to make humans learn things better! come on!)
