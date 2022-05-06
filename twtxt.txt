@@ -1221,3 +1221,4 @@
 2022-05-05T22:41:46.000000Z	imagine the teeth-grinding if they give schmidhuber a turing award
 2022-05-06T07:12:58.000000Z	if we solve distributional shift, do we also solve ontological crises?
 2022-05-06T11:55:34.000000Z	https://arachnid.town/objects/797821f8-f885-41aa-afe1-a9d764a93b7d
+2022-05-06T20:50:59.000000Z	pseudoquasisemimetric
