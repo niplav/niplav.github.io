@@ -1224,3 +1224,4 @@
 2022-05-06T20:50:59.000000Z	pseudoquasisemimetric
 2022-05-06T20:53:00.000000Z	to diversify its lingo, the rationality community should adopt the evidentials smṛti (“I read this in a blogpost”) and śruti (“someone told this to me in a one-on-one”).
 2022-05-06T20:53:21.000000Z	who has taken the train to crazytown the furthest? (and hasn't suffered from nervous breakdown in the process)
+2022-05-06T20:55:38.000000Z	humans have invented mathematics surprisingly early (while the status of the number zero was still being debated in ancient greece), and programming surprisingly late (although algorithms were around for a long time, they didn't catch on until later, even though they seem like an at least equally intuitive concept?)
