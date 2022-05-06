@@ -1,8 +1,13 @@
 import csv
 import numpy as np
 import scipy.stats as sps
+import scipy.optimize as spo
+from sklearn.linear_model import LogisticRegression
 
 daysec=24*60*60
+
+def brier(x, y):
+	return np.mean((x-y)**2)
 
 def getpreds(s):
 	pfile=open(s)
@@ -13,7 +18,7 @@ def getpreds(s):
 			continue
 		else:
 			preds.append([int(entry[0]), float(entry[1])/daysec, float(entry[2]), float(entry[3]), float(entry[4])/daysec])
-	preds=list(filter(lambda x: x[4]>=0, preds))
+	preds=list(filter(lambda x: x[4]>0, preds))
 	return np.array(preds)
 
 pb=getpreds("../../data/pb.csv").T
@@ -54,3 +59,42 @@ def val_shrinking_dataset(briers, ranges):
 
 metpvals=val_shrinking_dataset(metbriers, metrngs)
 pbpvals=val_shrinking_dataset(pbbriers, pbrngs)
+
+def shift_exp(x, a, b):
+	return a*(b**x)+0.25
+
+pbexpfit=spo.curve_fit(shift_exp, pbrngs, pbbriers, bounds=([-np.inf, 0], [0, 1]))
+metexpfit=spo.curve_fit(shift_exp, metrngs, metbriers, bounds=([-np.inf, 0], [0, 1]))
+
+# Why not do a linear regression on the transformed data? Because that ends up below 0
+# Transformation is np.log((1/metbriers)-1)
+
+def shrunk_logistic(x, a, b):
+	return 0.25*1/(1+np.exp(a*x+b))
+
+# Intercept not limited to positive range (point for 0.125 can be negative)
+pblogifit=spo.curve_fit(shrunk_logistic, pbrngs, pbbriers, bounds=([-np.inf, -np.inf], [0, np.inf]))
+metlogifit=spo.curve_fit(shrunk_logistic, metrngs, metbriers, bounds=([-np.inf, -np.inf], [0, np.inf]))
+
+# Intercept limited to positive range
+
+pblogifit=spo.curve_fit(shrunk_logistic, pbrngs, pbbriers, bounds=([-np.inf, 0], [0, np.inf]))
+metlogifit=spo.curve_fit(shrunk_logistic, metrngs, metbriers, bounds=([-np.inf, 0], [0, np.inf]))
+
+### Between Questions
+
+def group(d):
+	a=[]
+	for e in np.unique(d[0]):
+		indices=np.where(d[0]==e)
+		a.append([e, d[1][indices[0][0]], d[2][indices], d[3][indices], d[4][indices]])
+	return a
+
+metquestions=group(met)
+pbquestions=group(pb)
+
+metqbrier=np.array([[i[1], brier(i[3], i[2])] for i in metquestions])
+pbqbrier=np.array([[i[1], brier(i[3], i[2])] for i in pbquestions])
+
+mqslope, mqintercept, _, _, _=sps.linregress(metqbrier.T[0], metqbrier.T[1])
+pbqslope, pbqintercept, _, _, _=sps.linregress(pbqbrier.T[0], pbqbrier.T[1])
