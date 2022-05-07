@@ -1234,3 +1234,4 @@
 2022-05-07T17:14:20.000000Z	Welcome to the Niplaverse! Take a seat over there, your ultrasound-stimulation helmet is being prepared in right order.
 2022-05-07T17:22:44.000000Z	people liked the old SSC more than ACX because substack is chickenshit minimalism, and it's _slow_. you have to wait for the fucking text & comments to appear, while the old site loaded pretty much instantaneously. people have learned to associate chickenshit minimalism aesthetic with slow loading times, and subconsciously detest it bc of that.
 2022-05-07T17:47:49.000000Z	hang web developers by ropes whose length is inversely proportional to the loading time of their pages
+2022-05-07T20:27:27.000000Z	if we clone neanderthals/denisovans, we should probably ask them about consciousness.
