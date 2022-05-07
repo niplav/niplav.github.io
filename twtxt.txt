@@ -1236,3 +1236,4 @@
 2022-05-07T17:47:49.000000Z	hang web developers by ropes whose length is inversely proportional to the loading time of their pages
 2022-05-07T20:27:27.000000Z	if we clone neanderthals/denisovans, we should probably ask them about consciousness.
 2022-05-07T21:26:27.000000Z	some blogs have a “start here” page that is not the default landing page: why? most people visiting your site will be there for the first time, but they have to perform an additional click to go to the “start here” page, unnecessarily.
+2022-05-07T21:30:49.000000Z	my watch has been running for ~5 years now, and I've never had to change the battery. wow.
