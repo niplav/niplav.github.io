@@ -1238,3 +1238,4 @@
 2022-05-07T21:26:27.000000Z	some blogs have a “start here” page that is not the default landing page: why? most people visiting your site will be there for the first time, but they have to perform an additional click to go to the “start here” page, unnecessarily.
 2022-05-07T21:30:49.000000Z	my watch has been running for ~5 years now, and I've never had to change the battery. wow.
 2022-05-07T21:39:33.000000Z	the elegance of zeppelines is sublimp
+2022-05-07T23:42:42.000000Z	what the hell my phone gives me tracers in the dark if i move it
