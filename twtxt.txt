@@ -1250,4 +1250,5 @@
 2022-05-10T22:48:45.000000Z	saying “somebody should do X” repeatedly while apparently also not doing that thing (while also not being blocked by anything, such as doing something else that's also important) ought to be discouraged.
 2022-05-10T23:14:56.000000Z	“i'll stop reading at 1:30” this is your internal agents coordinating
 2022-05-10T23:17:16.000000Z	i think eliezer wanted micatwoa to take place in a world that was even more insane than here for us to more clearly see what's wrong with our world, and the only way he could come up to accomplish that was to make the story take place in actual hell.
-2022-05-10T23:37:05.000000Z	induction, abduction, deduction, transduction, traduction, seduction, adduction, eduction, reduction
+2022-05-10T23:37:05.000000Z	induction, abduction, deduction, transduction, traduction, seduction, adduction, eduction, reduction, contraduction
+2022-05-10T23:38:55.000000Z	we can also make value of perfect information a shorter word, vopi. or voi for just value of information.
