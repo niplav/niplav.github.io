@@ -1253,3 +1253,4 @@
 2022-05-10T23:37:05.000000Z	induction, abduction, deduction, transduction, traduction, seduction, adduction, eduction, reduction, contraduction
 2022-05-10T23:38:55.000000Z	we can also make value of perfect information a shorter word, vopi. or voi for just value of information.
 2022-05-10T23:55:15.000000Z	in retrospect, i do remember expecting some message about “yes, you passed the test, you were actually living in a lie”, but i think that died when nobody gave me a bad grade for taking too long to become vegetarian. maybe veganism…
+2022-05-11T12:06:15.000000Z	why am i just now finding out about examine.com this is pretty cool
