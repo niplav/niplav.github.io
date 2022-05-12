@@ -1256,4 +1256,6 @@
 2022-05-11T12:06:15.000000Z	why am i just now finding out about examine.com this is pretty cool
 2022-05-11T20:55:08.000000Z	God exists, and she is a woman 😏
 2022-05-11T20:55:28.000000Z	Don Knuth really really wants to write a long site and not books. I mean…just take a look at them!
-2022-05-12T09:29:14.000000Z	humans-in-the-loop explorative reinforcement
+2022-05-12T09:29:14.000000Z	humans-in-the-loop reinforcement
+2022-05-12T09:29:14.000000Z	humans-in-the-loop exploring reinforcement
+2022-05-12T12:18:38.000000Z	brb replacing all occurrences of “eigen” with “sein” in a linear algebra textbook.
