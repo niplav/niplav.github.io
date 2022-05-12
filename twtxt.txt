@@ -1261,3 +1261,4 @@
 2022-05-12T12:18:38.000000Z	brb replacing all occurrences of “eigen” with “sein” in a linear algebra textbook.
 2022-05-12T13:11:34.000000Z	polls: Were you surprised by the capabilities of DALL·E 2? Were you surprised by the capabilities of PaLM (or however that's capitalized)? Were you (back then) surprised by the capabilities of GPT-3?
 2022-05-12T13:13:27.000000Z	Were you surprised by the capabilities of AlphaGo?
+2022-05-12T13:26:07.000000Z	it's astonishing how often people violate the same basic fucking heuristics, such as DON'T SLEEP WITH YOUR DHARMA STUDENTS, or DON'T SLEEP WITH YOUR DHARMA TEACHERS. really makes you think there's an underlying pattern there. or smth idk
