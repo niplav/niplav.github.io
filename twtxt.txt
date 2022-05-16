@@ -1264,3 +1264,4 @@
 2022-05-12T13:26:07.000000Z	it's astonishing how often people violate the same basic fucking heuristics, such as DON'T SLEEP WITH YOUR DHARMA STUDENTS, or DON'T SLEEP WITH YOUR DHARMA TEACHERS. really makes you think there's an underlying pattern there. or smth idk
 2022-05-12T14:28:08.000000Z	wait, DALL·E is capable of solving Raven's Matrices tests‽
 2022-05-12T14:28:23.000000Z	https://thenextweb.com/neural/2021/01/10/heres-how-openais-magical-dall-e-generates-images-from-text-syndication/
+2022-05-16T14:14:50.000000Z	vibe computing
