@@ -1265,3 +1265,4 @@
 2022-05-12T14:28:08.000000Z	wait, DALL·E is capable of solving Raven's Matrices tests‽
 2022-05-12T14:28:23.000000Z	https://thenextweb.com/neural/2021/01/10/heres-how-openais-magical-dall-e-generates-images-from-text-syndication/
 2022-05-16T14:14:50.000000Z	vibe computing
+2022-05-17T00:11:49.000000Z	the buddha vector is calculated by finding the path in the space of possible attractors that maximizes the number of attractors it could fall into with an ε perturbation, but falls into none.
