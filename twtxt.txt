@@ -1272,3 +1272,4 @@
 2022-05-20T21:29:16.000000Z	knuckle tatoos: “nplv site”, “ttra spce”, “less wrng”
 2022-05-20T21:58:17.000000Z	update: invoking cultural evolution as an explanation is most of the time tenuous, see https://www.gwern.net/Backstop#artificial-persons: “cultures or groups are rarely driven extinct, with most large-scale ones persisting for millennia; such ‘natural selection’ on the group-level is only tenuously linked to the many thousands of distinct practices & beliefs that make up these cultures; and these cultures mutate rapidly as fads and visions and stories and neighboring cultures and new technologies all change over time”
 2022-05-21T19:13:31.000000Z	longevity research is trying to move an outer loss signal into the inner optimizer, we'll have to see whether that one is strong enough to take up the burden
+2022-05-23T21:43:06.000000Z	niplav yushtun, ta faret ne digal.
