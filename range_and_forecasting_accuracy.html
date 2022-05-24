@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2020-03-24, modified: 2022-05-06, language: english, status: maintenance, importance: 6, confidence: possible</em></p>
+<p><em>author: niplav, created: 2020-03-24, modified: 2022-05-20, language: english, status: maintenance, importance: 6, confidence: possible</em></p>
 
 <blockquote>
   <p><strong>This text looks at the accuracy of forecasts in
@@ -77,7 +77,6 @@ for PredictionBook data. Possible reasons are discussed.</strong></p>
 </blockquote>
 
 <!--TODO: fix instances of \* \*-->
-<!--TODO: fix predictionbook & metaculus capitalization-->
 
 <h1>Range and Forecasting Accuracy</h1>
 
@@ -302,18 +301,18 @@ PredictionBook it's available <a href="./data/pb.csv">here</a>.</p>
 <p>The Metaculus data is relatively easy to obtain:
 The forecasts are available on a JSON API at
 <code>https://www.metaculus.com/api2/questions/?page=</code>. Fortunately,
-<a href="https://github.com/gimpf/">gimpf</a> has already published <a href="https://github.com/gimpf/metaculus-question-stats">a collection of
+<a href="https://github.com/gimpf/">gimpf</a> has already published <a href="https://github.com/gimpf/Metaculus-question-stats">a collection of
 scripts</a> for fetching &amp;
 analysing Metaculus data. I reused their script <code>fetch</code> to download the
 raw JSON. I then converted the distinct page objects in the generated
 file to a list of questions:</p>
 
 <pre><code>$ cd /usr/local/src
-$ git clone https://github.com/gimpf/metaculus-question-stats
-$ cd metaculus-question-stats
+$ git clone https://github.com/gimpf/Metaculus-question-stats
+$ cd Metaculus-question-stats
 $ ./fetch
 $ z site
-$ jq -s '[.]|flatten' &lt;/usr/local/src/metaculus/data-questions-raw.json &gt;data/metaculus.json
+$ jq -s '[.]|flatten' &lt;/usr/local/src/Metaculus/data-questions-raw.json &gt;data/metaculus.json
 </code></pre>
 
 <p>I then wrote a python script to convert the JSON data to CSV in the form
@@ -506,8 +505,8 @@ forecast, its resolution and its timespan are independently analyzed.</p>
 <ol>
 <li>One with a range of 14 hours, a probability of 0.1 (Heloïse's prediction on 1), and a resolution of 0</li>
 <li>One with a range of 24 hours, a probability of 0.3, (Bessie's prediction on 1) and a resolution of 0</li>
-<li>One with a range of <code>$24h/d*7d-10h=158h$</code>, a probability of 0.6 (Heloïse's prediction on 2), and a resolution 0</li>
-<li>One with a range of <code>$24h/d*7d=168h$</code>, a probability of 0.95 (Bessie's prediction on 2), and a resolution 0</li>
+<li>One with a range of <code>$24h/d \cdot 7d-10h=158h$</code>, a probability of 0.6 (Heloïse's prediction on 2), and a resolution 0</li>
+<li>One with a range of <code>$24h/d \cdot 7d=168h$</code>, a probability of 0.95 (Bessie's prediction on 2), and a resolution 0</li>
 </ol>
 
 <p>The Brier scores for ranges are then 0.01 for 14h, 0.09 for 24h, 0.36
@@ -813,6 +812,8 @@ produce out-of-bounds errors (they at least return valid Brier scores).</p>
 at least desideratum 1 (if shrunk) and 3, and with some fiddling may
 even satisfy 2.</p>
 
+<!--TODO: link Armstrong on the problem of fitting sigmoids here!-->
+
 <p>Because this is very different from a <a href="https://en.wikipedia.org/wiki/Logistic_regression">logistic
 regression</a> (scaled
 values above the maximum (with a maximum of 0.25, some of the observed
@@ -898,6 +899,8 @@ case) 0.125):</p>
 
 <h5>Fitting an Exponential Function</h5>
 
+<!--TODO: a is actually unnecessary, cut it out-->
+
 <p>Another function we could fit to the data might be of the form
 <code>$\frac{a \cdot b^x -a}{-4a}$</code>, with some <code>$a&lt;0$</code> and <code>$b \in (0, 1)$</code> (the
 function is decaying exponentially, but flipped so that it approaches 0,
@@ -959,12 +962,50 @@ but <code>curve_fit</code> doesn't know how to count that low<!--TODO: link-->?<
 
 <p>I believe that these findings are pretty cool: They give some
 sense of how long the range of forecasts needs to be for them to be
-approximately random (when taking the logistic fit, PredictionBook
-users have a much longer time horizon than Metaculus forecasters,
-with a "forecasting horizon" of ~20 years
-(<code>shrunk_logistic(20*365, pblogifit[0][0], pblogifit[0][1])==0.24263313678358955</code>)
-versus the Metaculus "forecasting horizon" of less than 5 years
-(<code>shrunk_logistic(5*365, metlogifit[0][0], metlogifit[0][1])==0.2467508824532725</code>).</p>
+approximately random.</p>
+
+<p>We can do this by finding out at what point our function first
+predicts Brier scores sufficiently close to 0.25, let's take 0.24 as an
+arbitrary cutoff (which would be, on average, assigning a probability of
+<code>$1-\sqrt{0.24} \approx 0.51$</code> to events that take place).</p>
+
+<p>Then, for the squashed logistic function, we have to find the <code>$x$</code> so that</p>
+
+<div>
+    $$0.24=0.25 \cdot \frac{1}{1+\exp(s \cdot x + i)} \Leftrightarrow \\
+    \frac{1}{0.96}-1=\exp(s \cdot x +i) \Leftrightarrow \\
+    \frac{\ln(\frac{1}{0.96}-1)-i}{s}=x$$
+</div>
+
+<p>Then, the logistic-ish forecasting horizon gives</p>
+
+<pre><code>&gt;&gt;&gt; (np.log(1/(0.96)-1)-metlogifit[0][1])/metlogifit[0][0]
+1339.4812558296296
+&gt;&gt;&gt; (np.log(1/(0.96)-1)-pblogifit[0][1])/pblogifit[0][0]
+6638.833618277785
+</code></pre>
+
+<p>which is ~3.6 years for Metaculus, and ~18 years for PredictionBook.</p>
+
+<p>With the exponential fit, we know that</p>
+
+<div>
+    $$0.24=\frac{a \cdot b^x -a}{-4a} \Leftrightarrow \\
+    -0.96a=a \cdot b^x -a \Leftrightarrow \\
+    -0.96+1=b^x \Leftrightarrow \\
+    \log_b(0.04)=x$$
+</div>
+
+<p>That gives</p>
+
+<pre><code>&gt;&gt;&gt; np.log(0.04)/np.log(metexpfit[0][1])
+74.80978286870999
+&gt;&gt;&gt; np.log(0.04)/np.log(pbexpfit[0][1])
+0.06282811825117969
+</code></pre>
+
+<p>less than a day for the PredictionBook predictive horizon, and ~75 days
+for the Metaculus predictive horizon.</p>
 
 <p>Of course, don't believe these numbers too much: The difference in dataset
 range is probably causing a lot of the difference in fit, the exponential
@@ -1115,7 +1156,7 @@ years for PredictionBook is sizable by internet standards, it's not that
 much compared to the expected range of some predictions on the platform,
 which might go into the thousands of years).</p>
 
-<p>This can be seen in the data as well: The median range of metaculus and
+<p>This can be seen in the data as well: The median range of Metaculus and
 PredictionBook predictions is only a couple of months, and less than 25%
 of questions have a range of more than one year:</p>
 
@@ -1418,6 +1459,106 @@ range between forecasts, but I don't know enough statistics to tease these
 out exactly. My intuition tells me that the effect on accuracy between
 questions is too small to explain the whole anomaly between forecasts.</p>
 
+<h4>Non-Linear Curve-Fitting</h4>
+
+<p>Again, one can fit the nonlinear exponential/logistic function defined
+<a href="#NonLinear-CurveFitting">above</a> to the data between questions.</p>
+
+<pre><code>&gt;&gt;&gt; pbexpfit_betweenq=spo.curve_fit(shift_exp, pbqbrier.T[0], pbqbrier.T[1], bounds=([-np.inf, 0], [0, 1]))
+(array([-7.83836830e+01,  8.80395221e-43]), array([[ 2.99366051e-56, -2.50531486e-37],
+    [-2.50531486e-37,  2.09663137e-18]]))
+&gt;&gt;&gt; metexpfit_betweenq=spo.curve_fit(shift_exp, metqbrier.T[0], metqbrier.T[1], bounds=([-np.inf, 0], [0, 1]))
+(array([-4.90977425,  0.70814538]), array([[1.90504403e+15, 2.14231440e+05],
+    [2.14231440e+05, 1.39168387e-02]]))
+&gt;&gt;&gt; pblogifit_betweenq=spo.curve_fit(shrunk_logistic, pbqbrier.T[0], pbqbrier.T[1], bounds=([-np.inf, 0], [0, np.inf]))
+(array([-2.70329933e+00,  5.32716622e-52]), array([[ 0.16764075, -0.01981014],
+    [-0.01981014,  0.00898443]]))
+&gt;&gt;&gt; metlogifit_betweenq=spo.curve_fit(shrunk_logistic, metqbrier.T[0], metqbrier.T[1], bounds=([-np.inf, 0], [0, np.inf]))
+(array([-7.92206883, 33.48197   ]), array([[ 199420.41507448, -811407.37948018],
+    [-811407.37948018, 3301492.9741521 ]]))
+</code></pre>
+
+<p>But these numbers don't tell us much by themselves, do they become
+clearer when plotted?</p>
+
+<pre><code>fig=plt.figure(figsize=(8,8))
+
+plt.title("Scatterplot with logistic-ish regression for Metaculus &amp; PredictionBook forecasts by range")
+plt.xlabel("Range (days)")
+plt.ylabel("Accuracy (Brier score)")
+
+fullrng=np.array(range(0, round(max(pbrngs))+1))
+
+plt.plot(pbqbrier.T[0], pbqbrier.T[1], '.', color='blue', markersize=1)
+plt.plot(metqbrier.T[0], metqbrier.T[1], '.', color='red', markersize=1)
+plt.plot(fullrng, shrunk_logistic(fullrng, metlogifit_betweenq[0][0], metlogifit_betweenq[0][1]), 'red', label='Metaculus shrunk logistic-ish regression', linewidth=2)
+plt.plot(fullrng, shrunk_logistic(fullrng, pblogifit_betweenq[0][0], pblogifit_betweenq[0][1]), 'blue', label='PredictionBook shrunk logistic-ish regression', linewidth=2)
+
+plt.legend()
+
+plt.savefig("allq_logi.png")
+
+fig=plt.figure(figsize=(8,8))
+</code></pre>
+
+<p><img src="./img/range_and_forecasting_accuracy/allq_logi.png" alt="Scatterplot with logistic regression for Metaculus &amp; PredictionBook question accuracy by range" title="Scatterplot with logistic regression for Metaculus &amp; PredictionBook question accuracy by range" /></p>
+
+<pre><code>fig=plt.figure(figsize=(8,8))
+
+plt.title("Scatterplot with exponential-ish regression for Metaculus &amp; PredictionBook forecasts by range")
+plt.xlabel("Range (days)")
+plt.ylabel("Accuracy (Brier score)")
+
+fullrng=np.array(range(0, round(max(pbrngs))+1))
+
+plt.plot(pbqbrier.T[0], pbqbrier.T[1], '.', color='blue', markersize=1)
+plt.plot(metqbrier.T[0], metqbrier.T[1], '.', color='red', markersize=1)
+plt.plot(fullrng, shift_exp(fullrng, metexpfit_betweenq[0][0], metexpfit_betweenq[0][1]), 'red', label='Metaculus shrunk exponential-ish regression', linewidth=2)
+plt.plot(fullrng, shift_exp(fullrng, pbexpfit_betweenq[0][0], pbexpfit_betweenq[0][1]), 'blue', label='PredictionBook shrunk exponential-ish regression', linewidth=2)
+
+plt.legend()
+
+plt.savefig("allq_exp.png")
+</code></pre>
+
+<p><img src="./img/range_and_forecasting_accuracy/allq_exp.png" alt="Scatterplot with exponential-ish regression for Metaculus &amp; PredictionBook question accuracy by range" title="Scatterplot with exponential-ish regression for Metaculus &amp; PredictionBook question accuracy by range" /></p>
+
+<p>Not—quite?</p>
+
+<p>(The Metaculus regression is not visibile because it lies <em>just</em> under
+the PredictionBook regression, the short red line in the logistic plot
+is the Metaculus regression that starts at 0, while the PredictionBook
+regression starts at 0.125).</p>
+
+<p>Basically, the regressions here conclude that the best is that
+predictions on questions with any time horizons longer than a couple of
+days are indistinguishable from randomness, given the assumptions made
+<a href="#NonLinear-CurveFitting">here</a>.</p>
+
+<p>This <em>actually makes sense</em>: We observe that the correlation between
+range and accuracy is positive, so the best curve that fits the data
+under the assumption of falling accuracy with higher range will conclude
+that we're immediately in a domain with uniform randomness.</p>
+
+<p>The predictive horizons here are</p>
+
+<pre><code>&gt;&gt;&gt; (np.log(1/(0.96)-1)-metlogifit_betweenq[0][1])/metlogifit_betweenq[0][0]
+4.627582089426849
+&gt;&gt;&gt; (np.log(1/(0.96)-1)-pblogifit_betweenq[0][1])/pblogifit_betweenq[0][0]
+1.1756203958314926
+</code></pre>
+
+<p>~4.5 days for Metaculus, and around a day for PredictionBook with logistic
+functions, and</p>
+
+<pre><code>&gt;&gt;&gt; np.log(0.04)/np.log(metexpfit_betweenq[0][1])
+9.327212826230811
+&gt;&gt;&gt; np.log(0.04)/np.log(pbexpfit_betweenq[0][1])
+0.03324050159246278
+</code></pre>
+
+<p>similarly short timespans for the exponential fit.</p>
+
 <h4>Why Longer Range Questions More Accurate?</h4>
 
 <p>The big question now is: Why do forecasts on predictions on questions
@@ -1472,6 +1613,9 @@ within questions; are forecasts made on the same question later generally
 more accurate than forecasts made on a question earlier?</p>
 
 <h3>Analysis</h3>
+
+<!--TODO: how about excluding regressions that have a p-value below a
+certain cutoff-value?-->
 
 <p>In order to do this, one can compute the Brier score for each prediction,
 and then perform one linear regression/compute the correlation per
@@ -1540,11 +1684,12 @@ at the exact same second, which confuses the linear regression algorithm:</p>
 [[array([367.09616898, 367.09616898]), array([0.2025, 0.2025])], [array([367.09637731, 367.09637731]), array([0.2025, 0.2025])], [array([367.09899306, 367.09899306]), array([0.0225, 0.0225])], [array([367.09908565, 367.09908565]), array([0.25, 0.25])], [array([367.09936343, 367.09936343]), array([0.16, 0.16])], [array([367.10018519, 367.10018519]), array([0.0225, 0.0225])], [array([0.25236111, 0.25236111]), array([0.0025, 0.0025])], [array([0.36797454, 0.36797454]), array([0.25, 0.25])], [array([0.25259259, 0.25259259]), array([0.0625, 0.0625])], [array([0.36671296, 0.36671296]), array([0.04, 0.04])], [array([0.40542824, 0.40542824]), array([0.09, 0.09])]]
 </code></pre>
 
-<p>However, they can be filtered out pretty easily:</p>
+<p>However, they can be filtered out pretty easily, and we recompute <code>wpbqregs</code>:</p>
 
 <pre><code>&gt;&gt;&gt; wpbqbrier=list(filter(lambda x: not (x[0][0]==x[0][1] and len(x[0]==2) and x[1][0]==x[1][1] and len(x[1])==2), wpbqbrier))
 &gt;&gt;&gt; len(wpbqbrier)
 7596
+&gt;&gt;&gt; wpbqregs=list(map(lambda x: sps.linregress(x[0], x[1]), wpbqbrier))
 </code></pre>
 
 <h3>Result</h3>
@@ -1600,23 +1745,31 @@ lower accuracy).</p>
 <h4>Aggregating Linear Regressions</h4>
 
 <p>We can test whether this suspicion is acually correct by calculating
-the average offset and the average ascension—if the ascension is
-positive, our suspicion is confirmed. We have to weight questions by how
-many predictions they have received, otherwise the result is skewed by
-questions with very few predictions. This is done by computing the linear
-regression for range/accuracy for each question, multiplying it by the
-number of predictions on that question, adding up the linear regressions,
-and then dividing the result by the total number of predictions in
-the dataset:</p>
+the average offset and the average ascension—if the ascension
+is positive, our suspicion is confirmed. We have to weight
+questions by how many predictions they have received, otherwise
+the result is skewed by questions with very few predictions (if
+you're trying to find out whether, in basketball, making more <a href="https://en.wikipedia.org/wiki/Free_throw">free
+throws</a> makes you better at it,
+you'd also want to more strongly weight data from players with a larger
+number of shots).</p>
 
-<pre><code>&gt;&gt;&gt; awmetqslope=np.mean(list(map(lambda x: x[0], wmetqregs)))
-0.002971747318680323
-&gt;&gt;&gt; awmetqintercept=np.mean(list(map(lambda x: x[1], wmetqregs)))
-0.03758132228574967
-&gt;&gt;&gt; awpbqslope=np.mean(list(map(lambda x: x[0], wpbqregs)))
-3.1082381364053284
-&gt;&gt;&gt; awpbqintercept=np.mean(list(map(lambda x: x[1], wpbqregs)))
--238.96304759632133
+<p>This is done by computing the linear regression for range/accuracy for
+each question (we did that with <code>w{met,pb}qregs</code>), multiplying it by the
+number of predictions on that question, adding up the linear regressions,
+and then dividing the result by the total number of predictions in the
+dataset (<code>clean_{met,pb}forecasts</code>):</p>
+
+<pre><code>&gt;&gt;&gt; clean_metforecasts=np.sum([len(wmetqbrier[i][0]) for i in range(0, len(wmetqbrier))])
+&gt;&gt;&gt; awmetqslope=np.sum([len(wmetqbrier[i][0])*wmetqregs[i][0] for i in range(0, len(wmetqregs))])/clean_metforecasts
+0.003048078896358434
+&gt;&gt;&gt; awmetqintercept=np.sum([len(wmetqbrier[i][0])*wmetqregs[i][1] for i in range(0, len(wmetqregs))])/clean_metforecasts
+0.0388493550172143
+&gt;&gt;&gt; clean_pbforecasts=np.sum([len(wpbqbrier[i][0]) for i in range(0, len(wpbqbrier))])
+&gt;&gt;&gt; awpbqslope=np.sum([len(wpbqbrier[i][0])*wpbqregs[i][0] for i in range(0, len(wpbqregs))])/clean_pbforecasts
+1.3731897568280482
+&gt;&gt;&gt; awpbqintercept=np.sum([len(wpbqbrier[i][0])*wpbqregs[i][1] for i in range(0, len(wpbqregs))])/clean_pbforecasts
+-98.59072648628822
 </code></pre>
 
 <p>The PredictionBook data—how do I put this—simply makes no sense.
@@ -1627,19 +1780,19 @@ arbitrarily exclude questions with less than ten predictions (actually
 an arbitrary choice I did not iterate over to get a “desired” result):</p>
 
 <pre><code>&gt;&gt;&gt; fwpbqbrier=list(filter(lambda x: len(x[0])&gt;=10, wpbqbrier))
-&gt;&gt;&gt; len(wpbqbrier)
+&gt;&gt;&gt; len(fwpbqbrier)
 849
 &gt;&gt;&gt; # Recomputing linear regressions
+&gt;&gt;&gt; clean_fpbforecasts=np.sum([len(fwpbqbrier[i][0]) for i in range(0, len(fwpbqbrier))])
+12865
 &gt;&gt;&gt; fwpbqregs=list(map(lambda x: sps.linregress(x[0], x[1]), fwpbqbrier))
-&gt;&gt;&gt; fawpbqslope=np.mean(list(map(lambda x: x[0], fwpbqregs)))
-0.0028231736497672296
-&gt;&gt;&gt; fawpbqintercept=np.mean(list(map(lambda x: x[1], fwpbqregs)))
--0.04200041870396879
+&gt;&gt;&gt; fawpbqslope=np.sum([len(fwpbqbrier[i][0])*fwpbqregs[i][0] for i in range(0, len(fwpbqregs))])/clean_fpbforecasts
+0.0024623252612491924
+&gt;&gt;&gt; fawpbqintercept=np.sum([len(fwpbqbrier[i][0])*fwpbqregs[i][1] for i in range(0, len(fwpbqregs))])/clean_fpbforecasts
+0.00030707364984746446
 </code></pre>
 
-<p>This looks much better (except the fact that, at time of resolution,
-this linear regression predicts that the Brier score will be negative,
-which is impossible).</p>
+<p>This looks much better.</p>
 
 <p>So it is true that accuracy within question <em>generally</em> is higher
 with lower range for Metaculus data, and similar for PredictionBook
@@ -1652,7 +1805,7 @@ plt.xlabel("Range (days)")
 plt.ylabel("Accuracy (Brier score)")
 
 plt.plot(pbrngs, awmetqintercept+awmetqslope*pbrngs, 'red', label='Metaculus aggregate linear regression', linewidth=1)
-plt.plot(pbrngs, awpbqintercept+awpbqslope*pbrngs, 'blue', label='PredictionBook aggregate linear regression', linewidth=1)
+plt.plot(pbrngs, fawpbqintercept+fawpbqslope*pbrngs, 'blue', label='PredictionBook aggregate linear regression', linewidth=1)
 
 plt.legend()
 
@@ -1686,6 +1839,8 @@ more than 1 unique prediction in the PredictionBook dataset:</p>
 &gt;&gt;&gt; len(wpbqbrier)
 7596
 </code></pre>
+
+<!--TODO: histograms!-->
 
 <p>Let's first create sorted lists containing the numbers of forecasts on
 each question:</p>
@@ -1822,4 +1977,13 @@ ways the previous code was much nicer, especially when calculating
 <ul>
 <li><a href="https://www.lesswrong.com/posts/MquvZCGWyYinsN49c/range-and-forecasting-accuracy">LessWrong</a></li>
 </ul>
+
+<h2>Appendix A: Quotes About the Maximal Time-Horizon of Forecasts</h2>
+
+<blockquote>
+  <p>Demographers disagree about many things, but not that the further into
+the future we try to look, the more likely our forecasts are to be wrong.</p>
+</blockquote>
+
+<p><em>— <a href="https://en.wikipedia.org/wiki/Richard_J._Herrnstein">Richard J. Hernstein</a> &amp; <a href="https://en.wikipedia.org/wiki/Charles_Murray_(political_scientist)">Charles Murray</a>, <a href="https://en.wikipedia.org/wiki/The_Bell_Curve">“The Bell Curve”</a> ch. 15, 1994</em></p>
 </html>

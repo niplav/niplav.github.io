@@ -60,12 +60,6 @@ def val_shrinking_dataset(briers, ranges):
 metpvals=val_shrinking_dataset(metbriers, metrngs)
 pbpvals=val_shrinking_dataset(pbbriers, pbrngs)
 
-def shift_exp(x, a, b):
-	return (a*(b**x)-a)/(-4*a)
-
-pbexpfit=spo.curve_fit(shift_exp, pbrngs, pbbriers, bounds=([-np.inf, 0], [0, 1]))
-metexpfit=spo.curve_fit(shift_exp, metrngs, metbriers, bounds=([-np.inf, 0], [0, 1]))
-
 # Why not do a linear regression on the transformed data? Because that ends up below 0
 # Transformation is np.log((1/metbriers)-1)
 
@@ -80,6 +74,12 @@ metlogifit=spo.curve_fit(shrunk_logistic, metrngs, metbriers, bounds=([-np.inf, 
 
 pblogifit=spo.curve_fit(shrunk_logistic, pbrngs, pbbriers, bounds=([-np.inf, 0], [0, np.inf]))
 metlogifit=spo.curve_fit(shrunk_logistic, metrngs, metbriers, bounds=([-np.inf, 0], [0, np.inf]))
+
+def shift_exp(x, a, b):
+	return (a*(b**x)-a)/(-4*a)
+
+pbexpfit=spo.curve_fit(shift_exp, pbrngs, pbbriers, bounds=([-np.inf, 0], [0, 1]))
+metexpfit=spo.curve_fit(shift_exp, metrngs, metbriers, bounds=([-np.inf, 0], [0, 1]))
 
 ### Between Questions
 
@@ -110,12 +110,21 @@ wpbqbrier=list(filter(lambda x: not (x[0][0]==x[0][1] and len(x[0]==2) and x[1][
 wmetqregs=list(map(lambda x: sps.linregress(x[0], x[1]), wmetqbrier))
 wpbqregs=list(map(lambda x: sps.linregress(x[0], x[1]), wpbqbrier))
 
-awmetqslope=np.mean(list(map(lambda x: x[0], wmetqregs)))
-awmetqintercept=np.mean(list(map(lambda x: x[1], wmetqregs)))
-awpbqslope=np.mean(list(map(lambda x: x[0], wpbqregs)))
-awpbqintercept=np.mean(list(map(lambda x: x[1], wpbqregs)))
+pblogifit_betweenq=spo.curve_fit(shrunk_logistic, pbqbrier.T[0], pbqbrier.T[1], bounds=([-np.inf, 0], [0, np.inf]))
+metlogifit_betweenq=spo.curve_fit(shrunk_logistic, metqbrier.T[0], metqbrier.T[1], bounds=([-np.inf, 0], [0, np.inf]))
+
+pbexpfit_betweenq=spo.curve_fit(shift_exp, pbqbrier.T[0], pbqbrier.T[1], bounds=([-np.inf, 0], [0, 1]))
+metexpfit_betweenq=spo.curve_fit(shift_exp, metqbrier.T[0], metqbrier.T[1], bounds=([-np.inf, 0], [0, 1]))
+
+clean_metforecasts=np.sum([len(wmetqbrier[i][0]) for i in range(0, len(wmetqbrier))])
+awmetqslope=np.sum([len(wmetqbrier[i][0])*wmetqregs[i][0] for i in range(0, len(wmetqregs))])/clean_metforecasts
+awmetqintercept=np.sum([len(wmetqbrier[i][0])*wmetqregs[i][1] for i in range(0, len(wmetqregs))])/clean_metforecasts
+clean_pbforecasts=np.sum([len(wpbqbrier[i][0]) for i in range(0, len(wpbqbrier))])
+awpbqslope=np.sum([len(wpbqbrier[i][0])*wpbqregs[i][0] for i in range(0, len(wpbqregs))])/clean_pbforecasts
+awpbqintercept=np.sum([len(wpbqbrier[i][0])*wpbqregs[i][1] for i in range(0, len(wpbqregs))])/clean_pbforecasts
 
 fwpbqbrier=list(filter(lambda x: len(x[0])>=10, wpbqbrier))
 fwpbqregs=list(map(lambda x: sps.linregress(x[0], x[1]), fwpbqbrier))
-fawpbqslope=np.mean(list(map(lambda x: x[0], fwpbqregs)))
-fawpbqintercept=np.mean(list(map(lambda x: x[1], fwpbqregs)))
+clean_fpbforecasts=np.sum([len(fwpbqbrier[i][0]) for i in range(0, len(fwpbqbrier))])
+fawpbqslope=np.sum([len(fwpbqbrier[i][0])*fwpbqregs[i][0] for i in range(0, len(fwpbqregs))])/clean_fpbforecasts
+fawpbqintercept=np.sum([len(fwpbqbrier[i][0])*fwpbqregs[i][1] for i in range(0, len(fwpbqregs))])/clean_fpbforecasts

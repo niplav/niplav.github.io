@@ -1139,7 +1139,9 @@ I decided to replicate their design for the
 <a href="https://dynomight.net/better-DIY-air-purifier.html" title="The Cuboid: A DIY air purifier that's better than a box-fan">cuboid</a>
 (the <a href="https://dynomight.net/2020/12/15/some-real-data-on-a-DIY-box-fan-air-purifier/" title="Experiments on a $50 DIY air purifier you can make in 30s">cheaper box fan air
 purifier</a>
-was intolerably violating my æsthetic sensibilities).</p>
+was intolerably violating my æsthetic sensibilities). The
+design is, incidentally, very similar to the <a href="https://en.wikipedia.org/wiki/Corsi%E2%80%93Rosenthal_Box">Corsi-Rosenthal
+Box</a>.</p>
 
 <h3>Materials</h3>
 
@@ -1244,7 +1246,9 @@ or “Is the underlying process
 <a href="https://en.wikipedia.org/wiki/Ergodicity">ergodic</a>?”, just fit the
 goddamn curve!</p>
 
-<p>And <code>scipy.optimize.curve_fit</code> does exactly that!</p>
+<p>And <code>scipy.optimize.curve_fit</code> does exactly
+that! (Using the <a href="https://en.wikipedia.org/wiki/Levenberg%E2%80%93Marquardt_algorithm">Levenberg-Marquardt
+algorithm</a>).</p>
 
 <p>You give it a function <code>f</code> with some parameters <code>a, b, c, …</code> and a
 dataset consisting of input values <code>x</code> and output values <code>y</code>, and it
@@ -1275,5 +1279,5 @@ and I've only known about it for a week! A must for every wannabe
 data-scientist.</p>
 
 <p>For more information about this amazing function, consult its
-documentation<!--TODO: link-->.</p>
+<a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">documentation</a>.</p>
 </html>
