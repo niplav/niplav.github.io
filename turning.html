@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2022-03-04, modified: 2022-05-29, language: english, status: notes, importance: 8, confidence: unlikely</em></p>
+<p><em>author: niplav, created: 2022-03-04, modified: 2022-06-06, language: english, status: notes, importance: 8, confidence: unlikely</em></p>
 
 <blockquote>
   <p><strong>Representing inconsistent preferences with specific mathematical
@@ -471,13 +471,16 @@ with <code>$n$</code> nodes, and <code>$\mathcal{U}_n=\{G \in \mathcal{G}_n | 1=
 as the set of graphs with <code>$n$</code> nodes that
 have unique path graphs associated with them.</p>
 
+<h6>Maximal and Minimal Number of Resolutions</h6>
+
 <h6>Questions</h6>
 
 <p>One can now pose several (possibly distracting) questions:</p>
 
 <ul>
-<li>Is <code>$\frac{|\mathcal{U}_n|}{|\mathcal{G}_n|}&lt;\frac{|\mathcal{U}_{n+1}|}{|\mathcal{G}_{n+1}|}$</code>?
+<li>As we add more options to our inconsistent preferences, do they become more likely to resolve uniquely?
 <ul>
+<li>That is: Does it hold that <code>$\frac{|\mathcal{U}_n|}{|\mathcal{G}_n|}&lt;\frac{|\mathcal{U}_{n+1}|}{|\mathcal{G}_{n+1}|}$</code>?</li>
 <li>It should be possible to check this for small cases.</li>
 </ul></li>
 <li>In general, how does the size of <code>$\mathcal{U}_n$</code> develop? What about graphs with 2 possible consistent resolutions, or in general <code>$m$</code>?
@@ -485,7 +488,8 @@ have unique path graphs associated with them.</p>
 <li>One can define <code>$\mathcal{T}(n,m)=\{G \in \mathcal{G}_n | m=|\text{res_all}(G)|\}$</code>
 <ul>
 <li>How, then, does <code>$\mathcal{T}(n,m)$</code> behave?</li>
-<li>What is <code>$\lim_{n \rightarrow \infty} \frac{1}{\mathcal{G}_n} \sum_{i=1}^{n} \mathcal{T}(n,i)$</code>? Does it converge?</li>
+<li>Does the average number of resolutions for inconsitent preferences converge to a specific number?</li>
+<li>That is, what is <code>$\lim_{n \rightarrow \infty} \frac{1}{\mathcal{G}_n} \sum_{i=1}^{n} \mathcal{T}(n,i)$</code>? Does it converge?</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -565,6 +569,17 @@ have to perform.</p>
 
 <h2>Implications for AI Alignment</h2>
 
+<blockquote>
+  <p>I've seen six cities fall for this <br />
+mathematics with incompetence <br />
+red flags stand among the trees <br />
+repugnant symphonies <br />
+a billionaires tarantula just ate the ceiling <br />
+thinking it was yet another floor</p>
+</blockquote>
+
+<p><em>—<a href="">Patricia Taxxon</a>, <a href="">“Hellbulb”</a> from <a href="">“Gelb”</a>, YEAR<!--TODO--></em></p>
+
 <h3>Ambitious Value Learning</h3>
 
 <p>Learn human values, check if known inconsistencies are encoded (to ensure
@@ -575,6 +590,12 @@ learning at the correct level of abstraction), then make consistent.</p>
 <p>If you know a mapping between objects from human to AI ontology, you
 could find the mapping from the (consistent) human probability simplex
 to the AI simplex?</p>
+
+<h4>Discrete Case</h4>
+
+<p>A node splits in two or more, or two or more nodes get merged. If the
+then resulting graph isn't a path graph, it can be resolved with the
+method described above.</p>
 
 <h2>Further Questions</h2>
 
