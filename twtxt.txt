@@ -1286,3 +1286,4 @@
 2022-06-05T20:35:58.000000Z	it'd be deeply ironic if MLPs, sufficiently scaled, are enough for AGI
 2022-06-05T20:36:13.000000Z	“perception is all you need” — Rosenblatt, 1958
 2022-06-05T23:12:35.000000Z	closest pairs of points are not necessarily reflexive. there are some points in euclidean space that are just fundamentally abandoned
+2022-06-06T12:55:33.000000Z	hoooly crap the tino rangatiratanga is a good flag
