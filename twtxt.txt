@@ -1288,3 +1288,4 @@
 2022-06-05T23:12:35.000000Z	closest pairs of points are not necessarily reflexive. there are some points in euclidean space that are just fundamentally abandoned
 2022-06-06T12:55:33.000000Z	hoooly crap the tino rangatiratanga is a good flag
 2022-06-06T22:44:33.000000Z	if aliens exists and UAPs are caused by them, what implication does that have for AI safety?
+2022-06-06T23:01:13.000000Z	it's funny, conditional on AGI (and perhaps also WBE?) not doing us in, i'm pretty bullish on this century. bio seems much less of a problem, and everything else is basically a-okay, especially with people becoming richer and needing to fight less. most other collapse narratives sound pretty unlikely (though prepping is sitll a good idea! you should have three months of food & water at home)
