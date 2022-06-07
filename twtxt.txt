@@ -1290,3 +1290,4 @@
 2022-06-06T22:44:33.000000Z	if aliens exists and UAPs are caused by them, what implication does that have for AI safety?
 2022-06-06T23:01:13.000000Z	it's funny, conditional on AGI (and perhaps also WBE?) not doing us in, i'm pretty bullish on this century. bio seems much less of a problem, and everything else is basically a-okay, especially with people becoming richer and needing to fight less. most other collapse narratives sound pretty unlikely (though prepping is sitll a good idea! you should have three months of food & water at home)
 2022-06-07T18:42:16.000000Z	even if cause X came along now, people wouldn't be able to update towards it within a year.
+2022-06-07T18:52:21.000000Z	goal: develop strong opinions about vector fields and where to stick wires into people's heads.
