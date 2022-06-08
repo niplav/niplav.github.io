@@ -1293,3 +1293,4 @@
 2022-06-07T18:52:21.000000Z	goal: develop strong opinions about vector fields and where to stick wires into people's heads.
 2022-06-07T22:31:36.000000Z	is the “takeoff” of fundamental physics in the first half of the 20th century mostly due to the industrial revolution?
 2022-06-08T19:41:07.000000Z	“The geological study of Antarctica has been greatly hindered by nearly all of the continent being permanently covered with a thick layer of ice.”
+2022-06-08T21:45:15.000000Z	retconning my inner child
