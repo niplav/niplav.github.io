@@ -1295,3 +1295,4 @@
 2022-06-08T19:41:07.000000Z	“The geological study of Antarctica has been greatly hindered by nearly all of the continent being permanently covered with a thick layer of ice.”
 2022-06-08T21:45:15.000000Z	retconning my inner child
 2022-06-09T13:51:19.000000Z	the words “brier score” are used inconsistently: sometimes they just refer to the MSE of the probability assigned to the correct outcome, sometimes they refer to the MSE of the sum of the probability assigned to the correct and the incorrect outcome.
+2022-06-09T16:10:39.000000Z	the cold waste of unknown en-pyee
