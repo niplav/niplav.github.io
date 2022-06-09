@@ -1297,3 +1297,4 @@
 2022-06-09T13:51:19.000000Z	the words “brier score” are used inconsistently: sometimes they just refer to the MSE of the probability assigned to the correct outcome, sometimes they refer to the MSE of the sum of the probability assigned to the correct and the incorrect outcome.
 2022-06-09T16:10:39.000000Z	the cold waste of unknown en-pyee
 2022-06-09T18:24:26.000000Z	lw karma political compass
+2022-06-09T19:17:05.000000Z	……………Tetlock data uses AMERICAN DATE FORMAT IN A DATASET
