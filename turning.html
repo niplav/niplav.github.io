@@ -88,7 +88,7 @@ for scenarios such as ontological crises are discussed.</strong></p>
 also unexpectedly found.</p>
 </blockquote>
 
-<p><em>— <a href="https://en.wikipedia.org/wiki/Yew-Kwang_Ng">Yew-Kwang Ng</a>, <a href="./doc/better_words/towards_welfare_biology_evolutionary_economics_of_animal_consciousness_and_suffering_ng_1995.pdf">“Towards Welfare Biology: Evolutionary Economics of Animal Consciousness and Suffering”</a> p. 1, 1995</em></p>
+<p><em>— <a href="https://en.wikipedia.org/wiki/Yew-Kwang_Ng">Yew-Kwang Ng</a>, <a href="./doc/biology/welfare/towards_welfare_biology_evolutionary_economics_of_animal_consciousness_and_suffering_ng_1995.pdf">“Towards Welfare Biology: Evolutionary Economics of Animal Consciousness and Suffering”</a> p. 1, 1995</em></p>
 
 <blockquote>
   <p>Random testing is simple in concept, often easy to implement, has been
@@ -98,7 +98,7 @@ the only practical choice when the source code and the specifications
 are unavailable or incomplete.</p>
 </blockquote>
 
-<p><em>— Tsong Yueh Chen/Fei-Ching Kuo/Robert G. Merkel/T.H. Tse, <a href="./doc/turning/adaptive_random_testing_chen_et_al_2010.pdf">“Adaptive Random Testing: the ART of Test Case Diversity”</a>, 2010</em></p>
+<p><em>— Tsong Yueh Chen/Fei-Ching Kuo/Robert G. Merkel/T.H. Tse, <a href="./doc/cs/reduction/adaptive_random_testing_chen_et_al_2010.pdf">“Adaptive Random Testing: the ART of Test Case Diversity”</a>, 2010</em></p>
 
 <p>Consider an agent which displays (<a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_utility_theorem">von
 Neumman-Morgenstern</a>
@@ -118,16 +118,16 @@ preferences?</p>
 
 <ol>
 <li>Find ways to represent inconsistent preferences with a mathematical structure which can encode all possible violations of the von Neumann-Morgenstern axioms in all their combinations.</li>
-<li>Then turn those inconsistent preferences into consistent ones, and then informing the agent about these inconsistencies and their optimal resolutions (or, in the case of trying to help the agent, then enacting these preferences in the real world).</li>
+<li>Then turn those inconsistent preferences into consistent ones, and then inform the agent about these inconsistencies and their optimal resolutions (or, in the case of trying to help the agent, then enacting these preferences in the real world).</li>
 </ol>
 
 <h2>Mathematical Formulation of the Problem</h2>
 
-<p>Define a set of possible inconsistent preferences over a set <code>$W$</code> of
-worlds as <code>$\not\curlyvee_W$</code>, and the set of (von Neumann-Morgenstern)
-inconsistent preferces over those worlds as <code>$\curlyvee_W$</code> as the set
-of inconsistent preferences over those worlds. Elements from those sets
-are written as <code>$\succsim_W \in \not\curlyvee_W$</code> and <code>$\succeq_W \in \curlyvee_W$</code>.</p>
+<p>Define a set of possible (von Neumann-Morgenstern) inconsistent
+preferences over a set <code>$W$</code> of worlds as <code>$\not\curlyvee_W$</code>, and the set
+of consistent preferences over those worlds as <code>$\curlyvee_W$</code>. Elements
+from those sets are written as <code>$\succsim_W \in \not\curlyvee_W$</code> and
+<code>$\succeq_W \in \curlyvee_W$</code>.</p>
 
 <p>One way we could approach the problem is by trying to turn those
 inconsistent preferences consistent, i.e. constructing a function
@@ -152,7 +152,7 @@ metric</a>
 <li>A mathematical structure for representing <code>$\not \curlyvee_W$</code> and <code>$\curlyvee_W$</code>
 <ul>
 <li>Inconsistent preferences over discrete options are represented via <a href="https://en.wikipedia.org/wiki/Directed_graph">directed graphs</a></li>
-<li>Inconsitent preferences over <a href="https://en.wikipedia.org/wiki/Lottery_(probability)">lotteries</a> of options are represented via
+<li>Inconsistent preferences over <a href="https://en.wikipedia.org/wiki/Lottery_(probability)">lotteries</a> of options are represented via
 <ul>
 <li>directed graphs over <a href="https://en.wikipedia.org/wiki/Simplex">probability simplices</a>
 <ul>
@@ -249,7 +249,7 @@ preferences depends on the choice of distance metric we would like to use.</p>
 <h3>Resolving Inconsistencies</h3>
 
 <p>In some sense, we want to change the inconsistent preferences as little
-as possible: the more we modify them, the more displayed preferences we
+as possible; the more we modify them, the more displayed preferences we
 have to remove or change. Since the presence or absence of preferences
 is encoded by the presence or absence of edges on the graph, removing
 edges or adding new edges is equivalent to removing or adding preferences
@@ -460,8 +460,8 @@ possible options.</p>
 
 <p>This brings up an interesting question: As we have more and more
 elaborate inconsistent preferences with more elements, does it
-become more likely that the have a unique consistent preference
-they can be resolved to? Or, in other words, if make the graphs
+become more likely that they have a unique consistent preference
+they can be resolved to? Or, in other words, if we make the graphs
 bigger and bigger, can we expect the fraction of inconsistent
 preferences with a unique resolution to grow (strictly)
 <a href="https://en.wikipedia.org/wiki/Monotonic_function">monotonically</a>?</p>
@@ -488,7 +488,7 @@ have unique path graphs associated with them.</p>
 <li>One can define <code>$\mathcal{T}(n,m)=\{G \in \mathcal{G}_n | m=|\text{res_all}(G)|\}$</code>
 <ul>
 <li>How, then, does <code>$\mathcal{T}(n,m)$</code> behave?</li>
-<li>Does the average number of resolutions for inconsitent preferences converge to a specific number?</li>
+<li>Does the average number of resolutions for inconsistent preferences converge to a specific number?</li>
 <li>That is, what is <code>$\lim_{n \rightarrow \infty} \frac{1}{\mathcal{G}_n} \sum_{i=1}^{n} \mathcal{T}(n,i)$</code>? Does it converge?</li>
 </ul></li>
 </ul></li>
@@ -587,6 +587,18 @@ learning at the correct level of abstraction), then make consistent.</p>
 
 <h3>Ontological Crises</h3>
 
+<blockquote>
+  <p>Furthermore, there remain difficult philosophical problems. We have
+made a dis- tinction between the agent’s uncertainty about which model
+is correct and the agent’s uncertainty about which state the world is
+in within the model. We may wish to elim- inate this distinction; we
+could specify a single model, but only give utilities for some states
+of the model. We would then like the agent to generalize this utility
+function to the entire state space of the model.</p>
+</blockquote>
+
+<p><em>—Peter de Blanc, “Ontological Crises in Artificial Agents’ Value Systems”, 2010</em></p>
+
 <p>If you know a mapping between objects from human to AI ontology, you
 could find the mapping from the (consistent) human probability simplex
 to the AI simplex?</p>
@@ -603,6 +615,10 @@ method described above.</p>
 <li>Does every graph <code>$G$</code> have a unique graph <code>$G'$</code> so that <code>$G$</code> is the transitive closure of <code>$G'$</code>?</li>
 <li>There is something interesting going on with lattices (?) over individual transitivity operations</li>
 </ul>
+
+<h2>Acknowledgements</h2>
+
+<p>Thanks to Miranda Dixon-Luinenburg for finding some typos.</p>
 
 <!--
 *epistemic status: butterfly idea, I really should learn more topology
