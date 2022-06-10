@@ -1302,3 +1302,4 @@
 2022-06-09T19:18:51.000000Z	i want to commit violence
 2022-06-09T19:20:33.000000Z	some people just shouldn't be given the responsibility to create datasets.
 2022-06-10T13:53:02.000000Z	ai alignment is great bc nobody knows what it should be, so you can do whatever you want and call it alignment.
+2022-06-10T18:40:08.000000Z	once i've found a core to corrigibility i'll write an incel manifesto
