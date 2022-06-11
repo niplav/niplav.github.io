@@ -1308,3 +1308,4 @@
 2022-06-10T19:28:11.000000Z	a “moron” could also be a group-theoretic structure. “On the symplectic inverses of left-invariant morons”
 2022-06-10T20:14:24.000000Z	solarpunk slightly hindered by the fact that for solar panels and cutesy robots you need industrial-strength chipfabs that are so advanced we have like 6 of them in the entire world
 2022-06-11T23:00:27.000000Z	wait, is CIRL incorrigible *for the same reason* that utility-maximizers don't wirehead? https://niplav.github.io/notes.html#A-Short-Example-For-Why-CIRL-Is-Incorrigible
+2022-06-11T23:31:54.000000Z	to what extent did AlphaFold2 solve protein folding? there should be a writeup of how much & what needs to be done for it to be completely solved.
