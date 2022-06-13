@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-03-23, modified: 2022-03-03, language: english, status: notes, importance: 1, confidence: draft</em></p>
+<p><em>author: niplav, created: 2021-03-23, modified: 2022-06-10, language: english, status: notes, importance: 1, confidence: draft</em></p>
 
 <blockquote>
   <p><strong>People write mathematics in a specific way, and use different
@@ -86,12 +86,28 @@ Schein von ihm schwindet.</p>
 <li>When denoting choosing elements from a set based on some criterion, use the bar |: <code>$\{x|x \in P(x) \land \forall y \in S: x \succ y\}$</code> (some people use a colon)</li>
 <li>Usually, with <code>$\bigcup/\bigvee/\sum/\prod$</code> etc, use <code>$i$</code> and <code>$j$</code> as the variables. If there are more, use <code>$i_1, i_2, \dots$</code>.</li>
 <li>A variable with the name "abcd" is written as <code>$\text{abcd}$</code>, <code>$abcd$</code> is the product of four variables <code>$a, b, c$</code> and <code>$d$</code>.</li>
-<li><code>$0 \in \mathbb{N}$</code>, <code>$\mathbb{N}^+:=\mathbb{N}\backslash \{0\}$</code>. It makes much more sense when treating <code>$\mathbb{N}$</code> as a commutative monoid under addition (one could answer that it's equally possible to treat <code>$\mathbb{N}^+$</code> as a commutative monoid under multiplication, to which my answer is that addition is a more fundamental operation than multiplication).</li>
+<li><code>$0 \in \mathbb{N}$</code>, <code>$\mathbb{N}^+:=\mathbb{N}\backslash \{0\}$</code>.
+<ul>
+<li>First of all, <a href="https://en.wikipedia.org/Natural_number">there's an ISO standard</a> (ISO-80000-2) that states that <code>$0 \in \mathbb{N}$</code>. I know it's kind of dumb, but standards are nice &amp; there for a reason.</li>
+<li><code>$(\mathbb{N}, +)$</code> and <code>$(\mathbb{N}^+, \cdot)$</code> are both commutative monoids.</li>
+<li><code>$(\mathbb{N}, +, \cdot)$</code> is a semiring.</li>
+<li><code>$(\mathbb{N}^+, +, \cdot)$</code> is…nothing in particular?
+<ul>
+<li><code>$\cdot$</code> distributes over <code>$+$</code></li>
+<li>No identity for <code>$+$</code>, so it can't be a <a href="https://en.wikipedia.org/wiki/Rng_(algebra)">rng</a> or a <a href="https://en.wikipedia.org/wiki/semiring">semiring</a></li>
+<li>Associativity and commutativity are given for both <code>$+$</code> and <code>$\cdot$</code></li>
+<li>Neither have inverses</li>
+<li>Only <code>$\cdot$</code> has an identity, so it can't be a <a href="https://en.wikipedia.org/wiki/Near-ring">near-ring</a> (but we also can't make <code>$(\mathbb{N}^+, \cdot, +)$</code> a rng or semiring because <code>$+$</code> doesn't distribute over <code>$\cdot$</code>)</li>
+</ul></li>
+<li>Therefore, because <code>$(\mathbb{N}, +, \cdot)$</code> is the nicer structure, <code>$0 \in \mathbb{N}$</code>.</li>
+<li>(I'm not super confident about the arguments above, maybe I missed a structure. If so, please tell me!)</li>
+</ul></li>
 <li>Setting operator precedence and passing arguments to functions is done with parentheses <code>$()$</code>, sets are denoted using <code>$\{\}$</code>, and <code>$[]$</code> is sometimes used in the context of statistics (variance of a variable, mean of a variable, and so on). These are not mixed.
 <ul>
 <li><code>$[n] = \{x \in \mathbb{N} | 1 \le x \le n \}$</code> for <code>$n \in \mathbb{N}$</code>.</li>
 </ul></li>
 <li>For function definitions, use <code>$f: ℝ^n \mapsto ℝ$</code> instead of <code>$f: ℝ^n \rightarrow ℝ$</code></li>
+<li>In multiplication of reals (and maybe complex numbers), I prefer central dots <code>$a \cdot b \cdot c$</code>, and <em>sometimes</em> concatenation <code>$abcd$</code>. Rarely asterisks <code>$a * b * c * d$</code>, but I try to avoid them.</li>
 </ul>
 
 <h3>Set Theory</h3>
@@ -178,10 +194,14 @@ Schein von ihm schwindet.</p>
 <h2>Things I Would Like To Do But I'm Not Brave Enough</h2>
 
 <ul>
-<li>Write the first/second/third and so on moment as <code>$\mathbb{M_{1}}, \mathbb{M_{2}}, \mathbb{M_{3}}$</code>.</li>
-<li>Use a big <code>$+$</code> and <code>$*$</code> instead of <code>$\sum$</code> and <code>$\prod$</code>.</li>
+<li>Use the generalized everything
+<ul>
+<li>Write the first/second/third and so on <a href="https://en.wikipedia.org/wiki/Moment_(mathematics)">moment</a> as <code>$\mathbb{M_{1}}, \mathbb{M_{2}}, \mathbb{M_{3}}$</code>.</li>
+<li>Only use the <a href="https://en.wikipedia.org/wiki/Generalized_mean">generalized mean</a>.</li>
+</ul></li>
+<li>Use a big <code>$+$</code> and <code>$\cdot$</code> instead of <code>$\sum$</code> and <code>$\prod$</code> (maybe the latter can just be approximated by the <code>$\bullet$</code>, as in <code>$n!=\bullet_{i=1}^{n} i$</code>).</li>
 <li><a href="https://www.youtube.com/watch?v=sULa9Lc4pck">This notation</a> for logarithms, exponents and roots.</li>
-<li>Start with the integers <code>$\mathbb{Z}$</code>, and then specifies when one wants only the positive numbers (<code>$\mathbb{Z}^+$</code>), the positive numbers with 0 (<code>$\mathbb{Z}^+_0$</code>), the negative numbers (<code>$\mathbb{Z}^-$</code>) and the negative numbers with 0 (<code>$\mathbb{Z}^-_0$</code>). That would be much nicer than using <code>$\mathbb{N}$</code>, since <code>$\mathbb{Z}$</code> is a ring under addition and multiplication.</li>
+<li>Start with the integers <code>$\mathbb{Z}$</code>, and then specifies when one wants only the positive numbers (<code>$\mathbb{Z}^+$</code>), the positive numbers with 0 (<code>$\mathbb{Z}^+_0$</code>), the negative numbers (<code>$\mathbb{Z}^-$</code>) and the negative numbers with 0 (<code>$\mathbb{Z}^-_0$</code>). That would be much nicer than using <code>$\mathbb{N}$</code>, since <code>$\mathbb{Z}$</code> is a <a href="https://en.wikipedia.org/commutative_ring">commutative ring</a> under addition and multiplication.</li>
 <li>Treat <code>$-$</code> and <code>$+$</code> as <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a> operators for making expressions negative and positive, which sign flipping being done by explicitely multiplying with <code>$-1$</code>.
 <ul>
 <li>Alternatively, use the same notation as for the <a href="https://en.wikipedia.org/wiki/Complex_conjugate">complex conjugate</a>.</li>
@@ -192,10 +212,6 @@ Schein von ihm schwindet.</p>
 <h2>Things I'm Unsure About</h2>
 
 <ul>
-<li>In multiplication of reals (and maybe complex numbers), is it best to just use concatenation <code>$abc$</code>, asterisks <code>$a*b*c$</code> or central dots <code>$a \cdot b \cdot c$</code>?
-<ul>
-<li>Or just be flexible?</li>
-</ul></li>
 <li>Basically every usage of <code>$\ell$</code> feels weird to me (except for the <code>$\ell_p$</code> norm and <code>$\ell^p$</code> space maybe). It often seems too important/out of place for a simple variable (or, <em>god forbid</em>, an index).</li>
 </ul>
 </html>
