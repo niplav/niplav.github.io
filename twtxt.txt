@@ -1318,3 +1318,4 @@
 2022-06-13T22:58:34.000000Z	oofed not in the absurdle word list, even though it's the reaction i have the most when playing it
 2022-06-13T23:02:41.000000Z	spicy wheat found
 2022-06-13T23:05:36.000000Z	qream
+2022-06-13T23:10:25.000000Z	neither is warez
