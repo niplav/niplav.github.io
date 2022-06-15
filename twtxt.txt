@@ -1335,3 +1335,4 @@
 2022-06-14T20:49:00.000000Z	rationality is having strong opinions about things nobody has ever thought about before.
 2022-06-15T20:11:09.000000Z	you know that you've made it when you're using fermi estimates to debug your rl agent.
 2022-06-15T21:51:50.000000Z	how much did large volcano eruptions in the past change agricultural output?
+2022-06-15T22:22:06.000000Z	it's crazy how we basically haven't tested nuclear weapons in ~30 years
