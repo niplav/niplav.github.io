@@ -1333,3 +1333,4 @@
 2022-06-14T07:32:29.000000Z	found spicy khmer waltz vexed quagga jacob (Mr. Jock, TV quiz PhD, bags few lynx)
 2022-06-14T19:05:31.000000Z	lipogrammatic pangram
 2022-06-14T20:49:00.000000Z	rationality is having strong opinions about things nobody has ever thought about before.
+2022-06-15T20:11:09.000000Z	you know that you've made it when you're using fermi estimates to debug your rl agent.
