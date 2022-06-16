@@ -1336,3 +1336,4 @@
 2022-06-15T20:11:09.000000Z	you know that you've made it when you're using fermi estimates to debug your rl agent.
 2022-06-15T21:51:50.000000Z	how much did large volcano eruptions in the past change agricultural output?
 2022-06-15T22:22:06.000000Z	it's crazy how we basically haven't tested nuclear weapons in ~30 years
+2022-06-16T08:16:31.000000Z	armed fetuses (“hands”)
