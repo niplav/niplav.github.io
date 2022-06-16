@@ -1337,3 +1337,4 @@
 2022-06-15T21:51:50.000000Z	how much did large volcano eruptions in the past change agricultural output?
 2022-06-15T22:22:06.000000Z	it's crazy how we basically haven't tested nuclear weapons in ~30 years
 2022-06-16T08:16:31.000000Z	armed fetuses (“hands”)
+2022-06-16T13:13:39.000000Z	minimal case for blockchains: right now a class of very select people has a monopoly on creating & testing enforceable governance mechanisms. also, these enforceable governance mechanisms are often underspecified: it's often not clear how to apply them, leading to corruption in ambiguous cases. DAOs (and in general distributedly running unchangeable code) are avenues to perform many different such experiments—the cost of starting a DAO is *far* less than starting a new country, and it's completely voluntary!
