@@ -1339,3 +1339,4 @@
 2022-06-16T08:16:31.000000Z	armed fetuses (“hands”)
 2022-06-16T13:13:39.000000Z	minimal case for blockchains: right now a class of very select people has a monopoly on creating & testing enforceable governance mechanisms. also, these enforceable governance mechanisms are often underspecified: it's often not clear how to apply them, leading to corruption in ambiguous cases. DAOs (and in general distributedly running unchangeable code) are avenues to perform many different such experiments—the cost of starting a DAO is *far* less than starting a new country, and it's completely voluntary!
 2022-06-16T13:56:58.000000Z	niplavistan has no advertising, but if it had, things would be advertised by “made by a machine”, and “handmade” would be a bad property for an object to have
+2022-06-16T15:21:55.000000Z	the downside of crypto seems quite limited, much more than the upside of crypto is limited (though conditions apply)
