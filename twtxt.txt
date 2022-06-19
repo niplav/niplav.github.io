@@ -1347,3 +1347,4 @@
 2022-06-17T15:16:30.000000Z	evopsych is confused by persistent conflict between mothers-in-law and spouses—don't both want to maximize the number of children? i don't see any conflict arising for evolutionary reasons
 2022-06-17T18:31:55.000000Z	apparently we're going to build AGI, whatever that is
 2022-06-19T08:23:20.000000Z	following legislation from the ELSC (european long site commission), I now have to adopt an ocelot
+2022-06-19T08:25:46.000000Z	diversity inequity exclusion
