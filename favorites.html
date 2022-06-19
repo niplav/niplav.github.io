@@ -1,0 +1,315 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2022-06-18, modified: 2022-06-19, language: english, status: draft, importance: 2, confidence: log</em></p>
+
+<blockquote>
+  <p>Idea &amp; format stolen shamelessly from <a href="https://www.gleech.org/favs/all/">Gavin
+Leech</a>.</p>
+</blockquote>
+
+<h1>Favorite Things</h1>
+
+<h2>Texts</h2>
+
+<!--
+### Tweets
+
+TODO: demonstrate/defenestrate
+-->
+
+<p>My favorite poems are <a href="https://www.poetryfoundation.org/poems/49303/howl">Howl (Allen Ginsberg,
+1955)</a>, Spinoza (Jorge
+Luis Borges, 1964), <a href="https://www.textlog.de/17824.html">Hyperions Schicksalslied (Friedrich Hölderlin,
+1797)</a>, and An die Freude (Friedrich
+Schiller, 1805).</p>
+
+<!--
+### Blogposts
+
+### Papers
+
+-->
+
+<p>My favorite books are The Elephant in the Brain, There is no Antimemetics
+Division, and House of Leaves (it does the whole postmodern literature
+shtick, but it does it really enjoyably!).</p>
+
+<h2>Music</h2>
+
+<h3>Songs</h3>
+
+<h3>Albums</h3>
+
+<h3>Musicians</h3>
+
+<p>My favorite musicians are Johann Sebastian Bach, Patricia Taxxon, Steve
+Reich, Sonny Clark, and Vincent E. L.</p>
+
+<h2>Websites</h2>
+
+<h3>Blogs</h3>
+
+<h4>General Knowledge</h4>
+
+<ul>
+<li><a href="https://nintil.com/">Nintil</a></li>
+<li><a href="https://dynomight.net/">Dynomight</a></li>
+</ul>
+
+<h4>Rationality</h4>
+
+<ul>
+<li><a href="https://lesswrong.com/">Less Wrong</a></li>
+<li><a href="https://everythingstudies.com/">Everything Studies</a></li>
+<li><a href="http://www.overcomingbias.com/">Overcoming Bias</a></li>
+<li><a href="http://slatestarcodex.com/">Slate Star Codex</a></li>
+<li><a href="https://unremediatedgender.space">☆✦ The Scintillating But Ultimately Untrue Thought ✦☆</a> (highly focused on a rather irrelevant topic, but the lessons are generalizable)</li>
+</ul>
+
+<h4>Programming</h4>
+
+<ul>
+<li><a href="https://blog.codinghorror.com/">Coding Horror</a></li>
+<li><a href="https://drewdevault.com/">Drew DeVault's Blog</a></li>
+<li><a href="https://www.joelonsoftware.com/">Joel On Software</a></li>
+<li><a href="http://nullprogram.com/">Null Program</a></li>
+</ul>
+
+<h4>Mathematics</h4>
+
+<ul>
+<li><a href="http://bit-player.org/">Bit-Player</a></li>
+<li><a href="https://jeremykun.com/">Math ∩ Programming</a></li>
+<li><a href="https://www.scottaaronson.com/blog">Shtetl-Optimized</a></li>
+<li><a href="http://zackmdavis.net/blog/">An Algorithmic Lucidity</a></li>
+</ul>
+
+<h4>Philosophy</h4>
+
+<ul>
+<li><a href="https://entirelyuseless.com/">Entirely Useless</a></li>
+<li><a href="http://metamoderna.org/?lang=en">Metamoderna</a></li>
+</ul>
+
+<h4>Politics</h4>
+
+<ul>
+<li><a href="https://therealmovement.wordpress.com/">The Real Movement</a></li>
+<li><a href="https://unqualified-reservations.org/">Unqualified Reservations</a></li>
+</ul>
+
+<h4>Insight Porn</h4>
+
+<ul>
+<li><a href="https://hotelconcierge.tumblr.com/">Hotel Concierge</a></li>
+<li><a href="https://thelastpsychiatrist.com/">The Last Psychiatrist</a></li>
+<li><a href="https://samzdat.com/">sam[]zdat</a></li>
+<li><a href="http://zackmdavis.net/blog/">An Algorithmic Lucidity</a></li>
+<li><a href="https://traditionsofconflict.com">Traditions of Conflict</a></li>
+</ul>
+
+<h4>Meditation</h4>
+
+<ul>
+<li><a href="https://meditationstuff.wordpress.com">Meditation Stuff</a></li>
+<li><a href="https://neuroticgradientdescent.blogspot.com">Neurotic Gradient Descent</a></li>
+</ul>
+
+<h4>Pick Up</h4>
+
+<ul>
+<li><a href="https://theredquest.wordpress.com">The Red Quest</a></li>
+<li><a href="https://daysofgame.com">Days of Game</a></li>
+</ul>
+
+<h4>Effective Altruism</h4>
+
+<ul>
+<li>Personal Websites
+<ul>
+<li><a href="https://reflectivedisequilibrium.blogspot.com">Reflective Disequilibrium</a></li>
+<li><a href="https://rationalaltruist.com">Rational Altruist</a></li>
+</ul></li>
+<li><a href="https://forum.effectivealtruism.org/allposts">Effective Altruism Forum</a></li>
+<li>Organisations
+<ul>
+<li><a href="https://qualiaresearchinstitute.org/research-publications">Qualia Research Institute</a></li>
+<li><a href="https://rethinkpriorities.org/research">Rethink Priorities</a></li>
+</ul></li>
+</ul>
+
+<h3>Fiction</h3>
+
+<ul>
+<li><a href="https://zerohplovecraft.wordpress.com/">Zero HP Lovecraft</a></li>
+<li><a href="https://qntm.org">Things of Interest</a> (not just fiction, lots of other cool stuff too)</li>
+</ul>
+
+<h3>Sites</h3>
+
+<ul>
+<li><a href="https://yujiri.xyz">Yujiri's homepage</a> (A <a href="https://yujiri.xyz/misc/structure.gmi.html">very Russian</a> website: "This site's organization is different from most other sites that serve a similar purpose. It's not chronological like a blog, because it was never meant to be a personal voice for me, at least not primarily. It's meant to be an up-to-date, organized database of philosophical truth.". Fellow long-content writer.)</li>
+<li><a href="https://www.gwern.net/">Gwern</a></li>
+<li><a href="https://www.gleech.org">Gavin Leech</a></li>
+<li><a href="https://210ethan.github.io">210ethan</a></li>
+<li><a href="https://reducing-suffering.org">Essays on Reducing Suffering</a></li>
+</ul>
+
+<h3>Wikis</h3>
+
+<ul>
+<li><a href="https://en.wikipedia.org/">Wikipedia</a></li>
+<li><a href="https://plato.stanford.edu/">Stanford Encyclopedia of Philosophy</a></li>
+<li><a href="http://www.scp-wiki.net/">SCP Wiki</a></li>
+<li><a href="https://arbital.org/explore/ai_alignment">Arbital AI Alignment Domain</a></li>
+</ul>
+
+<h3>Other</h3>
+
+<ul>
+<li><a href="https://schelling.pt">Schelling.pt</a></li>
+<li>Forecasting
+<ul>
+<li><a href="https://www.metaculus.com">Metaculus</a></li>
+<li><a href="https://www.predictionbook.com">PredictionBook</a></li>
+</ul></li>
+</ul>
+
+<h2>Mathematics</h2>
+
+<h3>Structures</h3>
+
+<ul>
+<li>∅</li>
+</ul>
+
+<h3>Theorems</h3>
+
+<ul>
+<li>Bulow-Klemperer theorem</li>
+</ul>
+
+<h3>Proofs</h3>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Classification_of_finite_simple_groups">Classification of finite simple groups</a> (not that I understand it)</li>
+</ul>
+
+<p>My favorite algorithms are the IC* algorithm, Kadane's algorithm,
+Bron-Kerbosch algorithm, and Sleepsort.</p>
+
+<h2>Computers</h2>
+
+<h3>Programming Languages</h3>
+
+<h3>Operating Systems</h3>
+
+<h3>Software</h3>
+
+<h2>Media</h2>
+
+<h3>Podcasts</h3>
+
+<h3>Podcast Episodes</h3>
+
+<h3>Movies</h3>
+
+<p>My favorite movies are Rango, District 9, Rogue One, Koyaanisqatsi,
+Die Welt am Draht 1&amp;2, and The Element of Crime.</p>
+
+<h3>Series</h3>
+
+<h2>Ideas</h2>
+
+<p>My favorite ideas in policy are Futarchy, Harberger taxes, Track records,
+and Open borders.</p>
+
+<h3>Philosophy</h3>
+
+<h2>More</h2>
+
+<p>My favorite non-extinct animals are octopuses, my favorite extinct
+animals are <a href="https://en.wikipedia.org/Glyptodon">glyptodons</a>,
+my favorite type of art is <a href="https://en.wikipedia.org/wiki/Geometric_abstraction">geometric
+abstraction</a>,
+my favorite type of biome is flat deserts, my favorite type of
+meditation is good ol' ānāpānasati, my favorite kitchen appliance
+is the microwave, my favorite food is kimchi, my favorite non-alcohol
+drink is tap water (with <a href="https://en.wikipedia.org/wiki/Ayran">ayran</a>
+being a close second), my favorite alcoholic beverage is none
+(although beer is enjoyable on dates), my favorite flags are the
+<a href="https://en.wikipedia.org/wiki/Flag_of_Uganda">flag of Uganda</a>, the
+<a href="https://en.wikipedia.org/wiki/Flag_of_Barbados">flag of Barbados</a> and
+the <a href="https://en.wikipedia.org/wiki/Flag_of_Albania">flag of Albania</a>
+(I may have a thing for birds on flags), my favorite mode of transport
+is by Zeppelin (primarily æsthetically, train is much more practical
+and nearly as cool), my favorite solution to disagreement is trade.</p>
+
+<p>My favorite activities are
+<a href="https://en.wikipedia.org/wiki/Jam_session">jamming</a>, standing in front
+of a whiteboard with two other people boggling at a hard problem, taking
+MDMA in the presence of effective altruists after an EA conference,
+and executing a really clean daygame approach (all of these involve
+other people, hm…).</p>
+</html>

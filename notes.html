@@ -1246,9 +1246,11 @@ or “Is the underlying process
 <a href="https://en.wikipedia.org/wiki/Ergodicity">ergodic</a>?”, just fit the
 goddamn curve!</p>
 
-<p>And <code>scipy.optimize.curve_fit</code> does exactly
-that! (Using the <a href="https://en.wikipedia.org/wiki/Levenberg%E2%80%93Marquardt_algorithm">Levenberg-Marquardt
-algorithm</a>).</p>
+<p>And <code>scipy.optimize.curve_fit</code> does
+exactly that! (Using the <a href="https://en.wikipedia.org/wiki/Levenberg%E2%80%93Marquardt_algorithm">Levenberg-Marquardt
+algorithm</a>,
+which minimizes the mean squared error of the predicted values and
+the dataset).</p>
 
 <p>You give it a function <code>f</code> with some parameters <code>a, b, c, …</code> and a
 dataset consisting of input values <code>x</code> and output values <code>y</code>, and it
@@ -1329,8 +1331,8 @@ deference</a>.</p>
     \\
     U_y(a)=0, U_y(b)=4, U_y(d)=0 \\
     \\
-    π_1=\underset{a}{\text{argmax }} \mathbb{E}_{U \sim b_1} [U(a)+U(π_2|a)] \\
-    π_2=\underset{a}{\text{argmax }} \mathbb{E}_{U \sim b_2} [U(a)] \\
+    π_1=\underset{w \in W_1}{\text{argmax }} \mathbb{E}_{U \sim b_1} [U(w)+U(π_2|w)] \\
+    π_2=\underset{w \in W_2}{\text{argmax }} \mathbb{E}_{U \sim b_2} [U(w)] \\
     \\
     b_l=[0.99: U_x, 0.01: U_y] \\
     b_k=[0.001: U_x, 0.999: U_y] \\
