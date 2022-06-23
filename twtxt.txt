@@ -1356,3 +1356,4 @@
 2022-06-21T19:17:24.000000Z	I expect the future to be more, not less, absurd than ~all scifi. way more—there's no scifi this abstract & absurd, and noone would buy it (& also bc of Vinge's law)
 2022-06-21T19:28:46.000000Z	plasmacrane
 2022-06-23T02:45:52.000000Z	wrangling (& getting to work) an RL agent with a friend until half past 2 am. good times
+2022-06-23T02:48:13.000000Z	we're paving over the reputational ecosystems with beautiful curves whose area sums to one, just watch
