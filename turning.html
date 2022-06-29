@@ -101,7 +101,7 @@ are unavailable or incomplete.</p>
 <p><em>— Tsong Yueh Chen/Fei-Ching Kuo/Robert G. Merkel/T.H. Tse, <a href="./doc/cs/reduction/adaptive_random_testing_chen_et_al_2010.pdf">“Adaptive Random Testing: the ART of Test Case Diversity”</a>, 2010</em></p>
 
 <p>Consider an agent which displays (<a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_utility_theorem">von
-Neumman-Morgenstern</a>
+Neumman-Morgenstern</a>)
 inconsistent <a href="https://en.wikipedia.org/wiki/Preference">preferences</a>,
 for example choosing two incompatible
 options in the two scenarios in the <a href="https://en.wikipedia.org/wiki/Allais_paradox">Allais
@@ -324,7 +324,7 @@ def res(W, G):
         LG=nx.algorithms.dag.transitive_closure(LG)
         # Compute the graph edit distance, disabling node insertion/deletion/substition and edge substitution
         oas=lambda x: 1
-        oah=lambda x: 10e10 # math.inf is not accepted here
+        oah=lambda x: 10e10 # math.inf is not accepted here, TODO make some more specific maximum value
         nm=lambda x, y: x['ind']==y['ind']
         em=lambda x, y: True
         dist=nx.algorithms.similarity.graph_edit_distance(G, LG, node_match=nm, edge_match=em, node_del_cost=oah, node_ins_cost=oah, edge_ins_cost=oas, edge_del_cost=oas)
