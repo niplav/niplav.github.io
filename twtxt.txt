@@ -1367,4 +1367,5 @@
 2022-07-01T08:24:59.000000Z	maybe for most people social media isn't an epistemic hazard, but “just” an attention hazard?
 2022-07-01T23:12:31.000000Z	the EA community is grabbing existential risk by the black balls
 2022-07-02T20:24:28.000000Z	i find the removal of the “master/slave” thing in computer protocols to be kinkshaming
-2022-07-02T21:54:16.000000Z	GPT-Alyx (Codebase: 96% Agda)
+2022-07-02T21:54:16.000000Z	GPT-Alyx (Codebase: 96% Idris)
+2022-07-04T06:36:28.000000Z	oh yeah I *love* software that just dumps giant amounts of data into my home directory without giving me any option of changing where it dumps the data
