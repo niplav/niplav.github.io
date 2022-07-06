@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2022-04-11, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2022-07-05, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -1241,4 +1241,46 @@ code.)</p>
 <p>Totality: <code>$R \cup R^{-1}=X \times X$</code></p>
 
 <p>Antisymmetry: <code>$R \cap R^{-1}=\{(x,x)| x \in X\}$</code></p>
+
+<h3>Stray Exercise 1</h3>
+
+<blockquote>
+  <p>A set <code>$E$</code> may have no lower bounds or upper bounds at all, or it may
+have many; in the latter case it could happen that none of them belongs to
+<code>$E$</code>. (Examples?)</p>
+</blockquote>
+
+<p>Example for set without lower &amp; upper bounds is <code>$X=∅$</code> (where always
+<code>$E=∅$</code>), if <code>$X=\{a,b,c,d\}$</code> and the partial order on <code>$X$</code> is
+<code>$a&lt;b&lt;d$</code> and <code>$a&lt;c&lt;d$</code> and <code>$E=\{d\}$</code> then the lower bounds are
+<code>$\{a,b,c\}$</code>, if <code>$E=∅$</code>, then every element of <code>$X$</code> is a lower
+bound of <code>$E$</code> (since the empty all-quantification is true), but none
+of them are in <code>$E$</code>.</p>
+
+<h2>Section 15</h2>
+
+<h3>Stray Exercise 1</h3>
+
+<p>To be proven: The Cartesian product of a finite family of sets
+<code>$\{X_i\}$</code>, at least one of which is empty, is necessarily and
+sufficiently also empty.</p>
+
+<p>Base case: As suggested by the book, I start the induction at 1: In
+this case <code>$\{X_i\}=\{\{\}\}$</code>, the set containing the empty set. The
+Cartesian product of <code>$\{\}$</code> with no other set is also the empty set.</p>
+
+<p>Induction assumption: If <code>$\{X_i\}$</code> is a family of sets with <code>$n$</code>
+elements, at least one of which is empty, then
+<code>$X_1 \times X_2 \times \dots \times X_n=\emptyset$</code>.</p>
+
+<p>Induction step: If <code>$\{X_i\}$</code> is a family of sets with <code>$n+1$</code> elements,
+at least one of which is the empty set, then either <code>$X_{n+1}$</code> is the
+empty set, or the empty set is is the first <code>$n$</code> elements.</p>
+
+<p>Let <code>$X_{\star}=X_1 \times X_2 \times \dots \times X_n$</code>.
+Then in the former case we know that
+<code>$X_{\star} \times X_{n+1}=X_{\star} \times \emptyset=\emptyset$</code>
+(as per the text). In the latter case we know that
+<code>$X_{\star} \times X_{n+1}=\emptyset \times X_{n+1}=\emptyset$</code>,
+so in both cases we get the empty set as a result.</p>
 </html>
