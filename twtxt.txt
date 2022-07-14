@@ -1388,3 +1388,4 @@
 2022-07-13T07:36:31.000000Z	“Noooo you can't just slap »Bayesian« onto something and that automatically makes it good” “haha MCMC go brrrrrrrrrr”
 2022-07-14T15:11:25.000000Z	cinary
 2022-07-14T15:11:35.000000Z	bontinuous
+2022-07-14T15:14:49.000000Z	every programming language should have a nop-equivalent statement. python left the option of using “continue” on the ground
