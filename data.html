@@ -1,0 +1,160 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2022-07-07, modified: 2022-07-07, language: english, status: notes, importance: 2, confidence: log</em></p>
+
+<blockquote>
+  <p><strong>.</strong></p>
+</blockquote>
+
+<h1>Types &amp; Methods of Data Collection I Use</h1>
+
+<h2>Anki</h2>
+
+<p>I use spaced repetition, and plan to take it as a proxy for cognitive
+performance in QS experiments.</p>
+
+<p>The data can be found in the helpfully named <code>collection.anki2</code>, which
+is actually an sqlite database in disguise.</p>
+
+<p>The <a href="">Anki manual</a> helpfully informs that the most important table is
+<code>revlog</code>, one can then export the data to CSV with the following command:</p>
+
+<pre><code>echo -e '.headers on \n select * from revlog;' |
+sqlite3 anki_2022-07-04T08:43:00.db |
+tr '|' ',' &gt;anki_2022-07-04T08:43:00.csv
+</code></pre>
+
+<p>The header is to be interpreted as follows:</p>
+
+<blockquote>
+  <p>The most important table for statistics is the revlog table, which
+stores an entry for each review that you conduct. The columns are
+as follows:</p>
+
+<p>id  </p>
+
+<p>The time at which the review was conducted, as the number of milliseconds
+that had passed since midnight UTC on January 1, 1970. (This is sometimes
+known as Unix epoch time, especially when in straight seconds instead
+of milliseconds.)</p>
+
+<p>cid  </p>
+
+<p>The ID of the card that was reviewed. You can look up this value in
+the id field of the cards table to get more information about the card,
+although note that the card could have changed between when the revlog
+entry was recorded and when you are looking it up. It is also the
+millisecond timestamp of the card’s creation time.</p>
+
+<p>usn  </p>
+
+<p>This column is used to keep track of the sync state of reviews and
+provides no useful information for analysis.</p>
+
+<p>ease  </p>
+
+<p>Which button you pressed at the end of the review (1 for Again, 4 for Easy).</p>
+
+<p>ivl  </p>
+
+<p>The new interval that the card was pushed to after the review. Positive
+values are in days; negative values are in seconds (for learning cards).</p>
+
+<p>lastIvl  </p>
+
+<p>The interval the card had before the review. Cards introduced for the
+first time have a last interval equal to the Again delay.</p>
+
+<p>factor  </p>
+
+<p>The new ease factor of the card in permille (parts per thousand). If
+the ease factor is 2500, the card’s interval will be multiplied by
+2.5 the next time you press Good.</p>
+
+<p>time  </p>
+
+<p>The amount of time (in milliseconds) you spent on the question and answer
+sides of the card before selecting an ease button.</p>
+
+<p>type  </p>
+
+<p>This is 0 for learning cards, 1 for review cards, 2 for relearn cards,
+and 3 for "cram" cards (cards being studied in a filtered deck when they
+are not due).</p>
+</blockquote>
+
+<h2>Meditation</h2>
+
+<p>Similarly, one can export meditation data from Meditavo (if one has
+coughed up 5€ for the premium version, which I decided was worth it
+for the data, after having locked myself in :-|):</p>
+
+<pre><code>echo -e '.headers on \n select * from History;' |
+sqlite3 meditation_2022-07-02T20:00:00.db |
+tr '|' ',' &gt;meditations.csv
+</code></pre>
+
+<p>The names for the columns are exceedingly obvious and need no further
+explanation.</p>
+</html>

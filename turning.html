@@ -350,7 +350,7 @@ completion, and then with our <a href="#Example">example from above</a>.</p>
 <p><img src="./img/turning/se_comp.png" alt="A small example" title="Four graphs, side-by side. Top left is a → b, c, top right is a → b → c, a → c, bottom left is a → c → b, a → b, bottom right is c → a → b, c → b." /></p>
 
 <pre><code>&gt;&gt;&gt; WS=['a', 'b', 'c']
-&gt;&gt;&gt; GS=nx.DiGSraph()
+&gt;&gt;&gt; GS=nx.DiGraph()
 &gt;&gt;&gt; for i in range(0, len(WS)):
 ...     GS.add_node(WS[i], ind=i)
 &gt;&gt;&gt; GS.add_edges_from([('a', 'b')])
@@ -364,7 +364,7 @@ OutEdgeView([('a', 'b'), ('a', 'c'), ('b', 'c')])
 <p>This looks pretty much correct.</p>
 
 <pre><code>&gt;&gt;&gt; WM=['a', 'b', 'c', 'd', 'e', 'f', 'g']
-&gt;&gt;&gt; GM=nx.DiGMraph()
+&gt;&gt;&gt; GM=nx.DiGraph()
 &gt;&gt;&gt; for i in range(0, len(WM)):
 ...     GM.add_node(WM[i], ind=i)
 &gt;&gt;&gt; GM.add_edges_from([('a', 'b'), ('b', 'c'), ('c', 'd'), ('c', 'e'), ('e', 'f'), ('f', 'g'), ('g', 'b')])
@@ -497,11 +497,14 @@ have unique path graphs associated with them.</p>
 <li>How, then, does <code>$\mathcal{T}(n,m)$</code> behave?</li>
 <li>Does the average number of turnings for inconsistent preferences converge to a specific number?</li>
 <li>That is, what is <code>$\lim_{n \rightarrow \infty} \frac{1}{\mathcal{G}_n} \sum_{i=1}^{n} \mathcal{T}(n,i)$</code>? Does it converge?</li>
+<li>I predict <a href="https://predictionbook.com/predictions/208299">20% on the number monotonically increasing</a>, <a href="https://predictionbook.com/predictions/208300">50% on monotonically decreasing</a> and <a href="https://predictionbook.com/predictions/208300">30% on showing no clear pattern</a>.</li>
 </ul></li>
 </ul></li>
 </ul>
 
-<h3>Encoding Inconsistencies</h3>
+<h2>Encoding Inconsistencies</h2>
+
+<h3>Theory</h3>
 
 <p>Assuming that we have a set of axioms that describe which preferences
 are consistent and which are inconsistent, for the purposes of this
@@ -509,9 +512,14 @@ text, we want to ideally find a set <code>$\not \curlyvee$</code> of mathematica
 structures that</p>
 
 <ol>
-<li>can represent preferences that violate each possible subset of those axioms</li>
-<li>has a strict subset <code>$\curlyvee \subset \not \curlyvee$</code> so that <code>$\curlyvee$</code> can represent only consistent preferences</li>
+<li>can represent preferences that violate each possible subset of those axioms.
+<ol>
+<li>Each inconsistent preference should have exactly one element of <code>$\not \curlyvee$</code> that represents it</li>
+</ol></li>
+<li>has a strict subset <code>$\curlyvee \subset \not \curlyvee$</code> so that <code>$\curlyvee$</code> can represent only consistent preferences.</li>
 </ol>
+
+<h3>Discrete Case</h3>
 
 <p>The two relevant von Neumman-Morgenstern axioms are completeness and
 transitivity, with a directed graph one can also represent incompleteness
@@ -537,6 +545,26 @@ that is <code>$(w_1, w_2) \not \in E, (w_2, w_1) \not \in E$</code>.</p>
 option set <code>$\{a,b,c\}$</code> have preferences
 <code>$b \succsim a, a \succsim c, b \succsim c$</code>.</p>
 
+<h3>Continuous Case</h3>
+
+<h4>Incompleteness</h4>
+
+<ul>
+<li>Minima/maxima in the vector field</li>
+<li>Discontinuities</li>
+<li>Undifferentiable points</li>
+</ul>
+
+<h4>Intransitivity</h4>
+
+<p>Curl in the vector field?</p>
+
+<h4>Discontinuity</h4>
+
+<p>Can only exist with incompleteness?</p>
+
+<h4>Dependence</h4>
+
 <h3>Discussion</h3>
 
 <p>This leads to an interesting ethical consideration: is it a larger change
@@ -551,26 +579,6 @@ minimally transforming <code>$G_{\succsim}$</code> into <code>$G_{\succeq}$</cod
 
 <p>Vector field over the probability simplex over the options (representing
 local preferences over lotteries).</p>
-
-<h4>Encoding Inconsistencies</h4>
-
-<h5>Incompleteness</h5>
-
-<ul>
-<li>Minima/maxima in the vector field</li>
-<li>Discontinuities</li>
-<li>Undifferentiable points</li>
-</ul>
-
-<h5>Intransitivity</h5>
-
-<p>Curl in the vector field?</p>
-
-<h5>Discontinuities</h5>
-
-<p>Can only exist with incompleteness?</p>
-
-<h5>Dependence of Irrelevant Alternatives</h5>
 
 <h4>Resolving Inconsistencies</h4>
 
