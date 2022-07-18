@@ -1,0 +1,675 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h1>Iqisa Documentation</h1>
+
+<p>Iqisa is a library for handling and comparing different forecasting
+datasets, focused on taking on the burden of dealing with differently
+organised datasets off the user and presenting them with a unified
+interface.</p>
+
+<p>On the margin it prioritises correctness over speed, and simplicity over
+providing the user with every function they could need.</p>
+
+<h2>Examples</h2>
+
+<h3>Minimal Example</h3>
+
+<p>The minimal steps for getting started with the library are quite
+simple. Here's the code for loading the data from the Good Judgment
+Project prediction markets:</p>
+
+<pre><code>$ python3
+&gt;&gt;&gt; import gjp
+&gt;&gt;&gt; import iqisa as iqs
+&gt;&gt;&gt; market_fcasts=gjp.load_markets()
+</code></pre>
+
+<p>Similarly, one can also load the data from the Good Judgment project
+surveys:</p>
+
+<pre><code>&gt;&gt;&gt; survey_fcasts=gjp.load_surveys()
+</code></pre>
+
+<p>The <code>gjp.load_markets()</code> function might throw some warnings.</p>
+
+<p>Now <code>market_fcasts</code> contains the forecasts from all prediction markets
+from the Good Judgement Project as a <a href="https://pandas.pydata.org/">pandas</a>
+DataFrame<!--TODO: link--> (and <code>survey_fcasts</code> all from the surveys):</p>
+
+<pre><code>&gt;&gt;&gt; market_fcasts
+        question_id  user_id  team_id  probability  ... n_opts          options q_status q_type
+0            1040.0     6203        0       0.4000  ...      2  (a) Yes, (b) No   closed      0
+1            1040.0     6203        0       0.4500  ...      2  (a) Yes, (b) No   closed      0
+...             ...      ...      ...          ...  ...    ...              ...      ...    ...
+793499       1542.0    21975        9       0.0108  ...      2  (a) Yes, (b) No   closed      0
+793500       1542.0    13854       28       0.0049  ...      2  (a) Yes, (b) No   closed      0
+
+[793501 rows x 15 columns]
+</code></pre>
+
+<p>The <a href="#loadfilesNone"><code>load</code></a> functions are the central piece of the
+library, as they give you, the user, the data in <a href="#forecasts">a format</a>
+that can be compared across datasets. The other functions are merely
+suggestions and can be ignored if they don't fit your use-case (iqisa
+wants to provide you with the data, and not be opinionated with what
+you do with that data in the end, and how you do it).</p>
+
+<h3>Aggregating and Scoring</h3>
+
+<p>The user could now want to just know how good the forecasters were
+at forecasting on all questions:</p>
+
+<pre><code>&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; def brier_score(probabilities, outcomes):
+... return np.mean((probabilities-outcomes)**2)
+&gt;&gt;&gt; scores=iqs.score(market_fcasts, brier_score)
+&gt;&gt;&gt; scores
+                score
+question_id          
+1017.0       0.147917
+1038.0       0.177000
+...               ...
+5005.0       0.140392
+6413.0       0.109608
+
+[411 rows x 1 columns]
+&gt;&gt;&gt; np.mean(scores)
+score    0.137272
+dtype: float64
+</code></pre>
+
+<!--**-->
+
+<p>Next, the user might define an <a href="https://forum.effectivealtruism.org/s/hjiBqAJNKhfJFq7kf/p/sMjcjnnpoAQCcedL2">aggregation
+function</a>:</p>
+
+<pre><code>&gt;&gt;&gt; import statistics
+&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; def geom_odds_aggr(forecasts):
+...    probabilities=forecasts['probability']
+...    probabilities=probabilities/(1-probabilities)
+...    aggregated=statistics.geometric_mean(probabilities)
+...    aggregated=aggregated/(1+aggregated)
+...    return np.array([aggregated])
+</code></pre>
+
+<p>and use pass it to the <code>aggregate</code> method:</p>
+
+<pre><code>&gt;&gt;&gt; aggregations=iqs.aggregate(market_fcasts, geom_odds_aggr)
+&gt;&gt;&gt; aggregations
+    question_id  probability outcome answer_option
+0        1017.0     0.370863       b             a
+0        1038.0     0.580189       a             a
+..          ...          ...     ...           ...
+0        5005.0     0.194700       a             c
+0        6413.0     0.291428       b             a
+
+[713 rows x 4 columns]
+</code></pre>
+
+<p>Now, after aggregating the forecasts, is the Brier score better?</p>
+
+<pre><code>&gt;&gt;&gt; aggr_scores=iqs.score(aggregations, brier_score)
+&gt;&gt;&gt; aggr_scores
+                score
+question_id          
+1017.0       0.137540
+1038.0       0.176242
+...               ...
+5005.0       0.334230
+6413.0       0.058682
+
+[411 rows x 1 columns]
+&gt;&gt;&gt; np.mean(aggr_scores)
+score    0.083357
+dtype: float64
+</code></pre>
+
+<p>Yes it is.</p>
+
+<h3>Scoring Users</h3>
+
+<p>Unlike for scoring by question, there is no library-internal abstraction
+for scoring users, but this is easy to implement:</p>
+
+<pre><code>def brier_score_user(user_forecasts):
+    user_right=(user_forecasts['outcome']==user_forecasts['answer_option'])
+    probabilities=user_forecasts['probability']
+    return np.mean((probabilities-user_right)**2)
+
+trader_scores=iqs.score(marrket_fcasts, brier_score, on=['user_id'])
+</code></pre>
+
+<p>However, we might want to exclude traders who have made fewer than, let's
+say, 100 trades:</p>
+
+<pre><code>filtered_trader_scores=iqs.score(market_fcasts.groupby(['user_id']).filter(lambda x: len(x)&gt;100), brier_score, on=['user_id'])
+</code></pre>
+
+<p>Surprisingly, the mean score of the traders with >100 trades are not
+better than the score of all traders:</p>
+
+<pre><code>&gt;&gt;&gt; np.mean(trader_scores)
+score    0.159125
+dtype: float64
+&gt;&gt;&gt; np.mean(filtered_trader_scores)
+score    0.159525
+dtype: float64
+</code></pre>
+
+<p>However, filtering removes outliers (both positive and negative):</p>
+
+<pre><code>&gt;&gt;&gt; filtered_trader_scores.min()
+score    0.02433
+dtype: float64
+&gt;&gt;&gt; filtered_trader_scores.max()
+score    0.685084
+dtype: float64
+&gt;&gt;&gt; trader_scores.min()
+score    0.0001
+dtype: float64
+&gt;&gt;&gt; trader_scores.max()
+score    0.7921
+dtype: float64
+</code></pre>
+
+<h2>Forecasts &amp; Questions Format</h2>
+
+<p>Iqisa is intended to make forecasting and forecasting question data
+from different datasets available in the same data format, which is
+described here.</p>
+
+<h3>Forecasts</h3>
+
+<p>Some functions (<code>gjp.load_markets(), gjp.load_surveys(),
+metaculus.load_private_binary()</code>) return data in a common format that
+is intended to be comparable across forecasting datasets. That format
+is a pandas DataFrame<!--TODO: link--> with shared columns:</p>
+
+<!--TODO: make this a table-->
+
+<ul>
+<li><code>question_id</code>: The unique ID of the question, type <code>float64</code>.</li>
+<li><code>user_id</code>: The unique ID of the user who made the forecast, type <code>float64</code>.</li>
+<li><code>team_id</code>: The ID of the team the user was in, type <code>float64</code>.</li>
+<li><code>probability</code>: The probability assigned in the forecast, type <code>float64</code>. Probabilities (or probabilities implied by market prices) ≥1 are changed to <code>1-prob_margin</code> (by default 0.995), and ≤0 to <code>prob_margin</code> (by default 0.005).</li>
+<li><code>answer_option</code>: The answer option selected by the user, type <code>str</code>.</li>
+<li><code>timestamp</code>: The time at which the forecast/trade was made, type <code>datetime64[ns]</code>.</li>
+<li><code>outcome</code>: The outcome of the question, type <code>str</code>.</li>
+<li><code>open_time</code>: The time at which the question was opened, i.e. at which forecasts could start. Type <code>datetime64[ns]</code></li>
+<li><code>close_time</code>: The time at which the question was closed, i.e. at which the last possible forecast could be made. Type <code>datetime64[ns]</code>.</li>
+<li><code>resolve_time</code>: The time at which the resolution of the question was available. Type <code>datetime64[ns]</code>.
+<!--</li>
+<li><code>date_start</code>: * <code>date_suspend</code>: The datetime at which the question was suspended, i.e. at which no further forecasts were possible. Type <code>datetime64[ns]</code>. The biggest difference from <code>date_closed</code> seems to be that it also includes the time of closures.</li>
+<li><code>date_to_close</code>: The planned closing date of the question, type <code>datetime64[ns]</code>.</li>
+<li><code>date_closed</code>: The datetime at which the question was closed, type <code>datetime64[ns]</code>.
+--></li>
+<li><code>days_open</code>: The days for which the quesion was open, type <code>timedelta64[ns]</code>.</li>
+<li><code>n_opts</code>: The number of options the question had, type <code>int64</code>.</li>
+<li><code>options</code>: A string containing a description of the different possible options, type <code>str</code>.</li>
+<li><code>q_status</code>: The status of the question the forecast was made on, type <code>str</code>.</li>
+<li><code>q_type</code>: The type of the question, type <code>int64</code>.</li>
+</ul>
+
+<h3>Questions</h3>
+
+<p>This field is a pandas DataFrame describing the question-specific data in
+the dataset. It is set either manually or by calling <code>load_questions()</code>
+in a subclass.</p>
+
+<p>Its columns are</p>
+
+<!--TODO: describe further-->
+
+<ul>
+<li><code>question_id</code>, <code>date_start</code>, <code>date_suspend</code>, <code>date_to_close</code>, <code>date_closed</code>, <code>outcome</code>, <code>q_type</code>, <code>q_status</code>, <code>days_open</code>, <code>n_opts</code>, <code>options</code>: As in the <a href="#forecasts">description of <code>forecasts</code> above</a></li>
+<li><code>q_title</code>: The title of the question, as a <code>str</code>.</li>
+</ul>
+
+<h2>Loading Functions</h2>
+
+<h3><code>gjp.load_surveys(files=None)</code></h3>
+
+<h4>Data Peculiarities</h4>
+
+<p>The GJOpen forecast data has some peculiarities, which are described here:</p>
+
+<ul>
+<li><code>question_id</code>: Follows the format <code>[0-9]{4}</code>.</li>
+<li><code>team_id</code>: The team "DEFAULT" is given the ID 0.</li>
+<li><code>answer_option</code>: One of 'a', 'b', 'c', 'd' or 'e' (or rarely <code>[numpy](https://numpy.org/).nan</code> for market data).</li>
+<li><code>outcome</code>: One of 'a', 'b', 'c', 'd', or 'e' (or rarely <code>numpy.nan</code>, in the case of voided questions).</li>
+<li><code>q_status</code>: One of 'closed', 'voided' or 'open'.</li>
+<li><code>q_type</code>: Integer between 0 and 6 (inclusive).
+<ul>
+<li>0: regular binomial or multinomial question</li>
+<li>1-5: conditional question, index designated by the specific type (<code>q_type</code> 2: 2nd conditional question)</li>
+<li>6: Ordered multinomial question</li>
+</ul></li>
+</ul>
+
+<h4><code>gjp.survey_files</code></h4>
+
+<p>A list containing the names of all files in the dataset that contain
+data from surveys:</p>
+
+<ul>
+<li>./data/gjp/survey_fcasts.yr1.csv</li>
+<li>./data/gjp/survey_fcasts.yr2.csv</li>
+<li>./data/gjp/survey_fcasts.yr3.csv.zip</li>
+<li>./data/gjp/survey_fcasts.yr4.csv.zip</li>
+</ul>
+
+<h3><code>gjp.load_markets(files=None)</code></h3>
+
+<h4><code>gjp.market_files</code></h4>
+
+<p>A list containing the names of all files in the dataset that contain
+trades on prediction markets:</p>
+
+<ul>
+<li>./data/gjp/pm_transactions.lum1.yr2.csv</li>
+<li>./data/gjp/pm_transactions.lum2.yr2.csv</li>
+<li>./data/gjp/pm_transactions.lum1.yr3.csv</li>
+<li>./data/gjp/pm_transactions.lum2a.yr3.csv</li>
+<li>./data/gjp/pm_transactions.lum2.yr3.csv</li>
+<li>./data/gjp/pm_transactions.inkling.yr3.csv</li>
+<li>./data/gjp/pm_transactions.control.yr4.csv</li>
+<li>./data/gjp/pm_transactions.batch.train.yr4.csv</li>
+<li>./data/gjp/pm_transactions.batch.notrain.yr4.csv</li>
+<li>./data/gjp/pm_transactions.supers.yr4.csv</li>
+<li>./data/gjp/pm_transactions.teams.yr4.csv</li>
+</ul>
+
+<h3><code>metaculus.load_private_binary(data_file)</code></h3>
+
+<h3><code>metaculus.load_questions(q_files=None)</code></h3>
+
+<h3><code>gjp.load_questions(q_files=None)</code></h3>
+
+<p>Returns a pandas DataFrame with the columns described <a href="#Questions">here</a>
+loaded from <code>q_files</code>, by default from the files listed in
+<code>gjp.questions_files</code> (value <code>[./data/gjp/ifps.csv]</code>).</p>
+
+<p>Additionally, this questions data contains the columns</p>
+
+<ul>
+<li><code>q_desc</code>: The description of the question, including resolution criteria, type <code>str</code>.</li>
+<li><code>short_title</code>: The shortened title of the question, type <code>str</code>.</li>
+</ul>
+
+<h3><code>gjp.load_complete_surveys(files=None)</code></h3>
+
+<ul>
+<li><code>forecast_id</code></li>
+<li><code>fcast_type</code></li>
+<li><code>fcast_date</code></li>
+<li><code>expertise</code></li>
+<li><code>viewtime</code></li>
+<li><code>year</code></li>
+<li><code>q_title</code></li>
+<li><code>q_desc</code></li>
+<li><code>short_title</code></li>
+</ul>
+
+<h3><code>gjp.load_complete_markets(files=None)</code></h3>
+
+<ul>
+<li><code>islong</code></li>
+<li><code>by_agent</code></li>
+<li><code>op_type</code></li>
+<li><code>spent</code></li>
+<li><code>min_qty</code></li>
+<li><code>trade_type</code></li>
+<li><code>with_mm</code></li>
+<li><code>divest_only</code></li>
+<li><code>prob_after_trade</code></li>
+<li><code>matching_order_id</code></li>
+<li><code>high_fuse</code></li>
+<li><code>stock_name</code></li>
+<li><code>low_fuse</code></li>
+<li><code>created_at</code></li>
+<li><code>filled_at</code></li>
+<li><code>trade_qty</code></li>
+<li><code>isbuy</code></li>
+<li><code>prob_est</code></li>
+<li><code>market_name</code></li>
+</ul>
+
+<h2>General Functions</h2>
+
+<h3><code>aggregate(forecasts, aggregation_function, on=['question_id', 'answer_option'], *args, **kwargs)</code></h3>
+
+<p>Aggregate forecasts on questions by running <code>aggregation_function</code>
+over the <code>forecasts</code>, aggregation method provided by the user.</p>
+
+<h4>Arguments</h4>
+
+<p>The type signature of the function is</p>
+
+<pre><code>aggregate: DataFrame × (DataFrame × Optional(arguments) -&gt; [0,1]) × list × Optional(arguments) -&gt; DataFrame
+</code></pre>
+
+<p>To elaborate a bit further:</p>
+
+<ul>
+<li>First argument (<code>forecasts</code>): A DataFrame of the format described <a href="#Forecasts">here</a>, needs the following columns:
+<ul>
+<li><code>question_id</code></li>
+<li><code>timestamp</code></li>
+<li><code>probability</code></li>
+<li><code>answer_option</code></li>
+<li><code>outcome</code></li>
+</ul></li>
+<li>Second argument (<code>aggregation_function</code>): The user-defined aggregation function, which is called for on each set of forecasts made on the same question for the same answer option.
+<ul>
+<li>Receives:
+<ul>
+<li>A DataFrame that is a subset of rows of <code>forecasts</code> (all with the same <code>question_id</code>)</li>
+<li>Optional arguments passed on by <code>aggregate</code></li>
+</ul></li>
+<li>Returns: This function should return a probability in (0,1)</li>
+</ul></li>
+<li><code>on</code>: What columns of <code>forecasts</code> to group by/aggregate over. By default the function groups by the question ID and the answer option, so we receive one probability for every answer on every question.</li>
+<li>Optional arguments which are passed to the aggregation function
+<ul>
+<li><code>*args</code> are the variable arguments, and</li>
+<li><code>**kwargs</code> are the variable keyword arguments</li>
+</ul></li>
+</ul>
+
+<h4>Returns</h4>
+
+<p>A DataFrame with columns <code>probability</code>, <code>outcome</code>, and whatever columns
+were specified in the argument <code>on</code> (by default <code>question_id</code> and
+<code>answer_option</code>). <code>probability</code> is the aggregated probability over the
+answer option on the question.</p>
+
+<h3><code>score(forecasts, scoring_rule, on=['question_id'] *args, **kwargs)</code></h3>
+
+<p>Score predictions or aggregated predictions on questions, method can be
+given by the user.</p>
+
+<h4>Arguments</h4>
+
+<p>Throws an exception if there are no forecasts loaded/aggregations computed
+(i.e. the number of rows of <code>forecasts</code>/<code>aggregations</code> is zero).</p>
+
+<p>The type signature of the function is</p>
+
+<pre><code>score: DataFrame × ([0,1]ⁿ × {0,1}ⁿ × Optional(arguments) -&gt; float) × list × Optional(arguments) -&gt; DataFrame
+</code></pre>
+
+<p>To elaborate a bit further:</p>
+
+<ul>
+<li>First argument (<code>forecasts</code>): A DataFrame of the format described <a href="#Comparable-Forecast-Data-General-Structure">here</a>, needs the following columns:
+<ul>
+<li><code>question_id</code></li>
+<li><code>probability</code></li>
+<li><code>outcome</code></li>
+<li><code>answer_option</code></li>
+</ul></li>
+<li>Second argument (<code>scoring_rule</code>): The scoring rule for forecasts.
+<ul>
+<li>Receives:
+<ul>
+<li>First argument: A numpy array containing the probabilities (in (0,1)</li>
+<li>Second argument: A numpy array containing the outcomes (in {0,1})</li>
+<li>Optional arguments passed on by <code>score</code></li>
+</ul></li>
+<li>Returns: This function should return a floating point number</li>
+</ul></li>
+<li><code>on</code>: What columns of <code>forecasts</code> to group by/score on. By default the function groups by the question ID , so we receive one score for every question</li>
+<li>Optional arguments which are passed to the scoring rule
+<ul>
+<li><code>*args</code> are the variable arguments, and</li>
+<li><code>**kwargs</code> are the variable keyword arguments</li>
+</ul></li>
+</ul>
+
+<h4>Returns</h4>
+
+<p>A new DataFrame with the scores for each group (as defined by <code>on</code>),
+by default a DataFrame where the index contains the <code>question_id</code>s,
+and the rows contain the score.</p>
+
+<h4>Example</h4>
+
+<p>We aggregate by calculating the arithmetic mean of all forecasts made
+on a question &amp; option, and score with the Brier score:</p>
+
+<pre><code>def arith_aggr(forecasts):
+    return np.array([np.mean(forecasts['probability'])])
+
+def brier_score(probabilities, outcomes):
+    return np.mean((probabilities-outcomes)**2)
+</code></pre>
+
+<!--**-->
+
+<p>Using these in the repl:</p>
+
+<pre><code>&gt;&gt;&gt; import gjp
+&gt;&gt;&gt; import iqisa as iqs
+&gt;&gt;&gt; import numpy as np
+&gt;&gt;&gt; m=gjp.load_markets()
+&gt;&gt;&gt; aggregations=iqs.aggregate(m, arith_aggr)
+&gt;&gt;&gt; aggregations.columns
+Index(['question_id', 'probability', 'outcome', 'answer_option'], dtype='object')
+&gt;&gt;&gt; scores=iqs.score(aggregations, brier_score)
+&gt;&gt;&gt; scores
+question_id
+1017.0       0.140625
+1038.0       0.176400
+...               ...
+5005.0       0.332759
+6413.0       0.081349
+
+[411 rows x 1 columns]
+</code></pre>
+
+<p>We can now calculate the average Brier score on all questions:</p>
+
+<pre><code>&gt;&gt;&gt; scores.describe()
+            score
+count  411.000000
+mean     0.102582
+std      0.100136
+min      0.000574
+25%      0.032574
+50%      0.067686
+75%      0.140791
+max      0.661671
+</code></pre>
+
+<h3><code>add_cumul_user_score(forecasts, scoring_rule, *args, **kwargs)</code></h3>
+
+<p>Return a new DataFrame that has contains a new field <code>cumul_score</code>. The
+field contains the past performance of the user making that forecast,
+before the time of prediction.</p>
+
+<p>Change <code>forecasts</code> so that it has contains a new field <code>cumul_score</code>. The
+field contains the past performance of the user making that forecast,
+before the time of prediction.</p>
+
+<h4>Arguments</h4>
+
+<p>The type signature of the function is</p>
+
+<pre><code>cumul_user_score: Dataframe × ([0,1]ⁿ × {0,1}ⁿ × Optional(arguments) -&gt; float) × Optional(arguments) -&gt; DataFrame
+</code></pre>
+
+<ul>
+<li>First argument (<code>forecasts</code>): a DataFrame with the fields:
+<ul>
+<li><code>question_id</code></li>
+<li><code>user_id</code></li>
+<li><code>probability</code></li>
+<li><code>timestamp</code></li>
+<li><code>date_suspend</code></li>
+</ul></li>
+<li>Second argument (<code>scoring_rule</code>): the scoring rule by which the performance will be judged
+<ul>
+<li>Receives:
+<ul>
+<li>First argument: A numpy array containing the probabilities (in (0,1)</li>
+<li>Second argument: A numpy array containing the outcomes (in {0,1})</li>
+<li>Optional arguments passed on by <code>cumul_user_score</code></li>
+</ul></li>
+<li>Returns: This function should return a floating point number</li>
+</ul></li>
+<li>Optional additional arguments that will be passed on to the scoring rule</li>
+</ul>
+
+<h4>Returns</h4>
+
+<p>A new DataFrame that is a copy of <code>forecasts</code>, and an additional column
+<code>cumul_score</code>: The score of the user making the forecast for all
+questions that have resolved before the current prediction (that is,
+before <code>timestamp</code>), as judged by <code>scoring_rule</code></p>
+
+<h3><code>add_cumul_user_perc(forecasts, lower_better=True)</code></h3>
+
+<p>Based on cumulative past scores, add the percentile of forecaster
+performance the forecaster finds themselves in at the time of forecasting.</p>
+
+<h4>Arguments</h4>
+
+<p>Takes a DataFrame with at least the columns</p>
+
+<ul>
+<li><code>timestamp</code></li>
+<li><code>date_suspend</code></li>
+<li><code>user_id</code></li>
+<li><code>cumul_score</code> (e.g. as added by <code>cumul_user_score</code>)</li>
+</ul>
+
+<p>and a named argument <code>lower_better</code> that, if <code>True</code>, assumes that lower
+values in <code>cumul_score</code> indicate better performance, and if <code>False</code>,
+assumes that higher values in the same field are better.</p>
+
+<h4>Returns</h4>
+
+<p>he same DataFrame it has received as its argument, and an additional
+column <code>cumul_perc</code>. <code>cumul_perc</code> is the percentile of forecaster
+performance the forecaster finds themselves in at the time they are
+making the forecast.</p>
+
+<h4>Notes</h4>
+
+<p>The function is currently <em>very</em> slow (several hours for a dataset of
+500k forecasts on my laptop).</p>
+
+<h3><code>frontfill(forecasts)</code></h3>
+
+<p><strong>Warning</strong>: This function makes the dataset given to it ~100 times
+bigger, which might lead to running of out RAM.</p>
+
+<p>Return a new DataFrame with a set of forecasts so that forecasts by
+individual forecasters are repeated daily until they make a new forecast
+or the question is closed.</p>
+
+<h4>Arguments</h4>
+
+<p>A DataFrame of the format described <a href="#Forecasts">here</a>, necessary columns
+are <code>question_id</code>, <code>user_id</code>, <code>answer_option</code>, <code>timestamp</code>, <code>time_close</code>.</p>
+
+<h4>Returns</h4>
+
+<p>A new DataFrame with a set of forecasts so that forecasts by
+individual forecasters are repeated daily until they make a new forecast
+or the question is closed.</p>
+
+<h4>Example</h4>
+
+<pre><code>$ python3
+&gt;&gt;&gt; import gjp
+&gt;&gt;&gt; import iqisa as iqs
+&gt;&gt;&gt; survey_files=['./data/gjp/survey_fcasts_mini.yr1.csv']
+&gt;&gt;&gt; s=gjp.load_surveys(survey_files)
+&gt;&gt;&gt; len(s)
+9999
+&gt;&gt;&gt; s=iqs.frontfill(s)
+&gt;&gt;&gt; len(s)
+940598
+</code></pre>
+
+<h3><code>generic_aggregate(group, summ='arith', format='probs', decay='nodec', extremize='noextr', extrfactor=3, fill=False, expertise=False)</code></h3>
+
+<h4>Arguments</h4>
+
+<h4>Returns</h4>
+
+<h4>Example</h4>
+
+<h3><code>normalise</code></h3>
+
+<p>Changes the field <code>aggregations</code> so that probabilities assigned to
+different options on the same question sum to 1.</p>
+
+<h4>Arguments</h4>
+
+<p>None.</p>
+
+<h4>Returns</h4>
+</html>

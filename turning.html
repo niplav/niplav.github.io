@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2022-03-04, modified: 2022-07-05, language: english, status: notes, importance: 8, confidence: unlikely</em></p>
+<p><em>author: niplav, created: 2022-03-04, modified: 2022-07-18, language: english, status: notes, importance: 8, confidence: unlikely</em></p>
 
 <blockquote>
   <p><strong>Representing inconsistent preferences with specific mathematical
@@ -71,11 +71,12 @@ the case of preferences over world states, represented by <a href="https://en.wi
 graphs</a>; and preferences
 over <a href="https://en.wikipedia.org/wiki/Lottery_(probability)">lotteries</a>
 of world states, represented either by infinitely dense
-graphs or (in some cases) vector fields over probability
+graphs, (in some cases) vector fields over probability
 simplices, or edge-weighted directed graphs. I also present
 an algorithm for the discrete case based on the <a href="https://en.wikipedia.org/wiki/Graph_Edit_Distance">graph edit
 distance</a>. Implications
-for scenarios such as ontological crises are discussed.</strong></p>
+for scenarios such as <a href="https://arbital.com/p/ontology_identification/">ontological
+shifts</a> are discussed.</strong></p>
 </blockquote>
 
 <!--https://www.lesswrong.com/posts/QZM6pErzL7JwE3pkv/niplav-s-shortform?commentId=XRmMoNCPmDhvyLzwc-->
@@ -107,12 +108,17 @@ for example choosing two incompatible
 options in the two scenarios in the <a href="https://en.wikipedia.org/wiki/Allais_paradox">Allais
 paradox</a>, or reliably
 displaying <a href="https://en.wikipedia.org/wiki/Cycle_(graph_theory)">cycles</a>
-in its actions (detecting which actions are in fact caused by inconsistent
-preferences, and not just exotic ones from weird abstractions, can be
-considered a separate problem). We might want to interact with that agent,
-e.g. trade with it, help it (or exploit it), or generally know how it
-will act. But how to go about that if the agent displays inconsistent
-preferences?</p>
+in its actions (detecting which actions are in fact caused by
+inconsistent preferences, and not just exotic ones from weird
+abstractions, is considered a separate problem here). We might want
+to interact with that agent, e.g. trade with it, help it (or exploit
+it), or generally know how it will act But how to go about that if the
+agent displays inconsistent preferences? Perhaps it might even be the
+case that humans are such agents, and find ourselves in a conundrum:
+we know our preferences are inconsistent and reliably exploitable,
+and that agents with such preferences <a href="https://www.lesswrong.com/s/FYMiCeXEgMzsB5stm/p/RQpNHSiWaXTvDxt6R">reliably fare worse in the
+world</a>,
+we might want to change that.</p>
 
 <p>A possible approach to this problem has two steps:</p>
 
@@ -124,22 +130,22 @@ preferences?</p>
 <h2>Mathematical Formulation of the Problem</h2>
 
 <p>Define a set of possible (von Neumann-Morgenstern) inconsistent
-preferences over a set <code>$W$</code> of worlds as <code>$\not\curlyvee_W$</code>, and the set
-of consistent preferences over those worlds as <code>$\curlyvee_W$</code>. Elements
-from those sets are written as <code>$\succsim_W \in \not\curlyvee_W$</code> and
-<code>$\succeq_W \in \curlyvee_W$</code>.</p>
+preferences over a set <code>$W$</code> of worlds as <code>$\not\curlyvee$</code>, and the set
+of consistent preferences over those worlds as <code>$\curlyvee$</code>. Elements
+from those sets are written as <code>$\succsim \in \not\curlyvee$</code> and
+<code>$\succeq \in \curlyvee$</code>.</p>
 
 <p>One way we could approach the problem is by trying to turn those
-inconsistent preferences consistent, i.e. constructing a function
-<code>$f: \not \curlyvee_W \mapsto \curlyvee_W$</code> that takes an inconsistent
-preference <code>$\succsim$</code> and transforms it into a consistent preference,
+inconsistent preferences consistent, i.e. constructing a function <code>$t:
+\not \curlyvee \mapsto \curlyvee$</code> that takes an inconsistent preference
+<code>$\succsim$</code> and transforms it into a consistent preference <code>$\succeq$</code>,
 while retaining as much of the original structure of the preference
 as possible (it would make little sense if we replaced the original
-preference relation with indifference over all options).</p>
+preference relation with e.g. indifference over all options).</p>
 
 <p>Formally, we want to find for some given <a href="https://en.wikipedia.org/wiki/Metric_(mathematics)">distance
 metric</a>
-<code>$d: \not \curlyvee_W \times \curlyvee_W \mapsto ℝ$</code> a function
+<code>$d: \not \curlyvee \times \curlyvee \mapsto ℝ$</code> a function
 <code>$t$</code> so that</p>
 
 <div>
@@ -147,23 +153,23 @@ metric</a>
     \succeq=t(\succsim)$$
 </div>
 
-<p>I call this function a <strong>turning</strong>, and sometimes call the results of
-that function <strong>turned preferences</strong> (usually I just refer to them as
-consistent preferences). The names mostly chosen for not having been
-used yet in mathematics, as far as I know.</p>
+<p>I call this function a <strong>turner</strong>, and sometimes call the results of
+that function the <strong>set of turnings</strong> (an element from that set is a
+<strong>turning</strong>). The names mostly chosen for not having been used yet in
+mathematics, as far as I know, and because I want to be a little extra.</p>
 
 <p>A solution to the problem of turning inconsistent preferences into
 consistent ones then has these components:</p>
 
 <ol>
-<li>A mathematical structure for representing <code>$\not \curlyvee_W$</code> and <code>$\curlyvee_W$</code>
+<li>A mathematical structure for representing <code>$\not \curlyvee$</code> and <code>$\curlyvee$</code>
 <ul>
 <li>Inconsistent preferences over discrete options are represented via <a href="https://en.wikipedia.org/wiki/Directed_graph">directed graphs</a></li>
 <li>Inconsistent preferences over <a href="https://en.wikipedia.org/wiki/Lottery_(probability)">lotteries</a> of options are represented via
 <ul>
 <li>directed graphs over <a href="https://en.wikipedia.org/wiki/Simplex">probability simplices</a>
 <ul>
-<li>potentially more exotic structures such as <a href="https://en.wikipedia.org/wiki/Graphon">graphons</a> or results from <a href="https://en.wikipedia.org/wiki/Extremal_graph_theory">extremal graph theory</a> are relevant here, but I haven't investigated these in detail</li>
+<li>potentially more exotic structures such as <a href="https://en.wikipedia.org/wiki/Graphon">graphons</a> or results from <a href="https://en.wikipedia.org/wiki/Extremal_graph_theory">extremal graph theory</a> might be relevant here, but I haven't investigated these in detail</li>
 </ul></li>
 <li>vector fields on probability simplices</li>
 <li><a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)#Weighted_graph">graphs with edge weights</a> in <code>$ℝ$</code></li>
@@ -199,9 +205,9 @@ an inconsistent preference over those worlds by using a directed graph
 The presence of an edge <code>$(w_1, w_2)$</code> would mean that <code>$w_1 \succsim w_2$</code>,
 that is <code>$w_1$</code> is preferred to <code>$w_2$</code>.</p>
 
-<p>Mathematically, then, <code>$\not \curlyvee_W$</code> is the set of all possible
+<p>Mathematically, then, <code>$\not \curlyvee$</code> is the set of all possible
 graphs with edges in <code>$W \times W$</code>, that is
-<code>$\not \curlyvee_W=\{(W, E)| E \in \mathcal{P}(W \times W))\}$</code>).</p>
+<code>$\not \curlyvee=\{(W, E)| E \in \mathcal{P}(W \times W))\}$</code>).</p>
 
 <p>The consistent equivalent to an inconsistent preference
 represented by a directed graph would be a <a href="https://en.wikipedia.org/wiki/Path_graph">path
@@ -211,8 +217,8 @@ graph</a>
 The method for transforming <code>$G_{\succsim}$</code> into <code>$G_{\succeq}$</code> would be
 by adding/deleting the minimal number of vertices from <code>$E_{\succsim}$</code>.</p>
 
-<p>Mathematically, then <code>$\curlyvee_W$</code> is the set of transitive closures
-of all possible path graphs that are encode permutations of <code>$W$</code>; <code>$\curlyvee_W=\{(V, E)^+ | E \in σ(W)\}$</code>.</p>
+<p>Mathematically, then <code>$\curlyvee$</code> is the set of transitive closures
+of all possible path graphs that are encode permutations of <code>$W$</code>; <code>$\curlyvee=\{(V, E)^+ | E \in σ(W)\}$</code>.</p>
 
 <h3>Example</h3>
 
@@ -223,7 +229,7 @@ of all possible path graphs that are encode permutations of <code>$W$</code>; <c
 <p>Here, <code>$W=\{a,b,c,d,e,f,g\}$</code>.</p>
 
 <p>An edge from <code>$a$</code> to <code>$b$</code> means that <code>$a$</code> is preferred to <code>$b$</code>
-(short <code>$a \succsim_W b$</code>). The absence of an edge between two
+(short <code>$a \succsim b$</code>). The absence of an edge between two
 options means that those two options are, from the view of the agent,
 <a href="https://en.wikipedia.org/wiki/Comparability">incomparable</a>.</p>
 
@@ -285,10 +291,10 @@ distance: a measure for the difference between two graphs.</p>
 the deletion or insertion of vertices, this leaves us with the graph
 edit distance that uses edge insertion and edge deletion.</p>
 
-<p>We can then write a simple algorithm for
+<p>We can then write a simple pseudocode algorithm for
 <code>$\succeq=f(\succsim)$</code>:</p>
 
-<pre><code>turn(W, G≿=(W, E≿)):
+<pre><code>turn(G≿=(W, E≿)):
     mindist=∞
     for L in perm(W):
         L=trans_closure(L)
@@ -319,26 +325,29 @@ library turns out to be easy:</p>
 import networkx as nx
 import itertools as it
 
-def turn(W, G):
+def turn(graph):
     mindist=math.inf
-    for L in it.permutations(W):
-        L=list(L)
-        LG=nx.DiGraph()
-        for i in range(0, len(W)):
-            LG.add_node(W[i], ind=i)
-        for i in range(0, len(L)-1):
-            LG.add_edge(L[i], L[i+1])
-        LG=nx.algorithms.dag.transitive_closure(LG)
+    worlds=list(graph.nodes)
+    for perm in it.permutations(worlds):
+        perm=list(perm)
+        pathgraph=nx.DiGraph()
+        for i in range(0, len(worlds)):
+            pathgraph.add_node(worlds[i], ind=i)
+        # The transitive closure over this particular path graph
+        # Simplify to nx.algorithms
+        for i in range(0, len(perm)-1):
+            pathgraph.add_edge(perm[i], perm[i+1])
+        pathgraph=nx.algorithms.dag.transitive_closure(pathgraph)
         # Compute the graph edit distance, disabling node insertion/deletion/substition and edge substitution
-        oas=lambda x: 1
-        oah=lambda x: 10e10 # math.inf is not accepted here, TODO make some more specific maximum value
-        nm=lambda x, y: x['ind']==y['ind']
-        em=lambda x, y: True
-        dist=nx.algorithms.similarity.graph_edit_distance(G, LG, node_match=nm, edge_match=em, node_del_cost=oah, node_ins_cost=oah, edge_ins_cost=oas, edge_del_cost=oas)
+        edge_cost=lambda x: 1
+        unaffordable=lambda x: 10e10
+        same_node=lambda x, y: x['ind']==y['ind']
+        edge_matches=lambda x, y: True
+        dist=nx.algorithms.similarity.graph_edit_distance(graph, pathgraph, node_match=same_node, edge_match=edge_matches, node_del_cost=unaffordable, node_ins_cost=unaffordable, edge_ins_cost=edge_cost, edge_del_cost=edge_cost)
         if dist&lt;mindist:
-            R=LG
+            result=pathgraph
             mindist=dist
-    return R
+    return result
 </code></pre>
 
 <p>We can then test the function, first with a graph with a known best
@@ -349,29 +358,29 @@ completion, and then with our <a href="#Example">example from above</a>.</p>
 
 <p><img src="./img/turning/se_comp.png" alt="A small example" title="Four graphs, side-by side. Top left is a → b, c, top right is a → b → c, a → c, bottom left is a → c → b, a → b, bottom right is c → a → b, c → b." /></p>
 
-<pre><code>&gt;&gt;&gt; WS=['a', 'b', 'c']
-&gt;&gt;&gt; GS=nx.DiGraph()
-&gt;&gt;&gt; for i in range(0, len(WS)):
-...     GS.add_node(WS[i], ind=i)
-&gt;&gt;&gt; GS.add_edges_from([('a', 'b')])
-&gt;&gt;&gt; LGS=turn(WS, GS)
-&gt;&gt;&gt; LGS.nodes
+<pre><code>&gt;&gt;&gt; smallworld=['a', 'b', 'c']
+&gt;&gt;&gt; smallgraph=nx.DiGraph()
+&gt;&gt;&gt; for i in range(0, len(smallworld)):
+...     smallgraph.add_node(smallworld[i], ind=i)
+&gt;&gt;&gt; smallgraph.add_edges_from([('a', 'b')])
+&gt;&gt;&gt; smallre=turn(smallworld, smallgraph)
+&gt;&gt;&gt; smallre.nodes
 NodeView(('a', 'b', 'c'))
-&gt;&gt;&gt; LGS.edges
+&gt;&gt;&gt; smallre.edges
 OutEdgeView([('a', 'b'), ('a', 'c'), ('b', 'c')])
 </code></pre>
 
 <p>This looks pretty much correct.</p>
 
-<pre><code>&gt;&gt;&gt; WM=['a', 'b', 'c', 'd', 'e', 'f', 'g']
-&gt;&gt;&gt; GM=nx.DiGraph()
-&gt;&gt;&gt; for i in range(0, len(WM)):
-...     GM.add_node(WM[i], ind=i)
-&gt;&gt;&gt; GM.add_edges_from([('a', 'b'), ('b', 'c'), ('c', 'd'), ('c', 'e'), ('e', 'f'), ('f', 'g'), ('g', 'b')])
-&gt;&gt;&gt; LGM=turn(WM, GM)
-&gt;&gt;&gt; LGM.nodes
+<pre><code>&gt;&gt;&gt; mediumworld=['a', 'b', 'c', 'd', 'e', 'f', 'g']
+&gt;&gt;&gt; mediumgraph=nx.DiGraph()
+&gt;&gt;&gt; for i in range(0, len(mediumworld)):
+...     mediumgraph.add_node(mediumworld[i], ind=i)
+&gt;&gt;&gt; mediumgraph.add_edges_from([('a', 'b'), ('b', 'c'), ('c', 'd'), ('c', 'e'), ('e', 'f'), ('f', 'g'), ('g', 'b')])
+&gt;&gt;&gt; mediumres=turn(mediumworld, mediumgraph)
+&gt;&gt;&gt; mediumres.nodes
 NodeView(('a', 'b', 'c', 'd', 'e', 'f', 'g'))
-&gt;&gt;&gt; LGM.edges
+&gt;&gt;&gt; mediumres.edges
 OutEdgeView([('a', 'b'), ('a', 'c'), ('a', 'd'), ('a', 'e'), ('a', 'f'), ('a', 'g'), ('b', 'c'), ('b', 'd'), ('b', 'e'), ('b', 'f'), ('b', 'g'), ('c', 'd'), ('c', 'e'), ('c', 'f'), ('c', 'g'), ('d', 'e'), ('d', 'f'), ('d', 'g'), ('e', 'f'), ('e', 'g'), ('f', 'g')])
 </code></pre>
 
@@ -379,12 +388,6 @@ OutEdgeView([('a', 'b'), ('a', 'c'), ('a', 'd'), ('a', 'e'), ('a', 'f'), ('a', '
 is the non-transitive-closure version):</p>
 
 <p><img src="./img/turning/turnubc_hyp.png" alt="A path graph." title="A path graph. Vertices again {a, b, c, d, e, f, g, h}. Edges are a → b → c → d → e → f → g." /></p>
-
-<h5>Questions</h5>
-
-<ul>
-<li>Does it matter whether we give <code>turn</code> a graph <code>$G$</code> or the transitive closure of <code>$G$</code>?</li>
-</ul>
 
 <h4>Problems with This Method and its Algorithm</h4>
 
@@ -396,16 +399,19 @@ is the non-transitive-closure version):</p>
 inefficient</em> (by which I mean <em>absolutely infeasible</em>).</p>
 
 <p>Since we iterate through the permutations of <code>$W$</code>, the runtime is
-<code>$\mathcal{O}(|W|!)$</code> (with the added benefit of computing the
-<a href="https://en.wikipedia.org/wiki/NP-completeness">NP-complete</a>
+<code>$\mathcal{O}(|W|!)$</code> (with the added "benefit" of additionally computing
+the <a href="https://en.wikipedia.org/wiki/NP-completeness">NP-complete</a>
 graph edit distance inside of the loop, which is also
 <a href="https://en.wikipedia.org/wiki/APX">APX</a>-hard to approximate).</p>
 
-<!--TODO: measure runtime-->
+<p>Possible better approaches would involve finding the
+longest subgraph that is a path graph, or the <a href="https://en.wikipedia.org/wiki/Spanning_tree">spanning
+tree</a>, perhaps the
+<a href="https://en.wikipedia.org/wiki/Transitive_reduction">transitive reduction</a>
+is helpful, or maybe the <a href="https://en.wikipedia.org/wiki/Feedback_arc_set">feedback arc
+set</a>?</p>
 
-<ul>
-<li>Question: Is there a more efficient algorithm to compute the turned preference? Can it at least be made exponential?</li>
-</ul>
+<!--TODO: measure runtime, think about faster algorithms-->
 
 <h5>Non-Unique Results</h5>
 
@@ -415,7 +421,7 @@ result, as seen in the small example <a href="#Resolving-Inconsistencies">above<
 <p>We can compute the set of all possible turnings with some trivial
 changes to the algorithm:</p>
 
-<pre><code>turn_all(W, G≿=(W, E≿)):
+<pre><code>turn_all(G≿=(W, E≿)):
     mindist=∞
     R=∅
     […]
@@ -429,27 +435,27 @@ changes to the algorithm:</p>
 
 <p>and its implementation</p>
 
-<pre><code>def turn_all(W, G):
-    R=set()
+<pre><code>def turn_all(graph):
+    results=set()
     […]
         if dist&lt;mindist:
-            R=set([LG])
+            results=set([pathgraph])
             mindist=dist
         elif dist==mindist:
-            R.add(LG)
-    return R
+            results.add(pathgraph)
+    return results
 </code></pre>
 
 <p>The results, with the small example, are as expected:</p>
 
-<pre><code>&gt;&gt;&gt; S=list(turn_all(WS, GS))
-&gt;&gt;&gt; len(S)
+<pre><code>&gt;&gt;&gt; turnings=list(turn_all(smallworld, smallgraph))
+&gt;&gt;&gt; len(turnings)
 3
-&gt;&gt;&gt; S[0].edges
+&gt;&gt;&gt; turnings[0].edges
 OutEdgeView([('a', 'b'), ('a', 'c'), ('b', 'c')])
-&gt;&gt;&gt; S[1].edges
+&gt;&gt;&gt; turnings[1].edges
 OutEdgeView([('a', 'b'), ('c', 'a'), ('c', 'b')])
-&gt;&gt;&gt; S[2].edges
+&gt;&gt;&gt; turnings[2].edges
 OutEdgeView([('a', 'c'), ('a', 'b'), ('c', 'b')])
 </code></pre>
 
@@ -457,50 +463,255 @@ OutEdgeView([('a', 'c'), ('a', 'b'), ('c', 'b')])
 
 <p>For the big example, after waiting a while for the solution:</p>
 
-<pre><code>&gt;&gt;&gt; S=list(turn_all(WM, GM))
-&gt;&gt;&gt; len(S)
+<pre><code>&gt;&gt;&gt; turnings=list(turn_all(mediumworld, mediumgraph))
+&gt;&gt;&gt; len(turnings)
 49
 </code></pre>
 
 <p>I will not list them all, but these are less than the <code>$7!=5040$</code>
 possible options.</p>
 
-<p>This brings up an interesting question: As we have more and more
-elaborate inconsistent preferences with more elements, does it
+<p>This brings up an interesting question: As we have more and more</p>
+
+<p>elaborate inconsistent preferences over more worlds, does it
 become more likely that they have a unique consistent preference
 they can be turned to? Or, in other words, if we make the graphs
 bigger and bigger, can we expect the fraction of inconsistent
-preferences with a unique turning to grow (strictly)
-<a href="https://en.wikipedia.org/wiki/Monotonic_function">monotonically</a>?</p>
+preferences with a unique turning to grow or shrink (strictly)
+<a href="https://en.wikipedia.org/wiki/Monotonic_function">monotonically</a>? Or
+will it just oscillate around wildly?</p>
 
-<p>More formally, if we define <code>$\mathcal{G}$</code> as the set of graphs
+<p>More formally, if we define <code>$\mathcal{G}_n$</code> as the set of graphs
 with <code>$n$</code> nodes, and <code>$\mathcal{U}_n=\{G \in \mathcal{G}_n | 1=|\text{turn_all}(G)|\}$</code>
 as the set of graphs with <code>$n$</code> nodes that
 have unique path graphs associated with them.</p>
 
-<h6>Maximal and Minimal Number of Resolutions</h6>
+<p>We can further define the set of all graphs wwith <code>$n$</code> nodes
+with <code>$m$</code> turnings as
+<code>$\mathcal{T}{n,m}=\{G \in \mathcal{G}_n | m=|\text{turn_all}(G)|\}$</code>
+(of which <code>$\mathcal{U}_n=\mathcal{T}_{n, 1}$</code>
+is just a special case).</p>
 
-<h6>Questions</h6>
+<h6>Minimal and Maximal Number of Turnings</h6>
+
+<p>The minimal number of turnings a graph can have is 1, with a graph-edit
+distance of 0: any transitive closure of a path graph satisfies this
+criterion (if your preferences are already consistent, why change them
+to be more consistent?)</p>
+
+<p>However, those graphs aren't the only graphs with exactly one turning,
+consider the following graph (left) and a possible turning (right)
+(with graph-edit distance 1; the changed edge is red, a nice opportunity
+for some <a href="https://gwern.net/Red">rubrication</a>):</p>
+
+<p><img src="./img/turning/counter_comp.png" alt="Image of two graphs, left has edges a→ b→ c→ d, a→ c, b→ d, d→ a, right graph is the same except d→ a is now a→ d." title="Image of two graphs, left has edges a→ b→ c→ d, a→ c, b→ d, d→ a, right graph is the same except d→ a is now a→ d." /></p>
+
+<p>One can easily see that it has exactly one turning, and checking with
+the code confirms:</p>
+
+<pre><code>&gt;&gt;&gt; counter=nx.DiGraph()
+&gt;&gt;&gt; counterworld=['a', 'b', 'c', 'd']
+&gt;&gt;&gt; for i in range(0, len(smallworld)):
+... smallgraph.add_node(smallworld[i], ind=i)
+&gt;&gt;&gt; counter.add_edges_from([('a', 'b'), ('b', 'c'), ('c', 'd'), ('a', 'c'), ('b', 'd'), ('d', 'a')])
+&gt;&gt;&gt; counterres=list(turn_all(counter))
+&gt;&gt;&gt; len(counterres)
+&gt;&gt;&gt; &gt;&gt;&gt; counterres[0].edges
+OutEdgeView([('a', 'b'), ('a', 'c'), ('a', 'd'), ('b', 'c'), ('b', 'd'), ('c', 'd')])
+</code></pre>
+
+<p>For a graph with <code>$n$</code> nodes the maximal number of turnings it is
+upper-bounded by <code>$n!$</code>, and a sufficient condition for the graph to
+have that many turnings is when the graph is the union of a set of
+<a href="https://en.wikipedia.org/wiki/Complete_graph">complete digraphs</a> with
+disjoint nodes. For example the graph with 4 nodes and no edges has 24
+possible turnings, as does the graph with 4 nodes and two edges <code>$\{(1,2),
+(2,1)\}$</code>.</p>
+
+<p>We can prove this inductively: When considering a node-labeled graph
+with <code>$n$</code> nodes and no edges, the graph edit distance to any path
+graph variant of that graph is the same, because we always have to
+add <code>$n-1+n-2+n-3 \dots 1=\frac{n-1+(n-1)^2}{2}$</code> edges to reach
+any transitive closure of a path graph (by the <a href="https://en.wikipedia.org/wiki/Arithmetic_progression#Sum">sum of any arithmetic
+progression</a>).
+Let not <code>$G^{\circ}$</code> be a graph with <code>$n$</code> nodes that is solely the
+union of complete digraphs with disjoint nodes. When we now pick two nodes
+<code>$u$</code> and <code>$v$</code> from <code>$G^{\circ}$</code> and add the edges <code>$\{(u,v), (v,u)\}
+\cup \{(v, x)|(u,x) \in E^{\circ}\} \cup \{(u, y)|(v,x) \in E^{\circ}\}\}
+\cup \{(x, y)|(u,x) \in E^{\circ}, (v,y) \in E^{\circ}\}$</code> (that is,
+we connect <code>$u$</code> and <code>$v$</code>, and all their neighbors) to <code>$G^{\circ}$</code>,
+we have necessarily increased the graph-edit distance to any path graph
+by the same amount, we have symmetrically added edge-pairs that need to
+be broken in either direction.<!--TODO: make this clearer.--></p>
+
+<h3>Questions</h3>
 
 <p>One can now pose several (possibly distracting) questions:</p>
 
 <ul>
+<li>Does it matter whether we give <code>turn</code> a graph <code>$G$</code> or the transitive closure of <code>$G$</code>?</li>
+<li>Is there a more efficient algorithm to compute the turning?
+<ul>
+<li>Can it at least be made exponential?</li>
+<li>Can we exploit the fact that we're always computing the graph-edit distance to a path-graph?</li>
+</ul></li>
 <li>As we add more options to our inconsistent preferences, do they become more likely to turn uninuely?
 <ul>
 <li>That is: Does it hold that <code>$\frac{|\mathcal{U}_n|}{|\mathcal{G}_n|}&lt;\frac{|\mathcal{U}_{n+1}|}{|\mathcal{G}_{n+1}|}$</code>?</li>
 <li>It should be possible to check this for small cases.</li>
 </ul></li>
-<li>In general, how does the size of <code>$\mathcal{U}_n$</code> develop? What about graphs with 2 possible consistent turnings, or in general <code>$m$</code>?
+</ul>
+
+<h4>Number of Turnings for <code>$\mathcal{G}_n$</code></h4>
+
 <ul>
-<li>One can define <code>$\mathcal{T}(n,m)=\{G \in \mathcal{G}_n | m=|\text{turn_all}(G)|\}$</code>
+<li>In general, how does the size of <code>$\mathcal{U}_n$</code> develop? What about <code>$\mathcal{T}_{n,2}$</code>, or in general <code>$\mathcal{T}_{n,m}$</code>?
 <ul>
-<li>How, then, does <code>$\mathcal{T}(n,m)$</code> behave?</li>
 <li>Does the average number of turnings for inconsistent preferences converge to a specific number?</li>
-<li>That is, what is <code>$\lim_{n \rightarrow \infty} \frac{1}{\mathcal{G}_n} \sum_{i=1}^{n} \mathcal{T}(n,i)$</code>? Does it converge?</li>
+<li>That is, what is <code>$\lim_{n \rightarrow \infty} \frac{1}{\mathcal{G}_n} \sum_{i=1}^{n} \mathcal{T}_{n,i}$</code>?</li>
 <li>I predict <a href="https://predictionbook.com/predictions/208299">20% on the number monotonically increasing</a>, <a href="https://predictionbook.com/predictions/208300">50% on monotonically decreasing</a> and <a href="https://predictionbook.com/predictions/208300">30% on showing no clear pattern</a>.</li>
 </ul></li>
-</ul></li>
 </ul>
+
+<p>We can check these empirically! While it would be nice to prove anything
+about them, it's much nicer to investigate them computationally. This is
+pretty straightforward: For increasing <code>$n$</code>, generate <code>$\mathcal{G}_n$</code>,
+for every <code>$G \in \mathcal{G}_n$</code>, compute <code>$|\text{turn_all}(G)|$</code>, save
+the data in a file somewhere, and do interesting things with that data.</p>
+
+<p>In code, we first generate all directed graphs with <code>$n$</code> nodes with a
+recursive function</p>
+
+<pre><code>def all_directed_graphs(n):
+    if n&lt;=0:
+        return [nx.DiGraph()]
+    graphs=all_directed_graphs(n-1)
+    newgraphs=[]
+    for g in graphs:
+        g.add_node(n, ind=n)
+        for tosubset in powerset(range(1, n+1)):
+            for fromsubset in powerset(range(1, n)):
+                gnew=g.copy()
+                for element in tosubset:
+                    gnew.add_edge(n, element)
+                for element in fromsubset:
+                    gnew.add_edge(element, n)
+                newgraphs.append(gnew)
+    return newgraphs
+</code></pre>
+
+<p>and start turning:</p>
+
+<pre><code>max=16
+for i in range(0,max):
+    graphs=turn.all_directed_graphs(i)
+    for g in graphs:
+        print('{0},{1},"{2}"'.format(i, len(turn.turn_all(g)), g.edges))
+</code></pre>
+
+<p>However, my computer quickly freezes and I find out that this is a lot
+of graphs:</p>
+
+<pre><code>&gt;&gt;&gt; [len(list(all_directed_graphs(i))) for i in range(0,5)]
+[1, 2, 16, 512, 65536]
+</code></pre>
+
+<p>So the number directed graphs with 5 nodes would be
+<code>$2^{32}=4294967296$</code>, far too many for my puny laptop. But
+instead of generating them all, one can just generate a
+random sample and test on that, using the <a href="https://en.wikipedia.org/wiki/Erdős-Rényi_model">Erdős–Rényi
+model</a>,
+for which networkx has the helpful function
+<code>generators.random_graphs.gnp_random_graph</code> (Wikipedia informs us that
+"In particular, the case <code>$p=\frac{1}{2}$</code>  corresponds to the case
+where all <code>$2^{\binom {n}{2}}$</code> graphs on <code>$n$</code> vertices are chosen
+with equal probability."). We have to randomly add reflexive edges (not
+included in the model, it seems) with probability <code>$\frac{1}{2}$</code> each,
+and labels for the nodes, and then we're good to go:</p>
+
+<pre><code>samples=256
+for i in range(5,lim):
+    for j in range(0,samples):
+        g=nx.generators.random_graphs.gnp_random_graph(i, 0.5, directed=True)
+        for n in g.nodes:
+            g.add_node(n, ind=n)
+            if random.random()&gt;=0.5:
+                g.add_edge(n,n)
+        print('{0},{1},"{2}"'.format(i, len(turn.turn_all(g)), g.edges))
+</code></pre>
+
+<p>We now run the script in the background, happily collecting data for us
+(<code>python3 collect.py &gt;../../data/turnings.csv &amp;</code>), and after a nice
+round of editing this text go back and try to make sense of the data,
+which runs squarely counter my expectations:</p>
+
+<pre><code>&gt;&gt;&gt; import pandas as pd
+&gt;&gt;&gt; df=pd.read_csv('data/turnings.csv')
+&gt;&gt;&gt; df.groupby(['0']).mean()
+           1
+0
+1   1.000000
+2   1.875000
+3   3.941406
+4   9.390289
+5  21.152344
+6  39.885246
+</code></pre>
+
+<p>It seems like the mean number of turnings actually increases
+with the graph size! Surprising. I'm also interested in the
+exact numbers: Why <em>exactly</em> 3.390289… for the graphs with 4
+nodes? What is so special about that number‽ (Except it being
+the <a href="https://en.wikipedia.org/wiki/Longitude">longitude</a>
+of the <a href="https://en.wikipedia.org/wiki/Cathedral_Church_of_Christ">Cathedral Church of
+Christ</a>
+in Lagos).</p>
+
+<p>Looking at unique turnings turns (hehe) up further questions:</p>
+
+<pre><code>&gt;&gt;&gt; def uniqueratio(g):
+...     return len(g.loc[g['1']==1])/len(g)
+...
+&gt;&gt;&gt; df.groupby(['0']).apply(uniqueratio)
+0
+1    1.000000
+2    0.125000
+3    0.089844
+4    0.055542
+5    0.050781
+6    0.016393
+dtype: float64
+&gt;&gt;&gt; def uniques(g):
+...     return len(g.loc[g['1']==1])
+&gt;&gt;&gt; df.groupby(['0']).apply(uniques)
+0
+1       2
+2       2
+3      46
+4    3640
+</code></pre>
+
+<p>Very much to my surprise, searching for "2,2,46,3640" <a href="https://oeis.org/search?q=2%2C2%2C46%2C3640&amp;sort=&amp;language=english&amp;go=Search">in the
+OEIS</a>
+yields <em>no results</em>, even though the sequence really looks like something
+that would already exist! (I think it has a specifically graph-theoretic
+"feel" to it). But apparently not so, I will submit it soon.</p>
+
+<!--TODO: find this sequence on the OEIS-->
+
+<p>I omit the number of unique turnings for 5 and 6, for obvious reasons
+(I also believe that the ratio for 6 is an outlier and should not be
+counted). The number of unique resolutions for the graph with 1 node
+makes sense, though: Removing the reflexive edge should count as
+one edge action, but the graph only has one unique resolution:</p>
+
+<pre><code>&gt;&gt;&gt; df.loc[df['0']==1]
+   0  1        []
+0  1  1        []
+1  1  1  [(1, 1)]
+</code></pre>
+
+<!--TODO: play around with this more-->
 
 <h2>Encoding Inconsistencies</h2>
 
@@ -603,7 +814,7 @@ a billionaires tarantula just ate the ceiling <br />
 thinking it was yet another floor</p>
 </blockquote>
 
-<p><em>—<a href="">Patricia Taxxon</a>, <a href="">“Hellbulb”</a> from <a href="">“Gelb”</a>, YEAR<!--TODO--></em></p>
+<p><em>—<a href="http://patriciataxxon.bandcamp.com/">Patricia Taxxon</a>, <a href="https://patriciataxxon.bandcamp.com/track/hellbulb">“Hellbulb”</a> from <a href="https://patriciataxxon.bandcamp.com/album/gelb">“Gelb”</a>, 2020</em></p>
 
 <h3>Ambitious Value Learning</h3>
 
@@ -622,7 +833,7 @@ of the model. We would then like the agent to generalize this utility
 function to the entire state space of the model.</p>
 </blockquote>
 
-<p><em>—Peter de Blanc, “Ontological Crises in Artificial Agents’ Value Systems”, 2010</em></p>
+<p><em>—Peter de Blanc, <a href="./doc/cs/ai/alignment/ontological_crises/ontological_crises_in_artificial_agents_value_systems_de_blanc_2011.pdf">“Ontological Crises in Artificial Agents’ Value Systems”</a>, 2010</em></p>
 
 <p>If you know a mapping between objects from human to AI ontology, you
 could find the mapping from the (consistent) human probability simplex
