@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2022-03-04, modified: 2022-07-18, language: english, status: notes, importance: 8, confidence: unlikely</em></p>
+<p><em>author: niplav, created: 2022-03-04, modified: 2022-07-18, language: english, status: notes, importance: 8, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>Representing inconsistent preferences with specific mathematical
@@ -471,9 +471,8 @@ OutEdgeView([('a', 'c'), ('a', 'b'), ('c', 'b')])
 <p>I will not list them all, but these are less than the <code>$7!=5040$</code>
 possible options.</p>
 
-<p>This brings up an interesting question: As we have more and more</p>
-
-<p>elaborate inconsistent preferences over more worlds, does it
+<p>This brings up an interesting question: As we have more and more
+elaborate inconsistent preferences over more worlds, does it
 become more likely that they have a unique consistent preference
 they can be turned to? Or, in other words, if we make the graphs
 bigger and bigger, can we expect the fraction of inconsistent
@@ -491,6 +490,13 @@ with <code>$m$</code> turnings as
 <code>$\mathcal{T}{n,m}=\{G \in \mathcal{G}_n | m=|\text{turn_all}(G)|\}$</code>
 (of which <code>$\mathcal{U}_n=\mathcal{T}_{n, 1}$</code>
 is just a special case).</p>
+
+<p>We can call the size of the set of all turnings of a graph the
+<strong>confusion</strong> of that graph/set of inconsistent preferences: If the
+graph is already the transitive closure of a path graph, the size of
+that set is (arguendo) 1: there are no other possible turnings. If the
+graph contains no edges (with <code>$n$</code> nodes), the confusion is maximal with
+<code>$n!$</code>, the preferences carry the minimal amount of meaning.</p>
 
 <h6>Minimal and Maximal Number of Turnings</h6>
 
@@ -555,7 +561,7 @@ be broken in either direction.<!--TODO: make this clearer.--></p>
 <li>Can it at least be made exponential?</li>
 <li>Can we exploit the fact that we're always computing the graph-edit distance to a path-graph?</li>
 </ul></li>
-<li>As we add more options to our inconsistent preferences, do they become more likely to turn uninuely?
+<li>As we add more options to our inconsistent preferences, do they become more likely to turn uniquely?
 <ul>
 <li>That is: Does it hold that <code>$\frac{|\mathcal{U}_n|}{|\mathcal{G}_n|}&lt;\frac{|\mathcal{U}_{n+1}|}{|\mathcal{G}_{n+1}|}$</code>?</li>
 <li>It should be possible to check this for small cases.</li>
@@ -569,7 +575,7 @@ be broken in either direction.<!--TODO: make this clearer.--></p>
 <ul>
 <li>Does the average number of turnings for inconsistent preferences converge to a specific number?</li>
 <li>That is, what is <code>$\lim_{n \rightarrow \infty} \frac{1}{\mathcal{G}_n} \sum_{i=1}^{n} \mathcal{T}_{n,i}$</code>?</li>
-<li>I predict <a href="https://predictionbook.com/predictions/208299">20% on the number monotonically increasing</a>, <a href="https://predictionbook.com/predictions/208300">50% on monotonically decreasing</a> and <a href="https://predictionbook.com/predictions/208300">30% on showing no clear pattern</a>.</li>
+<li>I predict <a href="https://predictionbook.com/predictions/208357">20% on the number monotonically increasing</a>, <a href="https://predictionbook.com/predictions/208358">50% on monotonically decreasing</a> and <a href="https://predictionbook.com/predictions/208359">30% on showing no clear pattern</a>.</li>
 </ul></li>
 </ul>
 
@@ -654,13 +660,13 @@ which runs squarely counter my expectations:</p>
 2   1.875000
 3   3.941406
 4   9.390289
-5  21.152344
-6  39.885246
+5  20.554422
+6  47.389381
 </code></pre>
 
 <p>It seems like the mean number of turnings actually increases
 with the graph size! Surprising. I'm also interested in the
-exact numbers: Why <em>exactly</em> 3.390289… for the graphs with 4
+exact numbers: Why <em>exactly</em> 9.390289… for the graphs with 4
 nodes? What is so special about that number‽ (Except it being
 the <a href="https://en.wikipedia.org/wiki/Longitude">longitude</a>
 of the <a href="https://en.wikipedia.org/wiki/Cathedral_Church_of_Christ">Cathedral Church of
@@ -844,6 +850,12 @@ to the AI simplex?</p>
 <p>A node splits in two or more, or two or more nodes get merged. If the
 then resulting graph isn't a path graph, it can be turned with the
 method described above.</p>
+
+<h5>Calculating Utility Over Non-Unique Turnings</h5>
+
+<h6>Incorporating Moral Uncertainty</h6>
+
+<h6>Multiple Ontological Shifts</h6>
 
 <h2>Further Questions</h2>
 

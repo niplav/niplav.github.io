@@ -59,6 +59,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2022, modified: 2022-07-19, language: english, status: notes, importance: 6, confidence: certain</em></p>
+
+<blockquote>
+  <p><strong>.</strong> </p>
+</blockquote>
+
 <h1>Iqisa Documentation</h1>
 
 <p>Iqisa is a library for handling and comparing different forecasting
@@ -124,7 +132,7 @@ at forecasting on all questions:</p>
 &gt;&gt;&gt; scores=iqs.score(market_fcasts, brier_score)
 &gt;&gt;&gt; scores
                 score
-question_id          
+question_id
 1017.0       0.147917
 1038.0       0.177000
 ...               ...
@@ -171,7 +179,7 @@ function</a>:</p>
 <pre><code>&gt;&gt;&gt; aggr_scores=iqs.score(aggregations, brier_score)
 &gt;&gt;&gt; aggr_scores
                 score
-question_id          
+question_id
 1017.0       0.137540
 1038.0       0.176242
 ...               ...
@@ -296,7 +304,7 @@ in a subclass.</p>
 <ul>
 <li><code>question_id</code>: Follows the format <code>[0-9]{4}</code>.</li>
 <li><code>team_id</code>: The team "DEFAULT" is given the ID 0.</li>
-<li><code>answer_option</code>: One of 'a', 'b', 'c', 'd' or 'e' (or rarely <code>[numpy](https://numpy.org/).nan</code> for market data).</li>
+<li><code>answer_option</code>: One of 'a', 'b', 'c', 'd' or 'e' (or rarely <code>numpy.nan</code> for market data).</li>
 <li><code>outcome</code>: One of 'a', 'b', 'c', 'd', or 'e' (or rarely <code>numpy.nan</code>, in the case of voided questions).</li>
 <li><code>q_status</code>: One of 'closed', 'voided' or 'open'.</li>
 <li><code>q_type</code>: Integer between 0 and 6 (inclusive).
