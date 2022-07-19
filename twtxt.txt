@@ -1400,3 +1400,4 @@
 2022-07-18T18:17:53.000000Z	I had to reject the p-zombie, they just weren't qualiafied
 2022-07-18T21:57:44.000000Z	OpenPhans
 2022-07-19T00:01:57.000000Z	I'm a midwit with high need for cognition
+2022-07-19T00:11:23.000000Z	daily reminder that most politicians wouldn't be able to explain the concept of expected value to you if you asked them
