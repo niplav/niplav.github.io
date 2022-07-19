@@ -1401,3 +1401,4 @@
 2022-07-18T21:57:44.000000Z	OpenPhans
 2022-07-19T00:01:57.000000Z	I'm a midwit with high need for cognition
 2022-07-19T00:11:23.000000Z	daily reminder that most politicians wouldn't be able to explain the concept of expected value to you if you asked them
+2022-07-19T22:20:43.000000Z	find the next number in the sequence 0,2,2,46,3640
