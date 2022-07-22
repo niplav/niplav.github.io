@@ -1241,7 +1241,7 @@
 2022-05-07T23:42:42.000000Z	what the hell my phone gives me tracers in the dark if i move it
 2022-05-09T13:55:41.000000Z	pickup artistry is incredibly feminine: if you were masculine, women would come to you anyway
 2022-05-09T14:46:44.000000Z	Statisticians: NOoooooo you can't execute a t-test on elements from a Likert scale! Psychologists: Hah NHST go brrrrrrrrr
-2022-05-09T15:01:25.000000Z	what is the MNIST of education interventions? what the ImageNet? what the Danbooru 2021‽"
+2022-05-09T15:01:25.000000Z	what is the MNIST of education interventions? what the ImageNet? what the Danbooru 2021‽
 2022-05-09T15:28:09.000000Z	menchbarks
 2022-05-10T08:52:32.000000Z	just downloaded micatwoa html files inshallah
 2022-05-10T10:46:59.000000Z	comment quality in /r/rational worse than on LW
@@ -1408,3 +1408,4 @@
 2022-07-20T21:56:57.000000Z	biology:philosophy of mind::ethology:meditation
 2022-07-21T12:03:37.000000Z	myopic consequentialism might often outperform heuristics, don't know about full consequentialism in bounded agents tho
 2022-07-21T13:52:18.000000Z	what are people's attitudes towards others voting selfishly vs. not voting at all?
+2022-07-22T10:44:09.000000Z	a rationalists lament
