@@ -1414,3 +1414,4 @@
 2022-07-24T20:52:13.000000Z	todo: find a way to track ontology shifts in neural networks
 2022-07-24T20:52:30.000000Z	that probably relies on a bunch of interpretability work done beforehand
 2022-07-24T20:53:04.000000Z	HOW DO THOSE PEOPLE READ SO MUCH
+2022-07-24T21:56:21.000000Z	shoutout to the woman that broke my heart so that I now read papers titled stuff like “Multiverse-wide Cooperation via Correlated Decision Making”
