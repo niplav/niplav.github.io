@@ -1413,3 +1413,4 @@
 2022-07-23T20:57:49.000000Z	me reading planecrash is unstable bc while reading it I become so enthusiastic about reading textbooks that I go off and do that instead
 2022-07-24T20:52:13.000000Z	todo: find a way to track ontology shifts in neural networks
 2022-07-24T20:52:30.000000Z	that probably relies on a bunch of interpretability work done beforehand
+2022-07-24T20:53:04.000000Z	HOW DO THOSE PEOPLE READ SO MUCH
