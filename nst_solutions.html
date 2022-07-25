@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2019-03-20, modified: 2022-07-05, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2019-03-20, modified: 2022-07-23, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 
 <blockquote>
   <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -1283,4 +1283,55 @@ Then in the former case we know that
 (as per the text). In the latter case we know that
 <code>$X_{\star} \times X_{n+1}=\emptyset \times X_{n+1}=\emptyset$</code>,
 so in both cases we get the empty set as a result.</p>
+
+<h3>Stray Exercise 2</h3>
+
+<p>To prove:</p>
+
+<h5>I.</h5>
+
+<blockquote>
+  <p>there exists a function <code>$f$</code> with domain <code>$\mathcal{C}$</code> such that if
+<code>$A \in \mathcal{C}$</code>, then <code>$f(A) \in A$</code></p>
+</blockquote>
+
+<p>and</p>
+
+<h5>II.</h5>
+
+<blockquote>
+  <p>if <code>$\mathcal{C}$</code> is a collection of pairwise disjoint non-empty sets,
+then there exists a set <code>$A$</code> such that <code>$A \cap C$</code> is a singleton for
+each <code>$C$</code> in <code>$\mathcal{C}$</code></p>
+</blockquote>
+
+<p>are equivalent to the axiom of choice:</p>
+
+<blockquote>
+  <p><strong>Axiom of choice.</strong> The Cartesian product of a non-empty family of
+non-empty sets is non-empty.</p>
+</blockquote>
+
+<h4>I.</h4>
+
+<p>We need to prove two directions: <code>$\text{I} \Rightarrow \text{AOC}$</code>
+and <code>$\text{AOC} \Rightarrow \text{I}$</code>.</p>
+
+<p>For <code>$\text{AOC} \Rightarrow \text{I}$</code>, let <code>$\mathcal{C}^{\times}=C_1
+\times C_2 \times \dots$</code>.  Let <code>$C^{\times}$</code> be any element of
+<code>$\mathcal{C}^{\times}$</code> (Can we do that? Or does this then circularly
+depend on a choice function on <code>$\mathcal{C}^{\times}$</code>?<!-TODO-->). Then
+we can define <code>$f$</code> by <code>$f(C_i)=C^{\times}(i)$</code> (since <code>$C^{\times}$</code>
+is a tuple).</p>
+
+<p>For <code>$\text{I} \Rightarrow \text{AOC}$</code>, we can construct at least one
+element of the Cartesian product of <code>$\mathcal{C}$</code> by constructing
+the element <code>$(f(C_1), f(C_2), f(C_3), \dots)$</code>. This tuple must be an
+element of the Cartesian product of the elements in <code>$\mathcal{C}$</code>,
+therefore that Cartesian product can't be empty.</p>
+
+<h4>II.</h4>
+
+<p>This is actually a special case of I: we just define <code>$f(C)=C \cap
+A$</code>. This gives us the results from above.</p>
 </html>

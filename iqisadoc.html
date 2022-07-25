@@ -59,14 +59,6 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
-<h2><a href="./index.html">home</a></h2>
-
-<p><em>author: niplav, created: 2022, modified: 2022-07-19, language: english, status: notes, importance: 6, confidence: certain</em></p>
-
-<blockquote>
-  <p><strong>.</strong> </p>
-</blockquote>
-
 <h1>Iqisa Documentation</h1>
 
 <p>Iqisa is a library for handling and comparing different forecasting
@@ -96,8 +88,6 @@ surveys:</p>
 
 <pre><code>&gt;&gt;&gt; survey_fcasts=gjp.load_surveys()
 </code></pre>
-
-<p>The <code>gjp.load_markets()</code> function might throw some warnings.</p>
 
 <p>Now <code>market_fcasts</code> contains the forecasts from all prediction markets
 from the Good Judgement Project as a <a href="https://pandas.pydata.org/">pandas</a>
@@ -265,12 +255,7 @@ is a pandas DataFrame<!--TODO: link--> with shared columns:</p>
 <li><code>outcome</code>: The outcome of the question, type <code>str</code>.</li>
 <li><code>open_time</code>: The time at which the question was opened, i.e. at which forecasts could start. Type <code>datetime64[ns]</code></li>
 <li><code>close_time</code>: The time at which the question was closed, i.e. at which the last possible forecast could be made. Type <code>datetime64[ns]</code>.</li>
-<li><code>resolve_time</code>: The time at which the resolution of the question was available. Type <code>datetime64[ns]</code>.
-<!--</li>
-<li><code>date_start</code>: * <code>date_suspend</code>: The datetime at which the question was suspended, i.e. at which no further forecasts were possible. Type <code>datetime64[ns]</code>. The biggest difference from <code>date_closed</code> seems to be that it also includes the time of closures.</li>
-<li><code>date_to_close</code>: The planned closing date of the question, type <code>datetime64[ns]</code>.</li>
-<li><code>date_closed</code>: The datetime at which the question was closed, type <code>datetime64[ns]</code>.
---></li>
+<li><code>resolve_time</code>: The time at which the resolution of the question was available. Type <code>datetime64[ns]</code>.</li>
 <li><code>days_open</code>: The days for which the quesion was open, type <code>timedelta64[ns]</code>.</li>
 <li><code>n_opts</code>: The number of options the question had, type <code>int64</code>.</li>
 <li><code>options</code>: A string containing a description of the different possible options, type <code>str</code>.</li>
@@ -295,77 +280,35 @@ in a subclass.</p>
 
 <h2>Loading Functions</h2>
 
-<h3><code>gjp.load_surveys(files=None)</code></h3>
+<p>The following functions can be used to load the forecasting data.</p>
 
-<h4>Data Peculiarities</h4>
+<h3><code>gjp.load_surveys(files=None, processed=True, complete=False)</code> and <code>gjp.load_markets(files=None, processed=True, complete=False)</code></h3>
 
-<p>The GJOpen forecast data has some peculiarities, which are described here:</p>
+<p><code>gjp.load_surveys()</code> loads forecasting data from GJP surveys, and
+<code>gjp.load_markets()</code> loads forecasting data from GJP prediction
+markets. They have the same arguments.</p>
+
+<h4>Arguments</h4>
 
 <ul>
-<li><code>question_id</code>: Follows the format <code>[0-9]{4}</code>.</li>
-<li><code>team_id</code>: The team "DEFAULT" is given the ID 0.</li>
-<li><code>answer_option</code>: One of 'a', 'b', 'c', 'd' or 'e' (or rarely <code>numpy.nan</code> for market data).</li>
-<li><code>outcome</code>: One of 'a', 'b', 'c', 'd', or 'e' (or rarely <code>numpy.nan</code>, in the case of voided questions).</li>
-<li><code>q_status</code>: One of 'closed', 'voided' or 'open'.</li>
-<li><code>q_type</code>: Integer between 0 and 6 (inclusive).
+<li><code>files</code>: If <code>None</code>, the data is loaded from the default files (depending on the value of <code>processed</code>). Expects a list of strings of the filenames.
 <ul>
-<li>0: regular binomial or multinomial question</li>
-<li>1-5: conditional question, index designated by the specific type (<code>q_type</code> 2: 2nd conditional question)</li>
-<li>6: Ordered multinomial question</li>
+<li>If <code>processed</code> is <code>True</code>, <code>files</code> is by default <code>gjp.processed_survey_files</code>) (for <code>gjp.load_surveys()</code>) or <code>gjp.processed_market_files</code> (for <code>gjp.load_markets()</code>)</li>
+<li>If <code>processed</code> is <code>False</code>, <code>files</code> is by default <code>gjp.survey_files</code> (for <code>gjp.load_surveys()</code>) or <code>gjp.market_files</code> (for <code>gjp.load_markets()</code>)</li>
 </ul></li>
+<li><code>processed</code>: Whether to load the data from a pre-processed file (if <code>True</code>) or from the original files (if <code>False</code>). The main difference is in speed, loading from the pre-processed file is much faster.</li>
+<li><code>complete</code>: Whether to load all columns present in the dataset (if <code>True</code>) or only columns described <a href="#Forecasts">here</a> (if <code>False</code>). Loading all columns returns a bigger and more confusing DataFrame, loading the comparable subset always returns a subset of the columns of the "complete" DataFrame.</li>
 </ul>
 
-<h4><code>gjp.survey_files</code></h4>
+<h4>Returns</h4>
 
-<p>A list containing the names of all files in the dataset that contain
-data from surveys:</p>
+<p>A DataFrame in the format described <a href="#Forecasts">here</a> loaded from
+<code>files</code>, potentially with additional columns.</p>
 
-<ul>
-<li>./data/gjp/survey_fcasts.yr1.csv</li>
-<li>./data/gjp/survey_fcasts.yr2.csv</li>
-<li>./data/gjp/survey_fcasts.yr3.csv.zip</li>
-<li>./data/gjp/survey_fcasts.yr4.csv.zip</li>
-</ul>
+<h5>Additional Fields when <code>complete=True</code></h5>
 
-<h3><code>gjp.load_markets(files=None)</code></h3>
-
-<h4><code>gjp.market_files</code></h4>
-
-<p>A list containing the names of all files in the dataset that contain
-trades on prediction markets:</p>
-
-<ul>
-<li>./data/gjp/pm_transactions.lum1.yr2.csv</li>
-<li>./data/gjp/pm_transactions.lum2.yr2.csv</li>
-<li>./data/gjp/pm_transactions.lum1.yr3.csv</li>
-<li>./data/gjp/pm_transactions.lum2a.yr3.csv</li>
-<li>./data/gjp/pm_transactions.lum2.yr3.csv</li>
-<li>./data/gjp/pm_transactions.inkling.yr3.csv</li>
-<li>./data/gjp/pm_transactions.control.yr4.csv</li>
-<li>./data/gjp/pm_transactions.batch.train.yr4.csv</li>
-<li>./data/gjp/pm_transactions.batch.notrain.yr4.csv</li>
-<li>./data/gjp/pm_transactions.supers.yr4.csv</li>
-<li>./data/gjp/pm_transactions.teams.yr4.csv</li>
-</ul>
-
-<h3><code>metaculus.load_private_binary(data_file)</code></h3>
-
-<h3><code>metaculus.load_questions(q_files=None)</code></h3>
-
-<h3><code>gjp.load_questions(q_files=None)</code></h3>
-
-<p>Returns a pandas DataFrame with the columns described <a href="#Questions">here</a>
-loaded from <code>q_files</code>, by default from the files listed in
-<code>gjp.questions_files</code> (value <code>[./data/gjp/ifps.csv]</code>).</p>
-
-<p>Additionally, this questions data contains the columns</p>
-
-<ul>
-<li><code>q_desc</code>: The description of the question, including resolution criteria, type <code>str</code>.</li>
-<li><code>short_title</code>: The shortened title of the question, type <code>str</code>.</li>
-</ul>
-
-<h3><code>gjp.load_complete_surveys(files=None)</code></h3>
+<p>Setting <code>complete=True</code> loads the following additional fields for
+<code>gjp.load_surveys()</code>:</p>
 
 <ul>
 <li><code>forecast_id</code></li>
@@ -379,7 +322,8 @@ loaded from <code>q_files</code>, by default from the files listed in
 <li><code>short_title</code></li>
 </ul>
 
-<h3><code>gjp.load_complete_markets(files=None)</code></h3>
+<p>Setting <code>complete=True</code> loads the following additional fields for
+<code>gjp.load_markets()</code>:</p>
 
 <ul>
 <li><code>islong</code></li>
@@ -402,6 +346,94 @@ loaded from <code>q_files</code>, by default from the files listed in
 <li><code>prob_est</code></li>
 <li><code>market_name</code></li>
 </ul>
+
+<h4>Data Peculiarities</h4>
+
+<p>The GJOpen forecast data has some peculiarities, which are described here:</p>
+
+<ul>
+<li><code>question_id</code>: Follows the format <code>[0-9]{4}</code>.</li>
+<li><code>team_id</code>: The team "DEFAULT" is given the ID 0.</li>
+<li><code>answer_option</code>: One of 'a', 'b', 'c', 'd' or 'e' (or rarely <code>numpy.nan</code> for market data).</li>
+<li><code>outcome</code>: One of 'a', 'b', 'c', 'd', or 'e' (or rarely <code>numpy.nan</code>, in the case of voided questions).</li>
+<li><code>q_status</code>: One of 'closed', 'voided' or 'open'.</li>
+<li><code>q_type</code>: Integer between 0 and 6 (inclusive).
+<ul>
+<li>0: regular binomial or multinomial question</li>
+<li>1-5: conditional question, index designated by the specific type (<code>q_type</code> 2: 2nd conditional question)</li>
+<li>6: Ordered multinomial question</li>
+</ul></li>
+</ul>
+
+<h3><code>gjp.load_questions(files=None)</code></h3>
+
+<p>Returns a pandas DataFrame with the columns described <a href="#Questions">here</a>
+loaded from <code>files</code>, by default from the files listed in
+<code>gjp.questions_files</code> (value <code>[./data/gjp/ifps.csv]</code>).</p>
+
+<p>The field <code>resolve_time</code> is the same as <code>close_time</code>, as the GJOpen data
+doesn't distinguish the two times.</p>
+
+<p>Additionally, this questions data contains the columns</p>
+
+<ul>
+<li><code>q_desc</code>: The description of the question, including resolution criteria, type <code>str</code>.</li>
+<li><code>short_title</code>: The shortened title of the question, type <code>str</code>.</li>
+</ul>
+
+<h3><code>gjp.survey_files</code></h3>
+
+<p>A list containing the names of all files in the dataset that contain
+data from surveys:</p>
+
+<ul>
+<li>./data/gjp/survey_fcasts.yr1.csv</li>
+<li>./data/gjp/survey_fcasts.yr2.csv</li>
+<li>./data/gjp/survey_fcasts.yr3.csv.zip</li>
+<li>./data/gjp/survey_fcasts.yr4.csv.zip</li>
+</ul>
+
+<h3><code>gjp.market_files</code></h3>
+
+<p>A list containing the names of all files in the dataset that contain
+trades on prediction markets:</p>
+
+<ul>
+<li>./data/gjp/pm_transactions.lum1.yr2.csv</li>
+<li>./data/gjp/pm_transactions.lum2.yr2.csv</li>
+<li>./data/gjp/pm_transactions.lum1.yr3.csv</li>
+<li>./data/gjp/pm_transactions.lum2a.yr3.csv</li>
+<li>./data/gjp/pm_transactions.lum2.yr3.csv</li>
+<li>./data/gjp/pm_transactions.inkling.yr3.csv</li>
+<li>./data/gjp/pm_transactions.control.yr4.csv</li>
+<li>./data/gjp/pm_transactions.batch.train.yr4.csv</li>
+<li>./data/gjp/pm_transactions.batch.notrain.yr4.csv</li>
+<li>./data/gjp/pm_transactions.supers.yr4.csv</li>
+<li>./data/gjp/pm_transactions.teams.yr4.csv</li>
+</ul>
+
+<h3><code>gjp.processed_survey_files</code> and <code>gjp.processed_market_files</code></h3>
+
+<p>Preprocessed files that contain all survey data
+(<code>./data/gjp/surveys.csv.zip</code>) and all market data
+(<code>./data/gjp/markets.csv.zip</code>).</p>
+
+<h3><code>metaculus.load_private_binary(data_file)</code></h3>
+
+<p>Load private binary <a href="https://www.metaculus.com/">Metaculus</a> forecasting
+data in the format the Metaculus developers give to researchers.</p>
+
+<p><code>data_file</code> is the path to the file holding the private binary data.</p>
+
+<p>Returns a DataFrame in <a href="#Forecasts">this format</a>. If the Metaculus
+questions file in the iqisa repository is outdated this might only load
+a subset of the forecasts in <code>data_file</code>.</p>
+
+<h3><code>metaculus.load_questions(files=None)</code></h3>
+
+<p>Returns a pandas DataFrame with the columns described <a href="#Questions">here</a>
+loaded from <code>files</code>, by default from the files listed in
+<code>metaculus.questions_files</code> (value <code>[./data/metaculus/questions.csv]</code>).</p>
 
 <h2>General Functions</h2>
 
