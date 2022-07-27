@@ -1420,3 +1420,4 @@
 2022-07-25T15:21:45.000000Z	did women really faint that often in the past? if yes, what changed so they don't anymore?
 2022-07-26T22:11:24.000000Z	lw events should give one the ability to report probabilities
 2022-07-26T22:11:47.000000Z	malign prior as an idealized case of meta-optimization
+2022-07-27T10:39:28.000000Z	using subscripts for probability assignments?
