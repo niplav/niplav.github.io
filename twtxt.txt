@@ -1422,3 +1422,4 @@
 2022-07-26T22:11:47.000000Z	malign prior as an idealized case of meta-optimization
 2022-07-27T10:39:28.000000Z	using subscripts for probability assignments?
 2022-07-27T10:40:26.000000Z	see https://www.gwern.net/Subscripts#evidentials
+2022-07-27T21:14:07.000000Z	i think in practice people were most convinced by timelines, if not arguments, then observations abt progress.
