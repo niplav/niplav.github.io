@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2022-03-04, modified: 2022-07-19, language: english, status: notes, importance: 8, confidence: likely</em></p>
+<p><em>author: niplav, created: 2022-03-04, modified: 2022-07-28, language: english, status: notes, importance: 8, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>Representing inconsistent preferences with specific mathematical
@@ -541,7 +541,7 @@ graph variant of that graph is the same, because we always have to
 add <code>$n-1+n-2+n-3 \dots 1=\frac{n-1+(n-1)^2}{2}$</code> edges to reach
 any transitive closure of a path graph (by the <a href="https://en.wikipedia.org/wiki/Arithmetic_progression#Sum">sum of any arithmetic
 progression</a>).
-Let not <code>$G^{\circ}$</code> be a graph with <code>$n$</code> nodes that is solely the
+Let now <code>$G^{\circ}$</code> be a graph with <code>$n$</code> nodes that is solely the
 union of complete digraphs with disjoint nodes. When we now pick two nodes
 <code>$u$</code> and <code>$v$</code> from <code>$G^{\circ}$</code> and add the edges <code>$\{(u,v), (v,u)\}
 \cup \{(v, x)|(u,x) \in E^{\circ}\} \cup \{(u, y)|(v,x) \in E^{\circ}\}\}
@@ -581,7 +581,7 @@ be broken in either direction.<!--TODO: make this clearer.--></p>
 </ul>
 
 <p>We can check these empirically! While it would be nice to prove anything
-about them, it's much nicer to investigate them computationally. This is
+about them, I'm just as happy to investigate them computationally. This is
 pretty straightforward: For increasing <code>$n$</code>, generate <code>$\mathcal{G}_n$</code>,
 for every <code>$G \in \mathcal{G}_n$</code>, compute <code>$|\text{turn_all}(G)|$</code>, save
 the data in a file somewhere, and do interesting things with that data.</p>
@@ -756,7 +756,7 @@ of this text, we want to ideally find a set of mathematical structures
 <li>Weak Condition of <em>Complete Representation</em>: For every <code>$\not p \in \not P$</code> there exists at least one element of <code>$\not \curlyvee$</code> that represents <code>$\not p$</code>.</li>
 <li>Strong Condition of <em>Complete Unique Representation</em>: There is a <a href="https://en.wikipedia.org/wiki/Bijection,_injection_and_surjection">bijection</a> between <code>$\not P$</code> and <code>$\not \curlyvee$</code>.</li>
 </ol></li>
-<li>has a strict subset <code>$\curlyvee \subset \not \curlyvee$</code> so that <code>$\curlyvee$</code> can represent only consistent preferences.</li>
+<li>There is a strict subset <code>$\curlyvee \subset \not \curlyvee$</code> so that <code>$\curlyvee$</code> can represent only consistent preferences.</li>
 </ol>
 
 <h3>Discrete Case</h3>
@@ -878,17 +878,80 @@ different preference in a "subspace" than in the whole space.</p>
 
 <p>Following are notes on three different possible approaches for
 mathematical structures to represent inconsistent &amp; consistent
-preferences.</p>
+preferences. None of these satisfy me as approaches, this could be
+rectified through finding a better structure or better algorithms for
+the individual structures.</p>
 
 <h4>Uncountably Large Graphs over Probability Simplices</h4>
 
-<h5>Incompleteness</h5>
+<p>In utility theory and social choice theory, lotteries over
+options are often represented by the so-called probability
+<a href="https://en.wikipedia.org/wiki/Simplex">simplex</a>: each vertex of
+the simplex represents one option, and each point within the simplex
+represents a lottery over the options represented by the vertices,
+where the coordinates of every point sum to 1.</p>
 
-<h5>Intransitivity</h5>
+<p>For example, the set of all lotteries over one option is a simple point,
+over two options it is a line segment, for three options it is a triangle,
+for four it is a tetrahedron etc.</p>
+
+<p>Then for example the lottery <code>$[0.5: a, 0.5: b]$</code> is right in the middle
+on the line between <code>$a$</code> and <code>$b$</code>, the lottery <code>$[⅓: a, ⅓: b, ⅓: c]$</code>
+is represented by the point in the middle of an <a href="https://en.wikipedia.org/wiki/Equilateral_triangle">equilateral
+triangle</a>, while
+<code>$[0.5: a, 0.5: b, 0: c]$</code> is in the middle of one edge of that triangle.</p>
+
+<p><img src="./img/turning/simplex_1.png" alt="" title="" /></p>
+
+<p><img src="./img/turning/simplex_2.png" alt="" title="" /></p>
+
+<p>Let's call the probability simplex for lotteries over a world <code>$W$</code>
+<code>$Δ_W$</code>, often just <code>$Δ$</code> for short (because of the triangle, get it?).</p>
+
+<p>So one can naïvely just extend the concept of graphs over options to
+graphs over lotteries: The vertices of the graph are elements in <code>$Δ$</code>,
+and edges are in <code>$Δ \times Δ$</code>.</p>
+
+<h5>Incompleteness &amp; Intransitivity</h5>
+
+<p>One can transfer the representations for <a href="#Incompleteness">incompleteness</a>
+and <a href="#Intransitivity">intransitivity</a> directly from the discrete case:
+Incompleteness exists if for two lotteries <code>$l_1, l_2 \in Δ_W$</code> there
+are no edges <code>$(l_1, l_2), (l_2, l_1)$</code> in the graph, intransitivity
+exists if when for three lotteries <code>$l_1, l_2, l_3$</code> and edges <code>$(l_1, l_2), (l_2, l_3)$</code>
+there exists no edge <code>$(l_1, l_3)$</code> (because of tacit antisymmetry this
+excludes cycles). However, because the graph is <em>very</em> dense (uncountably
+so, in fact!) this is difficult to visualize.</p>
+
+<p><img src="./img/turning/incomplete_lott.jpg" alt="" title="" /></p>
+
+<p>In this example, we have two options <code>$\{a,b\}$</code>. Every lottery where
+<code>$a$</code> has a probability higher than some threshold (let's say <code>$0.55$</code>)
+is incomparable to any lottery where <code>$p(a)&lt;0.55$</code>. But otherwise the
+preference is simple: <code>$[1-p:a, p:b] \succsim [1-q:a, q: b]$</code> iff <code>$p&gt;q$</code>.</p>
+
+<p>The image tries to say exactly that: everything left of the red line is
+comparable to one another, as is everything to the right of the red line,
+and in both cases the more <code>$b$</code> the better. It merely leaves out most
+of the edges.</p>
+
+<p><img src="./img/turning/intrans_lott_1.jpg" alt="" title="" /></p>
+
+<p>This image details shows one intransitive case: We always prefer more
+<code>$b$</code>, <em>except</em> that we prefer pure <code>$a$</code> to pure <code>$b$</code> (I may display
+this preference in my personal life: In the case of cake with fruit,
+I always prefer less fruit and more cake, <em>but</em> I usually prefer pure
+fruit to pure cake).</p>
+
+<p><img src="./img/turning/intrans_lott_2.jpg" alt="" title="" /></p>
 
 <h5>Discontinuity</h5>
 
 <h5>Dependence</h5>
+
+<h5>Representing Only Consistent Preferences</h5>
+
+<h5>Problems</h5>
 
 <h4>Vector Fields over Probability Simplices</h4>
 

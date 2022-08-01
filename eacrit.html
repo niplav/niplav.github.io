@@ -1,0 +1,99 @@
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<!DOCTYPE HTML>
+
+<style TYPE="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/javascript" async
+	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+</script>
+
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+
+<script>
+var anchorhash={}
+function addAnchor(element) {
+	var cnt=element.textContent
+	if(cnt==="home")
+		return;
+	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
+	ref=ref.replace(/ /mg, "-")
+	var newref=ref;
+	if(anchorhash[ref]===1)
+		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
+			;
+	ref=newref
+	element.setAttribute("id", `${ref}`)
+	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
+	anchorhash[ref]=1
+}
+document.addEventListener('DOMContentLoaded', function () {
+	// Add anchor links to all headings
+	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
+	if (headers) {
+		headers.forEach(addAnchor)
+	}
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+
+<h2><a href="./index.html">home</a></h2>
+
+<p><em>author: niplav, created: 2022-07-28, modified: 2022-07-28, language: english, status: notes, importance: 5, confidence: unlikely</em></p>
+
+<blockquote>
+  <p><strong>A note on the effective altruism community pointing out a tension
+between truth-seeking and effecitveness present in the community.</strong></p>
+</blockquote>
+
+<h1>Effective Altruism is a Pareto Frontier of Truth and Power</h1>
+
+<p>In order to be effective in the world one needs to coordinate
+(exchange evidence, enact plans in groups, find shared descriptions
+of the world) and interact with hostile entities (people who lie,
+people who want to steal your resources, subsystems of otherwise
+aligned people who want to do those things, engage in public
+relations or zero-sum conflict). Solving those often requires trading
+off truth for "power" on the margin, e.g. by nudging members to
+"just accept" conclusions for action believed to be a basis for
+effective action (since making elaborate arguments common knowledge <a href="https://www.lesswrong.com/posts/9QxnfMYccz9QRgZ5z">is
+costly</a> and agreement
+converges slowly on evidence-sharing<!--TODO: link Aaronson post on
+Complexity of Disagreement-->), by <a href="https://www.lesswrong.com/s/uLEjM2ij5y3CXXW6c/p/fhJkQo34cYw6KqpH3">misrepresenting beliefs to other
+actors</a>
+to make them more favorable towards effective
+altruism, or by choosing easy-communicable <a href="https://www.lesswrong.com/s/yiFxBWDXnLpbWGTkK/p/edEXi4SpkXfvaX42j">Schelling
+categories</a>
+that minmax utility to the lowest-bounded agents.</p>
+
+<p>On the one side of the Pareto frontier one would have an even more
+akrasia-plagued version of the rationality community with excellent
+epistemics but which would be universally hated, on the other hand one
+would have the attendants of <a href="">this party</a><!--TODO: link Aella post-->.</p>
+
+<p>Members of effective altruism seem not explicitely aware of this tradeoff
+(maybe for power-related reasons?) or at least don't talk about it,
+even though it appears to be relevant.</p>
+</html>
