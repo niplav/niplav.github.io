@@ -1439,3 +1439,4 @@
 2022-08-01T17:25:07.000000Z	a quokka the size & strength of a bear
 2022-08-01T21:20:51.000000Z	I have an intuition that publicly wondering about whether $SPECIFC_PERSON is a psychopath would be positive EV
 2022-08-04T14:34:47.000000Z	from now on, when talking about fractions, i will only use the terms “upper number” and “lower number”. those both have shorter syllables AND they're vastly easier to understand. Thank you for coming to my TED talk.
+2022-08-04T15:38:35.000000Z	L'an 2100 ne passera pas
