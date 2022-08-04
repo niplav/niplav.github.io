@@ -1440,3 +1440,4 @@
 2022-08-01T21:20:51.000000Z	I have an intuition that publicly wondering about whether $SPECIFC_PERSON is a psychopath would be positive EV
 2022-08-04T14:34:47.000000Z	from now on, when talking about fractions, i will only use the terms “upper number” and “lower number”. those both have shorter syllables AND they're vastly easier to understand. Thank you for coming to my TED talk.
 2022-08-04T15:38:35.000000Z	L'an 2100 ne passera pas
+2022-08-04T16:07:55.000000Z	It seems quite unlikely to me that humans will cease to care about wealth after the singularity (15% maybe?), or that markets will cease to exist after the singularity (30% or sth). so the best investment strategy now for post-singularity scenarios is to invest broadly in the economy. not sure about divesting from AGI companies (bc they accelerate danger) or AI hardware companies (ditto)—they're going to especially valuable post-singularity.
