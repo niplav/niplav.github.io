@@ -61,13 +61,74 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2022-07-07, modified: 2022-07-19, language: english, status: notes, importance: 2, confidence: log</em></p>
+<p><em>author: niplav, created: 2022-07-07, modified: 2022-08-07, language: english, status: notes, importance: 2, confidence: log</em></p>
 
 <blockquote>
-  <p><strong>.</strong></p>
+  <p><strong>Notes for myself on the data I track, how to transform it into a
+usable shape, data quality and other random assortments.</strong></p>
 </blockquote>
 
 <h1>Types &amp; Methods of Data Collection I Use</h1>
+
+<p>I've always collected some data about myself and the world around me,
+but not using/analyzing it because of a chronic "I'll get around to it
+<em>eventually</em>" syndrome. Which is a shame, because that means I've been
+putting in a reasonably large amount of effort and have nothing to show
+for it, a 1-legged stool:</p>
+
+<blockquote>
+  <p>The QS cycle is straightforward and flexible:  </p>
+
+<ol>
+<li>Have an idea  </li>
+<li>Gather data  </li>
+<li>Test the data  </li>
+<li>Make a change; GOTO 1</li>
+</ol>
+
+<p>Any of these steps can overlap: you may be collecting sleep data long
+before you have the idea (in the expectation that you will have an idea),
+or you may be making the change as part of the data in an experimental
+design, or you may inadvertently engage in a “natural experiment”
+before wondering what the effects were (perhaps the baby wakes you up
+on random nights and lets you infer the costs of poor sleep).  </p>
+
+<p>The point is not publishable scientific rigor. If you are the sort of
+person who wants to run such rigorous self-experiments, fantastic! The
+point is making your life better, for which scientific certainty is not
+necessary: imagine you are choosing between equally priced sleep pills
+and equal safety; the first sleep pill will make you go to sleep faster
+by 1 minute and has been validated in countless scientific trials, and
+while the second sleep pill has in the past week has ended the sweaty
+nightmares that have plagued you every few days since childhood but alas
+has only a few small trials in its favor—which would you choose? I
+would choose the second pill! […]</p>
+
+<p>One failure mode which is particularly dangerous for QSers is
+to overdo the data collection and collect masses of data they
+never use. Famous computer entrepreneur &amp; mathematician <a href="https://en.wikipedia.org/wiki/Stephen_Wolfram">Stephen
+Wolfram</a>
+exemplified this for me in March 2012 with his
+lengthy blog post ⁠<a href="https://writings.stephenwolfram.com/2012/03/the-personal-analytics-of-my-life/">“The Personal Analytics of My
+Life”</a>
+in which he did some impressive graphing and exploration
+of data from 1989 to 2012: a third of a million (!) emails,
+full keyboard logging, calendar, phone call logs (with missed
+calls include), a pedometer, revision history of his tome <a href="https://www.amazon.com/New-Kind-Science-Stephen-Wolfram/dp/1579550088/?tag=gwernnet-20">A New Kind of
+Science⁠</a>,
+file types accessed per date, parsing scanned documents for dates,
+a treadmill, and perhaps more he didn’t mention. […]</p>
+
+<p>One thinks of <a href="https://deming.org/index.cfm?content=653">a saying</a> of
+<a href="https://en.wikipedia.org/wiki/W._Edwards_Deming">W. Edwards Deming</a>:
+“Experience by itself teaches nothing.” Indeed. A QS experiment is a
+4-legged beast: if any leg is far too short or far too long, it can’t
+carry our burdens.</p>
+</blockquote>
+
+<p>At least I now know that I'm falling into this trap, "Selbsterkenntnis
+ist der erste Schritt zur Besserung". And the second step is to bring
+all of your data in a usable format.</p>
 
 <h2>Anki</h2>
 
@@ -144,6 +205,10 @@ and 3 for "cram" cards (cards being studied in a filtered deck when they
 are not due).</p>
 </blockquote>
 
+<p><em>— Anki developers, <a href="https://docs.ankiweb.net/stats.html#manual-analysis">“Manual Analysis”</a> in <a href="https://docs.ankiweb.net/stats.html#manual-analysis">“Graphs and Statistics”</a>, year unknown</em></p>
+
+<p>The CSV of the data can be found <a href="./data/anki_reviews.csv">here</a>.</p>
+
 <h2>Meditation</h2>
 
 <p>Similarly, one can export meditation data from Meditavo (if one has
@@ -157,6 +222,8 @@ tr '|' ',' &gt;meditations.csv
 
 <p>The names for the columns are exceedingly obvious and need no further
 explanation.</p>
+
+<p>The CSV of the meditation data can be found <a href="./data/meditations.csv">here</a>.</p>
 
 <h2>Daygame</h2>
 
@@ -243,4 +310,46 @@ $ mv daygame_stats_approaches_anon.csv daygame_stats_approaches.csv
 
 <p>The approaches file can be found <a href="./data/daygame_approaches.csv">here</a>,
 the sessions file can be found <a href="./data/daygame_sessions.csv">here</a>.</p>
+
+<h2>Others</h2>
+
+<p>Other metrics I track don't deserve as much elaboration.</p>
+
+<h3>Masturbation</h3>
+
+<p>I track when I masturbate &amp; how good it feels &amp; the type of
+pornography in <a href="./data/masturbations.csv">this file</a> via <a href="./data/mstrbt">this
+script</a>. Data quality is pretty high.</p>
+
+<h3>Mood</h3>
+
+<p>I track my mood via the excellent <a href="https://play.google.com/store/apps/details?id=info.moodpatterns.moodpatterns&amp;hl=en&amp;gl=US">Mood
+Patterns</a>
+which allows swift CSV export of the data. They even turned changed the
+<em>annoying</em> "hitting a block of wood with a hammer" notification sound to
+the OS default. No post-processing needed, the data <em>is just there</em>. An
+app by programmers, for programmers.</p>
+
+<p>CSV <a href="./data/mood.csv">here</a>, the data quality is mediocre (long stretches
+of not responding to questions, giving more conservative (closer to
+50) answers over time, starting to use activities around July 2022
+(and not using it for what it was intended for: when the activity is
+"Nothing" that means I carried on with my day as normal afterwards, if
+the activity is "Mindfulness" it means I spend a couple of seconds in
+a more mindful state)). Also, I use the "interested — uninterested"
+metric to track horniness.</p>
+
+<h3>Substances</h3>
+
+<p>I track which substances I take (nootropics/melatonin/drugs) in <a href="./data/substances.csv">this
+file</a> via <a href="./data/cnsm">this script</a>. Data
+quality is good but fairly few entries. Intend to use it for self-blinded
+randomized future experiments (if I ever stop procrastinating on them).</p>
+
+<h3>Bag Spreading</h3>
+
+<p>Data on bag spreading on public transport, in <a href="./data/bag_spreading.csv">this
+file</a>. Data quality is horrible: probably prone
+to multiple biases from my side, from different locations, no tracking
+of location or datetime…maybe I should just delete this one.</p>
 </html>
