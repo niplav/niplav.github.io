@@ -1453,3 +1453,4 @@
 2022-09-20T21:29:04.000000Z	Concepts: Semiquine (a program that only outputs its code, but never halts); prefixquine (program that outputs its code, but something after that). Trivial other versions are postfixquine, substringquine, prefixsemiquine.
 2022-09-20T21:29:57.000000Z	Why not focus on getting old LessWrongers to work on alignment instead of students? They might not be as skilled technically, but they probably have much deeper & well formed intuitions around the problem.
 2022-09-20T21:45:20.000000Z	Well, you have my curse.
+2022-09-20T21:45:45.000000Z	Playing hard to get imposes costs on other actually impossible to get players.
