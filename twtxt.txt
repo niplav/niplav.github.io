@@ -1455,3 +1455,4 @@
 2022-09-20T21:45:20.000000Z	Well, you have my curse.
 2022-09-20T21:45:45.000000Z	Playing hard to get imposes costs on other actually impossible to get players.
 2022-09-20T21:46:38.000000Z	You may start century time horizon projects
+2022-09-20T21:47:22.000000Z	Retaking an airplane after terrorist takeover is a coordination problem
