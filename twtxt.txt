@@ -1461,3 +1461,4 @@
 2022-09-20T21:52:45.000000Z	Anyone else wanna laugh at millennials when they realize they have gotten old?
 2022-09-20T21:53:06.000000Z	Maybe just not have your search space contain Turing complete elements?
 2022-09-20T22:02:25.000000Z	I'm actually not that big a fan of most uses of “prior”/“posterior”: Nearly every credence you have is both a prior and a posterior, at different points in time. You were born with priors embedded in your genome, and you created posteriors from those with observations. but those posteriors became priors in the next update step. so the only credences you had that were only priors were the ones you had at birth (I might make exceptions for things that you have no explicit belief on, as in “huh, I hadn't thought about that problem. I guess my prior here is […]“), and the only credences that are only posteriors are the credences you have now.
+2022-09-20T22:07:02.000000Z	Todo: become an anti-recycling fanatic at some point
