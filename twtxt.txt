@@ -1449,3 +1449,4 @@
 2022-09-19T21:22:00.000000Z	dvorak edm remix which is actually good
 2022-09-20T09:11:22.000000Z	reaching exalted meditation states is not important per se, but that you have ample material to learn not clinging to.
 2022-09-20T21:24:17.000000Z	put an epistemic status on a thing you're really confident in, once in a while.
+2022-09-20T21:26:12.000000Z	“I assume that not everything that can improve my thinking is found in The Sequences.”
