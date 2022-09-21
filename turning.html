@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2022-03-04, modified: 2022-07-28, language: english, status: notes, importance: 8, confidence: likely</em></p>
+<p><em>author: niplav, created: 2022-03-04, modified: 2022-09-19, language: english, status: notes, importance: 8, confidence: likely</em></p>
 
 <blockquote>
   <p><strong>Representing inconsistent preferences with specific mathematical
@@ -286,7 +286,7 @@ distance: a measure for the difference between two graphs.</p>
 </ul>
 </blockquote>
 
-<p><em>—<a href="">English Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Graph_Edit_Distance">“Graph Edit Distance”</a>, 2021</em></p>
+<p><em>—<a href="https://en.wikipedia.org/wiki/English_Wikipedia">English Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Graph_Edit_Distance">“Graph Edit Distance”</a>, 2021</em></p>
 
 <p>Since we do not have labels on the edges of the graph, and have disallowed
 the deletion or insertion of vertices, this leaves us with the graph
@@ -693,7 +693,7 @@ round of editing this text go back and try to make sense of the data,
 which runs squarely counter my expectations:</p>
 
 <pre><code>&gt;&gt;&gt; import pandas as pd
-&gt;&gt;&gt; df=pd.read_csv('data/turnings.csv')
+&gt;&gt;&gt; df=pd.read_csv('data/turnings_small.zip')
 &gt;&gt;&gt; df.groupby(['0']).mean()
            1
 0
@@ -701,7 +701,6 @@ which runs squarely counter my expectations:</p>
 2   1.500000
 3   2.625000
 4   4.910156
-5  17.836986
 </code></pre>
 
 <p>It seems like the mean number of turnings actually increases
@@ -720,35 +719,46 @@ nodes? What is so special about that number‽</p>
 2    0.500000
 3    0.281250
 4    0.164062
-5    0.021779
 dtype: float64
 &gt;&gt;&gt; def uniques(g):
 ...     return len(g.loc[g['1']==1])
 &gt;&gt;&gt; df.groupby(['0']).apply(uniques)
 0
-1        2
-2        8
-3      144
-4    10752
-5   203360
+1         2
+2         8
+3       144
+4     10752
+5   3306240
 dtype: int64
 </code></pre>
 
-<p>Very much to my surprise, searching for "0,2,8,144,10752" <a href="https://oeis.org/search?q=0%2C2%2C8%2C144%2C10752&amp;sort=&amp;language=english&amp;go=Search">in the
+<p>This sequence of numbers is interesting: Its <code>$n$</code>th term is the number
+of labeled graphs with <code>$n$</code> nodes and confusion 1.</p>
+
+<p>Very much to my surprise, searching for "1,2,8,144,10752,3306240" <a href="https://oeis.org/search?q=0%2C2%2C8%2C144%2C10752&amp;sort=&amp;language=english&amp;go=Search">in the
 OEIS</a>
 yields <em>no results</em> (even <a href="https://oeis.org/search?q=2%2C8%2C144%2C10752&amp;sort=&amp;language=english&amp;go=Search">without leading
-zero</a>),
-even though the sequence really looks like something that would already
-exist! (I think it has a specifically graph-theoretic "feel" to it). But
-apparently not so. I have tried to submit this sequence to the OEIS,
-but they require either a real-world identity (which I'm not willing
-to reveal) or alternatively a fifth term in the sequence (which I'm
-currently computing). Oh well.</p>
+one</a>)
+or using <a href="https://oeis.org/ol.html">Superseeker</a>, even though the sequence
+really looks like something that would already exist! (I think it has a
+specifically graph-theoretic "feel" to it). But apparently not so. An
+interesting fact about the sequence is that it is "redundant": Each
+graph with <code>$n$</code> nodes is represented <code>$n!$</code> times, with all possible
+permutations of vertex labelings. For example, the example graph
+from <a href="#Minimal-and-Maximal-Number-of-Turnings">this section</a>
+is counted in 24 different variants. One can
+therefore divide the sequence by <code>$n!$</code>, which gives the sequence
+<a href="http://oeis.org/search?q=1%2C2%2C4%2C24%2C448%2C27552&amp;sort=&amp;language=english&amp;go=Search">"1,2,4,24,448,27552"</a>,
+which also doesn't occur in the OEIS
+(<a href="http://oeis.org/search?q=2%2C4%2C24%2C448%2C27552&amp;sort=&amp;language=english&amp;go=Search">neither does the sequence without the leading
+one</a>,
+and superseeker also doesn't find anything).  I have tried to submit
+this sequence to the OEIS, but they require a real-world identity
+(which I'm not willing to reveal). Oh well. I still stake my claim for
+this sequence, it shall henceforth be called the niplav numbers (if I
+am indeed the first person to have found them).</p>
 
-<!--TODO: find this sequence on the OEIS-->
-
-<p>I omit the number of unique turnings for 5 and 6, for obvious reasons. The
-number of unique resolutions for the graph with 1 node makes sense,
+<p>The number of unique resolutions for the graph with 1 node makes sense,
 though: Removing the reflexive edge should count as one edge action,
 but the graph only has one unique resolution:</p>
 
@@ -758,15 +768,36 @@ but the graph only has one unique resolution:</p>
 1  1  1  [(1, 1)]
 </code></pre>
 
-<!--TODO: play around with this more-->
+<!--TODO: play around with this more, especially analyze:
+* Of the graphs with confusion 1/2/maximal confusion:
+    * degree sequence
+    * number of edges
+    * number of strongly connected components
+    * properties of the adjacency matrix:
+        * determinant
+        * eigenvalues
+        * whether it's singular
+        * symmetries
+-->
 
 <h2>Encoding Inconsistencies</h2>
+
+<blockquote>
+  <p>I've seen six cities fall for this <br />
+mathematics with incompetence <br />
+red flags stand among the trees <br />
+repugnant symphonies <br />
+a billionaires tarantula just ate the ceiling <br />
+thinking it was yet another floor</p>
+</blockquote>
+
+<p><em>—<a href="http://patriciataxxon.bandcamp.com/">Patricia Taxxon</a>, <a href="https://patriciataxxon.bandcamp.com/track/hellbulb">“Hellbulb”</a> from <a href="https://patriciataxxon.bandcamp.com/album/gelb">“Gelb”</a>, 2020</em></p>
 
 <p>After this concrete example of how to turn inconsistent preferences into
 consistent ones, I now try to extract general principles for representing
 inconsistent preferences, mainly because while the problem has been
-solved for discrete cases (or so at I believe), it is still open for
-preferences over lotteries.</p>
+solved for discrete cases (or at least so I believe), it is still open
+for preferences over lotteries.</p>
 
 <h3>Theory</h3>
 
@@ -982,6 +1013,13 @@ fruit to pure cake).</p>
 
 <p><img src="./img/turning/intrans_lott_2.jpg" alt="" title="" /></p>
 
+<p>Here we have a probability simplex with 3 options. The graph
+is a set of concentrical cycles, and across the cycles the
+lotteries with lower entropy are preferred over those with higher
+<a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">entropy</a>
+(conditional on there being no preference already, e.g.
+<code>$[1: a, 0: b, 0: c]$</code> is not preferedd over <code>$[0.5: a, 0: b, 0.5: c]$</code>).</p>
+
 <h5>Discontinuity</h5>
 
 <h5>Dependence</h5>
@@ -1047,23 +1085,7 @@ might be extremely enlightening, especially if <a href="https://www.lesswrong.co
 mind</a>
 are directly applicable to human minds.</p>
 
-<h2>Implications for AI Alignment</h2>
-
-<blockquote>
-  <p>I've seen six cities fall for this <br />
-mathematics with incompetence <br />
-red flags stand among the trees <br />
-repugnant symphonies <br />
-a billionaires tarantula just ate the ceiling <br />
-thinking it was yet another floor</p>
-</blockquote>
-
-<p><em>—<a href="http://patriciataxxon.bandcamp.com/">Patricia Taxxon</a>, <a href="https://patriciataxxon.bandcamp.com/track/hellbulb">“Hellbulb”</a> from <a href="https://patriciataxxon.bandcamp.com/album/gelb">“Gelb”</a>, 2020</em></p>
-
-<h3>Ambitious Value Learning</h3>
-
-<p>Learn human values, check if known inconsistencies are encoded (to ensure
-learning at the correct level of abstraction), then make consistent.</p>
+<h2>Possible Implications for AI Alignment</h2>
 
 <h3>Ontological Crises</h3>
 
@@ -1079,16 +1101,99 @@ function to the entire state space of the model.</p>
 
 <p><em>—Peter de Blanc, <a href="./doc/cs/ai/alignment/ontological_crises/ontological_crises_in_artificial_agents_value_systems_de_blanc_2011.pdf">“Ontological Crises in Artificial Agents’ Value Systems”</a>, 2010</em></p>
 
-<p>If you know a mapping between objects from human to AI ontology, you
-could find the mapping from the (consistent) human probability simplex
-to the AI simplex?</p>
+<p>Ontological crises occur when an agents' world model changes,
+but its utility function over that world model still operates under
+outdated assumptions about the world. A common example for ontological
+shifts is a hypothetical society of humans who really care about
+the <a href="https://en.wikipedia.org/wiki/Temperature">temperature</a> of
+objects, and then find out that temperature is not <a href="https://plato.stanford.edu/entries/substance/">ontologically
+basic</a>: It is instead
+the average translational kinetic energy per atom in the object under
+question. But their values still operate under the mistaken assumption
+that temperature is ontologically basic, that heat is good and chill is
+bad. For some who this example might strike as unrealistic, consider
+different responses of humans that read about arguments on personal
+identity and the philosophical difficulty of defending them: From "happy
+nihilism" over "everything is me" over "sad nihilism" to "utter despair"
+we have the whole gang here.</p>
 
-<p>One can solve the problem <a href="https://www.lesswrong.com/posts/6RjL996E8Dsz3vHPk/two-more-decision-theory-problems-for-humans#Partial_Utility_Function_Problem">Dai
-2019</a>
+<p>In the context of AI safety one can have the same worry: if a <a href="https://arbital.com/p/diamond_maximizer/">diamond
+maximizer</a> is created with
+a utility function that counts the carbon atoms that are bound to six
+other carbon atoms, and the underlying world model shifts away from
+assuming that atoms are are fundamental, and towards a model in which
+atoms are made of protons, electrons and neutrons which are distributed by
+probabilities and amplitudes that evolve via the Schrödinger equation. In
+this case the utility function needs to be updated to still recognize
+carbon atoms, even if the world model given to the utility function does
+not contain any fundamental carbon atoms anymore. If the utility function
+is not updated, the AI system might very well behave in unforeseen ways:
+In one of the worse cases it will continue operating under the assumption
+that the world is made up of atoms that on a macroscopic scale behave
+like wave functions in quantum mechanics, in some of the better cases
+it will stop acting (which might pose problems if it has implemented
+non-<a href="https://arbital.com/p/abortable/">abortable plans</a>).</p>
+
+<p>Okay, but what are an ontological shift/ontological crisis <em>really</em>? Let's
+write down some type signatures of functions.</p>
+
+<!--
+If you know a mapping between objects from human to AI ontology, you
+could find the mapping from the (consistent) human probability simplex
+to the AI simplex?
+
+One can solve the problem [Dai
+2019](https://www.lesswrong.com/posts/6RjL996E8Dsz3vHPk/two-more-decision-theory-problems-for-humans#Partial_Utility_Function_Problem)
 describes as the "Partial Utility Function Problem" by turning that
-partial utility function into a full utility function.</p>
+partial utility function into a full utility function.
+-->
 
 <h4>Discrete Case</h4>
+
+<p>Assume we have a transitive and complete ordering <code>$\preceq$</code> over
+possible worlds <code>$W_1$</code>, which is our consistent preferences. Let <code>$W_2$</code>
+be a new (and allegedly better) set of possible worlds—more refined,
+or worlds which contain non-existent entities (such as ghosts) have been
+removed. Then An ontological shift <code>$s_{\mathcal{o}}$</code> is a function that
+maps each <code>$w_1 \in W_1$</code> to a to a subset of <code>$W_2$</code>, possibly with
+weights for the new edges: <code>$s: W_1 \mapsto \mathcal{P}(W_2)$</code> or
+<code>$s: W_1 \mapsto \mathcal{P}(W_2 \times \mathbb{R})$</code>, where each
+<code>$w_1$</code> is mapped to every <code>$w_2$</code> at most once. Additionally, the
+weights could be required to add up to one and be in <code>$[0;1]$</code>, though
+there are possible meanings of sums greater than 1 or less than 0.</p>
+
+<p>This is quite abstract. Let's consider a small example:</p>
+
+<p>An agent starts out with a set of possible worlds <code>$W_1$</code> which contains
+two elements: the world <code>$w_N$</code> with nothing in it, and the world <code>$w_F$</code>
+with a single fruit: also the agent likes fruit more than nothing <code>$w_F \succeq w_N$</code>.</p>
+
+<p>But then the agent refines its world model: It discovers that there's
+actually three worlds in the set <code>$W_2$</code>, which are <code>$w_T$</code> (a tomato),
+<code>$w_A$</code> (an apple) and <code>$w_N$</code> (still nothing). Because tomatoes are
+only kind of fruits, we define <code>$s$</code> as <code>$s(w_N)=\{(w_N, 1)\}$</code> and
+<code>$s(w_F)=\{(w_A, 0.8), (w_T, 0.2)\}$</code>. The agent hasn't changed
+its mind about what what nothing is, but the category fruit has now
+<a href="https://www.lesswrong.com/s/kjcioCkqSSS4LiMAe/p/k54rgSg7GcjtXnMHX">splintered</a>
+into apple and tomato (where the fruit world is <em>more</em>
+like the apple than like the tomato, because tomatos might
+be technically fruit, but they're definitely not a <a href="https://www.lesswrong.com/rationality/the-cluster-structure-of-thingspace">central
+example</a>).
+Existing preferences are inherited: if <code>$w_F$</code> splits into <code>$w_A$</code> and <code>$w_T$</code>, both of them are still better than <code>$w_N$</code>.</p>
+
+<p><img src="./img/turning/shift.png" alt="" title="" /></p>
+
+<p>The astute reader might notice something: The resulting situation is
+remakably similar to a simple inconsistent preference that were discussed
+earlier: <code>$w_A$</code> and <code>$w_T$</code> are in this scenario incomparable with
+each other. We can say that this resulting preference is in ontological
+crisis: An agent trying to use it to make decisions will make predictably
+bad decisions (we here violate the von Neumann-Morgenstern axiom of
+<em>completeness</em>).</p>
+
+<p>But! This is not a hopeless situation: One can slightly modify the
+procedure used for computing the set of turnings described earlier to
+resolve the ontological crises to full satisfaction.</p>
 
 <p>A node splits in two or more, or two or more nodes get merged, one adds
 nodes, or removes them. If the then resulting graph isn't a path graph,
@@ -1103,6 +1208,11 @@ into fish and water mammals.</p>
 <h6>Incorporating Moral Uncertainty</h6>
 
 <h6>Multiple Ontological Shifts</h6>
+
+<h3>Ambitious Value Learning</h3>
+
+<p>Learn human values, check if known inconsistencies are encoded (to ensure
+learning at the correct level of abstraction), then make consistent.</p>
 
 <h2>Further Questions</h2>
 
