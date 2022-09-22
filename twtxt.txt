@@ -1471,3 +1471,4 @@
 2022-09-22T23:02:48.000000Z	Angels from Dr. Who but everytime you look away there's new AI capabilities progress
 2022-09-22T23:04:11.000000Z	soft (rigidity), soft (texture)
 2022-09-22T23:04:31.000000Z	Yudkowsky moved AI alignment research forward by 4 years, but he also sped up timelines by 2.5 years, so it all cancels out
+2022-09-22T23:04:49.000000Z	It's impossible to tell whether he's good or not
