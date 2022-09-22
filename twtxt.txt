@@ -1468,3 +1468,4 @@
 2022-09-21T23:05:01.000000Z	pet peeve: line-splitting in an ﬀ ligature
 2022-09-22T23:02:05.000000Z	It's not fair! The graph was supposed to peak in 2047, not 2028!
 2022-09-22T23:02:27.000000Z	Most zero-sum games are actually negative-sum games, because of transaction costs
+2022-09-22T23:02:48.000000Z	Angels from Dr. Who but everytime you look away there's new AI capabilities progress
