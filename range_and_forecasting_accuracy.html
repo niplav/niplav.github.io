@@ -1059,7 +1059,7 @@ immediately for PredictionBook, and for ranges >100 days for
 Metaculus. Perhaps there are some problems with <a href="https://en.wikipedia.org/wiki/floating-point_arithmetic">floating-point
 arithmetic</a>
 at play here: the best fit <em>would</em> be at something like
-<code>$10^{-78}$</code>, but <code>curve_fit</code> doesn't know how to <a href="https://acesounderglass.com/2021/10/20/i-dont-know-how-to-count-that-low/">count that
+<code>$10^{-78}$</code>, but <code>curve_fit</code> doesn't know how to <a href="https://acesounderglass.com/2021/10/20/i-dont-know-how-to-count-that-low/" title="I Don’t Know How To Count That Low (Elizabeth, 2021)">count that
 low</a>?</p>
 
 <h5>This Is Cool</h5>
@@ -2346,10 +2346,12 @@ the Metaculus developers do not exist to cater to my whims, and are doing
 a phenomenal job).</p>
 
 <p>More than a year later, I got hold off the private Metaculus data via
-my job, the Metaculus admins also allowed me to use it for any private
-investigations.</p>
+my job, luckily the Metaculus admins also allowed me to use it for my
+private investigations.</p>
 
-<h3>Testing Previous Metaculus Findings on Private Data</h3>
+<p>I subsequently <a href="./range_and_forecasting_accuracy.html#Appendix-A-Replicating-Metaculus-Findings-With-Full-Data">tried to replicate my previous
+findings</a>
+with the private data, finding that _.</p>
 
 <h2>Limitations</h2>
 
@@ -2415,7 +2417,40 @@ ways the previous code was much nicer, especially when calculating
 <li><a href="https://www.lesswrong.com/posts/MquvZCGWyYinsN49c/range-and-forecasting-accuracy">LessWrong</a></li>
 </ul>
 
-<h2>Appendix A: Quotes About the Horizon of Forecasts</h2>
+<h2>Appendix A: Replicating Metaculus Findings With Full Data</h2>
+
+<p>After receiving the private data from the Metaculus admins, I decided to
+check whether my previous findings would still bear out with the full
+dataset, or whether equally shrinking the data on questions with many
+forecasts and fewer forecasts had introduced significant amounts of bias.</p>
+
+<h3>Some Predictions About The Results</h3>
+
+<p>This also gave me an excellent opportunity to test my own calibration
+on the findings: Would I be correct about which findings would
+and wouldn't hold up to scrutiny with nicer datasets? I used
+<a href="https://predictionbook.com/">PredictionBook</a> to record my predictions
+about the results before running the code on the data (relying on
+the reader's trust that I hadn't just run the code beforehand and
+predicted with the benefit of hindsight). The private dataset was
+much bigger and more up-to-date than the compressed one from the
+<a href="https://www.metaculus.com/api2/questions/">API</a> I had used.</p>
+
+<ul>
+<li>Accuracy Between Forecasts
+<ul>
+<li>"Will the Brier score on all resolved Metaculus binary forecasts be greater than or equal to 0.17085?"<code>$_{10\%}$</code></li>
+<li>"Will the correlation between range and Brier score be non-negative for all resolved Metaculus binary forecasts?"<code>$_{45\%}$</code></li>
+<li>"Will the correlation between range and Brier score be greater than or equal to 0.02166 for all resolved Metaculus binary forecasts?"<code>$_{40\%}$</code></li>
+<li>"Will the slope for the linear regression between range and Brier score be non-negative for all resolved Metaculus binary forecasts?"<code>$_{45\%}$</code></li>
+<li>"Will the slope for the linear regression between range and Brier score be greater than or equal to 1.4922e-5 for all resolved Metaculus binary forecasts?"<code>$_{40\%}$</code></li>
+<li>"Will the intercept for the linear regression between range and Brier score be non-negative for all resolved Metaculus binary forecasts?"<code>$_{95\%}$</code></li>
+<li>"Will the intercept for the linear regression between range and Brier score be greater than or equal to 0.1675 for all resolved Metaculus binary forecasts?"<code>$_{20\%}$</code></li>
+<li>"Will the p-value for the linear regression between range and Brier score be greater than or equal to 1.8994e-6 for all resolved Metaculus binary forecasts?"<code>$_{35\%}$</code></li>
+</ul></li>
+</ul>
+
+<h2>Appendix B: Quotes About the Horizon of Forecasts</h2>
 
 <blockquote>
   <p>Demographers disagree about many things, but not that the further into
