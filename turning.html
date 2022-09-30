@@ -366,7 +366,7 @@ completion, and then with our <a href="#Example">example from above</a>.</p>
 &gt;&gt;&gt; for i in range(0, len(smallworld)):
 ...     smallgraph.add_node(smallworld[i], ind=i)
 &gt;&gt;&gt; smallgraph.add_edges_from([('a', 'b')])
-&gt;&gt;&gt; smallre=turn(smallworld, smallgraph)
+&gt;&gt;&gt; smallre=turn(smallgraph)
 &gt;&gt;&gt; smallre.nodes
 NodeView(('a', 'b', 'c'))
 &gt;&gt;&gt; smallre.edges
@@ -380,7 +380,7 @@ OutEdgeView([('a', 'b'), ('a', 'c'), ('b', 'c')])
 &gt;&gt;&gt; for i in range(0, len(mediumworld)):
 ...     mediumgraph.add_node(mediumworld[i], ind=i)
 &gt;&gt;&gt; mediumgraph.add_edges_from([('a', 'b'), ('b', 'c'), ('c', 'd'), ('c', 'e'), ('e', 'f'), ('f', 'g'), ('g', 'b')])
-&gt;&gt;&gt; mediumres=turn(mediumworld, mediumgraph)
+&gt;&gt;&gt; mediumres=turn(mediumgraph)
 &gt;&gt;&gt; mediumres.nodes
 NodeView(('a', 'b', 'c', 'd', 'e', 'f', 'g'))
 &gt;&gt;&gt; mediumres.edges
@@ -504,7 +504,7 @@ OutEdgeView([('a', 'c'), ('a', 'b'), ('c', 'b')])
 
 <p>For the big example, after waiting a while for the solution:</p>
 
-<pre><code>&gt;&gt;&gt; turnings=list(turn_all(mediumworld, mediumgraph))
+<pre><code>&gt;&gt;&gt; turnings=list(turn_all(mediumgraph))
 &gt;&gt;&gt; len(turnings)
 49
 </code></pre>
@@ -526,8 +526,8 @@ with <code>$n$</code> nodes, and <code>$\mathcal{U}_n=\{G \in \mathcal{G}_n | 1=
 as the set of graphs with <code>$n$</code> nodes that
 have unique path graphs associated with them.</p>
 
-<p>We can further define the set of all graphs wwith <code>$n$</code> nodes
-with <code>$m$</code> turnings as
+<p>We can further define the set of all graphs with <code>$n$</code> nodes with <code>$m$</code>
+turnings as
 <code>$\mathcal{T}{n,m}=\{G \in \mathcal{G}_n | m=|\text{turn_all}(G)|\}$</code>
 (of which <code>$\mathcal{U}_n=\mathcal{T}_{n, 1}$</code>
 is just a special case).</p>
@@ -971,9 +971,9 @@ is represented by the point in the middle of an <a href="https://en.wikipedia.or
 triangle</a>, while
 <code>$[0.5: a, 0.5: b, 0: c]$</code> is in the middle of one edge of that triangle.</p>
 
-<p><img src="./img/turning/simplex_1.png" alt="" title="" /></p>
+<p><img src="./img/turning/simplex_1.png" alt="Line from a to b, with a short orthogonal red line in the middle and the text “[0.5: a, 0.5: b]” right above the short red line." title="Line from a to b, with a short orthogonal red line in the middle and the text “[0.5: a, 0.5: b]” right above the short red line." /></p>
 
-<p><img src="./img/turning/simplex_2.png" alt="" title="" /></p>
+<p><img src="./img/turning/simplex_2.png" alt="Equilateral triangle, the vertices are labeled a, b and c. On the edge between a and b there is a short orthogonal red line in the middle and the text “[0.5: a, 0.5: b]” right above the short red line. In the middle of the triangle there is a red dot, and the text “[⅓: a, ⅓: b, ⅓: c]” above the dot." title="Equilateral triangle, the vertices are labeled a, b and c. On the edge between a and b there is a short orthogonal red line in the middle and the text “[0.5: a, 0.5: b]” right above the short red line. In the middle of the triangle there is a red dot, and the text “[⅓: a, ⅓: b, ⅓: c]” above the dot." /></p>
 
 <p>Let's call the probability simplex for lotteries over a world <code>$W$</code>
 <code>$Δ_W$</code>, often just <code>$Δ$</code> for short (because of the triangle, get it?).</p>
@@ -992,6 +992,8 @@ exists if when for three lotteries <code>$l_1, l_2, l_3$</code> and edges <code>
 there exists no edge <code>$(l_1, l_3)$</code> (because of tacit antisymmetry this
 excludes cycles). However, because the graph is <em>very</em> dense (uncountably
 so, in fact!) this is difficult to visualize.</p>
+
+<!--TODO: captions for all of these-->
 
 <p><img src="./img/turning/incomplete_lott.jpg" alt="" title="" /></p>
 
@@ -1015,12 +1017,13 @@ fruit to pure cake).</p>
 
 <p><img src="./img/turning/intrans_lott_2.jpg" alt="" title="" /></p>
 
-<p>Here we have a probability simplex with 3 options. The graph
-is a set of concentrical cycles, and across the cycles the
-lotteries with lower entropy are preferred over those with higher
+<p>Here we have a probability simplex with 3 options. The graph is a set
+of concentrical cycles, and across the cycles the lotteries with lower
 <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">entropy</a>
-(conditional on there being no preference already, e.g.
-<code>$[1: a, 0: b, 0: c]$</code> is not preferedd over <code>$[0.5: a, 0: b, 0.5: c]$</code>).</p>
+are preferred over those with higher entropy (conditional on there being
+no preference already, e.g. <code>$[1: a, 0: b, 0: c]$</code> is not preferred over
+<code>$[0.5: a, 0: b, 0.5: c]$</code>). The middle of the probability triangle is
+the worst option, and the graph only violates transitivity.</p>
 
 <h5>Discontinuity</h5>
 
@@ -1183,7 +1186,7 @@ be technically fruit, but they're definitely not a <a href="https://www.lesswron
 example</a>).
 Existing preferences are inherited: if <code>$w_F$</code> splits into <code>$w_A$</code> and <code>$w_T$</code>, both of them are still better than <code>$w_N$</code>.</p>
 
-<p><img src="./img/turning/shift.png" alt="" title="" /></p>
+<p><img src="./img/turning/shift.png" alt="On the left a graph with wF→wN, then an arrow to the right (⇒ with s written over the arrow), on the right a graph wA → wN (edge labeled 0.8) and wT→ wN (edge labeled 0.2)." title="On the left a graph with wF→wN, then an arrow to the right (⇒ with s written over the arrow), on the right a graph wA → wN (edge labeled 0.8) and wT→ wN (edge labeled 0.2)." /></p>
 
 <p>The astute reader might notice something: The resulting situation is
 remakably similar to a simple inconsistent preference that were discussed
@@ -1195,11 +1198,10 @@ bad decisions (we here violate the von Neumann-Morgenstern axiom of
 
 <p>But! This is not a hopeless situation: One can slightly modify the
 procedure used for computing the set of turnings described earlier to
-resolve the ontological crises to full satisfaction.</p>
-
-<p>A node splits in two or more, or two or more nodes get merged, one adds
-nodes, or removes them. If the then resulting graph isn't a path graph,
-it can be turned with the method described above.</p>
+resolve the ontological crises to full satisfaction: A node splits in
+two or more, or two or more nodes get merged, one adds nodes, or removes
+them. If the then resulting graph isn't a path graph, it can be turned
+with the method described above.</p>
 
 <p>Example with mammals > birds > fish (where dolphins &amp; trouts are both
 fish!), but then we go through an ontological shift where fish split
