@@ -1478,3 +1478,4 @@
 2022-10-03T07:55:09.000000Z	on priors, if you want to impact the world, found a religion or start a company.
 2022-10-03T08:48:13.000000Z	new cause area: buy 0day exploits
 2022-10-03T09:12:14.000000Z	could MDMA microdosing help me get into the 2nd jhana?
+2022-10-03T12:48:33.000000Z	tension between markets & hacker æsthetic: markets want competition (same thing is done often, separately, with lots of turnover), while hackers want things to be done once and well, with high maintenance (canonical resources)
