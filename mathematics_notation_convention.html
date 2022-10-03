@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <h2><a href="./index.html">home</a></h2>
 
-<p><em>author: niplav, created: 2021-03-23, modified: 2022-09-23, language: english, status: notes, importance: 1, confidence: draft</em></p>
+<p><em>author: niplav, created: 2021-03-23, modified: 2022-10-03, language: english, status: notes, importance: 1, confidence: draft</em></p>
 
 <blockquote>
   <p><strong>People write mathematics in a specific way, and use different
@@ -89,7 +89,7 @@ Schein von ihm schwindet.</p>
 <li><code>$0 \in \mathbb{N}$</code>, <code>$\mathbb{N}^+:=\mathbb{N}\backslash \{0\}$</code>.
 <ul>
 <li>First of all, <a href="https://en.wikipedia.org/Natural_number">there's an ISO standard</a> (ISO-80000-2) that states that <code>$0 \in \mathbb{N}$</code>. I know it's kind of dumb, but standards are nice &amp; there for a reason.</li>
-<li><code>$(\mathbb{N}, +)$</code> and <code>$(\mathbb{N}^+, \cdot)$</code> are both commutative monoids.</li>
+<li><code>$(\mathbb{N}, +)$</code> and <code>$(\mathbb{N}^+, \cdot)$</code> are both commutative <a href="https://en.wikipedia.org/wiki/Monoid">monoids</a>.</li>
 <li><code>$(\mathbb{N}, +, \cdot)$</code> is a semiring.</li>
 <li><code>$(\mathbb{N}^+, +, \cdot)$</code> is…nothing in particular?
 <ul>
@@ -102,10 +102,8 @@ Schein von ihm schwindet.</p>
 <li>Therefore, because <code>$(\mathbb{N}, +, \cdot)$</code> is the nicer structure, <code>$0 \in \mathbb{N}$</code>.</li>
 <li>(I'm not super confident about the arguments above, maybe I missed a structure. If so, please tell me!)</li>
 </ul></li>
-<li>Setting operator precedence and passing arguments to functions is done with parentheses <code>$()$</code>, sets are denoted using <code>$\{\}$</code>, and <code>$[]$</code> is sometimes used in the context of statistics (variance of a variable, mean of a variable, and so on). These are not mixed.
-<ul>
+<li>Setting operator precedence and passing arguments to functions is done with parentheses <code>$()$</code>, sets are denoted using <code>$\{\}$</code>, and <code>$[]$</code> is sometimes used in the context of statistics (variance of a variable, mean of a variable, and so on). These are not mixed.</li>
 <li><code>$[n] = \{x \in \mathbb{N} | 1 \le x \le n \}$</code> for <code>$n \in \mathbb{N}$</code>.</li>
-</ul></li>
 <li>For function definitions, use <code>$\mapsto$</code> instead of <code>$\rightarrow$</code>, e.g. <code>$f: ℝ^n \mapsto ℝ$</code> instead of <code>$f: ℝ^n \rightarrow ℝ$</code></li>
 <li>In multiplication of reals (and maybe complex numbers), I prefer central dots <code>$a \cdot b \cdot c$</code>, and <em>sometimes</em> concatenation <code>$abcd$</code>. Rarely asterisks <code>$a * b * c * d$</code>, but I try to avoid them.</li>
 <li>Words
@@ -206,7 +204,7 @@ Schein von ihm schwindet.</p>
 </ul></li>
 <li>Use a big <code>$+$</code> and <code>$\cdot$</code> instead of <code>$\sum$</code> and <code>$\prod$</code> (maybe the latter can just be approximated by the <code>$\bullet$</code>, as in <code>$n!=\bullet_{i=1}^{n} i$</code>).</li>
 <li><a href="https://www.youtube.com/watch?v=sULa9Lc4pck">This notation</a> for logarithms, exponents and roots.</li>
-<li>Start with the integers <code>$\mathbb{Z}$</code>, and then specifies when one wants only the positive numbers (<code>$\mathbb{Z}^+$</code>), the positive numbers with 0 (<code>$\mathbb{Z}^+_0$</code>), the negative numbers (<code>$\mathbb{Z}^-$</code>) and the negative numbers with 0 (<code>$\mathbb{Z}^-_0$</code>). That would be much nicer than using <code>$\mathbb{N}$</code>, since <code>$\mathbb{Z}$</code> is a <a href="https://en.wikipedia.org/commutative_ring">commutative ring</a> under addition and multiplication.</li>
+<li>Start with the integers <code>$\mathbb{Z}$</code>, and then specify when one wants only the positive numbers (<code>$\mathbb{Z}^+$</code>), the positive numbers with 0 (<code>$\mathbb{Z}^+_0$</code>), the negative numbers (<code>$\mathbb{Z}^-$</code>) and the negative numbers with 0 (<code>$\mathbb{Z}^-_0$</code>). That would be much nicer than using <code>$\mathbb{N}$</code>, since <code>$\mathbb{Z}$</code> is a <a href="https://en.wikipedia.org/commutative_ring">commutative ring</a> under addition and multiplication.</li>
 <li>Treat <code>$-$</code> and <code>$+$</code> as <a href="https://en.wikipedia.org/wiki/Idempotence">idempotent</a> operators for making expressions negative and positive, and sign flipping being done by explicitely multiplying with <code>$-1$</code>.
 <ul>
 <li>Alternatively, use the same notation as for the <a href="https://en.wikipedia.org/wiki/Complex_conjugate">complex conjugate</a>.</li>
