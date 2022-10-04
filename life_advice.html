@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,38 +32,28 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-02-22, modified: 2022-06-06, language: english, status: in progress, importance: 3, confidence: other</em></p>
-
 <blockquote>
-  <p><strong>Inspired by others
+<p><strong>Inspired by others
 (<a href="https://www.lesswrong.com/posts/HJeD6XbMGEfcrx3mD/100-ways-to-live-better" title="100 Ways To Live Better">Falkovich 2019</a>,
 <a href="https://www.lesswrong.com/posts/7hFeMWC6Y5eaSixbD/100-tips-for-a-better-life" title="100 Tips for a Better Life">Ideopunk 2020</a>,
 <a href="https://210ethan.github.io/knowledge/advice.html" title="Life Advice">Ethan 2021</a>)
 I thought it might be useful to create a grabbag of strategies for
 dealing with being human.</strong></p>
 </blockquote>
-
-<h1>Life Advice</h1>
-
+<h1 id="Life_Advice"><a class="hanchor" href="#Life_Advice">Life Advice</a></h1>
 <p>Disclaimer: I only follow parts of the advice given in here, though my
 idealized version follows it nearly completely. I also believe that
 following this advice completely is probably too hard, but following
 it has monotonically increasing gains.</p>
-
 <p>However, as always, the <a href="https://slatestarcodex.com/2014/03/24/should-you-reverse-any-advice-you-hear/">law of equal and opposite
 advice</a>
 applies, <a href="https://everythingstudies.com/2017/04/24/people-are-different/">people are
 different</a>.</p>
-
 <p>And, as always, remember that I'm just a person on the internet.</p>
-
 <!--Separate into value-laden and value-agnostic advice-->
-
 <!--Preparing for civilizational collapse? Which?-->
-
 <ol>
 <li>Do the obvious things
 <ul>
@@ -212,13 +176,13 @@ doomed</a>
 <li>Example: I had trouble going to bed early, so I <a href="./reports.html#Melatonin">tried
 Melatonin</a>, which pretty much
 solved my problem</li>
-<li>Example: I had trouble biting my nails, so I started <a href="./reports.html#Mostly-topping-to-Bite-My-Nails">cutting them regularly</a>, which also pretty much solved my problem</li>
+<li>Example: I had trouble biting my nails, so I started <a href="./reports.html#Mostly_topping_to_Bite_My_Nails">cutting them regularly</a>, which also pretty much solved my problem</li>
 <li>Example: I used to have a problem with getting distracted by the internet during hours when I wanted to be working. I moved to a place without internet, which made working easier.</li>
 </ul></li>
 <li>The benefits of small amounts of meditation are probably
 overstated, while the benefits of large amounts of
 meditation (north of 1 hour a day) are probably heavily
-underestimated. I have had <a href="./reports.html#300-Hours-of-Meditation">very good experiences with
+underestimated. I have had <a href="./reports.html#300_Hours_of_Meditation">very good experiences with
 it</a>.
 <ul>
 <li>The basic foundational activity before meditation is just
@@ -391,11 +355,9 @@ Yudkowsky on "the same atoms"-->, and nobody cares about
 your authentic diamond.</li>
 </ul></li>
 </ol>
-
-<h2>See Also</h2>
-
+<h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
 <ul>
 <li><a href="https://www.lesswrong.com/posts/HEn2qiMxk5BggN83J/boring-advice-repository">Boring Advice Repository</a></li>
 <li><a href="https://www.lesswrong.com/posts/iTzvJ7kKK2TYJhYHB/solved-problems-repository">Solved Problems Repository</a></li>
 </ul>
-</html>
+</body></html>

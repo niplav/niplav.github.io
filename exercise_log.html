@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,30 +32,22 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2020-06-15, modified: 2022-09-27, language: english, status: notes, importance: 1, confidence: log</em></p>
-
 <blockquote>
-  <p><strong>I recently got the feeling that tracking my exercise might be vaguely
+<p><strong>I recently got the feeling that tracking my exercise might be vaguely
 useful. This is my attempt.</strong></p>
 </blockquote>
-
-<h1>Exercise Log</h1>
-
+<h1 id="Exercise_Log"><a class="hanchor" href="#Exercise_Log">Exercise Log</a></h1>
 <p>Some of the names in this list are ad-hoc, for example the "Γ lift"
 is performed the following way:</p>
-
 <ul>
 <li>Hold one dumbbell in each hand</li>
 <li>Standing straight, orthogonal to the floor</li>
 <li>Bending ones upper body forward so that it's now parallel to the ground, arms hanging straight down</li>
 <li>Lifting the dumbbells toward the shoulders, parallel to the legs</li>
 </ul>
-
-<h2>Template</h2>
-
+<h2 id="Template"><a class="hanchor" href="#Template">Template</a></h2>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -99,11 +65,8 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>5 minutes plank</li>
 </ul>
-
-<h2>Log</h2>
-
-<h3>2020-06-15</h3>
-
+<h2 id="Log"><a class="hanchor" href="#Log">Log</a></h2>
+<h3 id="20200615"><a class="hanchor" href="#20200615">2020-06-15</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -115,9 +78,7 @@ is performed the following way:</p>
 <li>20 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-06-17</h3>
-
+<h3 id="20200617"><a class="hanchor" href="#20200617">2020-06-17</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -128,9 +89,7 @@ is performed the following way:</p>
 <li>50 double leg lifts</li>
 <li>200 froggers</li>
 </ul>
-
-<h3>2020-06-20</h3>
-
+<h3 id="20200620"><a class="hanchor" href="#20200620">2020-06-20</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -143,9 +102,7 @@ is performed the following way:</p>
 <li>200 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-06-23</h3>
-
+<h3 id="20200623"><a class="hanchor" href="#20200623">2020-06-23</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -156,9 +113,7 @@ is performed the following way:</p>
 <li>50 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-06-26</h3>
-
+<h3 id="20200626"><a class="hanchor" href="#20200626">2020-06-26</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -171,9 +126,7 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-06-29</h3>
-
+<h3 id="20200629"><a class="hanchor" href="#20200629">2020-06-29</a></h3>
 <ul>
 <li>60 push-ups</li>
 <li>60 sit-ups</li>
@@ -186,9 +139,7 @@ is performed the following way:</p>
 <li>40 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-07-01</h3>
-
+<h3 id="20200701"><a class="hanchor" href="#20200701">2020-07-01</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -200,9 +151,7 @@ is performed the following way:</p>
 <li>50 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-07-04</h3>
-
+<h3 id="20200704"><a class="hanchor" href="#20200704">2020-07-04</a></h3>
 <ul>
 <li>25 push-ups</li>
 <li>50 sit-ups</li>
@@ -211,9 +160,7 @@ is performed the following way:</p>
 <li>25 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-07-06</h3>
-
+<h3 id="20200706"><a class="hanchor" href="#20200706">2020-07-06</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -225,9 +172,7 @@ is performed the following way:</p>
 <li>50 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-07-09</h3>
-
+<h3 id="20200709"><a class="hanchor" href="#20200709">2020-07-09</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -239,9 +184,7 @@ is performed the following way:</p>
 <li>50 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-07-13</h3>
-
+<h3 id="20200713"><a class="hanchor" href="#20200713">2020-07-13</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -255,9 +198,7 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-07-17</h3>
-
+<h3 id="20200717"><a class="hanchor" href="#20200717">2020-07-17</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -270,9 +211,7 @@ is performed the following way:</p>
 <li>50 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-07-22</h3>
-
+<h3 id="20200722"><a class="hanchor" href="#20200722">2020-07-22</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -282,9 +221,7 @@ is performed the following way:</p>
 <li>50 5kg dumbbell bench presses</li>
 <li>50 double leg lifts</li>
 </ul>
-
-<h3>2020-07-23</h3>
-
+<h3 id="20200723"><a class="hanchor" href="#20200723">2020-07-23</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -295,15 +232,11 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-07-25</h3>
-
+<h3 id="20200725"><a class="hanchor" href="#20200725">2020-07-25</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-07-28</h3>
-
+<h3 id="20200728"><a class="hanchor" href="#20200728">2020-07-28</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -317,15 +250,11 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-07-31</h3>
-
+<h3 id="20200731"><a class="hanchor" href="#20200731">2020-07-31</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-08-03</h3>
-
+<h3 id="20200803"><a class="hanchor" href="#20200803">2020-08-03</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -339,15 +268,11 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-08-05</h3>
-
+<h3 id="20200805"><a class="hanchor" href="#20200805">2020-08-05</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-08-16</h3>
-
+<h3 id="20200816"><a class="hanchor" href="#20200816">2020-08-16</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -360,21 +285,15 @@ is performed the following way:</p>
 <li>50 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-08-18</h3>
-
+<h3 id="20200818"><a class="hanchor" href="#20200818">2020-08-18</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-08-24</h3>
-
+<h3 id="20200824"><a class="hanchor" href="#20200824">2020-08-24</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-08-31</h3>
-
+<h3 id="20200831"><a class="hanchor" href="#20200831">2020-08-31</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -388,15 +307,11 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2020-09-02</h3>
-
+<h3 id="20200902"><a class="hanchor" href="#20200902">2020-09-02</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-09-05</h3>
-
+<h3 id="20200905"><a class="hanchor" href="#20200905">2020-09-05</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -410,15 +325,11 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-09-08</h3>
-
+<h3 id="20200908"><a class="hanchor" href="#20200908">2020-09-08</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-09-10</h3>
-
+<h3 id="20200910"><a class="hanchor" href="#20200910">2020-09-10</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -432,9 +343,7 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-09-16</h3>
-
+<h3 id="20200916"><a class="hanchor" href="#20200916">2020-09-16</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -448,15 +357,11 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2020-09-17</h3>
-
+<h3 id="20200917"><a class="hanchor" href="#20200917">2020-09-17</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-09-20</h3>
-
+<h3 id="20200920"><a class="hanchor" href="#20200920">2020-09-20</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -468,15 +373,11 @@ is performed the following way:</p>
 <li>50 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-09-26</h3>
-
+<h3 id="20200926"><a class="hanchor" href="#20200926">2020-09-26</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-09-28</h3>
-
+<h3 id="20200928"><a class="hanchor" href="#20200928">2020-09-28</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -489,21 +390,15 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-10-03</h3>
-
+<h3 id="20201003"><a class="hanchor" href="#20201003">2020-10-03</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-10-05</h3>
-
+<h3 id="20201005"><a class="hanchor" href="#20201005">2020-10-05</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-10-06</h3>
-
+<h3 id="20201006"><a class="hanchor" href="#20201006">2020-10-06</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -517,9 +412,7 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2020-10-13</h3>
-
+<h3 id="20201013"><a class="hanchor" href="#20201013">2020-10-13</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>100 sit-ups</li>
@@ -533,15 +426,11 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>3 minutes plank</li>
 </ul>
-
-<h3>2020-10-14</h3>
-
+<h3 id="20201014"><a class="hanchor" href="#20201014">2020-10-14</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-10-19</h3>
-
+<h3 id="20201019"><a class="hanchor" href="#20201019">2020-10-19</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>100 sit-ups</li>
@@ -554,9 +443,7 @@ is performed the following way:</p>
 <li>50 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-10-22</h3>
-
+<h3 id="20201022"><a class="hanchor" href="#20201022">2020-10-22</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>80 sit-ups</li>
@@ -570,9 +457,7 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2020-10-26</h3>
-
+<h3 id="20201026"><a class="hanchor" href="#20201026">2020-10-26</a></h3>
 <ul>
 <li>60 push-ups</li>
 <li>80 sit-ups</li>
@@ -586,9 +471,7 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1.5 minutes plank</li>
 </ul>
-
-<h3>2020-11-01</h3>
-
+<h3 id="20201101"><a class="hanchor" href="#20201101">2020-11-01</a></h3>
 <ul>
 <li>60 push-ups</li>
 <li>80 sit-ups</li>
@@ -602,15 +485,11 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-11-03</h3>
-
+<h3 id="20201103"><a class="hanchor" href="#20201103">2020-11-03</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-11-06</h3>
-
+<h3 id="20201106"><a class="hanchor" href="#20201106">2020-11-06</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -623,15 +502,11 @@ is performed the following way:</p>
 <li>50 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-11-10</h3>
-
+<h3 id="20201110"><a class="hanchor" href="#20201110">2020-11-10</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-11-14</h3>
-
+<h3 id="20201114"><a class="hanchor" href="#20201114">2020-11-14</a></h3>
 <ul>
 <li>60 push-ups</li>
 <li>60 sit-ups</li>
@@ -645,15 +520,11 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-11-17</h3>
-
+<h3 id="20201117"><a class="hanchor" href="#20201117">2020-11-17</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-11-21</h3>
-
+<h3 id="20201121"><a class="hanchor" href="#20201121">2020-11-21</a></h3>
 <ul>
 <li>50 push-ups</li>
 <li>50 sit-ups</li>
@@ -666,15 +537,11 @@ is performed the following way:</p>
 <li>20 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-11-23</h3>
-
+<h3 id="20201123"><a class="hanchor" href="#20201123">2020-11-23</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-11-25</h3>
-
+<h3 id="20201125"><a class="hanchor" href="#20201125">2020-11-25</a></h3>
 <ul>
 <li>60 push-ups</li>
 <li>60 sit-ups</li>
@@ -688,9 +555,7 @@ is performed the following way:</p>
 <li>60 double leg lifts</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2020-11-29</h3>
-
+<h3 id="20201129"><a class="hanchor" href="#20201129">2020-11-29</a></h3>
 <ul>
 <li>60 push-ups</li>
 <li>60 sit-ups</li>
@@ -705,15 +570,11 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-12-01</h3>
-
+<h3 id="20201201"><a class="hanchor" href="#20201201">2020-12-01</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-12-04</h3>
-
+<h3 id="20201204"><a class="hanchor" href="#20201204">2020-12-04</a></h3>
 <ul>
 <li>60 push-ups</li>
 <li>60 sit-ups</li>
@@ -728,9 +589,7 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-12-12</h3>
-
+<h3 id="20201212"><a class="hanchor" href="#20201212">2020-12-12</a></h3>
 <ul>
 <li>60 5kg dumbbell biceps curls</li>
 <li>60 5kg dumbbell shoulder presses</li>
@@ -744,15 +603,11 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2020-12-14</h3>
-
+<h3 id="20201214"><a class="hanchor" href="#20201214">2020-12-14</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-12-19</h3>
-
+<h3 id="20201219"><a class="hanchor" href="#20201219">2020-12-19</a></h3>
 <ul>
 <li>60 5kg dumbbell biceps curls</li>
 <li>60 5kg dumbbell shoulder presses</li>
@@ -767,15 +622,11 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2020-12-21</h3>
-
+<h3 id="20201221"><a class="hanchor" href="#20201221">2020-12-21</a></h3>
 <ul>
 <li>45 minutes jogging</li>
 </ul>
-
-<h3>2020-12-23</h3>
-
+<h3 id="20201223"><a class="hanchor" href="#20201223">2020-12-23</a></h3>
 <ul>
 <li>60 5kg dumbbell biceps curls</li>
 <li>60 5kg dumbbell shoulder presses</li>
@@ -790,24 +641,17 @@ is performed the following way:</p>
 <li>100 froggers</li>
 <li>5 minutes plank</li>
 </ul>
-
-<h3>2020-12-21</h3>
-
+<h3 id="20201221_1"><a class="hanchor" href="#20201221_1">2020-12-21</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2020-12-30</h3>
-
+<h3 id="20201230"><a class="hanchor" href="#20201230">2020-12-30</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2021-01-01</h3>
-
+<h3 id="20210101"><a class="hanchor" href="#20210101">2021-01-01</a></h3>
 <p>Trying the <a href="https://old.reddit.com/r/bodyweightfitness/wiki/kb/recommended_routine">/r/bodyweightfitness recommended
 routine</a>.</p>
-
 <ul>
 <li>10 stick dislocates</li>
 <li>10 squate sky reaches both sides</li>
@@ -833,9 +677,7 @@ routine</a>.</p>
 <li>1x30s stretched arm plank</li>
 <li>1x30s kopenhagen plank</li>
 </ul>
-
-<h3>2021-01-03</h3>
-
+<h3 id="20210103"><a class="hanchor" href="#20210103">2021-01-03</a></h3>
 <ul>
 <li>60 5kg dumbbell biceps curls</li>
 <li>60 5kg dumbbell shoulder presses</li>
@@ -851,15 +693,11 @@ routine</a>.</p>
 <li>20 vertical rows</li>
 <li>20 walking lunges</li>
 </ul>
-
-<h3>2021-01-06</h3>
-
+<h3 id="20210106"><a class="hanchor" href="#20210106">2021-01-06</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2021-01-08</h3>
-
+<h3 id="20210108"><a class="hanchor" href="#20210108">2021-01-08</a></h3>
 <ul>
 <li>60 5kg dumbbell biceps curls</li>
 <li>60 5kg dumbbell shoulder presses</li>
@@ -875,15 +713,11 @@ routine</a>.</p>
 <li>20 vertical rows</li>
 <li>20 walking lunges</li>
 </ul>
-
-<h3>2021-01-11</h3>
-
+<h3 id="20210111"><a class="hanchor" href="#20210111">2021-01-11</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2021-01-15</h3>
-
+<h3 id="20210115"><a class="hanchor" href="#20210115">2021-01-15</a></h3>
 <ul>
 <li>60 5kg dumbbell biceps curls</li>
 <li>60 5kg dumbbell shoulder presses</li>
@@ -900,15 +734,11 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-01-18</h3>
-
+<h3 id="20210118"><a class="hanchor" href="#20210118">2021-01-18</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2021-01-20</h3>
-
+<h3 id="20210120"><a class="hanchor" href="#20210120">2021-01-20</a></h3>
 <ul>
 <li>60 5kg dumbbell biceps curls</li>
 <li>60 5kg dumbbell shoulder presses</li>
@@ -925,22 +755,16 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2021-01-22</h3>
-
+<h3 id="20210122"><a class="hanchor" href="#20210122">2021-01-22</a></h3>
 <ul>
 <li>32 minutes jogging</li>
 </ul>
-
-<h3>2021-01-24</h3>
-
+<h3 id="20210124"><a class="hanchor" href="#20210124">2021-01-24</a></h3>
 <ul>
 <li>100 froggers</li>
 <li>50 burpees</li>
 </ul>
-
-<h3>2021-01-26</h3>
-
+<h3 id="20210126"><a class="hanchor" href="#20210126">2021-01-26</a></h3>
 <ul>
 <li>60 5kg dumbbell biceps curls</li>
 <li>30 5kg dumbbell shoulder presses</li>
@@ -956,23 +780,17 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-01-29</h3>
-
+<h3 id="20210129"><a class="hanchor" href="#20210129">2021-01-29</a></h3>
 <ul>
 <li>60 5kg dumbbell shoulder presses</li>
 <li>60 burpees</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2021-02-01</h3>
-
+<h3 id="20210201"><a class="hanchor" href="#20210201">2021-02-01</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2021-02-05</h3>
-
+<h3 id="20210205"><a class="hanchor" href="#20210205">2021-02-05</a></h3>
 <ul>
 <li>60 5kg dumbbell biceps curls</li>
 <li>60 5kg dumbbell shoulder presses</li>
@@ -989,15 +807,11 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2021-02-07</h3>
-
+<h3 id="20210207"><a class="hanchor" href="#20210207">2021-02-07</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2021-02-10</h3>
-
+<h3 id="20210210"><a class="hanchor" href="#20210210">2021-02-10</a></h3>
 <ul>
 <li>40 7.5kg dumbbell biceps curls</li>
 <li>40 7.5kg dumbbell shoulder presses</li>
@@ -1014,9 +828,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-02-13</h3>
-
+<h3 id="20210213"><a class="hanchor" href="#20210213">2021-02-13</a></h3>
 <ul>
 <li>40 7.5kg dumbbell biceps curls</li>
 <li>40 7.5kg dumbbell shoulder presses</li>
@@ -1032,15 +844,11 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-02-15</h3>
-
+<h3 id="20210215"><a class="hanchor" href="#20210215">2021-02-15</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2021-02-19</h3>
-
+<h3 id="20210219"><a class="hanchor" href="#20210219">2021-02-19</a></h3>
 <ul>
 <li>60 7.5kg dumbbell biceps curls</li>
 <li>60 7.5kg dumbbell shoulder presses</li>
@@ -1057,15 +865,11 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-02-23</h3>
-
+<h3 id="20210223"><a class="hanchor" href="#20210223">2021-02-23</a></h3>
 <ul>
 <li>41 minutes jogging</li>
 </ul>
-
-<h3>2021-02-25</h3>
-
+<h3 id="20210225"><a class="hanchor" href="#20210225">2021-02-25</a></h3>
 <ul>
 <li>60 7.5kg dumbbell biceps curls</li>
 <li>60 7.5kg dumbbell shoulder presses</li>
@@ -1082,9 +886,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-03-03</h3>
-
+<h3 id="20210303"><a class="hanchor" href="#20210303">2021-03-03</a></h3>
 <ul>
 <li>60 7.5kg dumbbell biceps curls</li>
 <li>60 7.5kg dumbbell shoulder presses</li>
@@ -1101,21 +903,15 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-03-05</h3>
-
+<h3 id="20210305"><a class="hanchor" href="#20210305">2021-03-05</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2021-03-08</h3>
-
+<h3 id="20210308"><a class="hanchor" href="#20210308">2021-03-08</a></h3>
 <ul>
 <li>42 minutes jogging</li>
 </ul>
-
-<h3>2021-03-11</h3>
-
+<h3 id="20210311"><a class="hanchor" href="#20210311">2021-03-11</a></h3>
 <ul>
 <li>60 7.5kg dumbbell biceps curls</li>
 <li>60 7.5kg dumbbell shoulder presses</li>
@@ -1132,9 +928,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-03-16</h3>
-
+<h3 id="20210316"><a class="hanchor" href="#20210316">2021-03-16</a></h3>
 <ul>
 <li>30 7.5kg dumbbell biceps curls</li>
 <li>30 7.5kg dumbbell shoulder presses</li>
@@ -1150,9 +944,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2021-03-17</h3>
-
+<h3 id="20210317"><a class="hanchor" href="#20210317">2021-03-17</a></h3>
 <ul>
 <li>30 7.5kg dumbbell biceps curls</li>
 <li>30 7.5kg dumbbell shoulder presses</li>
@@ -1169,9 +961,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2021-03-22</h3>
-
+<h3 id="20210322"><a class="hanchor" href="#20210322">2021-03-22</a></h3>
 <ul>
 <li>60 7.5kg dumbbell biceps curls</li>
 <li>60 7.5kg dumbbell shoulder presses</li>
@@ -1188,9 +978,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-03-29</h3>
-
+<h3 id="20210329"><a class="hanchor" href="#20210329">2021-03-29</a></h3>
 <ul>
 <li>60 7.5kg dumbbell biceps curls</li>
 <li>60 7.5kg dumbbell shoulder presses</li>
@@ -1207,15 +995,11 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-03-30</h3>
-
+<h3 id="20210330"><a class="hanchor" href="#20210330">2021-03-30</a></h3>
 <ul>
 <li>30 minutes jogging</li>
 </ul>
-
-<h3>2021-04-04</h3>
-
+<h3 id="20210404"><a class="hanchor" href="#20210404">2021-04-04</a></h3>
 <ul>
 <li>60 7.5kg dumbbell biceps curls</li>
 <li>60 7.5kg dumbbell shoulder presses</li>
@@ -1231,9 +1015,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-04-10</h3>
-
+<h3 id="20210410"><a class="hanchor" href="#20210410">2021-04-10</a></h3>
 <ul>
 <li>40 7.5kg dumbbell biceps curls</li>
 <li>40 7.5kg dumbbell shoulder presses</li>
@@ -1250,9 +1032,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-04-15</h3>
-
+<h3 id="20210415"><a class="hanchor" href="#20210415">2021-04-15</a></h3>
 <ul>
 <li>60 7.5kg dumbbell biceps curls</li>
 <li>60 7.5kg dumbbell shoulder presses</li>
@@ -1269,15 +1049,11 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-04-17</h3>
-
+<h3 id="20210417"><a class="hanchor" href="#20210417">2021-04-17</a></h3>
 <ul>
 <li>25 minutes jogging</li>
 </ul>
-
-<h3>2021-04-21</h3>
-
+<h3 id="20210421"><a class="hanchor" href="#20210421">2021-04-21</a></h3>
 <ul>
 <li>40 7.5kg dumbbell biceps curls</li>
 <li>40 7.5kg dumbbell shoulder presses</li>
@@ -1294,9 +1070,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-04-24</h3>
-
+<h3 id="20210424"><a class="hanchor" href="#20210424">2021-04-24</a></h3>
 <ul>
 <li>60 7.5kg dumbbell biceps curls</li>
 <li>60 7.5kg dumbbell shoulder presses</li>
@@ -1313,9 +1087,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-05-13</h3>
-
+<h3 id="20210513"><a class="hanchor" href="#20210513">2021-05-13</a></h3>
 <ul>
 <li>30 7.5kg dumbbell biceps curls</li>
 <li>30 7.5kg dumbbell shoulder presses</li>
@@ -1332,9 +1104,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2021-05-22</h3>
-
+<h3 id="20210522"><a class="hanchor" href="#20210522">2021-05-22</a></h3>
 <ul>
 <li>30 7.5kg dumbbell biceps curls</li>
 <li>30 7.5kg dumbbell shoulder presses</li>
@@ -1351,9 +1121,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-05-24</h3>
-
+<h3 id="20210524"><a class="hanchor" href="#20210524">2021-05-24</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1370,9 +1138,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-05-26</h3>
-
+<h3 id="20210526"><a class="hanchor" href="#20210526">2021-05-26</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1389,9 +1155,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-05-28</h3>
-
+<h3 id="20210528"><a class="hanchor" href="#20210528">2021-05-28</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1408,9 +1172,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-05-30</h3>
-
+<h3 id="20210530"><a class="hanchor" href="#20210530">2021-05-30</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1427,9 +1189,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-06-01</h3>
-
+<h3 id="20210601"><a class="hanchor" href="#20210601">2021-06-01</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1446,9 +1206,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-06-03</h3>
-
+<h3 id="20210603"><a class="hanchor" href="#20210603">2021-06-03</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1465,9 +1223,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-06-10</h3>
-
+<h3 id="20210610"><a class="hanchor" href="#20210610">2021-06-10</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1484,9 +1240,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-06-12</h3>
-
+<h3 id="20210612"><a class="hanchor" href="#20210612">2021-06-12</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1503,9 +1257,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-06-14</h3>
-
+<h3 id="20210614"><a class="hanchor" href="#20210614">2021-06-14</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1522,9 +1274,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-06-16</h3>
-
+<h3 id="20210616"><a class="hanchor" href="#20210616">2021-06-16</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1541,9 +1291,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-06-19</h3>
-
+<h3 id="20210619"><a class="hanchor" href="#20210619">2021-06-19</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1560,9 +1308,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-06-21</h3>
-
+<h3 id="20210621"><a class="hanchor" href="#20210621">2021-06-21</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1579,9 +1325,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-06-24</h3>
-
+<h3 id="20210624"><a class="hanchor" href="#20210624">2021-06-24</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1598,9 +1342,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-06-27</h3>
-
+<h3 id="20210627"><a class="hanchor" href="#20210627">2021-06-27</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1617,9 +1359,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-07-02</h3>
-
+<h3 id="20210702"><a class="hanchor" href="#20210702">2021-07-02</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1636,9 +1376,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-07-04</h3>
-
+<h3 id="20210704"><a class="hanchor" href="#20210704">2021-07-04</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1655,9 +1393,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-07-06</h3>
-
+<h3 id="20210706"><a class="hanchor" href="#20210706">2021-07-06</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1674,9 +1410,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-07-08</h3>
-
+<h3 id="20210708"><a class="hanchor" href="#20210708">2021-07-08</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1693,9 +1427,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-07-13</h3>
-
+<h3 id="20210713"><a class="hanchor" href="#20210713">2021-07-13</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1712,9 +1444,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-07-15</h3>
-
+<h3 id="20210715"><a class="hanchor" href="#20210715">2021-07-15</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1731,9 +1461,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-07-17</h3>
-
+<h3 id="20210717"><a class="hanchor" href="#20210717">2021-07-17</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1750,9 +1478,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-07-21</h3>
-
+<h3 id="20210721"><a class="hanchor" href="#20210721">2021-07-21</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1769,9 +1495,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-07-24</h3>
-
+<h3 id="20210724"><a class="hanchor" href="#20210724">2021-07-24</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1788,9 +1512,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-07-27</h3>
-
+<h3 id="20210727"><a class="hanchor" href="#20210727">2021-07-27</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1807,9 +1529,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-07-31</h3>
-
+<h3 id="20210731"><a class="hanchor" href="#20210731">2021-07-31</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1826,9 +1546,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-08-03</h3>
-
+<h3 id="20210803"><a class="hanchor" href="#20210803">2021-08-03</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1845,9 +1563,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-08-22</h3>
-
+<h3 id="20210822"><a class="hanchor" href="#20210822">2021-08-22</a></h3>
 <ul>
 <li>60 push-ups</li>
 <li>60 sit-ups</li>
@@ -1857,27 +1573,19 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-08-27</h3>
-
+<h3 id="20210827"><a class="hanchor" href="#20210827">2021-08-27</a></h3>
 <ul>
 <li>50 burpees</li>
 </ul>
-
-<h3>2021-08-29</h3>
-
+<h3 id="20210829"><a class="hanchor" href="#20210829">2021-08-29</a></h3>
 <ul>
 <li>30 burpees</li>
 </ul>
-
-<h3>2021-09-02</h3>
-
+<h3 id="20210902"><a class="hanchor" href="#20210902">2021-09-02</a></h3>
 <ul>
 <li>50 push-ups</li>
 </ul>
-
-<h3>2021-09-05</h3>
-
+<h3 id="20210905"><a class="hanchor" href="#20210905">2021-09-05</a></h3>
 <ul>
 <li>80 push-ups</li>
 <li>100 sit-ups</li>
@@ -1887,9 +1595,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>4 minutes plank</li>
 </ul>
-
-<h3>2021-09-19</h3>
-
+<h3 id="20210919"><a class="hanchor" href="#20210919">2021-09-19</a></h3>
 <ul>
 <li>80 push-ups</li>
 <li>80 sit-ups</li>
@@ -1897,9 +1603,7 @@ routine</a>.</p>
 <li>60 walking lunges</li>
 <li>100 froggers</li>
 </ul>
-
-<h3>2021-09-20</h3>
-
+<h3 id="20210920"><a class="hanchor" href="#20210920">2021-09-20</a></h3>
 <ul>
 <li>80 push-ups</li>
 <li>80 sit-ups</li>
@@ -1909,9 +1613,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2021-10-11</h3>
-
+<h3 id="20211011"><a class="hanchor" href="#20211011">2021-10-11</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1927,28 +1629,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-10-13</h3>
-
-<ul>
-<li>60 7.5kg dumbbell shoulder presses</li>
-<li>60 7.5kg dumbbell biceps curls</li>
-<li>60 7.5kg dumbbell upright rows</li>
-<li>60 7.5kg dumbbell Γ lifts</li>
-<li>60 7.5kg dumbbell bench presses</li>
-<li>20 7.5kg dumbbell scaptions</li>
-<li>10 7.5kg dumbbell lateral lifts</li>
-<li>60 push-ups</li>
-<li>60 sit-ups</li>
-<li>60 double leg lifts</li>
-<li>20 burpees</li>
-<li>60 walking lunges</li>
-<li>100 froggers</li>
-<li>2 minutes plank</li>
-</ul>
-
-<h3>2021-10-16</h3>
-
+<h3 id="20211013"><a class="hanchor" href="#20211013">2021-10-13</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -1965,9 +1646,24 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-10-19</h3>
-
+<h3 id="20211016"><a class="hanchor" href="#20211016">2021-10-16</a></h3>
+<ul>
+<li>60 7.5kg dumbbell shoulder presses</li>
+<li>60 7.5kg dumbbell biceps curls</li>
+<li>60 7.5kg dumbbell upright rows</li>
+<li>60 7.5kg dumbbell Γ lifts</li>
+<li>60 7.5kg dumbbell bench presses</li>
+<li>20 7.5kg dumbbell scaptions</li>
+<li>10 7.5kg dumbbell lateral lifts</li>
+<li>60 push-ups</li>
+<li>60 sit-ups</li>
+<li>60 double leg lifts</li>
+<li>20 burpees</li>
+<li>60 walking lunges</li>
+<li>100 froggers</li>
+<li>2 minutes plank</li>
+</ul>
+<h3 id="20211019"><a class="hanchor" href="#20211019">2021-10-19</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -1984,9 +1680,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2021-10-21</h3>
-
+<h3 id="20211021"><a class="hanchor" href="#20211021">2021-10-21</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2003,9 +1697,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-10-24</h3>
-
+<h3 id="20211024"><a class="hanchor" href="#20211024">2021-10-24</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2021,9 +1713,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2021-10-26</h3>
-
+<h3 id="20211026"><a class="hanchor" href="#20211026">2021-10-26</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2039,9 +1729,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-11-03</h3>
-
+<h3 id="20211103"><a class="hanchor" href="#20211103">2021-11-03</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2058,9 +1746,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-11-13</h3>
-
+<h3 id="20211113"><a class="hanchor" href="#20211113">2021-11-13</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -2073,9 +1759,7 @@ routine</a>.</p>
 <li>50 walking lunges</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2021-11-15</h3>
-
+<h3 id="20211115"><a class="hanchor" href="#20211115">2021-11-15</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2091,9 +1775,7 @@ routine</a>.</p>
 <li>40 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-11-18</h3>
-
+<h3 id="20211118"><a class="hanchor" href="#20211118">2021-11-18</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2109,9 +1791,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>3 minutes plank</li>
 </ul>
-
-<h3>2021-11-26</h3>
-
+<h3 id="20211126"><a class="hanchor" href="#20211126">2021-11-26</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2127,9 +1807,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-11-28</h3>
-
+<h3 id="20211128"><a class="hanchor" href="#20211128">2021-11-28</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2145,9 +1823,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-12-01</h3>
-
+<h3 id="20211201"><a class="hanchor" href="#20211201">2021-12-01</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2164,9 +1840,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-12-07</h3>
-
+<h3 id="20211207"><a class="hanchor" href="#20211207">2021-12-07</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2183,9 +1857,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-12-11</h3>
-
+<h3 id="20211211"><a class="hanchor" href="#20211211">2021-12-11</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2202,9 +1874,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2021-12-15</h3>
-
+<h3 id="20211215"><a class="hanchor" href="#20211215">2021-12-15</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2221,9 +1891,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2021-12-18</h3>
-
+<h3 id="20211218"><a class="hanchor" href="#20211218">2021-12-18</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2240,9 +1908,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-02</h3>
-
+<h3 id="20220102"><a class="hanchor" href="#20220102">2022-01-02</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2259,9 +1925,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-04</h3>
-
+<h3 id="20220104"><a class="hanchor" href="#20220104">2022-01-04</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2278,9 +1942,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-06</h3>
-
+<h3 id="20220106"><a class="hanchor" href="#20220106">2022-01-06</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2297,9 +1959,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-09</h3>
-
+<h3 id="20220109"><a class="hanchor" href="#20220109">2022-01-09</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2316,9 +1976,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-14</h3>
-
+<h3 id="20220114"><a class="hanchor" href="#20220114">2022-01-14</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2335,9 +1993,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-16</h3>
-
+<h3 id="20220116"><a class="hanchor" href="#20220116">2022-01-16</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2354,9 +2010,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-18</h3>
-
+<h3 id="20220118"><a class="hanchor" href="#20220118">2022-01-18</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2373,9 +2027,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-20</h3>
-
+<h3 id="20220120"><a class="hanchor" href="#20220120">2022-01-20</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2392,9 +2044,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-23</h3>
-
+<h3 id="20220123"><a class="hanchor" href="#20220123">2022-01-23</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2412,9 +2062,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-25</h3>
-
+<h3 id="20220125"><a class="hanchor" href="#20220125">2022-01-25</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2432,9 +2080,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-27</h3>
-
+<h3 id="20220127"><a class="hanchor" href="#20220127">2022-01-27</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2452,9 +2098,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-29</h3>
-
+<h3 id="20220129"><a class="hanchor" href="#20220129">2022-01-29</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2472,9 +2116,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-01-31</h3>
-
+<h3 id="20220131"><a class="hanchor" href="#20220131">2022-01-31</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2492,9 +2134,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-02-02</h3>
-
+<h3 id="20220202"><a class="hanchor" href="#20220202">2022-02-02</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2512,9 +2152,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-02-04</h3>
-
+<h3 id="20220204"><a class="hanchor" href="#20220204">2022-02-04</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2532,9 +2170,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-02-06</h3>
-
+<h3 id="20220206"><a class="hanchor" href="#20220206">2022-02-06</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2552,9 +2188,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-02-08</h3>
-
+<h3 id="20220208"><a class="hanchor" href="#20220208">2022-02-08</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -2572,9 +2206,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-02-10</h3>
-
+<h3 id="20220210"><a class="hanchor" href="#20220210">2022-02-10</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2592,9 +2224,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-02-12</h3>
-
+<h3 id="20220212"><a class="hanchor" href="#20220212">2022-02-12</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2612,9 +2242,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-02-14</h3>
-
+<h3 id="20220214"><a class="hanchor" href="#20220214">2022-02-14</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2632,9 +2260,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-02-16</h3>
-
+<h3 id="20220216"><a class="hanchor" href="#20220216">2022-02-16</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2652,9 +2278,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-02-18</h3>
-
+<h3 id="20220218"><a class="hanchor" href="#20220218">2022-02-18</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -2662,9 +2286,7 @@ routine</a>.</p>
 <li>30 7.5kg dumbbell Γ lifts</li>
 <li>30 7.5kg dumbbell bench presses</li>
 </ul>
-
-<h3>2022-02-19</h3>
-
+<h3 id="20220219"><a class="hanchor" href="#20220219">2022-02-19</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2682,9 +2304,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-02-21</h3>
-
+<h3 id="20220221"><a class="hanchor" href="#20220221">2022-02-21</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2702,9 +2322,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-02-23</h3>
-
+<h3 id="20220223"><a class="hanchor" href="#20220223">2022-02-23</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2722,9 +2340,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-02-27</h3>
-
+<h3 id="20220227"><a class="hanchor" href="#20220227">2022-02-27</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2742,9 +2358,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-03-01</h3>
-
+<h3 id="20220301"><a class="hanchor" href="#20220301">2022-03-01</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2762,9 +2376,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-03-03</h3>
-
+<h3 id="20220303"><a class="hanchor" href="#20220303">2022-03-03</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2782,9 +2394,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-03-06</h3>
-
+<h3 id="20220306"><a class="hanchor" href="#20220306">2022-03-06</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -2802,9 +2412,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-03-08</h3>
-
+<h3 id="20220308"><a class="hanchor" href="#20220308">2022-03-08</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -2822,9 +2430,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-03-10</h3>
-
+<h3 id="20220310"><a class="hanchor" href="#20220310">2022-03-10</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2842,9 +2448,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-03-16</h3>
-
+<h3 id="20220316"><a class="hanchor" href="#20220316">2022-03-16</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2862,9 +2466,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-03-18</h3>
-
+<h3 id="20220318"><a class="hanchor" href="#20220318">2022-03-18</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2882,9 +2484,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-03-20</h3>
-
+<h3 id="20220320"><a class="hanchor" href="#20220320">2022-03-20</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2902,9 +2502,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-03-22</h3>
-
+<h3 id="20220322"><a class="hanchor" href="#20220322">2022-03-22</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2922,9 +2520,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-03-24</h3>
-
+<h3 id="20220324"><a class="hanchor" href="#20220324">2022-03-24</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -2942,15 +2538,11 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-03-25</h3>
-
+<h3 id="20220325"><a class="hanchor" href="#20220325">2022-03-25</a></h3>
 <ul>
 <li>10 pull-ups</li>
 </ul>
-
-<h3>2022-03-26</h3>
-
+<h3 id="20220326"><a class="hanchor" href="#20220326">2022-03-26</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -2968,9 +2560,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-03-27</h3>
-
+<h3 id="20220327"><a class="hanchor" href="#20220327">2022-03-27</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -2988,9 +2578,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-03-28</h3>
-
+<h3 id="20220328"><a class="hanchor" href="#20220328">2022-03-28</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3008,9 +2596,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-03-31</h3>
-
+<h3 id="20220331"><a class="hanchor" href="#20220331">2022-03-31</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3028,9 +2614,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-04-01</h3>
-
+<h3 id="20220401"><a class="hanchor" href="#20220401">2022-04-01</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3048,9 +2632,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-04-02</h3>
-
+<h3 id="20220402"><a class="hanchor" href="#20220402">2022-04-02</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3068,9 +2650,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-04-04</h3>
-
+<h3 id="20220404"><a class="hanchor" href="#20220404">2022-04-04</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3089,9 +2669,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-04-07</h3>
-
+<h3 id="20220407"><a class="hanchor" href="#20220407">2022-04-07</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3110,9 +2688,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-04-09</h3>
-
+<h3 id="20220409"><a class="hanchor" href="#20220409">2022-04-09</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3131,9 +2707,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-04-22</h3>
-
+<h3 id="20220422"><a class="hanchor" href="#20220422">2022-04-22</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3152,9 +2726,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-04-26</h3>
-
+<h3 id="20220426"><a class="hanchor" href="#20220426">2022-04-26</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3173,9 +2745,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-04-28</h3>
-
+<h3 id="20220428"><a class="hanchor" href="#20220428">2022-04-28</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3194,9 +2764,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-05-01</h3>
-
+<h3 id="20220501"><a class="hanchor" href="#20220501">2022-05-01</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3215,9 +2783,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-05-03</h3>
-
+<h3 id="20220503"><a class="hanchor" href="#20220503">2022-05-03</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3236,9 +2802,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-05-05</h3>
-
+<h3 id="20220505"><a class="hanchor" href="#20220505">2022-05-05</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3257,9 +2821,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-05-07</h3>
-
+<h3 id="20220507"><a class="hanchor" href="#20220507">2022-05-07</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3278,9 +2840,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-05-17</h3>
-
+<h3 id="20220517"><a class="hanchor" href="#20220517">2022-05-17</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3299,9 +2859,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-05-24</h3>
-
+<h3 id="20220524"><a class="hanchor" href="#20220524">2022-05-24</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3320,9 +2878,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-05-31</h3>
-
+<h3 id="20220531"><a class="hanchor" href="#20220531">2022-05-31</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3341,9 +2897,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-06-02</h3>
-
+<h3 id="20220602"><a class="hanchor" href="#20220602">2022-06-02</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3362,9 +2916,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-06-05</h3>
-
+<h3 id="20220605"><a class="hanchor" href="#20220605">2022-06-05</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3383,9 +2935,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-06-08</h3>
-
+<h3 id="20220608"><a class="hanchor" href="#20220608">2022-06-08</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3404,9 +2954,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-06-10</h3>
-
+<h3 id="20220610"><a class="hanchor" href="#20220610">2022-06-10</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3425,9 +2973,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-06-12</h3>
-
+<h3 id="20220612"><a class="hanchor" href="#20220612">2022-06-12</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3446,9 +2992,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-06-14</h3>
-
+<h3 id="20220614"><a class="hanchor" href="#20220614">2022-06-14</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3467,9 +3011,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-06-16</h3>
-
+<h3 id="20220616"><a class="hanchor" href="#20220616">2022-06-16</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3488,9 +3030,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-06-18</h3>
-
+<h3 id="20220618"><a class="hanchor" href="#20220618">2022-06-18</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3509,9 +3049,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-06-23</h3>
-
+<h3 id="20220623"><a class="hanchor" href="#20220623">2022-06-23</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3530,9 +3068,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-06-27</h3>
-
+<h3 id="20220627"><a class="hanchor" href="#20220627">2022-06-27</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3551,9 +3087,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-06-29</h3>
-
+<h3 id="20220629"><a class="hanchor" href="#20220629">2022-06-29</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3572,9 +3106,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-07-03</h3>
-
+<h3 id="20220703"><a class="hanchor" href="#20220703">2022-07-03</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3593,9 +3125,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-07-06T20:03-2022-07-06T21:22</h3>
-
+<h3 id="20220706T200320220706T2122"><a class="hanchor" href="#20220706T200320220706T2122">2022-07-06T20:03-2022-07-06T21:22</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3614,9 +3144,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-07-08T21:15-2022-07-08T22:30</h3>
-
+<h3 id="20220708T211520220708T2230"><a class="hanchor" href="#20220708T211520220708T2230">2022-07-08T21:15-2022-07-08T22:30</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3635,9 +3163,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-07-10T23:05-2022-07-10T23:59</h3>
-
+<h3 id="20220710T230520220710T2359"><a class="hanchor" href="#20220710T230520220710T2359">2022-07-10T23:05-2022-07-10T23:59</a></h3>
 <ul>
 <li>62 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3656,9 +3182,7 @@ routine</a>.</p>
 <li>0 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-07-13T18:45-2022-07-13T20:05</h3>
-
+<h3 id="20220713T184520220713T2005"><a class="hanchor" href="#20220713T184520220713T2005">2022-07-13T18:45-2022-07-13T20:05</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3677,9 +3201,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-07-16T17:30-2022-07-16T18:36</h3>
-
+<h3 id="20220716T173020220716T1836"><a class="hanchor" href="#20220716T173020220716T1836">2022-07-16T17:30-2022-07-16T18:36</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3698,9 +3220,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-07-19T12:35-2022-07-19T13:35</h3>
-
+<h3 id="20220719T123520220719T1335"><a class="hanchor" href="#20220719T123520220719T1335">2022-07-19T12:35-2022-07-19T13:35</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3719,9 +3239,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-07-27T20:20-2022-07-27T21:31</h3>
-
+<h3 id="20220727T202020220727T2131"><a class="hanchor" href="#20220727T202020220727T2131">2022-07-27T20:20-2022-07-27T21:31</a></h3>
 <ul>
 <li>60 7.5kg dumbbell shoulder presses</li>
 <li>60 7.5kg dumbbell biceps curls</li>
@@ -3740,9 +3258,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>2 minutes plank</li>
 </ul>
-
-<h3>2022-08-16T16:07-2022-08-16T16:54</h3>
-
+<h3 id="20220816T160720220816T1654"><a class="hanchor" href="#20220816T160720220816T1654">2022-08-16T16:07-2022-08-16T16:54</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3760,9 +3276,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-08-18T18:39-2022-08-18T19:15</h3>
-
+<h3 id="20220818T183920220818T1915"><a class="hanchor" href="#20220818T183920220818T1915">2022-08-18T18:39-2022-08-18T19:15</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3780,9 +3294,7 @@ routine</a>.</p>
 <li>100 froggers</li>
 <li>1 minutes plank</li>
 </ul>
-
-<h3>2022-09-27T11:04-2022-09-27T11:51</h3>
-
+<h3 id="20220927T110420220927T1151"><a class="hanchor" href="#20220927T110420220927T1151">2022-09-27T11:04-2022-09-27T11:51</a></h3>
 <ul>
 <li>30 7.5kg dumbbell shoulder presses</li>
 <li>30 7.5kg dumbbell biceps curls</li>
@@ -3796,4 +3308,4 @@ routine</a>.</p>
 <li>30 sit-ups</li>
 <li>100 froggers</li>
 </ul>
-</html>
+</body></html>

@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,38 +32,29 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-08-21, modified: 2021-10-18, language: english, status: maintenance, importance: 1, confidence: fiction</em></p>
-
 <blockquote>
-  <p><strong>As a response to <a href="https://applieddivinitystudies.com/2030/">Applied Divinity Studies
+<p><strong>As a response to <a href="https://applieddivinitystudies.com/2030/">Applied Divinity Studies
 2021</a><!--TODO: tooltip-->, I wrote a <a href="https://old.reddit.com/r/slatestarcodex/comments/p5lf7n/ordinary_life_improvements_2030/h979po7/">long
 comment</a>
 on <a href="https://old.reddit.com/r/slatestarcodex">/r/slatestarcodex</a>, taking
 the premise more serious. This is a formatted and revised version of
 that comment.</strong></p>
 </blockquote>
-
-<h1>Life Improvements in 2030</h1>
-
-<h3>Disavowal</h3>
-
+<h1 id="Life_Improvements_in_2030"><a class="hanchor" href="#Life_Improvements_in_2030">Life Improvements in 2030</a></h1>
+<h3 id="Disavowal"><a class="hanchor" href="#Disavowal">Disavowal</a></h3>
 <p>I now disavow this text. Most of it diverges strongly from the style of
 <a href="https://applieddivinitystudies.com/2030/">Applied Divinity Studies'</a> or
 <a href="https://www.gwern.net/Improvements">Gwern's original post</a>, focussing
 way too much on big developments and not enough on small-scale noticeable
 changes.</p>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>Noooooo, this is boring ;-). Let's <em>actually</em> speculate
+<p>Noooooo, this is boring ;-). Let's <em>actually</em> speculate
 about (not so ordinary) life-improvements from a <a href="https://nintil.com/cozy-futurism" title="Cozy Futurism">cozy
 future</a>.</p>
 </blockquote>
-
 <p>These are not predictions. Predictions would require confidence intervals
 or probability distributions, these are <strong>speculations</strong> and <em>mostly
 fiction</em>. I also expect to not endorse ~3/4 of these after thinking about
@@ -97,9 +62,7 @@ them for a couple more hours (I don't endorse some of these right now,
 and think this list is too optimistic overall). If you want to have
 an accurate view of the future, the joint distribution of community
 predictions on <a href="https://metaculus.com">Metaculus</a> is a better start.</p>
-
-<h2>Things That Have Gone Well</h2>
-
+<h2 id="Things_That_Have_Gone_Well"><a class="hanchor" href="#Things_That_Have_Gone_Well">Things That Have Gone Well</a></h2>
 <ul>
 <li>After 6 years of hard work, <a href="https://arxiv.org/abs/2107.10939v1">recommender systems are now mostly
 aligned with human values</a>,
@@ -130,7 +93,7 @@ ever</a> is finally defeated.</li>
 <li>The number of humans worldwide living at or under the extreme
 poverty line is now at 4%, and still falling.</li>
 <li>In 2029, we first reached an experimental fusion reactor with
-Q>1. It doesn't look like it's going to go into mass production
+Q&gt;1. It doesn't look like it's going to go into mass production
 <em>just</em> yet, but let's give it another ten years, shall we?</li>
 <li>Clean meat performed <em>much</em> better than most people
 expected: The cheapest variants reached price-parity with beef
@@ -168,9 +131,7 @@ third-world countries are at ~25%.</li>
 slightly cheaper than they were ten years ago, services slightly
 more reliable, processes run slightly more smooth</li>
 </ul>
-
-<h2>Things that Didn't Pan out as Hoped</h2>
-
+<h2 id="Things_that_Didnt_Pan_out_as_Hoped"><a class="hanchor" href="#Things_that_Didnt_Pan_out_as_Hoped">Things that Didn't Pan out as Hoped</a></h2>
 <ul>
 <li>Self-driving cars are, of course, still 3 years away.</li>
 <li>Around 2024/2025 there was another craze around molecular
@@ -210,4 +171,4 @@ in the atmosphere after the switch to renewables has been fully
 finished. At least proper carbon taxes have been implemented in
 most western countries, and around half of all cars are electric.</li>
 </ul>
-</html>
+</body></html>

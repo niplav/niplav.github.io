@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,32 +32,23 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-10-13, modified: 2022-10-02, language: multiple, status: in progress, importance: 1, confidence: other</em></p>
-
 <blockquote>
-  <p><strong>This page is a grab-bag of puns, good bandnames, types of guy,
+<p><strong>This page is a grab-bag of puns, good bandnames, types of guy,
 idioms, linguistic prescriptivism, umeshisms, nominative determinisms,
 daygame openers, asymmetries in language…</strong></p>
 </blockquote>
-
-<h1>Playing With Language</h1>
-
-<h2>Title Idioms</h2>
-
-<h3>Blog Posts</h3>
-
+<h1 id="Playing_With_Language"><a class="hanchor" href="#Playing_With_Language">Playing With Language</a></h1>
+<h2 id="Title_Idioms"><a class="hanchor" href="#Title_Idioms">Title Idioms</a></h2>
+<h3 id="Blog_Posts"><a class="hanchor" href="#Blog_Posts">Blog Posts</a></h3>
 <ul>
 <li>X: Much More Than You Wanted To Know</li>
 <li>Considerations on C<code>.*</code></li>
 <li>Meditations on M<code>.*</code></li>
 <li>Notes on N<code>.*</code></li>
 </ul>
-
-<h3>Papers</h3>
-
+<h3 id="Papers"><a class="hanchor" href="#Papers">Papers</a></h3>
 <ul>
 <li>X: A Critical/Opinionated Review</li>
 <li>X Considered Harmful</li>
@@ -91,11 +56,8 @@ daygame openers, asymmetries in language…</strong></p>
 <li>X is all you need</li>
 <li><a href="https://trevorjim.com/cute-title--actual-title/index.html">Cute title: Actual Title</a></li>
 </ul>
-
-<h3>Books</h3>
-
-<h4>Textbooks</h4>
-
+<h3 id="Books"><a class="hanchor" href="#Books">Books</a></h3>
+<h4 id="Textbooks"><a class="hanchor" href="#Textbooks">Textbooks</a></h4>
 <ul>
 <li>All of X</li>
 <li>An Introduction to X</li>
@@ -107,57 +69,42 @@ daygame openers, asymmetries in language…</strong></p>
 <li>X: An Introduction</li>
 <li>X Done Right</li>
 </ul>
-
-<h2>Better Names for Things</h2>
-
+<h2 id="Better_Names_for_Things"><a class="hanchor" href="#Better_Names_for_Things">Better Names for Things</a></h2>
 <p>Although linguistic prescriptivism is technically a cardinal sin, I
 sometimes make exceptions if a word particularly annoys me. This is a
 list of such words and suggestions for better naming of the concepts
 they describe.</p>
-
-<h3>"Rationalism"</h3>
-
+<h3 id="Rationalism"><a class="hanchor" href="#Rationalism">"Rationalism"</a></h3>
 <p>The name is already occupied by a philosophical tradition called
 <a href="https://en.wikipedia.org/wiki/Rationalism">"rationalism"</a> which has very
 little relation to the collection of people on the internet usually called
 "rationalists". Also, the name seems to be quite pretentious to outsiders.</p>
-
 <!--TODO: there was a post on LW about this instead being
 "pragmatism". Look that up!-->
-
 <p>Alternatives:</p>
-
 <ul>
 <li>"Mapmaking": Using "The map is not the territory.", related to
     practicality. Downside: also already taken.</li>
 <li><a href="https://www.lesswrong.com/posts/4E4zbHSmyuhkqgJmm/let-s-rename-ourselves-the-metacognitive-movement">Metacognitive Movement</a></li>
 </ul>
-
 <p><a href="https://www.lesswrong.com/posts/dq8rwmWXXQ4D4T6YD/should-we-stop-using-the-term-rationalist">Further discussion here</a>.</p>
-
-<h3>"Anarcho-Capitalism"</h3>
-
+<h3 id="AnarchoCapitalism"><a class="hanchor" href="#AnarchoCapitalism">"Anarcho-Capitalism"</a></h3>
 <p>The word "Anarchism" is strongly connected with left libertarian
 anti-capitalist thought (such as described by Bakunin, Kropotkin and
 Proudhon) throughout most of history and most of the world. Radical
 supporters of capitalism describing themselves as anarchists seems to
 be a historical anomaly, and they might want to find a name that clashes
 less with already existing trains of political thought.</p>
-
 <p>On the other hand, there has been a lot of debate about this perceived
 clash of terminology and it seems quite unlikely to change in the
 near future.</p>
-
 <p>Alternatives:</p>
-
 <ul>
 <li>"Propertarianism"</li>
 <li>"Voluntaryism"</li>
 <li>"Voluntarism"</li>
 </ul>
-
-<h3>"Animal Rights"</h3>
-
+<h3 id="Animal_Rights"><a class="hanchor" href="#Animal_Rights">"Animal Rights"</a></h3>
 <p>From a consequentialist perspective, rights are usually seen as
 instrumental heuristics and not as terminal values. When people talk about
 animal rights, they usually mean leaving animals alone in the context of
@@ -168,61 +115,45 @@ makes a striking case for intervening in nature due to the prevalence of
 extreme suffering, usually including highly invasive measures which would
 violate a naive concept of "animals rights". However, these interventions
 would be designed to increase total animal welfare.</p>
-
 <p>Alternatives:</p>
-
 <ul>
 <li>"Animal Welfare"</li>
 </ul>
-
-<h3>"Patriarchy"</h3>
-
+<h3 id="Patriarchy"><a class="hanchor" href="#Patriarchy">"Patriarchy"</a></h3>
 <p>Most feminists today claim that the patriarchy hurts both men <em>and</em>
 women.<!--TODO: [citation needed]--> However, the word "patriarchy"
 strongly carries the connotation that men are solely responsible for this,
 which seems not entirely clear.</p>
-
 <p>Alternatives:</p>
-
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Kyriarchy">"Kyriarchy"</a></li>
 <li>"Screwed up state of gender relations"</li>
 </ul>
-
-<h3>"Value Drift"</h3>
-
+<h3 id="Value_Drift"><a class="hanchor" href="#Value_Drift">"Value Drift"</a></h3>
 <p>Most people understand an opposition "value drift" as a rejection of
 moral development, and it's not clear where the difference between the
 two lies. Perhaps there are different kinds of such drifts: "value
 drift", "motivation drift", "discipline drift" etc.</p>
-
 <p>Alternatives:</p>
-
 <ul>
 <li>"Motivation Drift": This makes a clearer distinction between
     motivation and the values motivated about</li>
 </ul>
-
-<h3>"Pick-Up Artistry"</h3>
-
+<h3 id="PickUp_Artistry"><a class="hanchor" href="#PickUp_Artistry">"Pick-Up Artistry"</a></h3>
 <p>Strictly speaking, the word "art" is generally overused and defiled by
 using it to describe kitsch, skill or practice. I personally would prefer
 it if people stopped using the word "art" to describe banal and common
 things. "Pick-Up Artistry" falls into this category. It is a skill that
 requires sometimes years of practice, but it is a fundamentally practical
 and goal-oriented activity, unlike most (if not all) art.</p>
-
 <p>Alternatives:</p>
-
 <ul>
 <li>"Pick-Up"</li>
 <li>"Game", but this one <a href="https://en.wikipedia.org/wiki/Game">suffers</a> <a href="https://en.wikipedia.org/wiki/Game_(hunting)">from</a> <a href="https://en.wikipedia.org/wiki/The_Game_(rapper)">serious</a> <a href="https://en.wikipedia.org/Game_(Scientology)">overloading</a> <a href="https://en.wikipedia.org/wiki/Game_(grape)">problems</a> (Huh! I <a href="https://en.wikipedia.org/wiki/The_Game_(mind_game)">lost</a>/won<!--TODO: link to tweet about mdma and winning game--> it again!)</li>
 </ul>
-
-<h3>"Sentience"</h3>
-
+<h3 id="Sentience"><a class="hanchor" href="#Sentience">"Sentience"</a></h3>
 <blockquote>
-  <p>In the philosophy of
+<p>In the philosophy of
 <a href="https://en.wikipedia.org/wiki/Consciousness">consciousness</a>,
 sentience can refer to the ability of any entity to have subjective
 perceptual experiences, or as some philosophers refer to them,
@@ -231,9 +162,7 @@ In the philosophies of animal welfare and rights, sentience implies the
 ability to experience <a href="https://en.wikipedia.org/wiki/Pleasure">pleasure</a>
 and <a href="https://en.wikipedia.org/wiki/Suffering">pain</a>.</p>
 </blockquote>
-
 <p><em>— English Wikipedia, <a href="https://en.wikipedia.org/wiki/Sentience">“Sentience”</a>, 2019</em></p>
-
 <p>Very often, the word "sentience" is used to refer to the ability to
 feel pleasure or pain, or, to be more general, have experiences with a
 <a href="https://en.wikipedia.org/wiki/Valence_(psychology">valence</a>). However,
@@ -242,9 +171,8 @@ entail the ability to feel pleasure or pain, just that some qualia
 can be experienced. Although it is very often assumed that sentience
 necessarily entails pleasure and pain, it might still be worthwhile
 making a distinction between the two.</p>
-
 <blockquote>
-  <p>"Sentients" is usually defined as beings that are capable of
+<p>"Sentients" is usually defined as beings that are capable of
 subjectively perceiving or feeling by means of the senses. This includes
 not only beings capable of the feeling of being happy and/or unhappy,
 but also includes beings just capable of perceiving things without having
@@ -259,42 +187,29 @@ sentients. Hence, for the purpose here, the important dividing line is
 not between sentients and non-sentients, but between affective sentients
 and non-affective beings (sentient or non-sentient).</p>
 </blockquote>
-
 <p><em>— Yew-Kwang Ng, <a href="./doc/biology/welfare/towards_welfare_biology_evolutionary_economics_of_animal_consciousness_and_suffering_ng_1995.pdf">“Towards Welfare Biology: Evolutionary Economics of Animal Consciousness and Suffering”</a> p. 4, 1995</em></p>
-
 <p>Thus, it seems desirable to differentiate between the ability to have
 subjective experiences ("sentience") and the ability to have affective
 subjective experiences.</p>
-
 <p>Alternatives:</p>
-
 <ul>
 <li>"Affective sentience"</li>
 </ul>
-
 <p>Personal proposals:</p>
-
 <ul>
 <li>"Valience" (the ability to have experiences with a valence component)</li>
 </ul>
-
-<h2>Naming ASCII Characters</h2>
-
+<h2 id="Naming_ASCII_Characters"><a class="hanchor" href="#Naming_ASCII_Characters">Naming ASCII Characters</a></h2>
 <!--TODO: Urbit names?-->
-
 <p>Programmers often have to use the ASCII special characters
 <code>!"#\|%&amp;'()*+,-./:;&lt;=&gt;?@[\]^_{|}~</code> and `. However, spelling out
 "exclamation mark" has proven to be cumbersome, which made programmers
 introduce (or use) their own names for these characters.</p>
-
 <p>Existing<!--TODO: find sources-->:</p>
-
 <ul>
 <li>'!': Bang</li>
 </ul>
-
 <p>Personal proposals:</p>
-
 <ul>
 <li>'()': Parens</li>
 <li>'[]': Brackets</li>
@@ -302,43 +217,28 @@ introduce (or use) their own names for these characters.</p>
 <li>'\': Whack</li>
 <li>'?': What</li>
 </ul>
-
-<h2>Asymmetries in Languages</h2>
-
-<h3>German</h3>
-
+<h2 id="Asymmetries_in_Languages"><a class="hanchor" href="#Asymmetries_in_Languages">Asymmetries in Languages</a></h2>
+<h3 id="German"><a class="hanchor" href="#German">German</a></h3>
 <p>Wenn man das weibliche Gegenstück zum "Patriarchen" benennen will,
 welches Wort verwendet man? Üblicherweise ist die Antwort "die
 Matriarchin", aber das Wort ist redundant: das Geschlecht wird sowohl
 durch das "-in" Postfix als auch das Präfix "Matr-" signalisiert —
 aber das Wort "Matriarch" klingt bestenfalls merkwürdig. Was tun?</p>
-
 <p>0.5 vs. 1/2</p>
-
 <p>keine vs. null</p>
-
-<h3>English</h3>
-
+<h3 id="English"><a class="hanchor" href="#English">English</a></h3>
 <p>superstition, no substition or stition?</p>
-
 <p>Only fishmongers, scaremongers, warmongers, cheesemongers, ironmongers,
 costermongers and fearmongers?</p>
-
 <p>myopia, no youropia, heropia etc.</p>
-
 <p>paradox, but not paragnosis, paratechnē and paraëpistēmē</p>
-
 <p>some Xs, every X?</p>
-
-<h4>Missing Words</h4>
-
+<h4 id="Missing_Words"><a class="hanchor" href="#Missing_Words">Missing Words</a></h4>
 <ul>
 <li>eating : drinking :: feeding : ?</li>
 <li>hungry: satiated :: thirsty : quenched :: horny : ? ("That's my secret—I'm <em>always</em> horny." *hulk transform*)</li>
 </ul>
-
-<h2>Types of Guy</h2>
-
+<h2 id="Types_of_Guy"><a class="hanchor" href="#Types_of_Guy">Types of Guy</a></h2>
 <ul>
 <li>guy who has had unkind thoughts about Eliezer Yudkowsky</li>
 <li>guy who can't use a twitter account responsibly</li>
@@ -350,17 +250,13 @@ costermongers and fearmongers?</p>
 <li>guy who meets his spouse in the metaculus comments</li>
 <li>guy who, when he hears someone mention SARS, thinks of deep Q-learning</li>
 </ul>
-
-<h3>Of Rationalist</h3>
-
+<h3 id="Of_Rationalist"><a class="hanchor" href="#Of_Rationalist">Of Rationalist</a></h3>
 <ul>
 <li>rationalist who is okay-ish at forecasting</li>
 <li>rationalist who hasn't touched his 100-card anki deck in half a year</li>
 <li>rationalist who is cryocrastinating</li>
 </ul>
-
-<h2>In the Water Supply</h2>
-
+<h2 id="In_the_Water_Supply"><a class="hanchor" href="#In_the_Water_Supply">In the Water Supply</a></h2>
 <ul>
 <li>supermaximal repeats in the water supply</li>
 <li>consciousness complexity theory in the water supply</li>
@@ -384,40 +280,29 @@ costermongers and fearmongers?</p>
 <li>sequential decision problems in the water supply</li>
 <li>pattern screamers in the water supply</li>
 </ul>
-
-<h2>“X is not about Y, it's about Z”</h2>
-
+<h2 id="X_is_not_about_Y_its_about_Z"><a class="hanchor" href="#X_is_not_about_Y_its_about_Z">“X is not about Y, it's about Z”</a></h2>
 <ul>
 <li>Working hours are not about work, they're about class warfare.</li>
 </ul>
-
-<h2>New Abbreviations</h2>
-
+<h2 id="New_Abbreviations"><a class="hanchor" href="#New_Abbreviations">New Abbreviations</a></h2>
 <ul>
 <li>DSOTM: Doesn't seem obvious to me</li>
 <li>MFTOE: My favourite theory of ethics</li>
 </ul>
-
-<h2>Puns</h2>
-
-<h3>English</h3>
-
+<h2 id="Puns"><a class="hanchor" href="#Puns">Puns</a></h2>
+<h3 id="English_1"><a class="hanchor" href="#English_1">English</a></h3>
 <ul>
 <li>I uppekhan't get annoyed about this.</li>
-<li>What does an enthusiast for upper body clothing say when they see a new piece? <br />
+<li>What does an enthusiast for upper body clothing say when they see a new piece? <br/>
 “Intewesting”</li>
 <li>I had to reject the p-zombie for the position, they just weren't qualiafied.</li>
 <li>Why don't Haskellers practice jhānic meditation? Because it's all about cultivating states.</li>
 </ul>
-
-<h3>German</h3>
-
+<h3 id="German_1"><a class="hanchor" href="#German_1">German</a></h3>
 <ul>
 <li>Dafür, daß sie Jainisten heißen, sind sie aber ganz schön resolut.</li>
 </ul>
-
-<h2>Quines and Not-Quines</h2>
-
+<h2 id="Quines_and_NotQuines"><a class="hanchor" href="#Quines_and_NotQuines">Quines and Not-Quines</a></h2>
 <pre><code>                                         Noting "noting itself" itself  
                                  Noting "noting “noting itself” itself" itself  
                          Noting "noting “noting ‘noting itself’ itself” itself" itself  
@@ -425,28 +310,21 @@ costermongers and fearmongers?</p>
          Noting "noting “noting ‘noting »noting ›noting itself‹ itself« itself’ itself” itself" itself  
  Noting "noting “noting ‘noting »noting ›noting 'noting itself' itself‹ itself« itself’ itself” itself" itself
 </code></pre>
-
 <ul>
 <li>“is socially constructed” is socially constructed</li>
 <li>“I will do as I please” will do as it pleases</li>
 </ul>
-
-<h2>2×2s, 2×3s and more</h2>
-
+<h2 id="22s_23s_and_more"><a class="hanchor" href="#22s_23s_and_more">2×2s, 2×3s and more</a></h2>
 <ul>
 <li>{What we're (not) able to do now}×{What we (don't) have to do now}</li>
 <li>{Lives in social/physical reality}×{views things generally as positive/zero/negative sum}</li>
 <li>Dating advice falls into {easy, hard}×{concrete, diffuse}×{effective, ineffective} (easy &amp; concrete &amp; effective doesn't exist, of course)</li>
 </ul>
-
-<h2>Umeshisms</h2>
-
+<h2 id="Umeshisms"><a class="hanchor" href="#Umeshisms">Umeshisms</a></h2>
 <ul>
 <li>If you can follow your own ethical rules, your own ethical rules are not demanding enough.</li>
 </ul>
-
-<h2>Nominative Determinisms</h2>
-
+<h2 id="Nominative_Determinisms"><a class="hanchor" href="#Nominative_Determinisms">Nominative Determinisms</a></h2>
 <ul>
 <li>The “Sandwalk Choreographer” <a href="https://en.wikipedia.org/wiki/Benjamin_Millepied">Benjamin Millepied</a> from the <a href="https://www.imdb.com/title/tt1160419/">2021 Dune movie</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Dick_Wertheim">Dick Wertheim</a> <a href="https://en.wikipedia.org/wiki/List_of_unusual_deaths">"died after a ball struck him in the groin and he fell out of his chair"</a></li>
@@ -455,57 +333,42 @@ costermongers and fearmongers?</p>
 <li><a href="https://en.wikipedia.org/wiki/Kirby_Dick">Kirby Dick</a> directed <a href="https://en.wikipedia.org/wiki/This_Film_Is_Not_Yet_Rated">a documentary</a> about the age rating system for movies, "The MPAA gave the original cut an NC-17 rating for “some graphic sexual conten” – scenes that illustrated the content a film could include to garner such a rating. Dick appealed, and descriptions of the ratings deliberations and appeal were included in the documentary."</li>
 <li>The <a href="https://en.wikipedia.org/wiki/Schwarzschild_radius">Schwarzschild radius</a></li>
 </ul>
-
-<h2>Incorrect Plurals or Singulars People Use</h2>
-
+<h2 id="Incorrect_Plurals_or_Singulars_People_Use"><a class="hanchor" href="#Incorrect_Plurals_or_Singulars_People_Use">Incorrect Plurals or Singulars People Use</a></h2>
 <p>The first word is the correct one, the second word is the one people
 often use instead.</p>
-
 <ul>
 <li>"Equilibria" instead of "equilibrium"</li>
 <li>"Maxima" instead of "maximum"</li>
 <li>"Criteria" instead of "criterion"</li>
 </ul>
-
-<h2>Equivalences</h2>
-
+<h2 id="Equivalences"><a class="hanchor" href="#Equivalences">Equivalences</a></h2>
 <ul>
 <li>decision theory : microeconomics :: game theory : macroeconomics</li>
 <li>biology : philosophy of mind :: ethology : meditation</li>
 </ul>
-
-<h2>Better Words</h2>
-
-<h3>Compound</h3>
-
+<h2 id="Better_Words"><a class="hanchor" href="#Better_Words">Better Words</a></h2>
+<h3 id="Compound"><a class="hanchor" href="#Compound">Compound</a></h3>
 <ul>
 <li>bodymind</li>
 <li>spacetime</li>
 <li>matterenergy</li>
 </ul>
-
-<h3>Abbreviations Turned Into Words</h3>
-
+<h3 id="Abbreviations_Turned_Into_Words"><a class="hanchor" href="#Abbreviations_Turned_Into_Words">Abbreviations Turned Into Words</a></h3>
 <!--TODO: links and a planecrash quote-->
-
 <ul>
 <li>vopi</li>
 <li>batna</li>
 <li>botec</li>
 <li>dists</li>
 </ul>
-
-<h2>Good Bandnames</h2>
-
+<h2 id="Good_Bandnames"><a class="hanchor" href="#Good_Bandnames">Good Bandnames</a></h2>
 <ul>
 <li><a href="https://www.lesswrong.com/s/EmDuGeRw749sD3GKd/p/qALeGJ9nPcs9eC9Af">Catastrophic Transcripts</a></li>
 <li>Memetic Immune Disorder<!--TODO link--></li>
 <li>Contextual Bandits (seen in <a href="./doc/cs/ai/alignment/overview/concrete_problems_in_ai_safety_amodei_et_al_2016.pdf" title="Concrete Problems in AI Safety">Amodei et al. 2016</a>)</li>
 <li><a href="https://en.wikipedia.org/wiki/Carcinisation#Hypercarcinisation">Hypercarcinisation</a></li>
 </ul>
-
-<h2>Advertising Lines</h2>
-
+<h2 id="Advertising_Lines"><a class="hanchor" href="#Advertising_Lines">Advertising Lines</a></h2>
 <ul>
 <li>Niplav Yushtun™, PhD in Memetodynamics</li>
 <li>Niplav Yushtun™, Treasurer of the “Clone John von Neumann a Million Times” Party</li>
@@ -515,9 +378,7 @@ often use instead.</p>
 <li>Niplav Yushtun™: <a href="https://schelling.pt/web/statuses/107888052139408526">Now an effective cause area!</a></li>
 <li>Niplav Yushtun™: Calibration of the Intellect, Optimism of the Will</li>
 </ul>
-
-<h2>Unclaimed Domain Names</h2>
-
+<h2 id="Unclaimed_Domain_Names"><a class="hanchor" href="#Unclaimed_Domain_Names">Unclaimed Domain Names</a></h2>
 <ul>
 <li>paratechne.me</li>
 <li>{uni,multi}fungal.space</li>
@@ -531,16 +392,11 @@ often use instead.</p>
 <li>hyperoscillatory.space</li>
 <li>polyhazardous.space</li>
 </ul>
-
-<h2>Daygame</h2>
-
-<h3>Openers</h3>
-
+<h2 id="Daygame"><a class="hanchor" href="#Daygame">Daygame</a></h2>
+<h3 id="Openers"><a class="hanchor" href="#Openers">Openers</a></h3>
 <p>In general, for openers I am not above spouting whatever bullshit comes
 to my mind at that moment.</p>
-
 <p>I have, at various times,</p>
-
 <ul>
 <li>Compared girls with
 <ul>
@@ -595,8 +451,7 @@ to my mind at that moment.</p>
 </ul></li>
 </ul></li>
 </ul>
-
 <p>I have been told that I'm creative, but I have never observed any
 correlation with how well the approach goes and the opener, except for
 very boring openers and insults.</p>
-</html>
+</body></html>

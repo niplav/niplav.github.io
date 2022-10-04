@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,21 +32,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-02-06, modified: 2022-03-28, language: english, status: notes, importance: 6, confidence: unlikely</em></p>
-
 <blockquote>
-  <p><strong>The optimization power of attention-grabbing systems available over
+<p><strong>The optimization power of attention-grabbing systems available over
 the internet is growing faster than any normal human's ability to defend
 against such attention grabbing, and seems likely to continue to grow. If
 one values ones own time, it therefore seems worthwhile to limit ones
 access to the internet, more so than people usually do.</strong></p>
 </blockquote>
-
-<h1>Prepare to Leave The Internet</h1>
-
+<h1 id="Prepare_to_Leave_The_Internet"><a class="hanchor" href="#Prepare_to_Leave_The_Internet">Prepare to Leave The Internet</a></h1>
 <!--
 https://www.lesswrong.com/posts/Jq73GozjsuhdwMLEG/superstimuli-and-the-collapse-of-western-civilization
 https://www.youtube.com/watch?v=wf2VxeIm1no
@@ -92,34 +61,26 @@ Digital media usage and mental health
 Internet addiction disorder
 https://www.lesswrong.com/posts/fri4HdDkwhayCYFaE/do-a-cost-benefit-analysis-of-your-technology-usage
 -->
-
 <blockquote>
-  <p>New religions and mystery cults explode across the planet; much of
+<p>New religions and mystery cults explode across the planet; much of
 the Net is unusable, flattened by successive semiotic jihads.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Charles_Stross">Charles Stross</a>, <a href="https://en.wikipedia.org/wiki/Accelerando">“Accelerando”</a> p. 169, 2005</em></p>
-
 <p>Many people have noticed that they are using the internet and online
 services (e.g. through apps) more than they would ideally like, in a
 non-optimal manner, with effects on work productivity, reducing selective
 sustained attention spans, and with a large opportunity cost.</p>
-
-<h2>The Basic Argument</h2>
-
+<h2 id="The_Basic_Argument"><a class="hanchor" href="#The_Basic_Argument">The Basic Argument</a></h2>
 <p>The basic argument can be summarized as follows: There is an economic
 incentive to get people addicted to things. Currently, information
 technology appears to be the fastest advancing sector of the economy,
 and is therefore the most potent way of getting people addicted.</p>
-
 <p>If one wants to avoid falling into addictive patterns, then, it seems
 advisable to be very cautious around information technology, and in
 the more paranoid case, one wants to stay out of the addictive "event
 horizon": the state at which it has become basically impossible to
 unplug—which means that one ought to prepare to leave the internet.</p>
-
-<h3>Two Different Growth Modes</h3>
-
+<h3 id="Two_Different_Growth_Modes"><a class="hanchor" href="#Two_Different_Growth_Modes">Two Different Growth Modes</a></h3>
 <p>The world economy is currently growing at <a href="https://en.wikipedia.org/wiki/Gross_world_product">~3% a
 year</a>,
 which implies that during the <a href="https://en.wikipedia.org/wiki/Life_expectancy">average
@@ -129,7 +90,6 @@ that is before considering possible <a href="https://www.openphilanthropy.org/bl
 mode</a>
 from exponential to <a href="https://en.wikipedia.org/wiki/Hyperbolic_growth">hyperbolic
 growth</a>).</p>
-
 <p>While human minds are extraordinarily adaptive (surviving as
 hunter-gatherers, farmers, industrial workers, scientists,
 in space, etc.), they appear to have some hard-coded
@@ -147,14 +107,11 @@ last computer that can be fully understood by one person in its
 totality, and AI systems are becoming so complex that <a href="https://en.wikipedia.org/wiki/Explainable_artificial_intelligence">explainable
 AI</a>
 and interpretability research are becoming their own fields.</p>
-
 <p>While economic growth has been on the whole a <a href="http://lukemuehlhauser.com/three-wild-speculations-from-amateur-quantitative-macrohistory/">delightfully advantageous
 process</a>,
 this makes individual humans more prone to manipulation, deception,
 and addiction to these kinds of processes.</p>
-
-<h3>Humans Minds are Full of Holes</h3>
-
+<h3 id="Humans_Minds_are_Full_of_Holes"><a class="hanchor" href="#Humans_Minds_are_Full_of_Holes">Humans Minds are Full of Holes</a></h3>
 <p>This would be no problem if human brains were
 the <a href="https://en.wikipedia.org/OpenBSD">OpenBSD</a> or
 <a href="https://en.wikipedia.org/wiki/L4_microkernel_family">seL4</a> of
@@ -163,7 +120,6 @@ towers</a>,
 and until we <a href="https://en.wikipedia.org/wiki/Neuroenhancement">change something about
 that</a>, our minds will
 remain unstructured heaps of pasta.</p>
-
 <p>Not only do we bring up an impressive barrage of <a href="https://en.wikipedia.org/wiki/List_of_cognitive_biases">cognitive
 biases</a>,
 but it seems likely that our brains are
@@ -173,16 +129,12 @@ perhaps replace with a GoodReads link-->.
 And knowing about cognitive biases and flawed thinking usually helps
 little with actually mitigating them, sometimes even <a href="https://www.lesswrong.com/rationality/knowing-about-biases-can-hurt-people">amplifying the
 problem</a>.</p>
-
 <blockquote>
-  <p>Coherent, comprehensive theories of cognitive bias mitigation are lacking.</p>
+<p>Coherent, comprehensive theories of cognitive bias mitigation are lacking.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/English_Wikipedia">English Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Cognitive_Bias_Mitigation">“Cognitive Bias Mitigation”</a>, 2021</em></p>
-
 <p>This applies even more strongly to addictive tendencies and emotional
 outbursts.</p>
-
 <p>At the moment, technology is just
 moving more quickly than evolution or <a href="https://en.wikipedia.org/wiki/Cultural_evolution">cultural
 evolution</a> (which is why
@@ -193,12 +145,9 @@ put in more optimization work than the women they approach).<!--Maybe
 this is causing the selection criteria back to hard-to-fake signals,
 from social status/charisma back to height/wealth? Although it doesn't
 look like it.--></p>
-
 <p>Similarly, companies usually put in much more effort to manipulate their
 customers than the customers put into defending against that manipulation.</p>
-
-<h3>An Incentive for Addiction</h3>
-
+<h3 id="An_Incentive_for_Addiction"><a class="hanchor" href="#An_Incentive_for_Addiction">An Incentive for Addiction</a></h3>
 <p>Producers of a good have an incentive to modify their (potential)
 customers' preferences so that those customers want to consume
 more of their product. Examples for this are not hard to
@@ -210,44 +159,33 @@ but other examples include
 <a href="https://en.wikipedia.org/wiki/Problem_gambling">gambling</a>,
 <a href="https://en.wikipedia.org/wiki/Nicotine">nicotine</a>, gustatorily appealing
 fast food, and the complete practice of advertising.</p>
-
 <p>As long as companies can legally get away with it, they have an incentive
 to modify the preferences of their (potential) customers as to desire more
 of the product of that company.</p>
-
-<h3>Regulators are Slow</h3>
-
+<h3 id="Regulators_are_Slow"><a class="hanchor" href="#Regulators_are_Slow">Regulators are Slow</a></h3>
 <blockquote>
-  <p>He's the guy who patented using genetic algorithms to patent everything
+<p>He's the guy who patented using genetic algorithms to patent everything
 they can permutate from an initial description of a problem domain
 – not just a better mousetrap, but the set of all possible better
 mousetraps. Roughly a third of his inventions are legal, a third are
 illegal, and the remainder are legal but will become illegal as soon as
 the legislatosaurus wakes up, smells the coffee, and panics.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Charles_Stross">Charles Stross</a>, <a href="https://en.wikipedia.org/wiki/Accelerando">“Accelerando”</a> p. 11, 2005</em></p>
-
 <p>Existing legislative bodies move too slowly and don't understand
 the problem well enough to do much about it, and often the resulting
 polarization &amp; outrage is in their interest.</p>
-
 <!--TODO: continue-->
-
-<h3>Addiction to Information is More Dangerous</h3>
-
+<h3 id="Addiction_to_Information_is_More_Dangerous"><a class="hanchor" href="#Addiction_to_Information_is_More_Dangerous">Addiction to Information is More Dangerous</a></h3>
 <p>Why, then, focus on addiction to information specifically? If the whole
 economy is growing faster than any human can defend, and companies have
 an incentive to get me addicted, shouldn't I worry about <em>everything</em>,
 and retreat into a bunker while the world around me falls into a spiral
 of self-reinforcing behavioral loops?</p>
-
 <p>Well, yes, <a href="https://lcamtuf.coredump.cx/prep/index-old.shtml" title="Disaster planning for regular folks (lcamtuf 2021)">maybe</a>!
 But, barring complete independence from the rest of society, there are
 reasons to focus on addictive information systems in particular.</p>
-
-<h4>Information Moves Freely and Quickly</h4>
-
+<h4 id="Information_Moves_Freely_and_Quickly"><a class="hanchor" href="#Information_Moves_Freely_and_Quickly">Information Moves Freely and Quickly</a></h4>
 <p>The current setup of the internet (at least in <a href="https://en.wikipedia.org/wiki/Great_firewall">western
 countries</a>) allows most
 types of information exchange to occur freely, without obstruction, and
@@ -262,9 +200,7 @@ Genesis</a> (this
 method is not entirely foolproof, as shown by the <a href="https://en.wikipedia.org/wiki/Censorship_of_tiktok">censorship of
 TikTok</a>, especially
 in India)).</p>
-
-<h4>Information is Not on the Radar of Legislators (For Now)</h4>
-
+<h4 id="Information_is_Not_on_the_Radar_of_Legislators_For_Now"><a class="hanchor" href="#Information_is_Not_on_the_Radar_of_Legislators_For_Now">Information is Not on the Radar of Legislators (For Now)</a></h4>
 <p>While there is much ado about
 <a href="https://en.wikipedia.org/wiki/Internet_privacy">privacy</a>,
 for example the <a href="https://en.wikipedia.org/wiki/Right_to_be_forgotten">right to be
@@ -278,17 +214,11 @@ on Wikipedia lists only some minor actions
 by east-Asian countries (again <a href="https://www.gwern.net/The-Melancholy-of-Subculture-Society">of their western
 counterparts</a>)
 and some attempts of large technology companies at self-regulation.</p>
-
-<h3>The Addictive Event Horizon</h3>
-
-<h2>Evidence</h2>
-
-<h3>How Much Time do People Spend on the Internet?</h3>
-
-<h3>How Much Time Would People Like to Spend on the Internet?</h3>
-
-<h3>Have Attention Spans Been Declining?</h3>
-
+<h3 id="The_Addictive_Event_Horizon"><a class="hanchor" href="#The_Addictive_Event_Horizon">The Addictive Event Horizon</a></h3>
+<h2 id="Evidence"><a class="hanchor" href="#Evidence">Evidence</a></h2>
+<h3 id="How_Much_Time_do_People_Spend_on_the_Internet"><a class="hanchor" href="#How_Much_Time_do_People_Spend_on_the_Internet">How Much Time do People Spend on the Internet?</a></h3>
+<h3 id="How_Much_Time_Would_People_Like_to_Spend_on_the_Internet"><a class="hanchor" href="#How_Much_Time_Would_People_Like_to_Spend_on_the_Internet">How Much Time Would People Like to Spend on the Internet?</a></h3>
+<h3 id="Have_Attention_Spans_Been_Declining"><a class="hanchor" href="#Have_Attention_Spans_Been_Declining">Have Attention Spans Been Declining?</a></h3>
 <ul>
 <li><code>https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4567490</code></li>
 <li><code>https://doi.org/10.1177%2F0956797615594896</code></li>
@@ -296,24 +226,18 @@ and some attempts of large technology companies at self-regulation.</p>
 <li><code>http://blogs.suntimes.com/ebert/2010/05/the_french_word_frisson_descri.html#more</code></li>
 <li><code>https://www.wired.com/magazine/2010/05/ff_nicholas_carr/</code></li>
 </ul>
-
 <p>For television &amp; children:</p>
-
 <ul>
 <li><code>http://pediatrics.aappublications.org/cgi/content/abstract/113/4/708</code></li>
 <li><code>https://doi.org/10.1542%2Fpeds.113.4.708</code></li>
 </ul>
-
-<h2>Consequences</h2>
-
+<h2 id="Consequences"><a class="hanchor" href="#Consequences">Consequences</a></h2>
 <p>So, dear reader, you might ask what I now want from you. I'm glad you
 asked! (Or at least my model of you very conveniently did so).</p>
-
 <p>If you are reading this, it's likely you have already taken <em>some</em>
 measures to prevent you from wasting too much time on the internet or
 internet-connected services. If you haven't, you reading this text this
 far is evidence that you should.</p>
-
 <p>My advice is in its strongest form quite drastic: Leave the internet
 and everyone connected to it behind, acquire a library (be it physical
 or digital) and live in a secluded hut by a remote lake, lest you spend
@@ -323,50 +247,31 @@ at</a>
 wrong</a>,
 or just mindlessly scrolling while the hours (and days, and weeks…)
 trickle by…</p>
-
-<h3>I am Lightyears Ahead of You</h3>
-
+<h3 id="I_am_Lightyears_Ahead_of_You"><a class="hanchor" href="#I_am_Lightyears_Ahead_of_You">I am Lightyears Ahead of You</a></h3>
 <p>People are going to make their restrictions around blockers/grayscreening
 etc. stricter and stricter.</p>
-
-<h2>Possible Counterarguments</h2>
-
-<h3>Brain Very Flexible</h3>
-
-<h3>Addictive Process Takeover=Doom</h3>
-
-<h3>Giving Up Much</h3>
-
-<h3>The Providers Will Act</h3>
-
-<h3>You Are Missing a Mood About the Greatness of the Internet</h3>
-
-<h3>Similar Arguments Were Made</h3>
-
-<h2>What is To Be Done?</h2>
-
-<h3>Make Phasing Out Possible</h3>
-
-<h3>Lag Behind 5 Years</h3>
-
-<h2>How?</h2>
-
-<h3>Download Stuff</h3>
-
+<h2 id="Possible_Counterarguments"><a class="hanchor" href="#Possible_Counterarguments">Possible Counterarguments</a></h2>
+<h3 id="Brain_Very_Flexible"><a class="hanchor" href="#Brain_Very_Flexible">Brain Very Flexible</a></h3>
+<h3 id="Addictive_Process_TakeoverDoom"><a class="hanchor" href="#Addictive_Process_TakeoverDoom">Addictive Process Takeover=Doom</a></h3>
+<h3 id="Giving_Up_Much"><a class="hanchor" href="#Giving_Up_Much">Giving Up Much</a></h3>
+<h3 id="The_Providers_Will_Act"><a class="hanchor" href="#The_Providers_Will_Act">The Providers Will Act</a></h3>
+<h3 id="You_Are_Missing_a_Mood_About_the_Greatness_of_the_Internet"><a class="hanchor" href="#You_Are_Missing_a_Mood_About_the_Greatness_of_the_Internet">You Are Missing a Mood About the Greatness of the Internet</a></h3>
+<h3 id="Similar_Arguments_Were_Made"><a class="hanchor" href="#Similar_Arguments_Were_Made">Similar Arguments Were Made</a></h3>
+<h2 id="What_is_To_Be_Done"><a class="hanchor" href="#What_is_To_Be_Done">What is To Be Done?</a></h2>
+<h3 id="Make_Phasing_Out_Possible"><a class="hanchor" href="#Make_Phasing_Out_Possible">Make Phasing Out Possible</a></h3>
+<h3 id="Lag_Behind_5_Years"><a class="hanchor" href="#Lag_Behind_5_Years">Lag Behind 5 Years</a></h3>
+<h2 id="How"><a class="hanchor" href="#How">How?</a></h2>
+<h3 id="Download_Stuff"><a class="hanchor" href="#Download_Stuff">Download Stuff</a></h3>
 <p>As an example, here's the things I have downloaded for offline reading:</p>
-
 <ul>
 <li>Remaining episodes of the <a href="./podcasts_list.html">podcasts I listen to</a></li>
 <li>All music I want to listen to</li>
 <li>A large collection (several thousands) of books and papers I want to read</li>
 <li><a href="./sites.html">Websites I like</a></li>
 </ul>
-
 <p>To download a website, I usually used the command wget<!--TODO: link-->:</p>
-
 <pre><code>wget --page-requisites -e robots=off -p -k -c -r --mirror -p --html-extension -R '*replytocom*,*like_comment*,*p=*,*test-preview=*,*test-expand=*,*url=*,*share=*,*commentId=*,*sortedBy=*,*after=*,*before=*,*limit=*,*filter=*,*showPostCount=*,*useTagName=*,*///*,*social-media/*,*updated-max=*,*max-results=*,*reverse-paginate=*,*showComment=*,*filters_and=*,*following%5C*,*https:%5C*,*fsnapshot*' -P . www.example.com
 </code></pre>
-
 <p>This excludes downloading the same page for every comment with wordpress
 sites, and different versions of the allPosts pages for the EA forum and
 LessWrong. Unfortunately, both the EA forum and LessWrong are not very
@@ -374,21 +279,14 @@ amenable to being downloaded this way, and I will have to experiment
 with other approaches. It also sadly can't distinguish between resources
 (like images) hosted on other sites and other websites, and so those are
 missing (if <code>-H</code> is turned on, it begins downloading the entire internet).</p>
-
 <p>To download a webpage, I use this command:</p>
-
 <pre><code>wget -H -e robots=off -p -k www.example.com/resource.html
 </code></pre>
-
-<h3>Have a Designated “Internet Location” Which is Not At Home</h3>
-
+<h3 id="Have_a_Designated_Internet_Location_Which_is_Not_At_Home"><a class="hanchor" href="#Have_a_Designated_Internet_Location_Which_is_Not_At_Home">Have a Designated “Internet Location” Which is Not At Home</a></h3>
 <p>Optionally: Separate work with internet, work without internet, fun with
 internet, fun without internet spaces</p>
-
-<h2>Retrospective</h2>
-
+<h2 id="Retrospective"><a class="hanchor" href="#Retrospective">Retrospective</a></h2>
 <p>Started 2021-05-21.</p>
-
 <p>I definitely have (had?) a problem with wasting
 time on the internet, barely consciously scrolling
 reddit/twitter/lesswrong/4chan/…. Mercifully, I don't have exact
@@ -398,40 +296,23 @@ me at least <code>$10*365*1.5h=5475h$</code> hours wasted. Had I poured half of
 that into honing a new skill, or acquiring a new one… But what is
 important is to avoid wasting another 5000h, instead of crying about
 the ones that had already fallen into a screen.</p>
-
-<h2>AI Disaster Scenario: Human Progress Stalls Due To Attention-Destroyers</h2>
-
+<h2 id="AI_Disaster_Scenario_Human_Progress_Stalls_Due_To_AttentionDestroyers"><a class="hanchor" href="#AI_Disaster_Scenario_Human_Progress_Stalls_Due_To_AttentionDestroyers">AI Disaster Scenario: Human Progress Stalls Due To Attention-Destroyers</a></h2>
 <p>AI systems become capable enough to sap out most of human
 attention/ability to work, this prevents more capable AI systems from
 being built, but also destroys any options for progress.</p>
-
 <p>This might end up in an equilibrium.</p>
-
-<h2>Appendix A: A Picoeconomic Perspective</h2>
-
-<h2>Appendix B: Defining “Addictive Process”</h2>
-
-<h3>Modified-Self Approval</h3>
-
-<h4>Transparency</h4>
-
-<h4>Weak Amplification</h4>
-
-<h4>Approval Chaining</h4>
-
-<h4>Why This Definition is Still Unsatisfactory</h4>
-
-<h3>Distinguishing Information Hazards from Attention Hazards</h3>
-
-<h3>Present-Time Examples</h3>
-
-<h4>Food Optimizer</h4>
-
-<h4>Sexuality Optimizer</h4>
-
-<h4>Attention Optimizer</h4>
-
-<h4>Status Optimizer</h4>
-
-<h3>Possible Future Examples</h3>
-</html>
+<h2 id="Appendix_A_A_Picoeconomic_Perspective"><a class="hanchor" href="#Appendix_A_A_Picoeconomic_Perspective">Appendix A: A Picoeconomic Perspective</a></h2>
+<h2 id="Appendix_B_Defining_Addictive_Process"><a class="hanchor" href="#Appendix_B_Defining_Addictive_Process">Appendix B: Defining “Addictive Process”</a></h2>
+<h3 id="ModifiedSelf_Approval"><a class="hanchor" href="#ModifiedSelf_Approval">Modified-Self Approval</a></h3>
+<h4 id="Transparency"><a class="hanchor" href="#Transparency">Transparency</a></h4>
+<h4 id="Weak_Amplification"><a class="hanchor" href="#Weak_Amplification">Weak Amplification</a></h4>
+<h4 id="Approval_Chaining"><a class="hanchor" href="#Approval_Chaining">Approval Chaining</a></h4>
+<h4 id="Why_This_Definition_is_Still_Unsatisfactory"><a class="hanchor" href="#Why_This_Definition_is_Still_Unsatisfactory">Why This Definition is Still Unsatisfactory</a></h4>
+<h3 id="Distinguishing_Information_Hazards_from_Attention_Hazards"><a class="hanchor" href="#Distinguishing_Information_Hazards_from_Attention_Hazards">Distinguishing Information Hazards from Attention Hazards</a></h3>
+<h3 id="PresentTime_Examples"><a class="hanchor" href="#PresentTime_Examples">Present-Time Examples</a></h3>
+<h4 id="Food_Optimizer"><a class="hanchor" href="#Food_Optimizer">Food Optimizer</a></h4>
+<h4 id="Sexuality_Optimizer"><a class="hanchor" href="#Sexuality_Optimizer">Sexuality Optimizer</a></h4>
+<h4 id="Attention_Optimizer"><a class="hanchor" href="#Attention_Optimizer">Attention Optimizer</a></h4>
+<h4 id="Status_Optimizer"><a class="hanchor" href="#Status_Optimizer">Status Optimizer</a></h4>
+<h3 id="Possible_Future_Examples"><a class="hanchor" href="#Possible_Future_Examples">Possible Future Examples</a></h3>
+</body></html>

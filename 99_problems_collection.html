@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,27 +32,20 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-02-09, modified: 2020-02-09, language: english, status: in progress, importance: 2, confidence: log</em></p>
-
 <blockquote>
-  <p><strong>The list of 99 problems, originally for Prolog, has been translated
+<p><strong>The list of 99 problems, originally for Prolog, has been translated
 for a few other languages. This page collects links to them.</strong></p>
 </blockquote>
-
-<h1>99 Problems Collection</h1>
-
-<h2>Problems with Solutions</h2>
-
+<h1 id="99_Problems_Collection"><a class="hanchor" href="#99_Problems_Collection">99 Problems Collection</a></h1>
+<h2 id="Problems_with_Solutions"><a class="hanchor" href="#Problems_with_Solutions">Problems with Solutions</a></h2>
 <p>The original list was written by Werner Hett for the
 <a href="https://en.wikipedia.org/wiki/Prolog">Prolog</a>
 programming language and later
 <a href="https://sites.google.com/site/prologsite/prolog-problems">re-organized</a>.
 Most translations into other languages use the old ordering, which only
 contains 88 problems, due to both sub-problems and gaps in the order.</p>
-
 <ul>
 <li><a href="https://en.wikibooks.org/wiki/99_Elm_Problems/1_to_99">Elm</a>, 1-22 solved</li>
 <li><a href="https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems">Haskell</a>, all solved</li>
@@ -87,19 +54,14 @@ contains 88 problems, due to both sub-problems and gaps in the order.</p>
 <li><a href="https://ocaml.org/learn/tutorials/99problems.html">Ocaml</a>, mostly solved</li>
 <li><a href="http://aperiodic.net/phil/scala/s-99/">Scala</a>, mostly solved</li>
 </ul>
-
-<h2>Only Problems</h2>
-
+<h2 id="Only_Problems"><a class="hanchor" href="#Only_Problems">Only Problems</a></h2>
 <ul>
 <li><a href="https://github.com/99XProblems/99-Clojure-Problems">Clojure</a></li>
 <li><a href="https://www.enekoalonso.com/projects/99-swift-problems/">Swift</a></li>
 </ul>
-
-<h2>Only Solutions</h2>
-
+<h2 id="Only_Solutions"><a class="hanchor" href="#Only_Solutions">Only Solutions</a></h2>
 <p>Many more solutions (although almost all of them partial) can be found
 <a href="https://github.com/search?p=1&amp;q=99+problems&amp;type=Repositories&amp;utf8=%E2%9C%93">via github search</a>.</p>
-
 <ul>
 <li><a href="https://github.com/AustinRochford/99-problems-clojure">Clojure</a>, mainly solved</li>
 <li><a href="https://github.com/rodnaph/99-clojure-problems">Clojure</a>, partially solved</li>
@@ -123,4 +85,4 @@ contains 88 problems, due to both sub-problems and gaps in the order.</p>
 <li><a href="https://github.com/wololock/99problems-ml">Standard ML</a>, partially solved</li>
 <li><a href="https://github.com/eneko/Ninety-Nine-Swift-Solutions">Swift</a>, partially solved</li>
 </ul>
-</html>
+</body></html>

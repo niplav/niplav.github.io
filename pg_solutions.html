@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,30 +32,21 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-01-25, modified: 2022-02-23, language: english, status: in progress, importance: 2, confidence: likely</em></p>
-
 <blockquote>
-  <p><strong>Some solutions to exercises in the book “Population Genetics” by
+<p><strong>Some solutions to exercises in the book “Population Genetics” by
 <a href="https://en.wikipedia.org/wiki/John_H._Gillespie">John H. Gillespie</a>. I
 did not simply copy out the solutions at the end of each chapter, and
 sometimes didn't even check the solutions against my own. Therefore,
 these might be faulty.</strong></p>
 </blockquote>
-
-<h1>Solutions to “Population Genetics”</h1>
-
-<h2>Chapter 1</h2>
-
-<h3>Problem 1.1</h3>
-
+<h1 id="Solutions_to_Population_Genetics"><a class="hanchor" href="#Solutions_to_Population_Genetics">Solutions to “Population Genetics”</a></h1>
+<h2 id="Chapter_1"><a class="hanchor" href="#Chapter_1">Chapter 1</a></h2>
+<h3 id="Problem_11"><a class="hanchor" href="#Problem_11">Problem 1.1</a></h3>
 <p>For three it would be <code>$A_1A_1A_1, A_1A_1A_2, A_1A_2A_2, A_1A_2A_3, A_2A_2A_2, A_2A_2A_3, A_3A_3A_3$</code>,
 with 7 different genotypes.</p>
-
 <p>For four it would be 32 different genotypes:</p>
-
 <p><code>$A_1 A_1 A_1 A_1, A_1 A_1 A_1 A_2, A_1 A_1 A_1 A_3, A_1 A_1 A_1 A_4, A_1 A_1 A_2 A_2$</code>,
 <code>$A_1 A_1 A_2 A_3, A_1 A_1 A_2 A_4, A_1 A_1 A_3 A_3, A_1 A_1 A_3 A_4, A_1 A_1 A_4 A_4$</code>,
 <code>$A_1 A_2 A_2 A_2, A_1 A_2 A_2 A_3, A_1 A_2 A_2 A_4, A_1 A_2 A_3 A_4, A_1 A_2 A_4 A_4$</code>,
@@ -89,35 +54,24 @@ with 7 different genotypes.</p>
 <code>$A_2 A_2 A_3 A_3, A_2 A_2 A_3 A_4, A_2 A_2 A_4 A_4, A_2 A_3 A_3 A_3, A_2 A_3 A_3 A_4$</code>,
 <code>$A_2 A_3 A_4 A_4, A_2 A_4 A_4 A_4, A_3 A_3 A_3 A_3, A_3 A_3 A_3 A_4, A_3 A_3 A_4 A_4$</code>,
 <code>$A_3 A_4 A_4 A_4, A_4 A_4 A_4 A_4$</code>.</p>
-
 <!--TODO: what closed form formula describes the above counting
 partition?-->
-
 <p>So apparently, per solution, this is wrong, because I assumed that <code>$n$</code>
 different alleles resulted in a <code>$n$</code>ploid organism, which isn't the case.</p>
-
 <p>For three alleles it would be <code>$A_1 A_1, A_1 A_2, A_1 A_3, A_2 A_2, A_2 A_3, A_3 A_3$</code>,
 which is 6 different genotypes.</p>
-
 <p>For four different alleles it would be 10 different genotypes:</p>
-
 <p><code>$A_1 A_1,A_1 A_2,A_1 A_3,A_1 A_4,A_2 A_2,A_2 A_3,A_2 A_4,A_3 A_3,A_3 A_4,A_4 A_4$</code></p>
-
 <p>The general formula is <code>$\frac{n (n+1)}{2}$</code> different genotypes,
 because it's just the upper half of the square again.</p>
-
-<h3>Problem 1.2</h3>
-
+<h3 id="Problem_12"><a class="hanchor" href="#Problem_12">Problem 1.2</a></h3>
 <ul>
 <li>For I: <code>$0.0151+\frac{1}{2}0.0452+\frac{1}{2}0.0964=0.0859$</code></li>
 <li>For S: <code>$0.4247+\frac{1}{2}0.3343+\frac{1}{2}0.0964=0.64005$</code></li>
 <li>For F: <code>$0.0843+\frac{1}{2}0.3343+\frac{1}{2}0.0452=0.27405$</code></li>
 </ul>
-
 <p>Checking, these three do sum to 1: <code>$0.0859+0.64005+0.27405=1$</code>.</p>
-
-<h3>Problem 1.5</h3>
-
+<h3 id="Problem_15"><a class="hanchor" href="#Problem_15">Problem 1.5</a></h3>
 <pre><code>setrgb(0;0;0)
 grid([0.00001 1 0.1];[0 10 1])
 xtitle("q")
@@ -135,11 +89,8 @@ text(250;250;"2/q")
 
 draw()
 </code></pre>
-
-<p><img src="./img/pg_solutions/p1.5.png" alt="Graph for 1.5" title="" /></p>
-
-<h3>Problem 1.6</h3>
-
+<p><img alt="Graph for 1.5" src="./img/pg_solutions/p1.5.png" title=""/></p>
+<h3 id="Problem_16"><a class="hanchor" href="#Problem_16">Problem 1.6</a></h3>
 <pre><code>&gt;&gt;&gt; import numpy as np
 &gt;&gt;&gt; import scipy.stats as sps
 &gt;&gt;&gt; freq=np.array([0.4247, 0.3343, 0.0843, 0.0964, 0.0452, 0.0151])
@@ -147,13 +98,10 @@ draw()
 &gt;&gt;&gt; sps.chisquare(freq, expected)
 Power_divergenceResult(statistic=0.012244149537675565, pvalue=0.9999991214396423)
 </code></pre>
-
 <p>I guess? But checking the solution, I'm apparently wrong in multiple ways:
 3 degrees of freedom, and the genotype frequencies need to be multiplied
 by 332 before conducting the test.</p>
-
 <p>So, try again:</p>
-
 <pre><code>&gt;&gt;&gt; import numpy as np
 &gt;&gt;&gt; import scipy.stats as sps
 &gt;&gt;&gt; freq=332*np.array([0.4247, 0.3343, 0.0843, 0.0964, 0.0452, 0.0151])
@@ -161,17 +109,12 @@ by 332 before conducting the test.</p>
 &gt;&gt;&gt; sps.chisquare(freq, expected, ddof=3)
 Power_divergenceResult(statistic=4.065057646508287, pvalue=0.13100381641660697)
 </code></pre>
-
 <p>Which is what the solution to the exercise says as well. I guess the
 problem is that I don't really know how to apply statistical tests
 (…yet. Growth mindset.)</p>
-
-<h2>Chapter 2</h2>
-
-<h3>Problem 2.2</h3>
-
+<h2 id="Chapter_2"><a class="hanchor" href="#Chapter_2">Chapter 2</a></h2>
+<h3 id="Problem_22"><a class="hanchor" href="#Problem_22">Problem 2.2</a></h3>
 <p>Written in Lua, and generalizing to more than 2 alleles.</p>
-
 <pre><code>-- number of individuals
 N=260
 -- number of generations
@@ -196,9 +139,7 @@ end
 table.sort(alleles)
 print(table.concat(alleles, ", "))
 </code></pre>
-
-<h3>Problem 2.5</h3>
-
+<h3 id="Problem_25"><a class="hanchor" href="#Problem_25">Problem 2.5</a></h3>
 <pre><code>p2.5::.oc("p2.5.eps")
 .tc(p2.5)
 
@@ -221,28 +162,19 @@ draw()
 .fl()
 .cc(p2.5)
 </code></pre>
-
-<p><img src="./img/pg_solutions/p2.5.png" alt="Graph for 2.5" title="" /></p>
-
+<p><img alt="Graph for 2.5" src="./img/pg_solutions/p2.5.png" title=""/></p>
 <p>These are, in fact, two different graphs, but the approximation is good
 enough that the difference between the two is not visible.</p>
-
-<h3>Problem 2.7</h3>
-
+<h3 id="Problem_27"><a class="hanchor" href="#Problem_27">Problem 2.7</a></h3>
 <p>That would be <code>$3*3000$</code> for one step (3 possible changes for every
 nucleotides).</p>
-
 <p>For two mutational steps, it would be <code>$3^2*{3000 \choose 2}$</code> (3 possible
 changes per chosen nucleotide, and two different nucleotides chosen from
 the whole allele).</p>
-
 <p>For <code>$n$</code> mutational steps, it would be <code>$3^n*{3000 \choose n}$</code>.</p>
-
-<h3>Problem 2.9</h3>
-
+<h3 id="Problem_29"><a class="hanchor" href="#Problem_29">Problem 2.9</a></h3>
 <p>(The actual code doesn't contain the unicode symbols since either Klong
 or Postscript can't deal with them. Sad.)</p>
-
 <pre><code>p2.9::.oc("p2.9.eps")
 .tc(p2.9)
 
@@ -268,13 +200,9 @@ draw()
 .fl()
 .cc(p2.9)
 </code></pre>
-
-<p><img src="./img/pg_solutions/p2.9.png" alt="Graph for 2.9" title="" /></p>
-
+<p><img alt="Graph for 2.9" src="./img/pg_solutions/p2.9.png" title=""/></p>
 <p>Does the same thing fall out of the math?</p>
-
 <p>Let's see:</p>
-
 <div>
     $$-Δ_N \mathcal{H}=Δ_u \mathcal{H} \Leftrightarrow \\
     \frac{1}{2N} \mathcal{H}=2u(1-\mathcal{H}) \Leftrightarrow \\
@@ -283,6 +211,5 @@ draw()
     \mathcal{H}=\frac{4uN}{1+4uN} \Leftrightarrow \\
     \mathcal{H}=0.\overline{6} $$
 </div>
-
 <p>At least the intersection does.</p>
-</html>
+</body></html>

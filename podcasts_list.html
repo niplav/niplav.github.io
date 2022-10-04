@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,19 +32,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2020-06-25, modified: 2022-09-23, language: english, status: finished, importance: 1, confidence: log</em></p>
-
 <blockquote>
-  <p><strong>Podcasts I am following.</strong></p>
+<p><strong>Podcasts I am following.</strong></p>
 </blockquote>
-
-<h1>List of Podcasts I Listen To</h1>
-
+<h1 id="List_of_Podcasts_I_Listen_To"><a class="hanchor" href="#List_of_Podcasts_I_Listen_To">List of Podcasts I Listen To</a></h1>
 <p>I try to listen to all episodes available to the public.</p>
-
 <ul>
 <li><a href="https://0intro.dev/">0intro</a></li>
 <li><a href="https://80000hours.org/after-hours-podcast/">80000 After Hours</a></li>
@@ -93,9 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <li><a href="https://www.wildanimalinitiative.org/wildness">Wildness</a></li>
 <li><a href="https://dietsoap.podomatic.com/">Zero Squared</a></li>
 </ul>
-
-<h2>Whining</h2>
-
+<h2 id="Whining"><a class="hanchor" href="#Whining">Whining</a></h2>
 <p>Frustrating: inconsistent (or missing) numbering of podcast episodes
 (<a href="https://dietsoap.podomatic.com/">Zero Squared</a>, starting off as a
 separate podcast called "Diet Soap", being an especially egregious
@@ -110,11 +76,10 @@ then creating a special podcast for patreons only), releasing "Zero
 Books Special" episodes, calling itself at times "Zero Books Podcast" or
 "Zero Squared" or "Zero Podcast" (okay, fine, <code>$0^2=0$</code>, but still…),
 and finally renaming itself back to "Diet Soap" after over 10 years!).</p>
-
 <p>I have listened to all publically available episodes of Zero Squared,
 although that is a very qualified statement (if someone has episodes
 1–3, 5, 7–8, 10–11, 13–24, 26, 32–33, 36–40, 42–43, 51–53,
 183, 185, 187, 189–190, 192, 194, 196, 198, 200, 203, 205, 208, 210,
 212, 215, 223, 228–229, 258, I'd be happy to pay half a dollar per
 episode, just to silence my inner completionist).</p>
-</html>
+</body></html>

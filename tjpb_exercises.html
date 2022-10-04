@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,25 +32,18 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2020-07-23, modified: 2022-01-16, language: english, status: draft, importance: 5, confidence: log</em></p>
-
 <blockquote>
-  <p><strong><a href="https://en.wikipedia.org/wiki/The_Jazz_Piano_Book">The Jazz Piano
+<p><strong><a href="https://en.wikipedia.org/wiki/The_Jazz_Piano_Book">The Jazz Piano
 Book</a> by <a href="https://en.wikipedia.org/wiki/Mark_Levine_(musician)">Mark
 Levine</a> is a jazz
 piano textbook (who knew!). Because it's very useful to regularly practice
 voicings, scales etc, this page collects the exercises from that book.</strong></p>
 </blockquote>
-
-<h1>Exercises for “The Jazz Piano Book”</h1>
-
-<h2>Exercises</h2>
-
-<h3>Chapter One</h3>
-
+<h1 id="Exercises_for_The_Jazz_Piano_Book"><a class="hanchor" href="#Exercises_for_The_Jazz_Piano_Book">Exercises for “The Jazz Piano Book”</a></h1>
+<h2 id="Exercises"><a class="hanchor" href="#Exercises">Exercises</a></h2>
+<h3 id="Chapter_One"><a class="hanchor" href="#Chapter_One">Chapter One</a></h3>
 <!--
 > The chart that follows shows all the intervals, both ascending
 and descending, as they occur in tunes from the standard jazz
@@ -89,58 +56,42 @@ I usually just hit a random note on the keyboard and try to sing the
 next interval starting from that note, iterating through the intervals.
 -->
 <!--TODO: Image of all possible intervals here-->
-
 <blockquote>
-  <p>Practice singing the intervals, both ascending and descending. Sing
+<p>Practice singing the intervals, both ascending and descending. Sing
 the melody, or "head," of standards, bebop, and other jazz tunes while
 listening to records.</p>
 </blockquote>
-
 <p><em>— p. 9</em></p>
-
 <blockquote>
-  <p>Play the major, minor, diminished, and augmented triads in all keys
+<p>Play the major, minor, diminished, and augmented triads in all keys
 and all inversions.</p>
 </blockquote>
-
 <p><em>— p. 12</em></p>
-
 <p>I usually follow the cycle of fiths.</p>
-
-<h3>Chapter 2</h3>
-
+<h3 id="Chapter_2"><a class="hanchor" href="#Chapter_2">Chapter 2</a></h3>
 <blockquote>
-  <p>Memorize the II-V-I progression in every key. Go through all twelve
+<p>Memorize the II-V-I progression in every key. Go through all twelve
 keys saying the II-V-I chords aloud both sitting at, and away from,
 the piano. Make a mantra of it until you have the progressions
 memorized. <em>Always practice everything in every key</em>.</p>
 </blockquote>
-
 <p><em>— p. 16</em></p>
-
-<h3>Chapter 3</h3>
-
+<h3 id="Chapter_3"><a class="hanchor" href="#Chapter_3">Chapter 3</a></h3>
 <blockquote>
-  <p>Practice playing the II-V-I in both positions through all twelve keys,
+<p>Practice playing the II-V-I in both positions through all twelve keys,
 around the cycle of fifths. Analyze tunes by chord type—is each
 chord a II, V, or I chord?</p>
 </blockquote>
-
 <p><em>— p. 21</em></p>
-
-<h3>Chapter 4</h3>
-
+<h3 id="Chapter_4"><a class="hanchor" href="#Chapter_4">Chapter 4</a></h3>
 <p>Not in the book: Play all voicings of all sus (卣) chords where the
 third has been voiced (see Figure 4-5). Try to get a feel for what they
 sound like.</p>
-
 <p>Play the Phyrgian chord in all keys, and resolve it to the corresponding
 Δ chord (see Figure 4-7).</p>
-
 <blockquote>
-  <p>Go through tunes in <em>The New Real Book</em> and <em>The World's Greatest Fake
+<p>Go through tunes in <em>The New Real Book</em> and <em>The World's Greatest Fake
 Book</em>, reharmonizing II-V progressions using sus and Phrygian chords.</p>
 </blockquote>
-
 <p><em>— p. 26</em></p>
-</html>
+</body></html>

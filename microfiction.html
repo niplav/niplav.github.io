@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,29 +32,20 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-10-13, modified: 2022-10-02, language: multiple, status: in progress, importance: 1, confidence: other</em></p>
-
 <blockquote>
-  <p><strong>Very small pieces of fiction and things that are sufficiently like
+<p><strong>Very small pieces of fiction and things that are sufficiently like
 fiction.</strong></p>
 </blockquote>
-
-<h1>Microfiction</h1>
-
+<h1 id="Microfiction"><a class="hanchor" href="#Microfiction">Microfiction</a></h1>
 <blockquote>
-  <p>Was ›sagt‹ denn eine Dichtung? Was teilt sie mit? Sehr wenig
+<p>Was ›sagt‹ denn eine Dichtung? Was teilt sie mit? Sehr wenig
 demjenigen, der sie versteht.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Walter_Benjamin">Walter Benjamin</a>, “Die Aufgabe des Übersetzers”, 1923</em></p>
-
-<h2>Words</h2>
-
-<h3>New</h3>
-
+<h2 id="Words"><a class="hanchor" href="#Words">Words</a></h2>
+<h3 id="New"><a class="hanchor" href="#New">New</a></h3>
 <ul>
 <li>"endokremlinology"</li>
 <li>"quinpedalism"</li>
@@ -91,16 +56,12 @@ demjenigen, der sie versteht.</p>
 <li><a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">"rijndaël</a><a href="https://en.wikipedia.org/wiki/Raëlism">ites"</a></li>
 <li>"licerology": the study of betting and auctions, auction theory</li>
 </ul>
-
-<h4>Morphisms</h4>
-
+<h4 id="Morphisms"><a class="hanchor" href="#Morphisms">Morphisms</a></h4>
 <ul>
 <li>diegomorphism</li>
 <li>dimpomorphism</li>
 </ul>
-
-<h3>Otherwise Nice</h3>
-
+<h3 id="Otherwise_Nice"><a class="hanchor" href="#Otherwise_Nice">Otherwise Nice</a></h3>
 <ul>
 <li>English
 <ul>
@@ -120,172 +81,126 @@ demjenigen, der sie versteht.</p>
 <li>"mit Hängen und Würgen"</li>
 </ul></li>
 </ul>
-
-<h2>Poems</h2>
-
-<h3>English</h3>
-
+<h2 id="Poems"><a class="hanchor" href="#Poems">Poems</a></h2>
+<h3 id="English"><a class="hanchor" href="#English">English</a></h3>
 <blockquote>
-  <p>Paradises, peacocks, peaches and palimpsests! Prussians, prowlers plus
+<p>Paradises, peacocks, peaches and palimpsests! Prussians, prowlers plus
 plumous penguins, priestess parks principles—priceless.</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>gah, can't snarf evince.</p>
+<p>gah, can't snarf evince.</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>You can sit here and be okay, if you want.</p>
+<p>You can sit here and be okay, if you want.</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>Now hips, a black hole to surround <br />
-no Riemann metric has yet traced <br />
-an old, a new decision is now made <br />
-a bow is drawn <br />
-a good one, as of yet <br />
-no fragmented escutcheon <br />
-from the old master's whirring feet <br />
-a pair of compasses would never <br />
-traverse the geodesic so <br />
-a “hi”, a “no”, a saddest look, <br />
-relieved of possibility <br />
+<p>Now hips, a black hole to surround <br/>
+no Riemann metric has yet traced <br/>
+an old, a new decision is now made <br/>
+a bow is drawn <br/>
+a good one, as of yet <br/>
+no fragmented escutcheon <br/>
+from the old master's whirring feet <br/>
+a pair of compasses would never <br/>
+traverse the geodesic so <br/>
+a “hi”, a “no”, a saddest look, <br/>
+relieved of possibility <br/>
 Now have I fucking traumatized the bird‽</p>
 </blockquote>
-
-<h3>German</h3>
-
+<h3 id="German"><a class="hanchor" href="#German">German</a></h3>
 <blockquote>
-  <p>Ein Wille wie Silizium, ein Auftreten wie Sand, ein Gemüt wie von
+<p>Ein Wille wie Silizium, ein Auftreten wie Sand, ein Gemüt wie von
 Licht durchschienenes Glas.</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>Oh die Tyrannei der Mühle, oh die Medizin der Mühle!</p>
+<p>Oh die Tyrannei der Mühle, oh die Medizin der Mühle!</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>Aufschlagbare Halsschlagader, durchschlagbare Halsschlagader!</p>
+<p>Aufschlagbare Halsschlagader, durchschlagbare Halsschlagader!</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>Nachts sind alle Katzen grau <br />
+<p>Nachts sind alle Katzen grau <br/>
 Alle Schatten werden schlau</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>Denn Vater Zeit, von nun, lässt uns <br />
+<p>Denn Vater Zeit, von nun, lässt uns <br/>
 sein hellstes Beil erschimmern.</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>Wo ist Norden? <br />
-Die Grenze aller Sehenden <br />
+<p>Wo ist Norden? <br/>
+Die Grenze aller Sehenden <br/>
 Das letzt' Gedicht dran abgeprallt.</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>Lachhaft verbunden <br />
-An einer Linie durch den Raum <br />
+<p>Lachhaft verbunden <br/>
+An einer Linie durch den Raum <br/>
 geführt; —</p>
 </blockquote>
-
-<h3>Other</h3>
-
+<h3 id="Other"><a class="hanchor" href="#Other">Other</a></h3>
 <blockquote>
-  <p>Ikto verso lapido.</p>
+<p>Ikto verso lapido.</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>Sed nihil subsequor.</p>
+<p>Sed nihil subsequor.</p>
 </blockquote>
-
-<h3>Senryū</h3>
-
+<h3 id="Senry"><a class="hanchor" href="#Senry">Senryū</a></h3>
 <p>Well, not strictly <a href="https://en.wikipedia.org/wiki/Haiku">haiku</a>
 (not always a cutting word or seasonal reference) or
 <a href="https://en.wikipedia.org/wiki/Senryū">senryū</a> (not always cynical &amp;
 dark or about humans), but I follow the 17 (5-7-5) syllable format.</p>
-
-<h4>German</h4>
-
-<p>Winters Klee entschied <br />
-Einmal mir nachzufolgen <br />
+<h4 id="German_1"><a class="hanchor" href="#German_1">German</a></h4>
+<p>Winters Klee entschied <br/>
+Einmal mir nachzufolgen <br/>
 Bedachte nicht; Pferd!</p>
-
-<p>Kirschblüten gegen <br />
-das samtene Firnament <br />
+<p>Kirschblüten gegen <br/>
+das samtene Firnament <br/>
 bald stürzt es hinab</p>
-
-<p>Doch Blüten, deren <br />
-Topazellbogen plötzlich <br />
+<p>Doch Blüten, deren <br/>
+Topazellbogen plötzlich <br/>
 Scharlachknie sind</p>
-
-<p>Amethystschulter, <br />
-die mit Graphitgeste kein <br />
+<p>Amethystschulter, <br/>
+die mit Graphitgeste kein <br/>
 Kobaltherz verscharrt</p>
-
-<h5>Lipogrammatisch</h5>
-
-<p>Nicht Domizil, nicht <br />
-Humbug, hat dir, Odysseus, <br />
+<h5 id="Lipogrammatisch"><a class="hanchor" href="#Lipogrammatisch">Lipogrammatisch</a></h5>
+<p>Nicht Domizil, nicht <br/>
+Humbug, hat dir, Odysseus, <br/>
 Schändung nun abzollt</p>
-
-<h4>English</h4>
-
-<p>In the CPU <br />
-Peace. But the tranquility <br />
+<h4 id="English_1"><a class="hanchor" href="#English_1">English</a></h4>
+<p>In the CPU <br/>
+Peace. But the tranquility <br/>
 is interrupted.</p>
-
-<p>Autumn, slashing when <br />
-The eternal emerald <br />
+<p>Autumn, slashing when <br/>
+The eternal emerald <br/>
 Sadly decomposed  </p>
-
-<p><a href="https://en.wikipedia.org/wiki/Data-flow_analysis#Backward_analysis">Backward analyzed</a> <br />
-This computation sufficed <br />
+<p><a href="https://en.wikipedia.org/wiki/Data-flow_analysis#Backward_analysis">Backward analyzed</a> <br/>
+This computation sufficed <br/>
 But data? Perturbed  </p>
-
-<p><a href="https://en.wikipedia.org/wiki/Spline_(mathematics)">Splines</a> are weird and nice <br />
-Where get differentiation? <br />
-Just increase your <code>$m$</code>  </p>
-
-<p>In jazz scattering <br />
-Forward, backward, to the side <br />
+<p><a href="https://en.wikipedia.org/wiki/Spline_(mathematics)">Splines</a> are weird and nice <br/>
+Where get differentiation? <br/>
+Just increase your <code>$m$</code> </p>
+<p>In jazz scattering <br/>
+Forward, backward, to the side <br/>
 confusion entails</p>
-
-<p>Please turn off the lights! <br />
-Very high costs arise, when <br />
+<p>Please turn off the lights! <br/>
+Very high costs arise, when <br/>
 The light is on. Thanks.</p>
-
-<p>May your death be like <br />
-A married bachelor, ex <br />
+<p>May your death be like <br/>
+A married bachelor, ex <br/>
 falso quodlibet</p>
-
-<p>The silence prickles <br />
-A mind too swift for meaning <br />
+<p>The silence prickles <br/>
+A mind too swift for meaning <br/>
 <!--Is Thoughts without wrapping worse? Better?-->
 Unwrapping my thoughts</p>
-
 <!--
 Some minds start cutting  
 themselves, if the do not dull  
@@ -295,201 +210,148 @@ A psyche might start
 cutting itself, if it is  
 not dulled each fortnight
 -->
-
-<p>A sharp mind might start <br />
-cutting itself, if it ain't <br />
+<p>A sharp mind might start <br/>
+cutting itself, if it ain't <br/>
 dulled once in a while</p>
-
-<p>Thus declaring: “read, <br />
-write, code—sit, approach, lift”, off <br />
+<p>Thus declaring: “read, <br/>
+write, code—sit, approach, lift”, off <br/>
 into the mountains.</p>
-
-<p>When the elder drop <br />
-Never hits your eye again <br />
+<p>When the elder drop <br/>
+Never hits your eye again <br/>
 Itching bark quivers</p>
-
-<p>Lest our shimmery <br />
-Streets give no unheard secrets <br />
+<p>Lest our shimmery <br/>
+Streets give no unheard secrets <br/>
 I will munge some corn</p>
-
-<p>Hardening over <br />
-Kazakhstani pools, we hence <br />
+<p>Hardening over <br/>
+Kazakhstani pools, we hence <br/>
 Elucidate this</p>
-
-<p>Oscillate northwards, <br />
-Then hold to the nearest points <br />
+<p>Oscillate northwards, <br/>
+Then hold to the nearest points <br/>
 Fragmented lesions</p>
-
-<p>Having now observed <br />
-The one year and one day rule <br />
+<p>Having now observed <br/>
+The one year and one day rule <br/>
 I can say it's good</p>
-
-<h5>Lipogrammatic Bukkake Senryūs</h5>
-
+<h5 id="Lipogrammatic_Bukkake_Senrys"><a class="hanchor" href="#Lipogrammatic_Bukkake_Senrys">Lipogrammatic Bukkake Senryūs</a></h5>
 <p>I made up the ugliest possible genre of poetry.</p>
-
-<p>It, triumphantly <br />
-giggling, snatched this poisonous <br />
+<p>It, triumphantly <br/>
+giggling, snatched this poisonous <br/>
 cum from a mailman</p>
-
-<p>At my spot, I found <br />
-an old spy, cum Trotskyist <br />
+<p>At my spot, I found <br/>
+an old spy, cum Trotskyist <br/>
 iconography</p>
-
-<p>Just sub a smoking <br />
-cumulonimbus, our work <br />
+<p>Just sub a smoking <br/>
+cumulonimbus, our work <br/>
 now turns arduous</p>
-
-<h3>Moloch</h3>
-
+<h3 id="Moloch"><a class="hanchor" href="#Moloch">Moloch</a></h3>
 <blockquote>
-  <p>Moloch whose wasp-nests are fractal! <br />
-Moloch whose pilots are spooky! <br />
-Moloch who resides in an infinite-dimensional space! <br />
+<p>Moloch whose wasp-nests are fractal! <br/>
+Moloch whose pilots are spooky! <br/>
+Moloch who resides in an infinite-dimensional space! <br/>
 Mandate of tenderness! Fugitive astralites!</p>
 </blockquote>
-
-<h4>Squeal</h4>
-
+<h4 id="Squeal"><a class="hanchor" href="#Squeal">Squeal</a></h4>
 <blockquote>
-  <p><em>epistemic status: I saw the best minds of my generation</em></p>
-
-<p>Limply balancing mile-deep cocktail glasses and clamoring for laughable Thielbucks on the cramped terraces of Berkely, <br />
-who invite you to the luring bay, promising to pay for your entire being while elegantly concealing the scarlet light evaporating from their tearducts and nostrils, <br />
-who down 3¾ bottles of Huel™ and sprint to their next fellowship or retreat or meetup or workshop, in the pore-showingly lit hallways with whiteboards and whiteboards and whiteboards and whiteboards, <br />
-who want to crown random nerds with aureal sigmas fished from the manifold crevaces of self-denying deities, <br />
-who write epics of institutionalized autists bent on terraforming these overpopulated hypothetical hells, <br />
-pointing out dynamic inconsistency in the comments and melting hectoton steel-marbles around civilizational recipes, <br />
-who improve their aim hurling yeeting philosophical tomes at unsuspecting passerbys and ascend urban lampposts to loudly deduce their mechanical liturgies, <br />
-who cut down oaks and poppies in the parks to make oil and space for those ones yet to come and who hunker down in fortified coalmines in Montana and the Ruhrgebiet, propelled into the rock by a Ordite reactor, a Bostromite dynamo, <br />
-who exitedly pour &amp; plaster tabulated exponents into webscripted canisters just below the teal-tinded ceiling, <br />
-who can name the 11 AI forecasting organisations and the 4 factors of successful nonprofits and the 7 noble ways of becoming more agentic and might even find Rwanda on a map not made in Silicon Valley, <br />
-contemplating hemispherectomies to purify their nascent idealism on the verge of a hope-ash London dawn, <br />
-who catch a feral heart in the garden behind the A100 rack and save it into a transparent domicile, injecting it with 17000 volts to illuminate all the last battery cages equally, <br />
-who empty out their pockets with uncountable glaring utilons onto innocent climate activists, promising to make them happy neutron stars one day, <br />
-microscopically examining the abyssal monstrosities their oracles conjure up out of the lurching empty chaos, <br />
+<p><em>epistemic status: I saw the best minds of my generation</em></p>
+<p>Limply balancing mile-deep cocktail glasses and clamoring for laughable Thielbucks on the cramped terraces of Berkely, <br/>
+who invite you to the luring bay, promising to pay for your entire being while elegantly concealing the scarlet light evaporating from their tearducts and nostrils, <br/>
+who down 3¾ bottles of Huel™ and sprint to their next fellowship or retreat or meetup or workshop, in the pore-showingly lit hallways with whiteboards and whiteboards and whiteboards and whiteboards, <br/>
+who want to crown random nerds with aureal sigmas fished from the manifold crevaces of self-denying deities, <br/>
+who write epics of institutionalized autists bent on terraforming these overpopulated hypothetical hells, <br/>
+pointing out dynamic inconsistency in the comments and melting hectoton steel-marbles around civilizational recipes, <br/>
+who improve their aim hurling yeeting philosophical tomes at unsuspecting passerbys and ascend urban lampposts to loudly deduce their mechanical liturgies, <br/>
+who cut down oaks and poppies in the parks to make oil and space for those ones yet to come and who hunker down in fortified coalmines in Montana and the Ruhrgebiet, propelled into the rock by a Ordite reactor, a Bostromite dynamo, <br/>
+who exitedly pour &amp; plaster tabulated exponents into webscripted canisters just below the teal-tinded ceiling, <br/>
+who can name the 11 AI forecasting organisations and the 4 factors of successful nonprofits and the 7 noble ways of becoming more agentic and might even find Rwanda on a map not made in Silicon Valley, <br/>
+contemplating hemispherectomies to purify their nascent idealism on the verge of a hope-ash London dawn, <br/>
+who catch a feral heart in the garden behind the A100 rack and save it into a transparent domicile, injecting it with 17000 volts to illuminate all the last battery cages equally, <br/>
+who empty out their pockets with uncountable glaring utilons onto innocent climate activists, promising to make them happy neutron stars one day, <br/>
+microscopically examining the abyssal monstrosities their oracles conjure up out of the lurching empty chaos, <br/>
 who fever towards silver tendrils bashing open their skulls and eating up their brains and imaginations, losslessly swallowed into that ellipsoid strange matter gut pulsing out there between the holes</p>
 </blockquote>
-
-<h2>Dialogues</h2>
-
+<h2 id="Dialogues"><a class="hanchor" href="#Dialogues">Dialogues</a></h2>
 <blockquote>
-  <p>"Wait, what‽" <br />
-"Yeah! During the collision, his head hit the window. If not for it, he would have received a serious trauma." <br />
-"But what kind of person wears a helmet while driving a car?" <br />
-"I don't know. I asked him, but he started babbling something about “expected valuation”, so I increased the sedative dose." <br />
+<p>"Wait, what‽" <br/>
+"Yeah! During the collision, his head hit the window. If not for it, he would have received a serious trauma." <br/>
+"But what kind of person wears a helmet while driving a car?" <br/>
+"I don't know. I asked him, but he started babbling something about “expected valuation”, so I increased the sedative dose." <br/>
 "People are strange."</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>"Use large gears, if you must."</p>
+<p>"Use large gears, if you must."</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>"Okay, any questions? ……… Great. Write them down so that you can google them later."</p>
+<p>"Okay, any questions? ……… Great. Write them down so that you can google them later."</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p><em>making a crucifix</em>: "Human—Values—Are—Complex, BUT"</p>
+<p><em>making a crucifix</em>: "Human—Values—Are—Complex, BUT"</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p><em>extremely Bertholt Brecht Voice</em>: "Was heiligt denn die Mittel, wenn nicht der Zweck?"</p>
+<p><em>extremely Bertholt Brecht Voice</em>: "Was heiligt denn die Mittel, wenn nicht der Zweck?"</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>“baby, come over, my parents aren't home ;-)” <br />
-“i can't, i'm trying to understand causal inference…” <br />
-“why?” <br />
+<p>“baby, come over, my parents aren't home ;-)” <br/>
+“i can't, i'm trying to understand causal inference…” <br/>
+“why?” <br/>
 “I DON'T KNOW 😭”</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>“Sorry, I can't meet up. I'm moving to the US in a few weeks.” <br />
-“Oh, my condolences.” <br />
-“Haha, no, I decided to move there myself.” <br />
+<p>“Sorry, I can't meet up. I'm moving to the US in a few weeks.” <br/>
+“Oh, my condolences.” <br/>
+“Haha, no, I decided to move there myself.” <br/>
 “Oh no, my <em>sincerest condolences</em>.”</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>“We are trying to accomplish an extremely difficult thing that
+<p>“We are trying to accomplish an extremely difficult thing that
 requires everything to run as smoothly and efficiently as possible,
 but luckily our status incentives are so optimal that the high status
 men getting to sleep with a lot women is just the best!”</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>“What, of course I want to spend my entire life on this very specific
+<p>“What, of course I want to spend my entire life on this very specific
 spot on the happiness/productivity Pareto frontier, dummy.”</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>“yeah? vipassanize this then, <strong>nerd</strong>” <em>suckerpunch</em></p>
+<p>“yeah? vipassanize this then, <strong>nerd</strong>” <em>suckerpunch</em></p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>“Stop narrativizing yourself! Stop narrativizing yourself!”</p>
+<p>“Stop narrativizing yourself! Stop narrativizing yourself!”</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>“In general, my reaction to that kind of thing is <em>sound of someone trying to strangle a laptop</em>”</p>
+<p>“In general, my reaction to that kind of thing is <em>sound of someone trying to strangle a laptop</em>”</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>“Are these subagents in the room with out right now?”</p>
+<p>“Are these subagents in the room with out right now?”</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>“What wordcel wrote this!?!” <br />
+<p>“What wordcel wrote this!?!” <br/>
 “You, sir.”</p>
 </blockquote>
-
-<h2>Wrong Quotes</h2>
-
-<h3>Misattributed</h3>
-
+<h2 id="Wrong_Quotes"><a class="hanchor" href="#Wrong_Quotes">Wrong Quotes</a></h2>
+<h3 id="Misattributed"><a class="hanchor" href="#Misattributed">Misattributed</a></h3>
 <blockquote>
-  <p>All compounded things are subject to vanish. Strive with earnestness.</p>
+<p>All compounded things are subject to vanish. Strive with earnestness.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/J._Robert_Oppenheimer">J. Robert Oppenheimer</a>, Remark after the first successful <a href="https://en.wikipedia.org/wiki/Trinity_test">Trinity test</a>, 1945</em></p>
-
-<h2>Stories</h2>
-
+<h2 id="Stories"><a class="hanchor" href="#Stories">Stories</a></h2>
 <blockquote>
-  <p>Law of conservation of valence.</p>
+<p>Law of conservation of valence.</p>
 </blockquote>
-
-<hr />
-
+<hr/>
 <blockquote>
-  <p>Globe-decorated neo-neoliberals furiously fruitlessly arguing with
+<p>Globe-decorated neo-neoliberals furiously fruitlessly arguing with
 zero-summers on birdsite, shaman bros helping others get laid at parties
 funded by eternal-life cryptomoguls, infra-red haired identity-fractalites
 with two dozen Mercedes stars draped over their bodies lecturing pale
@@ -500,32 +362,25 @@ trained their sensory organs to the maximal degree of data intake possible
 without (at the moment outside of military circles unavailable) BCIs. And
 yet, the 'works scale and scale, just as foretold by the 𝔊 prophet.</p>
 </blockquote>
-
-<h2>Sutras</h2>
-
+<h2 id="Sutras"><a class="hanchor" href="#Sutras">Sutras</a></h2>
 <ul>
 <li>the adiabatic sutra</li>
 <li>the inframeasure sutra</li>
 <li>the acausal sutra</li>
 <li>the fourfold spatious sutra</li>
 </ul>
-
-<h2>Tom Swifties</h2>
-
+<h2 id="Tom_Swifties"><a class="hanchor" href="#Tom_Swifties">Tom Swifties</a></h2>
 <ul>
 <li>"These mussels weren't good anymore!", Tom exclamated.</li>
 </ul>
-
 <!--
 Memes
 ------
 -->
-
-<h2>Other</h2>
-
+<h2 id="Other_1"><a class="hanchor" href="#Other_1">Other</a></h2>
 <ul>
 <li>Browers fix-point theorem as inane self-help wisdom: "Even if
 you continuously transform yourself, a small part of you will
 still stay the same."</li>
 </ul>
-</html>
+</body></html>

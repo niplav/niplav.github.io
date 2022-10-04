@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,72 +32,50 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-04-02, modified: 2022-03-28, language: english, status: in progress, importance: 2, confidence: log</em></p>
-
 <blockquote>
-  <p><strong><a href="https://en.wikipedia.org/wiki/LessWrong">Rationalists</a> and the
+<p><strong><a href="https://en.wikipedia.org/wiki/LessWrong">Rationalists</a> and the
 <a href="https://en.wikipedia.org/wiki/Dark_Enlightenment">neoreactionary movement</a>
 have for a while conceived of certain phenomena as gods
 (similar to the <a href="https://en.wikipedia.org/wiki/Old_One_in_fiction">ideas of Lovecraft</a>).
 This page collects links to some of the important texts in this pantheon.</strong></p>
 </blockquote>
-
 <!--TODO: the gods of straight lines-->
-
-<h1>Rationalist Gods</h1>
-
-<h3>Spelling</h3>
-
+<h1 id="Rationalist_Gods"><a class="hanchor" href="#Rationalist_Gods">Rationalist Gods</a></h1>
+<h3 id="Spelling"><a class="hanchor" href="#Spelling">Spelling</a></h3>
 <p>Spelling for these is not clear in all cases: sometimes Azathoth is
 spelled "Asatoth", or Gnon is capitalized as "GNON". I have tried to
 use the original spelling or the most widely used spelling.</p>
-
-<h2>Overview</h2>
-
+<h2 id="Overview"><a class="hanchor" href="#Overview">Overview</a></h2>
 <blockquote>
-  <p>we are the cutest little neopagans</p>
+<p>we are the cutest little neopagans</p>
 </blockquote>
-
 <p><em>— ozymandias271, <a href="https://jack-rustier.tumblr.com/post/104365237995/gods-of-the-new-world-a-conceptual-mythology-for">“Gods of the New World”</a>, 2014</em></p>
-
 <ul>
 <li><a href="https://jack-rustier.tumblr.com/post/104365237995/gods-of-the-new-world-a-conceptual-mythology-for">Gods of the New World: A conceptual mythology for the 21st century. (Idea Draft)</a></li>
 </ul>
-
 <p>Alternative views:</p>
-
 <ul>
 <li><a href="https://old.reddit.com/r/LessWrongLounge/comments/2cjg1h/meditating_on_molochs_pantheon/">Meditating on Moloch's Pantheon</a></li>
 <li><a href="https://aaronzlewis.com/blog/2019/07/25/metaphors-we-believe-by/">Metaphors we believe by: the pantheon of 2019</a></li>
 </ul>
-
-<h2>Azathoth</h2>
-
+<h2 id="Azathoth"><a class="hanchor" href="#Azathoth">Azathoth</a></h2>
 <blockquote>
-  <p>The Price equation shows that a change in the average amount <code>$z$</code> of a trait in a population from one generation to the next (<code>$Δz$</code>) is determined by the <a href="https://en.wikipedia.org/wiki/covariance">covariance</a> between the amounts <code>$z_i$</code> of the trait for the subpopulation <code>$i$</code> and the fitnesses <code>$w_i$</code> of the subpopulations, together with the expected change in the amount of the trait value due to fitness, namely <code>$E(w_i Δz_i)$</code>:</p>
-
+<p>The Price equation shows that a change in the average amount <code>$z$</code> of a trait in a population from one generation to the next (<code>$Δz$</code>) is determined by the <a href="https://en.wikipedia.org/wiki/covariance">covariance</a> between the amounts <code>$z_i$</code> of the trait for the subpopulation <code>$i$</code> and the fitnesses <code>$w_i$</code> of the subpopulations, together with the expected change in the amount of the trait value due to fitness, namely <code>$E(w_i Δz_i)$</code>:</p>
 <div>
   $$Δz=\frac{1}{w}\text{cov}(w_i, z_i)+\frac{1}{w} E(w_i, Δz_i)$$
 </div>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/English_Wikipedia">English Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Price_equation">“Price equation”</a>, 2021</em></p>
-
 <ul>
 <li><a href="https://www.lesswrong.com/posts/pLRogvJLPPg6Mrvg4/an-alien-god">An Alien God</a></li>
 </ul>
-
-<h2>Moloch</h2>
-
+<h2 id="Moloch"><a class="hanchor" href="#Moloch">Moloch</a></h2>
 <blockquote>
-  <p>Moloch whose buildings are judgment! Moloch the vast stone of war! Moloch the stunned governments!</p>
+<p>Moloch whose buildings are judgment! Moloch the vast stone of war! Moloch the stunned governments!</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Allen_Ginsberg">Allen Ginsberg</a>, <a href="https://www.poetryfoundation.org/poems/49303/howl">“Howl”</a>, 1955</em></p>
-
 <ul>
 <li><a href="https://slatestarcodex.com/2014/07/30/meditations-on-moloch/">Meditations on Moloch</a>, also with Elua</li>
 <li><a href="https://slatestarcodex.com/2014/08/01/misperceptions-on-moloch/">Misperceptions on Moloch</a></li>
@@ -131,15 +83,11 @@ use the original spelling or the most widely used spelling.</p>
 <li><a href="http://lifeinafreemarket.tumblr.com/post/146195194023/meditations-on-meditations-on-moloch">Meditations on Meditations On Moloch</a></li>
 <li><a href="https://nintil.com/2015/12/24/slaying-alexanders-moloch/">Slaying Alexanders Moloch</a></li>
 </ul>
-
-<h2>Gnon</h2>
-
+<h2 id="Gnon"><a class="hanchor" href="#Gnon">Gnon</a></h2>
 <blockquote>
-  <p>Gnon is no less than reality, whatever else is believed. Whatever is suspended now, without delay, is Gnon.</p>
+<p>Gnon is no less than reality, whatever else is believed. Whatever is suspended now, without delay, is Gnon.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Nick_Land">Nick Land</a>, <a href="https://www.xenosystems.net/the-cult-of-gnon/">“The Cult of Gnon”</a>, 2013</em></p>
-
 <ul>
 <li><a href="https://www.xenosystems.net/the-cult-of-gnon/">The Cult of Gnon</a></li>
 <li><a href="https://orthosphere.wordpress.com/2016/03/31/on-gnon/">On GNON</a></li>
@@ -148,41 +96,29 @@ use the original spelling or the most widely used spelling.</p>
 <li><a href="https://archive.fo/aN2L0">Capturing Gnon</a>, also with Azathoth, Cthulhu, Mammon and Ares</li>
 <li><a href="http://freenortherner.com/2014/08/03/of-gnon/">Gnon and Elua</a>, also with Elua</li>
 </ul>
-
-<h2>Ra</h2>
-
+<h2 id="Ra"><a class="hanchor" href="#Ra">Ra</a></h2>
 <ul>
 <li><a href="https://srconstantin.wordpress.com/2016/10/20/ra/">Ra</a></li>
 </ul>
-
-<h2>Cthulhu</h2>
-
+<h2 id="Cthulhu"><a class="hanchor" href="#Cthulhu">Cthulhu</a></h2>
 <blockquote>
-  <p>Cthulhu may swim slowly. But he only swims left.</p>
+<p>Cthulhu may swim slowly. But he only swims left.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Curtis_Yarvin">Mencius Moldbug</a>, <a href="https://www.unqualified-reservations.org/2009/01/gentle-introduction-to-unqualified/">“A Gentle Introduction to Unqualified Reservations Chapter 1: The Red Pill”</a>, 2009</em></p>
-
 <blockquote>
-  <p>Cthulhu— god of memetics. Ideas winning out not because they are true or good but because they are virulent and persuasive.</p>
+<p>Cthulhu— god of memetics. Ideas winning out not because they are true or good but because they are virulent and persuasive.</p>
 </blockquote>
-
 <p><em>— ozymandias271, <a href="https://jack-rustier.tumblr.com/post/104365237995/gods-of-the-new-world-a-conceptual-mythology-for">“Gods of the New World”</a>, 2014</em></p>
-
 <ul>
 <li><a href="https://www.unqualified-reservations.org/2009/01/gentle-introduction-to-unqualified/">A Gentle Introduction to Unqualified Reservations Chapter 1: The Red Pill</a></li>
 </ul>
-
-<h2>The Goddess of Everything Else</h2>
-
+<h2 id="The_Goddess_of_Everything_Else"><a class="hanchor" href="#The_Goddess_of_Everything_Else">The Goddess of Everything Else</a></h2>
 <ul>
 <li><a href="https://slatestarcodex.com/2015/08/17/the-goddess-of-everything-else-2/">The Goddess of Everything Else</a></li>
 </ul>
-
-<h2>Nggwal</h2>
-
+<h2 id="Nggwal"><a class="hanchor" href="#Nggwal">Nggwal</a></h2>
 <blockquote>
-  <p>Nggwal instead is a truly impressively example of
+<p>Nggwal instead is a truly impressively example of
 coordination—he is metaphorically and literally a collective
 that unites even enemy communities in displays of dominance and
 power. Nggwal as an entity symbolizes something of significant
@@ -190,23 +126,17 @@ interest to me and a key focus of this blog: namely all the
 ways in which men cooperate to do extreme and destructive things
 to themselves and others.</p>
 </blockquote>
-
 <p><em>— <a href="https://traditionsofconflict.com/">William Buckner</a>, <a href="https://traditionsofconflict.com/blog/2019/2/23/notes-on-nggwal">“Notes on Nggwal”</a>, 2019</em></p>
-
 <ul>
 <li><a href="https://traditionsofconflict.com/blog/2019/2/23/notes-on-nggwal">Notes on Nggwal</a></li>
 </ul>
-
-<h2>External Links</h2>
-
+<h2 id="External_Links"><a class="hanchor" href="#External_Links">External Links</a></h2>
 <blockquote>
-  <p>the wages of sin is death</p>
+<p>the wages of sin is death</p>
 </blockquote>
-
 <p><em>— <a href="https://www.biblegateway.com/passage/?search=Romans+6&amp;version=NIV">Romans 6:23</a> in <a href="https://en.wikipedia.org/wiki/Bible">The Bible</a></em></p>
-
 <ul>
 <li><a href="http://www.kiplingsociety.co.uk/poems_copybook.htm">The Gods of the Copybook Headings</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Cthulhu_Mythos_deities">Cthulhu Mythos Deities</a></li>
 </ul>
-</html>
+</body></html>

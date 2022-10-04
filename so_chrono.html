@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,27 +32,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-07-13, modified: 2020-04-08, language: english, status: in progress, importance: 5, confidence: log</em></p>
-
 <blockquote>
-  <p><strong>The blog <a href="https://www.scottaaronson.com/blog/">Shtetl Optimized</a> is
+<p><strong>The blog <a href="https://www.scottaaronson.com/blog/">Shtetl Optimized</a> is
 written by <a href="https://en.wikipedia.org/wiki/Scott_Aaronson">Scott Aaronson</a>,
 and deals with quantum computing and theoretical computer science. However,
 its archives are clumsy to navigate chronologically. This pages makes
 that easier.</strong></p>
 </blockquote>
-
-<h1>Shtetl Optimized Posts Chronological Index</h1>
-
+<h1 id="Shtetl_Optimized_Posts_Chronological_Index"><a class="hanchor" href="#Shtetl_Optimized_Posts_Chronological_Index">Shtetl Optimized Posts Chronological Index</a></h1>
 <p>This index currently lists 784 posts from 2006-11-20 until 2019-12-28.</p>
-
-<h2>Archives</h2>
-
-<h3>2005</h3>
-
+<h2 id="Archives"><a class="hanchor" href="#Archives">Archives</a></h2>
+<h3 id="2005"><a class="hanchor" href="#2005">2005</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=476">Welcome to my weblog!</a> (Scott Aaronson, Monday, October 3rd, 2005)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=477">Launching a shtetl</a> (Scott Aaronson, Tuesday, October 4th, 2005)</li>
@@ -120,9 +86,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=41">A setback for science</a> (Scott Aaronson, Friday, December 23rd, 2005)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=42">The winner</a> (Scott Aaronson, Saturday, December 31st, 2005)</li>
 </ul>
-
-<h3>2006</h3>
-
+<h3 id="2006"><a class="hanchor" href="#2006">2006</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=43">We the nerds</a> (Scott Aaronson, Tuesday, January 3rd, 2006)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=44">But what if?</a> (Scott Aaronson, Thursday, January 5th, 2006)</li>
@@ -248,9 +212,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=181">Mercenary in the String Wars</a> (Scott Aaronson, Thursday, December 21st, 2006)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=184">(To all x MerryChristmas(x)) and (To all x GoodNight(x))</a> (Scott Aaronson, Saturday, December 23rd, 2006)</li>
 </ul>
-
-<h3>2007</h3>
-
+<h3 id="2007"><a class="hanchor" href="#2007">2007</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=187">My New Years’ resolution: to get a real job</a> (Scott Aaronson, Sunday, January 7th, 2007)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=188">Quantum Computing Since Democritus Lecture 9: Quantum</a> (Scott Aaronson, Saturday, January 13th, 2007)</li>
@@ -345,9 +307,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=297">Australian educators are using my $5,000 plagiarism settlement to sell schoolkids (on science)</a> (Scott Aaronson, Thursday, December 13th, 2007)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=301">I’m liveblogging from the Taj Mahal</a> (Scott Aaronson, Saturday, December 22nd, 2007)</li>
 </ul>
-
-<h3>2008</h3>
-
+<h3 id="2008"><a class="hanchor" href="#2008">2008</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=300">Special entry for you, my friend</a> (Scott Aaronson, Thursday, January 3rd, 2008)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=304">Ten Signs a Claimed Mathematical Breakthrough is Wrong</a> (Scott Aaronson, Saturday, January 5th, 2008)</li>
@@ -405,9 +365,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=374">What can first-order logic do for your self-esteem?</a> (Scott Aaronson, Wednesday, December 24th, 2008)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=375">Two links</a> (Scott Aaronson, Friday, December 26th, 2008)</li>
 </ul>
-
-<h3>2009</h3>
-
+<h3 id="2009"><a class="hanchor" href="#2009">2009</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=377">The T vs. HT (Truth vs. Higher Truth) problem</a> (Scott Aaronson, Friday, January 9th, 2009)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=379">Perspective</a> (Scott Aaronson, Tuesday, January 20th, 2009)</li>
@@ -453,9 +411,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=433">Second Women in Theory Workshop</a> (Scott Aaronson, Friday, December 18th, 2009)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=436">Acknowledging the awesome</a> (Scott Aaronson, Sunday, December 27th, 2009)</li>
 </ul>
-
-<h3>2010</h3>
-
+<h3 id="2010"><a class="hanchor" href="#2010">2010</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=437">Changing fields</a> (Scott Aaronson, Wednesday, January 13th, 2010)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=438">QIP’2010: The Power and the Glory of Quantum Complexity Theory</a> (Scott Aaronson, Tuesday, January 19th, 2010)</li>
@@ -491,9 +447,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=508">My painful lesson for the week</a> (Scott Aaronson, Saturday, December 18th, 2010)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=479">BQPOTUS (or, the Big-O)</a> (Scott Aaronson, Sunday, December 19th, 2010)</li>
 </ul>
-
-<h3>2011</h3>
-
+<h3 id="2011"><a class="hanchor" href="#2011">2011</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=511">Burnt Carmel</a> (Scott Aaronson, Thursday, January 6th, 2011)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=515">Quantum Complexity Theory student project showcase!</a> (Scott Aaronson, Monday, January 17th, 2011)</li>
@@ -538,9 +492,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=871">My New York Times essay on quantum computing</a> (Scott Aaronson, Monday, December 5th, 2011)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=881">Cerebrum-stuffer from Shtetl Claus</a> (Scott Aaronson, Saturday, December 24th, 2011)</li>
 </ul>
-
-<h3>2012</h3>
-
+<h3 id="2012"><a class="hanchor" href="#2012">2012</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=885">Updates from Kenya</a> (Scott Aaronson, Wednesday, January 18th, 2012)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=891">Boycott Elsevier!</a> (Scott Aaronson, Thursday, January 26th, 2012)</li>
@@ -574,9 +526,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=1181">Quantum Complexity Theory Student Project Showcase 2!</a> (Scott Aaronson, Saturday, December 22nd, 2012)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=1202">Lincoln Blogs</a> (Scott Aaronson, Friday, December 28th, 2012)</li>
 </ul>
-
-<h3>2013</h3>
-
+<h3 id="2013"><a class="hanchor" href="#2013">2013</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=1211">Happy New Year!  My response to M. I. Dyakonov</a> (Scott Aaronson, Wednesday, January 2nd, 2013)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=1224">Zork’s bloogorithm</a> (Scott Aaronson, Wednesday, January 9th, 2013)</li>
@@ -621,9 +571,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=1628">Merry Christmas!  My quantum computing research explained, using only the 1000 most common English words</a> (Scott Aaronson, Tuesday, December 24th, 2013)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=1631">BosonSampling Lecture Notes from Rio</a> (Scott Aaronson, Saturday, December 28th, 2013)</li>
 </ul>
-
-<h3>2014</h3>
-
+<h3 id="2014"><a class="hanchor" href="#2014">2014</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=1643">What happens when an unstoppable PR force hits an NP-hard problem?  The answer’s getting clearer</a> (Scott Aaronson, Thursday, January 16th, 2014)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=1653">Retiring falsifiability?  A storm in Russell’s teacup</a> (Scott Aaronson, Friday, January 17th, 2014)</li>
@@ -672,9 +620,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=2109">Quantum Complexity Theory Student Project Showcase 3</a> (Scott Aaronson, Friday, December 26th, 2014)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=2119">What I believe</a> (Scott Aaronson, Tuesday, December 30th, 2014)</li>
 </ul>
-
-<h3>2015</h3>
-
+<h3 id="2015"><a class="hanchor" href="#2015">2015</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=2155">Quantum computing news items (by reader request)</a> (Scott Aaronson, Monday, January 12th, 2015)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=2169">BQP/LHC collision</a> (Scott Aaronson, Thursday, January 15th, 2015)</li>
@@ -714,9 +660,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=2586">Ask an unbounded question, get an uncomputable answer</a> (Scott Aaronson, Friday, December 11th, 2015)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=2606">6.S899 Student Project Showcase!</a> (Scott Aaronson, Tuesday, December 22nd, 2015)</li>
 </ul>
-
-<h3>2016</h3>
-
+<h3 id="2016"><a class="hanchor" href="#2016">2016</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=2612">Edging in: the biggest science news of 2015</a> (Scott Aaronson, Sunday, January 3rd, 2016)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=2622">Happy Third Birthday Lily!</a> (Scott Aaronson, Thursday, January 21st, 2016)</li>
@@ -757,9 +701,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=3054">The teaser</a> (Scott Aaronson, Tuesday, December 13th, 2016)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=3058">“THE TALK”: My quantum computing cartoon with Zach Weinersmith</a> (Scott Aaronson, Wednesday, December 14th, 2016)</li>
 </ul>
-
-<h3>2017</h3>
-
+<h3 id="2017"><a class="hanchor" href="#2017">2017</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=3075">State</a> (Scott Aaronson, Sunday, January 1st, 2017)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=3095">My 116-page survey article on P vs. NP: better late than never</a> (Scott Aaronson, Tuesday, January 3rd, 2017)</li>
@@ -807,9 +749,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=3597">Classifieds thread</a> (Scott Aaronson, Sunday, December 24th, 2017)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=3608">Should I join Heterodox Academy?</a> (Scott Aaronson, Sunday, December 31st, 2017)</li>
 </ul>
-
-<h3>2018</h3>
-
+<h3 id="2018"><a class="hanchor" href="#2018">2018</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=3613">John Preskill, laziness enabler</a> (Scott Aaronson, Thursday, January 4th, 2018)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=3622">Practicing the modus ponens of Twitter</a> (Scott Aaronson, Monday, January 29th, 2018)</li>
@@ -849,9 +789,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=4043">Announcements</a> (Scott Aaronson, Thursday, December 27th, 2018)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=4045">Incompleteness ex machina</a> (Scott Aaronson, Sunday, December 30th, 2018)</li>
 </ul>
-
-<h3>2019</h3>
-
+<h3 id="2019"><a class="hanchor" href="#2019">2019</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=4048">The Winding Road to Quantum Supremacy</a> (Scott Aaronson, Tuesday, January 15th, 2019)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=4122">Sabineblogging</a> (Scott Aaronson, Monday, February 4th, 2019)</li>
@@ -894,9 +832,7 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=4476">NIPS vs. NeurIPS: guest post by Steven Pinker</a> (Scott Aaronson, Monday, December 23rd, 2019)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=4447">Quantum computing motte-and-baileys</a> (Scott Aaronson, Saturday, December 28th, 2019)</li>
 </ul>
-
-<h3>2020</h3>
-
+<h3 id="2020"><a class="hanchor" href="#2020">2020</a></h3>
 <ul>
 <li><a href="https://www.scottaaronson.com/blog/?p=4512">MIP*=RE</a> (Scott Aaronson, Tuesday, January 14th, 2020)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=4522">An alternative argument for why women leave STEM: Guest post by Karen Morenz</a> (Scott Aaronson, Thursday, January 16th, 2020)</li>
@@ -934,13 +870,10 @@ that easier.</strong></p>
 <li><a href="https://www.scottaaronson.com/blog/?p=4886">David Poulin</a> (Scott Aaronson, Monday, June 29th, 2020)</li>
 <li><a href="https://www.scottaaronson.com/blog/?p=4888">Scott’s Zoom tip: Email the link!</a> (Scott Aaronson, Friday, July 3rd, 2020)</li>
 </ul>
-
-<h2>Code</h2>
-
+<h2 id="Code"><a class="hanchor" href="#Code">Code</a></h2>
 <p>The site was scraped using Python 2 with the libraries
 <a href="https://docs.python.org/2/library/urllib2.html">urllib2</a> and
 <a href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>:</p>
-
 <pre><code>import urllib2
 from bs4 import BeautifulSoup
 import sys
@@ -970,4 +903,4 @@ for year in range(2005, datetime.datetime.now().year+1):
     for t in reversed(yearposts):
         print(t)
 </code></pre>
-</html>
+</body></html>

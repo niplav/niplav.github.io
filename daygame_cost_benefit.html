@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,13 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-12-25, modified: 2022-07-19, language: english, status: in progress, importance: 4, confidence: remote</em></p>
-
 <blockquote>
-  <p><strong>Is daygame worth it, and if yes,
+<p><strong>Is daygame worth it, and if yes,
 how much? I first present a simple <a href="https://en.wikipedia.org/wiki/Point_estimation">point
 estimate</a> <a href="https://en.wikipedia.org/wiki/Cost-benefit_analysis">cost-benefit
 value estimation</a>
@@ -79,7 +50,6 @@ the simple case the value of daygame ranges from -\$3297 to \$3200
 (5th/95th percentile), with a median of \$899 and a mean of \$550,
 and in the complex case _.</strong></p>
 </blockquote>
-
 <!--
 Second one: fix costs & other stuff
 Approximate ratio per:
@@ -95,32 +65,24 @@ increase opportunity cost
 distinguish opportunity cost and incidental benefits from sunlight,
 light exercise and improvement of social skills
 -->
-
-<h1>Daygame Cost-Benefit Analysis</h1>
-
+<h1 id="Daygame_CostBenefit_Analysis"><a class="hanchor" href="#Daygame_CostBenefit_Analysis">Daygame Cost-Benefit Analysis</a></h1>
 <blockquote>
-  <p>These things should be left to the frigid and impersonal
+<p>These things should be left to the frigid and impersonal
 investigator, for they offer two equally tragic alternatives to
 the man of feeling and action: despair if he fail in his quest,
 and terrors unutterable and unimaginable if he succeed.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/H._P._Lovecraft">Howard Phillips Lovecraft</a>, <a href="http://www.hplovecraft.com/writings/texts/fiction/fb.aspx">“From Beyond”</a>, 1934</em></p>
-
 <blockquote>
-  <p>Daygame is the art of meeting and attracting women during the daytime
+<p>Daygame is the art of meeting and attracting women during the daytime
 in different locations and at different times of the day.</p>
 </blockquote>
-
 <p><em>— <a href="https://www.globalseducer.com/">Sebastian Harris</a>, <a href="https://www.globalseducer.com/daygame/">“Daygame: A Quick Beginner’s Guide“</a>, 2018</em></p>
-
 <p>Many daygamers follow the <a href="https://tddaygame.com/london-daygame-model/">London Daygame
 Model</a> which is fairly
 linear and based on approaches that last 5-10 minutes each.</p>
-
 <p>Is this method of daygame worth it, and if yes, how much should one
 be doing?</p>
-
 <p>In this text, I first review existing texts on the topic and find them
 lacking in several ways. I then present a simple and general model for
 the value of doing a number of daygame approaches, and find that it
@@ -129,21 +91,17 @@ then extend the model to more subjective and hard to measure factors
 such as positive side effects, effects of daygame on mood and similar
 other factors, and estimate that the optimal number of approaches is 1024
 (power of two not indended, but appreciated), at a value of \$2110.</p>
-
 <p>The models presented don't consider externalities, be they positive or
 negative. That is the subject of a different debate.</p>
-
-<h2>Similar Analyses</h2>
-
+<h2 id="Similar_Analyses"><a class="hanchor" href="#Similar_Analyses">Similar Analyses</a></h2>
 <p>One already existing cost analysis of game is <a href="https://freenortherner.wordpress.com/2012/06/12/economic-analysis-of-casual-sex-prostitution-vs-game/" title="Economic Analysis of Casual Sex – Prostitution vs Game">Free Northerner
 2012</a>,
 he focuses on nightgame in bars and clubs and concludes that</p>
-
 <blockquote>
-  <p>Cost for Sex [from prostitution]: \$300 <br />
+<p>Cost for Sex [from prostitution]: \$300 <br/>
 Cost for sex [from game]: \$460 (\$200 is you enjoy clubbing, gaming,
-and dating for their own sake) <br />
-[…] <br />
+and dating for their own sake) <br/>
+[…] <br/>
 For casual sex, a mid-range prostitute is cheaper than game.
 On the other hand, most of game’s costs are in the form of time
 opportunity costs, so if you have a lot of free time and little money
@@ -157,58 +115,46 @@ are paid low wages and have free time or if you enjoy game and related
 activities. Prostitution is the better option if you are middle-class,
 don’t have the free time, or dislike engaging in game.</p>
 </blockquote>
-
 <p><em>— <a href="https://freenortherner.com/">Free Northerner</a>, <a href="http://freenortherner.com/2012/06/12/economic-analysis-of-casual-sex-prostitution-vs-game/">“Economic Analysis of Casual Sex – Prostitution vs Game”</a>, 2012</em></p>
-
 <p>(Inconsistent capitalization is in the original text)</p>
-
 <p>However, his analysis doesn't take daygame into account (he mentions
 it at the end). Daygame seems to me to be a much better option (not
 just for people who don't like nightclubs): it's healthy due to moving
 around a lot outside, getting drunk is mostly not an option, it doesn't
 mess up the sleep schedule, one doesn't have to pay to get into clubs,
 and it can be combined with sightseeing in foreign cities.</p>
-
 <p>He also doesn't consider positive side-effects from game (such as
 increased confidence), negative side-effects from prostitution (such as
 addiction<!--TODO: link-->), and diminishing
 returns in his analysis.</p>
-
 <!--TODO: he has written a text about marriage & relationships, analyze that too?
 https://freenortherner.com/2012/11/01/financial-analysis-of-sex-relationship-vs-marriage/
 -->
 <!--TODO: link & consider Thomas Crown's “Is Daygame Efficient?” https://thomascrownpua.com/2021/05/10/is-daygame-efficient/-->
-
-<h2>Ratios</h2>
-
+<h2 id="Ratios"><a class="hanchor" href="#Ratios">Ratios</a></h2>
 <p>In daygame-lingo, the word "ratio" usually refers to the ratio between
 approaches and contact information (such as phone numbers)/dates/women
 slept with (colloquially "lays"). In this text, I'm interested in the
 approach-to-date ratio (here the ratio of first dates to approaches)
 and the approach-to-lay ratio.</p>
-
 <blockquote>
-  <p>30 approaches will get me between 10 - 15 phone numbers. <br />
+<p>30 approaches will get me between 10 - 15 phone numbers. <br/>
 Half of these phone numbers will flake leaving me messaging around 5 -
-8 girls. <br />
+8 girls. <br/>
 I will get half of these girls out on dates (between 2 - 4) and sleep
-with 1 or 2. <br />
+with 1 or 2. <br/>
 These are realistic stats, this is cold approach, cold approach
 is tough.</p>
 </blockquote>
-
 <p><em>— <a href="https://project-tusk.com">James Tusk</a>, <a href="https://project-tusk.com/blogs/the-tusk-diaries/realistic-daygame-statistics">“Realistic Daygame Statistics (Daygame Tips)”</a>, 2017</em></p>
-
 <p>James Tusk is a very good looking daygame coach, so these numbers are
 quite high.</p>
-
 <p><a href="https://daygamersbible.wordpress.com/2018/05/23/daygame-statistics-and-what-they-tell-your-daygame/" title="Daygame Statistics and What They Tell About Your Daygame">daygamersbible
 2018</a>
 proclaims
 16.9% numbers/approaches, 22.4% dates/numbers and 37.1% lays/dates
 (that would be <code>$0.169*0.224=0.0378$</code> dates per approach, and
 <code>$0.169*0.224*0.371=0.0140$</code> lays per approach).</p>
-
 <p>Tom Torero presents his experiences with daygame ratios in
 <a href="https://www.youtube.com/watch?v=7WzKWHvDOOQ">this video</a>
 <a href="./vid/daygame_cost_benefit/realistic_daygame_expectations.webm">(a)</a>.
@@ -216,31 +162,24 @@ He claims that a beginner will on average get a lay out of a hundred
 approaches, an intermediate one out of fifty, and an advanced daygamer
 one lay out of thirty. He doesn't specify how much practice makes
 a beginner/intermediate/advanced daygamer.</p>
-
 <p>The numbers for the approach-to-lay ratios were 1 in 100 for beginners,
 1 in 50 for intermediate daygamers and 1 in 30 for experts. I will
 assume that this is comparatively over-optimistic, and assume that
 the date-to-lay ratio starts at 1 in 200, and then converges towards
 1 in 50 on the scale of thousands of approaches in the form of an
 <a href="https://www.lesswrong.com/posts/oaqKjHbgsoqEXBMZ2" title="S-Curves for Trend Forecasting">S-curve</a>:</p>
-
 <pre><code>ratiobegin::0.005
 ratioexp::0.02
 ratio::{ratiobegin+(ratioexp-ratiobegin)*(1-500%x+500)}
 </code></pre>
-
 <p>These numbers are of course heavily dependant on all kinds of factors:
 attractiveness, speed of learning, effort exerted in daygame, logistics
 and much much more.</p>
-
 <p>I will also assume that one in three series of dates with the same woman
 leads to a lay:</p>
-
 <pre><code>dateratio::{3*ratio(x)}
 </code></pre>
-
 <p>Visualizing this shows the following:</p>
-
 <pre><code>.l("./load.kg")
 
 .l("nplot")
@@ -258,30 +197,21 @@ text(200;250;"Approach-to-date ratio")
 
 draw()
 </code></pre>
-
-<p><img src="./img/daygame_cost_benefit/ratio.png" alt="The date &amp; lay ratios over thousands of approaches" title="The date &amp; lay ratios over thousands of approaches" /></p>
-
-<h3>Empirical Data for Ratios</h3>
-
+<p><img alt="The date &amp; lay ratios over thousands of approaches" src="./img/daygame_cost_benefit/ratio.png" title="The date &amp; lay ratios over thousands of approaches"/></p>
+<h3 id="Empirical_Data_for_Ratios"><a class="hanchor" href="#Empirical_Data_for_Ratios">Empirical Data for Ratios</a></h3>
 <p>Fortunately, daygamers are often very diligent in keeping track records
 of their ratios and even publish them.</p>
-
 <p>Here, I collect cumulative date and lay ratios from several blogs. I
 don't count idates as dates, because I'm not sure whether daygamers
 usually pay for them or not.</p>
-
 <p>Note that these numbers are just stats some guys wrote on the internet,
 usual qualifiers about the accuracy of these values apply.</p>
-
-<h4>Roy Walker</h4>
-
+<h4 id="Roy_Walker"><a class="hanchor" href="#Roy_Walker">Roy Walker</a></h4>
 <p>I am also not sure whether at some points "dates" was all dates combined,
 and later was split into "first date", "second date" etc. For simplicity I
 assume that in the beginning, "dates" simply referred to "first date". It
 still seems to be coherent.</p>
-
 <p><a href="https://roywalkerdaygame.wordpress.com/">Roy Walker</a>:</p>
-
 <ul>
 <li><a href="https://roywalkerdaygame.wordpress.com/2016/08/07/the-journey-two-years-in/">Before 2016</a></li>
 <li><a href="https://roywalkerdaygame.wordpress.com/2017/01/02/2016-the-year-of-1000-sets/">2016</a>
@@ -308,24 +238,17 @@ still seems to be coherent.</p>
 <li><a href="https://roywalkerdaygame.wordpress.com/2019/02/19/ketchup-in-glass-bottles/">January</a></li>
 </ul></li>
 </ul>
-
 <p>Lay ratios:</p>
-
 <pre><code>rwlay::[[511 5][901 10][977 10][1060 11][1143 13][1216 14][1380 16][1448 18][1557 19][1990 27][2063 27][2130 27][2230 27][2373 31][2540 35][2876 44][3442 62][3567 63][3991 83][4092 84]]
 rwlayrat::{(*x),%/|x}'rwlay
 </code></pre>
-
 <p>Date ratios:</p>
-
 <pre><code>rwdate::[[511 19][901 38][977 38][1060 40][1143 46][1216 48][1380 58][1448 63][1557 64][1990 81][2063 81][2130 84][2230 85][2373 91][2540 97][2876 126][3442 165][3567 170][3991 200][4092 202]]
 rwdaterat::{(*x),%/|x}'rwdate
 </code></pre>
-
-<h4>Seven</h4>
-
+<h4 id="Seven"><a class="hanchor" href="#Seven">Seven</a></h4>
 <p><a href="https://sevendaygame.wordpress.com/">Seven</a> (he says that "I started
 my daygame journey back in 2014", so there is information missing):</p>
-
 <ul>
 <li><a href="https://sevendaygame.wordpress.com/2017/01/21/dec-2016-report-2016-review-and-kicking-off-2017/">2016</a> (July to December)
 <ul>
@@ -348,117 +271,83 @@ my daygame journey back in 2014", so there is information missing):</p>
 </ul></li>
 <li><a href="https://sevendaygame.wordpress.com/2019/01/20/2018-review-well/">2018</a></li>
 </ul>
-
 <p>Lay ratios:</p>
-
 <pre><code>slay::[[38 3][176 4][238 5][318 8][344 9][367 11][434 12][478 13][543 13][588 14][663 15][691 15][752 17][774 18][853 20][942 20][1087 24]]
 slayrat::{(*x),%/|x}'slay
 </code></pre>
-
 <p>Date ratios:</p>
-
 <pre><code>sdate::[[38 8][174 11][236 14][318 21][344 23][367 26][434 27][478 27][543 32][588 33][663 36][691 41][752 44][774 47][853 53][942 54][1087 76]]
 sdaterat::{(*x),%/|x}'sdate
 </code></pre>
-
 <p>His numbers are quite high, and I'm not really sure why—perhaps a
 combination of only taking numbers from somebody experienced, combined
 with the fact that he does daygame in russia, which is supposedly easier
 than London, where most of the others publishing data do daygame.</p>
-
 <!--Add:
 https://sevendaygame.wordpress.com/2020/06/28/2019-review-it-was-good/ -->
-
-<h4>Mr. White</h4>
-
+<h4 id="Mr_White"><a class="hanchor" href="#Mr_White">Mr. White</a></h4>
 <p><a href="https://mrwhitedaygame.wordpress.com/">Mr. White</a> didn't publish
 statistics from the beginning (this data is from his 8th &amp; 9th year of
 doing daygame), this information is therefore unfortunately incomplete:</p>
-
 <ul>
 <li><a href="https://mrwhitedaygame.wordpress.com/2019/01/02/2018-daygame-results-stats-and-overview/">2018</a></li>
 <li><a href="https://mrwhitedaygame.wordpress.com/2020/01/02/2019-daygame-results-stats-and-overview/">2019</a></li>
 </ul>
-
 <p>Lay ratios:</p>
-
 <pre><code>mwlay::[[700 13][1212 25]]
 mwlayrat::{(*x),%/|x}'mwlay
 </code></pre>
-
 <p>Date ratios:</p>
-
 <pre><code>mwdate::[[700 30][1212 68]]
 mwdaterat::{(*x),%/|x}'mwdate
 </code></pre>
-
-<h4>Thomas Crown</h4>
-
+<h4 id="Thomas_Crown"><a class="hanchor" href="#Thomas_Crown">Thomas Crown</a></h4>
 <p><a href="https://thomascrownpua.wordpress.com">Thomas Crown</a>:</p>
-
 <ul>
 <li><a href="https://thomascrownpua.wordpress.com/2016-17/">2016/2017</a></li>
 <li><a href="https://thomascrownpua.wordpress.com/2018-statistics/">2018</a></li>
 <li><a href="https://thomascrownpua.wordpress.com/2020/01/03/2019-in-review/">2019</a></li>
 </ul>
-
 <p>The 2019 review unfortunately doesn't contain the number of approaches, but he writes:</p>
-
 <blockquote>
-  <p>I got 11 lays this year and my approach to lay ratio was around 1:53
+<p>I got 11 lays this year and my approach to lay ratio was around 1:53
 with roughly the same age and quality: an improvement on last year’s
 ratio.</p>
 </blockquote>
-
 <p><em>— <a href="https://thomascrownpua.wordpress.com">Thomas Crown</a>, <a href="https://thomascrownpua.wordpress.com/2020/01/03/2019-in-review/">“2019 In Review”</a>, 2020</em></p>
-
 <p>From this one can deduce that the number of approaches was <code>$11*53=583$</code>,
 or at least a number somewhere near that.</p>
-
 <p>Lay ratios:</p>
-
 <pre><code>tclay::[[208 2][1638 20][2453 34][3036 45]]
 tclayrat::{(*x),%/|x}'tclay
 </code></pre>
-
 <p>Date ratios (he talks about dates, but it's not clear what the number
 of first dates is. I'll still collect the data, but take with a grain
 of salt) (also, his 2019 review doesn't say anything about the number
 of dates, so that is omitted):</p>
-
 <pre><code>tcdate::[[208 12][1638 79][2453 116]]
 tcdaterat::{(*x),%/|x}'tcdate
 </code></pre>
-
-<h4>Krauser</h4>
-
+<h4 id="Krauser"><a class="hanchor" href="#Krauser">Krauser</a></h4>
 <p><a href="https://krauserpua.com/">Krauser</a> (who started sometime in 2009,
 I believe, so these numbers are after several years of training):</p>
-
 <ul>
 <li><a href="https://krauserpua.com/2014/01/01/my-2013-daygame-stats/">2013</a></li>
 <li><a href="https://krauserpua.com/2015/01/03/my-2014-daygame-stats/">2014</a></li>
 <li><a href="https://krauserpua.com/2016/01/02/my-2015-daygame-stats/">2015</a></li>
 </ul>
-
 <blockquote>
-  <p>Most of these numbers rely upon estimates because I didn’t keep notes.</p>
+<p>Most of these numbers rely upon estimates because I didn’t keep notes.</p>
 </blockquote>
-
 <p><em>— <a href="https://krauserpua.com/">Nick Krauser</a>, <a href="https://krauserpua.com/2014/01/01/my-2013-daygame-stats/">“My 2013 Daygame Stats”</a>, 2014</em></p>
-
 <p>Lay ratios:</p>
-
 <pre><code>klay::[[1000 27][1480 50][2150 65]]
 klayrat::{(*x),%/|x}'klay
 </code></pre>
-
 <p>Date ratios:</p>
-
 <pre><code>kdate::[[1000 60][1480 110][2150 160]]
 kdaterat::{(*x),%/|x}'kdate
 </code></pre>
-
 <!--TODO: these two
 
 #### Runner
@@ -480,9 +369,7 @@ And this one:
 https://old.reddit.com/r/seduction/comments/9ock2a/my_daygame_experience_so_far_statistics_and/
 https://wolfedaygame.wordpress.com/2022/06/05/1000-sets-of-hell/
 -->
-
-<h4>Visualizing the Data</h4>
-
+<h4 id="Visualizing_the_Data"><a class="hanchor" href="#Visualizing_the_Data">Visualizing the Data</a></h4>
 <ul>
 <li>Green: Roy Walker</li>
 <li>Beige: Seven</li>
@@ -490,9 +377,7 @@ https://wolfedaygame.wordpress.com/2022/06/05/1000-sets-of-hell/
 <li>Purple: Thomas Crown</li>
 <li>Red: Krauser</li>
 </ul>
-
 <p>The plotted data for lay ratios looks like this:</p>
-
 <pre><code>.l("./load.kg")
 .l("./data.kg")
 
@@ -534,11 +419,8 @@ scplot2(klayrat)
 
 draw()
 </code></pre>
-
-<p><img src="./img/daygame_cost_benefit/layratio_data.png" alt="Empirical data for the cumulative value of lay-ratios over time" title="Empirical data for the cumulative value of lay-ratios over time." /></p>
-
+<p><img alt="Empirical data for the cumulative value of lay-ratios over time" src="./img/daygame_cost_benefit/layratio_data.png" title="Empirical data for the cumulative value of lay-ratios over time."/></p>
 <p>Similarly, the data for reported date ratios:</p>
-
 <pre><code>.l("./load.kg")
 .l("./data.kg")
 
@@ -580,41 +462,30 @@ scplot2(kdaterat)
 
 draw()
 </code></pre>
-
-<p><img src="./img/daygame_cost_benefit/dateratio_data.png" alt="Empirical data for the cumulative value of date-ratios over time" title="Empirical data for the cumulative value of date-ratios over time." /></p>
-
-<h2>A Simple Model</h2>
-
-<h3>Cost</h3>
-
+<p><img alt="Empirical data for the cumulative value of date-ratios over time" src="./img/daygame_cost_benefit/dateratio_data.png" title="Empirical data for the cumulative value of date-ratios over time."/></p>
+<h2 id="A_Simple_Model"><a class="hanchor" href="#A_Simple_Model">A Simple Model</a></h2>
+<h3 id="Cost"><a class="hanchor" href="#Cost">Cost</a></h3>
 <p>Daygame has several different obvious costs: <a href="https://en.wikipedia.org/wiki/Opportunity_cost">opportunity
 costs</a> from the time
 spent approaching and dating women who then flake (one could be doing
 better things in the same time, like pursuing other hobbies, learning
 a language or musical instrument) and simply the cost of paying for dates.</p>
-
-<h4>Approaching Opportunity Cost</h4>
-
+<h4 id="Approaching_Opportunity_Cost"><a class="hanchor" href="#Approaching_Opportunity_Cost">Approaching Opportunity Cost</a></h4>
 <blockquote>
-  <p>First you'll need to desensitise yourself to randomly chatting up
+<p>First you'll need to desensitise yourself to randomly chatting up
 hot girls sober during the day. This takes a few months of going out
 3-5 times a week and talking to 10 girls during each session (keep each
 session to no more than 2 hours).</p>
 </blockquote>
-
 <p><em>— <a href="https://tomtorero.com/">Tom Torero</a>, <a href="./doc/game/beginners_guide_to_daygame_torero_2018.pdf">“Beginner's Guide to Daygame”</a> p. 6, 2018</em></p>
-
 <blockquote>
-  <p>Most regular hustlers go out 3-5 times a week and do 10 approaches
+<p>Most regular hustlers go out 3-5 times a week and do 10 approaches
 each session, meaning 30-50 per week.</p>
 </blockquote>
-
 <p><em>— <a href="https://tomtorero.com/">Tom Torero</a>, <a href="./doc/game/beginners_guide_to_daygame_torero_2018.pdf">“Beginner's Guide to Daygame”</a> p. 13, 2018</em></p>
-
 <p>I will assume that most daygamers will do around 4 approaches an hour
 (the ones I have met are more choosy, so they have a lower volume),
 with 15 minutes for one approach.</p>
-
 <p>The opportunity cost of daygame is unclear—what would one be doing
 instead? One could dream of daygamers instead cultivating friendships,
 learning languages or instruments and meditating, and while that could
@@ -628,43 +499,31 @@ spent working might be net negative, even with taking wage into account
 (working hours have diminishing and at some point negative <a href="https://en.wikipedia.org/wiki/Marginal_utility">marginal
 utility</a> because of
 exhaustion).</p>
-
 <!--TODO: minimum wage in different western countries
 https://en.wikipedia.org/wiki/Minimum_wage-->
-
 <p>Furthermore, the physical activity while doing daygame is broadly good:
 most people probably don't spend enough time outside walking around
 (reducing Vitamin D deficiency), and interacting with other people.</p>
-
 <p>On the other hand, it may be that daygame only replaces "productive
 personal time", that the energy exerted in daygame misses in other
 productive activities, while the amount spent on downtime &amp; unfulfilling
 stuff stays constant.</p>
-
 <!--TODO: consider Matt's input on this-->
-
 <p>I will tentatively set the opportunity cost of an hour of daygame to \$5,
 but would be interested in further input:</p>
-
 <pre><code>oppcost::5
 </code></pre>
-
 <p>Daygamers who could earn more with their day job might want to adjust
 this number upwards.</p>
-
-<h4>Costs from Dates</h4>
-
-<h5>Opportunity Cost</h5>
-
+<h4 id="Costs_from_Dates"><a class="hanchor" href="#Costs_from_Dates">Costs from Dates</a></h4>
+<h5 id="Opportunity_Cost"><a class="hanchor" href="#Opportunity_Cost">Opportunity Cost</a></h5>
 <p><a href="https://freenortherner.wordpress.com/2012/06/12/economic-analysis-of-casual-sex-prostitution-vs-game/" title="Economic Analysis of Casual Sex – Prostitution vs Game">Free Northerner
 2012</a>
 assumes 3 dates, it is common wisdom <!--TODO: any sort of
 link-->originating from Mystery that 7 hours is a normal time spent on
 dates until having sex.</p>
-
 <p>Data from <a href="https://roywalkerdaygame.wordpress.com/">Roy Walker</a> includes
 numbers of dates starting from 2018:</p>
-
 <ul>
 <li><a href="https://roywalkerdaygame.wordpress.com/2019/01/09/2018-a-year-of-change/">2018</a></li>
 <li><a href="https://roywalkerdaygame.wordpress.com/2020/01/07/2019-the-year-of-meh/">2019</a>
@@ -672,7 +531,6 @@ numbers of dates starting from 2018:</p>
 <li><a href="https://roywalkerdaygame.wordpress.com/2019/02/19/ketchup-in-glass-bottles/">January</a></li>
 </ul></li>
 </ul>
-
 <p>He reports 76 first dates, 27 second dates, 11 third dates and 5 fourth
 dates. This means that he went on 5 dates with 4 women, on 3 dates with
 <code>$11-5=6$</code> women, and so forth. This means that the average number of dates he
@@ -680,51 +538,37 @@ went on per first date was
 <code>$\frac{5*4+(11-5)*3+(27-11)*2+(76-27)}{76} \approx 1.566$</code>
 – quite lower than the 3 assumed by <a href="https://freenortherner.wordpress.com/2012/06/12/economic-analysis-of-casual-sex-prostitution-vs-game/" title="Economic Analysis of Casual Sex – Prostitution vs Game">Free Northerner
 2012</a>!</p>
-
 <p>For <a href="https://sevendaygame.wordpress.com/">Seven</a>, the numbers can be found here:</p>
-
 <ul>
 <li><a href="https://sevendaygame.wordpress.com/2017/01/21/dec-2016-report-2016-review-and-kicking-off-2017/">2016</a></li>
 <li><a href="https://sevendaygame.wordpress.com/2018/01/15/2017-review-a-year-in-st-petersburg/">2017</a></li>
 <li><a href="https://sevendaygame.wordpress.com/2019/01/20/2018-review-well/">2018</a></li>
 </ul>
-
 <p>He reports 76 first dates, 21 second dates, 13 third
 dates, 6 fourth dates and 1 fifth date. This results in
 <code>$\frac{(1*5+(6-1)*4+(13-6)*3+(21-13)*2+(76-21))}{76} \approx 1.54$</code>
 dates per lay, again smaller.</p>
-
 <p>Similarly, Thomas Crown reports <a href="https://thomascrownpua.wordpress.com/2016-17/" title="2016/17 Statistics">1.4 dates on average for a lay in
 his first year</a>
 and <a href="https://thomascrownpua.wordpress.com/2018-statistics/" title="2018 Statistics">1.1 for his
 second</a>.</p>
-
 <p>I will assume 1.8 dates on average lasting 3.5h each, because the numbers
 above are from people who have already done many approaches:</p>
-
 <pre><code>datelen::3.5
 avgdates::1.8
 </code></pre>
-
-<h5>Paying for Dates</h5>
-
+<h5 id="Paying_for_Dates"><a class="hanchor" href="#Paying_for_Dates">Paying for Dates</a></h5>
 <p>On dates, one usually needs to pay for drinks, food, and perhaps a taxi,
 there doesn't seem to be much information about the exact costs out
 there. I will assume \$20 for a date.</p>
-
 <pre><code>datecost::20
 </code></pre>
-
-<h4>Calculating the Cost</h4>
-
+<h4 id="Calculating_the_Cost"><a class="hanchor" href="#Calculating_the_Cost">Calculating the Cost</a></h4>
 <p>The cost of daygame is the sum of the opportunity cost from approaching,
 the opportunity cost of dates and the direct cost of paying for dates:</p>
-
 <pre><code>cost::{(oppcost*x%apprperhour)+(dateratio(x)*datecost*avgdates*x)+dateratio(x)*datelen*avgdates*oppcost}
 </code></pre>
-
 <p>The resulting function is linear on the number of approaches:</p>
-
 <pre><code>.l("./load.kg")
 
 .l("nplot")
@@ -735,104 +579,76 @@ ytitle("Cumulative dollar cost of dates")
 plot(cost)
 draw()
 </code></pre>
-
-<p><img src="./img/daygame_cost_benefit/cost.png" alt="Cumulative cost of approaching &amp; dating" title="Cumulative cost of approaching and dating, is pretty much linear over approaches." /></p>
-
-<h3>Benefit</h3>
-
-<h4>Value of Having Sex</h4>
-
+<p><img alt="Cumulative cost of approaching &amp; dating" src="./img/daygame_cost_benefit/cost.png" title="Cumulative cost of approaching and dating, is pretty much linear over approaches."/></p>
+<h3 id="Benefit"><a class="hanchor" href="#Benefit">Benefit</a></h3>
+<h4 id="Value_of_Having_Sex"><a class="hanchor" href="#Value_of_Having_Sex">Value of Having Sex</a></h4>
 <p>The thing providing most of the value from daygame is the sex with
 different women. Sex is not a homogenous commodity, but has a wildly
 differing value, depending on the attractiveness of the partner and
 their skill at sex. Nethertheless I will assume that the value of
 sex averages out to the price of prostitution.</p>
-
 <p>I will consider two different components of the value: the value of
 the sex itself (as compared to prostitution) and the <a href="https://knowyourmeme.com/memes/events/star-wars-battlefront-ii-unlockable-heroes-controversy">sense of pride and
 accomplishment</a>
 (knowing that one is developing ones skills in daygame, while prostitution
 is often accompanied with shame<!--TODO: source-->).</p>
-
-<h5>Value of the Sex Itself</h5>
-
+<h5 id="Value_of_the_Sex_Itself"><a class="hanchor" href="#Value_of_the_Sex_Itself">Value of the Sex Itself</a></h5>
 <blockquote>
-  <p>According to this intro to escorting guide on a business blog
+<p>According to this intro to escorting guide on a business blog
 for escorts (I guess escorts need business advice too; the weird
 things you find on the internet) costs about $250-500/hr depending
 on the city.</p>
 </blockquote>
-
 <p><em>— <a href="https://freenortherner.com/">Free Northerner</a>, <a href="http://freenortherner.com/2012/06/12/economic-analysis-of-casual-sex-prostitution-vs-game/">“Economic Analysis of Casual Sex – Prostitution vs Game”</a>, 2012</em></p>
-
 <!--TODO: find own sources-->
-
 <p>This leaves us with ~\$300 per hour of prostitution.</p>
-
 <p>An analysis of daygame contains some questions that are not obvious
 to answer:</p>
-
 <ul>
 <li>If one has sex as the result of daygame, how long does one have sex?</li>
 <li>How often do daygamers sleep with the women they have seduced?</li>
 <li>How strong are the diminishing returns on sex with different partners?</li>
 <li>And how strong are the diminishing returns on sex with the same partner?</li>
 </ul>
-
 <p>I have not found any people discussing this, and there is probably a
 high variance in these numbers depending on the daygamer.</p>
-
 <p>I will assume that one sex session lasts one hour and that the average
 daygamer sleeps with the same woman 4 times (some women become regular sex
 partners, even if the overwhelming majority is only a one-night stand).</p>
-
 <p>I will also assume that the dimimishing returns on sex with different
 partners are square-rooted, because for men having sex with many partners
 has a high evolutionary benefit, and logarithmic returns would seem to
 punishing for that.</p>
-
 <p>I will also assume that the diminishing returns on sex with the same
 partner <em>is</em> logarithmic, because for men, having sex multiple times with
 the same woman carries little evolutionary advantage except perhaps for
 competition with other mens sperm.</p>
-
 <p>These numbers are only preliminary, informed by reading daygame blogs.</p>
-
 <p>So we can calculate that the value of seducing one woman is</p>
-
 <pre><code>    .l("math")
     300*ln(4*e)
 715.888308335967204
 </code></pre>
-
-<h5>A Sense of Pride and Accomplishment</h5>
-
+<h5 id="A_Sense_of_Pride_and_Accomplishment"><a class="hanchor" href="#A_Sense_of_Pride_and_Accomplishment">A Sense of Pride and Accomplishment</a></h5>
 <p>I will assume that the sense of pride and accomplishment is ~\$400. I
 have no hard numbers on this, but it seems like a good approximation,
 since this is just the number for the first daygame lay.</p>
-
 <p>To wrap it up, one can conclude that the value of the first lay is</p>
-
 <pre><code>prostcost::300
 prideval::400
 laynum::4
 firstlayval::prideval+prostcost*ln(e*laynum)
 </code></pre>
-
-<h4>Calculating the Benefit</h4>
-
+<h4 id="Calculating_the_Benefit"><a class="hanchor" href="#Calculating_the_Benefit">Calculating the Benefit</a></h4>
 <p>As said, I assume that the diminishing marginal returns on additional
 sex partners can be calculated with the square root. The benefit of sex
 can then be calculated with the square root of the expected amount of
 sex for a given number of approaches and the value of the first lay.
 Note that this number is cumulative, it considers the benefit of all
 lays up to <code>x</code> approaches.</p>
-
 <pre><code>layvals::{firstlayval*sqr(ratio(x)*x)}
 </code></pre>
-
 <p>This looks like this for up to 10000 approaches:</p>
-
 <pre><code>.l("./load.kg")
 
 .l("nplot")
@@ -843,21 +659,15 @@ ytitle("Cumulative dollar value of lays")
 plot(layvals)
 draw()
 </code></pre>
-
-<p><img src="./img/daygame_cost_benefit/layvals.png" alt="Value of lays for a given number of approaches, cumulatively" title="Value of lays for a given number of approaches, cumulatively. It is a graph growing approximately by the square root of approaches." /></p>
-
+<p><img alt="Value of lays for a given number of approaches, cumulatively" src="./img/daygame_cost_benefit/layvals.png" title="Value of lays for a given number of approaches, cumulatively. It is a graph growing approximately by the square root of approaches."/></p>
 <p>The benefit of approaching is then simply the value of the sex:</p>
-
 <pre><code>benefit::{layvals(x)}
 </code></pre>
-
-<h3>Value</h3>
-
+<h3 id="Value"><a class="hanchor" href="#Value">Value</a></h3>
 <p>To now calculate the optimal amount of daygame, one simply calculates
 the difference between cumulative benefit and cumulative cost for all
 possible number of approaches up to the maximum possible number (in this
 case 10000, more than that seems very difficult) and chooses the maximum:</p>
-
 <pre><code>    maxappr::10000
     vals::{benefit(x)-cost(x)}'!maxappr
     optim::*&gt;vals
@@ -865,12 +675,9 @@ case 10000, more than that seems very difficult) and chooses the maximum:</p>
     optimben::vals@*&gt;vals
 969.13165157833204
 </code></pre>
-
 <p>So one can conclude that 484 approaches are optimal under these
 assumptions, with a value of \$969.13.</p>
-
 <p>This can be visualized as well:</p>
-
 <pre><code>.l("nplot")
 
 .l("./res.kg")
@@ -894,15 +701,11 @@ bar(optim;15000+optimben;10000)
 
 draw()
 </code></pre>
-
-<p><img src="img/daygame_cost_benefit/complete.png" alt="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum" title="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum" /></p>
-
+<p><img alt="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum" src="img/daygame_cost_benefit/complete.png" title="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum"/></p>
 <!--
 ### Solving Symbolically
 -->
-
-<h2>A Slightly More Complex Model</h2>
-
+<h2 id="A_Slightly_More_Complex_Model"><a class="hanchor" href="#A_Slightly_More_Complex_Model">A Slightly More Complex Model</a></h2>
 <p>Of course one might answer that the simple model fails to capture much
 of the subtlety of the situation: Proponents of daygame might mention
 positive psychological side-effects such as increased self-confidence
@@ -912,25 +715,19 @@ renting an apartment that is closer to good places for daygame),
 and also possible social and psychological costs (scars from constant
 rejection and mockery from being found out to be a pick up "artist"),
 if they ever stopped moaning about how they disapprove of daygame.</p>
-
 <p>These influences are of course much harder to quantify, and the numbers
 presented here are mostly guesswork. As I get to know more daygamers
 and do more daygame myself, I intend to update and refine this model
 to better reflect reality.</p>
-
 <p>Note that this slightly more complex model adds to the previous, simpler
 model. Previously assumed costs and benefits are not altered.</p>
-
-<h3>Additional Benefits</h3>
-
+<h3 id="Additional_Benefits"><a class="hanchor" href="#Additional_Benefits">Additional Benefits</a></h3>
 <p>Besides sex, the additional benefits of daygame can be separated into two
 broad categories: Increases in subjective well-being (from cultivating
 a skill that requires effort and practice), and positive side effects
 such as increased salary resulting from a higher willingness to negotiate
 ones salary and search for other jobs.</p>
-
-<h4>Positive Side Effects</h4>
-
+<h4 id="Positive_Side_Effects"><a class="hanchor" href="#Positive_Side_Effects">Positive Side Effects</a></h4>
 <p>Let's assume one does 1000 daygame approaches per year.
 Let's then assume that doing 1000 daygame approaches increases ones
 expected salary by 0.5% in the first year, with then logarithmic increases
@@ -940,21 +737,16 @@ wage</a>
 in the US was \$60k in 2017, but many industrialized countries are lower.
 I'll assume that the average annual wage for a daygamer is \$40k, just
 to be safe.</p>
-
 <p>The code for calculating the monetary value of the positive side-effects of
 doing x daygame approaches then is</p>
-
 <pre><code>annsal::40000
 yearsben::10
 increase::0.005
 apppy::1000
 sideeff::{yearsben*increase*annsal*ln(1+x%apppy)}
 </code></pre>
-
-<p><img src="img/daygame_cost_benefit/sideeff.png" alt="Positive side effects from doing daygame" title="Positive side effects from doing daygame" /></p>
-
-<h4>Mental Benefit</h4>
-
+<p><img alt="Positive side effects from doing daygame" src="img/daygame_cost_benefit/sideeff.png" title="Positive side effects from doing daygame"/></p>
+<h4 id="Mental_Benefit"><a class="hanchor" href="#Mental_Benefit">Mental Benefit</a></h4>
 <p>This one is tricky, especially for somebody who has never done any
 daygame approaches. Many daygamers seem to highly enjoy what they
 do, but that is probably mostly due to selection bias.
@@ -963,7 +755,6 @@ set here, so take this with a grain of salt. That said, I haven't read
 any reports describing that the author stopped doing daygame due to
 stress or uncontrollable anxiety, although people who would do that
 would probably never start doing daygame in the first place.</p>
-
 <p>To get to the point, I model the mental effects of daygame to be negative
 in the beginning (increased anxiety, self-doubt, and insecurity),
 and positive effects such as playful enjoyment, flow-states and
@@ -972,31 +763,23 @@ positive states become less strong over time because of getting used
 to pickup. Specifically, the negative effects peak at ~80 approaches
 (with -\$500), and break even after ~300. The cumulative value approaches
 \$1900 over thousands of approaches.</p>
-
 <p>To model this, I abuse a <a href="https://en.wikipedia.org/wiki/Log-normal_distribution">log-normal
 distribution</a>
 to represent the value over time:</p>
-
 <pre><code>mental::{(10000*(ln.pdf((x*0.005)+0.5;1;1)))-1900}
 </code></pre>
-
-<p><img src="img/daygame_cost_benefit/mental.png" alt="Value of mental states due to doing daygame" title="Value of mental states due to doing daygame" /></p>
-
-<h3>Additional Costs</h3>
-
-<h4>Expenditures</h4>
-
+<p><img alt="Value of mental states due to doing daygame" src="img/daygame_cost_benefit/mental.png" title="Value of mental states due to doing daygame"/></p>
+<h3 id="Additional_Costs"><a class="hanchor" href="#Additional_Costs">Additional Costs</a></h3>
+<h4 id="Expenditures"><a class="hanchor" href="#Expenditures">Expenditures</a></h4>
 <p>Besides the cost for dates &amp; opportunity costs, doing daygame might carry
 a great amount of various expenditures: some daygamers move to appartments
 that are closer to the centers of cities &amp; are more expensive, there may
 be some costs from upgrading ones wardrobe, buying condoms and possibly
 sex toys.</p>
-
 <p>In economics, costs are often divided into fixed costs (costs that are
 not dependent on the amount of goods produced, in this case approaches
 made) and variable costs (costs that are related to the amount of goods
 produced).</p>
-
 <p>Making the distinction between fixed costs and variable costs is sometimes
 a bit tricky; similar in this case. Is buying new clothes a fixed or a
 variable cost? Clothes wear down over time, and need to be bought again,
@@ -1007,17 +790,12 @@ but only with 100 approaches a year, will have different fixed costs
 from doing it for a year, but 1000 approaches in that year. In making
 the distinction between what counts as a fixed cost in this case and
 what counts as a variable cost, I will mostly go with my gut feeling.</p>
-
 <p>Note that it is also important to consider the counterfactual case:
 Would these expenditures be made if the person wasn't doing daygame?</p>
-
-<h5>Fixed Costs</h5>
-
+<h5 id="Fixed_Costs"><a class="hanchor" href="#Fixed_Costs">Fixed Costs</a></h5>
 <p>I assume that the fixed costs for doing any daygame at all are \$500:</p>
-
 <pre><code>fixcost::500
 </code></pre>
-
 <!--
 To possible fixed costs I'd count the following:
 
@@ -1089,14 +867,10 @@ This seems like something many daygamers do, I'll assume 80%.
 ###### Fitness
 
 -->
-
-<h5>Variable Costs</h5>
-
+<h5 id="Variable_Costs"><a class="hanchor" href="#Variable_Costs">Variable Costs</a></h5>
 <p>I assume that the variable costs are \$0.5 per approach:</p>
-
 <pre><code>varcost::0.5
 </code></pre>
-
 <!--
 * Condoms
 * Transportation (money for gas, public transport)
@@ -1106,64 +880,46 @@ This seems like something many daygamers do, I'll assume 80%.
 ###### Transportation
 
 -->
-
-<h5>Code</h5>
-
+<h5 id="Code"><a class="hanchor" href="#Code">Code</a></h5>
 <p>With this, one can easily calculate the additional exppenditures:</p>
-
 <pre><code>expenditures::{fixcost+varcost*x}
 </code></pre>
-
-<h4>Social Costs from Being Found Out</h4>
-
+<h4 id="Social_Costs_from_Being_Found_Out"><a class="hanchor" href="#Social_Costs_from_Being_Found_Out">Social Costs from Being Found Out</a></h4>
 <p>For some people doing daygame, being found out as a daygamer can have
 negative consequences: Loosing friends, being publicly shamed, or even
 having negative effects in the workplace. For this reason (and probably
 also as a precautionary measure), many daygamers publish their writing
 online anonymously.</p>
-
 <p>But doing daygame can also have negative side-effects even if one doesn't
 write about it online: Acquantainces could see one doing daygame and
 tell it around in parts of ones social circle, leading to ostracisation
 or financial consequences.</p>
-
 <p>On the other hand, being discovered probably doesn't propagate through
 ones whole social circle, and often probably has very small effects.</p>
-
 <p>I model this as having a certain probability of being discovered as
 a daygamer for every approach. Being found out more than once has
 logarithmically increasing costs with the number of being found out.</p>
-
 <p>I'll (somewhat arbitrarily) set the cost of first being found at \$500,
 and the probability of being found out at any approach to 0.1%.</p>
-
 <p>The probability of being discovered <code>n</code> times with
 <code>x</code> approaches can be calculated using the <a href="https://en.wikipedia.org/wiki/Binomial_distribution">binomial
 distribution</a>.</p>
-
 <p>To make the code run faster, only the scenarios with a cost of more than
 \$0.01 are being considered.</p>
-
 <pre><code>fcbfo::300
 pbfo::0.001
 cbfo::{[t];t::x;+/{b.pmf(x;t;pbfo)*fcbfo*ln(e*x)}'1+!{(x&lt;t)&amp;00.1&lt;b.pmf(x;t;pbfo)*fcbfo*ln(e*x)}{x+1}:~1}
 </code></pre>
-
-<h3>Value in the Complex Model</h3>
-
+<h3 id="Value_in_the_Complex_Model"><a class="hanchor" href="#Value_in_the_Complex_Model">Value in the Complex Model</a></h3>
 <p>The global optimum is now calculated the same way as <a href="#Value">here</a>:</p>
-
 <pre><code>    optim::*&gt;vals
 1024
     vals@*&gt;vals
 2110.1350422531768
 </code></pre>
-
 <p>The more complex model with additional considerations therefore recommends
 1024 approaches, with a value of ~\$2110.13.</p>
-
 <p>Graphically:</p>
-
 <pre><code>.l("nplot")
 
 .l("./res_complex.kg")
@@ -1187,34 +943,23 @@ bar(optim;20000+optimben;10000)
 
 draw()
 </code></pre>
-
-<p><img src="img/daygame_cost_benefit/complete_complex.png" alt="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum. Using the more complex model." title="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum. Using the more complex model." /></p>
-
-<h2>Conclusion</h2>
-
+<p><img alt="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum. Using the more complex model." src="img/daygame_cost_benefit/complete_complex.png" title="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum. Using the more complex model."/></p>
+<h2 id="Conclusion"><a class="hanchor" href="#Conclusion">Conclusion</a></h2>
 <p>I have presented both a simple and a more complicated cost-benefit
 analysis for daygame. Both conclude that daygame is worth it, at around
 500-1000 approaches, but the value is not enormous, with only a \$1-2k,
 and decreases rapidly with less lenient assumptions.</p>
-
 <p>I tentatively conclude that daygame may be worth it, but
 it's definitely not a surefire positive deal. Sign up for
 <a href="./considerations_on_cryonics.html" title="Considerations on Cryonics">cryonics</a>
 first.</p>
-
-<h2>Appendix A: A Guesstimate Version of the Simple Model</h2>
-
+<h2 id="Appendix_A_A_Guesstimate_Version_of_the_Simple_Model"><a class="hanchor" href="#Appendix_A_A_Guesstimate_Version_of_the_Simple_Model">Appendix A: A Guesstimate Version of the Simple Model</a></h2>
 <p>Since there is a lot of uncertainty in the presented model, I thought
 it'd be good to make a Monte-Carlo version of the model using the website
 <a href="https://www.getguesstimate.com">Guesstimate</a>.</p>
-
 <p>The model can be found <a href="https://www.getguesstimate.com/models/15526">here</a>.</p>
-
-<h3>Inputs</h3>
-
-<h2>Appendix B: A Slightly More Complex Guesstimate Model of the Value</h2>
-
-<h3>Inputs</h3>
-
-<h2>Appendix C: Empirically Checking the Assumptions</h2>
-</html>
+<h3 id="Inputs"><a class="hanchor" href="#Inputs">Inputs</a></h3>
+<h2 id="Appendix_B_A_Slightly_More_Complex_Guesstimate_Model_of_the_Value"><a class="hanchor" href="#Appendix_B_A_Slightly_More_Complex_Guesstimate_Model_of_the_Value">Appendix B: A Slightly More Complex Guesstimate Model of the Value</a></h2>
+<h3 id="Inputs_1"><a class="hanchor" href="#Inputs_1">Inputs</a></h3>
+<h2 id="Appendix_C_Empirically_Checking_the_Assumptions"><a class="hanchor" href="#Appendix_C_Empirically_Checking_the_Assumptions">Appendix C: Empirically Checking the Assumptions</a></h2>
+</body></html>

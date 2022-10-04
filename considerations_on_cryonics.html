@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,13 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-10-18, modified: 2022-04-22, language: english, status: maintenance, importance: 7, confidence: remote</em></p>
-
 <blockquote>
-  <p><strong>Is <a href="https://en.wikipedia.org/wiki/Cryonics">cryonics</a>
+<p><strong>Is <a href="https://en.wikipedia.org/wiki/Cryonics">cryonics</a>
 worth it, and if yes, should one
 <a href="https://alcor.org/Library/html/cryocrastination.html">cryocrastinate</a>
 (i.e. postpone signing up for cryonics
@@ -83,80 +54,62 @@ and find that signing up for cryonics at age 20 is worth \$18m in the
 mean, median -\$100k (90% confidence interval: -\$2.16m, \$58.25m). It
 therefore seems recommendable to sign up for cryonics immediately.</strong></p>
 </blockquote>
-
-<h1>Considerations on Cryonics</h1>
-
+<h1 id="Considerations_on_Cryonics"><a class="hanchor" href="#Considerations_on_Cryonics">Considerations on Cryonics</a></h1>
 <blockquote>
-  <p>If I died, would I be rid of my senses? <br />
-Or will it retain, trapped within my corpse, in stasis? <br />
-If I died, would I be a woman in heaven? <br />
+<p>If I died, would I be rid of my senses? <br/>
+Or will it retain, trapped within my corpse, in stasis? <br/>
+If I died, would I be a woman in heaven? <br/>
 Or would I fall asleep, not knowing what it’s like to feel alive?</p>
-
-<p>If I died, would I begin with a new life? <br />
-Or would I be gone as quickly as the breath I give last? <br />
-If I died, would I be a woman in heaven? <br />
+<p>If I died, would I begin with a new life? <br/>
+Or would I be gone as quickly as the breath I give last? <br/>
+If I died, would I be a woman in heaven? <br/>
 Or would I fall asleep, not knowing what it’s like to feel alive?</p>
 </blockquote>
-
 <p><em>— <a href="https://www.youtube.com/channel/UCOjLfFE0TABS9bk05oH-kgw">Patricia Taxxon</a>, <a href="https://patriciataxxon.bandcamp.com/track/deconstruct">“Deconstruct”</a> from <a href="https://patriciataxxon.bandcamp.com/album/foley-artist">“Foley Artist”</a>, 2019</em></p>
-
 <blockquote>
-  <p>One day they woke me up <br />
-So I could live forever <br />
-It’s such a shame the same <br />
+<p>One day they woke me up <br/>
+So I could live forever <br/>
+It’s such a shame the same <br/>
 Will never happen to you</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Jonathan_Coulton">Jonathan Coulton</a>, <a href="https://genius.com/Aperture-science-psychoacoustic-laboratories-want-you-gone-lyrics">“Want You Gone”</a> from <a href="https://en.wikipedia.org/wiki/Music_of_Portal_2">“Portal 2: Songs to Test By (Volume 3)”</a>, 2011</em></p>
-
 <p>Many would-be cryonicists cryocrastinate, i.e. they put off signing
 up for cryonics until a later point in their life. This has often
 been explained by the fact that signing up for cryonics <a href="https://www.lesswrong.com/posts/hiDkhLyN5S2MEjrSE/normal-cryonics" title="Normal Cryonics">requires high
 conscientiousness</a>
 and can be easily be delayed until another point in life.</p>
-
 <blockquote>
-  <p>I'll get around to doing it eventually</p>
+<p>I'll get around to doing it eventually</p>
 </blockquote>
-
 <p><em>— person who was cremated</em></p>
-
 <p>However, it hasn't yet been explored whether this procrastination might be
 rational if eventually followed through with: Many cryonics organisations
 have high membership fees, which might be avoided by waiting.</p>
-
 <p>To find this out, I first present a point-estimate model of
 whether (and if yes, when) to sign up for cryonics. The model is
 written in <a href="https://www.lua.org/">Lua</a>. I then proceed and create a
 <a href="https://www.getguesstimate.com/">Guesstimate</a> model to determine the
 distribution of the expected value of signing up.</p>
-
-<h2>Other Cryonics Texts</h2>
-
+<h2 id="Other_Cryonics_Texts"><a class="hanchor" href="#Other_Cryonics_Texts">Other Cryonics Texts</a></h2>
 <p>This write-up is not intended as an introduction to the concept
 of cryonics. For a popular introduction to the topic that
 clarifies many common misconceptions about the practice, see <a href="https://waitbutwhy.com/2016/03/cryonics.html" title="Why Cryonics Makes Sense">Urban
 2016</a>.</p>
-
 <p>For more basic information about the topic, there are the <a href="http://www.benbest.com/cryonics/CryoFAQ.html">Cryonics
 FAQ</a> by Ben Best,
 a former director of the Cryonics Institute, as well as <a href="https://alcor.org/FAQs/index.html">Alcor's
 Cryonics FAQ</a>, which should answer
 most questions people usually have about cryonics.</p>
-
 <p>If you have decided that you indeed do want to sign up for
 cryonics, the best existing resource is the <a href="https://www.lesswrong.com/s/weBHYgBXg9thEQNEe">Cryonics Signup
 Guide</a>.</p>
-
-<h2>Caveats</h2>
-
+<h2 id="Caveats"><a class="hanchor" href="#Caveats">Caveats</a></h2>
 <p>This cost-benefit calculation depends on various factors that carry
 significant uncertainty with them, and necessarily contains numerous
 simplifications and inadequacies. The calculated values ought to be
 equipped with gigantic error bars. I encourage others to make their
 own calculations and models, compare results and bet on the relevant
 probabilities.</p>
-
 <p>Specifically, this analysis attempts to be relatively
 conservative, think of the lower range of a 50% <a href="https://en.wikipedia.org/wiki/Confidence_interval">confidence
 interval</a>. For example,
@@ -169,27 +122,22 @@ very small. These concerns might be correct, but bare resemblance to
 scenarios. In order to avoid such concerns, I focus on <em>relatively</em>
 unspectacular visions of the future. If cosmic-endowment scenarios are
 more likely than I suspect, this only strengthens the case for signing up.</p>
-
-<h2>Cost-Benefit Calculation for Cryonics</h2>
-
+<h2 id="CostBenefit_Calculation_for_Cryonics"><a class="hanchor" href="#CostBenefit_Calculation_for_Cryonics">Cost-Benefit Calculation for Cryonics</a></h2>
 <blockquote>
-  <p>If you make 50k\$/yr now, and value life-years at twice your income,
+<p>If you make 50k\$/yr now, and value life-years at twice your income,
 and discount future years at 2% from the moment you are revived for a
 long life, but only discount that future life based on the chance it
 will happen, times a factor of 1/2 because you only half identify with
 this future creature, then the present value of a 5% chance of revival
 is \$125,000, which is about the most expensive cryonics price now.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Robin_Hanson">Robin Hanson</a>, <a href="http://www.overcomingbias.com/2009/03/break-cryonics-down.html">“Break Cryonics Down”</a>, 2009</em></p>
-
 <p>To find out whether to sign up for cryonics at all, one needs
 to make a cost-benefit calculation. This has been <a href="http://www.overcomingbias.com/2009/03/break-cryonics-down.html" title="Break Cryonics Down">attempted
 before</a>,
 but that analysis has been rather short
 (disregarding several important factors) and it might be productive to
 approach the topic independently.</p>
-
 <p>The costs of cryonics are comparatively easy to calculate and contain
 little uncertainty: The price of cryopreservation and life-insurance
 are widely known, and can be easily added together. The benefits of
@@ -197,7 +145,6 @@ cryopreservation, however, contain a lot more uncertainty: It is not at
 all clear that the technology for resuscitation will be developed, cryonics
 organizations and humanity survive to develop such technology, or that the
 future will be interested in resuscitating people from cryopreservation.</p>
-
 <p>The model presented makes the assumption that a person has a given age
 and has the option of waiting for signing up for cryonics every year
 up to their expected year of death. So, for example, a person that is
@@ -205,7 +152,6 @@ up to their expected year of death. So, for example, a person that is
 21 years, 22 years and so on up to 78 years. The value of cryonics is
 calculated, and the value of a regular death is tacitly assumed to be
 \$0.</p>
-
 <pre><code>curage=20
 actval={78.36, 78.64, 78.66, 78.67, 78.68, 78.69, 78.69, 78.70, 78.71, 78.71, 78.72, 78.72, 78.73, 78.73, 78.74, 78.75, 78.75, 78.77, 78.79, 78.81, 78.83, 78.86, 78.88, 78.91, 78.93, 78.96, 78.98, 79.01, 79.03, 79.06, 79.09, 79.12, 79.15, 79.18, 79.21, 79.25, 79.29, 79.32, 79.37, 79.41, 79.45, 79.50, 79.55, 79.61, 79.66, 79.73, 79.80, 79.87, 79.95, 80.03, 80.13, 80.23, 80.34, 80.46, 80.59, 80.73, 80.88, 81.05, 81.22, 81.42, 81.62, 81.83, 82.05, 82.29, 82.54, 82.80, 83.07, 83.35, 83.64, 83.94, 84.25, 84.57, 84.89, 85.23, 85.58, 85.93, 86.30, 86.68, 87.08, 87.49, 87.92, 88.38, 88.86, 89.38, 89.91, 90.47, 91.07, 91.69, 92.34, 93.01, 93.70, 94.42, 95.16, 95.94, 96.72, 97.55, 98.40, 99.27, 100.14, 101.02, 101.91}
 
@@ -213,34 +159,26 @@ for age=curage,math.floor(actval[curage]) do
     print(value(age) .. ": " .. age)
 end
 </code></pre>
-
 <p><code>curage</code> contains the current age of the user of the
 program. <code>actval</code> is an actuarial table that contains at the
 nth position the average life expectancy of a person that is
 n years old at the moment for a western nation (in this case
 <a href="https://www.destatis.de/DE/Themen/Gesellschaft-Umwelt/Bevoelkerung/Sterbefaelle-Lebenserwartung/_inhalt.html">Germany</a>).</p>
-
-<h2>The Disvalue of Waiting</h2>
-
+<h2 id="The_Disvalue_of_Waiting"><a class="hanchor" href="#The_Disvalue_of_Waiting">The Disvalue of Waiting</a></h2>
 <p>Two important factors play into the value (or disvalue) of waiting
-to sign up for cryonics: <a href="./notes.html#Value-Drift">Motivation drift</a>
+to sign up for cryonics: <a href="./notes.html#Value_Drift">Motivation drift</a>
 and the possibility of dying before signing up.</p>
-
 <pre><code>function value(age)
     return prob_signup(age)*prob_liveto(age)*(benefit(age)-cost(age))
 end
 </code></pre>
-
-<h3>Motivation Drift</h3>
-
+<h3 id="Motivation_Drift"><a class="hanchor" href="#Motivation_Drift">Motivation Drift</a></h3>
 <!--TODO: find out whether there has been any research into the concrete shape
 of motivation drift-->
-
 <p><code>prob_signup</code> is a function that calculates the probability of
 signing up for cryonics after having waited up to having a certain
 age. It seems clear that people loose motivation to finish plans over
 time, especially if they are unpleasant or complex.</p>
-
 <p>A good example for this is people being motivated at the start of the
 year to do regular exercise: How many of those actually keep their
 promises to themselves? They might start off exercising, but after the
@@ -252,7 +190,6 @@ regards to action: Most regular actions are replaced by inaction, most
 strong values are replaced by apathy over time. A similar phenomenon
 seems likely for signing up for cryonics: At first, people are very
 enthusiastic about signing up, but then loose interest as time progresses.</p>
-
 <p>It isn't obvious to me how strong motivation drift is and how
 it develops over time (some people might regain motivation
 after some time), but intuitively it seems like a <a href="https://en.wikipedia.org/wiki/Geometric_distribution">geometric
@@ -265,20 +202,17 @@ number of people who perform the action is <code>$1000*p^n$</code> (the percenta
 of people still motivated is <code>$p^n$</code>). This also works if some people
 get motivated again to do something after a number of years, as long as
 their decisions are independently and identically distributed.</p>
-
 <p>When trying to find out what the value of <code>$p$</code> is for oneself, one can
 imagine a thousand independent identical copies of oneself planning on
 executing a complex plan one year ahead. How many of those would actually
 follow through on that plan? Intuitively, I'd say that it can't be much
 higher than 95%, possibly much lower, especially for something as complex
 and time-consuming as signing up for cryonics.</p>
-
 <pre><code>decay=0.95
 function prob_signup(age)
     return decay^(age-curage)
 end
 </code></pre>
-
 <p>Interestingly, this does not mean that the decision of whether to be
 cryogenically preserved or not is then set in stone as soon as possible:
 <em>Cryonics memberships are very easy to cancel</em>, very often a simple
@@ -289,29 +223,22 @@ against changing ones mind about cryonics: If one becomes convinced it's
 bullshit later, one can easily get out (much more easily than getting in).
 On the other hand, there might be a feeling of considerable sunk cost
 due to already paid membership fees and the acquired life insurance.</p>
-
 <p>In this analysis, it will be assumed that once one is signed up for
 cryonics, one stays signed up for it.</p>
-
 <!--TODO: Image here-->
-
-<h3>Dying Before Signing Up</h3>
-
+<h3 id="Dying_Before_Signing_Up"><a class="hanchor" href="#Dying_Before_Signing_Up">Dying Before Signing Up</a></h3>
 <p>If you die before signing up, all possible value (or disvalue) of cryonics
 gets lost. So we want to calculate the probability of dying before having
 a certain age given being currently <code>curage</code> years old.</p>
-
 <p>Mortality rates are usually calculated using a <a href="https://en.wikipedia.org/wiki/Gompertz_distribution">Gompertz
 distribution</a>. I
 determined the b and eta values by eyeballing <a href="https://www.wolframalpha.com/input/?i=life+expectancy+of+a+0+year+old+german">Wolfram
 Alpha</a>
 and using a calculator in <a href="https://reducing-suffering.org/estimating-aggregate-wild-animal-suffering-from-reproductive-age-and-births-per-female/#Choosing_a_distribution" title="Estimating Aggregate Wild-Animal Suffering from Reproductive Age and Births per Female">Tomasik
 2016</a>.</p>
-
 <!--TODO: find out which exact values statisticians
 use, then use them: Maybe take cue from here:
 https://www.gwern.net/Longevity#population-survival-curve-->
-
 <pre><code>b=0.108
 eta=0.0001
 
@@ -319,36 +246,29 @@ function gompertz(age)
     return math.exp(-eta*(math.exp(b*age)-1))
 end
 </code></pre>
-
 <p><code>gompertz</code> returns the probability of reaching <code>age</code>
 starting from birth, but I need the probability of reaching
 <code>age</code> given one is already <code>curage</code> years old. With <a href="https://en.wikipedia.org/wiki/Bayes'_theorem">Bayes
 theorem</a> one can calculate
 that</p>
-
 <div>
     $$Pr[X \ge age|X \ge curage]\\
     =\frac{Pr[X \ge curage \cap X \ge age]}{Pr[X \ge curage]}\\
     =\frac{Pr[X \ge age]}{Pr[X \ge curage]}$$
 </div>
-
 <p><code>$Pr[X \ge curage \cap X \ge age]$</code> is equal to <code>$Pr[X \ge age]$</code> because
 being older than <code>age</code> is (in this calculation) a subset of being older
 <code>curage</code>, and <code>$A \subset B \Rightarrow A \cap B=A$</code>. Some precautions
 have to apply in the case that the probabilities of reaching <code>age</code>
 is not completely independent of the probability of reaching <code>curage</code>,
 but those are difficult to estimate and will not be implemented here.</p>
-
 <p>This way, one can implement the probability of living until <code>age</code> given
 <code>curage</code> the following way:</p>
-
 <pre><code>function prob_liveto(age)
     return gompertz(age)/gompertz(curage)
 end
 </code></pre>
-
-<h3>Longevity Escape Velocity</h3>
-
+<h3 id="Longevity_Escape_Velocity"><a class="hanchor" href="#Longevity_Escape_Velocity">Longevity Escape Velocity</a></h3>
 <p><a href="https://en.wikipedia.org/wiki/Longevity_escape_velocity">Longevity Escape
 Velocity</a> (short
 LEV) is the name for the possible year when anti-aging technology becomes
@@ -359,13 +279,10 @@ arrive during their lifetime, and see no reason to sign up for a cryonics
 membership they are probably not going to need anyway. In this text,
 I will consider LEV by assuming there will be a certain year after which
 the probability of death from aging is practically zero.</p>
-
 <p>I somewhat arbitrarily set this year to 2080<!--TODO: find some estimates
 of LEV-->, though many futurists seem more optimistic<!--TODO source-->:</p>
-
 <pre><code>levyear=2080
 </code></pre>
-
 <p>However, there are some reasons why one might want to stay signed up
 to cryonics even after LEV—there might be types of accidents where
 large parts of the body are destroyed in ways that both lead to death
@@ -374,7 +291,6 @@ want to be preserved until the missing bodyparts can be re-created and
 resuscitation is possible. Another risk to life even after LEV is new
 and for some time deadly diseases. This analysis does not include such
 considerations (yet).</p>
-
 <!--
 TODO: make probability of extinction explicit, not just implicit in
 the expected future life years.
@@ -382,7 +298,6 @@ the expected future life years.
 "If one believes that a singularity-like scenario will occur relatively soon,
 and estimates the risk of human extinction from such a scenario to be high,"
 -->
-
 <!--https://www.fightaging.org/archives/2018/02/aubrey-de-grey-on-progress-and-timescales-in-rejuvenation-research/-->
 <!--
 Metaculus questions related to longevity/LEV:
@@ -391,51 +306,39 @@ https://www.metaculus.com/questions/4110/assuming-some-humans-are-alive-what-wil
 https://www.metaculus.com/questions/353/will-someone-born-before-2001-live-to-be-150/
 https://www.metaculus.com/questions/1628/what-will-be-the-longest-verified-human-lifespan-on-record-on-january-1-2050/
 -->
-
-<h2>Calculating the Cost</h2>
-
+<h2 id="Calculating_the_Cost"><a class="hanchor" href="#Calculating_the_Cost">Calculating the Cost</a></h2>
 <p>Calculating the cost is comparatively straightforward, but there are
 some hidden variables (like opportunity costs and social costs) that
 have to be considered (not all of these in this text).</p>
-
 <p>The raw cost for cryonics depends heavily on the organisation choosen for
 preservation, the price ranges from ~\$20000 to ~\$250000<!--TODO: Sources
 for these, maybe more exact numbers for different organisations.-->. In
 this case, I choose the costs for neurocryopreservation at Alcor, though
 this analysis should be extended to other organisations.</p>
-
 <p>Raw cryonics cost can be split into three different parts:
 membership fees, comprehensive member standby costs and the cost for
 cryopreservation.</p>
-
 <pre><code>function cost(age)
     return membership_fees(age)+pres_cost(age)+cms_fees(age)
 end
 </code></pre>
-
-<h3>Membership Fees</h3>
-
+<h3 id="Membership_Fees"><a class="hanchor" href="#Membership_Fees">Membership Fees</a></h3>
 <p>Membership fees for Alcor are calculated using the age of the member
 and the length of their membership.</p>
-
-<h4>Direct Fees</h4>
-
+<h4 id="Direct_Fees"><a class="hanchor" href="#Direct_Fees">Direct Fees</a></h4>
 <blockquote>
-  <p>Current Membership Dues, net of applicable discounts, are: <br />
-1. First family member: \$525 annually or \$267 semi-annually or \$134 quarterly. <br />
-2. Each additional family member aged 18 and over, and full-time students aged 25 and under: \$310 annually or \$156 semi-annually or \$78 quarterly. <br />
-3. Each minor family member under age 18 for the first two children (no membership dues are required for any additional minor children): \$80 annually or \$40 semi-annually or \$20 quarterly <br />
-4. Full-time student aged 26 to 30: \$460 annually or \$230 semi-annually or \$115 quarterly. <br />
-5. Long-term member (total membership of 20 - 24 years): \$430 annually or \$216 semi-annually or \$108 quarterly. <br />
-6. Long-term member (total membership of 25 - 29 years): \$368 annually or \$186 semi-annually or \$93 quarterly. <br />
-7. Long-term member (total membership of 30 years or longer): \$305 annually or \$154 semi-annually or \$77 quarterly. <br />
+<p>Current Membership Dues, net of applicable discounts, are: <br/>
+1. First family member: \$525 annually or \$267 semi-annually or \$134 quarterly. <br/>
+2. Each additional family member aged 18 and over, and full-time students aged 25 and under: \$310 annually or \$156 semi-annually or \$78 quarterly. <br/>
+3. Each minor family member under age 18 for the first two children (no membership dues are required for any additional minor children): \$80 annually or \$40 semi-annually or \$20 quarterly <br/>
+4. Full-time student aged 26 to 30: \$460 annually or \$230 semi-annually or \$115 quarterly. <br/>
+5. Long-term member (total membership of 20 - 24 years): \$430 annually or \$216 semi-annually or \$108 quarterly. <br/>
+6. Long-term member (total membership of 25 - 29 years): \$368 annually or \$186 semi-annually or \$93 quarterly. <br/>
+7. Long-term member (total membership of 30 years or longer): \$305 annually or \$154 semi-annually or \$77 quarterly. <br/>
 8. Long-term member (total membership of 40 years or longer): \$60.00 annually or \$30.00 semi-annually or \$15.00 quarterly</p>
 </blockquote>
-
 <p><em>— <a href="https://alcor.org/">Alcor Life Extension Foundation</a>, <a href="https://alcor.org/BecomeMember/scheduleA.html">“Alcor Cryopreservation Agreement - Schedule A”</a>, 2016</em></p>
-
 <p>The following assumptions will be made in the implementation:</p>
-
 <ol>
 <li>The person considering signing up for cryonics is over 18 years old.</li>
 <li>If the person is under 25 years old, they are a
@@ -452,11 +355,8 @@ constant (see chart), so this is a reasonable assumption.</li>
 <li>The cryonicist will know when LEV has occurred, and will cancel
 their membership starting from that year.</li>
 </ol>
-
-<p><img src="https://timelines.issarice.com/images/7/79/Historical_cost_of_cryonics%2C_inflation_adjusted.png" alt="Inflation adjusted historical cryonics prices" title="Inflation adjusted historical cryonics prices" /></p>
-
+<p><img alt="Inflation adjusted historical cryonics prices" src="https://timelines.issarice.com/images/7/79/Historical_cost_of_cryonics%2C_inflation_adjusted.png" title="Inflation adjusted historical cryonics prices"/></p>
 <p>The implementation is quite straightforward:</p>
-
 <pre><code>function alcor_fees(age)
     local left=math.min(math.floor(actval[age])-age, levyear-curyear)
     local cost=0
@@ -486,13 +386,10 @@ their membership starting from that year.</li>
     return 300+cost
 end
 </code></pre>
-
-<h4>Comprehensive Member Standby</h4>
-
+<h4 id="Comprehensive_Member_Standby"><a class="hanchor" href="#Comprehensive_Member_Standby">Comprehensive Member Standby</a></h4>
 <!--TODO: find out how CMS really works!-->
-
 <blockquote>
-  <p>For Members residing in the continental U.S. and Canada: Alcor will
+<p>For Members residing in the continental U.S. and Canada: Alcor will
 provide Comprehensive Member Standby (CMS) to all Members (standby
 in Canada may be subject to delays due to customs and immigration
 requirements), which includes all rescue activities up through the time
@@ -500,21 +397,15 @@ the legally pronounced Member is delivered to the Alcor operating room
 for cryoprotection. <strong>This charge is waived for full-time students under
 age 25 and minors (under age 18).</strong></p>
 </blockquote>
-
 <p><em>— <a href="https://alcor.org/">Alcor Life Extension Foundation</a>, <a href="https://alcor.org/BecomeMember/scheduleA.html">“Alcor Cryopreservation Agreement - Schedule A”</a>, 2016</em></p>
-
 <p>Emphasis mine.</p>
-
 <blockquote>
-  <p>Current CMS charges are: <br />
+<p>Current CMS charges are: <br/>
 \$180 annually, \$90 semi-annually, or \$45 quarterly</p>
 </blockquote>
-
 <p><em>— <a href="https://alcor.org/">Alcor Life Extension Foundation</a>, <a href="https://alcor.org/BecomeMember/scheduleA.html">“Alcor Cryopreservation Agreement - Schedule A”</a>, 2016</em></p>
-
 <p>I will assume that the cryonics member starts paying a CMS fee starting
 10 years before their actuarial age of death.</p>
-
 <pre><code>cms=180
 
 function cms_age(age)
@@ -525,9 +416,7 @@ function cms_fees(age)
     return cms*(actval[age]-cms_age(age))
 end
 </code></pre>
-
-<h3>Preservation Cost</h3>
-
+<h3 id="Preservation_Cost"><a class="hanchor" href="#Preservation_Cost">Preservation Cost</a></h3>
 <p>There are several different methods of funding cryonics, the most
 popular of which seems to be life insurance. I haven't spent much time
 investigating the price finding mechanisms of life insurance companies,
@@ -536,39 +425,31 @@ adequately, so one doesn't have much of a financial advantage by choosing
 life insurance as opposed to simply saving money &amp; paying the cryonics
 membership in cash. I also assume that life insurance companies can
 accurately price in the arrival date of LEV.</p>
-
 <blockquote>
-  <p>Minimum Cryopreservation Funding: <br />
-• \$200,000.00 Whole Body Cryopreservation […]. <br />
-• \$80,000.00 Neurocryopreservation […]. <br />
-[…] <br />
-Surcharges: <br />
-• \$10,000 Surcharge for cases outside the U.S. and Canada other than China. <br />
-• \$50,000 Surcharge for cases in China. <br />
+<p>Minimum Cryopreservation Funding: <br/>
+• \$200,000.00 Whole Body Cryopreservation […]. <br/>
+• \$80,000.00 Neurocryopreservation […]. <br/>
+[…] <br/>
+Surcharges: <br/>
+• \$10,000 Surcharge for cases outside the U.S. and Canada other than China. <br/>
+• \$50,000 Surcharge for cases in China. <br/>
 […]</p>
 </blockquote>
-
 <p><em>— <a href="https://alcor.org/">Alcor Life Extension Foundation</a>, <a href="https://alcor.org/BecomeMember/scheduleA.html">“Alcor Cryopreservation Agreement - Schedule A”</a>, 2016</em></p>
-
 <!--TODO: image that shows that these have been fairly consistent over time-->
-
 <p>I assume that the person considering signing up lives outside of the
 U.S (but not in China), since a lot more people live outside the U.S
 than inside of it. I also assume that the person wants to sign up for
 neurocryopreservation. With these assumptions, the function that returns
 preservation costs becomes quite simple:</p>
-
 <pre><code>function pres_cost(age)
     return 90000
 end
 </code></pre>
-
-<h3>Other Possible Costs</h3>
-
+<h3 id="Other_Possible_Costs"><a class="hanchor" href="#Other_Possible_Costs">Other Possible Costs</a></h3>
 <p>There is a number of different additional costs that have not been
 considered here because of their (perceived) small scale or difficult
 tractability.</p>
-
 <p>These include opportunity costs for the time spent informing oneself
 about cryonics (tens of hours spent), opportunity costs for the time
 spent signing up (tens of hours spent), social costs by seeming weird
@@ -576,29 +457,22 @@ spent signing up (tens of hours spent), social costs by seeming weird
 vocal about it anyways), and alienating family members who necessarily
 come into contact with cryonics (considering the <a href="https://www.biostasis.com/is-that-what-love-is-the-hostile-wife-phenomenon-in-cryonics/" title="Is That What Love is? The Hostile Wife Phenomenon in Cryonics">"Hostile Wife
 Phenomenon"</a>).</p>
-
-<h2>Calculating the Benefit</h2>
-
+<h2 id="Calculating_the_Benefit"><a class="hanchor" href="#Calculating_the_Benefit">Calculating the Benefit</a></h2>
 <p>Calculating the benefit of cryonics carries a great uncertainty,
 but basically it can be divided into seven distinct components: The
 probability of being preserved, the probability of revival, the amount
 of years gained by cryonics, the value of one lifeyear, the probability
 of living to the year when one will sign up, the probability of then
 dying before LEV, and the expected quality of preservation.</p>
-
 <pre><code>function benefit(age)
     return prob_pres*prob_succ*years_gain*val_year*prob_liveto(age)*prob_diebeforelev(age)*avg_pres_quality(age)
 end
 </code></pre>
-
 <p>Here, I will only take <a href="https://en.wikipedia.org/wiki/Point_estimation">point
 estimates</a> of these
 values.</p>
-
-<h3>Value of a Lifeyear in the Future</h3>
-
+<h3 id="Value_of_a_Lifeyear_in_the_Future"><a class="hanchor" href="#Value_of_a_Lifeyear_in_the_Future">Value of a Lifeyear in the Future</a></h3>
 <!-- Dangers from incompetent revival -->
-
 <p>Much ink and pixels have been spilled on the question of the quality of
 the future, very little of it trying to make accurate or even resolvable
 predictions.<!--TODO: find out what positive/negative/circular/other
@@ -613,7 +487,6 @@ other variables such as inequality regarding resources (see also <a href="https:
 2013</a>
 for a more extensive list of metrics for flow-through effects, which
 could be used to evaluate the general quality of life in the future).</p>
-
 <p>But a much simpler way of approaching the topic could be the following:
 One takes arguments from both sides (proclaiming positive futures
 and negative futures) and prematurely concludes that the future is on
@@ -626,18 +499,14 @@ lower than the current value of the world), anti-natalists consider an
 empty world to be a positive thing, and most people working on preventing
 human extinction would consider such a world to be a gigantic loss of
 opportunity, and therefore net negative.</p>
-
 <p>There seems to be no simple way to resolve these conflicts, otherwise it
 would have been written down up to now. But it seems like most people
 would take the current state of affairs as neutral, with improvements
 in happiness, meaning and wealth to be positive, and decreases in
 those to be negative. Also, they don't see dying tomorrow as a neutral
 event.</p>
-
-<h4>Caveats on Future Life Years</h4>
-
+<h4 id="Caveats_on_Future_Life_Years"><a class="hanchor" href="#Caveats_on_Future_Life_Years">Caveats on Future Life Years</a></h4>
 <p>Here I will assume that</p>
-
 <ul>
 <li>One can exclude future life years with astronomically high values.
 Although these deserve further consideration,
@@ -656,20 +525,17 @@ returns</a>
 to lifeyears, i.e 1000 additional life years are 1000 times as
 valuable as one additional lifeyear</li>
 </ul>
-
 <p><a href="./doc/philosophy/ethics/discounting_future_health_greaves_2017.pdf" title="Discounting future health">Greaves
 2017</a>
 argues against pure positive discounting for health (i.e QALYs):</p>
-
 <blockquote>
-  <p>A discount rate should be applied to future health for two
+<p>A discount rate should be applied to future health for two
 reasons. First, to correct for the possibility that the beneficial
 future effects of a proposed health intervention, in the relevant
 sense of 'effect', are smaller than the model's naïve calculation
 suggests. Second, to take into account the fact that earlier health
 benefits are generally more instrumentally valuable than otherwise-equal
 later ones.</p>
-
 <p>In both cases, the use of a discount rate for future health is not
 the only way to model the effects in question. Alternatively, one could
 (i) explicitely represent the various possible actual effects of one's
@@ -680,31 +546,24 @@ the instrumental as well as the intrinsic benefits of health improvements
 one is considering. If one did both of those things, there would be no
 reasons of the kinds we have accepted for discounting future health.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Hilary_Greaves">Hilary Greaves</a>, <a href="./doc/philosophy/ethics/discounting_future_health_greaves_2017.pdf">“Discounting future health”</a> p. 7, 2017</em></p>
-
 <p>She also argues against applying considerations from diminishing marginal
 returns to health (although it must be noted that this analysis does
 not explicitely use QALY numbers for cryonics, since they have not been
 collected by healthcare departments yet):</p>
-
 <blockquote>
-  <p>this does not give rise to any phenomenon of diminishing
+<p>this does not give rise to any phenomenon of diminishing
 marginal returns of health to well-being when units of health are
 measured in QALYs, because the QALY scale has already more-or-less
 been constructed to be linear in well-being. There is therefore
 no reason based in considerations of diminishing marginal returns
 to discount future QALYs.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Hilary_Greaves">Hilary Greaves</a>, <a href="./doc/philosophy/ethics/discounting_future_health_greaves_2017.pdf">“Discounting future health”</a> p. 3, 2017</em></p>
-
 <p>Additionally, problems with interpersonal utility comparison do not apply
 in this case, since the externalities from signing up for cryonics are
 disregarded in this analysis.</p>
-
-<h4>QALYs and VSL</h4>
-
+<h4 id="QALYs_and_VSL"><a class="hanchor" href="#QALYs_and_VSL">QALYs and VSL</a></h4>
 <p>There are two different methods of putting a value on human life:
 the <a href="https://en.wikipedia.org/wiki/Value_of_life">VSL</a> and the
 <a href="https://en.wikipedia.org/wiki/Quality-adjusted_life_year">QALY</a>.
@@ -714,14 +573,11 @@ The Wikipedia page on VSL
 "de facto international standard most private and government-run health
 insurance plans worldwide use to determine whether to cover a new medical
 procedure". This number seems like a good conservative estimate.</p>
-
 <p>Interestingly, this approximately equals a year of waking hours worth
 the minimum wage in some countries (<code>$\$10*16*7*52=\$58240$</code>)<!--TODO:
 add https://en.wikipedia.org/wiki/List_of_minimum_wages_by_country-->.</p>
-
 <p>Intuitively, the probability distribution over the value of a year of
 life in the future should then look like this:</p>
-
 <pre><code>.l("nplot")
 .l("nstat")
 
@@ -731,11 +587,8 @@ ytitle("Probability")
 plot({n.pdf(x;50000;500000000)})
 draw()
 </code></pre>
-
-<p><img src="./img/considerations_on_cryonics/avg_fut_year_val.png" alt="Probability distribution over the value of a lifeyear in the future" title="The probability distribution over the value of a lifeyear in the future. The distribution is a normal distribution with an expected value of 50000 and a standard deviation of ~22000." /></p>
-
+<p><img alt="Probability distribution over the value of a lifeyear in the future" src="./img/considerations_on_cryonics/avg_fut_year_val.png" title="The probability distribution over the value of a lifeyear in the future. The distribution is a normal distribution with an expected value of 50000 and a standard deviation of ~22000."/></p>
 <p><em>this graph is not based on real data and only here for illustrative purposes</em></p>
-
 <p>But one can take another factor into account: Most negative future
 scenarios don't lead to resuscitation (civilisational collapse, stable
 totalitarianism, existential catastrophes like AI failure, nuclear
@@ -747,15 +600,12 @@ resources to bring people back from cryonic preservation (if indeed they
 still <em>are</em> in preservation by that point), and for malicious actors, in
 most scenarios it is easier to create new people than to bring preserved
 people back.</p>
-
 <p>This effect might be dampened by the consideration that most possible
 futures have net-negative value, but on the other hand, nearly all of
 those futures don't lead to resuscitation.</p>
-
 <p>Furthermore, <a href="https://forum.effectivealtruism.org/posts/gMzWWtdsArkwqNJEK/why-might-the-future-be-good" title="Why might the future be good?">Christiano 2013</a> outlines two reasons that indicate that the future will be good:</p>
-
 <blockquote>
-  <ol>
+<ol>
 <li>Decisions will be made by people whose lives are morally valuable
 and who want the best for themselves. They will bargain amongst each
 other and create a world that is good to live in. Because my values are
@@ -766,13 +616,10 @@ to my own, and will use their influence to create a rich and valuable
 world (by my lights as well as theirs).</li>
 </ol>
 </blockquote>
-
 <p><em>— Paul Christiano, <a href="https://forum.effectivealtruism.org/posts/gMzWWtdsArkwqNJEK/why-might-the-future-be-good">“Why might the future be good?”</a>, 2013</em></p>
-
 <p>This would mean that the probability distribution over the value of
 a lifeyear in the future conditional on being resuscitated could look
 like this:</p>
-
 <pre><code>.l("nplot")
 .l("nstat")
 
@@ -783,24 +630,16 @@ ytitle("Probability")
 plot({:[x&gt;50000;n.pdf(x;50000;500000000);0.4472*n.pdf(x;50000;100000000)]})
 draw()
 </code></pre>
-
-<p><img src="./img/considerations_on_cryonics/cryo_fut_year_val.png" alt="Probability distribution over the value of a lifeyear in the future conditional on being resuscitated" title="The probability distribution over the value of a lifeyear in the future conditional on being resuscitated. The distribution is two halves of two different normal distributions meeting at around $50000, the left half has much lower variance than the right half." /></p>
-
+<p><img alt="Probability distribution over the value of a lifeyear in the future conditional on being resuscitated" src="./img/considerations_on_cryonics/cryo_fut_year_val.png" title="The probability distribution over the value of a lifeyear in the future conditional on being resuscitated. The distribution is two halves of two different normal distributions meeting at around $50000, the left half has much lower variance than the right half."/></p>
 <!--TODO: wouldn't that just shift the normal curve rightwards? Think about it.-->
-
 <p><em>this graph is also not based on real data and only here for illustrative purposes</em></p>
-
-<h4>Negative Scenarios</h4>
-
+<h4 id="Negative_Scenarios"><a class="hanchor" href="#Negative_Scenarios">Negative Scenarios</a></h4>
 <p>However, I can think of 3 very specific (and thereby highly unlikely)
 scenarios where people could be resuscitated into a (for them) net-negative
 world.</p>
-
 <!--See also:
 https://www.lesswrong.com/posts/MzmMZmSzyeLPjLQjD/survey-what-s-the-most-negative-plausible-cryonics-works-->
-
-<h5>Ascended Economy</h5>
-
+<h5 id="Ascended_Economy"><a class="hanchor" href="#Ascended_Economy">Ascended Economy</a></h5>
 <p>The <a href="http://slatestarcodex.com/2016/05/30/ascended-economy/">ascended
 economy</a> is a
 scenario where the development of capitalism diverges significantly from
@@ -816,9 +655,7 @@ that is embedded in the algorithm. This might lead to insanity-inducing
 boredom as the humans are kept alive as long as algorithm manages to,
 possibly hundreds or thousands of years. This would have net-negative
 value for the people resuscitated.</p>
-
-<h5>Malevolent Future Actors</h5>
-
+<h5 id="Malevolent_Future_Actors"><a class="hanchor" href="#Malevolent_Future_Actors">Malevolent Future Actors</a></h5>
 <p>A superintelligence becomes a
 <a href="https://en.wikipedia.org/wiki/Singleton_(global_governance)">singleton</a>
 and starts behaving malevolently because of a <a href="https://reducing-suffering.org/near-miss/" title="Astronomical
@@ -829,33 +666,26 @@ malevolent human. This would lead to cryopreserved people being
 resuscitated, having their brains scanned and executed as a <a href="https://en.wikipedia.org/wiki/Mind_uploading">brain
 emulation</a>, copied and
 put into very painful conditions.</p>
-
-<h5>Information from the Past is Valuable</h5>
-
+<h5 id="Information_from_the_Past_is_Valuable"><a class="hanchor" href="#Information_from_the_Past_is_Valuable">Information from the Past is Valuable</a></h5>
 <p>In a future where agents that don't care about humans find the
 cryopreserved remains of humans, they might be interested in extracting
 information from those brains. If it is not possible to extract this
 information without reviving the cryopreserved people, they might
 resuscitate them and then interrogate these revived people for a very
 long time, with little regard for their well-being.</p>
-
-<h5>Being Revived as an Emulation and Forced to Work</h5>
-
+<h5 id="Being_Revived_as_an_Emulation_and_Forced_to_Work"><a class="hanchor" href="#Being_Revived_as_an_Emulation_and_Forced_to_Work">Being Revived as an Emulation and Forced to Work</a></h5>
 <p>A relatively common worry that prevents people from signing up for
 cryonics is a scenario in which their brain is scanned and they are
 transformed into a whole-brain emulation, which will then be used
 for slave labour or worse. This is often accompanied by linking <a href="https://qntm.org/mmacevedo" title="Lena">qntm
 2021</a>.</p>
-
 <p>For this to occur, several things need to happen:</p>
-
 <ol>
 <li>The technology for whole-brain emulations is developed</li>
 <li>The brain of the person is scanned</li>
 <li>The scanned person is forced to work</li>
 <li>Optionally, the preserved person is copied many times over and the copies are all used for work</li>
 </ol>
-
 <p>For 2 to occur, somebody needs to be interested in emulating
 the person in question. This could be because they are part
 of the cryonics organisation, and want to fulfill the contract
@@ -864,7 +694,6 @@ or because they want to use the person for slave labour.
 In the latter case, they will usually seek the most profitable
 option, and several forces work against the preserved person
 being that option:</p>
-
 <ul>
 <li>If whole-brain emulation is wide-spread, and copying of whole-brain emulations is easy:
 <ul>
@@ -880,37 +709,31 @@ being that option:</p>
 <li>It appears more likely than not that cryonics organisations will attempt to prevent the theft of preserved humans (although the organisations could fail and abandon or sell the preserved humans)</li>
 <li>There would have to be no laws protecting cryogenically preserved humans (or the emulations resulting from them), but laws protecting living or recently deanimated people</li>
 </ul>
-
 <p>A basic tension is that if whole-brain emulation is wide-spread and the
 incentive is economic, then it'll use more competitive brains from living
 humans that are easier to scan. If whole-brain emulation is obscure,
 it's unlikely that it and cryonics will come into contact in a way that
 harms cryonics patients (at the very least, it would be counted as grave
 robbery and body snatching).</p>
-
 <p>That said, if scanning living or recently deceased humans is illegal
 or very hard, but uploading and using cryogenically preserved humans is
 legal or less difficult, then this might be a legitimate worry, because
 a preserved human can't take any actions to prevent this scenario.</p>
-
-<h4>Steps for Reducing the Risk from such Scenarios</h4>
-
+<h4 id="Steps_for_Reducing_the_Risk_from_such_Scenarios"><a class="hanchor" href="#Steps_for_Reducing_the_Risk_from_such_Scenarios">Steps for Reducing the Risk from such Scenarios</a></h4>
 <blockquote>
-  <p>b) When, in Alcor's best good faith judgement, it is determined
+<p>b) When, in Alcor's best good faith judgement, it is determined
 that attempting revival is in the best interests of the Member in
 cryopreservation, Alcor shall attempt to revive and rehabilitate the
 Member. It is understood by the Member that a careful assessment of
 the risks versus the benefits of a revival attempt will be material to
-determining when to attempt revival. […] <br />
+determining when to attempt revival. […] <br/>
 d) Where it is possible to do so, Alcor represents that it will be guided
 in revival of the cryopreserved Member by the Member's own wishes and
 desires as they may have been expressed in a written, audio, or video
 <strong>Statement of Revival Preferences and Desires</strong>, which the Member may at
 his/her discretion attach to this Agreement.</p>
 </blockquote>
-
 <p><em>— <a href="https://www.alcor.org/">Alcor Life Extension Foundation</a>, <a href="./doc/practical/cryopreservation_agreement_alcor_2012.pdf">“Cryopreservation Agreement”</a> p. 15/16, 2012</em></p>
-
 <p>Although not a failsafe measure, steps can be taken to reduce
 the risks from hellish scenarios above by making arrangements with
 cryonics organisations. This may include not wanting cryopreservation
@@ -918,14 +741,11 @@ to continue in an ascended economy, objecting to revival as an
 <a href="https://en.wikipedia.org/wiki/Brain_emulation">emulation</a> or revival
 after more than a certain number of years (to prevent being resuscitated
 in an incomprehensibly strange and alien world).</p>
-
-<h4>Other Thoughts</h4>
-
+<h4 id="Other_Thoughts"><a class="hanchor" href="#Other_Thoughts">Other Thoughts</a></h4>
 <p>Many people argue that the value of a year of life in the future might
 be much lower than in the present, because friends and familiy are not
 around, and it is very likely that the future will be extremely alien and
 unfamiliar.</p>
-
 <p>These are valid considerations, but can be dampened a bit: Humans have
 shown to adapt to very different and varied circumstances, and humans
 today feel that modern life in big cities with regular calendars and
@@ -938,7 +758,6 @@ but it seems not qualitatively different from the shock people have
 when they visit different countries today. It is possible that future
 societies might try to help people with this kind of future shock,
 but that is of course far from certain.</p>
-
 <p>It is true that most cryonicists will not be able to convince their
 friends and family to sign up for it too, so they will be alone in
 the future at first. People today sometimes leave their friends and
@@ -949,35 +768,29 @@ from their friends or see their children less regularly—they
 don't seem to prefer death to continuing their lives without
 specific people. This consideration doesn't seem to be a <a href="https://www.lesswrong.com/rationality/is-that-your-true-rejection">true
 rejection</a>.</p>
-
-<hr />
-
+<hr/>
 <!--
 https://en.wikipedia.org/wiki/Value_of_life
 -->
-
 <p>After these considerations, I conservatively set the value of a lifeyear
 in the future to \$50000.</p>
-
 <pre><code>val_year=50000
 </code></pre>
-
-<h3>Probability of Revival</h3>
-
+<h3 id="Probability_of_Revival"><a class="hanchor" href="#Probability_of_Revival">Probability of Revival</a></h3>
 <blockquote>
-  <p>Specific equations and values have been
+<p>Specific equations and values have been
 proposed, usually yielding probability of success
 0 &lt; x &lt; 10%. For example, Steven Harris in 1989 estimated
 <a href="http://www.alcor.org/Library/html/WillCryonicsWork.html">0.2-15%</a>,
 R. Mike Perry in the same article runs a different analysis to arrive at
 13-77%, <a href="http://www.merkle.com/cryo/probability.html">Ralph Merkle</a>
-suggests >85% (conditional on things like good preservation,
+suggests &gt;85% (conditional on things like good preservation,
 no dystopia, and nanotech); Robin Hanson calculated in 2009 a
 <a href="http://www.overcomingbias.com/2009/03/break-cryonics-down.html">~6%</a>
 chance, Roko gave
 <a href="http://lesswrong.com/lw/3j/rationality_cryonics_and_pascals_wager/">23%</a>;
 Mike Darwin in 2011 (personal communication)
-put the odds at &lt;10%; an <a href="https://docs.google.com/spreadsheet/ccc?key=0Ajn1LpstEUO_dE00ZVVfa3pzX2Y2dk9mWWRKOUVkWlE#gid=0">informal survey of >6
+put the odds at &lt;10%; an <a href="https://docs.google.com/spreadsheet/ccc?key=0Ajn1LpstEUO_dE00ZVVfa3pzX2Y2dk9mWWRKOUVkWlE#gid=0">informal survey of &gt;6
 people</a>
 (<a href="http://lesswrong.com/lw/fz9/more_cryonics_probability_estimates/">LW
 discussion</a>)
@@ -991,9 +804,7 @@ estimate</a>
 is a lower 12% (n=59) - but interestingly, they seem to be more likely
 to be signed up for cryonics.</p>
 </blockquote>
-
 <p><em>— <a href="https://www.gwern.net">Gwern Branwen</a>, <a href="https://www.gwern.net/plastination">“Plastination versus Cryonics”</a>, 2014</em></p>
-
 <p>Besides these estimates, there exist also two related questions
 on the prediction website Metaculus. <a href="https://www.metaculus.com/questions/1626/before-1-january-2050-will-any-human-cryonically-preserved-for-at-least-1-year-be-successfully-revived/">"Before 1 January 2050,
 will any human cryonically preserved for at least 1 year be successfully
@@ -1007,32 +818,24 @@ from a low trust in the longevity of cryonics organisations. <a href="https://do
 sheet</a>
 contains 7 estimates of success: 0.04%, 0.223%, 29%, 6.71%, 14.86%,
 0.23% and 22.8%, with various different models underlying these estimates.</p>
-
 <p>Calculating the mean of these results in a chance of ~13%:</p>
-
 <div>
     $$\frac{0.2\%+15\%+13\%+77\%+85\%+6\%+23\%+9\%+17\%+0.2\%+1100*18\%+59*12\%+117*16\%+407*2\%+0.04\%+0.223\%+29\%+6.71\%+14.86\%+0.23\%+22.8\%}{1700} \approx 13.83\%$$
 </div>
-
 <p>It would certainly be interesting to set up a prediction market for this
 question, or get a team of superforecasters to estimate it, but basically,
 it seems like for a young or middle-aged person, the estimated probability
 is around 10%. However, the people surveyed are often sympathetic to
 cryonics or even signed up, and people in general are overconfident,
 so being conservative by halving the estimate seems like a good idea.</p>
-
 <pre><code>prob_succ=0.05
 </code></pre>
-
 <p>This is quite pessimistic: It assumes that cryobiology will make no
 progress <em>whatsoever</em> in the fidelity of the preserved tissue (remember,
 the probabilities given are usually for the success of a preservation
 given that it happens <em>now</em>).</p>
-
-<h3>Years Gained</h3>
-
+<h3 id="Years_Gained"><a class="hanchor" href="#Years_Gained">Years Gained</a></h3>
 <p>Conditional on being revived, what is the average life expectancy?</p>
-
 <p>If revival is achieved, it seems highly likely that aging and most
 degenerative diseases have been eradicated (it makes little sense to
 revive a person that is going to die again in 10 years). Also, most
@@ -1040,11 +843,9 @@ revival scenarios hinge upon either the feasibility of very advanced
 nanotechnology, which seems to be highly conducive to fixing aging,
 or on whole brain emulation scenarios, which would likely make aging
 unnecessary (why degrade a digital brain?).</p>
-
 <p>If revival happens, there are still risks from accidents and homicide or
 suicide that can kill the resuscitated cryonicist, as well as existential
 risks that face all of humanity.</p>
-
 <p>The website Polstats <a href="http://polstats.com/#!/life">illustrates</a>
 the risks purely from accidents and homicides
 using data from the <a href="http://www.iii.org/fact-statistic/mortality-risk">Information Insurance
@@ -1055,12 +856,10 @@ on Mathematics StackExchange to the question
 <a href="https://math.stackexchange.com/questions/3044194/whats-the-average-life-expectancy-if-only-dying-from-accidents">"What's the average life expectancy if only dying from
 accidents?"</a>
 arrives at 2850 years.</p>
-
 <p><a href="https://forum.effectivealtruism.org/s/8QHbqGpXnzcQxiAis/p/jYMdWskbrTWFXG6dH#Life_expectancy_after_LEV_">Ascani
 2019</a>
 conservatively estimates a life expectancy of ~1000 years for each
 individual human after LEV.</p>
-
 <p>Taking existential risks into account is a bit harder. It is unclear
 whether most of the probability mass for existential risks should be
 placed before resuscitation of cryonics patients becomes feasible,
@@ -1071,7 +870,6 @@ guess)<!--TODO: link Metaculus Ragnarök series, and see if someone
 like FHI has done some calculations on that-->, and half of that risk
 is placed before resuscitation, then the life expectancy of cryonics is
 <code>$\frac{8938+2850+1000}{3}*(1-0.20) \approx 3410$</code>.</p>
-
 <p>That number should be qualified further in an <a href="https://en.wikipedia.org/wiki/The_Age_of_Em">"Age of
 Em"</a> scenario: that
 scenario will contain less natural risks (emulation can be backed up,
@@ -1085,23 +883,17 @@ executed. This scenario deserves further consideration (see also
 I will not take into account the possibility of multiple
 copies of the same person, and assume that only one emulation is being
 run (to avoid tricky problems in aggregation).</p>
-
 <p>To conclude, it seems like resuscitated cryonicists will on average live
 around 3410 years, although there is room for debate on this number.</p>
-
 <pre><code>years_gain=3410
 </code></pre>
-
 <!--
 DOI: 10.2307/1973599
 -->
-
-<h3>Probability of Being Preserved</h3>
-
+<h3 id="Probability_of_Being_Preserved"><a class="hanchor" href="#Probability_of_Being_Preserved">Probability of Being Preserved</a></h3>
 <p>It seems like not all people who sign up for cryonics remain cryonicists
 until their death, and not all cryonicists who die as members actually
 get preserved.</p>
-
 <p>There seems to be very little data about this question, but as an
 extremely conservative estimate I would put the ratio of members of
 cryonics organizations who actually get preserved at 90% (this number
@@ -1111,21 +903,16 @@ cryonics member can increase this number by being diligent about their
 cryonics arrangement, living near the preservation facility before death,
 informing family members about their arrangement, trying to lead a safe
 life and keeping contact to their cryonics organisation.</p>
-
 <pre><code>prob_pres=0.9
 </code></pre>
-
-<h3>Quality of Preservation</h3>
-
+<h3 id="Quality_of_Preservation"><a class="hanchor" href="#Quality_of_Preservation">Quality of Preservation</a></h3>
 <p>A common reason for cryocrastination seems to be the belief that deaths
 at an earlier age have causes that make successful cryopreservation less
 likely, and that it is therefore not worth it to sign up early.</p>
-
 <p>To determine whether this is correct, one can investigate the leading
 causes of death by age group and estimate their penalty on successful
 cryopreservation. Note that my medical knowledge is very slim, and I might
 be missing many obvious factors.</p>
-
 <p>But isn't this already priced in into the probabilistic estimates of
 success? Basically, yes. But In order to tease out the optimal point for
 signing up for cryonics, I will have to include them in this analysis
@@ -1133,16 +920,13 @@ again. That is unfortunate, but I think the benefit in information is
 worth the cost in (slight) bias, and it adds to the conservatism of
 this estimate. Interested readers are encouraged to try to modify the
 probability of success and observe the resulting changes in value.</p>
-
 <p>I obtain the 10 leading causes of death by age group from a <a href="./doc/epidemiology/10_leading_causes_of_death_by_age_group_cdc_2018.pdf" title="10 Leading Causes of Death by Age Group, United States – 2018">2018 CDC
 report</a>.</p>
-
 <p>The causes of death, and their effect on successful cryopreservation
 (as a percentage; reduction in probability of successful resuscitation
 counterfactually to ideal conditions, e.g. controlled voluntary
 deanimation), as well as sometimes explanation for reasoning for the
 number:</p>
-
 <ul>
 <li>&lt;1 year:
 <ul>
@@ -1262,7 +1046,7 @@ number:</p>
 <li>Cause 9: <a href="https://en.wikipedia.org/wiki/Sepsis">Septicemia</a>: 65%</li>
 <li>Cause 10: <a href="https://en.wikipedia.org/wiki/Influenza">Influenza</a> and <a href="https://en.wikipedia.org/wiki/Pneumonia">Pneumonia</a>: 85%</li>
 </ul></li>
-<li>>64 years:
+<li>&gt;64 years:
 <ul>
 <li>Cause 1: <a href="https://en.wikipedia.org/wiki/Cardiovascular_disease">Heart Disease</a>: 85%</li>
 <li>Cause 2: <a href="https://en.wikipedia.org/wiki/Cancer">Malignant Neoplasms</a>: 60%</li>
@@ -1277,9 +1061,7 @@ number:</p>
 <li>Cause 10: <a href="https://en.wikipedia.org/wiki/Parkinson%27s_disease">Parkinson's disease</a>: 35%</li>
 </ul></li>
 </ul>
-
 <p>These numbers are entered into a Lua table of the following format:</p>
-
 <pre><code>deathcause=
 {
     {
@@ -1294,56 +1076,44 @@ number:</p>
     …
 }
 </code></pre>
-
 <p>For the age groups starting from age 15, <a href="./doc/epidemiology/data_brief_mortality_in_the_united_states_nchs_2018.pdf" title="Data Brief 355. Mortality in the United States, 2018">NCHS
 2018</a>
 provided the number of deaths by age group (I don't understand why they
 had to start at age 15 and not just include the whole data).</p>
-
 <p>For the missing first 4 categories (0 to 1 year, 1-4 years, 5-9 years,
 and 10-14 years), total deaths were calculated under the
 assumption that the top 10 causes of deaths account for 73.8%
 of the total number of deaths in that age group (see <a href="doc/epidemiology/mortality_in_the_united_states_xu_et_al_2020.pdf" title="Mortality in the United States, 2018">Xu et al.
 2020</a>
 p. 2).</p>
-
 <p>For every age group, it was assumed that the average preservation quality
 for the remaining causes of death was 60%.</p>
-
 <p>I can now write another function that calculates the expected quality
 of cryopreservation given that one signs up at a certain age.</p>
-
 <p>This can be done by "simulating" signing up at a certain age, and then
 observing which deaths one might have died, and their implications for
 cryopreservation.</p>
-
 <pre><code>alldeaths=0
 weighteddeaths=0
 </code></pre>
-
 <p>This is achieved by iterating through <code>deathcause_impact</code> and only observing
 deaths if they're above the signup age:</p>
-
 <pre><code>for i=1, #deathcause_impact do
     local l=deathcause_impact[i].lowbound
     local u=deathcause_impact[i].upbound
     local factor=1
 </code></pre>
-
 <p>If the signup age is in the given age group, one needs to calculate a
 weighing factor for the time the cryonicists will spend in the given
 age group:</p>
-
 <pre><code>if l&lt;age and u&gt;age then
     factor=(age-l)/(u-l)
 end
 </code></pre>
-
 <p>Then, in case the age group lies further ahead in the future than <code>age</code>,
 one can calculate the deaths weighted by impact on cryopreservation
 and prevalence (and, in one case, the factor for the time spent in the
 age group):</p>
-
 <pre><code>if age&lt;=u then
     alldeaths=alldeaths+factor*deathcause[i].total_deaths
     for j=1, #deathcause[i].numbers do
@@ -1351,25 +1121,19 @@ age group):</p>
     end
 end
 </code></pre>
-
 <p>This adds up the deaths that have occured, as well as the deaths weighted
 by (hypothetical) preservation quality.</p>
-
 <p>Now, <code>weighteddeaths</code> should contain a number whose meaning is roughly
 "number of deaths that lead to successful cryopreservation, relative
 to optimal conditions, under real world death circumstances", and
 <code>alldeaths</code> should contain a number that means "number of deaths that
 lead to successful cryopreservation, under ideal circumstances".</p>
-
 <p>The factor that now interests us is <code>weighteddeaths/alldeaths</code>, so the
 function executes</p>
-
 <pre><code>return weighteddeaths/alldeaths
 </code></pre>
-
 <p>Now we can simulate whether, in this model, age of signing up has any
 impact on the quality of preservation:</p>
-
 <pre><code>&gt; avg_pres_quality(30)
 0.64963177178483
 &gt; avg_pres_quality(40)
@@ -1381,69 +1145,51 @@ impact on the quality of preservation:</p>
 &gt; avg_pres_quality(70)
 0.64929715809787
 </code></pre>
-
 <p>Apparently, the differences in quality of preservation by age are
 negligible, although the low expected quality of preservation is quite
 shocking.</p>
-
 <p>The low amount of variation is probably due to the fact that most people
 die of old age and not due to accidents during their lifetime.</p>
-
 <!--TODO: image here?-->
-
-<h3>Surviving Until LEV</h3>
-
+<h3 id="Surviving_Until_LEV"><a class="hanchor" href="#Surviving_Until_LEV">Surviving Until LEV</a></h3>
 <p>The benefit of cryonics is only realized in one case: One lives to the
 planned year of signing up, but then dies before LEV. Both dying before
 signing up or living until LEV after having signed up make the value
 of cryonics \$0. One can calculate the probability of this scenario by
 multiplying the probabilities of living until signup with the probability
 of then dying before LEV.</p>
-
 <p>To calculate the probability of living to a given age, we can use
 the gompertz distribution again:</p>
-
 <pre><code>function prob_liveto(age)
     return gompertz(age)/gompertz(curage)
 end
 </code></pre>
-
 <p>The probability of dying before LEV is 0 if LEV has already occurred:</p>
-
 <pre><code>if curyear+(age-curage)&gt;levyear then
     return 0
 </code></pre>
-
 <p>Othewise, we assume that one has signed up for cryonics at <code>age</code>
 and now wants to know the probability of dying until LEV. That is the
 same as <code>$1-\Pr[\hbox{Living until LEV}]$</code>, or the probability of living until
 <code>curage+(levyear-curyear)</code> given one has already lived until <code>age</code>.</p>
-
 <pre><code>else
     return 1-(gompertz(curage+(levyear-curyear))/gompertz(age))
 end
 </code></pre>
-
-<h2>Results</h2>
-
+<h2 id="Results"><a class="hanchor" href="#Results">Results</a></h2>
 <p>The complete code for the model can be found
 <a href="./code/considerations_on_cryonics/cryoyear.lua">here</a>.</p>
-
-<h3>Standard Parameters</h3>
-
+<h3 id="Standard_Parameters"><a class="hanchor" href="#Standard_Parameters">Standard Parameters</a></h3>
 <p>With the parameters presented above, it turns out that it is optimal to
 sign up for cryonics right away, mainly because the motivation drift
 punishes the procrastination quite heavily.</p>
-
-<h4>Currently 20 years old</h4>
-
+<h4 id="Currently_20_years_old"><a class="hanchor" href="#Currently_20_years_old">Currently 20 years old</a></h4>
 <p>At the age of 20 years, the value of signing up for cryonics the
 same year is \$2718928 (~<code>$\$2.7*10^6$</code>) according to this model,
 prolonging the decision until one is 30 reduces this number to \$1622285
 (~<code>$\$1.6*10^6$</code>), and waiting until 40, 50 and 60 years yields a value
 of \$958279 (~<code>$\$9.5*10^5$</code>), \$546862 (~<code>$\$5.4*10^5$</code>) and \$280704
 (~<code>$\$2.8*10^5$</code>), respectively.</p>
-
 <pre><code>.l("nplot")
 
 data::.r()
@@ -1455,15 +1201,11 @@ ytitle("Dollar value of signing up for cryonics")
 barplot(data)
 draw()
 </code></pre>
-
-<p><img src="./img/considerations_on_cryonics/std_param_val_20.png" alt="Value of signing up for cryonics in n years at age 20, standard parameters." title="Value of signing up for cryonics in n years at age 20, standard parameters. Value diminishes very quickly over the years, having the shape of a decreasing geometric distribution." /></p>
-
-<h4>Currently 40 years old</h4>
-
+<p><img alt="Value of signing up for cryonics in n years at age 20, standard parameters." src="./img/considerations_on_cryonics/std_param_val_20.png" title="Value of signing up for cryonics in n years at age 20, standard parameters. Value diminishes very quickly over the years, having the shape of a decreasing geometric distribution."/></p>
+<h4 id="Currently_40_years_old"><a class="hanchor" href="#Currently_40_years_old">Currently 40 years old</a></h4>
 <p>The values of signing up for cryonics look very similar to the values
 for a 20 year old. Performing the signup immediately at age 40 is worth
 \$6434231 (~<code>$\$6.4*10^6$</code>) at age 40 and is the best time to do it.</p>
-
 <pre><code>.l("nplot")
 
 data::.r()
@@ -1475,17 +1217,12 @@ ytitle("Dollar value of signing up for cryonics")
 barplot(data)
 draw()
 </code></pre>
-
-<p><img src="./img/considerations_on_cryonics/std_param_val_40.png" alt="Value of signing up for cryonics in n years at age 40, standard parameters." title="Value of signing up for cryonics in n years at age 40, standard parameters. Value diminishes very quickly over the years, having the shape of a decreasing geometric distribution." /></p>
-
-<h3>Without Motivation Drift</h3>
-
+<p><img alt="Value of signing up for cryonics in n years at age 40, standard parameters." src="./img/considerations_on_cryonics/std_param_val_40.png" title="Value of signing up for cryonics in n years at age 40, standard parameters. Value diminishes very quickly over the years, having the shape of a decreasing geometric distribution."/></p>
+<h3 id="Without_Motivation_Drift"><a class="hanchor" href="#Without_Motivation_Drift">Without Motivation Drift</a></h3>
 <p>Since many people question the idea of motivation drift and trust
 themselves in the future a lot, one can simulate this trust by setting
 the <code>decay</code> parameter to 1.</p>
-
 <p>In this model, a very different picture emerges:</p>
-
 <pre><code>.l("nplot")
 
 data::.r()
@@ -1497,9 +1234,7 @@ ytitle("Dollar value of signing up for cryonics")
 barplot(data)
 draw()
 </code></pre>
-
-<p><img src="./img/considerations_on_cryonics/no_drift_val.png" alt="Value of signing up for cryonics in n years at age 20, no motivation drift." title="Value of signing up for cryonics in n years at age 20, no motivation drift. In the first 30 years, there is very little decline in value, but the the value starts decreasing rapidly." /></p>
-
+<p><img alt="Value of signing up for cryonics in n years at age 20, no motivation drift." src="./img/considerations_on_cryonics/no_drift_val.png" title="Value of signing up for cryonics in n years at age 20, no motivation drift. In the first 30 years, there is very little decline in value, but the the value starts decreasing rapidly."/></p>
 <pre><code>$ lua cryoyear.lua 20 50000 0.05 0.6 4500 1 | sort -n | tail -10
 1770851.3434545: 29
 1771271.4463869: 24
@@ -1512,32 +1247,24 @@ draw()
 1774744.1202585: 20
 1775550.165284: 26
 </code></pre>
-
 <p>It is now optimal to wait for 6 years, with an added value of
 ~\$800. This is probably due to very slight variations in the quality
 of cryopreservation at different ages of death.</p>
-
 <p>So in the case of high self-trust, it seems possible that limited amounts
 of cryocrastination might indeed be rational, although the benefits
 are so small that they might be swamped by even slight changes to the
 factors for the quality of cryopreservation.</p>
-
 <p>And, in case anybody was wondering, at age 26 the model recommends
 signing up immediately:</p>
-
 <pre><code>$ lua cryoyear.lua 26 50000 0.05 0.6 4500 1 | sort -n | tail -1
 2076784.4016749: 26
 </code></pre>
-
 <p>For ages 20-25, it recommends waiting until the age of 26.</p>
-
-<h3>The Critic's Scenario</h3>
-
+<h3 id="The_Critics_Scenario"><a class="hanchor" href="#The_Critics_Scenario">The Critic's Scenario</a></h3>
 <p>Somebody who is very critical might object and argue that the probability
 of success is much lower, and even if cryonics succeeds, it will not
 lead to extremely long lifespans. Let's say they also don't believe in value
 drift. Such a person might propose the following assignment of variables:</p>
-
 <pre><code>curage=20
 val_year=50000
 prob_succ=0.01
@@ -1545,10 +1272,8 @@ years_gain=50
 prob_pres=0.6
 decay=1
 </code></pre>
-
 <p>In this case, signing up for cryonics has negative value that converges
 to 0 the older one gets:</p>
-
 <pre><code>$ lua cryoyear.lua 20 50000 0.01 0.6 50 1 | sort -n | tail -10
 -81533.552305999: 69
 -79644.977781056: 70
@@ -1561,10 +1286,8 @@ to 0 the older one gets:</p>
 -63762.191486437: 77
 -60711.195331299: 78
 </code></pre>
-
 <p>Please note that the following graph should have negative values on the
 y-axis. This should get fixed sometime in the future.</p>
-
 <pre><code>.l("nplot")
 
 data::-.r()
@@ -1577,66 +1300,49 @@ fillrgb(0.4;0.4;1)
 barplot(data)
 draw()
 </code></pre>
-
-<p><img src="./img/considerations_on_cryonics/critical.png" alt="Critical perspective on cryonics" title="Critical perspective on cryonics. The older one get's, the less of a loss cryonics is, but it still stays a net negative trade." /></p>
-
+<p><img alt="Critical perspective on cryonics" src="./img/considerations_on_cryonics/critical.png" title="Critical perspective on cryonics. The older one get's, the less of a loss cryonics is, but it still stays a net negative trade."/></p>
 <!--
 ### Where Waiting Makes Sense
 
 $ lua cryoyear.lua 22 50000 0.1 0.6 100 1 180 100000 2080
 -->
-
 <!--
 Higher monetary for life-years make the case stronger
 -->
-
 <!--
 Near Singularity Scenarios
 -->
-
-<h3>Other Modifications</h3>
-
+<h3 id="Other_Modifications"><a class="hanchor" href="#Other_Modifications">Other Modifications</a></h3>
 <p>It is possible to think of many other modifications to the parameters
 in the script, including the probability of cryonics success, the value
 of a lifeyear, the amount of years gained, or even bigger modifications
 such as adding models for the probability of the development of life
 extension technology in the near future.</p>
-
 <p>The reader is encouraged to modify the variables and execute the script
 to determine whether it is advantageous for them to sign up for cryonics,
 and if yes, whether cryocrastination would be a good idea.</p>
-
-<h2>Appendix A: A Guesstimate Model</h2>
-
+<h2 id="Appendix_A_A_Guesstimate_Model"><a class="hanchor" href="#Appendix_A_A_Guesstimate_Model">Appendix A: A Guesstimate Model</a></h2>
 <!--TODO: update with quality factor-->
-
 <p>The website <a href="https://www.getguesstimate.com/">Guesstimate</a> describes
 itself as "A spreadsheet for things that aren’t certain". It provides
 <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Monte-Carlo</a>
 simulations in a spreadsheet-like interface.</p>
-
 <p>I use Guesstimate to calculate the uncertainty in the value provided
 by signing up for cryonics as a 20 year old. The model is available
 <a href="https://www.getguesstimate.com/models/15527">here</a>.</p>
-
-<h3>Variables</h3>
-
+<h3 id="Variables"><a class="hanchor" href="#Variables">Variables</a></h3>
 <p>Most of the parameters were simply taken from this text, but some deserve
 more explanation.</p>
-
-<h4>Year for Longevity Escape Velocity</h4>
-
+<h4 id="Year_for_Longevity_Escape_Velocity"><a class="hanchor" href="#Year_for_Longevity_Escape_Velocity">Year for Longevity Escape Velocity</a></h4>
 <blockquote>
-  <p>When I give any kind of timeframes, the only real care I have to take
+<p>When I give any kind of timeframes, the only real care I have to take
 is to emphasize the variance. In this case I think we have got a 50-50
 chance of getting to that tipping point in mice within five years from
 now, certainly it could be 10 or 15 years if we get unlucky. Similarly,
 for humans, a 50-50 chance would be twenty years at this point, and
 there's a 10 percent chance that we won't get there for a hundred years.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Aubrey_de_grey">Aubrey de Grey</a>, <a href="https://www.fightaging.org/archives/2018/02/aubrey-de-grey-on-progress-and-timescales-in-rejuvenation-research/">“Aubrey de Grey on Progress and Timescales in Rejuvenation Research”</a>, 2018</em></p>
-
 <p>The 90% confidence interval for this variable lies in <code>$[2040;2150]$</code>:
 Aubrey de Grey gives a mean of 2038, I believe that number to be
 quite optimistic, but not completely so. He doesn't give a lower
@@ -1645,9 +1351,7 @@ escape velocity is likely not 2 years away, this seems <a href="https://en.wikip
 distribution</a>-ish,
 which is also what I used in the spreadsheet, with a 90% confidence
 interval in <code>$[2040;2150]$</code>.</p>
-
-<h4>Age at Death</h4>
-
+<h4 id="Age_at_Death"><a class="hanchor" href="#Age_at_Death">Age at Death</a></h4>
 <p>Unfortunately, Guesstimate doesn't support Gompertz distributions,
 so I had to approximate the age of death by assuming that it
 was a log-normal distribution with the 90% confidence interval in
@@ -1655,9 +1359,7 @@ was a log-normal distribution with the 90% confidence interval in
 Alpha</a>
 looks similar to the end result, and both have a mean age of death of
 ~83 years.</p>
-
-<h4>Years Lived After Revival</h4>
-
+<h4 id="Years_Lived_After_Revival"><a class="hanchor" href="#Years_Lived_After_Revival">Years Lived After Revival</a></h4>
 <p>This was another log-normal distribution, with a 90% confidence interval
 of <code>$[20;10000]$</code> years. Why the huge range? On the one hand, revival
 without sufficient rejuvenation technology seems unlikely, but possible;
@@ -1665,9 +1367,7 @@ another possibility is being revived and then dying in an accident or war.
 The high upper range accounts for a very stable future with rejuvenation
 technology. Although the distribution is log-normal, the mean is still
 32000 years, and the 50th percentile is around 1300 years.</p>
-
-<h4>Value of Lifeyears After Revival</h4>
-
+<h4 id="Value_of_Lifeyears_After_Revival"><a class="hanchor" href="#Value_of_Lifeyears_After_Revival">Value of Lifeyears After Revival</a></h4>
 <p>Here, I assumed that both negative and positive development
 of the future is equally likely, resulting in a <a href="https://en.wikipedia.org/wiki/Normal_distribution">normal
 distribution</a> with
@@ -1678,30 +1378,23 @@ but it's always what people bring up and want to argue about endlessly
 (perhaps trying to convince me of their values or test whether mine
 are acceptable), so I included the possibility of substantial negative
 development.</p>
-
-<h4>Provider Cost per Year</h4>
-
+<h4 id="Provider_Cost_per_Year"><a class="hanchor" href="#Provider_Cost_per_Year">Provider Cost per Year</a></h4>
 <p>Implementing the whole <code>membership_fees</code> in Guesstimate seems possible,
 but incredibly burdensome. I approximated it using a normal distribution
 with a 90% confidence interval of <code>$[400;900]$</code>.</p>
-
-<h3>Value</h3>
-
+<h3 id="Value"><a class="hanchor" href="#Value">Value</a></h3>
 <p>The result is certainly interesting: in this model, signing up for
 cryonics has a mean value of \$18m and a median of ≈-\$100k
 (perhaps because of longevity escape velocity arriving and making
 the value simply the cost for signing up), but with very long tails,
 especially on the positive side: a fifth percentile of -\$2.15m,
 and a 95th percentile of <em>squints</em> \$58.5m—quite a range!</p>
-
 <p>The minimum and maximum of the simulation are even more extreme: -\$39b
 for the minimum and \$20b for the maximum (these vary strongly every
 time the simulation is run).</p>
-
 <p>Because of these huge numbers, it makes sense to try to visualize them
 logarithmically. I exported the numbers for the variable 'Value' from
 Guesstimate and converted them into a Klong array.</p>
-
 <pre><code>.l("math")
 .l("nplot")
 
@@ -1716,15 +1409,12 @@ grid((*logvalues),(*|logvalues),[5];[0],(|/#'=logvalues),[100])
 scplot2(incidence)
 draw()
 </code></pre>
-
-<p><img src="./img/considerations_on_cryonics/log_values.png" alt="Distribution of value of signing up for cryonics, logarithmically" title="Distribution of value of signing up for cryonics, logarithmically" /></p>
-
+<p><img alt="Distribution of value of signing up for cryonics, logarithmically" src="./img/considerations_on_cryonics/log_values.png" title="Distribution of value of signing up for cryonics, logarithmically"/></p>
 <p>Note that the scale is logarithmic to the <a href="https://en.wikipedia.org/wiki/Natural_logarithm">natural
 logarithm</a> (symmetrically
 for both negative and positive values), not the logarithm to base 10,
 because this makes the data more granular and therefore easier to
 understand.</p>
-
 <p>As one can see, the distribution has turned out sort-of
 <a href="https://en.wikipedia.org/wiki/Multimodal_distribution">bimodal</a>:
 Most cases of signing up for cryonics have a value of -\$100k (presumably
@@ -1736,20 +1426,16 @@ of cases have negative value, and
 have positive value. Of the ones with negative value, most are simply
 flukes where longevity escape velocity arrives first: <code>2286%#logvalues</code>
 <code>$\approx 45.7\%$</code>.</p>
-
-<h3>Conclusion</h3>
-
+<h3 id="Conclusion"><a class="hanchor" href="#Conclusion">Conclusion</a></h3>
 <p>In this model, signing up for cryonics is still a good idea from a
 strict <a href="https://en.wikipedia.org/wiki/Expected_value">expected-value</a>
 perspective. But decision processes with a <a href="https://en.wikipedia.org/wiki/Precautionary_principle">precautionary
 principle</a> might
 be much more wary of doing anything rash before futures with negative
 value can be ruled out.</p>
-
-<h2>Now What?</h2>
-
+<h2 id="Now_What"><a class="hanchor" href="#Now_What">Now What?</a></h2>
 <blockquote>
-  <p>I know more people who are planning to sign up for cryonics Real
+<p>I know more people who are planning to sign up for cryonics Real
 Soon Now than people who have actually signed up. <strong>I expect that
 more people have <em>died while cryocrastinating than have actually
 been cryopreserved</em>.</strong> If you've <em>already decided</em> this is a
@@ -1758,9 +1444,7 @@ cryonics ɴᴏᴡ. I mean ʀɪɢʜᴛ ɴᴏᴡ. Go to the website of
 <a href="http://www.alcor.org/BecomeMember/index.html">Alcor</a> or the <a href="https://www.cryonics.org/membership">Cryonics
 Institute</a> and follow the instructions.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Eliezer_Yudkowsky">Eliezer Yudkowsky</a>, <a href="https://www.lesswrong.com/posts/yKXKcyoBzWtECzXrE/you-only-live-twice">“You Only Live Twice”</a>, 2008</em></p>
-
 <p>In case you're now convinced that signing up for cryonics is the right
 thing to do for you, great! I encourage you strongly to <strong>sign up as
 quickly as possible</strong>, if your finances allow you to (there are cheaper
@@ -1770,27 +1454,21 @@ point in time into a full membership quickly, and memberships at the
 <a href="https://cryonics.org">Cryonics Institute</a>, which also much cheaper
 than Alcor, but require much higher amount of initiative to assure a
 quick preservation)).</p>
-
-<p><a href="https://nitter.hu/TetraspaceWest/status/1508597929082294272"><img src="./img/considerations_on_cryonics/tetraspace_tweet.png" alt="Tweet by @TetraspaceWest, with text “It's called cryonics because you have to fill out like one form to do it, enough to make you cry”" title="Tweet by @TetraspaceWest, with text “It's called cryonics because you have to fill out like one form to do it, enough to make you cry”" /></a></p>
-
+<p><a href="https://nitter.hu/TetraspaceWest/status/1508597929082294272"><img alt="Tweet by @TetraspaceWest, with text “It's called cryonics because you have to fill out like one form to do it, enough to make you cry”" src="./img/considerations_on_cryonics/tetraspace_tweet.png" title="Tweet by @TetraspaceWest, with text “It's called cryonics because you have to fill out like one form to do it, enough to make you cry”"/></a></p>
 <p>Generally, the <a href="https://www.lesswrong.com/s/weBHYgBXg9thEQNEe">Cryonics Signup
 Guide</a> is the best
 resource for anyone to guide you through the signup process, though it
 lacks information for people outside of the US.</p>
-
 <p>Good luck, and may we see each other one day.</p>
-
 <p>If you are not convinced, that's also fine. If you think you have found a
 good counterargument or a flaw in this cost-benefit analysis, feel free
 to <a href="./about.html#Contact">contact me</a> (though note that I'm generally
 quite unsympathetic to the prevalent position that death and aging are
 not clearly and strictly bad, and might be uninterested in discussion
 about that particular topic).</p>
-
 <p>I would also appreciate good write-ups countering the arguments for
 cryonics, see <a href="http://blog.ciphergoth.org/blog/2010/02/14/an-open-letter-to-scientific-critics-of-cryonics/" title="An open letter to scientific critics of cryonics">Crowley
 2010</a>.</p>
-
 <!--
 From todo.md:
 
@@ -1808,12 +1486,10 @@ From todo.md:
 
 A perhaps similar article by Anders Sandberg?
 -->
-
-<h2>Discussions</h2>
-
+<h2 id="Discussions"><a class="hanchor" href="#Discussions">Discussions</a></h2>
 <ul>
 <li><a href="https://old.reddit.com/r/cryonics/comments/fualgi/considerations_on_cryonics_apr_2020/">/r/cryonics</a></li>
 <li><a href="https://old.reddit.com/r/slatestarcodex/comments/hde7h5/considerations_on_cryonics_a/">/r/slatestarcodex</a></li>
 <li><a href="https://www.lesswrong.com/posts/xwJa3ieBBQYFtCmHt/considerations-on-cryonics">LessWrong</a></li>
 </ul>
-</html>
+</body></html>

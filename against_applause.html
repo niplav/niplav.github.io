@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,39 +32,29 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-04-11, modified: 2022-06-10, language: english, status: maintenance, importance: 4, confidence: unlikely</em></p>
-
 <blockquote>
-  <p><strong>In western cultures, it is nearly universal for people to clap
+<p><strong>In western cultures, it is nearly universal for people to clap
 before and after pieces of classical music and jazz. An argument
 against this practice is presented, counterarguments are discussed,
 and alternative approaches to appreciation of music are proposed.</strong></p>
 </blockquote>
-
-<h1>Against Applause After Classical Concerts</h1>
-
+<h1 id="Against_Applause_After_Classical_Concerts"><a class="hanchor" href="#Against_Applause_After_Classical_Concerts">Against Applause After Classical Concerts</a></h1>
 <blockquote>
-  <p>Silence is a hard virtue.</p>
+<p>Silence is a hard virtue.</p>
 </blockquote>
-
 <p><em>— <a href="http://slatestarcodex.com/">Scott Alexander</a>, <a href="(https://slatestarcodex.com/2013/06/14/the-virtue-of-silence/">“The Virtue of Silence”</a>, 2013</em></p>
-
-<h2>Arguing Against Applause</h2>
-
+<h2 id="Arguing_Against_Applause"><a class="hanchor" href="#Arguing_Against_Applause">Arguing Against Applause</a></h2>
 <p>In visual art, curators try to create a well-fitting environment for the
 art: either a neutral environment in the case of modern or abstract art,
 or a culturally fitting environment in a tasteful building and well-lit
 rooms.</p>
-
 <p>In this regard, it seems like visual art is curated mostly along
 spatial categories: buildings, rooms, space, and lighting. So, if one
 were to curate music, which categories would be important? Since music
 is curated, this is not a hypothetical: music is curated mostly after
 temporal categories such as time and order.</p>
-
 <p>However, one ritual does not fit into this: clapping before, during and
 after concerts puts noise directly before and after a performance. An
 analogy with visual art would be putting tv screens with static next to
@@ -98,14 +62,12 @@ pieces of abstract art (and not as part of the art work!). This could
 perhaps fit with some pieces of art, but would mostly be distracting
 and counter-productive to understanding the piece. So, why does a society
 put noise before, after, and sometimes even between pieces music?</p>
-
 <p>On the contrary, treating classical music like visual art would imply creating
 a fitting soundscape around a piece of music. Concretely, this could
 consist of a fixed period of silence before and after a piece of music,
 or a fitting low complexity soundscape that prepares for the piece
 about to be played. I am much more in favour of having silence, since
 sorrounding music seems hard to pull of so that it fits.</p>
-
 <p>There is some evidence that silence indeed <strong>is</strong> appreciated by people
 who listen to classical music in concert. For example, an acquaintance
 of mine told me enthusiastically about a performance of a symphony by
@@ -118,24 +80,18 @@ about interrupting sounds during a concert like talking or coughing,
 a cardinal sin for somebody in a concert hall, though this seems less
 relevant because there is a diffence between distraction during music
 and distraction before and after music.</p>
-
-<h3>Preventing Incorrect Clapping</h3>
-
+<h3 id="Preventing_Incorrect_Clapping"><a class="hanchor" href="#Preventing_Incorrect_Clapping">Preventing Incorrect Clapping</a></h3>
 <p>The exact fitting moments of applause are a difficult topic in classical
 music and the source of many mistakes on the side of the audience,
 abolishing applause would remove these mistakes, but also prevent the
 ability to display status and knowledge by knowing where to clap (and
 the possibility to keep out ignorant philistines).</p>
-
 <!--TODO: check whether this is correct-->
-
 <p>Examples for such incorrect applause is clapping prematurely, applause
 between different movements of the same piece (for different pieces,
 this is fine though‽) and clapping after a particularly impressive solo
 (which is okay in Jazz, but not in classical music).</p>
-
 <p>All of this confusion could be avoided by eschewing applause entirely.</p>
-
 <!--Possible further argument: Applause turns music
 into a competition who gets most, and that is toxic (see
 https://cjeller.wordpress.com/2015/08/09/against-applause/) It also makes
@@ -144,27 +100,21 @@ of the audience into a single coherent group, without any gradient: "It
 forces individuals to react to music the same way, regardless of whether
 one enjoyed, disliked, or didn’t understand the music." Eller alludes
 to other solutions to the problem of applause, but doesn't name any.-->
-
-<h2>History</h2>
-
+<h2 id="History"><a class="hanchor" href="#History">History</a></h2>
 <!--TODO: track down primary sources for this-->
-
 <p>It seems like very similar arguments have been given in the history
 of music:</p>
-
 <blockquote>
-  <p>Schumann and Mendelssohn tacitly addressed the applause issue by
+<p>Schumann and Mendelssohn tacitly addressed the applause issue by
 writing certain major works without movement breaks. Call it pre-emptive
 composing, if you will. For example, Mendelssohn explicitly asked that
 his "Scottish" Symphony, which debuted in 1842, be played without a
 break to avoid "the usual lengthy interruptions." Schumann took care
 of the matter in a similar way in his piano and cello concerti as well
 as his Fourth Symphony.</p>
-
 <p>As a respected critic of the time, Schumann also openly scolded audiences
 in print for their behavior. He went on record as chiding them: "You
 should be turned to stone pagodas."</p>
-
 <p>New Yorker critic Alex Ross <a href="http://www.therestisnoise.com/2005/02/applause_a_rest.html">points the
 finger</a>
 at German composer Richard Wagner for
@@ -172,26 +122,21 @@ instigating this change in audience behavior. <a href="http://alexrossmusic.type
 says</a>
 the ball got rolling in Bayreuth at the premiere of Wagner's opera
 "Parsifal" in 1882.</p>
-
 <p>According to Wagner's wife, the audience raised such a ruckus after one
 of the acts that the composer spoke to them directly. He thanked them
 for their appreciation but mentioned the agreement he'd made with the
 cast -- "in order not to impinge on the impression, not to take a bow,
 so that there would be no 'curtain calls.'"</p>
-
 <p>Applauders were apparently hissed in subsequent performances for failing
 to honor this request.</p>
-
 <p>By around 1900, a segment of the public had embraced the concert hall
 as a hallowed space. Howard Shanet references a pre-World War I era
 Encyclopedia Britannica article saying, "The reverential spirit which
 abolished applause in church has tended to spread to the theatre and
 the concert-room."</p>
-
 <p>As Ross documents, the movement gathered more steam in this country
 around the time of the Great Depression, spearheaded by conductor
 Leopold Stokowski.</p>
-
 <p>Stokowski went so far as to propose audiences stop applauding altogether,
 lest it intrude on the divinity of the concert experience: “When you
 see a beautiful painting you do not applaud. When you stand before a
@@ -206,44 +151,32 @@ complaint about audiences in all countries, and that is their artificial
 restraint from applause between movements or a concerto or symphony. …
 It certainly does not fit in with the composers’ intentions."</p>
 </blockquote>
-
 <p><em>— <a href="https://www.cpr.org/author/jean-inaba/">Jean Inaba</a>, <a href="https://www.cpr.org/2014/06/09/the-clapping-question-should-classical-audiences-applaud-between-movements/">“The clapping question: Should classical audiences applaud between movements?”</a>, 2014</em></p>
-
 <p>Musicians have also given very similar arguments to the one presented here:</p>
-
 <blockquote>
-  <p>Chicago Symphony Orchestra bassoonist William Buchman
+<p>Chicago Symphony Orchestra bassoonist William Buchman
 <a href="http://articles.chicagotribune.com/2012-05-29/entertainment/ct-ent-0529-applause-during-performance-20120529_1_clap-classical-music-cso/2">asserted</a>
 in 2012 that absolute quiet is as important to a work as the notes
 themselves: "The silence is as profound as some of the music, and when
 that silence is not allowed its space, you lose a lot of the emotional
 impact that the silence can otherwise generate."</p>
 </blockquote>
-
 <p><em>— <a href="https://www.cpr.org/author/jean-inaba/">Jean Inaba</a>, <a href="https://www.cpr.org/2014/06/09/the-clapping-question-should-classical-audiences-applaud-between-movements/">“The clapping question: Should classical audiences applaud between movements?”</a>, 2014</em></p>
-
 <p>But, historically, this perspective is quite uncommon:</p>
-
 <blockquote>
-  <p>Mozart would've loved hearing the applause. So would Brahms. And
+<p>Mozart would've loved hearing the applause. So would Brahms. And
 Beethoven and Grieg and a lot of other composers.</p>
-
 <p>In their day, audiences spontaneously clapped when they heard something
 they really liked – even if it meant breaking into the music before
 its conclusion.</p>
 </blockquote>
-
 <p><em>— <a href="https://www.cpr.org/author/jean-inaba/">Jean Inaba</a>, <a href="https://www.cpr.org/2014/06/09/the-clapping-question-should-classical-audiences-applaud-between-movements/">“The clapping question: Should classical audiences applaud between movements?”</a>, 2014</em></p>
-
 <p>However, one could argue that the trend in classical music is from loud
 and frequent applause towards a more quiet and refined appreciation
 of the music, and that the logical conclusion of this development is
 absolute silence before, during, and after a classical piece.</p>
-
-<h2>Counterarguments</h2>
-
-<h3>Applause Fits Because of Cultural History</h3>
-
+<h2 id="Counterarguments"><a class="hanchor" href="#Counterarguments">Counterarguments</a></h2>
+<h3 id="Applause_Fits_Because_of_Cultural_History"><a class="hanchor" href="#Applause_Fits_Because_of_Cultural_History">Applause Fits Because of Cultural History</a></h3>
 <p>Just like the tuning of the instruments before a classical concert,
 applause can be considered an important part of the ritual that goes
 along with all forms of art. If that were the case, removing such an
@@ -254,7 +187,6 @@ although they both have a negative impact on the pure experiential aspect
 of classical music (although, at least, tuning instruments is in the same
 category of sound as the concert itself, with the sounds being produced
 by instruments, and not just being white-noise-ish background sounds).</p>
-
 <p>There is an interesting trade-off to be observed here: one between
 following art-intrinsic rituals, and optimizing for an optimal
 experience. Similarly, one could argue that painters do not matter,
@@ -265,7 +197,6 @@ and destroy the culture around the artists and their works. Removing
 applause wouldn't be as drastic, but in a similar spirit: Exchanging a
 socially and historically aware conception of music for a very puristic
 and theoretical one.</p>
-
 <p>Still, it feels like not being offered a choice whether one wants to
 participate in the rituals of classical music seems unfair to purists.
 One could imagine concerts targeted especially at people who want to
@@ -273,9 +204,7 @@ isolate listening experience from everyday noise, maybe even gaining
 popularity after a while because of a status as especially knowledgeable
 coinisseurs of classical music. And the status signalling treadmill turns
 and turns.</p>
-
-<h3>Applause is Useful for Appreciation and Communication for Feedback</h3>
-
+<h3 id="Applause_is_Useful_for_Appreciation_and_Communication_for_Feedback"><a class="hanchor" href="#Applause_is_Useful_for_Appreciation_and_Communication_for_Feedback">Applause is Useful for Appreciation and Communication for Feedback</a></h3>
 <p>Of course, all if this argumentation ignores the main function of
 applause: Showing appreciation for the musicians'<!--Genitive for
 plurals?--> performance in a clear way. Prohibiting applause entirely
@@ -286,7 +215,6 @@ frentic applause (and how often this kind of applause happens because
 of the quality of the performance compared to the celebrity status of
 some performers). It would also remove a major motivation for playing,
 namely, receiving appreciation for a performance.</p>
-
 <p>On the other hand, applause is not the only possible
 appreciation signal available. One could imagine others that
 would both leave the musicians satisfied, for example <a href="https://en.wikipedia.org/wiki/Jazz_hands">Jazz
@@ -295,55 +223,40 @@ gestures used in <a href="https://www.independent.co.uk/life-style/clapping-bann
 culture</a>
 or the amount of time spent in the concert hall after the last note has
 been played.</p>
-
-<h3>Clapping on <a href="https://en.wikipedia.org/wiki/Wikipedia:Chesterton's_fence">Chesterton's Fence</a></h3>
-
+<h3 id="None"><a class="hanchor" href="#None">Clapping on </a><a href="https://en.wikipedia.org/wiki/Wikipedia:Chesterton's_fence">Chesterton's Fence</a></h3>
 <p>I have hinted at this point before already, but it is worth stressing that
 traditions like applause may fulfill old and useful functions that can't
 be seen, and removing applause might cause unforseen consequences.</p>
-
 <p>One such possible function could be that knowing correct applause in
 a concert (before and after a piece, not between movements, but after
 an aria it is fine) strengthens group cohesion between concert-goers
 (because it is a useful in-group signal based on common knowledge)
 and perhaps contributes to the continued culture around classical music.</p>
-
 <p>If applause were to be abolished, it could be that a similar display
 couldn't be found before this cohesion breaks up and classical music
 falls into oblivion. While this may seem like an unrealistically extreme
 scenario, there are a myriad of similar possibilities lurking behind
 drastic changes to the concert experience.</p>
-
 <p>However, this point does not automatically mean it is right to reject
 experimentation with feedback for musicians, including "no-applause
 concerts".</p>
-
-<h2>Other Approaches</h2>
-
+<h2 id="Other_Approaches"><a class="hanchor" href="#Other_Approaches">Other Approaches</a></h2>
 <p>For now, I have only written about criticisms of applause without
 otherwise considering alternative options that fulfill the rudimentary
 functions of applause.</p>
-
-<h3>Existing Different Approaches</h3>
-
+<h3 id="Existing_Different_Approaches"><a class="hanchor" href="#Existing_Different_Approaches">Existing Different Approaches</a></h3>
 <!--TODO: Look at other existing approaches in the Wikipedia article on applause-->
-
 <p>During the history of art appreciation, there have been different approaches to showing appreciation for
 art. For example,</p>
-
 <blockquote>
-  <p>The ancient Romans had set rituals at public performances to
+<p>The ancient Romans had set rituals at public performances to
 express degrees of approval: snapping the finger and thumb,
 clapping with the flat or hollow palm, and waving the flap of
 the toga […].</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/">English Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Applause">“Applause”</a>, 2019</em></p>
-
 <p>Here, I will only consider approaches that produce minimal sound.</p>
-
-<h4>Silence</h4>
-
+<h4 id="Silence"><a class="hanchor" href="#Silence">Silence</a></h4>
 <p>It is perhaps not common, but at least regular that concert audiences
 stay in complete silence for a short period of time after a particularly
 awe-inspiring performance. Unfortunately, this is often followed by
@@ -355,17 +268,13 @@ and leave the artists even more confused: Some people would start
 clapping instantly, while others would stay silent, confusing everyone
 on the opinion of the audience (using both clapping <em>and</em> the absence
 of applause as displays of appreciation could be very confusing).</p>
-
-<h4><a href="https://en.wikipedia.org/wiki/Jazz_hands">Jazz hands</a></h4>
-
+<h4 id="Jazz_hands"><a class="hanchor" href="#Jazz_hands"><a href="https://en.wikipedia.org/wiki/Jazz_hands">Jazz hands</a></a></h4>
 <blockquote>
-  <p>In Deaf culture, Deaf audiences will use a more visually expressive
+<p>In Deaf culture, Deaf audiences will use a more visually expressive
 variant of clapping. Instead of clapping their palms together, they raise
 their hands straight up with outstretched fingers and twist their wrists […].</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/">English Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Applause">“Applause”</a>, 2019</em></p>
-
 <p>This practice, also known as <a href="https://en.wikipedia.org/wiki/Jazz_hands">"Jazz
 Hands"</a>, seems to be a
 good starting point: an already existing method, retaining most of the
@@ -373,64 +282,49 @@ properties of applause (such as being visible, produced by the audience,
 requiring participation, mostly self-coordinating and less straining on
 the palms) and being favoured by a marginalized group connected to the
 social justice movement.</p>
-
 <p>However, some good objections <a href="https://old.reddit.com/r/slatestarcodex/comments/9x323i/applause_vs_jazz_hands/">have been
 raised</a>:</p>
-
 <ul>
 <li>Jazz hands don't work when the audience is <a href="https://old.reddit.com/r/slatestarcodex/comments/9x323i/applause_vs_jazz_hands/e9pc5nl/">not visible</a></li>
 <li>Jazz hands diminish the <a href="https://old.reddit.com/r/slatestarcodex/comments/9x323i/applause_vs_jazz_hands/e9pcdsk/">connection with the audience</a></li>
 <li>Jazz hands are hard to detect <a href="https://old.reddit.com/r/slatestarcodex/comments/9x323i/applause_vs_jazz_hands/e9pbu2y/">for blind people</a></li>
 </ul>
-
 <p>All of these objections can be raised against any form of inaudible
 forms of appreciation.</p>
-
-<h3>Possible new Forms of Appreciation</h3>
-
+<h3 id="Possible_new_Forms_of_Appreciation"><a class="hanchor" href="#Possible_new_Forms_of_Appreciation">Possible new Forms of Appreciation</a></h3>
 <p>Since both jazz hands and complete silence, one could propose to make a
 leap and engineer a new form of appretiation that doesn't need as much
 noise as applause. Of course, this could carry several problems with it
 that go unnoticed for a long time.</p>
-
-<h4>Staying in the Concert Hall</h4>
-
+<h4 id="Staying_in_the_Concert_Hall"><a class="hanchor" href="#Staying_in_the_Concert_Hall">Staying in the Concert Hall</a></h4>
 <p>One new approach could be to show ones appreciation for the performance
 by staying in the concert hall after the piece ends. The longer one
 would stay in the concert hall, the higher an appreciation this would
 entail. This is already a limited practice: to express their own extreme
 dissatisfaction with a piece, listeners sometimes leave the concert hall
 during a performance. However, this is rare.</p>
-
 <p>Staying in the concert hall afterwards would make intuitive sense:
 It would show that the music was so moving that listeners are still
 listening to the after-sound of the piece in their mind, or are still
 processing the emotional impact of the music.</p>
-
-<h5>Problems</h5>
-
+<h5 id="Problems"><a class="hanchor" href="#Problems">Problems</a></h5>
 <p>This method would only work at the end of a concert, but would not
 provide any feedback during a piece or between pieces.</p>
-
 <p>Also, many people seem to have have a very physical reaction to good
 music, which requires some form of outlet. If this is true, then perhaps
 one could assume that applause is not for the musicians after all, but
 for the audience to release built up energy. This also holds true if some
 people have the need to whistle or humm the music after a particularly
 good piece.</p>
-
 <p>Often, listeners meet up after concerts to talk with each other about
 the music and the performance. In this case, coordination would be more
 difficult since talking would be prohibited after the performance.</p>
-
 <p>Since performances of classical music mostly take place in the evening,
 listeners who sit still could fall asleep after a while, making it
 difficult for personnel to close the hall in an appropriate amount
 of time. This would also be true with strong signals of appreciation
 (staying in the concert hall for hours).</p>
-
-<h2>Conclusion</h2>
-
+<h2 id="Conclusion"><a class="hanchor" href="#Conclusion">Conclusion</a></h2>
 <p>Due to the arguments discussed above, it could be worthwhile to
 experiment with classical concerts by organising special events
 where applause is prohibited. While it could carry some problems,
@@ -441,13 +335,10 @@ into how applause develops and disappears (e.g. <a href="./doc/sociology/the_dyn
 2013</a>)
 could help determine how to prevent applause from arising in the first
 place.</p>
-
-<h2>External Links</h2>
-
+<h2 id="External_Links"><a class="hanchor" href="#External_Links">External Links</a></h2>
 <ul>
 <li><a href="https://cjeller.wordpress.com/2015/08/09/against-applause/">“Against Applause”</a></li>
 </ul>
-
 <!--
 TODO: research this topic a lot more:
 
@@ -470,4 +361,4 @@ TODO: research this topic a lot more:
 * https://affirmativeright.blogspot.com/2015/03/against-applause-cultivating-aesthetic.html
 * https://web.archive.org/web/20100609161055/http://library.gallaudet.edu/Library/Deaf_Research_Help/Frequently_Asked_Questions_(FAQs)/Cultural_Social_Medical/History_of_Visual_Applause_for_the_Deaf.html
 -->
-</html>
+</body></html>

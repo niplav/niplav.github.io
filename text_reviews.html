@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,26 +32,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2020-12-30, modified: 2022-05-20, language: english, status: in progress, importance: 3, confidence: opinion</em></p>
-
 <blockquote>
-  <p><strong>Reading a text is sometimes a big time investment, but people
+<p><strong>Reading a text is sometimes a big time investment, but people
 don't approach their reading in a structured manner, e.g. by keeping
 notes, making flashcards, doing exercises, writing reviews or making
 summaries. I have been taking notes on the books I read since mid 2017,
 but have neglected writing reviews or summaries that might be useful to
 others. This is my attempt at salvaging that oversight.</strong></p>
 </blockquote>
-
-<h1>Text Reviews</h1>
-
-<h2>Book Reviews</h2>
-
-<h3>Compassion, by the Pound (F. Bailey Norwood/Jayson L. Lusk, 2011)</h3>
-
+<h1 id="Text_Reviews"><a class="hanchor" href="#Text_Reviews">Text Reviews</a></h1>
+<h2 id="Book_Reviews"><a class="hanchor" href="#Book_Reviews">Book Reviews</a></h2>
+<h3 id="Compassion_by_the_Pound_F_Bailey_NorwoodJayson_L_Lusk_2011"><a class="hanchor" href="#Compassion_by_the_Pound_F_Bailey_NorwoodJayson_L_Lusk_2011">Compassion, by the Pound (F. Bailey Norwood/Jayson L. Lusk, 2011)</a></h3>
 <p>“Compassion, by the Pound” by the economists F. Bailey Norwood and
 Jayson L. Lusk is one of those books that are excellent in their first
 half, and somewhat (but not utterly) disappointing in their second
@@ -93,7 +60,6 @@ deciding what to eat (although the links have fallen victim to linkrot),
 copy-paste one of their papers into the book, and finish with those
 kinds of general closing statements that are as so often too vacuous to
 be interesting.</p>
-
 <p>At its best, the book is just a delicious heap of information about
 animal agriculture praxis. From detailed lists of surgeries performed
 on animals without anaesthetics (dehorning, beak trimming, castration,
@@ -104,26 +70,21 @@ cows, actually a major factor of injury in cage-free egg production),
 the book presents an industrial-scale mountain of interesting facts
 about animal agriculture. The best parts of the book pretty much scream
 to be flashcardized.</p>
-
 <p>Norwood's &amp; Lusk's judgement seems well informed and not particularly
 strongly clouded by bias, and presented in a empathetic, but also
 neutral tone (except in the case of them mentioning in a side remark
 that surgeries such as castration on animals are nearly always performed
 without anaesthetics, seemingly regarding this as completely acceptable).</p>
-
 <p>However, not everything is golden under the sun. The chapter on
 philosophy is especially painful (or might this just be my Gell-Mann
 amnesia speaking?) – they seem dismissive of philosophers' arguments,
 present them in short and watered-down form, and even state in a footnote:</p>
-
 <blockquote>
-  <p>If there is one thing we have learned from reading the
+<p>If there is one thing we have learned from reading the
 works of ethical philosophers; it is that no one ever, ever wins
 the debate</p>
 </blockquote>
-
 <p><em>— F. Bailey Norwood/Jayson L. Lusk, “Compassion, by the Pound” p. 388, 2011</em></p>
-
 <p>The chapter on Talking with Economists is better, but plagued with
 the eternal problem of economics: people don't like it, and the same
 debate about the very basic tenets of economics needs to be rehashed
@@ -132,15 +93,12 @@ over and over again. As it happens here, much to my own disappointment
 nonsensical and consumers change their minds when presented with the same
 scenario, worded slightly differently. Can we get back to fascinating
 in-depth descriptions of animal agriculture now, please?”).</p>
-
 <p>Chapter 9, Consumer Expressions, is not <em>bad</em> per se, but still sloppy: It
 is abundantly clear that the chapter is simply a paper by the two authors
 copy-pasted into the book. The experiments they perform are interesting
 and scientifically sophisticated, but the chapter is nonetheless jarring
 to the reader – clearly somewhat out of place in the rest of the book.</p>
-
 <p>Two things stand out to me from this book:</p>
-
 <ol>
 <li>They mention Brian Tomasik's early writings on wild-animal suffering in
 a very positive tone, remarking that "It is one of the most interesting
@@ -152,7 +110,6 @@ this book, and I now assign a much higher probability to the hypothesis
 that beef cows' lives on factory farms are actually net positive, although
 I wouldn't go so far as to give it the majority of my probability mass.</li>
 </ol>
-
 <p>“Compassion, by the Pound” is sometimes clearly a product of annoyance
 – an annoyance at animal advocates who allegedly spread misinformation
 about farming practices, annoyance at people who <em>just don't understand
@@ -161,11 +118,8 @@ also annoyance at the horrifying conditions many farm animals have to
 live under. Hopefully both economists and animal advocates won't have
 to be annoyed as much in the future, but for the time being, we're still
 killing and eating animals.</p>
-
 <p><strong>6/10</strong></p>
-
-<h3>The Human Predicament (David Benatar, 2017)</h3>
-
+<h3 id="The_Human_Predicament_David_Benatar_2017"><a class="hanchor" href="#The_Human_Predicament_David_Benatar_2017">The Human Predicament (David Benatar, 2017)</a></h3>
 <p>“The Human Predicament” is a book about life philosophy, written
 by the pessimistic analytic philosopher David Benatar. In it, Benatar
 describes what he calls the human predicament (hence the title), which
@@ -175,19 +129,16 @@ sometimes terrestrial) meaning, are bad because they're much shorter
 than they could be, much more filled with pain and discomfort than
 humans think, and full of ignorance, unfulfilled desires and physical
 deterioration during the course of one's lifetime.</p>
-
 <p>However, according to Benatar, all alternatives are also bad: death,
 because it often deprives of life, and annihilates the person dying;
 and suicide, for much the same reasons, unless it annihilates a life
 that is awful enough to justify death. Life extension, under Benatar's
 view, is extremely unlikely, and even if achieved, would only prolong
 the misery of human existence.</p>
-
 <p>The only positive option is to not come into existence at all–or at
 least not make others come into existence, even though one desires to.
 He alludes several times to one of his other books, Better Never To Have
 Been, in which he advocates for antinatalism.</p>
-
 <p>Reading this book felt a little
 bit pointless to me. Since <a href="https://www.gwern.net/Research-criticism#beliefs-are-for-actions">beliefs are for
 actions</a>,
@@ -201,13 +152,11 @@ policy</a>,
 me instead adopting an
 <a href="https://qualiacomputing.com/2017/12/20/the-universal-plot-part-i-consciousness-vs-pure-replicators/" title="The Universal Plot: Part I – Consciousness vs. Pure Replicators">anti-pure-replicator</a>
 strategy.</p>
-
 <p>Especially the chapter on meaning felt irrelevant: I don't have an
 internal experience of meaning (or the lack thereof), and oscillate
 between believing it to be a subtype of high-valence qualia and believing
 it to be a mechanism for the mind to do things that are in themselves
 not enjoyable (a "second reward signal" next to pleasure).</p>
-
 <p>Benatar mentions cryonics, life extension technology and
 transhumanism in general, and while his treatment of these topics
 is more respectful than most, he dismisses them fairly quickly. I
@@ -216,25 +165,20 @@ can expect to find itself in a period of <a href="https://sideways-view.com/2017
 growth</a>
 (see also <a href="https://www.openphilanthropy.org/blog/modeling-human-trajectory" title="Modeling the Human Trajectory">Roodman
 2020</a>).</p>
-
 <p>I am also not a fan of the pessimism-optimism distinction. Benatar himself
 touches on this:</p>
-
 <blockquote>
-  <p>that a view is pessimistic should, in itself, neither
+<p>that a view is pessimistic should, in itself, neither
 count in its favor nor against it. (The same, of course, is true
 of an optimistic view.)</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/David_Benatar">David Benatar</a>, “The Human Predicament” p. 225, 2017</em></p>
-
 <p>It seems to me that humans can believe very bad things to be the case and
 still be happier than most other humans in their lives (I know this is
 at least true for one human, myself). This, combined with the fact that
 Benatar simply shifts the utility function downwards, makes me inclined
 to rejecting much of his worldview as simply a matter of emotional tone
 on the same facts everyone else also believes.</p>
-
 <p>Finally, I want to accuse Benatar of insufficient pessimism (on
 his own criteria): The most likely outcome for humanity (and for
 life in general) seems not to be total extinction, but instead a
@@ -243,29 +187,20 @@ whole cosmos teeming with <a href="https://slatestarcodex.com/2014/07/13/growing
 conscious experiences</a> until the stars go out. (Or even worse
 scenarios from anti-aligned artificial intelligences, see <a href="https://reducing-suffering.org/near-miss/" title="Astronomical suffering from slightly misaligned artificial intelligence">Tomasik
 2019</a>).</p>
-
 <p>Overall, the book had some interesting points about suicide, the quality of
 life and meaning, but felt rather pointless.</p>
-
 <p><strong>3/10</strong></p>
-
-<h2>LessWrong Yearly Reviews</h2>
-
-<h3>2019</h3>
-
+<h2 id="LessWrong_Yearly_Reviews"><a class="hanchor" href="#LessWrong_Yearly_Reviews">LessWrong Yearly Reviews</a></h2>
+<h3 id="2019"><a class="hanchor" href="#2019">2019</a></h3>
 <p>These were written for the <a href="https://www.lesswrong.com/posts/QFBEjjAvT6KbaA3dY/the-lesswrong-2019-review">2019 LessWrong Review</a>.</p>
-
-<h4>What failure looks like (Paul Christiano, 2019)</h4>
-
+<h4 id="What_failure_looks_like_Paul_Christiano_2019"><a class="hanchor" href="#What_failure_looks_like_Paul_Christiano_2019">What failure looks like (Paul Christiano, 2019)</a></h4>
 <p><a href="https://www.lesswrong.com/posts/HBxe6wdjxK239zajf/what-failure-looks-like">Original Post</a>.</p>
-
 <p>I read <a href="https://www.lesswrong.com/posts/HBxe6wdjxK239zajf/what-failure-looks-like">this
 post</a>
 only half a year ago after seeing it being referenced in several different
 places, mostly as a newer, better alternative to the existing FOOM-type
 failure scenarios. I also didn't follow the comments on this post when
 it came out.</p>
-
 <p>This post makes a lot of sense in Christiano's worldview, where we have a
 relatively continuous, somewhat multipolar takeoff which to a large extent
 inherits the problem in our current world. This is especially applies to
@@ -273,11 +208,9 @@ part I: we already have many different instances of scenarios where humans
 follow measured incentives and produce unintended outcomes. <a href="https://en.wikipedia.org/wiki/Goodhart%27s_law">Goodhart's
 law</a> is a thing. Part
 I ties in especially well with Wei Dai's concern that</p>
-
 <blockquote>
-  <p>AI-powered memetic warfare makes all humans effectively insane.</p>
+<p>AI-powered memetic warfare makes all humans effectively insane.</p>
 </blockquote>
-
 <p>While I haven't done research on this, I have a medium
 strength intuition that this is already happening. Many
 people I know are at least somewhat addicted to the internet,
@@ -290,7 +223,6 @@ would be valuable, as well as thinking about which incentives
 will start when AI technologies become more powerful (<a href="https://www.lesswrong.com/users/daniel-kokotajlo">Daniel
 Kokotajlo</a> has been
 writing especially interesting essays on this kind of problem).</p>
-
 <p>As for part II, I'm a bit more skeptical. I would summarize "going
 out with a bang" as a "collective treacherous turn", which would
 demand somewhat high levels of coordination between agents of various
@@ -303,12 +235,10 @@ premature treacherous turns relates to the intelligence of agents. Would
 that be continuous or discontinuous? Unrelated to Christiano's post,
 this seems like an important consideration (maybe work has gone into
 this and I just haven't seen it yet).</p>
-
 <p>Still, part II holds up pretty well, especially since we can expect AI
 systems to cooperate effectively via merging utility functions, and we
 can see systems in the real world that fail regularly, but not much is
 being done about them (especially social structures that sort-of work).</p>
-
 <p>I have referenced this post numerous times, mostly in connection with a
 short explanation of how I think current attention-grabbing systems are
 a variant of what is described in part I. I think it's pretty good, and
@@ -316,23 +246,17 @@ someone (not me) should flesh the idea out a bit more, perhaps connecting
 it to existing systems (I remember the story about the recommender system
 manipulating its users into political extremism to increase viewing time,
 but I can't find a link right now).</p>
-
 <p>The one thing I would like to see improved is at least some links to
 prior existing work. Christiano writes that</p>
-
 <blockquote>
-  <p>(None of the concerns in this post are novel.)</p>
+<p>(None of the concerns in this post are novel.)</p>
 </blockquote>
-
 <p>but it isn't clear whether he is just summarizing things he has thought
 about, which are implicit knowledge in his social web, or whether he is
 summarizing existing texts. I think part I would have benefitted from a
 link to Goodhart's law (or an explanation why it is something different).</p>
-
-<h4>1960: The Year The Singularity Was Cancelled (Scott Alexander, 2019)</h4>
-
+<h4 id="1960_The_Year_The_Singularity_Was_Cancelled_Scott_Alexander_2019"><a class="hanchor" href="#1960_The_Year_The_Singularity_Was_Cancelled_Scott_Alexander_2019">1960: The Year The Singularity Was Cancelled (Scott Alexander, 2019)</a></h4>
 <p><a href="https://www.lesswrong.com/posts/bYrF8rXFYwPqnfxTp/1960-the-year-the-singularity-was-cancelled">Original Post</a>.</p>
-
 <p>I believe this is an important
 <a href="https://www.lesswrong.com/posts/B7P97C27rvHPz3s9B/gears-in-understanding">gears-level</a>
 addition to posts like <a href="https://sideways-view.com/2017/10/04/hyperbolic-growth/">hyperbolic
@@ -340,7 +264,6 @@ growth</a>,
 <a href="http://mason.gmu.edu/~rhanson/longgrow.html">long-term growth as a sequence of exponential
 modes</a> and an old Yudkowsky
 post I am unable to find at the moment.<!--TODO: capitalization of Yudkowsky is wrong still on LW--></p>
-
 <p>I don't know how closely these
 texts are connected, but <a href="https://www.openphilanthropy.org/blog/modeling-human-trajectory">Modeling the Human
 Trajectory</a>
@@ -352,14 +275,12 @@ arrives at somewhat similar conclusions, too: The industrial revolution
 was a <em>very</em> big deal, and something happened around 1960 that has
 slowed the previous strong growth (as far as I remember, it doesn't
 provide an explicit reason for this).</p>
-
 <p>A point in this post that I found especially interesting
 was the speculation about the back plague being the spark
 that ignited the industrial revolution. The reason given is
 a good example of <a href="https://www.lesswrong.com/posts/GZSzMqr8hAB2dR8pk/studies-on-slack">slack catapulting a system out of a local
 maximum</a>,
 in this case a malthusian europe into the industrial revolution.</p>
-
 <p>Interestingly, both this text and Roodman don't consider individual
 intelligence as an important factor in global productivity. Despite the
 well-known <a href="https://en.wikipedia.org/wiki/Flynn_effect">Flynn-Effect</a>
@@ -373,7 +294,6 @@ most constraining variable in this growth model. I don't believe this
 is particularly anticipation-constraining, though: this could mean that
 either the post-singularity ("singularity") world is multipolar, or the
 singleton controlling everything has created many sub-agents.</p>
-
 <p>I appreciate this post. I have referenced it a couple of
 times in conversations. Together with the investigation
 by OpenPhil it makes a solid case that <a href="https://slatestarcodex.com/2018/11/26/is-science-slowing-down-2/">the gods of straight
@@ -383,16 +303,11 @@ history</a>.
 May the <a href="https://www.lesswrong.com/posts/MFNJ7kQttCuCXHp8P/the-goddess-of-everything-else">godess of everything
 else</a>
 be merciful with us.</p>
-
-<h3>2020</h3>
-
+<h3 id="2020"><a class="hanchor" href="#2020">2020</a></h3>
 <p>These were written for the <a href="https://www.lesswrong.com/posts/M9kDqF2fn3WH44nrv/the-2020-review-preliminary-voting">2020 LessWrong
 Review</a>.</p>
-
-<h4>Anti-Aging: State of the Art (JackH, 2020)</h4>
-
+<h4 id="AntiAging_State_of_the_Art_JackH_2020"><a class="hanchor" href="#AntiAging_State_of_the_Art_JackH_2020">Anti-Aging: State of the Art (JackH, 2020)</a></h4>
 <p><a href="https://www.lesswrong.com/posts/RcifQCKkRc9XTjxC2/anti-aging-state-of-the-art">Original post</a>.</p>
-
 <p>I read this post at the same time as reading <a href="https://forum.effectivealtruism.org/s/8QHbqGpXnzcQxiAis">Ascani
 2019</a>
 and <a href="https://nintil.com/longevity">Ricón 2021</a> in an
@@ -404,7 +319,6 @@ good idea, <a href="https://nintil.com/longevity">Ricón 2021</a> trying to give
 a gearsy overview of the field (objective unlocked: get Nintil posts
 cross-posted to LessWrong), and this text as showing what has already
 been accomplished.</p>
-
 <p>In that regard it succeeds perfectly well: The structure of Part V is
 so clean I suspect that it sweeps a bunch of complexity and alternative
 approaches under the rug, and the results described seriously impressed
@@ -413,7 +327,6 @@ can <em>reverse arthritis and cataracts in mice</em>‽ We can <em>double their
 maximum lifespan</em>‽). It is excellent science propaganda: Inspiring
 awe at what has been accomplished, desire to accomplish more, and
 hope that this is possible.</p>
-
 <p>While the post shines in parts III, IV and V, I have some
 quibbles and complaints about the introduction, part I
 and part II. First, I disliked the jab against cryonics
@@ -431,18 +344,14 @@ same pro-aging trance and anti-aging science arguments? That seems like
 a question that is both interesting and pretty relevant, even when you
 believe that ending aging is important enough that it should definitely
 be done, if just to prepare for weird second- and third-order effects.</p>
-
 <p>(Part I felt like I was a choir being preached to, which isn't <em>that bad</em>,
 but still…)</p>
-
 <p>I really liked learning a bunch of new facts about aging (as for example
 the list of species that don't age, that aging is responsible for 30%
 of lost DALYs, and distinction between gerontology, engineering and
 geriatrics). Factposts are underrated.</p>
-
 <p>The comments on this post were often very good, and had some nice
 discussion about whether the advice in section VII was to be focused on.</p>
-
 <p>I've been overly negative in this review, but overall I still like this
 post, and have voted a 4 on it (which I might change to a 1). The parts
 III-V are excellent, and I have only minor problems with the preceding
@@ -450,15 +359,11 @@ parts. This is the kind of post I would give a science-interested
 skeptic of anti-aging research. I'd like to have this post in the review,
 because it represents something some part of the core to the LessWrong
 transhumanist aesthetic that often gets overlooked.</p>
-
-<h4>Persuasion Tools: AI takeover without AGI or agency? (Daniel Kokotajlo, 2020)</h4>
-
+<h4 id="Persuasion_Tools_AI_takeover_without_AGI_or_agency_Daniel_Kokotajlo_2020"><a class="hanchor" href="#Persuasion_Tools_AI_takeover_without_AGI_or_agency_Daniel_Kokotajlo_2020">Persuasion Tools: AI takeover without AGI or agency? (Daniel Kokotajlo, 2020)</a></h4>
 <p><a href="https://www.lesswrong.com/posts/qKvn7rxP2mzJbKfcA/persuasion-tools-ai-takeover-without-agi-or-agency">Original post</a>.</p>
-
 <p>The problem outlined in this post results from two major concerns on
 lesswrong: risks from advanced AI systems and irrationality due to
 parasitic memes.</p>
-
 <p>It presents the problem of persuasion tools as continuous with the
 problems humanity has had with virulent ideologies and sticky memes,
 exacerbated by the increasing capability of narrowly intelligent machine
@@ -466,19 +371,16 @@ learning systems to exploit biases in human thought. It provides (but
 doesn't explore) two examples from history to support its hypothesis:
 the printing press as a partial cause of the 30 years war, and the radio
 as a partial cause of 20th century totalitarianism.</p>
-
 <p>Especially those two concerns reminded me of <a href="https://www.lesswrong.com/posts/YicoiQurNBxSp7a65">Is Clickbait
 Destroying Our General Intelligence? (Eliezer Yudkowsky,
 2018)</a>, which could
 be situated in this series of events:</p>
-
 <blockquote>
-  <p>I suspect some culturally transmitted parts of the general intelligence
+<p>I suspect some culturally transmitted parts of the general intelligence
 software got damaged by radio, television, and the Internet, with a key
 causal step being an increased hypercompetition of ideas compared to
 earlier years.</p>
 </blockquote>
-
 <p>Kokotajlo also briefly considers the hypothesis that
 epistemic conditions might have become better through the
 internet, but rejects it (for reasons that are not spelled
@@ -489,20 +391,18 @@ role here: epistemically unsound information is less likely to survive
 long-term trials for truth, especially in an environment where memes on
 the less truth-oriented side of the spectrum are in a harsher competition
 than memes on the more truth-oriented side).</p>
-
 <p>This post was written a year ago, and didn't make any concrete
 predictions (for a vignette of the future by the author,
 see <a href="https://www.lesswrong.com/posts/6Xgy6CAf2jqHhynHL/what-2026-looks-like-daniel-s-median-future">What 2026 looks like (Daniel's Median Future) (Daniel Kokotajlo,
 2021)</a>).
 My personal implied predictions under this worldview are something
 like this:</p>
-
 <ol>
-<li>A large number (>100 mio.) of people in the western world (USA &amp; EU) will interact with chatbots on a regular basis (e.g. more than once a week).
+<li>A large number (&gt;100 mio.) of people in the western world (USA &amp; EU) will interact with chatbots on a regular basis (e.g. more than once a week).
 <ul>
 <li>I think this isn't yet the case: I've encountered chatbots mainly in the context of customer service, and don't know anyone personally who has used a chatbot for entertainment for more than an afternoon (Western Europe). If we count automated personal assistants such as Alexa or Siri, this might be true.</li>
 </ul></li>
-<li>It is revealed that a government spent a substantial amount of money (>$1B) on automating propaganda creation.
+<li>It is revealed that a government spent a substantial amount of money (&gt;$1B) on automating propaganda creation.
 <ul>
 <li>As far as I know, there hasn't been any reveal of such a large-scale automated propaganda campaign (the wikipedia pages on <a href="https://en.wikipedia.org/wiki/Propaganda_in_China">Propaganda in China</a> and <a href="https://en.wikipedia.org/wiki/Propaganda_in_the_US">in the US</a> mention no such operations.</li>
 </ul></li>
@@ -515,11 +415,9 @@ like this:</p>
 <li>This seems to become more and more true, with sites such as Gab and the Fediverse gaining in popularity. However, it doesn't seem like the US Red Internet has the technological capabilities to automate propaganda or build a complete walled garden, to the extent that the US Blue Internet or the Chinese internet do.</li>
 </ul></li>
 </ol>
-
 <p>I found the text quite relevant both to thinking about possible alternative
 stories about the way in which AI could go wrong, and also to my
 personal life.</p>
-
 <p>In the domain of AI safety, I became more convinced of the importance
 of aligning recommender systems to human values (also mentioned in the
 post), if they pose larger risk than commonly assumed, and provide
@@ -533,23 +431,19 @@ generally capable systems? As far as I can see, the alignment community
 is more interested in attempts to align large language models, compared
 to recommender systems, probably due to recent progress in that area
 and because it's easier to test alignment in language models (?).</p>
-
 <p>The scenarios in which AI powered memetic warfare significantly harm
 humanity can also be tied into research on the malicious use of AI,
 e.g. <a href="https://www.eff.org/files/2018/02/20/malicious_ai_report_final.pdf">The Malicious Use of Artificial Intelligence: Forecasting,
 Prevention, and Mitigation (Brundage et al. 2018)</a>. Policy tools from
 diplomacy with regard to biological, chemical and nuclear warfare could
 be applied to memetic and psychologcial warfare.</p>
-
 <p>The text explicitely positions the dangers of persuasion tools as a risk
 factor, but more speculatively, they might also pose an existential risk
 in themselves, in two different scenarios:</p>
-
 <ul>
 <li>If humans are very easy to manipulate by AI systems that are narrowly superhuman in the domain of human psychology, a scenario similar to <a href="https://www.lesswrong.com/rationality/evolving-to-extinction">Evolving to Extinction (Eliezer Yudkowsky, 2007)</a> might occur: nearly everybody goes <a href="https://www.lesswrong.com/posts/HBxe6wdjxK239zajf/what-failure-looks-like?commentId=CB8ieALcHfSSuAYYJ#CB8ieALcHfSSuAYYJ">effectively insane</a> at approximately the same time, resulting in the collapse of civilization.</li>
 <li>Humans might become insane enough that further progress along relevant axes is halted, but not insane enough that civilization collapses. We get stuck oscillating around some technological level, until another existential catastrophe like nuclear war and resulting nuclear winter finishes us off.</li>
 </ul>
-
 <p>On the personal side, after being fooled by <a href="https://nitter.hu/lxrjl/status/1376830454075129858">people using GPT-3 to
 generate tweets</a>
 and seeing at least one instance of observing
@@ -562,8 +456,7 @@ sleeping &amp; eating from the place where I use internet, with a ~10 minute
 commute between those two. I also decided to pay less attention to news
 stories/reddit/twitter, especially from sources affiliated with large
 governments, downloaded my favourite websites.</p>
-
 <p>This post was relevant to my thoughts about alternative AI risk scenarios
 as well as drastic personal decisions, and I expect to give it a 1 or
 (more likely) a 4 in the final vote.</p>
-</html>
+</body></html>

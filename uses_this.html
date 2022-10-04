@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,13 +32,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-04-11, modified: 2022-03-28, language: english, status: in progress, importance: 2, confidence: log</em></p>
-
 <blockquote>
-  <p><strong>I have found that I have found great use in software
+<p><strong>I have found that I have found great use in software
 recommendations by people who I respect, such as
 <a href="https://www.gwern.net/Links#uses-this">gwern</a>, the
 <a href="https://suckless.org/rocks/">suckless project</a>, and
@@ -72,13 +43,9 @@ recommendations by people who I respect, such as
 recommendations presented here can provide a comparable utility to
 similarly-minded people.</strong></p>
 </blockquote>
-
-<h1>Uses This</h1>
-
-<h2>Software</h2>
-
-<h3>Computer Programs</h3>
-
+<h1 id="Uses_This"><a class="hanchor" href="#Uses_This">Uses This</a></h1>
+<h2 id="Software"><a class="hanchor" href="#Software">Software</a></h2>
+<h3 id="Computer_Programs"><a class="hanchor" href="#Computer_Programs">Computer Programs</a></h3>
 <ul>
 <li>Operating system: <a href="https://voidlinux.org/">Void Linux</a></li>
 <li>Window manager: <a href="https://dwm.suckless.org/">dwm</a></li>
@@ -101,9 +68,7 @@ similarly-minded people.</strong></p>
 </ul></li>
 <li>Keyboard layout: <a href="https://neo-layout.org/">Neo 2</a></li>
 </ul>
-
-<h4>Programming languages:</h4>
-
+<h4 id="Programming_languages"><a class="hanchor" href="#Programming_languages">Programming languages:</a></h4>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/C_%28programming_language%29">C</a></li>
 <li><a href="http://t3x.org/klong/index.html">Klong</a></li>
@@ -113,9 +78,7 @@ similarly-minded people.</strong></p>
 <li><a href="https://en.wikipedia.org/wiki/Standard_ML">Standard ML</a></li>
 <li><a href="https://www.python.org">Python</a></li>
 </ul>
-
-<h3>Browser Plugins</h3>
-
+<h3 id="Browser_Plugins"><a class="hanchor" href="#Browser_Plugins">Browser Plugins</a></h3>
 <ul>
 <li><a href="https://addons.mozilla.org/en-US/firefox/addon/ublock-origin/">Ublock Origin</a></li>
 <li><a href="https://www.proginosko.com/leechblock/">Leechblock</a></li>
@@ -125,21 +88,16 @@ similarly-minded people.</strong></p>
 <li><a href="https://www.eff.org/https-everywhere">HTTPS Everywhere</a></li>
 <li><a href="https://privacybadger.org/">Privacy Badger</a></li>
 </ul>
-
-<h3>Smartphone Apps</h3>
-
+<h3 id="Smartphone_Apps"><a class="hanchor" href="#Smartphone_Apps">Smartphone Apps</a></h3>
 <ul>
 <li><a href="https://www.moodpatterns.info">Mood Patterns</a></li>
 <li><a href="https://play.google.com/store/apps/details?id=com.despdev.meditationapp&amp;hl=en&amp;gl=US">Medativo</a></li>
 <li><a href="https://play.google.com/store/apps/details?id=de.cliff.strichliste&amp;hl=en&amp;gl=us">Tally Counter</a></li>
 <li><a href="https://play.google.com/store/apps/details?id=com.beeminder.beeminder&amp;hl=en&amp;gl=us">Beeminder</a></li>
 </ul>
-
-<h3>Criteria</h3>
-
+<h3 id="Criteria"><a class="hanchor" href="#Criteria">Criteria</a></h3>
 <p>My most important criteria for choosing software are simplicity,
 consistency and durability.</p>
-
 <p><a href="https://plato.stanford.edu/entries/simplicity/">Simplicity</a> here means mostly <a href="https://en.wikipedia.org/wiki/Worse_is_better">simplicity of
 implementation</a>, though
 in reality there is very little difference between software with a simple
@@ -147,7 +105,6 @@ design&amp;interface and software that only has a simple implementation. Most
 of the time, simplicity can be roughly approximated in the total number
 of <a href="https://en.wikipedia.org/wiki/Source_lines_of_code">sloc</a> used to
 implement the software.</p>
-
 <p><a href="https://en.wikipedia.org/wiki/Consistency_(user_interfaces)#List_of_the_cognitive_dimensions">Consistency</a>
 is even more difficult to define and classify than simplicity.
 Broadly speaking, consistency is dependent on symmetry (every input
@@ -159,7 +116,6 @@ languages with a unary <code>+</code>, but not a unary <code>-</code>, or progra
 different naming conventions. Perhaps consistency can be thought of as
 a certain type of symmetry; if not that, then at least symmetry plays
 a big role in consistent systems.</p>
-
 <p><a href="https://en.wikipedia.org/wiki/Durability">Durability</a>, by comparison,
 is quite easy to explain. It simply describes the amount of <a href="https://en.wikipedia.org/wiki/Software_rot">bit
 rot</a> that occurs in the
@@ -168,28 +124,23 @@ be maintained for a long time, and the durability and number of its
 dependencies. A good example for durable software is correct C code. It
 still compiles and runs after decades of neglect, though often not
 without warnings (platform specific C code is of course less durable).</p>
-
 <p>As a result of this, the programs I use mostly come from the
 <a href="https://en.wikipedia.org/wiki/Unix">Unix</a>/<a href="https://en.wikipedia.org/wiki/Linux">Linux</a>
 ecosystem.</p>
-
-<h2>Hardware</h2>
-
+<h2 id="Hardware"><a class="hanchor" href="#Hardware">Hardware</a></h2>
 <p>I tend not to care very much about hardware, except for compatibility
 problems. Nearly all of my computing could be done on a <a href="https://en.wikipedia.org/wiki/Raspberry_Pi">Raspberry
 Pi</a>, or on a generic mildly
 priced new laptop. I like the Raspberry Pi because of its ability to
 run a wide variety of operating systems, beyond that hardware is rarely
 a bottleneck for me. I do care about peripherals, though.</p>
-
 <!--
 Devices:
 Smartphone, Laptop, IPod Shuffle
 -->
-
 <!--
 ### Keyboard
 
 ### Mouse
 -->
-</html>
+</body></html>

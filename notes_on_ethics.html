@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,20 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-03-31, modified: 2022-03-15, language: english, status: notes, importance: 3, confidence: highly unlikely</em></p>
-
 <blockquote>
-  <p><strong>This page contains my notes on ethics, separated from my regular
+<p><strong>This page contains my notes on ethics, separated from my regular
 notes to retain some structure to the notes.</strong></p>
 </blockquote>
-
-<h1>Notes on Ethics</h1>
-
+<h1 id="Notes_on_Ethics"><a class="hanchor" href="#Notes_on_Ethics">Notes on Ethics</a></h1>
 <blockquote>
-  <p>Aber was wollen denn die Fragen, ich bin ja mit ihnen gescheitert,
+<p>Aber was wollen denn die Fragen, ich bin ja mit ihnen gescheitert,
 wahrscheinlich sind meine Genossen viel klüger als ich und wenden
 ganz andere vortreffliche Mittel an, um dieses Leben zu ertragen,
 Mittel freilich, die, wie ich aus eigenem hinzufüge, vielleicht ihnen
@@ -79,30 +48,22 @@ zur Not helfen, beruhigen, einschläfern, artverwandelnd wirken, aber
 in der Allgemeinheit ebenso ohnmächtig sind, wie die meinen, denn,
 soviel ich auch ausschaue, einen Erfolg sehe ich nicht.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Franz_Kafka">Frank Kafka</a>, “Forschungen eines Hundes”, 1922</em></p>
-
 <p>My general ethical outlook is one of high <a href="./doc/philosophy/ethics/moral_uncertainty_macaskill_et_al_2020.pdf" title="Moral Uncertainty (William MacAskill/Krister Bykvist/Toby Ord, 2020)">moral
 uncertainty</a>,
 with my favourite theory being consequentialism. I furthermore favour
 hedonic, negative-leaning, and act-based consequentialisms.</p>
-
 <p>However, most notes on this page don't depend on these assumptions.</p>
-
 <p>Note that while I am interested in ethics, I haven't read as much about
 the topic as I would like. This probably leads to me re-inventing a large
 amount of jargon, and making well-known (and already refuted) arguments.</p>
-
-<h2>Converging Preference Utilitarianism</h2>
-
+<h2 id="Converging_Preference_Utilitarianism"><a class="hanchor" href="#Converging_Preference_Utilitarianism">Converging Preference Utilitarianism</a></h2>
 <p>One problem with <a href="https://en.wikipedia.org/wiki/Preference_utilitarianism">preference
 utilitarianism</a>
 is the difficulty of aggregating and comparing preferences
 interpersonally, as well as a critique that some persons have very
 altruistic and others very egoistic preferences.</p>
-
-<h3>Method</h3>
-
+<h3 id="Method"><a class="hanchor" href="#Method">Method</a></h3>
 <p>A possible method of trying to resolve this is to try to hypothetically
 calculate the aggregate preferences of all persons in the following
 way: For every existing person pₐ, this person learns about the
@@ -111,68 +72,50 @@ their preferences and experiences pₙ's past sensory inputs. pₐ then
 updates their preferences according to this information. This process
 is repeated until the maximal difference between preferences has shrunk
 to a certain threshold.</p>
-
-<h3>Variations</h3>
-
+<h3 id="Variations"><a class="hanchor" href="#Variations">Variations</a></h3>
 <p>One possible variation in the procedure is between retaining knowledge
 about the identity of pₐ, the person aggregating the preferences. If
 this were not done, the result would be very akin to the <a href="https://en.wikipedia.org/wiki/Veil_of_ignorance">Harsanyian
 Veil of Ignorance</a>.</p>
-
 <p>Another possible variation could be not attempting to achieve convergence,
 but only simply iterating the method for a finite amount of times. Since
 it's not clear that more iterations would contribute towards further
 convergence, maybe 1 iteration is desirable.</p>
-
-<h3>Problems</h3>
-
+<h3 id="Problems"><a class="hanchor" href="#Problems">Problems</a></h3>
 <p>This method has a lot of ethical and practical problems.</p>
-
-<h4>Assumptions</h4>
-
+<h4 id="Assumptions"><a class="hanchor" href="#Assumptions">Assumptions</a></h4>
 <p>The method assumes a bunch of practical and theoretical premises,
 for example that preferences would necessarily converge upon
 experiencing and knowing other persons qualia and preferences.
 It also assumes that it is in principle possible to make a person
 experience other persons qualia.</p>
-
-<h4>Sentient Simulations</h4>
-
+<h4 id="Sentient_Simulations"><a class="hanchor" href="#Sentient_Simulations">Sentient Simulations</a></h4>
 <p>Since each negative experience would be experienced by every
 person at least one time, and negative experiences could
 considered to have negative value, calculating the converging
 preferences would be unethical in practice (just as <a href="https://foundational-research.org/risks-of-astronomical-future-suffering/#Sentient_simulations">simulating the
 experience</a>
 over and over).</p>
-
-<h4>Genuinely Selfish Agents</h4>
-
+<h4 id="Genuinely_Selfish_Agents"><a class="hanchor" href="#Genuinely_Selfish_Agents">Genuinely Selfish Agents</a></h4>
 <p>If an agent is genuinely selfish (has no explicit term for the welfare of
 another agent in its preferences), it might not adjust its own preferences
 upon experiencing other lifes. It might even be able to circumvent the
 veil of ignorance to locate itself.</p>
-
-<h4>Lacking Brain Power</h4>
-
+<h4 id="Lacking_Brain_Power"><a class="hanchor" href="#Lacking_Brain_Power">Lacking Brain Power</a></h4>
 <p>Some agents might lack the intelligence to process all the information
 other agents perceive. For example, an ant would probably not be able
 to understand the importance humans give to art.</p>
-
-<h3>See Also</h3>
-
+<h3 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h3>
 <ul>
 <li><a href="./doc/cs/ai/alignment/cev/coherent_extrapolated_volition_yudkowsky_2004.pdf" title="Coherent Extrapolated Volition">Yudkowsky 2004</a></li>
 </ul>
-
-<h2>Humans Implement Ethics Discovery</h2>
-
+<h2 id="Humans_Implement_Ethics_Discovery"><a class="hanchor" href="#Humans_Implement_Ethics_Discovery">Humans Implement Ethics Discovery</a></h2>
 <p>Humans sometimes change their minds about what they consider to be good,
 both on a individual and on a collective scale. One obvious example is
 slavery in western countries: although our wealth would make us more
 prone to admitting slavery (high difference between wages &amp; costs of
 keeping slaves alive), we have nearly no slaves. This used to be different,
 in the 18th and 19th century, slavery was a common practice.</p>
-
 <p>This process seems to come partially from learning new facts about
 the world (e.g., which ethical patients respond to noxious stimuli,
 how different ethical patients/agents are biologically related to each
@@ -185,7 +128,6 @@ within ethical theories by applying them in thought-experiments (e.g. by
 discovering problems in population axiology, see for example <a href="./doc/philosophy/ethics/population/overpopulation_and_the_quality_of_life_parfit_1986.pdf" title="Overpopulation and the Quality of Life">Parfit
 1986</a>).
 This process might be called the <em>value-inference process</em>.</p>
-
 <p>One could say that humans implement the <em>value-updating</em>
 and the <em>value-inference</em> process—when they think about
 ethics, there is an underlying algorithm that weighs trade-offs,
@@ -195,38 +137,29 @@ formalization of this process (initial attempts are <a href="https://plato.stanf
 equilibrium</a>
 and <a href="./doc/cs/ai/alignment/cev/coherent_extrapolated_volition_yudkowsky_2004.pdf">coherent extrapolated
 volition</a> "Coherent Extrapolated Volition").</p>
-
 <p>If we accept the <a href="https://arbital.com/p/complexity_of_value/">complexity of human
 values</a> hypothesis, this
 absence of a crisp formalism is not surprising: the algorithm for
 <em>value-updating</em> and <em>value-inference</em> is probably too complex to
 write down.</p>
-
 <p>However, since we know that humans are existing implementations of this
 process, we're not completely out of luck: if we can preserve humans
 "as they are" (and many of the notes on this page try to get at what
 this fuzzy notion of "as they are" would mean), we have a way to further
 update and infer values.</p>
-
 <p>This view emphasizes several conclusions: preserving humans "as they
 currently are" becomes very important, perhaps even to the extent of
 misallowing self-modification, the loss of human cultural artifacts
 (literature, languages, art) becomes more of a tragedy than before
 (potential loss of information about what human values are), and making
 irreversible decisions becomes worse than before.</p>
-
 <!--Often, change in values seems forseeable. Why? How?-->
-
-<h2>See Also</h2>
-
+<h2 id="See_Also_1"><a class="hanchor" href="#See_Also_1">See Also</a></h2>
 <ul>
 <li><a href="https://arbital.com/p/meta_unsolved/" title="Meta-rules for (narrow) value learning are still unsolved">Yudkowsky 2017</a></li>
 </ul>
-
-<h2>I Care About Ethical Decision Procedures</h2>
-
+<h2 id="I_Care_About_Ethical_Decision_Procedures"><a class="hanchor" href="#I_Care_About_Ethical_Decision_Procedures">I Care About Ethical Decision Procedures</a></h2>
 <p>Or, why virtue ethics alone feels misguided.</p>
-
 <p>In general, ethical theories want to describe what is good and what
 is bad. Some ethical theories also provide a decision-procedure: what
 to do in which situations. One can then differentiate between ethical
@@ -235,28 +168,21 @@ theories that give recommendations for action in every possible situation
 give recommendations for action in a subset of all possible situations
 (one might name these <em>incomplete theories</em>, although the name might be
 considered unfair by proponents of such theories).</p>
-
 <!--Add stuff about partial orderings of actions, with multiple maximal elements?-->
-
 <p>It is important to clarify that incomplete theories are not necessarily
 indifferent between different choices for action in situations they have
 no result for, but that they just don't provide a recommendation for action.</p>
-
 <p>Prima facie, complete theories seem more desirable than incomplete
 theories—advice in the form of "you oughtn't be in this situation
 in the first place" is not very helpful if you are confronted with such
 a situation!</p>
-
 <p>Virtue ethics strikes me as being such a theory—it defines what is
 good, but provides no decision-procedure for acting in most situations.</p>
-
 <p>At best, it could be interpreted as a method for developing such a
 decision-procedure for each individual agent, recognizing that an attempt
 at formalizing an ethical decision-procedure is a futile goal, and instead
 focussing on the value-updating and value-inference process itself.</p>
-
-<h2>Deference Attractors of Ethical Agents</h2>
-
+<h2 id="Deference_Attractors_of_Ethical_Agents"><a class="hanchor" href="#Deference_Attractors_of_Ethical_Agents">Deference Attractors of Ethical Agents</a></h2>
 <p>When I'm angry or stressed (or tired, very horny, high, etc), I would
 prefer to have another version of myself make my decisions in that
 moment—ideally a version that is well rested, is thinking clearly,
@@ -268,7 +194,6 @@ when I'm in a very turbulent state, I usually still find the <em>values</em>
 of my relaxed and level-headed self (let's call that self the <strong>deferee
 self</strong>) better than my current values. So in some way, my values in
 that stressful moment are not <a href="https://arbital.com/p/reflective_stability/">reflectively stable</a>.</p>
-
 <p>Similarly, even when I'm relaxed, I usually still can imagine a
 version of myself with even more desired values—more altruistic,
 less time-discounting, less parochial. Similarly, that version of
@@ -277,47 +202,37 @@ problem</a>:
 It likely leads to a perfectly altruistic, universalist version of myself
 that just wants to be itself and keep its own values. Let's call that
 self a <strong>deference attractor</strong>.</p>
-
 <p>But I don't always have the same deferee self. Sometimes I actually want
 to be more egoistic, more parochial, perhaps even more myopic (even
 though I haven't encountered that specific case yet. The deferee self
 likely also wants to be even more egoistic, parochial and (maybe?) myopic.
 This version of myself is again a deference attractor.</p>
-
 <p>These chains of deference are embedded in a <a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)">directed
 graph</a>
 of selves, many of which are likely reflectively stable. Some
 aren't, and perhaps form such chains/paths which either form
 <a href="https://en.wikipedia.org/wiki/Cycle_(graph_theory)">cycles</a>, or lead
 to attractors.</p>
-
-<h3>Deceptive Deference-Attractors?</h3>
-
+<h3 id="Deceptive_DeferenceAttractors"><a class="hanchor" href="#Deceptive_DeferenceAttractors">Deceptive Deference-Attractors?</a></h3>
 <p>These graphs don't have to be
 <a href="https://en.wikipedia.org/wiki/Transitivity_(mathematics)">transitive</a>,
 so a deference attractor of myself now could look extremely unappealing
 to me. Could one be mistaken about such a judgement, and if yes, when
 would one be?</p>
-
 <p>That is, when one would judge a deference attractor to be undesirable,
 could it be in fact desirable? Or, if one were to judge in desirable,
 could it in fact be undesirable?</p>
-
-<h2>Arguments Against Preference Utilitarianism</h2>
-
+<h2 id="Arguments_Against_Preference_Utilitarianism"><a class="hanchor" href="#Arguments_Against_Preference_Utilitarianism">Arguments Against Preference Utilitarianism</a></h2>
 <p><a href="https://en.wikipedia.org/wiki/Preference_utilitarianism">Preference
 utilitarianism</a>
 enjoys great popularity among utilitarians<!--TODO: citation
 needed? How does it compare to other utilitarianisms?-->,
-and I tend to agree that it is a <a href="./notes_on_politics_especially_economics.html#What-Politics-Is-For">very good pragmatic
+and I tend to agree that it is a <a href="./notes_on_politics_especially_economics.html#What_Politics_Is_For">very good pragmatic
 compromise</a>
 especially in the context of politics.</p>
-
 <p>However, most formulations I have encountered bring up some problems
 that I have not seen mentioned or addressed elsewhere.</p>
-
-<h3>The Identification Argument</h3>
-
+<h3 id="The_Identification_Argument"><a class="hanchor" href="#The_Identification_Argument">The Identification Argument</a></h3>
 <p>One issue with preference utilitarianism concerns the word
 “preference”, and especially where in the world these preferences
 are located and how they can be identified. What kinds of physical
@@ -329,13 +244,11 @@ to have preferences, with the addition that if it is in equilibrium, it
 seems to have achieved those prefereneces. This is clearly nonsensical,
 as also explored in <a href="https://www.lesswrong.com/posts/26eupx3Byc8swRS7f/bottle-caps-aren-t-optimisers" title="Bottle Caps Aren't Optimisers">Filan
 2018</a>.</p>
-
 <p>If we argue that this is pure distinction mongering, and that we "know
 an agent when we see one", it might still be argued that evolution is
 agent-like enough to fall into our category of an agent, but that we are
 not necessarily obligated to spend a significant part of our resources
 on copying and storing large amounts of DNA molecules.</p>
-
 <p>Even restricting ourselves to humans, we still have issue with identifying
 the computation inside human brains that could be said to be those
 preferences, see e.g. <a href="https://nivlab.princeton.edu/publications/case-against-economic-values-brain" title="The case against economic values in the orbitofrontal cortex (or anywhere else in the brain)">Hayden &amp; Niv
@@ -345,12 +258,9 @@ certain level of irrationality, we wouldn't be able to ascertain which
 preferences of humans were <em>not</em> fulfilled (since we could just assume
 that at each moment, each human is perfectly fulfilling their own
 preferences).<!--TODO: link some Armstrong paper/blogpost here--></p>
-
 <p>These are, of course, standard problems in value learning <a href="./doc/cs/ai/alignment/value_learning/the_value_learning_problem_soares_2016.pdf" title="The Value Learning Problem">Soares
 2018</a>.</p>
-
-<h3>Preference-Altering Actions Disallowed</h3>
-
+<h3 id="PreferenceAltering_Actions_Disallowed"><a class="hanchor" href="#PreferenceAltering_Actions_Disallowed">Preference-Altering Actions Disallowed</a></h3>
 <p>Even if agents bearing preferences can be identified and the preferences
 they bear can be located, ethical agents are faced with a dubious
 demand: Insofar only the preferences of existing agents matter (i.e. our
@@ -360,16 +270,13 @@ to stabilize existing consistent prefereneces (and perhaps also to
 every stable preference implies a "meta-preference" of its own continued
 existence <a href="./doc/cs/ai/alignment/the_basic_ai_drives_omohundro_2008.pdf" title="The Basic AI Drives">Omohundro
 2008</a>.</p>
-
 <p>However, this conflicts with ethical intuitions: We would like to allow
 ethical patients to undergo moral growth and reflect on their values.</p>
-
 <p>(I do not expect this to be a practical issue, since at least in
 human brains, I expect there to be no actually consistent internal
 preferences. With simpler organisms or very simple physical systems, this
 might become an issue, but one wouldn't expect them to have undergone
 significant moral growth in any case.)</p>
-
 <!--What did I mean by this?
 
 TODO
@@ -378,12 +285,9 @@ TODO
 
 #### Reflective Equilibrium
 -->
-
-<h3>Possible People</h3>
-
+<h3 id="Possible_People"><a class="hanchor" href="#Possible_People">Possible People</a></h3>
 <p>If we allow the preferences of possible people to influence our decision
 procedure, we run into trouble <em>very quickly</em>.</p>
-
 <p>In the most realistic case, imagine we can perform genetic editing
 (or <a href="https://www.gwern.net/Embryo-selection">embryo selection</a>) to
 select for traits in new humans, and assume that the psychological
@@ -393,13 +297,11 @@ those genes. (Alternatively, imagine that we have found out how
 to raise people so that they have a great preference for having
 been born, perhaps by an unanticipated leap in <a href="https://en.wikipedia.org/wiki/Developmental_psychology">developmental
 psychology</a>).</p>
-
 <p>Then it seems like preference utilitarianism that includes possible
 people demands that we try to grow humanity as quickly as possible,
 with most people being modified in such a way that they strongly prefer
 being alive and having been born (if they are unusually inept in one or
 more ways, we would like to have some people around who can support them).</p>
-
 <p>However, this <em>preference</em> for having been born doesn't guarantee
 an <em>enjoyment of life</em> in the commonsense way. It might be that
 while such people really prefer being alive, they're not really
@@ -408,20 +310,16 @@ come apart</a>,
 I would make the guess that those people wouldn't be much
 happier than current humans (an example of <a href="./doc/cs/ai/alignment/agent_foundations/categorizing_variants_of_goodharts_law_manheim_garrabrant_2019.pdf" title="Categorizing Variants of Goodhart's Law">causal
 Goodhart</a>).</p>
-
 <p>Preference utilitarians who respect possible preferences might just bite
 this bullet and argue that this indeed the correct thing to do.</p>
-
-<p>But, depending on the definition of an ethical patient <a href="./notes_on_ethics.html#The-Identification-Argument">who displays
+<p>But, depending on the definition of an ethical patient <a href="./notes_on_ethics.html#The_Identification_Argument">who displays
 preferences</a>, the
 moral patient who maximally prefers existing might look nothing like a
 typical human, and more like an intricate e-coli-sized web of diamond
 or a very fast rotating blob of strange matter. The only people I can
 imagine willing to bite this bullet probably are too busy running around
 robbing ammunition stores.</p>
-
-<h4>Side-Note: Philosophers Underestimate the Strangeness of Maximization</h4>
-
+<h4 id="SideNote_Philosophers_Underestimate_the_Strangeness_of_Maximization"><a class="hanchor" href="#SideNote_Philosophers_Underestimate_the_Strangeness_of_Maximization">Side-Note: Philosophers Underestimate the Strangeness of Maximization</a></h4>
 <p>Often in arguments with philosophers, especially about consequentialism,
 I find that most of them underappreciate the strangeness of
 results of very strong optimization algorithms. Whenever there's
@@ -429,9 +327,7 @@ an <code>$\text{argmax}$</code> in your function, the result is probably
 going to look <em>nothing like</em> what you imagine it looking like,
 especially if the optimization doesn't have <a href="https://arbital.com/p/inductive_ambiguity/">conservative concept
 boundaries</a>.</p>
-
-<h4>Preference-Creating Preferences</h4>
-
+<h4 id="PreferenceCreating_Preferences"><a class="hanchor" href="#PreferenceCreating_Preferences">Preference-Creating Preferences</a></h4>
 <p>If you restrict your preference utilitarianism to currently existing
 preferences, you might get lucky and avoid this kind of scenario. But
 also maybe you won't: If there are any currently existing preferences
@@ -439,20 +335,15 @@ of the form P="I want there to be as many physically implemented
 instances of P to exist as possible" (these are possible to represent as
 <a href="https://en.wikipedia.org/wiki/Quine_(computing)">quines</a>), you have
 two choices:</p>
-
 <ul>
 <li>Either you weight preferences by how strong they were at a single point in time <code>$t$</code>, and just maximize the preferences existing at <code>$t$</code></li>
 <li>Or you maximize <em>currently existing preferences</em>, weighted by how strong they are right now</li>
 </ul>
-
 <p>In the latter case, you land in a universe filled with physical systems
 implementing the preference P.</p>
-
-<h3>Summary</h3>
-
+<h3 id="Summary"><a class="hanchor" href="#Summary">Summary</a></h3>
 <p>All forms of preference utilitarianism face the challenge of identifying
 which systems have preferences, and how those preferences are implemented.</p>
-
 <ul>
 <li>Preference utilitarianisms
 <ul>
@@ -468,93 +359,68 @@ which systems have preferences, and how those preferences are implemented.</p>
 </ul></li>
 </ul></li>
 </ul>
-
-<h2>Stating the Result of “An Impossibility Theorem for Welfarist Axiologies”</h2>
-
+<h2 id="Stating_the_Result_of_An_Impossibility_Theorem_for_Welfarist_Axiologies"><a class="hanchor" href="#Stating_the_Result_of_An_Impossibility_Theorem_for_Welfarist_Axiologies">Stating the Result of “An Impossibility Theorem for Welfarist Axiologies”</a></h2>
 <p><a href="./doc/philosophy/ethics/population/an_impossibility_theorem_for_welfarist_axiologies_arrhenius_2000.pdf" title="An Impossibility Theorem for Welfarist Axiologies">Arrhenius
 2000</a>
 gives a proof that basically states that the type of population axiology
 we want to construct is impossible. However, the natural-language
 statement of his result is scattered throughout the paper.</p>
-
 <blockquote>
-  <p>The primary claim of this paper is that any axiology that satisfies the
+<p>The primary claim of this paper is that any axiology that satisfies the
 Dominance, the Addition, and the Minimal Non-Extreme Priority Principle
 implies the Repugnant, the Anti-Egalitarian, or the Sadistic Conclusion.</p>
 </blockquote>
-
 <p><em>— <a href="https://www.iffs.se/en/research/researchers/gustaf-arrhenius/">Gustaf Arrhenius</a>, <a href="./doc/philosophy/ethics/population/an_impossibility_theorem_for_welfarist_axiologies_arrhenius_2000.pdf">“An Impossibility Theorem for Welfarist Axiologies”</a> p. 15, 2000</em></p>
-
-<h3>Requirements</h3>
-
+<h3 id="Requirements"><a class="hanchor" href="#Requirements">Requirements</a></h3>
 <blockquote>
-  <p>The Dominance Principle: If population A contains the same number of
+<p>The Dominance Principle: If population A contains the same number of
 people as population B, and every person in A has higher welfare than
 any person in B, then A is better than B.</p>
 </blockquote>
-
 <p><em>— <a href="https://www.iffs.se/en/research/researchers/gustaf-arrhenius/">Gustaf Arrhenius</a>, <a href="./doc/philosophy/ethics/population/an_impossibility_theorem_for_welfarist_axiologies_arrhenius_2000.pdf">“An Impossibility Theorem for Welfarist Axiologies”</a> p. 11, 2000</em></p>
-
 <blockquote>
-  <p>The Addition Principle: If it is bad to add a number of people, all
+<p>The Addition Principle: If it is bad to add a number of people, all
 with welfare lower than the original people, then it is at least as bad
 to add a greater number of people, all with even lower welfare than the
 original people.</p>
 </blockquote>
-
 <p><em>— <a href="https://www.iffs.se/en/research/researchers/gustaf-arrhenius/">Gustaf Arrhenius</a>, <a href="./doc/philosophy/ethics/population/an_impossibility_theorem_for_welfarist_axiologies_arrhenius_2000.pdf">“An Impossibility Theorem for Welfarist Axiologies”</a> p. 11, 2000</em></p>
-
 <blockquote>
-  <p>The Minimal Non-Extreme Priority Principle: There is a number n such
+<p>The Minimal Non-Extreme Priority Principle: There is a number n such
 that an addition of n people very high welfare and a single person with
 slightly negative welfare is at least as good as an addition of the same
 number of people but with very low positive welfare.</p>
 </blockquote>
-
 <p><em>— <a href="https://www.iffs.se/en/research/researchers/gustaf-arrhenius/">Gustaf Arrhenius</a>, <a href="./doc/philosophy/ethics/population/an_impossibility_theorem_for_welfarist_axiologies_arrhenius_2000.pdf">“An Impossibility Theorem for Welfarist Axiologies”</a> p. 11, 2000</em></p>
-
-<h3>Conclusions</h3>
-
+<h3 id="Conclusions"><a class="hanchor" href="#Conclusions">Conclusions</a></h3>
 <blockquote>
-  <p>The Repugnant Conclusion: For any perfectly equal population
+<p>The Repugnant Conclusion: For any perfectly equal population
 with very high positive value, there is a population with very
 low positive welfare which is better.</p>
 </blockquote>
-
 <p><em>— <a href="https://www.iffs.se/en/research/researchers/gustaf-arrhenius/">Gustaf Arrhenius</a>, <a href="./doc/philosophy/ethics/population/an_impossibility_theorem_for_welfarist_axiologies_arrhenius_2000.pdf">“An Impossibility Theorem for Welfarist Axiologies”</a> p. 2, 2000</em></p>
-
 <blockquote>
-  <p>The Anti-Egalitarian Conclusion: A population with perfect equality can
+<p>The Anti-Egalitarian Conclusion: A population with perfect equality can
 be worse than a population with the same number of people, inequality,
 and lower average (and thus lower total) positive welfare.</p>
 </blockquote>
-
 <p><em>— <a href="https://www.iffs.se/en/research/researchers/gustaf-arrhenius/">Gustaf Arrhenius</a>, <a href="./doc/philosophy/ethics/population/an_impossibility_theorem_for_welfarist_axiologies_arrhenius_2000.pdf">“An Impossibility Theorem for Welfarist Axiologies”</a> p. 12, 2000</em></p>
-
 <blockquote>
-  <p>The Sadistic Conclusion: When adding people without
+<p>The Sadistic Conclusion: When adding people without
 affecting the original people's welfare, it can be better to
 add people with negative welfare than positive welfare.</p>
 </blockquote>
-
 <p><em>— <a href="https://www.iffs.se/en/research/researchers/gustaf-arrhenius/">Gustaf Arrhenius</a>, <a href="./doc/philosophy/ethics/population/an_impossibility_theorem_for_welfarist_axiologies_arrhenius_2000.pdf">“An Impossibility Theorem for Welfarist Axiologies”</a> p. 5, 2000</em></p>
-
 <p>All of these are stated more mathematically on page 15.</p>
-
-<h2>Possible Surprising Implications of Moral Uncertanity</h2>
-
+<h2 id="Possible_Surprising_Implications_of_Moral_Uncertanity"><a class="hanchor" href="#Possible_Surprising_Implications_of_Moral_Uncertanity">Possible Surprising Implications of Moral Uncertanity</a></h2>
 <p>Preserving languages &amp; biospheres might be really important, if the
 continuity of such processes is morally relevant.</p>
-
 <p>We should try to be careful about self-modification, lest we fall into
 a molochian attractor state we don't want to get out of. Leave a line
 of retreat in ideology-space!</p>
-
 <p>For a rough attempt to formalize this, see <a href="https://www.lesswrong.com/s/7CdoznhJaLEKHwvJW/p/6DuJxY8X45Sco4bS2" title="Seeking Power is Often Robustly Instrumental in MDPs">TurnTrout &amp; elriggs
 2019</a>.</p>
-
-<h3>We Should Kill All Mosquitoes</h3>
-
+<h3 id="We_Should_Kill_All_Mosquitoes"><a class="hanchor" href="#We_Should_Kill_All_Mosquitoes">We Should Kill All Mosquitoes</a></h3>
 <p>If we assign a non-miniscule amount of credence to <a href="https://en.wikipedia.org/wiki/Retributive_justice">retributive
 theories of justice</a>
 that include invertebrates as culpable agents, humanity might have
@@ -565,7 +431,6 @@ wants to restore justice for all past humans that have died at the
 <a href="https://en.wikipedia.org/wiki/Proposcis">proboscis</a> of mosquito, the
 most sensible course of action is to exterminate some or all species of
 mosquito that feed on human blood and transmit diseases.</p>
-
 <p>There are of course also additional reasons to exterminate some species
 of mosquito: 700k humans die per year from mosquito-borne diseases, and
 it might be better for mosquitos themselves to not exist at all (with
@@ -575,23 +440,19 @@ extinction</a>, see <a href="https://foundational-research.org/the-importance-of
 and <a href="https://reducing-suffering.org/the-importance-of-insect-suffering/" title="The Importance of Insect Suffering">Tomasik
 2016</a>
 as introductions):</p>
-
 <blockquote>
-  <p>the cost-effectiveness of the \$1 million campaign to eliminate
+<p>the cost-effectiveness of the \$1 million campaign to eliminate
 mosquitoes would be (7.5 * 10¹⁴ insect-years prevented) *
 (0.0025) / \$1 million = 1.9 * 10⁶ insect-years prevented per
 dollar [by increasing human population]. As one might expect,
 this is much bigger than the impact on mosquito populations
 directly as calculated in the previous section.</p>
 </blockquote>
-
 <p><em>— <a href="https://reducing-suffering.org">Brian Tomasik</a>, <a href="https://reducing-suffering.org/will-gene-drives-reduce-wild-animal-suffering/">Will Gene Drives Reduce Wild-Animal Suffering?</a>, 2018</em></p>
-
 <p>A mild counterpoint to this view is that we have an obligation to help
 species that thrive on mosquitoes, since they have helped humanity
 throughout the ages, but we'd hurt them by taking away one of their
 food sources.</p>
-
 <!--
 Why Death is Bad
 -----------------
@@ -642,4 +503,4 @@ For most people, there's a point where they kill the unwilling organ
 donor, so we're basically haggling over the price. Maybe just a Sorites
 paradox?
 -->
-</html>
+</body></html>

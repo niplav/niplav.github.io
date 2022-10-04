@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,93 +32,67 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-09-02, modified: 2019-09-26, language: english, status: in progress, importance: 2, confidence: other</em></p>
-
 <blockquote>
-  <p><strong>awitt is a simple window title logger/time tracker. It is linked,
+<p><strong>awitt is a simple window title logger/time tracker. It is linked,
 described and compared to other similar projects. Then, its releases
 and outstanding bugs are listed.</strong></p>
 </blockquote>
-
-<h1>awitt – Another Window Title Tracker</h1>
-
+<h1 id="awitt__Another_Window_Title_Tracker"><a class="hanchor" href="#awitt__Another_Window_Title_Tracker">awitt – Another Window Title Tracker</a></h1>
 <p>The project's sourced code is available on
 <a href="https://github.com/niplav/awitt">github</a>, along with its
 <a href="https://github.com/niplav/awitt/blob/master/README.html">README</a> and
 <a href="https://github.com/niplav/awitt/blob/master/awitt.1">man-page</a> for
 more documentation.</p>
-
-<h2>Description</h2>
-
+<h2 id="Description"><a class="hanchor" href="#Description">Description</a></h2>
 <p>awitt is a small unix utility that keeps track of the window title and
 class and prints the time, duration spent in the last window, class
 and title of the previous window if the focus is changed. The output is
 printed to stdout.</p>
-
 <p>This makes it useful for time tracking: window titles usually reflect
 the current activity, and with them one can determine how much time was
 spent on an activity, and when.</p>
-
 <p>The usual use case is as following:</p>
-
 <pre><code>awitt &gt;activities.log &amp;
 </code></pre>
-
 <p>activities.log can then be later analysed using standard unix tools.</p>
-
-<h2>Why not Choose <code>$x$</code> instead?</h2>
-
+<h2 id="None"><a class="hanchor" href="#None">Why not Choose </a><code>$x$</code> instead?</h2>
 <p>There are several time trackers available for unix, but most of them
 suffer from the fact that they need manual input of current activities,
 which makes them cumbersome and awkward to use. awitt prevents that by
 needing only one interaction per restart.</p>
-
-<h3>arbtt</h3>
-
+<h3 id="arbtt"><a class="hanchor" href="#arbtt">arbtt</a></h3>
 <p>The only other similar time tracker I know is
 <a href="https://arbtt.nomeata.de/">arbtt</a>, which is a much more complete and
 polished project.</p>
-
 <p>So why not simply choose arbtt and be done with it?</p>
-
 <p>My main problem is with the fact that arbtt is implemented in Haskell.
 It's not that Haskell is a bad language, but I heavily dislike having to
 install several hundred megabytes of libraries to just run a simple time
 tracker. On the other hand, awitt is implemented in C, which makes it
 possible to compile and run it on every platform that also provides X11.</p>
-
 <p>awitt also provides little features beyond printing window information
 if the focussed window changes, while arbtt seems to integrate a lot of
 functionality into a core program. While both approaches have their advantages
 and disadvantages, awitt is closer to the unix philosophy of "do one thing,
 and do it well".</p>
-
 <p>The disadvantage is that awitt is a duplication of work in arbtt,
 and therefore technically a waste of time and energy. I still did it,
 because reinventing the wheel is fun.</p>
-
-<h2>Releases</h2>
-
+<h2 id="Releases"><a class="hanchor" href="#Releases">Releases</a></h2>
 <ul>
 <li>0.0.1: Core functionality provided</li>
 </ul>
-
-<h2>Bugs</h2>
-
-<h3>Definitely Bugs</h3>
-
+<h2 id="Bugs"><a class="hanchor" href="#Bugs">Bugs</a></h2>
+<h3 id="Definitely_Bugs"><a class="hanchor" href="#Definitely_Bugs">Definitely Bugs</a></h3>
 <ul>
 <li>Encoding problems: 'ä' is printed as the two bytes 0xe4 0x2e. <code>file windows.log</code> says 'Non-ISO extended-ASCII text, with escape sequences'</li>
 <li><code>awitt</code> crashes when the currently focussed window is closed before obtaining the title (a race condition).</li>
 </ul>
-
-<h3>Possibly Bugs</h3>
-
+<h3 id="Possibly_Bugs"><a class="hanchor" href="#Possibly_Bugs">Possibly Bugs</a></h3>
 <ul>
 <li>Window title changes are only logged if they last longer than 1 second.</li>
 <li><a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a> is not optimal, use <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> instead</li>
 </ul>
-</html>
+</body></html>

@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,29 +32,21 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-03-23, modified: 2022-10-03, language: english, status: notes, importance: 1, confidence: draft</em></p>
-
 <blockquote>
-  <p><strong>People write mathematics in a specific way, and use different
+<p><strong>People write mathematics in a specific way, and use different
 conventions. Here I collect mine, mainly for myself.</strong></p>
 </blockquote>
-
-<h1>Mathematics Notation Convention</h1>
-
+<h1 id="Mathematics_Notation_Convention"><a class="hanchor" href="#Mathematics_Notation_Convention">Mathematics Notation Convention</a></h1>
 <blockquote>
-  <p>Zum Schein nämlich steht das Ausdruckslose, wiewohl im Gegensatz,
+<p>Zum Schein nämlich steht das Ausdruckslose, wiewohl im Gegensatz,
 doch in derart notwendigem Verhältnis, daß eben das Schöne, ob auch
 selber nicht Schein, aufhört ein wesentlich Schönes zu sein, wenn der
 Schein von ihm schwindet.</p>
 </blockquote>
-
 <p><em>— Walter Benjamin, “Goethes Wahlverwandschaften”, 1925</em></p>
-
-<h3>Basics</h3>
-
+<h3 id="Basics"><a class="hanchor" href="#Basics">Basics</a></h3>
 <ul>
 <li>Use <code>$:=$</code> for assignment, not <code>$\rightarrow$</code> or <code>$\leftarrow$</code></li>
 <li>When denoting choosing elements from a set based on some criterion, use the bar |: <code>$\{x|x \in P(x) \land \forall y \in S: x \succ y\}$</code> (some people use a colon)</li>
@@ -112,32 +78,23 @@ Schein von ihm schwindet.</p>
 <li>A function <code>$f(x)=x^p$</code> is <strong>"quadratic"</strong> iff <code>$p=2$</code>, and <strong>"radical"</strong> iff <code>$p \in (0,1)$</code></li>
 </ul></li>
 </ul>
-
-<h3>Set Theory</h3>
-
+<h3 id="Set_Theory"><a class="hanchor" href="#Set_Theory">Set Theory</a></h3>
 <ul>
 <li>Clearly differentiate between stating something being a proper subset or not: only use <code>$A \subset B$</code> if definitely <code>$A \not =B$</code>, otherwise write <code>$A \subseteq B$</code>.</li>
 <li>Set difference is written with a backslash <code>$\backslash$</code>, not with a minus <code>$-$</code>.</li>
 <li>If e is not an element of S, then <code>$e \not \in S$</code> (and not something like <code>$e \in' S$</code>).</li>
 <li>The size of a set <code>$A$</code> is <code>$|A|$</code>, not <code>$\#(A)$</code></li>
 </ul>
-
-<h3>Logic</h3>
-
+<h3 id="Logic"><a class="hanchor" href="#Logic">Logic</a></h3>
 <ul>
 <li>Use <code>$\Rightarrow$</code> or <code>$\Leftarrow$</code> for implication and <code>$\Leftrightarrow$</code> for the biconditional instead of <code>$\leftarrow$</code> or <code>$\rightarrow$</code> and <code>$\leftrightarrow$</code>.</li>
 </ul>
-
-<h3>Probability Theory and Statistics</h3>
-
+<h3 id="Probability_Theory_and_Statistics"><a class="hanchor" href="#Probability_Theory_and_Statistics">Probability Theory and Statistics</a></h3>
 <ul>
 <li>I write the expectation of the probability distribution <code>$X$</code> as <code>$\mathbb{E}[X]$</code> and the variance of <code>$X$</code> as <code>$\mathbb{V}[X]$</code>. Unfortunately, <code>$\mathbb{C}$</code> is already taken for the complex numbers, so I am forced to write <code>$\text{cov}[X,Y]$</code> for the covariance, and <code>$\text{cor}[X,Y]$</code> for the correlation.</li>
 </ul>
-
-<h3>Game Theory</h3>
-
+<h3 id="Game_Theory"><a class="hanchor" href="#Game_Theory">Game Theory</a></h3>
 <p>(Or social choice theory/decision theory/utility theory…)</p>
-
 <ul>
 <li>Some people use <code>$P, R, I$</code> instead of <code>$\prec, \preceq, \sim$</code>. I often don't.</li>
 <li>As per <a href="https://en.wikipedia.org/wiki/Minimax#Maximin">Wikipedia</a>, the term "maximin" refers to the strategy of maximizing one's own minimum payoff in non-zero-sum games, while "minimax" is the strategy of minimizing the opponent's maximum payoff in zero-sum games
@@ -149,53 +106,47 @@ Schein von ihm schwindet.</p>
 </ul></li>
 </ul></li>
 </ul>
-
 <table>
 <tbody>
-    <tr>
-        <td>(Optimizing one's own value)</td>
-        <td>Maximum</td>
-        <td>Minimum</td>
-    </tr>
-    <tr>
-        <td>maximize</td>
-        <td>maximax</td>
-        <td>maximin</td>
-    </tr>
-    <tr>
-        <td>minimize</td>
-        <td>minimax</td>
-        <td>minimin</td>
-    </tr>
+<tr>
+<td>(Optimizing one's own value)</td>
+<td>Maximum</td>
+<td>Minimum</td>
+</tr>
+<tr>
+<td>maximize</td>
+<td>maximax</td>
+<td>maximin</td>
+</tr>
+<tr>
+<td>minimize</td>
+<td>minimax</td>
+<td>minimin</td>
+</tr>
 </tbody>
 </table>
-
-<hr />
-
+<hr/>
 <table>
 <tbody>
-    <tr>
-        <td>(Optimizing the other player's value)</td>
-        <td>Maximum</td>
-        <td>Minimum</td>
-    </tr>
-    <tr>
-        <td>maximize</td>
-        <td>maxmaxi</td>
-        <td>maxmini</td>
-    </tr>
-    <tr>
-        <td>minimize</td>
-        <td>minmaxi</td>
-        <td>minmini</td>
-    </tr>
+<tr>
+<td>(Optimizing the other player's value)</td>
+<td>Maximum</td>
+<td>Minimum</td>
+</tr>
+<tr>
+<td>maximize</td>
+<td>maxmaxi</td>
+<td>maxmini</td>
+</tr>
+<tr>
+<td>minimize</td>
+<td>minmaxi</td>
+<td>minmini</td>
+</tr>
 </tbody>
 </table>
-
 <p>(This is <em>not</em> the terminology I will use, but I would if I were brave enough)</p>
-
-<h2>Things I Would Like To Do But I'm Not Brave Enough</h2>
-
+<h2 id="Things_I_Would_Like_To_Do_But_Im_Not_Brave_Enough"><a class="hanchor" href="#Things_I_Would_Like_To_Do_But_Im_Not_Brave_Enough">Things I Would Like To Do But I'm Not Brave Enough</a></h2>
 <ul>
 <li>Use the generalized everything
 <ul>
@@ -211,10 +162,8 @@ Schein von ihm schwindet.</p>
 </ul></li>
 <li>Use more different symbols from many different scripts. Sure, よ for the <a href="https://en.wikipedia.org/wiki/Yoneda_lemma">Yoneda embedding</a> and Ш for the <a href="https://en.wikipedia.org/wiki/Tate-Shafarevich_group">Tate-Shafarevich group</a> or the <a href="https://en.wikipedia.org/wiki/Dirac_comb">Dirac comb</a> are cute, but what about இ, ᚠ, ཧ, ದ, 𖤶 and ᕚ? One might want to object that these are hard to remember and therefore pronounce correctly, which is one of the reasons I don't use them. But on the other hand, one could focus on one script at a time, making it easier to learn the different symbols, especially if they are mostly used in text.</li>
 </ul>
-
-<h2>Things I'm Unsure About</h2>
-
+<h2 id="Things_Im_Unsure_About"><a class="hanchor" href="#Things_Im_Unsure_About">Things I'm Unsure About</a></h2>
 <ul>
 <li>Basically every usage of <code>$\ell$</code> feels weird to me (except for the <code>$\ell_p$</code> norm and <code>$\ell^p$</code> space maybe). It often seems too important/out of place for a simple variable (or, <em>god forbid</em>, an index).</li>
 </ul>
-</html>
+</body></html>

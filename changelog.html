@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,144 +32,120 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-04-02, modified: 2022-09-20, language: english, status: in progress, importance: 3, confidence: log</em></p>
-
 <blockquote>
-  <p><strong>A monthly review of changes on this website.</strong></p>
+<p><strong>A monthly review of changes on this website.</strong></p>
 </blockquote>
-
-<h1>Changelog</h1>
-
+<h1 id="Changelog"><a class="hanchor" href="#Changelog">Changelog</a></h1>
 <blockquote>
-  <p>Mein Unternehmen ist im Grund nicht schwierig, ich brauche nur
+<p>Mein Unternehmen ist im Grund nicht schwierig, ich brauche nur
 unsterblich zu sein, um es zu vollenden.</p>
 </blockquote>
-
 <p><em>—<a href="https://en.wikipedia.org/wiki/Jorge_Luis_Borges">Jorge Luis Borges</a>, “Pierre Menard, Autor des Quijote”, 1962</em></p>
-
 <blockquote>
-  <p>it’s Good that just mutates and twists, and it’s Evil that teems
+<p>it’s Good that just mutates and twists, and it’s Evil that teems
 with fecundity.</p>
 </blockquote>
-
 <p><em>—<a href="https://slatestarcodex.com/">Scott Alexander</a>, <a href="https://slatestarcodex.com/2015/08/17/the-goddess-of-everything-else-2/">“The Goddess of Everything Else”</a>, 2015</em></p>
-
-<h2>September 2022</h2>
-
+<h2 id="September_2022"><a class="hanchor" href="#September_2022">September 2022</a></h2>
 <ul>
 <li><a href="./language.html#Unclaimed_Domain_Names">Unclaimed Domain Names</a></li>
 <li><a href="./microfiction.html#Squeal">Squeal</a></li>
-<li>Some more <a href="./microfiction.html#English_1">senryūs</a>, <a href="./microfiction.html#Lipogrammatic-Bukkake-Senrys">some of them</a> <a href="https://en.wikipedia.org/wiki/Lipogram">lipogrammatic</a> <a href="https://en.wikipedia.org/wiki/Bukkake">bukkake</a> ones</li>
+<li>Some more <a href="./microfiction.html#English_1">senryūs</a>, <a href="./microfiction.html#Lipogrammatic_Bukkake_Senrys">some of them</a> <a href="https://en.wikipedia.org/wiki/Lipogram">lipogrammatic</a> <a href="https://en.wikipedia.org/wiki/Bukkake">bukkake</a> ones</li>
 </ul>
-
 <p>Meditation.</p>
-
-<h2>August 2022</h2>
-
+<h2 id="August_2022"><a class="hanchor" href="#August_2022">August 2022</a></h2>
 <ul>
 <li><a href="./data.html#Others">Other</a> personal datasets I collect</li>
-<li><a href="./forecasters.html#The-Five-Horsemen-of-Hard-Forecasting">The Five Horsemen of Hard Forecasting</a></li>
+<li><a href="./forecasters.html#The_Five_Horsemen_of_Hard_Forecasting">The Five Horsemen of Hard Forecasting</a></li>
 </ul>
-
 <p>Meditation.</p>
-
-<h2>July 2022</h2>
-
+<h2 id="July_2022"><a class="hanchor" href="#July_2022">July 2022</a></h2>
 <ul>
 <li><a href="./data.html">Types &amp; Methods of Data Collection I Use</a></li>
 <li><a href="./eccentric.html">If I Were An Eccentric Trillionaire</a></li>
 <li>Sections &amp; editing on <a href="./turning.html">Turning Some Inconsistent Preferences into Consistent Ones</a>, in particular
 <ul>
-<li><a href="./turning.html#Minimal-and-Maximal-Number-of-Turnings">Minimal and Maximal Number of Turnings</a></li>
-<li><a href="./turning.html#Number-of-Turnings-for-mathcalGn">Number of Turnings for <code>$\mathcal{G}_n$</code></a></li>
-<li><a href="./turning.html#Encoding-Inconsistencies">Encoding Inconsistencies</a> in the <a href="./turning.html#Discrete-Case_1">Discrete Case</a></li>
+<li><a href="./turning.html#Minimal_and_Maximal_Number_of_Turnings">Minimal and Maximal Number of Turnings</a></li>
+<li><a href="./turning.html#Number_of_Turnings_for_mathcalGn">Number of Turnings for <code>$\mathcal{G}_n$</code></a></li>
+<li><a href="./turning.html#Encoding_Inconsistencies">Encoding Inconsistencies</a> in the <a href="./turning.html#Discrete_Case_1">Discrete Case</a></li>
 </ul></li>
 <li><a href="./nst_solutions.html">Solutions to “Naïve Set Theory”</a>:
 <ul>
-<li><a href="./nst_solutions.html#Section-14">Section 14</a>:
+<li><a href="./nst_solutions.html#Section_14">Section 14</a>:
 <ul>
-<li><a href="./nst_solutions.html#Stray-Exercise-1_1">Stray Exercise 1</a></li>
+<li><a href="./nst_solutions.html#Stray_Exercise_1_1">Stray Exercise 1</a></li>
 </ul></li>
-<li><a href="./nst_solutions.html#Section-15">Section 15</a>
+<li><a href="./nst_solutions.html#Section_15">Section 15</a>
 <ul>
-<li><a href="./nst_solutions.html#Stray-Exercise-1_2">Stray Exercise 1</a></li>
-<li><a href="./nst_solutions.html#Stray-Exercise-2">Stray Exercise 2</a></li>
+<li><a href="./nst_solutions.html#Stray_Exercise_1_2">Stray Exercise 1</a></li>
+<li><a href="./nst_solutions.html#Stray_Exercise_2">Stray Exercise 2</a></li>
 </ul></li>
 </ul></li>
 <li><a href="./pg_solutions.html">Solutions to “Population Genetics”</a>:
 <ul>
-<li><a href="./pg_solutions.html#Chapter-1">Chapter 1</a>
+<li><a href="./pg_solutions.html#Chapter_1">Chapter 1</a>
 <ul>
-<li><a href="./pg_solutions.html#Problem-16">Problem 1.6</a></li>
+<li><a href="./pg_solutions.html#Problem_16">Problem 1.6</a></li>
 </ul></li>
 </ul></li>
 </ul>
-
-<h3>Other</h3>
-
+<h3 id="Other"><a class="hanchor" href="#Other">Other</a></h3>
 <p>I also worked on the library <a href="https://github.com/niplav/iqisa">iqisa</a>,
 which I hope to bring into a presentable shape by the end of the year
 (any faster and I'd lose the forecasting community, I fear).</p>
-
-<h2>June 2022</h2>
-
+<h2 id="June_2022"><a class="hanchor" href="#June_2022">June 2022</a></h2>
 <ul>
 <li><a href="./favorites.html">Favorites</a></li>
 <li><a href="./notes.html">Notes</a>
 <ul>
-<li><a href="./notes.html#An-Example-for-Not-Updating-Uncertain-Utility-Functions">An Example for Not Updating Uncertain Utility Functions</a></li>
-<li><a href="./notes.html#Geometric-Mean-of-Odds-Arithmetic-Mean-of-Logodds">Geometric Mean of Odds, Arithmetic Mean of Logodds</a></li>
+<li><a href="./notes.html#An_Example_for_Not_Updating_Uncertain_Utility_Functions">An Example for Not Updating Uncertain Utility Functions</a></li>
+<li><a href="./notes.html#Geometric_Mean_of_Odds_Arithmetic_Mean_of_Logodds">Geometric Mean of Odds, Arithmetic Mean of Logodds</a></li>
 </ul></li>
 </ul>
-
-<h2>May 2022</h2>
-
+<h2 id="May_2022"><a class="hanchor" href="#May_2022">May 2022</a></h2>
 <ul>
 <li><a href="./range_and_forecasting_accuracy.html">Range and Forecasting Accuracy</a>
 <ul>
 <li>Rewrote the code in Python 3</li>
 <li>Between Forecasts
 <ul>
-<li><a href="./range_and_forecasting_accuracy.html#NonLinear-CurveFitting">Non-Linear Curve-Fitting</a>
+<li><a href="./range_and_forecasting_accuracy.html#NonLinear_CurveFitting">Non-Linear Curve-Fitting</a>
 <ul>
-<li><a href="./range_and_forecasting_accuracy.html#Fitting-a-Logistic-Function">Fitting a Logistic Function</a></li>
-<li><a href="./range_and_forecasting_accuracy.html#Fitting-an-Exponential">Fitting an Exponential Function</a></li>
-<li><a href="./range_and_forecasting_accuracy.html#This-Is-Cool">This Is Cool</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Fitting_a_Logistic_Function">Fitting a Logistic Function</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Fitting_an_Exponential">Fitting an Exponential Function</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#This_Is_Cool">This Is Cool</a></li>
 </ul></li>
 </ul></li>
-<li><a href="./range_and_forecasting_accuracy.html#Statistical-Significance-of-Truncated-Datasets">Statistical Significance of Truncated Datasets</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Statistical_Significance_of_Truncated_Datasets">Statistical Significance of Truncated Datasets</a></li>
 <li>Between Questions
 <ul>
-<li><a href="./range_and_forecasting_accuracy.html#NonLinear-CurveFitting_1">Non-Linear Curve-Fitting</a></li>
-<li><a href="./range_and_forecasting_accuracy.html#Why-Longer-Range-Questions-More-Accurate">Why Long-Range Questions More Accurate</a></li>
-<li><a href="./range_and_forecasting_accuracy.html#This-Partially-Explains-the-Result-Between-Forecasts">This Partially Explains the Result Between Forecasts</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#NonLinear_CurveFitting_1">Non-Linear Curve-Fitting</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Why_Longer_Range_Questions_More_Accurate">Why Long-Range Questions More Accurate</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#This_Partially_Explains_the_Result_Between_Forecasts">This Partially Explains the Result Between Forecasts</a></li>
 </ul></li>
 <li>Within Questions
 <ul>
-<li><a href="./range_and_forecasting_accuracy.html#Logistic-CurveFit">Logistic Curve-Fit</a></li>
-<li><a href="./range_and_forecasting_accuracy.html#Exponential-CurveFit">Exponential Curve-Fit</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Logistic_CurveFit">Logistic Curve-Fit</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Exponential_CurveFit">Exponential Curve-Fit</a></li>
 </ul></li>
-<li><a href="./range_and_forecasting_accuracy.html#Appendix-A-Quotes-About-the-Maximal-TimeHorizon-of-Forecasts">Appendix A: Quotes About the Maximal Time-Horizon of Forecasts</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Appendix_A_Quotes_About_the_Maximal_TimeHorizon_of_Forecasts">Appendix A: Quotes About the Maximal Time-Horizon of Forecasts</a></li>
 </ul></li>
 <li><a href="./turning.html">Turning Some Inconsistent Preferences into Consistent Ones</a></li>
 <li>Re-organised the <a href="./text_reviews.html">Text Reviews</a></li>
 <li><a href="./notes.html">Notes</a>
 <ul>
-<li><a href="./notes.html#scipyoptimizecurvefit-Is-Awesome"><code>scipy.optimize.curve_fit</code> Is Awesome</a></li>
+<li><a href="./notes.html#scipyoptimizecurvefit_Is_Awesome"><code>scipy.optimize.curve_fit</code> Is Awesome</a></li>
 </ul></li>
 </ul>
-
-<h2>April 2022</h2>
-
+<h2 id="April_2022"><a class="hanchor" href="#April_2022">April 2022</a></h2>
 <ul>
 <li><a href="./nst_solutions.html">Solutions to “Naïve Set Theory”</a>:
 <ul>
-<li><a href="./nst_solutions.html#Section-14">Section 14</a>:
+<li><a href="./nst_solutions.html#Section_14">Section 14</a>:
 <ul>
-<li><a href="./nst_solutions.html#Exercise-1_11">Exercise 3</a></li>
+<li><a href="./nst_solutions.html#Exercise_1_11">Exercise 3</a></li>
 </ul></li>
 </ul></li>
 <li><a href="./agt_solutions.html">Solutions to “Algorithmic Game Theory”</a>
@@ -207,53 +157,51 @@ which I hope to bring into a presentable shape by the end of the year
 <li><a href="./range_and_forecasting_accuracy.html">Range and Forecasting Accuracy</a>
 <ul>
 <li>Rewrote part of the code in Python</li>
-<li><a href="./range_and_forecasting_accuracy.html#Statistical-Significance-of-Truncated-Datasets">Statistical Significance of Truncated Datasets</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Statistical_Significance_of_Truncated_Datasets">Statistical Significance of Truncated Datasets</a></li>
 </ul></li>
 <li>Converted Twitter links to <a href="https://nitter.hu">nitter.hu</a> links, since Twitter now freezes the view for visitors to the site who aren't logged in (another internet platform bites the dust, at least as infrastructure—maybe that will change under Musk?)</li>
 </ul>
-
-<h2>March 2022</h2>
-
+<h2 id="March_2022"><a class="hanchor" href="#March_2022">March 2022</a></h2>
 <ul>
 <li><a href="./notes.html">Notes</a>
 <ul>
-<li><a href="./notes.html#Building-a-Cuboid">Building a Cuboid</a></li>
+<li><a href="./notes.html#Building_a_Cuboid">Building a Cuboid</a></li>
 </ul></li>
 <li><a href="./notes_on_pickup.html">Notes on Pickup</a>
 <ul>
-<li><a href="./notes_on_pickup.html#Reductionism-on-Approach-Difficulties">Reductionism on Approach Difficulties</a></li>
-<li><a href="./notes_on_pickup.html#Instead-of-Recognizing-and-Dismantling-Shit-Tests-You-Could-Just-Vibe-Over-Them">Instead of Recognizing and Dismantling Shit Tests, You Could Just Vibe Over Them</a></li>
+<li><a href="./notes_on_pickup.html#Reductionism_on_Approach_Difficulties">Reductionism on Approach Difficulties</a></li>
+<li><a href="./notes_on_pickup.html#Instead_of_Recognizing_and_Dismantling_Shit_Tests_You_Could_Just_Vibe_Over_Them">Instead of Recognizing and Dismantling Shit Tests, You Could Just Vibe Over Them</a></li>
 </ul></li>
 <li><a href="./pickup_reports.html">Pickup Reports</a></li>
 <li><a href="./nst_solutions.html">Solutions to “Naïve Set Theory”</a>:
 <ul>
-<li><a href="./nst_solutions.html#Section-13">Section 13</a>:
+<li><a href="./nst_solutions.html#Section_13">Section 13</a>:
 <ul>
-<li><a href="./nst_solutions.html#Exercise-3_3">Exercise 3</a></li>
-<li><a href="./nst_solutions.html#Exercise-4_2">Exercise 4</a></li>
+<li><a href="./nst_solutions.html#Exercise_3_3">Exercise 3</a></li>
+<li><a href="./nst_solutions.html#Exercise_4_2">Exercise 4</a></li>
 </ul></li>
 </ul></li>
 <li><a href="./rs_solutions.html">Solutions to “Reactive Systems”</a>
 <ul>
-<li><a href="./rs_solutions.html#Chapter-3">Chapter 3</a>
+<li><a href="./rs_solutions.html#Chapter_3">Chapter 3</a>
 <ul>
 <li><a href="./rs_solutions.html#34">3.4</a></li>
 <li><a href="./rs_solutions.html#37">3.7</a></li>
 <li><a href="./rs_solutions.html#314">3.14</a></li>
 <li><a href="./rs_solutions.html#317">3.17</a></li>
 </ul></li>
-<li><a href="./rs_solutions.html#Chapter-4">Chapter 4</a>
+<li><a href="./rs_solutions.html#Chapter_4">Chapter 4</a>
 <ul>
 <li><a href="./rs_solutions.html#47">4.7</a></li>
 </ul></li>
-<li><a href="./rs_solutions.html#Chapter-5">Chapter 5</a>
+<li><a href="./rs_solutions.html#Chapter_5">Chapter 5</a>
 <ul>
 <li><a href="./rs_solutions.html#54">5.4</a></li>
 <li><a href="./rs_solutions.html#55">5.5</a></li>
 <li><a href="./rs_solutions.html#57">5.7</a></li>
 <li><a href="./rs_solutions.html#511">5.11</a></li>
 </ul></li>
-<li><a href="./rs_solutions.html#Chapter-6">Chapter 6</a>
+<li><a href="./rs_solutions.html#Chapter_6">Chapter 6</a>
 <ul>
 <li><a href="./rs_solutions.html#65">6.5</a></li>
 <li><a href="./rs_solutions.html#69">6.9</a></li>
@@ -265,122 +213,116 @@ which I hope to bring into a presentable shape by the end of the year
 </ul></li>
 <li>Restructured <a href="./range_and_forecasting_accuracy.html">Range and Forecasting Accuracy</a> by moving the section previously called "Conclusion" to the beginning and renaming it to <a href="./range_and_forecasting_accuracy.html#Results">Results</a></li>
 </ul>
-
-<h2>February 2022</h2>
-
+<h2 id="February_2022"><a class="hanchor" href="#February_2022">February 2022</a></h2>
 <ul>
 <li>Solutions to of the <a href="./99_problems_klong_solution.html">99 Klong Problems</a>:
 <ul>
-<li><a href="./99_problems_klong_solution.html#P64--Layout-a-binary-tree-1">P64</a></li>
+<li><a href="./99_problems_klong_solution.html#P64__Layout_a_binary_tree_1">P64</a></li>
 </ul></li>
 <li><a href="./nst_solutions.html">Solutions to “Naïve Set Theory”</a>:
 <ul>
-<li><a href="./nst_solutions.html#Section-13">Section 13</a>:
+<li><a href="./nst_solutions.html#Section_13">Section 13</a>:
 <ul>
-<li><a href="./nst_solutions.html#Exercise-1_10">Exercise 1</a></li>
-<li><a href="./nst_solutions.html#Exercise-2_6">Exercise 2</a></li>
+<li><a href="./nst_solutions.html#Exercise_1_10">Exercise 1</a></li>
+<li><a href="./nst_solutions.html#Exercise_2_6">Exercise 2</a></li>
 </ul></li>
 </ul></li>
 <li><a href="./pg_solutions.html">Solutions to “Population Genetics”</a>:
 <ul>
-<li><a href="./pg_solutions.html#Chapter-2">Chapter 2</a>
+<li><a href="./pg_solutions.html#Chapter_2">Chapter 2</a>
 <ul>
-<li><a href="./pg_solutions.html#Problem-22">Problem 2.2</a></li>
-<li><a href="./pg_solutions.html#Problem-25">Problem 2.5</a></li>
-<li><a href="./pg_solutions.html#Problem-27">Problem 2.7</a></li>
-<li><a href="./pg_solutions.html#Problem-29">Problem 2.9</a></li>
+<li><a href="./pg_solutions.html#Problem_22">Problem 2.2</a></li>
+<li><a href="./pg_solutions.html#Problem_25">Problem 2.5</a></li>
+<li><a href="./pg_solutions.html#Problem_27">Problem 2.7</a></li>
+<li><a href="./pg_solutions.html#Problem_29">Problem 2.9</a></li>
 </ul></li>
 </ul></li>
 <li><a href="./rs_solutions.html">Solutions to “Reactive Systems”</a>
 <ul>
-<li><a href="./rs_solutions.html#Chapter-6">Chapter 6</a>
+<li><a href="./rs_solutions.html#Chapter_6">Chapter 6</a>
 <ul>
 <li><a href="./rs_solutions.html#67">6.7</a></li>
 </ul></li>
 </ul></li>
 <li><a href="./notes_on_ethics.html">Notes on Ethics</a>
 <ul>
-<li><a href="./notes_on_ethics.html#Arguments-Against-Preference-Utilitarianism">Arguments Against Preference Utilitarianism</a></li>
+<li><a href="./notes_on_ethics.html#Arguments_Against_Preference_Utilitarianism">Arguments Against Preference Utilitarianism</a></li>
 </ul></li>
 <li><a href="./language.html">Playing with Language</a>
 <ul>
-<li><a href="./language.html#Advertising-Lines">Advertising Lines</a></li>
+<li><a href="./language.html#Advertising_Lines">Advertising Lines</a></li>
 <li><a href="./language.html#Openers">Daygame Openers</a></li>
 </ul></li>
 <li><a href="./about.html">About</a>
 <ul>
-<li><a href="./about.html#Not-Really-a-Blog">Not Really a Blog</a></li>
+<li><a href="./about.html#Not_Really_a_Blog">Not Really a Blog</a></li>
 </ul></li>
 <li><a href="./notes.html">Notes</a>
 <ul>
-<li><a href="./notes.html#Ideas-for-More-Pronominal-Esperanto-Words">Ideas for More Pronominal Esperanto Words</a></li>
+<li><a href="./notes.html#Ideas_for_More_Pronominal_Esperanto_Words">Ideas for More Pronominal Esperanto Words</a></li>
 </ul></li>
 <li>Now hosting a copy of <a href="./declaration.html">A Declaration of the Independence of Cyberspace</a></li>
 </ul>
-
-<h2>January 2022</h2>
-
+<h2 id="January_2022"><a class="hanchor" href="#January_2022">January 2022</a></h2>
 <ul>
 <li><a href="./pg_solutions.html">Solutions to “Population Genetics”</a>:
 <ul>
-<li><a href="./pg_solutions.html#Chapter-1">Chapter 1</a>
+<li><a href="./pg_solutions.html#Chapter_1">Chapter 1</a>
 <ul>
-<li><a href="./pg_solutions.html#Problem-11">Problem 1.1</a></li>
+<li><a href="./pg_solutions.html#Problem_11">Problem 1.1</a></li>
 </ul></li>
-<li><a href="./pg_solutions.html#Problem-12">Problem 1.2</a>
+<li><a href="./pg_solutions.html#Problem_12">Problem 1.2</a>
 <ul>
-<li><a href="./pg_solutions.html#Problem-15">Problem 1.5</a></li>
+<li><a href="./pg_solutions.html#Problem_15">Problem 1.5</a></li>
 </ul></li>
 </ul></li>
 <li><a href="./nst_solutions.html">Solutions to “Naïve Set Theory”</a>:
 <ul>
-<li><a href="./nst_solutions.html#Section-13">Section 13</a>:
+<li><a href="./nst_solutions.html#Section_13">Section 13</a>:
 <ul>
-<li><a href="./nst_solutions.html#Stray-Exercise-1">Stray Exercise 1</a></li>
+<li><a href="./nst_solutions.html#Stray_Exercise_1">Stray Exercise 1</a></li>
 </ul></li>
 </ul></li>
 <li><a href="./rs_solutions.html">Solutions to “Reactive Systems</a>:
 <ul>
-<li><a href="./rs_solutions.html#Chapter-3">Chapter 3</a>
+<li><a href="./rs_solutions.html#Chapter_3">Chapter 3</a>
 <ul>
 <li><a href="./rs_solutions.html#312">3.12</a></li>
 <li><a href="./rs_solutions.html#330">3.30</a></li>
 <li><a href="./rs_solutions.html#341">3.41</a></li>
 </ul></li>
-<li><a href="./rs_solutions.html#Chapter-5">Chapter 5</a>
+<li><a href="./rs_solutions.html#Chapter_5">Chapter 5</a>
 <ul>
 <li><a href="./rs_solutions.html#51">5.1</a></li>
 <li><a href="./rs_solutions.html#52">5.2</a></li>
 <li><a href="./rs_solutions.html#53">5.3</a></li>
 </ul></li>
-<li><a href="./rs_solutions.html#Chapter-6">Chapter 6</a>
+<li><a href="./rs_solutions.html#Chapter_6">Chapter 6</a>
 <ul>
-<li><a href="./rs_solutions.html#Stray-Exercise-4_1">Stray Exercise 4</a></li>
+<li><a href="./rs_solutions.html#Stray_Exercise_4_1">Stray Exercise 4</a></li>
 <li><a href="./rs_solutions.html#64">6.4</a></li>
 </ul></li>
 </ul></li>
 <li><a href="./tjpb_exercises.html">Exercises for “The Jazz Piano Book”</a>
 <ul>
-<li><a href="./tjpb_exercises.html#Chapter-4">Chapter 4</a></li>
+<li><a href="./tjpb_exercises.html#Chapter_4">Chapter 4</a></li>
 </ul></li>
 <li>Imported <a href="./pil_solutions.html">Solutions to “Programming in Lua”</a></li>
 <li><a href="./bcis_and_alignment.html">Brain-Computer Interfaces and AI Alignment</a>:
 <ul>
-<li><a href="./bcis_and_alignment.html#Sidechannel-Attacks">Sidechannel Attacks</a></li>
+<li><a href="./bcis_and_alignment.html#Sidechannel_Attacks">Sidechannel Attacks</a></li>
 </ul></li>
 <li><a href="./text_reviews.html">Text Reviews</a>
 <ul>
-<li><a href="./text_reviews.html#AntiAging-State-of-the-Art-JackH-2020">Anti-Aging: State of the Art (JackH, 2020)</a></li>
+<li><a href="./text_reviews.html#AntiAging_State_of_the_Art_JackH_2020">Anti-Aging: State of the Art (JackH, 2020)</a></li>
 </ul></li>
 <li><a href="./notes.html">Notes</a>
 <ul>
-<li><a href="./notes.html#A-Simple-Proof-that-in-HardyWeinberg-Mating-Allele-Frequencies-are-Preserved">A Simple Proof that in Hardy-Weinberg Mating, Allele Frequencies are Preserved</a></li>
+<li><a href="./notes.html#A_Simple_Proof_that_in_HardyWeinberg_Mating_Allele_Frequencies_are_Preserved">A Simple Proof that in Hardy-Weinberg Mating, Allele Frequencies are Preserved</a></li>
 </ul></li>
 <li><a href="./mathematics_notation_convention.html">Mathematics Notation Convention</a></li>
 </ul>
-
-<h2>December 2021</h2>
-
+<h2 id="December_2021"><a class="hanchor" href="#December_2021">December 2021</a></h2>
 <ul>
 <li><a href="./rs_solutions.html">Solutions to “Reactive Systems</a>:
 <ul>
@@ -389,39 +331,37 @@ which I hope to bring into a presentable shape by the end of the year
 <li><a href="./rs_solutions.html#27">2.7</a></li>
 <li><a href="./rs_solutions.html#212">2.12</a></li>
 </ul></li>
-<li><a href="./rs_solutions.html#Chapter-3">Chapter 3</a>
+<li><a href="./rs_solutions.html#Chapter_3">Chapter 3</a>
 <ul>
-<li><a href="./rs_solutions.html#Stray-Exercise-2">Stray Exercise 2</a></li>
+<li><a href="./rs_solutions.html#Stray_Exercise_2">Stray Exercise 2</a></li>
 </ul></li>
-<li><a href="./rs_solutions.html#Chapter-4">Chapter 4</a>
+<li><a href="./rs_solutions.html#Chapter_4">Chapter 4</a>
 <ul>
 <li><a href="./rs_solutions.html#41">4.1</a></li>
 <li><a href="./rs_solutions.html#42">4.2</a></li>
 <li><a href="./rs_solutions.html#43">4.3</a></li>
 <li><a href="./rs_solutions.html#49">4.9</a></li>
-<li><a href="./rs_solutions.html#Stray-Exercise-4">Stray Exercise 4</a></li>
+<li><a href="./rs_solutions.html#Stray_Exercise_4">Stray Exercise 4</a></li>
 </ul></li>
 </ul></li>
 <li><a href="./bcis_and_alignment.html">Brain-Computer Interfaces and AI Alignment</a>:
 <ul>
-<li><a href="./bcis_and_alignment.html#Existing-Texts">Existing Texts</a></li>
-<li><a href="./bcis_and_alignment.html#Scaling-far-Beyond-Human-Intelligence">Scaling far Beyond Human Intelligence</a></li>
-<li><a href="./bcis_and_alignment.html#Removing-Merged-Humans-is-a-Convergent-Instrumental-Strategy-for-AI-Systems">Removing Merged Humans is a Convergent Instrumental Strategy for AI Systems</a></li>
-<li><a href="./bcis_and_alignment.html#How-Important-Is-Wisdom">How Important is Wisdom?</a></li>
-<li><a href="./bcis_and_alignment.html#Superintelligent-Human-Brains-Seem-Dangerous-Although-Less-So">Superintelligent Human Brains Seem Dangerous (Although Less So)</a></li>
+<li><a href="./bcis_and_alignment.html#Existing_Texts">Existing Texts</a></li>
+<li><a href="./bcis_and_alignment.html#Scaling_far_Beyond_Human_Intelligence">Scaling far Beyond Human Intelligence</a></li>
+<li><a href="./bcis_and_alignment.html#Removing_Merged_Humans_is_a_Convergent_Instrumental_Strategy_for_AI_Systems">Removing Merged Humans is a Convergent Instrumental Strategy for AI Systems</a></li>
+<li><a href="./bcis_and_alignment.html#How_Important_Is_Wisdom">How Important is Wisdom?</a></li>
+<li><a href="./bcis_and_alignment.html#Superintelligent_Human_Brains_Seem_Dangerous_Although_Less_So">Superintelligent Human Brains Seem Dangerous (Although Less So)</a></li>
 </ul></li>
 <li><a href="./text_reviews.html">Text Reviews</a>
 <ul>
-<li><a href="./text_reviews.html#Persuasion-Tools-AI-takeover-without-AGI-or-agency-Daniel-Kokotajlo-2020">Persuasion Tools: AI takeover without AGI or agency? (Daniel Kokotajlo, 2020)</a></li>
+<li><a href="./text_reviews.html#Persuasion_Tools_AI_takeover_without_AGI_or_agency_Daniel_Kokotajlo_2020">Persuasion Tools: AI takeover without AGI or agency? (Daniel Kokotajlo, 2020)</a></li>
 </ul></li>
 </ul>
-
-<h2>November 2021</h2>
-
+<h2 id="November_2021"><a class="hanchor" href="#November_2021">November 2021</a></h2>
 <ul>
 <li><a href="./rs_solutions.html">Solutions to “Reactive Systems</a>:
 <ul>
-<li><a href="./rs_solutions.html#Chapter-3">Chapter 3</a>
+<li><a href="./rs_solutions.html#Chapter_3">Chapter 3</a>
 <ul>
 <li><a href="./rs_solutions.html#31">3.1</a></li>
 <li><a href="./rs_solutions.html#32">3.2</a></li>
@@ -431,9 +371,7 @@ which I hope to bring into a presentable shape by the end of the year
 </ul></li>
 </ul></li>
 </ul>
-
-<h2>October 2021</h2>
-
+<h2 id="October_2021"><a class="hanchor" href="#October_2021">October 2021</a></h2>
 <ul>
 <li>New pages:
 <ul>
@@ -446,11 +384,11 @@ which I hope to bring into a presentable shape by the end of the year
 <ul>
 <li><a href="./99_problems_klong_solution.html">99 Problems Klong Solution</a>:
 <ul>
-<li><a href="./99_problems_klong_solution.html#P63--Construct-a-complete-binary-tree">P63</a></li>
+<li><a href="./99_problems_klong_solution.html#P63__Construct_a_complete_binary_tree">P63</a></li>
 </ul></li>
 <li><a href="./considerations_on_cryonics.html">Considerations on Cryonics</a>
 <ul>
-<li><a href="./considerations_on_cryonics.html#Now-What">Now What?</a></li>
+<li><a href="./considerations_on_cryonics.html#Now_What">Now What?</a></li>
 </ul></li>
 <li><a href="./range_and_forecasting_accuracy.html">Range and Forecasting Accuracy</a>
 <ul>
@@ -459,17 +397,17 @@ which I hope to bring into a presentable shape by the end of the year
 </ul></li>
 <li><a href="./nst_solutions.html">Solutions to “Naive Set Theory”</a>:
 <ul>
-<li><a href="./nst_solutions.html#Section-12">Section 12</a>
+<li><a href="./nst_solutions.html#Section_12">Section 12</a>
 <ul>
-<li><a href="./nst_solutions.html#Exercise-1_9">Exercise 1</a></li>
-<li><a href="./nst_solutions.html#Exercise-2_5">Exercise 2</a></li>
-<li><a href="./nst_solutions.html#Exercise-3_2">Exercise 3</a></li>
-<li><a href="./nst_solutions.html#Exercise-4_1">Exercise 4</a></li>
+<li><a href="./nst_solutions.html#Exercise_1_9">Exercise 1</a></li>
+<li><a href="./nst_solutions.html#Exercise_2_5">Exercise 2</a></li>
+<li><a href="./nst_solutions.html#Exercise_3_2">Exercise 3</a></li>
+<li><a href="./nst_solutions.html#Exercise_4_1">Exercise 4</a></li>
 </ul></li>
 </ul></li>
 <li><a href="./rs_solutions.html">Solutions to “Reactive Systems</a>:
 <ul>
-<li><a href="./rs_solutions.html#Chapter-2">Chapter 2</a>
+<li><a href="./rs_solutions.html#Chapter_2">Chapter 2</a>
 <ul>
 <li><a href="./rs_solutions.html#21">2.1</a></li>
 <li><a href="./rs_solutions.html#22">2.2</a></li>
@@ -480,84 +418,65 @@ which I hope to bring into a presentable shape by the end of the year
 </ul></li>
 </ul></li>
 </ul>
-
 <p>I now sort-of disavow <a href="./life_improvements_2030.html">Life Improvements in
 2030</a>: It completely missed the premise
 of thinking how regular people might perceive the future to be better
 in everyday life, instead turning into another average "How might the
 future be like?" post by focusing on big-picture developments. Boring.</p>
-
-<h3>Other</h3>
-
+<h3 id="Other_1"><a class="hanchor" href="#Other_1">Other</a></h3>
 <p>Updated the <a href="./texts_list.html">Texts List</a>. I finished
 reading the AI alignment articles <a href="https://arbital.com/explore/ai_alignment">in the corresponding Arbital
 domain</a>.</p>
-
-<h2>September 2021</h2>
-
+<h2 id="September_2021"><a class="hanchor" href="#September_2021">September 2021</a></h2>
 <p>Nothing.</p>
-
-<h2>August 2021</h2>
-
+<h2 id="August_2021"><a class="hanchor" href="#August_2021">August 2021</a></h2>
 <ul>
 <li><a href="./about.html#Miscellania">Various Statistics About the Site</a></li>
 <li><a href="./bcis_and_alignment.html">Brain-Computer Interfaces and AI Alignment</a></li>
 <li><a href="./life_improvements_2030.html">Life Improvements in 2030</a></li>
 <li><a href="./notes_on_ethics.html">Notes on Ethics</a>
 <ul>
-<li><a href="./notes_on_ethics.html#We-Should-Kill-All-Mosquitoes">We Should Kill All Mosquitoes</a></li>
+<li><a href="./notes_on_ethics.html#We_Should_Kill_All_Mosquitoes">We Should Kill All Mosquitoes</a></li>
 </ul></li>
 <li>Added one section to <a href="./considerations_on_cryonics.html">Considerations on Cryonics</a>:
 <ul>
-<li><a href="./considerations_on_cryonics.html#Being-Revived-as-an-Emulation-and-Forced-to-Work">Being Revived as an Emulation and Forced to Work</a></li>
+<li><a href="./considerations_on_cryonics.html#Being_Revived_as_an_Emulation_and_Forced_to_Work">Being Revived as an Emulation and Forced to Work</a></li>
 </ul></li>
 </ul>
-
-<h2>July 2021</h2>
-
+<h2 id="July_2021"><a class="hanchor" href="#July_2021">July 2021</a></h2>
 <ul>
 <li><a href="./notes.html">Notes</a>
 <ul>
-<li><a href="./notes.html#Ask-About-Frequency-of-Being-Approached-After-Rejection">Ask About Frequency of Being Approached After Rejection</a></li>
+<li><a href="./notes.html#Ask_About_Frequency_of_Being_Approached_After_Rejection">Ask About Frequency of Being Approached After Rejection</a></li>
 </ul></li>
 <li><a href="./notes_on_ethics.html">Notes on Ethics</a>
 <ul>
-<li><a href="./notes_on_ethics.html#Deference-Attractors-of-Ethical-Agents">Deference Attractors of Ethical Agents</a></li>
+<li><a href="./notes_on_ethics.html#Deference_Attractors_of_Ethical_Agents">Deference Attractors of Ethical Agents</a></li>
 </ul></li>
 </ul>
-
-<h2>June 2021</h2>
-
+<h2 id="June_2021"><a class="hanchor" href="#June_2021">June 2021</a></h2>
 <ul>
 <li><a href="./notes.html">Notes</a>
 <ul>
-<li><a href="./notes.html#She-Needs-to-Know-Youre-Not-a-Weirdo">She Needs to Know You're Not a Weirdo</a></li>
+<li><a href="./notes.html#She_Needs_to_Know_Youre_Not_a_Weirdo">She Needs to Know You're Not a Weirdo</a></li>
 </ul></li>
 </ul>
-
-<h3>Other</h3>
-
+<h3 id="Other_2"><a class="hanchor" href="#Other_2">Other</a></h3>
 <p>Again updated the <a href="./texts_list.html">Texts List</a> with a large number
 of texts. I continue to read a lot, and write relatively little.</p>
-
-<h2>May 2021</h2>
-
+<h2 id="May_2021"><a class="hanchor" href="#May_2021">May 2021</a></h2>
 <ul>
 <li><a href="./administrativa_for_facts.html">Administrativa for Facts</a></li>
 <li>Started <a href="./notes_on_predictions.html">Notes on Predictions</a>, though these are probably not very interesting for other people to read</li>
 <li><a href="./notes.html">Notes</a>
 <ul>
-<li><a href="./notes.html#Why-Not-NanoApartments">Why Not Nano-Apartments?</a></li>
+<li><a href="./notes.html#Why_Not_NanoApartments">Why Not Nano-Apartments?</a></li>
 </ul></li>
 </ul>
-
-<h3>Other</h3>
-
+<h3 id="Other_3"><a class="hanchor" href="#Other_3">Other</a></h3>
 <p>Updated the <a href="./texts_list.html">Texts List</a> with a large number of
 texts. I read a bunch this month.</p>
-
-<h2>April 2021</h2>
-
+<h2 id="April_2021"><a class="hanchor" href="#April_2021">April 2021</a></h2>
 <ul>
 <li><a href="./praml_solutions.html">Solutions to “Pattern Recognition and Machine Learning”</a>
 <ul>
@@ -572,13 +491,11 @@ texts. I read a bunch this month.</p>
 </ul></li>
 <li><a href="./notes_on_ethics.html">Notes on Ethics</a>
 <ul>
-<li><a href="./notes_on_ethics.html#Humans-Implement-Ethics-Discovery">Humans Implement Ethics Discovery</a></li>
-<li><a href="./notes_on_ethics.html#I-Care-About-Ethical-Decision-Procedures">I Care About Ethical Decision Procedures</a></li>
+<li><a href="./notes_on_ethics.html#Humans_Implement_Ethics_Discovery">Humans Implement Ethics Discovery</a></li>
+<li><a href="./notes_on_ethics.html#I_Care_About_Ethical_Decision_Procedures">I Care About Ethical Decision Procedures</a></li>
 </ul></li>
 </ul>
-
-<h2>March 2021</h2>
-
+<h2 id="March_2021"><a class="hanchor" href="#March_2021">March 2021</a></h2>
 <ul>
 <li>Rewrote &amp; re-analyzed <a href="./range_and_forecasting_accuracy.html">Range and Forecasting Accuracy</a></li>
 <li><a href="./aima_solutions.html">Solutions to “Artificial Intelligence: A Modern Approach”</a>
@@ -597,21 +514,19 @@ texts. I read a bunch this month.</p>
 </ul></li>
 <li><a href="./nst_solutions.html">Solutions to “Naïve Set Theory“</a>
 <ul>
-<li><a href="./nst_solutions.html#Exercise-1_8">Section 11 Exercise 1</a></li>
+<li><a href="./nst_solutions.html#Exercise_1_8">Section 11 Exercise 1</a></li>
 </ul></li>
 <li><a href="./notes.html">Notes</a>
 <ul>
-<li><a href="./notes.html#Implementing-Commutative-Hyperoperators">Implementing Commutative Hyperoperators</a></li>
-<li><a href="./notes.html#A-Trivial-Fact-About-Leyland-Numbers">A Trivial Fact About Leyland Numbers</a></li>
+<li><a href="./notes.html#Implementing_Commutative_Hyperoperators">Implementing Commutative Hyperoperators</a></li>
+<li><a href="./notes.html#A_Trivial_Fact_About_Leyland_Numbers">A Trivial Fact About Leyland Numbers</a></li>
 </ul></li>
 <li><a href="./text_reviews.html">Text Reviews</a>
 <ul>
-<li><a href="./text_reviews.html#Compassion-by-the-Pound-F-Bailey-NorwoodJayson-L-Lusk-2011">Compassion, by the Pound (F. Bailey Norwood/Jayson L. Lusk, 2011)</a></li>
+<li><a href="./text_reviews.html#Compassion_by_the_Pound_F_Bailey_NorwoodJayson_L_Lusk_2011">Compassion, by the Pound (F. Bailey Norwood/Jayson L. Lusk, 2011)</a></li>
 </ul></li>
 </ul>
-
-<h2>February 2021</h2>
-
+<h2 id="February_2021"><a class="hanchor" href="#February_2021">February 2021</a></h2>
 <ul>
 <li><a href="./aima_solutions.html">Solutions to “Artificial Intelligence: A Modern Approach”</a>
 <ul>
@@ -623,216 +538,170 @@ texts. I read a bunch this month.</p>
 </ul></li>
 <li><a href="./nst_solutions.html">Solutions to “Naïve Set Theory“</a>
 <ul>
-<li><a href="./nst_solutions.html#Exercise-5">Section 10 Exercise 5</a></li>
+<li><a href="./nst_solutions.html#Exercise_5">Section 10 Exercise 5</a></li>
 </ul></li>
 <li><a href="./life_advice.html">Life Advice</a></li>
 </ul>
-
-<h2>January 2021</h2>
-
+<h2 id="January_2021"><a class="hanchor" href="#January_2021">January 2021</a></h2>
 <ul>
 <li><a href="./administrativa_for_textbooks.html">Administrativa for Textbooks</a></li>
 <li><a href="./aima_solutions.html">Solutions to “Artificial Intelligence: A Modern Approach”</a></li>
 <li><a href="./text_reviews.html">Text Reviews</a>
 <ul>
-<li><a href="./text_reviews.html#1960-The-Year-The-Singularity-Was-Cancelled-Scott-Alexander-2019">1960: The Year The Singularity Was Cancelled (Scott Alexander, 2019)</a></li>
+<li><a href="./text_reviews.html#1960_The_Year_The_Singularity_Was_Cancelled_Scott_Alexander_2019">1960: The Year The Singularity Was Cancelled (Scott Alexander, 2019)</a></li>
 </ul></li>
 <li><a href="./toy_ai_takeoff_model.html">An Exploratory Toy AI Takeoff Model</a></li>
-<li><a href="./nst_solutions.html#Exercise-1_7">Exercises 1-4 in Section 10</a> in <a href="./nst_solutions.html">Solutions to “Naïve Set Theory“</a></li>
+<li><a href="./nst_solutions.html#Exercise_1_7">Exercises 1-4 in Section 10</a> in <a href="./nst_solutions.html">Solutions to “Naïve Set Theory“</a></li>
 <li>Notes
 <ul>
-<li><a href="./notes.html#TriggerAction-Plans">Trigger-Action Plans</a></li>
-<li><a href="./notes.html#A-Small-Variation-on-Counting-During-Concentration-Meditation">A Small Variation on Counting During Concentration Meditation</a></li>
+<li><a href="./notes.html#TriggerAction_Plans">Trigger-Action Plans</a></li>
+<li><a href="./notes.html#A_Small_Variation_on_Counting_During_Concentration_Meditation">A Small Variation on Counting During Concentration Meditation</a></li>
 </ul></li>
 </ul>
-
-<h2>December 2020</h2>
-
+<h2 id="December_2020"><a class="hanchor" href="#December_2020">December 2020</a></h2>
 <ul>
 <li>Added <a href="./text_reviews.html">Text Reviews</a>
 <ul>
-<li><a href="./text_reviews.html#The-Human-Predicament-David-Benatar-2017">The Human Predicament (David Benatar, 2017)</a></li>
-<li><a href="./text_reviews.html#What-failure-looks-like-Paul-Christiano-2019">What failure looks like (Paul Christiano, 2019)</a></li>
+<li><a href="./text_reviews.html#The_Human_Predicament_David_Benatar_2017">The Human Predicament (David Benatar, 2017)</a></li>
+<li><a href="./text_reviews.html#What_failure_looks_like_Paul_Christiano_2019">What failure looks like (Paul Christiano, 2019)</a></li>
 </ul></li>
-<li><a href="./range_and_forecasting_accuracy.html#Why-Some-Negative-Ranges">Why Some Negative Ranges?</a> in <a href="./range_and_forecasting_accuracy.html">Range and Forecasting Accuracy</a></li>
-<li><a href="./nst_solutions.html#Exercise-3">Exercise 3 in Section 9</a> in <a href="./nst_solutions.html">Solutions to “Naïve Set Theory“</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Why_Some_Negative_Ranges">Why Some Negative Ranges?</a> in <a href="./range_and_forecasting_accuracy.html">Range and Forecasting Accuracy</a></li>
+<li><a href="./nst_solutions.html#Exercise_3">Exercise 3 in Section 9</a> in <a href="./nst_solutions.html">Solutions to “Naïve Set Theory“</a></li>
 <li>Notes
 <ul>
 <li><a href="./notes.html#Gifts">Gifts</a></li>
-<li><a href="./notes.html#Vasectomy--Sperm-Freezing-CostBenefit">Vasectomy &amp; Sperm-Freezing Cost-Benefit</a></li>
+<li><a href="./notes.html#Vasectomy__Sperm_Freezing_CostBenefit">Vasectomy &amp; Sperm-Freezing Cost-Benefit</a></li>
 </ul></li>
 <li>Reports
 <ul>
-<li><a href="./reports.html#Looking-Into-A-Mirror">Looking Into A Mirror</a></li>
+<li><a href="./reports.html#Looking_Into_A_Mirror">Looking Into A Mirror</a></li>
 </ul></li>
 </ul>
-
-<h2>November 2020</h2>
-
+<h2 id="November_2020"><a class="hanchor" href="#November_2020">November 2020</a></h2>
 <ul>
-<li><a href="./range_and_forecasting_accuracy.html#Simpsons-Paradox">Simpson's Paradox</a> in <a href="./range_and_forecasting_accuracy.html#Simpsons-Paradox">Range and Forecasting Accuracy</a></li>
-<li><a href="./nst_solutions.html#Exercise-2_3">Exercise 2 in Section 9</a> in <a href="./nst_solutions.html">Solutions to “Naïve Set Theory“</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Simpsons_Paradox">Simpson's Paradox</a> in <a href="./range_and_forecasting_accuracy.html#Simpsons_Paradox">Range and Forecasting Accuracy</a></li>
+<li><a href="./nst_solutions.html#Exercise_2_3">Exercise 2 in Section 9</a> in <a href="./nst_solutions.html">Solutions to “Naïve Set Theory“</a></li>
 <li>Reports
 <ul>
-<li><a href="./reports.html#Attempted-7Day-Meditation-Retreat-at-Home">Attempted 7-Day Meditation Retreat at Home</a></li>
-<li><a href="./reports.html#300-Hours-of-Meditation">300 Hours of Meditation</a></li>
+<li><a href="./reports.html#Attempted_7Day_Meditation_Retreat_at_Home">Attempted 7-Day Meditation Retreat at Home</a></li>
+<li><a href="./reports.html#300_Hours_of_Meditation">300 Hours of Meditation</a></li>
 </ul></li>
 <li>Notes
 <ul>
-<li><a href="./notes.html#Stating-the-Result-of-An-Impossibility-Theorem-for-Welfarist-Axiologies">Stating the Result of “An Impossibility Theorem for Welfarist Axiologies”</a></li>
+<li><a href="./notes.html#Stating_the_Result_of_An_Impossibility_Theorem_for_Welfarist_Axiologies">Stating the Result of “An Impossibility Theorem for Welfarist Axiologies”</a></li>
 </ul></li>
 </ul>
-
-<h3>Other</h3>
-
+<h3 id="Other_4"><a class="hanchor" href="#Other_4">Other</a></h3>
 <p>Updated the <a href="./texts_list.html">Texts List</a>.</p>
-
-<h2>October 2020</h2>
-
+<h2 id="October_2020"><a class="hanchor" href="#October_2020">October 2020</a></h2>
 <ul>
 <li>Added two section to <a href="./considerations_on_cryonics.html">Considerations on Cryonics</a>:
 <ul>
 <li><a href="./considerations_on_cryonics.html#Caveats">Caveats</a></li>
-<li><a href="./considerations_on_cryonics.html#Quality-of-Preservation">Quality of Preservation</a></li>
+<li><a href="./considerations_on_cryonics.html#Quality_of_Preservation">Quality of Preservation</a></li>
 </ul></li>
 <li>Started <a href="./reports.html">Reports</a> with
 <ul>
-<li><a href="./reports.html#Countings-Smarts">Counting Smarts</a></li>
-<li><a href="./reports.html#Eating-Only-Every-Second-Day">Eating Only Every Second Day</a></li>
-<li><a href="./reports.html#Walking-Barefoot">Walking Barefoot</a></li>
-<li><a href="./reports.html#Riding-the-Bike-a-Lot">Riding the Bike a Lot</a></li>
-<li><a href="./reports.html#Mostly-Stopping-to-Bite-My-Nails">Mostly Stopping to Bite My Nails</a></li>
+<li><a href="./reports.html#Countings_Smarts">Counting Smarts</a></li>
+<li><a href="./reports.html#Eating_Only_Every_Second_Day">Eating Only Every Second Day</a></li>
+<li><a href="./reports.html#Walking_Barefoot">Walking Barefoot</a></li>
+<li><a href="./reports.html#Riding_the_Bike_a_Lot">Riding the Bike a Lot</a></li>
+<li><a href="./reports.html#Mostly_Stopping_to_Bite_My_Nails">Mostly Stopping to Bite My Nails</a></li>
 <li><a href="./reports.html#Melatonin">Melatonin</a></li>
 </ul></li>
-<li><a href="./nst_solutions.html#Other-Failing-Ways-of-Interpreting-the-Exercise">Some more thoughts</a> on <a href="./nst_solutions.html#Exercise-1_6">Exercise 1 from Section 9</a> in <a href="./nst_solutions.html">Solutions to “Naïve Set Theory“</a></li>
-<li><a href="./range_and_forecasting_accuracy.html#Three-Different-Analyses-An-Illustrative-Example">Explaining the different approaches of analysis</a> for <a href="./range_and_forecasting_accuracy.html">Range and Forecasting Accuracy</a></li>
+<li><a href="./nst_solutions.html#Other_Failing_Ways_of_Interpreting_the_Exercise">Some more thoughts</a> on <a href="./nst_solutions.html#Exercise_1_6">Exercise 1 from Section 9</a> in <a href="./nst_solutions.html">Solutions to “Naïve Set Theory“</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Three_Different_Analyses_An_Illustrative_Example">Explaining the different approaches of analysis</a> for <a href="./range_and_forecasting_accuracy.html">Range and Forecasting Accuracy</a></li>
 </ul>
-
-<h3>Other</h3>
-
+<h3 id="Other_5"><a class="hanchor" href="#Other_5">Other</a></h3>
 <p>Updated the <a href="./now.html">Now</a> page and the <a href="./texts_list.html">Texts
 List</a>.</p>
-
-<h2>September 2020</h2>
-
-<h3>Other</h3>
-
+<h2 id="September_2020"><a class="hanchor" href="#September_2020">September 2020</a></h2>
+<h3 id="Other_6"><a class="hanchor" href="#Other_6">Other</a></h3>
 <p>Renamed the Haikus page to <a href="./senryu.html">Senryūs</a>.</p>
-
-<h2>August 2020</h2>
-
+<h2 id="August_2020"><a class="hanchor" href="#August_2020">August 2020</a></h2>
 <ul>
 <li><a href="./considerations_on_cryonics.html">Considerations on Cryonics</a>
 <ul>
 <li><a href="./considerations_on_cryonics.html#Caveats">Caveats</a> on the value of future life years</li>
-<li>Started more in-depth thoughts on the <a href="./considerations_on_cryonics.html#Quality-of-Preservation">Quality of Cryopreservation</a></li>
+<li>Started more in-depth thoughts on the <a href="./considerations_on_cryonics.html#Quality_of_Preservation">Quality of Cryopreservation</a></li>
 </ul></li>
 </ul>
-
-<h2>July 2020</h2>
-
-<h3>Writing</h3>
-
+<h2 id="July_2020"><a class="hanchor" href="#July_2020">July 2020</a></h2>
+<h3 id="Writing"><a class="hanchor" href="#Writing">Writing</a></h3>
 <ul>
 <li>Started the <a href="./tjpb_exercises.html">Exercises for “The Jazz Piano Book”</a></li>
 <li><a href="./range_and_forecasting_accuracy.html">Range and Forecasting Accuracy</a>
 <ul>
 <li><a href="./range_and_forecasting_accuracy.html#Results_1">Results for Accuracy Between Questions</a></li>
-<li><a href="./range_and_forecasting_accuracy.html#Accuracy-Within-Questions">Accuracy Within Questions</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Accuracy_Within_Questions">Accuracy Within Questions</a></li>
 </ul></li>
 <li><a href="./notes.html">Notes</a>
 <ul>
 <li><a href="notes.html#Pseudocode-for-an-Algorithm-for-Finding-Supermaximal-Repeats-Using-a-Suffix-Array">Pseudocode for Finding Supermaximal Repeats via Enhanced Suffix Array</a></li>
 </ul></li>
 </ul>
-
-<h3>Other</h3>
-
+<h3 id="Other_7"><a class="hanchor" href="#Other_7">Other</a></h3>
 <p>Rebuilt the website, the chronological blog archives now contain the
 newest posts from the respective blogs.</p>
-
 <p>Updated the <a href="./now.html">Now</a> page.</p>
-
-<h2>June 2020</h2>
-
+<h2 id="June_2020"><a class="hanchor" href="#June_2020">June 2020</a></h2>
 <p>Due to personal commitments, I didn't work on this website very much
 in June.</p>
-
-<h3>Writing</h3>
-
+<h3 id="Writing_1"><a class="hanchor" href="#Writing_1">Writing</a></h3>
 <ul>
-<li><a href="./nst_solutions.html#Exercise-1_6">Non-Solution to Exercise 1 in Section 9 of Naïve Set Theory</a></li>
+<li><a href="./nst_solutions.html#Exercise_1_6">Non-Solution to Exercise 1 in Section 9 of Naïve Set Theory</a></li>
 <li><a href="./range_and_forecasting_accuracy.html#Analysis_1">Analysis and Results on Range and Forecasting Accuracy between Questions</a></li>
 </ul>
-
-<h3>Other</h3>
-
-<p>Imported existing lists I maintained on past <a href="./index.html#Media-Consumption">Media
+<h3 id="Other_8"><a class="hanchor" href="#Other_8">Other</a></h3>
+<p>Imported existing lists I maintained on past <a href="./index.html#Media_Consumption">Media
 Consumption</a>, specifically:</p>
-
 <ul>
 <li><a href="./texts_list.html">Texts I Have Read</a></li>
 <li><a href="./movies_list.html">Movies I Have Watched</a></li>
 <li><a href="./podcasts_list.html">Podcasts I Listen To</a></li>
 <li><a href="./series_list.html">Series I Have Watched</a></li>
 </ul>
-
-<h2>May 2020</h2>
-
+<h2 id="May_2020"><a class="hanchor" href="#May_2020">May 2020</a></h2>
 <p>Due to other personal commitments, I didn't work on this website very
 much in May.</p>
-
-<h3>Writing</h3>
-
+<h3 id="Writing_2"><a class="hanchor" href="#Writing_2">Writing</a></h3>
 <ul>
-<li><a href="./range_and_forecasting_accuracy.html#Low-Sample-Sizes-With-High-Ranges">Low Sample Sizes In High Ranges In Forecasting</a></li>
+<li><a href="./range_and_forecasting_accuracy.html#Low_Sample_Sizes_With_High_Ranges">Low Sample Sizes In High Ranges In Forecasting</a></li>
 </ul>
-
-<h2>April 2020</h2>
-
-<h3>Writing</h3>
-
+<h2 id="April_2020"><a class="hanchor" href="#April_2020">April 2020</a></h2>
+<h3 id="Writing_3"><a class="hanchor" href="#Writing_3">Writing</a></h3>
 <ul>
 <li><a href="./range_and_forecasting_accuracy.html">Range and Forecasting Accuracy</a></li>
-<li><a href="./nst_solutions.html">Solutions for Exercises in “Naïve Set Theory”</a>: Section <a href="./nst_solutions.html#Section-8">8</a></li>
-<li><a href="./daygame_cost_benefit.html#Social-Costs-from-Being-Found-Out">Social Costs from being Found Out Doing Daygame</a></li>
+<li><a href="./nst_solutions.html">Solutions for Exercises in “Naïve Set Theory”</a>: Section <a href="./nst_solutions.html#Section_8">8</a></li>
+<li><a href="./daygame_cost_benefit.html#Social_Costs_from_Being_Found_Out">Social Costs from being Found Out Doing Daygame</a></li>
 <li>Notes:
 <ul>
-<li><a href="./notes.html#Some-Qualitative-Intuitions-on-the-Effects-of-Open-Borders">Some Qualitative Intuitions on the Effects of Open Borders</a></li>
+<li><a href="./notes.html#Some_Qualitative_Intuitions_on_the_Effects_of_Open_Borders">Some Qualitative Intuitions on the Effects of Open Borders</a></li>
 </ul></li>
 </ul>
-
-<h2>March 2020</h2>
-
-<h3>Writing</h3>
-
+<h2 id="March_2020"><a class="hanchor" href="#March_2020">March 2020</a></h2>
+<h3 id="Writing_4"><a class="hanchor" href="#Writing_4">Writing</a></h3>
 <ul>
-<li><a href="./daygame_cost_benefit.html#A-Slightly-More-Complex-Model">A Slightly More Complex Model for the Value of Daygame</a></li>
-<li><a href="./nst_solutions.html">Solutions for Exercises in “Naïve Set Theory”</a>: Sections <a href="./nst_solutions.html#Section-6">6</a> &amp; <a href="./nst_solutions.html#Section-7">7</a></li>
-<li><a href="./99_problems_klong_solution.html#A-Generative-Solution">A Generative Solution for P60</a> in the <a href="./99_problems_klong_solution.html">99 Problems Klong Solution</a></li>
-<li><a href="./considerations_on_cryonics.html#Appendix-A-A-Guesstimate-Model">A Monte-Carlo Simulation for the Value of Cryonics</a></li>
+<li><a href="./daygame_cost_benefit.html#A_Slightly_More_Complex_Model">A Slightly More Complex Model for the Value of Daygame</a></li>
+<li><a href="./nst_solutions.html">Solutions for Exercises in “Naïve Set Theory”</a>: Sections <a href="./nst_solutions.html#Section_6">6</a> &amp; <a href="./nst_solutions.html#Section_7">7</a></li>
+<li><a href="./99_problems_klong_solution.html#A_Generative_Solution">A Generative Solution for P60</a> in the <a href="./99_problems_klong_solution.html">99 Problems Klong Solution</a></li>
+<li><a href="./considerations_on_cryonics.html#Appendix_A_A_Guesstimate_Model">A Monte-Carlo Simulation for the Value of Cryonics</a></li>
 </ul>
-
-<h2>February 2020</h2>
-
-<h3>Writing</h3>
-
+<h2 id="February_2020"><a class="hanchor" href="#February_2020">February 2020</a></h2>
+<h3 id="Writing_5"><a class="hanchor" href="#Writing_5">Writing</a></h3>
 <ul>
-<li><a href="./masturbation_and_attractiveness.html#Appendix-C-Further-Hypotheses">Further Hypotheses on Masturbation and Attractiveness</a></li>
-<li><a href="./daygame_cost_benefit.html#Empirical-Data-for-Ratios">Empirical Data for Daygame Ratios</a></li>
+<li><a href="./masturbation_and_attractiveness.html#Appendix_C_Further_Hypotheses">Further Hypotheses on Masturbation and Attractiveness</a></li>
+<li><a href="./daygame_cost_benefit.html#Empirical_Data_for_Ratios">Empirical Data for Daygame Ratios</a></li>
 </ul>
-
-<h2>January 2020</h2>
-
-<h3>Writing</h3>
-
+<h2 id="January_2020"><a class="hanchor" href="#January_2020">January 2020</a></h2>
+<h3 id="Writing_6"><a class="hanchor" href="#Writing_6">Writing</a></h3>
 <ul>
 <li>Started <a href="./daygame_cost_benefit.html">Daygame Cost-Benefit Analysis</a></li>
 <li>Added <a href="https://en.wikipedia.org/wiki/Longevity_escape_velocity">Longevity Escape Velocity</a> impacts to <a href="./considerations_on_cryonics.html">Considerations on Cryonics</a></li>
 <li>Notes
 <ul>
-<li><a href="./notes.html#Some-Thoughts-about-the-Qualia-Research-Institute">Some Thoughts about the Qualia Research Institute</a></li>
-<li><a href="./notes.html#The-Benefit-of-Reading-LessWrong">The Benefit of Reading LessWrong</a></li>
+<li><a href="./notes.html#Some_Thoughts_about_the_Qualia_Research_Institute">Some Thoughts about the Qualia Research Institute</a></li>
+<li><a href="./notes.html#The_Benefit_of_Reading_LessWrong">The Benefit of Reading LessWrong</a></li>
 </ul></li>
 <li>Updated the chronological blog archives:
 <ul>
@@ -842,103 +711,79 @@ much in May.</p>
 <li><a href="./trm_chrono.html">The Real Movement</a></li>
 </ul></li>
 </ul>
-
-<h2>December 2019</h2>
-
-<h3>Writing</h3>
-
+<h2 id="December_2019"><a class="hanchor" href="#December_2019">December 2019</a></h2>
+<h3 id="Writing_7"><a class="hanchor" href="#Writing_7">Writing</a></h3>
 <ul>
 <li>Restructured the <a href="./index.html">index page</a></li>
 <li>Notes
 <ul>
-<li><a href="./notes.html#Killing-Old-People-Versus-Infants">Killing Old People Versus Infants</a></li>
+<li><a href="./notes.html#Killing_Old_People_Versus_Infants">Killing Old People Versus Infants</a></li>
 </ul></li>
 </ul>
-
-<h2>November 2019</h2>
-
-<h3>Writing</h3>
-
+<h2 id="November_2019"><a class="hanchor" href="#November_2019">November 2019</a></h2>
+<h3 id="Writing_8"><a class="hanchor" href="#Writing_8">Writing</a></h3>
 <ul>
 <li><a href="./nst_solutions.html">Solutions to “Naïve Set Theory” up to section 6</a></li>
-<li>Solutions to <a href="./99_problems_klong_solution.html#P61--Count-the-leaves-of-a-binary-tree">P61</a>, <a href="./99_problems_klong_solution.html#P61A--Collect-the-leaves-of-a-binary-tree-in-a-list">P61A</a>, <a href="./99_problems_klong_solution.html#P62--Collect-the-internal-nodes-of-a-binary-tree-in-a-list">P62</a> and <a href="./99_problems_klong_solution.html#P62B--Collect-the-nodes-at-a-given-level-in-a-tree">P62B</a> of the <a href="./99_problems_klong_solution.html">99 Klong Problems</a></li>
+<li>Solutions to <a href="./99_problems_klong_solution.html#P61__Count_the_leaves_of_a_binary_tree">P61</a>, <a href="./99_problems_klong_solution.html#P61A__Collect_the_leaves_of_a_binary_tree_in_a_list">P61A</a>, <a href="./99_problems_klong_solution.html#P62__Collect_the_internal_nodes_of_a_binary_tree_in_a_list">P62</a> and <a href="./99_problems_klong_solution.html#P62B__Collect_the_nodes_at_a_given_level_in_a_tree">P62B</a> of the <a href="./99_problems_klong_solution.html">99 Klong Problems</a></li>
 <li>Notes
 <ul>
-<li><a href="./notes.html#Artificial-Intelligence-and-ActionCompelling-Sentences">Artificial Intelligence and Action-Compelling Sentences</a></li>
-<li><a href="./notes.html#Use-Things-Up">Use Things Up</a></li>
+<li><a href="./notes.html#Artificial_Intelligence_and_ActionCompelling_Sentences">Artificial Intelligence and Action-Compelling Sentences</a></li>
+<li><a href="./notes.html#Use_Things_Up">Use Things Up</a></li>
 <li>Better Names
 <ul>
 <li><a href="./notes.html#Sentience">Better Names for "Sentience"</a></li>
 </ul></li>
 </ul></li>
 </ul>
-
-<h3>Site Changes</h3>
-
+<h3 id="Site_Changes"><a class="hanchor" href="#Site_Changes">Site Changes</a></h3>
 <ul>
 <li>Added table support in the CSS</li>
 </ul>
-
-<h2>October 2019</h2>
-
-<h3>Writing</h3>
-
+<h2 id="October_2019"><a class="hanchor" href="#October_2019">October 2019</a></h2>
+<h3 id="Writing_9"><a class="hanchor" href="#Writing_9">Writing</a></h3>
 <ul>
 <li><a href="./considerations_on_cryonics.html">Considerations on Cryonics</a></li>
 </ul>
-
-<h2>September 2019</h2>
-
-<h3>Writing</h3>
-
+<h2 id="September_2019"><a class="hanchor" href="#September_2019">September 2019</a></h2>
+<h3 id="Writing_10"><a class="hanchor" href="#Writing_10">Writing</a></h3>
 <ul>
 <li><a href="./against_applause.html">Against Applause After Classical Concerts</a></li>
-<li>Solutions to <a href="./99_problems_klong_solution.html#P55--Construct-completely-balanced-binary-trees">P55</a>, <a href="./99_problems_klong_solution.html#P56--Symmetric-binary-trees">P56</a>, <a href="./99_problems_klong_solution.html#P57--Binary-search-trees-dictionaries">P57</a>, <a href="./99_problems_klong_solution.html#P58--Generateandtest-paradigm">P58</a> and <a href="./99_problems_klong_solution.html#P59--Construct-heightbalanced-binary-trees">P59</a>, and a complete implementation of the <a href="./99_problems_klong_solution.html#A-More-Complete-Implementation">Huffman code</a> for the <a href="./99_problems_klong_solution.html">99 Klong Problems</a></li>
+<li>Solutions to <a href="./99_problems_klong_solution.html#P55__Construct_completely_balanced_binary_trees">P55</a>, <a href="./99_problems_klong_solution.html#P56__Symmetric_binary_trees">P56</a>, <a href="./99_problems_klong_solution.html#P57__Binary_search_trees_dictionaries">P57</a>, <a href="./99_problems_klong_solution.html#P58__Generateandtest_paradigm">P58</a> and <a href="./99_problems_klong_solution.html#P59__Construct_heightbalanced_binary_trees">P59</a>, and a complete implementation of the <a href="./99_problems_klong_solution.html#A_More_Complete_Implementation">Huffman code</a> for the <a href="./99_problems_klong_solution.html">99 Klong Problems</a></li>
 <li>Notes
 <ul>
-<li><a href="./notes.html#Better-Names-for-Things">Better Names for Things</a></li>
+<li><a href="./notes.html#Better_Names_for_Things">Better Names for Things</a></li>
 </ul></li>
 </ul>
-
-<h3>Programming</h3>
-
+<h3 id="Programming"><a class="hanchor" href="#Programming">Programming</a></h3>
 <ul>
 <li><a href="./awitt.html">awitt – Another Window Title Tracker</a></li>
 </ul>
-
-<h2>August 2019</h2>
-
-<h3>Writing</h3>
-
+<h2 id="August_2019"><a class="hanchor" href="#August_2019">August 2019</a></h2>
+<h3 id="Writing_11"><a class="hanchor" href="#Writing_11">Writing</a></h3>
 <ul>
 <li><a href="./estimated_life_expectancy.html">Subjective Estimates of Life Expectancy</a></li>
-<li>Solutions to <a href="./99_problems_klong_solution.html#P40--Goldbachs-conjecture">P40</a>, <a href="./99_problems_klong_solution.html#P41--A-list-of-Goldbach-compositions">P41</a>, <a href="./99_problems_klong_solution.html#P49--Gray-code">P49</a>, <a href="./99_problems_klong_solution.html#P50--Huffman-code">P50</a> and <a href="./99_problems_klong_solution.html#P54A--Check-whether-a-given-term-represents-a-binary-tree">P54A</a> of the <a href="./99_problems_klong_solution.html">99 Klong Problems</a></li>
+<li>Solutions to <a href="./99_problems_klong_solution.html#P40__Goldbachs_conjecture">P40</a>, <a href="./99_problems_klong_solution.html#P41__A_list_of_Goldbach_compositions">P41</a>, <a href="./99_problems_klong_solution.html#P49__Gray_code">P49</a>, <a href="./99_problems_klong_solution.html#P50__Huffman_code">P50</a> and <a href="./99_problems_klong_solution.html#P54A__Check_whether_a_given_term_represents_a_binary_tree">P54A</a> of the <a href="./99_problems_klong_solution.html">99 Klong Problems</a></li>
 <li>Notes
 <ul>
-<li><a href="./notes.html#Compliments-as-Utilitarian-Practice">Compliments as Utilitarian Praxis</a></li>
-<li><a href="./notes.html#Indirect-AntiNatalism">Indirect Anti-Natalism</a></li>
+<li><a href="./notes.html#Compliments_as_Utilitarian_Practice">Compliments as Utilitarian Praxis</a></li>
+<li><a href="./notes.html#Indirect_AntiNatalism">Indirect Anti-Natalism</a></li>
 </ul></li>
 </ul>
-
-<h3>Site Changes</h3>
-
+<h3 id="Site_Changes_1"><a class="hanchor" href="#Site_Changes_1">Site Changes</a></h3>
 <ul>
 <li>Tooltips for images and links (to increase accessibility)</li>
 </ul>
-
-<h2>July 2019</h2>
-
-<h3>Writing</h3>
-
+<h2 id="July_2019"><a class="hanchor" href="#July_2019">July 2019</a></h2>
+<h3 id="Writing_12"><a class="hanchor" href="#Writing_12">Writing</a></h3>
 <ul>
 <li>Notes
 <ul>
-<li><a href="./notes.html#Converging-Preference-Utilitarianism">Converging Preference Utilitarianism</a></li>
-<li><a href="./notes.html#Silent--Loud-Killers">Silent &amp; Loud Killers</a></li>
+<li><a href="./notes.html#Converging_Preference_Utilitarianism">Converging Preference Utilitarianism</a></li>
+<li><a href="./notes.html#Silent__Loud_Killers">Silent &amp; Loud Killers</a></li>
 </ul></li>
 <li><a href="./contributions.html">Contributions</a></li>
-<li><a href="./two_people_on_a_planet.html#Other-Proposed-Solutions">Other Proposed Solutions to Rendezvous on a Sphere</a></li>
-<li><a href="./99_problems_klong_solution.html#P34--Calculate-Eulers-totient-function-phim">Solutions to P34-P39 for the 99 Klong Problems</a></li>
+<li><a href="./two_people_on_a_planet.html#Other_Proposed_Solutions">Other Proposed Solutions to Rendezvous on a Sphere</a></li>
+<li><a href="./99_problems_klong_solution.html#P34__Calculate_Eulers_totient_function_phim">Solutions to P34-P39 for the 99 Klong Problems</a></li>
 <li>Archives
 <ul>
 <li><a href="./bp_chrono.html">Bit-Player Posts Chronological Index</a></li>
@@ -947,79 +792,58 @@ much in May.</p>
 <li><a href="./trm_chrono.html">The Real Movement Posts Chronological Index</a></li>
 </ul></li>
 </ul>
-
-<h2>June 2019</h2>
-
-<h3>Writing</h3>
-
+<h2 id="June_2019"><a class="hanchor" href="#June_2019">June 2019</a></h2>
+<h3 id="Writing_13"><a class="hanchor" href="#Writing_13">Writing</a></h3>
 <ul>
 <li>Notes
 <ul>
-<li><a href="./notes.html#Approach-Anxiety">Approach Anxiety</a></li>
+<li><a href="./notes.html#Approach_Anxiety">Approach Anxiety</a></li>
 </ul></li>
-<li>Solution to <a href="./99_problems_klong_solution.html#P27--Group-the-elements-of-a-set-into-disjoint-subsets">Problem 27-33</a> of the 99 problems</li>
-<li>Finished transcription of the <a href="./tao_te_king.html#Kapitel-71">Tao Tê King</a> (chapters 71 to 81)</li>
+<li>Solution to <a href="./99_problems_klong_solution.html#P27__Group_the_elements_of_a_set_into_disjoint_subsets">Problem 27-33</a> of the 99 problems</li>
+<li>Finished transcription of the <a href="./tao_te_king.html#Kapitel_71">Tao Tê King</a> (chapters 71 to 81)</li>
 </ul>
-
-<h3>Site Changes</h3>
-
+<h3 id="Site_Changes_2"><a class="hanchor" href="#Site_Changes_2">Site Changes</a></h3>
 <ul>
 <li>Images are centered now</li>
 </ul>
-
-<h2>May 2019</h2>
-
-<h3>Writing</h3>
-
+<h2 id="May_2019"><a class="hanchor" href="#May_2019">May 2019</a></h2>
+<h3 id="Writing_14"><a class="hanchor" href="#Writing_14">Writing</a></h3>
 <ul>
 <li>Started <a href="./notes.html">Notes</a></li>
 <li><a href="./pipe_rings.html">Pipe Rings</a></li>
-<li>Transcribed chapters <a href="./tao_te_king.html#Kapitel-43">43 to 70</a> of the Tao Tê King</li>
+<li>Transcribed chapters <a href="./tao_te_king.html#Kapitel_43">43 to 70</a> of the Tao Tê King</li>
 <li>Added illustrations to <a href="./two_people_on_a_planet.html">Two People on a Planet</a></li>
 </ul>
-
-<h3>Site Changes</h3>
-
+<h3 id="Site_Changes_3"><a class="hanchor" href="#Site_Changes_3">Site Changes</a></h3>
 <ul>
 <li>Updated CSS to highlight quotes &amp; code</li>
 <li>Added a favicon</li>
 <li>Made sections anchor-links to themselves</li>
 </ul>
-
-<h2>April 2019</h2>
-
-<h3>Writing</h3>
-
+<h2 id="April_2019"><a class="hanchor" href="#April_2019">April 2019</a></h2>
+<h3 id="Writing_15"><a class="hanchor" href="#Writing_15">Writing</a></h3>
 <ul>
 <li><a href="./two_people_on_a_planet.html">Two People on a Planet</a></li>
 <li><a href="./rationalist_gods.html">Rationalist Gods</a></li>
 </ul>
-
 <p>Structurally supporting pages (like this changelog, the home page and <a href="./about.html">the
 about page</a>) are also new, but not even near being finished.</p>
-
 <p>At the beginning of the month, I set up the code to generate this website
 and imported some existing projects of mine.</p>
-
-<h4>Texts</h4>
-
+<h4 id="Texts"><a class="hanchor" href="#Texts">Texts</a></h4>
 <ul>
 <li><a href="./99_problems_collection.html">99 Problems Collection</a></li>
 <li><a href="./99_klong_problems.html">K-99: Ninety-Nine Klong Problems</a></li>
 <li><a href="./99_problems_klong_solution.html">99 Problems Klong Solution</a></li>
 <li><a href="./equally_many_heads_and_tails.html">Equally Many Heads and Tails</a></li>
 </ul>
-
-<h4>Translations</h4>
-
+<h4 id="Translations"><a class="hanchor" href="#Translations">Translations</a></h4>
 <ul>
 <li><a href="./metamodernistisches_manifest.html">Metamodernistisches // Manifest</a></li>
 </ul>
-
-<h4>Fiction</h4>
-
+<h4 id="Fiction"><a class="hanchor" href="#Fiction">Fiction</a></h4>
 <ul>
 <li><a href="./buch_stab.html">Buch Stab</a></li>
 <li><a href="./platte.html">Platte</a></li>
 </ul>
-</html>
+</body></html>

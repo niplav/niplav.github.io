@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,44 +32,32 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-06-18, modified: 2022-10-03, language: english, status: draft, importance: 2, confidence: log</em></p>
-
 <blockquote>
-  <p>Idea &amp; format stolen shamelessly from <a href="https://www.gleech.org/favs/all/">Gavin
+<p>Idea &amp; format stolen shamelessly from <a href="https://www.gleech.org/favs/all/">Gavin
 Leech</a>.</p>
 </blockquote>
-
-<h1>Favorite Things</h1>
-
-<h2>Texts</h2>
-
+<h1 id="Favorite_Things"><a class="hanchor" href="#Favorite_Things">Favorite Things</a></h1>
+<h2 id="Texts"><a class="hanchor" href="#Texts">Texts</a></h2>
 <!--
 ### Tweets
 
 TODO: demonstrate/defenestrate
 -->
-
-<h3>Poems</h3>
-
+<h3 id="Poems"><a class="hanchor" href="#Poems">Poems</a></h3>
 <p>My favorite poems are <a href="https://www.poetryfoundation.org/poems/49303/howl">Howl (Allen Ginsberg,
 1955)</a>, Spinoza (Jorge
 Luis Borges, 1964), <a href="https://www.textlog.de/17824.html">Hyperions Schicksalslied (Friedrich Hölderlin,
 1797)</a>, and An die Freude (Friedrich
 Schiller, 1805).</p>
-
 <!--
 
 ### Papers
 
 -->
-
-<h3>Blogposts</h3>
-
-<h4>Insightful</h4>
-
+<h3 id="Blogposts"><a class="hanchor" href="#Blogposts">Blogposts</a></h3>
+<h4 id="Insightful"><a class="hanchor" href="#Insightful">Insightful</a></h4>
 <p>My favorite insightful blogposts/online essays are <a href="https://www.lesswrong.com/s/7gRSERQZbqTuLX5re/p/a7n8GdKiAZRX86T5A">Making
 Beliefs Pay Rent (in Anticipated Experiences) (Eliezer Yudkowsky,
 2007)</a>,
@@ -117,13 +79,10 @@ Beliefs Pay Rent (in Anticipated Experiences) (Eliezer Yudkowsky,
 2019)</a>,
 and <a href="https://everythingstudies.com/2017/03/06/science-the-constructionists-and-reality/">Science, the Constructionists, and Reality (John Nerst,
 2017)</a>.</p>
-
-<h4>Practical</h4>
-
+<h4 id="Practical"><a class="hanchor" href="#Practical">Practical</a></h4>
 <p>The most practical/action-guiding posts I've read so far are (these
 might not be practical/applicable to anyone else, and often were just
 final pushes for me to do something in a particular direction):</p>
-
 <ul>
 <li><a href="https://www.gwern.net/Spaced-repetition">Spaced Repetition (Gwern Branwen, 2019)</a></li>
 <li>Melatonin:
@@ -176,9 +135,7 @@ final pushes for me to do something in a particular direction):</p>
 <li><a href="https://www.lesswrong.com/posts/baTWMegR42PAsH9qJ/generalizing-from-one-example">Generalizing From One Example (Scott Alexander, 2009)</a></li>
 </ul></li>
 </ul>
-
-<h3>Books</h3>
-
+<h3 id="Books"><a class="hanchor" href="#Books">Books</a></h3>
 <p>My favorite books are <a href="https://www.elephantinthebrain.com/">The Elephant in the
 Brain</a>
 (Hanson &amp; Simler 2017), <a href="https://www.goodreads.com/book/show/54870256-there-is-no-antimemetics-division">There is no Antimemetics
@@ -191,18 +148,13 @@ it does it really enjoyably! This trend did <em>not</em> continue with <a href="
 Revolutions</a>
 and <a href="https://www.goodreads.com/book/show/23012473-one-rainy-day-in-may">The
 Familiar</a>…).</p>
-
-<h2>Audio</h2>
-
-<h3>Music</h3>
-
+<h2 id="Audio"><a class="hanchor" href="#Audio">Audio</a></h2>
+<h3 id="Music"><a class="hanchor" href="#Music">Music</a></h3>
 <!--
 #### Albums
 
 -->
-
-<h4>Musicians</h4>
-
+<h4 id="Musicians"><a class="hanchor" href="#Musicians">Musicians</a></h4>
 <p>My favorite musicians are <a href="https://en.wikipedia.org/wiki/Johann_Sebastian_Bach">Johann Sebastian
 Bach</a>,
 <a href="https://patriciataxxon.bandcamp.com/">Patricia Taxxon</a>, <a href="https://en.wikipedia.org/wiki/Steve_Reich">Steve
@@ -210,7 +162,6 @@ Reich</a>, <a href="https://en.wikipedia.org/wiki/Charles_Mingus">Charles
 Mingus</a>, <a href="https://en.wikipedia.org/wiki/Sonny_Clark">Sonny
 Clark</a>, and <a href="https://vincentel.bandcamp.com/">Vincent
 E. L.</a>.</p>
-
 <p>My favorite pieces of music are <a href="https://www.youtube.com/watch?v=oO9lSd5NdvU">Gavotte en
 Rondeau</a> (<a href="https://en.wikipedia.org/wiki/Johann_Sebastian_Bach">Johann
 Sebastian Bach</a>),
@@ -239,9 +190,7 @@ My Box</a>
 <a href="https://patriciataxxon.bandcamp.com/track/pack-my-box">Hellbulb</a>
 (<a href="https://patriciataxxon.bandcamp.com/">Patricia Taxxon</a>) (I might be
 a <em>little bit</em> of a Taxxon fan).</p>
-
-<h3>Podcasts</h3>
-
+<h3 id="Podcasts"><a class="hanchor" href="#Podcasts">Podcasts</a></h3>
 <p>My favorite podcast episodes are <a href="https://80000hours.org/podcast/episodes/tara-mac-aulay-operations-mindset/">Tara Mac
 Aulay</a>,
 <a href="https://80000hours.org/podcast/episodes/paul-christiano-ai-alignment-solutions/">Paul Christiano
@@ -263,21 +212,16 @@ and the series of <a href="https://www.guruviking.com/podcast/tag/Shinzen+Young+
 Fasano, Jay Sanguinetti, Shinzen Young and various
 guests</a>
 on <a href="https://www.guruviking.com/podcast">Guru Viking</a>.</p>
-
-<h2>Websites</h2>
-
+<h2 id="Websites"><a class="hanchor" href="#Websites">Websites</a></h2>
 <blockquote>
-  <p>A proposal, dear reader: Create a list of bookmarks linking
+<p>A proposal, dear reader: Create a list of bookmarks linking
 to websites you find interesting, and publish it for the world
 to see. You decide what constitutes "interesting". The model
 is as recursive as it is simple. There is nothing preventing a
 list of bookmarks from linking to another list of bookmarks.</p>
 </blockquote>
-
 <p><em>— <a href="https://memex.marginalia.nu/">Memex</a>, <a href="https://memex.marginalia.nu/log/19-website-discoverability-crisis.gmi">The Small Website Discoverability Crisis</a>, 2021</em></p>
-
-<h3>Sites</h3>
-
+<h3 id="Sites"><a class="hanchor" href="#Sites">Sites</a></h3>
 <p>My favorite form of online expression is the <a href="https://www.gwern.net/About">long
 site</a>, best exemplified by
 <a href="https://www.gwern.net/">Gwern</a>, <a href="https://reducing-suffering.org">Essays on Reducing
@@ -289,9 +233,7 @@ organization is different from most other sites that serve a similar
 purpose. It's not chronological like a blog, because it was never meant
 to be a personal voice for me, at least not primarily. It's meant to be
 an up-to-date, organized database of philosophical truth.").</p>
-
-<h3>Blogs</h3>
-
+<h3 id="Blogs"><a class="hanchor" href="#Blogs">Blogs</a></h3>
 <p>My favorite general knowledge blogs are <a href="https://nintil.com/">Nintil</a>
 and <a href="https://dynomight.net/">Dynomight</a>; my favorite blogs
 about rationality are <a href="https://lesswrong.com/">Less Wrong</a>,
@@ -311,7 +253,6 @@ mathematics blogs are <a href="http://bit-player.org/">Bit-Player</a>,
 Algorithmic Lucidity</a>; my favorite
 philosophy blogs are <a href="https://entirelyuseless.com/">Entirely Useless</a> and
 <a href="http://metamoderna.org/?lang=en">Metamoderna</a>.</p>
-
 <p>I don't read many blogs about politics per se,
 but I like the (in different ways) spicy <a href="https://therealmovement.wordpress.com/">The Real
 Movement</a> and <a href="https://unqualified-reservations.org/">Unqualified
@@ -322,14 +263,12 @@ the archives of <a href="https://hotelconcierge.tumblr.com/">Hotel Concierge</a>
 <a href="https://samzdat.com/">sam[]zdat</a>, <a href="http://zackmdavis.net/blog/">An Algorithmic
 Lucidity</a> and <a href="https://traditionsofconflict.com">Traditions of
 Conflict</a>.</p>
-
 <p>Meditation is better done than read about, but if you have to,
 <a href="https://meditationstuff.wordpress.com">Meditation Stuff</a> and <a href="https://neuroticgradientdescent.blogspot.com">Neurotic
 Gradient Descent</a>
 are great places to; similar with pickup and <a href="https://theredquest.wordpress.com">The Red
 Quest</a>/<a href="https://daysofgame.com">Days of
 Game</a>.</p>
-
 <p>My favorite blogs about Effective Altruism are <a href="https://reflectivedisequilibrium.blogspot.com">Reflective
 Disequilibrium</a>
 and <a href="https://rationalaltruist.com">Rational Altruist</a>
@@ -339,13 +278,11 @@ course widely known &amp; loved, and I like the <a href="https://qualiaresearchi
 Institute</a>
 and <a href="https://rethinkpriorities.org/research">Rethink Priorities</a>
 (if just because I actually read the stuff they put out).</p>
-
 <p>As for fiction, <a href="https://zerohplovecraft.wordpress.com/">Zero HP
 Lovecraft</a> and <a href="https://qntm.org">Things of
 Interest</a> present two very different (but both
 delightful) options. The <a href="http://www.scp-wiki.net/">SCP Wiki</a> is also
 one of a kind, a true product of the internet age.</p>
-
 <p>My favorite wikis are <a href="https://en.wikipedia.org/">Wikipedia</a>,
 <a href="https://plato.stanford.edu/">Stanford Encyclopedia of Philosophy</a>, the
 <a href="https://en.xen.wiki/">Xenharmonic Wiki</a> and the <a href="https://arbital.org/explore/ai_alignment">Arbital AI Alignment
@@ -354,9 +291,7 @@ favorite social media site was <a href="https://schelling.pt">schelling.pt</a> (
 sadly defunct<!--TODO: link-->); and my favorite forecasting/news sites
 are still the good ol' reliable <a href="https://www.metaculus.com">Metaculus</a>
 and <a href="https://www.predictionbook.com">PredictionBook</a>.</p>
-
-<h2>Mathematics</h2>
-
+<h2 id="Mathematics"><a class="hanchor" href="#Mathematics">Mathematics</a></h2>
 <p>My favorite mathematical structure is
 <a href="https://en.wikipedia.org/wiki/Empty_set">∅</a>,
 my favorite theorem is the <a href="https://cs.brown.edu/courses/csci1440/lectures/2022/bulow_klemperer.pdf">Bulow-Klemperer
@@ -364,13 +299,11 @@ theorem</a>,
 and my favorite proof is the <a href="https://en.wikipedia.org/wiki/Classification_of_finite_simple_groups">Classification of finite simple
 groups</a>
 (not that I understand it).</p>
-
 <p>My <em>least</em> favorite mathematical mathematical technique is <a href="https://en.wikipedia.org/wiki/Spectral_clustering">spectral
 clustering</a>,
 and I am incredibly suspicious of <a href="https://en.wikipedia.org/wiki/Spectral_graph_theory">spectral graph
 theory</a> in
 particular.</p>
-
 <p>My favorite algorithms are the <a href="https://rpatrik96.github.io/posts/2021/11/2021-11-22-poc8-ic-ic-ic">IC*
 algorithm</a>,
 <a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm">Kadane's
@@ -379,7 +312,6 @@ the <a href="https://en.wikipedia.org/wiki/Bron%E2%80%93Kerbosch_algorithm">Bron
 algorithm</a>,
 and
 <a href="https://www.geeksforgeeks.org/sleep-sort-king-laziness-sorting-sleeping/">sleepsort</a>.</p>
-
 <!--
 Computers
 ----------
@@ -390,15 +322,12 @@ Computers
 
 ### Software
 -->
-
-<h2>Media</h2>
-
+<h2 id="Media"><a class="hanchor" href="#Media">Media</a></h2>
 <!--
 ### Podcasts
 
 ### Podcast Episodes
 -->
-
 <p>My favorite movies are <a href="https://www.imdb.com/title/tt1192628/">Rango</a>,
 <a href="https://www.imdb.com/title/tt1136608/">District 9</a>, <a href="https://www.imdb.com/title/tt3748528/">Rogue
 One: A Star Wars Story</a>,
@@ -406,13 +335,10 @@ One: A Star Wars Story</a>,
 Welt am Draht I</a> and
 <a href="https://www.imdb.com/title/tt0070904/">II</a>, and <a href="https://www.imdb.com/title/tt0087280/">The Element of
 Crime</a>.</p>
-
 <!--
 ### Series
 -->
-
-<h2>Ideas</h2>
-
+<h2 id="Ideas"><a class="hanchor" href="#Ideas">Ideas</a></h2>
 <p>My favorite ideas in policy are
 <a href="https://en.wikipedia.org/wiki/Futarchy">futarchy</a>,
 <a href="http://www.harbergertax.com/">Harberger taxes</a>, <a href="https://www.overcomingbias.com/2006/12/the_80_forecast.html">track
@@ -420,13 +346,10 @@ records</a>,
 and <a href="https://en.wikipedia.org/wiki/Open_border">open borders</a>
 (though I've become <a href="https://social.freetalklive.com/@niplav/109077595423869299">less certain of their goodness</a>, and see also the <a href="https://openborders.info/">dedicated
 site</a>).</p>
-
 <!--
 ### Philosophy
 -->
-
-<h2>More</h2>
-
+<h2 id="More"><a class="hanchor" href="#More">More</a></h2>
 <p>My favorite non-extinct animals are octopuses, my favorite extinct
 animals are <a href="https://en.wikipedia.org/Glyptodon">glyptodons</a>,
 my favorite type of art is <a href="https://en.wikipedia.org/wiki/Geometric_abstraction">geometric
@@ -448,11 +371,10 @@ thing for birds on flags), my favorite anthem is the one of Kazakhstan
 (unfortunately most anthems are bad), my favorite mode of transport is
 by Zeppelin (primarily æsthetically, train is much more practical and
 nearly as cool), my favorite solution to moral disagreement is trade.</p>
-
 <p>My favorite activities are
 <a href="https://en.wikipedia.org/wiki/Jam_session">jamming</a>, standing in front
 of a whiteboard with two other people boggling at a hard problem, taking
 MDMA in the presence of effective altruists after an EA conference,
 and executing a really clean daygame approach (all of these involve
 other people, hm…).</p>
-</html>
+</body></html>

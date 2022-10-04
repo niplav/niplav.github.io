@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,21 +32,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-09-09, modified: 2022-10-03, language: english, status: notes, importance: 2, confidence: log</em></p>
-
 <blockquote>
-  <p><strong>Notes and ideas for texts &amp; programs &amp; startups &amp; projects &amp; libraries
+<p><strong>Notes and ideas for texts &amp; programs &amp; startups &amp; projects &amp; libraries
 &amp; factories &amp; technologies that will be started decades in the future,
 as well as music.</strong></p>
 </blockquote>
-
-<h1>Todo</h1>
-
+<h1 id="Todo"><a class="hanchor" href="#Todo">Todo</a></h1>
 <blockquote>
-  <p>In einer Ecke des Zimmers lag auf dem Fußboden all das in einem
+<p>In einer Ecke des Zimmers lag auf dem Fußboden all das in einem
 Haufen, was von gröberer Art und nicht würdig war, auf den Tischen zu
 liegen. Was sich aber in dem Haufen befand, war schwer zu bestimmen, denn
 er war mit solch einem Übermaß von Staub bedeckt, daß die Hände eines
@@ -80,11 +49,8 @@ jeden, der ihn berührte, sich wie mit Handschuhen überzogen hätten;
 mehr als anderes fielen ein abgebrochenes Stück von einem Holzspaten,
 das dort hervorragte, und eine alte Stiefelsohle auf.</p>
 </blockquote>
-
 <p><em>—<a href="https://en.wikipedia.org/wiki/Nikolai_Gogol">Nikolai Googol</a>, “Die toten Seelen”, 1842</em></p>
-
-<h2>Site</h2>
-
+<h2 id="Site"><a class="hanchor" href="#Site">Site</a></h2>
 <ul>
 <li>Add tooltips to links (Title of Text)</li>
 <li>Find out how to make the site more inclusive</li>
@@ -151,20 +117,15 @@ das dort hervorragte, und eine alte Stiefelsohle auf.</p>
 <li><code>https://github.com/pkra/mathjax-node-page/</code></li>
 </ul></li>
 <li>Maybe collapsable sections?</li>
-<li>Change internal anchor links to underscore from minus
-<ul>
-<li>Also don't use frickin' javascript to create linkable sections, it's disgusting</li>
-</ul></li>
 <li>nitter.hu to nitter.net</li>
 <li>Collect list of deprecated &amp; draft texts somewhere</li>
+<li>Title is not JS-added</li>
 </ul>
-
-<h2>Existing Texts</h2>
-
+<h2 id="Existing_Texts"><a class="hanchor" href="#Existing_Texts">Existing Texts</a></h2>
 <ul>
 <li>Range and Forecasting Accuracy
 <ul>
-<li>Move the <a href="./range_and_forecasting_accuracy.html#For-PredictionBook">PredictionBook download code</a> to the <a href="https://github.com/bellroy/predictionbook/blob/master/API.html">PredictionBook API</a></li>
+<li>Move the <a href="./range_and_forecasting_accuracy.html#For_PredictionBook">PredictionBook download code</a> to the <a href="https://github.com/bellroy/predictionbook/blob/master/API.html">PredictionBook API</a></li>
 <li>Find Muehlhauser email with additional source</li>
 <li>Extend the analysis to more datapoints
 <ul>
@@ -295,7 +256,7 @@ das dort hervorragte, und eine alte Stiefelsohle auf.</p>
 <ul>
 <li>Enumerating different ways of collapsing graphs representing inconsistent preferences into consistent preferences
 <ul>
-<li>E.g. a>b>c>a must be cut in one place, pretty much indifferent about where to cut?</li>
+<li>E.g. a&gt;b&gt;c&gt;a must be cut in one place, pretty much indifferent about where to cut?</li>
 <li>Or merge DAGs into a path graph</li>
 <li>Continuous case: vector field over the probability simplex of options</li>
 <li>In the 2-option probability simplex, continuity is violated if at some point the vector field "turns around"</li>
@@ -311,11 +272,8 @@ das dort hervorragte, und eine alte Stiefelsohle auf.</p>
 </ul></li>
 </ul></li>
 </ul>
-
-<h2>Texts</h2>
-
-<h3>Forecasting</h3>
-
+<h2 id="Texts"><a class="hanchor" href="#Texts">Texts</a></h2>
+<h3 id="Forecasting"><a class="hanchor" href="#Forecasting">Forecasting</a></h3>
 <ul>
 <li>Forecasting is Worse is Better
 <ul>
@@ -368,9 +326,7 @@ but this time with probabilistic estimates?</li>
 <li>Probabilistic Forecasting as a Social Technology</li>
 <li>Practical Forecasting Handbook</li>
 </ul>
-
-<h3>Population</h3>
-
+<h3 id="Population"><a class="hanchor" href="#Population">Population</a></h3>
 <ul>
 <li>Antinatalism and Consent</li>
 <li>Wither Humanity? (Alternatively, “Ponderings on Population”)
@@ -488,9 +444,7 @@ than many with critlevel-ε</li>
 </ul></li>
 <li>Bounded Population Axiology</li>
 </ul>
-
-<h3>Alignment</h3>
-
+<h3 id="Alignment"><a class="hanchor" href="#Alignment">Alignment</a></h3>
 <ul>
 <li>Impact Measures Depend on, Rather Than Specify, Inaction Baselines</li>
 <li>Requirements for AI Safety via Debate</li>
@@ -532,9 +486,7 @@ than many with critlevel-ε</li>
 <li>Repurposing honeypots for AI safety?</li>
 <li>Kitchen sink versus integrated AI alignment</li>
 </ul>
-
-<h3>Pick Up</h3>
-
+<h3 id="Pick_Up"><a class="hanchor" href="#Pick_Up">Pick Up</a></h3>
 <ul>
 <li>In Praise of Encouragement</li>
 <li>Game Seems to be a Middle-Class Phenomenon</li>
@@ -552,9 +504,7 @@ than many with critlevel-ε</li>
 <li>Yad Stop Flag</li>
 <li>Wild and Unsupported Conjecture: Learning Pickup is Mostly Rewriting Your Life-History Strategy</li>
 </ul>
-
-<h3>Time Experience</h3>
-
+<h3 id="Time_Experience"><a class="hanchor" href="#Time_Experience">Time Experience</a></h3>
 <ul>
 <li>Subjective time experience for advanced meditators
 <ul>
@@ -571,11 +521,8 @@ than many with critlevel-ε</li>
 </ul></li>
 </ul></li>
 </ul>
-
-<h3>Philosophy</h3>
-
-<h4>Ethics</h4>
-
+<h3 id="Philosophy"><a class="hanchor" href="#Philosophy">Philosophy</a></h3>
+<h4 id="Ethics"><a class="hanchor" href="#Ethics">Ethics</a></h4>
 <ul>
 <li>Creating Utility Monsters or Repugnant Beings
 <ul>
@@ -588,9 +535,7 @@ than many with critlevel-ε</li>
 <li>The thing Hanson does when arguing about ethics</li>
 </ul></li>
 </ul>
-
-<h4>Consciousness</h4>
-
+<h4 id="Consciousness"><a class="hanchor" href="#Consciousness">Consciousness</a></h4>
 <ul>
 <li>Matter is Philosophically Unnecessary
 <ul>
@@ -603,9 +548,7 @@ than many with critlevel-ε</li>
 <li>The reason why, even if, strictly speaking, trees are "conscious", we don't have to worry about damaging them as much as we have to worry about damaging animals</li>
 </ul></li>
 </ul>
-
-<h3>Meditation</h3>
-
+<h3 id="Meditation"><a class="hanchor" href="#Meditation">Meditation</a></h3>
 <ul>
 <li>Self-Blinded Nootropics Experiments in Concentration Meditation
 <ul>
@@ -668,9 +611,7 @@ half non-placebo).</li>
 <li>Yogic stuff? (Mudra)</li>
 </ul></li>
 </ul>
-
-<h3>Quantified Self</h3>
-
+<h3 id="Quantified_Self"><a class="hanchor" href="#Quantified_Self">Quantified Self</a></h3>
 <ul>
 <li>Are better-looking women more rude during daygame approaches?</li>
 <li>Are better-looking women less likely to give contact info during daygame?</li>
@@ -755,10 +696,12 @@ half non-placebo).</li>
 <li>Others?</li>
 </ul></li>
 <li>The General Algorithm For Self-Blinded Experiments</li>
+<li>Does music decrease my productivity?
+<ul>
+<li>randomize, awtt &amp; check</li>
+</ul></li>
 </ul>
-
-<h3>Arguments</h3>
-
+<h3 id="Arguments"><a class="hanchor" href="#Arguments">Arguments</a></h3>
 <ul>
 <li>Why Still Choose C?
 <ul>
@@ -924,15 +867,12 @@ existed for very long</li>
 <li>Deminatalist utilitarianism pitfalls</li>
 <li>Why Not Prepping?</li>
 </ul>
-
 <blockquote>
-  <p><a href="https://lcamtuf.coredump.cx/prep/" title="Disaster planning for regular folks">lcamtuf 2018</a>
+<p><a href="https://lcamtuf.coredump.cx/prep/" title="Disaster planning for regular folks">lcamtuf 2018</a>
 distinguishes between three different kinds of disaster scenarios:
 small-scale events, mass calamities, and the "zombie apocalypse".</p>
 </blockquote>
-
-<h4>Contra</h4>
-
+<h4 id="Contra"><a class="hanchor" href="#Contra">Contra</a></h4>
 <ul>
 <li>Contra Yudkowsky on Axelrodian Tolerance</li>
 <li>In Favor of Selling Glee/Contra Alexander on Hedonic Acquisitions
@@ -972,9 +912,7 @@ development etc.</li>
 <li>This does not hold if we include probabilities, though</li>
 </ul></li>
 </ul>
-
-<h3>Analyses</h3>
-
+<h3 id="Analyses"><a class="hanchor" href="#Analyses">Analyses</a></h3>
 <ul>
 <li>Dumpster Diving</li>
 <li>Hitch Hiking</li>
@@ -1241,9 +1179,7 @@ producers according to comparative advantage
 <li>For example, why poly?</li>
 </ul></li>
 </ul>
-
-<h3>Ideas</h3>
-
+<h3 id="Ideas"><a class="hanchor" href="#Ideas">Ideas</a></h3>
 <ul>
 <li>Ends of Discussions
 <ul>
@@ -1334,7 +1270,7 @@ likely to take that action</li>
 </ul></li>
 <li>Salty fries
 <ul>
-<li>Buy something, that creates a need for something else (software &lt;-> support, salty fries &lt;-> drinks)</li>
+<li>Buy something, that creates a need for something else (software &lt;-&gt; support, salty fries &lt;-&gt; drinks)</li>
 </ul></li>
 <li>Running Away from Your Problems
 <ul>
@@ -1430,12 +1366,10 @@ one by evolutionary psychology), it often loses its bite</li>
 <ul>
 <li>Explore different ways of typesetting this</li>
 <li>Neither Veridical nor Mirative nor Evidential</li>
-<li>See <a href="./range_and_forecasting_accuracy.html#Appendix-A-Replicating-Metaculus-Findings-With-Full-Data">here</a> for a first exploration</li>
+<li>See <a href="./range_and_forecasting_accuracy.html#Appendix_A_Replicating_Metaculus_Findings_With_Full_Data">here</a> for a first exploration</li>
 </ul></li>
 </ul>
-
-<h3>Collections</h3>
-
+<h3 id="Collections"><a class="hanchor" href="#Collections">Collections</a></h3>
 <ul>
 <li>Simple Unsolved Math Problems</li>
 <li>Differences Between GNU and POSIX <code>make</code></li>
@@ -1485,7 +1419,7 @@ discarded methods of writing mathematics.</li>
 <ul>
 <li>Exploration
 <ul>
-<li>Read Wikipedia with <a href="./notes.html#Getting-an-Overview-Over-Everything">this method</a></li>
+<li>Read Wikipedia with <a href="./notes.html#Getting_an_Overview_Over_Everything">this method</a></li>
 <li>Read SEP
 <ul>
 <li>randomly?</li>
@@ -1644,9 +1578,7 @@ discarded methods of writing mathematics.</li>
 <li>Red teaming markets</li>
 <li>Properties of Good Textbooks</li>
 </ul>
-
-<h3>Notes</h3>
-
+<h3 id="Notes"><a class="hanchor" href="#Notes">Notes</a></h3>
 <ul>
 <li>Be Liberal in what you Accept, but Conservative in what you Emit</li>
 <li>Believing Something Doesn't Mean You to Tell it to Everyone</li>
@@ -1725,9 +1657,8 @@ discarded methods of writing mathematics.</li>
 <li>Pet Peeves</li>
 <li>Mastery is Exceedingly Rare</li>
 </ul>
-
 <blockquote>
-  <p>Very few will aspire to real mastery themselves. Very few will take the
+<p>Very few will aspire to real mastery themselves. Very few will take the
 time to learn even the basics of meditation theory. Even fewer will go on
 retreats. Of those that do, only a handful will get their concentration
 strong enough to attain to basic jhanas or ñanas. Of these, only a
@@ -1737,11 +1668,9 @@ stream entry, a reasonable number will progress to the middle paths,
 but not many will attain arahantship. Call me cynical, but this was true
 in the Buddha's time and it remains true today.</p>
 </blockquote>
-
 <p><em>— Daniel Ingram, “Mastering the Core Teachings of the Buddha”, 2018</em></p>
-
 <blockquote>
-  <p>Improving your game is really really hard. It may be the hardest thing
+<p>Improving your game is really really hard. It may be the hardest thing
 you ever attempt. I'd estimate only 20% of men are even capable of
 processing the basic concepts to reach an understanding of Game. Of
 those men who theoretically "get" the idea of Game, probably only 20%
@@ -1750,17 +1679,12 @@ tiny sample, probably only 10% will actually become Good With Women. This
 means that only 1 out of 250 men will even reach the intermediate level of
 Game. Even those odds likely overstate the number of Players in the world.</p>
 </blockquote>
-
 <p><em>— Nick Krauser, “Daygame Mastery”, 2014</em></p>
-
-<h3>Questions</h3>
-
+<h3 id="Questions"><a class="hanchor" href="#Questions">Questions</a></h3>
 <ul>
 <li>Import ~/etc/notes/questions</li>
 </ul>
-
-<h3>Reports</h3>
-
+<h3 id="Reports"><a class="hanchor" href="#Reports">Reports</a></h3>
 <ul>
 <li>How I organize my information diet</li>
 <li>Becoming Marginally More Productive
@@ -1792,9 +1716,7 @@ justice?", or simply, "Would you like to hold a conversation?"</li>
 <li>A Typical Meditation Session</li>
 <li>A 1 Month At-Home Meditation Retreat</li>
 </ul>
-
-<h3>Misc</h3>
-
+<h3 id="Misc"><a class="hanchor" href="#Misc">Misc</a></h3>
 <ul>
 <li>Evolution as a Tautology
 <ul>
@@ -1886,22 +1808,16 @@ finished, hiatus, abandoned}) for open source projects.</li>
 <li>Import ~/etc/notes/misc, tweets and toots from schelling.pt and social.freetalklive.net</li>
 <li>Fundamentals</li>
 </ul>
-
 <blockquote>
-  <p>we should be far more explicit about the assumed background against
+<p>we should be far more explicit about the assumed background against
 which we intend to communicate.</p>
 </blockquote>
-
 <p><em>— John Nerst, <a href="https://everythingstudies.com/2018/07/16/30-fundamentals/">“30 Fundamentals”</a>, 2018</em></p>
-
-<h3>Explorables</h3>
-
+<h3 id="Explorables"><a class="hanchor" href="#Explorables">Explorables</a></h3>
 <ul>
 <li>For modern methods of causal inference from statistical data (especially Pearl?)</li>
 </ul>
-
-<h3>Interviews</h3>
-
+<h3 id="Interviews"><a class="hanchor" href="#Interviews">Interviews</a></h3>
 <ul>
 <li>/u/JhanicManifold</li>
 <li>/u/MakeTotalDestr0i</li>
@@ -1911,9 +1827,7 @@ which we intend to communicate.</p>
 <li>CronoDAS</li>
 <li>Eli Tyre</li>
 </ul>
-
-<h3>Fiction</h3>
-
+<h3 id="Fiction"><a class="hanchor" href="#Fiction">Fiction</a></h3>
 <ul>
 <li>A Religion
 <ul>
@@ -2001,36 +1915,29 @@ unaligned artificial intelligence battle for attainable utility…</li>
 </ul></li>
 <li>Skalpell Bizeps</li>
 </ul>
-
 <blockquote>
-  <p>11-uhr-luft liegt rauh auf dem parkplatzboden. in den ritzen des
+<p>11-uhr-luft liegt rauh auf dem parkplatzboden. in den ritzen des
 asphalt streitet sich krepierender löwenzahn mit ausgeblichenen
 zigarettenstummeln um platz. abblätternde farbe liegt dazwischen,
 obwohl die altbauten noch ein paar hundert meter entfernt liegen.</p>
 </blockquote>
-
 <ul>
 <li>myzel</li>
 </ul>
-
 <blockquote>
-  <p>moderne kapitalistische verteilung ist weder zentralisiert noch
+<p>moderne kapitalistische verteilung ist weder zentralisiert noch
 dezentralisiert, sie ist myzelisch, verwaberndes, meist unsichtbares
 gewebe in einem fruchtbaren umfeld, mit anhäufungen, ballungen und
 kumulationen von produktionszentren—zur festigkeit verdichtetes
 gewebe dort fassbar, wo es sich am wenigsten äußert. werden als
 eine kontingente verschmelzung von fast-sein und konkretheit"</p>
 </blockquote>
-
-<h3>Translations</h3>
-
+<h3 id="Translations"><a class="hanchor" href="#Translations">Translations</a></h3>
 <ul>
 <li>Kodomulo Manifesto (translation of “A Hacker Manifesto” into Esperanto)</li>
 <li>Translate Endliche Gruppen I into English</li>
 </ul>
-
-<h3>Archiving</h3>
-
+<h3 id="Archiving"><a class="hanchor" href="#Archiving">Archiving</a></h3>
 <ul>
 <li>Type up John Nash's Thesis in LaTeX</li>
 <li>Make page explaining "Shoulding at the Universe"</li>
@@ -2057,9 +1964,7 @@ eine kontingente verschmelzung von fast-sein und konkretheit"</p>
 <li>A wiki for pickup terminology</li>
 <li>Kiwix versions of LessWrong, Alignment Forum, Effective Altruism Forum</li>
 </ul>
-
-<h2>Videos</h2>
-
+<h2 id="Videos"><a class="hanchor" href="#Videos">Videos</a></h2>
 <ul>
 <li>Population Axiology</li>
 <li>Causal Inference</li>
@@ -2072,16 +1977,13 @@ eine kontingente verschmelzung von fast-sein und konkretheit"</p>
 </ul></li>
 <li>Cool girl video + Death By Glamour</li>
 </ul>
-
-<h2>Data Sets</h2>
-
+<h2 id="Data_Sets"><a class="hanchor" href="#Data_Sets">Data Sets</a></h2>
 <p>Collect data on</p>
-
 <ul>
 <li>Bag Spreading</li>
-<li><a href="./daygame_cost_benefit.html#Appendix-C-Empirically-Checking-the-Assumptions">Daygame</a></li>
+<li><a href="./daygame_cost_benefit.html#Appendix_C_Empirically_Checking_the_Assumptions">Daygame</a></li>
 <li><a href="./masturbation_and_attractiveness.html#Method">Masturbation and Attractiveness</a></li>
-<li><a href="./estimated_life_expectancy.html#Data-Collection-Method">Subjective Life Expectancy</a></li>
+<li><a href="./estimated_life_expectancy.html#Data_Collection_Method">Subjective Life Expectancy</a></li>
 <li>Meditation</li>
 <li><a href="./data/masturbations.csv">Masturbation</a></li>
 <li>A Large Dataset of Forecasts and Outcomes
@@ -2106,9 +2008,7 @@ eine kontingente verschmelzung von fast-sein und konkretheit"</p>
 <li>Some dataset on polyamory??</li>
 </ul></li>
 </ul>
-
-<h2>Flashcards</h2>
-
+<h2 id="Flashcards"><a class="hanchor" href="#Flashcards">Flashcards</a></h2>
 <ul>
 <li>Convert <a href="https://github.com/riceissa/tao-analysis-flashcards">Issa Rice's Analysis Flashcards</a> to Anki</li>
 <li>Flashcard sets for:
@@ -2124,17 +2024,12 @@ eine kontingente verschmelzung von fast-sein und konkretheit"</p>
 <li>Parameterized Algorithms</li>
 </ul></li>
 </ul>
-
-<h2>Music</h2>
-
-<h3>Clarinet</h3>
-
+<h2 id="Music"><a class="hanchor" href="#Music">Music</a></h2>
+<h3 id="Clarinet"><a class="hanchor" href="#Clarinet">Clarinet</a></h3>
 <ul>
 <li>Clarinet Concerto (Mozart)</li>
 </ul>
-
-<h3>Piano</h3>
-
+<h3 id="Piano"><a class="hanchor" href="#Piano">Piano</a></h3>
 <ul>
 <li>The People United Will Never be Defeated (Rzewski)</li>
 <li>Das Wohltemperirte Clavier (Bach)</li>
@@ -2144,9 +2039,7 @@ eine kontingente verschmelzung von fast-sein und konkretheit"</p>
 <li>Gymnopédies/Gnosiemmes (Satie)</li>
 <li>Rhapsodie in Blue (Gershwin)</li>
 </ul>
-
-<h2>Languages to Learn</h2>
-
+<h2 id="Languages_to_Learn"><a class="hanchor" href="#Languages_to_Learn">Languages to Learn</a></h2>
 <ul>
 <li>French</li>
 <li>Esperanto</li>
@@ -2156,9 +2049,7 @@ eine kontingente verschmelzung von fast-sein und konkretheit"</p>
 <li>Lojban</li>
 <li>Ithkuil</li>
 </ul>
-
-<h2>Programming</h2>
-
+<h2 id="Programming"><a class="hanchor" href="#Programming">Programming</a></h2>
 <ul>
 <li>cap
 <ul>
@@ -2177,13 +2068,11 @@ versions, settle for the most exact version that is
 not unbearably slow).</li>
 </ul></li>
 <li><p>lvst</p>
-
 <ul>
 <li>print levensthein distances of strings</li>
 <li>option '-f' for the field separator</li>
 <li>can be used for fuzzy search</li>
 <li><p>usage:</p>
-
 <pre><code>$ lvst "test"
 foo
 3:test:foo
@@ -2192,7 +2081,6 @@ bar
 </code></pre></li>
 </ul></li>
 <li><p>cy</p>
-
 <ul>
 <li>A very simple version control system, written in rc. inspiration from put and get, from "the unix programming environment".</li>
 <li>supports 3 operations
@@ -2226,7 +2114,7 @@ bar
 <li>recog
 <ul>
 <li>program that accepts one backus-naur form grammar and checks if it's input or other files match that grammar.</li>
-<li>BNF -(Convert to Chomsky Normal Form)> CNF -(Cocke-Younger-Kasami algorithm)> Boolean</li>
+<li>BNF -(Convert to Chomsky Normal Form)&gt; CNF -(Cocke-Younger-Kasami algorithm)&gt; Boolean</li>
 <li>Relevant material:
 <ul>
 <li>RFC 2234</li>
@@ -2240,7 +2128,7 @@ bar
 <li>EBNF</li>
 <li>naive &amp; simple form (similar to the one used on Wikipedia)
 <ul>
-<li><symbol\></li>
+<li><symbol></symbol></li>
 <li>optionality: '?'</li>
 <li>repetition: '+'</li>
 <li>repetition with optionality: '*'</li>
@@ -2258,7 +2146,7 @@ bar
 <ul>
 <li><code>[^]/str/[,[^]/str/]((a|i|c)/str/)|d|p</code></li>
 <li>str is a literal string here (no regex)</li>
-<li>a=>append, i=>insert, c=>change, d=>delete, p=>print</li>
+<li>a=&gt;append, i=&gt;insert, c=&gt;change, d=&gt;delete, p=&gt;print</li>
 <li>'^' means that the following str is excluded from the matched text</li>
 </ul></li>
 <li>sif does not do input/output buffering and does treat whitespace as any other character.</li>
@@ -2276,7 +2164,7 @@ bar
 <li>if vis-digraph extendable, add:
 <ul>
 <li>Interrobang   ‽ ?!</li>
-<li>Join  ⋈ >&lt;</li>
+<li>Join  ⋈ &gt;&lt;</li>
 <li>Expected value    𝔼    |E</li>
 <li>Real numbers  ℝ |R</li>
 <li>Integers  ℤ |Z</li>
@@ -2522,9 +2410,7 @@ focused on the issue tracking/continuous builds component
 <li>EA idea repository</li>
 <li>Open source onlyfans</li>
 </ul>
-
-<h3>Klong Libraries</h3>
-
+<h3 id="Klong_Libraries"><a class="hanchor" href="#Klong_Libraries">Klong Libraries</a></h3>
 <ul>
 <li>combin.kg
 <ul>
@@ -2562,9 +2448,7 @@ focused on the issue tracking/continuous builds component
 <li>library for statistical tests</li>
 </ul></li>
 </ul>
-
-<h3>Contributions</h3>
-
+<h3 id="Contributions"><a class="hanchor" href="#Contributions">Contributions</a></h3>
 <ul>
 <li>mupdf
 <ul>
@@ -2618,12 +2502,11 @@ focused on the issue tracking/continuous builds component
 </ul></li>
 <li>Help administering schelling.pt, it needs it</li>
 <li><p>klong</p>
-
 <ul>
 <li>receiving output of shell commands (maybe via pipe?)</li>
-<li>self adverb (options are :!, :&amp;, :,, :;, :&lt;, :>, :?)
+<li>self adverb (options are :!, :&amp;, :,, :;, :&lt;, :&gt;, :?)
 <ul>
-<li>:&lt; and :> should be reserved for something symmetric</li>
+<li>:&lt; and :&gt; should be reserved for something symmetric</li>
 <li>:; is not fit because ; is not really a verb or adverb</li>
 <li>:!, :&amp;, :? and :, are the best options</li>
 </ul></li>
@@ -2632,14 +2515,12 @@ focused on the issue tracking/continuous builds component
 <li>logarithms for complex numbers</li>
 </ul></li>
 <li><p>nplot</p>
-
 <ul>
 <li>Support for multiple bargraphs</li>
 <li>Bargraphs with negative values</li>
 <li>Logarithmic scales for graphs</li>
 <li>setrgb doesn't work properly: after setting the color once, it can only be reset to black</li>
 <li><p>Example:</p>
-
 <pre><code>.l("nplot")
 grid([0 100 10];[0 100 10])
 text(250;60;"Foo")
@@ -2651,7 +2532,6 @@ draw()
 </code></pre></li>
 </ul></li>
 <li><p>nstat</p>
-
 <ul>
 <li>n% confidence interval</li>
 <li>polynomial/exponential/logarithmic (?) fit for a dataset</li>
@@ -2684,13 +2564,11 @@ draw()
 <li>typo in the order of operations in the manpage</li>
 </ul></li>
 </ul>
-
 <blockquote>
-  <p>+ - / * % ^
+<p>+ - / * % ^
   Add subtract multiply divide remainder or exponentiate the top
   two values on the stack.</p>
 </blockquote>
-
 <ul>
 <li>Make GNU fmt respect unicode:
 <ul>
@@ -2700,16 +2578,12 @@ draw()
 contraction functions in general produce contractions"</li>
 </ul></li>
 </ul>
-
 <p>produces</p>
-
 <pre><code>∸∸∸∸∸ ∸∸∸∸ ∸∸∸∸ ∸∸∸∸∸
 ∸∸∸∸∸ However, in a sense, maxichoice contraction
 functions in general produce contractions
 </code></pre>
-
-<h3>Languages to Learn</h3>
-
+<h3 id="Languages_to_Learn_1"><a class="hanchor" href="#Languages_to_Learn_1">Languages to Learn</a></h3>
 <ul>
 <li>Myrddin</li>
 <li>Scheme</li>
@@ -2717,11 +2591,8 @@ functions in general produce contractions
 <li>Forth</li>
 <li>Prolog</li>
 </ul>
-
-<h2>Wikipedia Articles</h2>
-
-<h3>Create</h3>
-
+<h2 id="Wikipedia_Articles"><a class="hanchor" href="#Wikipedia_Articles">Wikipedia Articles</a></h2>
+<h3 id="Create"><a class="hanchor" href="#Create">Create</a></h3>
 <ul>
 <li>Enhanced/Extended Suffix Array</li>
 <li>Shapley Saddle</li>
@@ -2753,9 +2624,7 @@ functions in general produce contractions
 <li>Harberger Tax</li>
 <li>Axelrod's Meta-Norm</li>
 </ul>
-
-<h3>Improve</h3>
-
+<h3 id="Improve"><a class="hanchor" href="#Improve">Improve</a></h3>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Maximal_pair">Maximal pair</a>
 <ul>
@@ -2774,9 +2643,7 @@ functions in general produce contractions
 <li>Add missing national anthems to <code>https://en.wikipedia.org/wiki/List_of_national_anthems</code></li>
 <li>Futarchy page</li>
 </ul>
-
-<h2>Sequences</h2>
-
+<h2 id="Sequences"><a class="hanchor" href="#Sequences">Sequences</a></h2>
 <ul>
 <li>LessWrong
 <ul>
@@ -2792,9 +2659,7 @@ functions in general produce contractions
 <li>Cause Area Investigations</li>
 </ul></li>
 </ul>
-
-<h2>Answers</h2>
-
+<h2 id="Answers"><a class="hanchor" href="#Answers">Answers</a></h2>
 <ul>
 <li>Answer <code>https://old.reddit.com/r/slatestarcodex/comments/u3xpn3/effective_altruists_and_worrying_about_nuclear/i4t4u2p/</code></li>
 <li>Answer <code>https://old.reddit.com/r/slatestarcodex/comments/u3xpn3/effective_altruists_and_worrying_about_nuclear/i4sxf5n/</code></li>
@@ -2837,15 +2702,11 @@ the most important facets of the issue, then you win.”"</li>
 <li>4.1 Maybe overestimates how horny guys are</li>
 </ul></li>
 </ul>
-
-<h2>Arbital</h2>
-
+<h2 id="Arbital"><a class="hanchor" href="#Arbital">Arbital</a></h2>
 <ul>
 <li>Utility indifference on Arbital contains a few typos</li>
 </ul>
-
-<h2>Metaculus Questions</h2>
-
+<h2 id="Metaculus_Questions"><a class="hanchor" href="#Metaculus_Questions">Metaculus Questions</a></h2>
 <ul>
 <li>A question that tries to gauge how much Metaculus forecasters are incentivized by points vs. simply accuracy</li>
 <li>A question about the discovery of a <a href="https://en.wikipedia.org/wiki/Euler_brick#Perfect_cuboid">perfect cuboid</a></li>
@@ -2855,9 +2716,7 @@ the most important facets of the issue, then you win.”"</li>
 <li>Some questions about the performance of BCIs</li>
 <li>Conditional on China invading Taiwan, will TSMC blow up its factories?</li>
 </ul>
-
-<h2>Structure</h2>
-
+<h2 id="Structure"><a class="hanchor" href="#Structure">Structure</a></h2>
 <ul>
 <li>Top-level:
 <ul>
@@ -2872,16 +2731,12 @@ the most important facets of the issue, then you win.”"</li>
 </ul></li>
 </ul></li>
 </ul>
-
-<h2>General</h2>
-
+<h2 id="General"><a class="hanchor" href="#General">General</a></h2>
 <ul>
 <li>Send typos to people, let them correct them</li>
 <li>Find some drugs that cause short-term memory loss without ~any side effects, for self-blinding in QS</li>
 </ul>
-
-<h2>In-World Projects</h2>
-
+<h2 id="InWorld_Projects"><a class="hanchor" href="#InWorld_Projects">In-World Projects</a></h2>
 <ul>
 <li>Destroy the moons of Mars</li>
 <li>Found a community of algae farmers that speak a Icelandic-Basque pidgin</li>
@@ -2896,4 +2751,4 @@ the most important facets of the issue, then you win.”"</li>
 <li>Headstrap for airplane sleeping?</li>
 <li>Apartment swapping startup</li>
 </ul>
-</html>
+</body></html>

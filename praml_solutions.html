@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,82 +32,58 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-04-19, modified: 2022-02-02, language: english, status: on hold, importance: 2, confidence: likely</em></p>
-
 <blockquote>
-  <p><strong>Solutions to the textbook “Pattern
+<p><strong>Solutions to the textbook “Pattern
 Recognition and Machine Learning” by <a href="https://en.wikipedia.org/wiki/Christopher_Bishop">Christopher
 M. Bishop</a>.</strong></p>
 </blockquote>
-
-<h1>Solutions to “Pattern Recognition and Machine Learning”</h1>
-
-<h2>Chapter 1</h2>
-
-<h3>1.1</h3>
-
+<h1 id="Solutions_to_Pattern_Recognition_and_Machine_Learning"><a class="hanchor" href="#Solutions_to_Pattern_Recognition_and_Machine_Learning">Solutions to “Pattern Recognition and Machine Learning”</a></h1>
+<h2 id="Chapter_1"><a class="hanchor" href="#Chapter_1">Chapter 1</a></h2>
+<h3 id="11"><a class="hanchor" href="#11">1.1</a></h3>
 <!--TODO, unfinished-->
-
 <blockquote>
-  <p>(*) Consider the sum-of-squares error function given by (1.2) in which
+<p>(*) Consider the sum-of-squares error function given by (1.2) in which
 the function <code>$y(x, \textbf{w})$</code> is given by the polynomial (1.1). Show that
 the coefficients <code>$\textbf{w}=\{w_i\}$</code> that minimizes this error function
 are given by the solution to the following set of linear equations</p>
 </blockquote>
-
 <div>
     $$ \sum_{j=0}^{M} A_{ij}w_{j}=T_i$$
 </div>
-
 <blockquote>
-  <p>where</p>
+<p>where</p>
 </blockquote>
-
 <div>
     $$A_{ij}=\sum_{n=1}^{N} (x_n)^{i+j}, T_i=\sum_{n=1}^{N} (x_n)^i t_n.$$
 </div>
-
 <blockquote>
-  <p>Here a suffix <code>$i$</code> or <code>$j$</code> denotes the index of a component, whereas
+<p>Here a suffix <code>$i$</code> or <code>$j$</code> denotes the index of a component, whereas
 <code>$(x)^i$</code> denotes <code>$x$</code> raised to the power of <code>$i$</code>.</p>
 </blockquote>
-
 <p>Recap: formula 1.1 is</p>
-
 <div>
     $$ y(x, \textbf{w}) = w_0 + w_1 x + w_2 x^2+ \dots +w_M x^M = \sum_{j=0}^{M} w_j x^j$$
 </div>
-
 <p>and formula 1.2 (the error function) is</p>
-
 <div>
     $$E(\textbf{w})=\frac{1}{2} \sum_{n=1}^{N} (y(x_n, \textbf{w})-t_n)^2$$
 </div>
-
 <p>Substituting 1.1 into 1.2 gives</p>
-
 <div>
     $$ E(\textbf{w})=\frac{1}{2} \sum_{n=1}^{N} (\sum_{j=0}^{M} w_j x^j-t_n)^2 $$
 </div>
-
 <p>Differentiating after <code>$\textbf{w}$</code> then returns</p>
-
 <div>
     $$ E(\textbf{w})'=\sum_{n=1}^{N} (\sum_{j=0}^{M} (w_j x^j)'-t_n) $$
 </div>
-
 <p>I really should learn multivariable calculus.</p>
-
-<h3>1.5</h3>
-
+<h3 id="15"><a class="hanchor" href="#15">1.5</a></h3>
 <blockquote>
-  <p>(*) Using the definition (1.38) show that <code>$\text{var}[f(x)]$</code> satisfies
+<p>(*) Using the definition (1.38) show that <code>$\text{var}[f(x)]$</code> satisfies
 (1.39).</p>
 </blockquote>
-
 <div>
     $$ \mathbb{E}[(f(x)-\mathbb{E}[f(x)])^2]=\\
     \mathbb{E}[f(x)^2-2\mathbb{E}[f(x)]f(x)+\mathbb{E}[f(x)]^2]=\\
@@ -141,4 +91,4 @@ are given by the solution to the following set of linear equations</p>
     \mathbb{E}[f(x)^2]-2\mathbb{E}[f(x)]^2+\mathbb{E}[f(x)]^2=\\
     \mathbb{E}[f(x)^2]-\mathbb{E}[f(x)]^2$$
 </div>
-</html>
+</body></html>

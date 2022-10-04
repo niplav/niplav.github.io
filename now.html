@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,33 +32,23 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-07-24, modified: 2022-07-18, language: english, status: in progress, importance: 2, confidence: highly likely</em></p>
-
 <blockquote>
-  <p><strong>What I am doing at the moment (inspired by the
+<p><strong>What I am doing at the moment (inspired by the
 <a href="https://nownownow.com/about">now movement</a>).</strong></p>
 </blockquote>
-
-<h1>Now</h1>
-
+<h1 id="Now"><a class="hanchor" href="#Now">Now</a></h1>
 <p>Currently, my main focus is on getting my life in order. That includes
 shifting into an equilibrium mode where I am independent and have
 structured my life in a way that enables me to work on my personal
 projects full-time (including, but not limited to, this website).</p>
-
 <p>Because of this, work on this website is currently limited to a small
 part of my free time. I apologize for any inconveniences.</p>
-
-<h2>Writing</h2>
-
+<h2 id="Writing"><a class="hanchor" href="#Writing">Writing</a></h2>
 <p>I am mostly writing solutions to exercises in the textbooks I'm reading
 at the moment.</p>
-
 <p>If I find time inbetween that, I'm expanding on the following texts:</p>
-
 <ul>
 <li><a href="./notes.html">Notes</a>
 <ul>
@@ -110,23 +74,16 @@ at the moment.</p>
 <li><a href="./circle_combinations.html">Circle Combinations</a></li>
 <li><a href="./reward.html">Reward Long Content</a></li>
 </ul>
-
 <p>I'm also planning a full edit of all texts on the website, but don't
 have a fixed date to get started on that at the moment.</p>
-
-<h2>Programming</h2>
-
+<h2 id="Programming"><a class="hanchor" href="#Programming">Programming</a></h2>
 <p>Most of my programming time is spent improving
 <a href="https://github.com/niplav/iqisa">iqisa</a>, a library for handling various
 forecasting datasets. It's also, miraculously, my day job.</p>
-
 <p>I am also working on an <a href="https://arbtt.nomeata.de/">arbtt</a>-inspired time
 tracker: <a href="https://github.com/niplav/awitt">awitt</a>.</p>
-
-<h2>Reading</h2>
-
+<h2 id="Reading"><a class="hanchor" href="#Reading">Reading</a></h2>
 <p>Currently, I am actively reading the following books:</p>
-
 <ul>
 <li>Darf man Tiere essen? (Plutarch, 100)</li>
 <li>Die toten Seelen (Nikolai Gogol, 1842)</li>
@@ -135,4 +92,4 @@ tracker: <a href="https://github.com/niplav/awitt">awitt</a>.</p>
 <li>Superforecasting: The Art and Science of Prediction (Philip E. Tetlock/Dan Gardner, 2015)</li>
 <li>Right Concentration (Leigh Brasington, 2015)</li>
 </ul>
-</html>
+</body></html>

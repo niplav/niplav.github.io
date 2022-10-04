@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,20 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-08-15, modified: 2020-04-28, language: english, status: notes, importance: 3, confidence: theory</em></p>
-
 <blockquote>
-  <p><strong>Many people have very different conceptions on how to think about
+<p><strong>Many people have very different conceptions on how to think about
 consciousness, intelligence, sentience and information processing. A
 method of visualizing these conceptions is presented, some examples are
 discussed and advantages and disadvantages are shown.</strong></p>
 </blockquote>
-
-<h1>Using Diagrams to Visualize Conceptions of Intelligence, Consciousness and Sentience</h1>
-
+<h1 id="Using_Diagrams_to_Visualize_Conceptions_of_Intelligence_Consciousness_and_Sentience"><a class="hanchor" href="#Using_Diagrams_to_Visualize_Conceptions_of_Intelligence_Consciousness_and_Sentience">Using Diagrams to Visualize Conceptions of Intelligence, Consciousness and Sentience</a></h1>
 <!--
 "If consciousness is the thoughts and computations that an agent performs
 when acting in the world, there seems to be some relationship between
@@ -80,129 +49,87 @@ and sentience -- inner "feelings"."
 
 https://longtermrisk.org/flavors-of-computation-are-flavors-of-consciousness/
 -->
-
 <!--TODO: links in headers are no good, move them elsewhere-->
-
 <p>When talking about minds, what they contain, entail and are made of,
 there are many differing ideas and models that different people have
 thought about. However, it can often be very difficult to make meaningful
 progress in that area, since people often conflate one or more properties
 that minds can have with one another, don't use terms clearly or equate
 terms that under closer inspection have nothing to do with each other.</p>
-
 <p>One possible method to clear this confusion could be to establish broad
 definitions for different aspects of minds, and make diagrams that
 represent the relation of these different aspects.</p>
-
 <p>This text uses <a href="https://en.wikipedia.org/wiki/Venn_diagram">Venn
 diagram</a>-like diagrams to
 visualize these different conceptions, but adds notation to indicate
 that classes are meaningless or equal (or both).</p>
-
-<h2>Relevant Classes</h2>
-
-<h3>Descriptions</h3>
-
+<h2 id="Relevant_Classes"><a class="hanchor" href="#Relevant_Classes">Relevant Classes</a></h2>
+<h3 id="Descriptions"><a class="hanchor" href="#Descriptions">Descriptions</a></h3>
 <p>Terms (short, and only gesturing towards a definition):</p>
-
-<h4>Information-Processing (IP):</h4>
-
+<h4 id="InformationProcessing_IP"><a class="hanchor" href="#InformationProcessing_IP">Information-Processing (IP):</a></h4>
 <p>Complex internal state, responding to stimuli, processes information
 (duh!).</p>
-
-<p>Example: Computer <br />
+<p>Example: Computer <br/>
 Counter-example: A rock</p>
-
-<h4>Optimizing (O):</h4>
-
+<h4 id="Optimizing_O"><a class="hanchor" href="#Optimizing_O">Optimizing (O):</a></h4>
 <p>Optimizes towards a given goal.</p>
-
-<p>Example: Evolution, Paperclip-maximizer <br />
+<p>Example: Evolution, Paperclip-maximizer <br/>
 Counter-example: A piece of paper</p>
-
-<h4>Intelligent (I):</h4>
-
+<h4 id="Intelligent_I"><a class="hanchor" href="#Intelligent_I">Intelligent (I):</a></h4>
 <p>Internal model of the world, optimizes towards a goal, makes plans and
 executes them.</p>
-
-<p>Example: Adult human, artificial intelligence <br />
+<p>Example: Adult human, artificial intelligence <br/>
 Counter-example: A tree</p>
-
-<h4><a href="https://en.wikipedia.org/wiki/Sentience">Sentient</a> (S):</h4>
-
+<h4 id="None"><a class="hanchor" href="#None"><a href="https://en.wikipedia.org/wiki/Sentience">Sentient</a></a> (S):</h4>
 <p>Can experience qualia, such as the color red.</p>
-
 <blockquote>
-  <p>Sentience is the capacity to feel, perceive, or experience subjectively.</p>
+<p>Sentience is the capacity to feel, perceive, or experience subjectively.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Wikipedia">Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Sentience">“Sentience”</a>, 2019</em></p>
-
-<p>Example: Myself <br />
+<p>Example: Myself <br/>
 Counter-example: P-Zombie</p>
-
-<h4>Affectively sentient (AS):</h4>
-
+<h4 id="Affectively_sentient_AS"><a class="hanchor" href="#Affectively_sentient_AS">Affectively sentient (AS):</a></h4>
 <p>Can experience valenced qualia (qualia that are good/bad).</p>
-
-<p>Example: Presumably most humans <br />
+<p>Example: Presumably most humans <br/>
 Counter-example: An electron</p>
-
-<h4>Conscious (C):</h4>
-
+<h4 id="Conscious_C"><a class="hanchor" href="#Conscious_C">Conscious (C):</a></h4>
 <!--Issue: most people seem to use "conscious" and "sentient"
 interchangeably-->
-
 <p>Has internal self-model, passes mirror test (or similar test), can
 distinguish "world" and "self"</p>
-
-<p>Example: Myself <br />
+<p>Example: Myself <br/>
 Counter-example: P-Zombie</p>
-
-<h4><a href="https://en.wikipedia.org/wiki/Sapience">Sapient</a> (SP):</h4>
-
+<h4 id="None_1"><a class="hanchor" href="#None_1"><a href="https://en.wikipedia.org/wiki/Sapience">Sapient</a></a> (SP):</h4>
 <p>Possesses "wisdom" and "insight", think "a good human person"</p>
-
 <blockquote>
-  <p>[…] sapience […] is the ability to think and act using knowledge,
+<p>[…] sapience […] is the ability to think and act using knowledge,
 experience, understanding, common sense and insight.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Wikipedia">Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Sapience">“Wisdom”</a>, 2019</em></p>
-
-<p>Example: Lao-Tse <br />
+<p>Example: Lao-Tse <br/>
 Counter-Example: A golden retriever</p>
-
-<h2>Notation</h2>
-
+<h2 id="Notation"><a class="hanchor" href="#Notation">Notation</a></h2>
 <p>Similar to Venn diagrams, a class is generally represented by a circle
 or an ellipse that represents all minds that have that property. To
 differentiate the classes, the circle contains the abbreviation of the
 name of the class.</p>
-
 <p>If a class <code>$X$</code> doesn't mean anything, it can be written as <code>$\neg X$</code>
 in the class it collapses into. If no such class exists, it can be
 written outside of all classes, also as <code>$\neg X$</code>.</p>
-
 <p>If two classes <code>$X$</code> and <code>$Y$</code> are equal (all minds with one property
 necessarily have another property), they can be written inside the same
 circle as <code>$X=Y$</code>.</p>
-
-<h2>Examples</h2>
-
+<h2 id="Examples"><a class="hanchor" href="#Examples">Examples</a></h2>
 <p>Model in which all information-processing systems are sentient, conscious,
 affectively sentient, and where some information processing systems are
 optimizing (intelligence meaning the same thing as optimizing). Some of
 the optimizing systems are also sapient.</p>
-
-<p><img src="./img/consciousness_diagram/ip_centric.png" alt="Information-processing centric diagram" title="Information-processing centric diagram" /></p>
-
+<p><img alt="Information-processing centric diagram" src="./img/consciousness_diagram/ip_centric.png" title="Information-processing centric diagram"/></p>
 <p>Another way of looking at consciousness: Intelligent and sentient systems
 are both information processing systems, but not necessarily the same,
 every conscious system is sentient, just as every affectively sentient
 system, and every sapient system is both intelligent, conscious and
 affectively sentient. Also, not every information-processing system is
 sentient or intelligent.</p>
-
-<p><img src="./img/consciousness_diagram/specific.png" alt="Diagram of a view where consciousness is a very specific thing" title="Diagram of a view where consciousness is a a very specific thing" /></p>
-</html>
+<p><img alt="Diagram of a view where consciousness is a very specific thing" src="./img/consciousness_diagram/specific.png" title="Diagram of a view where consciousness is a a very specific thing"/></p>
+</body></html>

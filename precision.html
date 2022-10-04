@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,43 +32,32 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-02-04, modified: 2022-06-28, language: english, status: notes, importance: 4, confidence: likely</em></p>
-
 <blockquote>
-  <p><strong>I discuss proposals for a function that estimates how much predictive
+<p><strong>I discuss proposals for a function that estimates how much predictive
 information additional degrees of precision in forecasts add and at which
 point additional precision is just noise, and investigate these proposals
 with empirical forecasting data. I furthermore describe desirable boundary
 conditions for such functions.</strong></p>
 </blockquote>
-
 <!--https://nitter.hu/tenthkrige/status/1412457737380839432-->
 <!--https://stanford.edu/~knutson/nfc/mellers15.pdf-->
 <!--https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/D9FAZL-->
-
-<h1>Precision of Sets of Forecasts</h1>
-
+<h1 id="Precision_of_Sets_of_Forecasts"><a class="hanchor" href="#Precision_of_Sets_of_Forecasts">Precision of Sets of Forecasts</a></h1>
 <p><em>epistemic status: likely not just reinventing the wheel, but the whole bicycle</em></p>
-
 <!--
 TODO: Revamp the naming & notation a bit. Granularity or precision instead?
 -->
-
 <p>Say we have a set of resolved forecasts and can display them on a
 calibration plot.</p>
-
 <p>We can grade the forecasts according to some proper scoring rule,
 e.g. the <a href="https://en.wikipedia.org/wiki/Brier_score">Brier score</a>
 or the <a href="https://en.wikipedia.org/wiki/Scoring_rule#Logarithmic_scoring_rule">logarithmic scoring
 rule</a>.</p>
-
 <p>But we can also ask the question: how fine-grained are the predictions of
 our forecaster? I.e., at which level of finesse can we assume that
 the additional information is just noise?</p>
-
 <p>Take, for example, a hypothetical forecaster Baktiu who always gives
 their forecasts with 5 decimal digits of precision, such as forecasting a
 "24.566% probability of North Korea testing an ICBM in the year 2022",
@@ -103,12 +66,10 @@ pretty much random in any given interval of length 0.1 (i.e., their
 forecast with 15% and a forecast of 5% can be expected to resolve to
 the same outcome with equal probability). This means that 4 of the 5
 decimal digits of precision are just noise!</p>
-
 <p>Baktiu would be behaving absurdly; misleading their audience into
 believing they had spent much more time on their forecasts than they
 actually had (or, more likely, into correctly leading the audience into
 believing that there was something epistemically sketchy going on).</p>
-
 <p>As an aside, I believe something similar is going on when people
 encounter others putting probabilities on claims: It appears like
 an attempt at claiming undue quantitativeness (quantitativity?) in
@@ -118,20 +79,14 @@ not all precision in prediction is <a href="https://en.wikipedia.org/wiki/False_
 precision</a>: At some
 point, if remove digits of precision, the forecasts will become worse
 in expectation.</p>
-
 <p>But how might we confront our forecaster Baktiu from above? How might we
 estimate the level of degrees of precision after which their forecasts
 gave no more additional information?</p>
-
-<h2>Available Information</h2>
-
-<h2>Definitions</h2>
-
+<h2 id="Available_Information"><a class="hanchor" href="#Available_Information">Available Information</a></h2>
+<h2 id="Definitions"><a class="hanchor" href="#Definitions">Definitions</a></h2>
 <p>Let us call this number the finesse <code>$\mathcal{F}$</code> of a set of forecasts.</p>
-
 <p>We can eyeball this number, sure, but how can we determine it
 programatically?</p>
-
 <p>Let <code>$\mathbf{D}=((f_1, o_1), \dots, (f_n, o_n)) \in ((0,1),\{0,1\})^n$</code>
 be a dataset of <code>$n$</code> forecasts <code>$f_i$</code> and resolutions <code>$o_i$</code>, and
 <code>$\mathcal{F} \in [0;1]$</code> a finesse. Then the score is a function
@@ -140,11 +95,8 @@ forecasts and a finesse to the degree to which the forecasts are random at
 <code>$\mathcal{F}$</code>, which is <code>$0$</code> if the forecasts are completely random
 at <code>$\mathcal{F}$</code> and <code>$1$</code> if the forecasts are completely linear at
 <code>$\mathcal{F}$</code>.</p>
-
-<h2>Conditions for a Finesse Evaluation Function</h2>
-
+<h2 id="Conditions_for_a_Finesse_Evaluation_Function"><a class="hanchor" href="#Conditions_for_a_Finesse_Evaluation_Function">Conditions for a Finesse Evaluation Function</a></h2>
 <p>Use finesse <code>$ᚠ$</code> and noise <code>$ⴟ$</code></p>
-
 <ol>
 <li>If <code>$n=0$</code>, <code>$s(\emptyset, \mathcal{F})$</code> is undefined.</li>
 <li>If <code>$n=1$</code>, <code>$s(\mathbf{D}, \mathcal{F})=0$</code>: We are generally suspicious of any single forecast.
@@ -162,19 +114,14 @@ at <code>$\mathcal{F}$</code> and <code>$1$</code> if the forecasts are complete
 <li>We can't just do this by multiplying the result with the finesse, since that would violate condition 4</li>
 </ol></li>
 </ol>
-
 <p>But what should be done about a calibration plot that looks like this?</p>
-
-<p><img src="./img/finesse/cap.png" alt="A lopsided calibration plot: Linear and ascending up to 0.5, and then linearly descending to 0" title="A lopsided calibration plot: Linear and ascending up to 0.5, and then linearly descending to 0" /></p>
-
+<p><img alt="A lopsided calibration plot: Linear and ascending up to 0.5, and then linearly descending to 0" src="./img/finesse/cap.png" title="A lopsided calibration plot: Linear and ascending up to 0.5, and then linearly descending to 0"/></p>
 <p>There are two ways of arguing what, morally, the finesse of the
 forecasts is:</p>
-
 <ul>
 <li>The argument <em>for</em> having a score of <code>$~1$</code> for every finesse (assuming a large <code>$n$</code>) is that inferring the correct way to make forecasts from this calibration plot is trivial: With forecasts of probability <code>$f_i&gt;0.5$</code>, re-assign a probability <code>$f_i:=1-f_i$</code>.</li>
 <li><p>The argument <em>against</em> giving a score of <code>$~1$</code> is that extending this rule would mean that at every kind of correction on the plot is valid, but there is no clear cutoff point that prevents us from applying this to individual predictions ("If you predict 99% instead of 43%, and 1% instead of 13%, and 1% instead of 23%, and […], then you achieve perfect resolution and calibration.")</p></li>
 <li><p>Algorithms for quantifying the finesse of calibration plots</p>
-
 <ul>
 <li>Input: A list of <code>n</code> forecasts and their resolutions</li>
 <li>First idea:
@@ -211,16 +158,12 @@ forecasts is:</p>
 <li>Multiply score with the average number of datapoints inside the given finesse</li>
 </ul></li>
 </ul>
-
-<hr />
-
+<hr/>
 <ul>
 <li>Add more &amp; more noise to the forecasts and see how Brier score develops</li>
 <li>Start with perfect predictor, the level of noise at which its Brier score is equal to the dataset</li>
 </ul>
-
-<hr />
-
+<hr/>
 <pre><code>import csv
 import statistics
 import numpy as np
@@ -251,4 +194,4 @@ def finesse(d, pert=1, s=100):
         pert_scores.append(mse(o,perturbed))
     return np.mean(pert_scores)-score
 </code></pre>
-</html>
+</body></html>

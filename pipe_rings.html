@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,98 +32,70 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-04-24, modified: 2020-01-24, language: english, status: finished, importance: 4, confidence: possible</em></p>
-
 <blockquote>
-  <p><strong><a href="https://en.wikipedia.org/wiki/Pipeline_(Unix)">Pipelines</a> are an
+<p><strong><a href="https://en.wikipedia.org/wiki/Pipeline_(Unix)">Pipelines</a> are an
 integral part of the Unix operating system. They come in different
 variants (<a href="https://en.wikipedia.org/wiki/Named_pipe">FIFOs</a> and <a href="https://en.wikipedia.org/wiki/Anonymous_pipe">anonymous
 pipes</a>) and have many
 applications. Here I show how to abuse simple text files and unnamed
 pipes to create cycles of data flow.</strong></p>
 </blockquote>
-
-<h1>Pipe Rings</h1>
-
-<h2>The Basic Idea</h2>
-
+<h1 id="Pipe_Rings"><a class="hanchor" href="#Pipe_Rings">Pipe Rings</a></h1>
+<h2 id="The_Basic_Idea"><a class="hanchor" href="#The_Basic_Idea">The Basic Idea</a></h2>
 <p>A pipe ring has the following structure:</p>
-
 <pre><code>$ echo init &gt;a
 $ tail -f a | [filters] &gt;&gt;a
 </code></pre>
-
 <p>Usually, <code>a</code> contains some initialization values. These initialization
 values are then written into the pipeline, transformed by the filters,
 and concatenated to the file. <code>tail -f</code> then reads those new lines from
 the file in the order that they were generated, and new data is produced
 by the filters.</p>
-
-<h2>Examples</h2>
-
-<h3>Fill Disk</h3>
-
+<h2 id="Examples"><a class="hanchor" href="#Examples">Examples</a></h2>
+<h3 id="Fill_Disk"><a class="hanchor" href="#Fill_Disk">Fill Disk</a></h3>
 <p>The simplest pipe ring uses no filters at all:</p>
-
 <pre><code>$ echo test &gt;a
 $ tail -f a &gt;&gt;a
 </code></pre>
-
 <p>It simply fills the disk with a file containing the line "test".</p>
-
-<h3>Stop Ring</h3>
-
+<h3 id="Stop_Ring"><a class="hanchor" href="#Stop_Ring">Stop Ring</a></h3>
 <p>To stop the unconstrained use of hard disk memory, one can use sed:</p>
-
 <pre><code>$ echo test &gt;a
 $ tail -f a | stdbuf -oL sed '100q' &gt;&gt;a
 $ wc -l a
 101
 </code></pre>
-
 <p><code>stdbuf</code> is needed because on most system, the byte streams flowing through
 pipes are buffered. This means that if the command is <code>tail -f a | sed
 '100q' &gt;&gt;a</code> instead, sed consumes all input, writes to the buffered
 output (which has usually a size greater than the length of the line,
 on my system it is <code>#define BUFSIZ 1024</code>). <code>bufsiz</code> sets the output to line
 mode, which allows the <code>sed</code> output to be propagated without delay.</p>
-
-<h3>MU</h3>
-
+<h3 id="MU"><a class="hanchor" href="#MU">MU</a></h3>
 <p>In his book “Gödel, Escher, Bach: An Eternal Golden Braid” Douglas
 Hofstadter describes a logical system called MU:</p>
-
 <blockquote>
-  <p>The first thing to say about our formal system—the MIU-system –
+<p>The first thing to say about our formal system—the MIU-system –
 is that it utilizes only three letters of the alphabet: M, I, U. That
 means that the only strings of the MIU- system are strings which are
 composed of those three letters.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Douglas_Hofstadter">Douglas Hofstadter</a>, <a href="./doc/cs/the_mu_puzzle_hofstadter_1994.pdf">“The MU-puzzle“ in “Gödel, Escher, Bach: An Eternal Golden Braid”</a> p. 1, 1994</em></p>
-
 <p>There is a starting string, and four rules to modify this string:</p>
-
 <blockquote>
-  <p>RULE I: If you possess a string whose last letter is I, you can add on a U at the end.</p>
-
+<p>RULE I: If you possess a string whose last letter is I, you can add on a U at the end.</p>
 <p>By the way, if up to this point you had not guessed it, a fact about the
 meaning of "string" is that the letters are in a fixed order. For example,
 MI and IM are two different strings. A string of symbols is not just a
 "bag" of symbols, in which the order doesn't make any difference.
   Here is the second rule:</p>
-
 <p>RULE II: Suppose you have Mx. Then you may add Mxx to your collection.</p>
-
 <p>What I mean by this is shown below, in a few examples.</p>
-
-<p>From MIU, you may get MIUIU. <br />
-From MUM, you may get MUMUM. <br />
+<p>From MIU, you may get MIUIU. <br/>
+From MUM, you may get MUMUM. <br/>
 From MU, you may get MUU.</p>
-
 <p>So the letter 'x' in the rule simply stands for any string; but once
 you have decided which string it stands for, you have to stick with your
 choice (until you use the rule again, at which point you may make a new
@@ -163,36 +109,27 @@ function of the 'x': to stand for an arbitrary string. If you ever add
 a string containing an 'x' to your "collection", you have done something
 wrong, because strings of the MIU-system never contain "x" “s”!
 Here is the third rule:</p>
-
 <p>RULE III: If III occurs in one of the strings in your collection, you
 may make a new string with U in place of III.</p>
-
 <p>Examples:</p>
-
-<p>From UMIIIMU, you could make UMUMU. <br />
-From MIIII, you could make MIU (also MUI). <br />
-From IIMII, you can't get anywhere using this rule. <br />
-(The three I's have to be consecutive.) <br />
+<p>From UMIIIMU, you could make UMUMU. <br/>
+From MIIII, you could make MIU (also MUI). <br/>
+From IIMII, you can't get anywhere using this rule. <br/>
+(The three I's have to be consecutive.) <br/>
 From MIII, make MU.  </p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Douglas_Hofstadter">Douglas Hofstadter</a>, <a href="./doc/cs/the_mu_puzzle_hofstadter_1994.pdf">“The MU-puzzle“ in “Gödel, Escher, Bach: An Eternal Golden Braid”</a> p. 2, 1994</em></p>
-
 <p>Hofstadter poses a challenge: starting with the string "mi", he asks
 whether the string "mu" can be constructed.</p>
-
 <p>An <a href="https://en.wikipedia.org/wiki/AWK">awk</a> script implements the
 four rules:</p>
-
 <pre><code>/i$/ { print($0 "u") }
 /^m/ { s=substr($0, 2); print("m" s s) }
 /iii/ { i=split($0, a, "iii")-1; for(c=1; c&lt;=i; c++) print(gensub("iii", "uu", c)) }
 /uu/ { i=split($0, a, "uu")-1; for(c=1; c&lt;=i; c++) print(gensub("uu", "", c)) }
 </code></pre>
-
 <p>One can now write an <a href="https://en.wikipedia.org/wiki/Rc">rc</a> script to
 implement a pipe ring that generates mu expressions.</p>
-
 <pre><code>#!/usr/bin/env rc
 
 fn apr{
@@ -204,15 +141,12 @@ fn apr{
 
 tail -f mu | apr | stdbuf -oL grep -E '^.{,80}$' | stdbuf -oL awk '!a[$0]++' &gt;&gt;mu
 </code></pre>
-
 <p><code>awk '!a[$0]++'</code> is taken from
 <a href="https://iridakos.com/how-to/2019/05/16/remove-duplicate-lines-preserving-order-linux.html">iridakos 2019</a>.
 Also, stdbuf doesn't work with rc functions, so it has to be written
 directly into the function. <code>grep</code> is used to prevent extremely long
 lines from forming through the repeated application of the first rule.</p>
-
 <p>Executing the script gives the desired result:</p>
-
 <pre><code>$ echo 'mi' &gt;mu
 $ ./muring
 ^C
@@ -231,19 +165,14 @@ miiiiiiii
 $ grep '^mu$' mu
 $ # nothing there
 </code></pre>
-
 <p>This of course does not solve the puzzle posed by Hofstadter, after all,
 there could be a longer and more complex derivation that takes more time
 to generate. But in either case, one can rule out a simple and short
 derivation of "mu" from "mi".</p>
-
-<h3>Crawl a Website</h3>
-
+<h3 id="Crawl_a_Website"><a class="hanchor" href="#Crawl_a_Website">Crawl a Website</a></h3>
 <p>This also works for creating a list of links that start from a given
 web page (albeit only partially and not completely reliably).</p>
-
 <p>The code for this is quite straightforward:</p>
-
 <pre><code>#!/usr/bin/env rc
 
 # download a web page and extract all links in it
@@ -259,14 +188,12 @@ fn getl {
 
 tail -f links | getl | stdbuf -i0 -oL awk '!a[$0]++' &gt;&gt;links
 </code></pre>
-
 <p>This code should be understandable: The file links contains the starting
 web page to be crawled. This is then <code>curl</code>ed and all outgoing links
 are extracted with a sequence of filtering out non-links using <code>grep</code>
 and <code>sed</code>. The results are then filtered for results that were already
 obtained, and appended to the links file again–an elegant demonstration
 of a pipe ring.</p>
-
 <pre><code>$ echo https://en.wikipedia.org/wiki/Main_Page &gt;links
 $ ./crawler
 ^C
@@ -282,43 +209,35 @@ https://www.wikidata.org/wiki/
 https://en.wikinews.org/wiki/
 https://en.wikiquote.org/wiki/
 </code></pre>
-
-<h3>Hashes of Hashes</h3>
-
+<h3 id="Hashes_of_Hashes"><a class="hanchor" href="#Hashes_of_Hashes">Hashes of Hashes</a></h3>
 <p>To use a more superfluous and fun example, one can think of hexadecimal
 strings of a certain length as being closed under a given hash
 function. For example, the set of the hexadecimal strings of length 32 is
 closed under the <a href="https://en.wikipedia.org/wiki/MD5">MD5 hash sum</a>. That
 means that applying a hash function to an element of this set results
 in the member of a set.</p>
-
 <p>The probability that there exists a hexadecimal string of
 length 32 that is it's own MD5 hash sum is approximately
 <code>$1-\frac{1}{e}≈63\%$</code> (see <a href="https://stackoverflow.com/questions/235785/is-there-an-md5-fixed-point-where-md5x-x">this stackoverflow
 question</a>).</p>
-
 <p>This can be illustrated easily with a toy example: the set of hexadecimal
 strings with length 2, and a hash sum that is simply the first two
 characters of the MD5 sum of the input (here called f2md5sum). Then one
 can try to find such a fixed point with a line of rc:</p>
-
 <pre><code>$ for(i in `{seq 0 255 | awk '{ printf("%.2x\n", $0) }'}) { j=`{echo $i | md5sum | grep -o '^..'}; if(~ $i $j) echo $i $j }
 6b 6b
 $ md5sum
 6b
 6bf60475e53919fb39d07c0bb66c9c6e  -
 </code></pre>
-
 <p>Since there are of course collisions in this simple hash function, it
 is very likely that for the set H of hexadecimal strings of length 2,
 there will be some elements h∈H so that there is no element v∈H so
 that f2md5sum(v)=h.</p>
-
 <p>But there are cycles for this set and operation: sequences of strings
 h₁,h₂,h₃,…,hₙ so that f2md5sum(h₁)=h₂, f2md5sum(h₂)=h₃,
 …, f2md5sum(hₙ)=h₁. One can find such cycles by writing a little
 script using a pipe ring:</p>
-
 <pre><code>#!/usr/bin/env rc
 
 fn oipl {
@@ -327,9 +246,7 @@ fn oipl {
 
 tail -f sums | oipl md5sum | stdbuf -i0 -oL grep -o '^..' &gt;&gt;sums
 </code></pre>
-
 <p>It gives the desired results:</p>
-
 <pre><code>$ echo 6b &gt;sums
 $ ./hashring
 $ head sums
@@ -375,24 +292,18 @@ e4
 87
 07
 </code></pre>
-
 <p>In the last example, one can see such a cycle starting with 87 and ending
 with 0a, as well as a collision: cc and 0a both have the hash 87.</p>
-
 <p>Theoretically, one could use this method to find cycles for longer
 hash sums, and while it would be interesting to find a string that is it's
 own <a href="https://en.wikipedia.org/wiki/SHA-1">SHA1 sum</a>, actually doing it
 seems like a frivolous waste of energy and computing power.</p>
-
 <p>Fortunately for me, somebody else has done this already,
 creating a gif that displays its own MD5 sum (made by
 <a href="https://nitter.hu/__spq__/status/838583044260904960">spq</a>):</p>
-
-<p><img src="./img/pipe_rings/md5.gif" alt="A gif that displays its own MD5 sum" title="A gif that displays its own MD5 sum. The MD5 sum is F5CA4F935D44685C431A8BF788C0EACA." /></p>
-
-<h2>External Links</h2>
-
+<p><img alt="A gif that displays its own MD5 sum" src="./img/pipe_rings/md5.gif" title="A gif that displays its own MD5 sum. The MD5 sum is F5CA4F935D44685C431A8BF788C0EACA."/></p>
+<h2 id="External_Links"><a class="hanchor" href="#External_Links">External Links</a></h2>
 <ul>
 <li><a href="https://www2.dmst.aueb.gr/dds/sw/dgsh/">dgsh—directed graph shell</a></li>
 </ul>
-</html>
+</body></html>

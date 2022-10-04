@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,30 +32,23 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-09-04, modified: 2021-09-04, language: english, status: notes, importance: 4, confidence: likely</em></p>
-
 <blockquote>
-  <p><strong>The state of information about the legal and logistical hurdles for
+<p><strong>The state of information about the legal and logistical hurdles for
 a successful cryopreservation in countries outside of the United States
 (and perhaps Canada) is dire. Here I attempt to collect information
 related to such hurdles and, if possible, how to overcome them.</strong></p>
 </blockquote>
-
-<h1>Cryonics Outside of the United States</h1>
-
+<h1 id="Cryonics_Outside_of_the_United_States"><a class="hanchor" href="#Cryonics_Outside_of_the_United_States">Cryonics Outside of the United States</a></h1>
 <p>Hello! You are probably here because you are considering signing up for
 cryonics or are already signed up and want to improve your chances of
 making it into the future.</p>
-
 <p>This text deals with the period from signing up to the moment when you are
 stored in your cryonics organisation's dewar. In particular, it deals with
 the questions about which additional documents to fill out, which people
 you have to talk to, and where you could move before dying to improve
 your chances of your body landing in liquid nitrogen after deanimation.</p>
-
 <p>This guide does not deal with the question whether it is a good idea to
 sign up for cryonics, or how to do so in the US. I assume you have made
 up your mind about that already. Coincidentally, I believe signing up
@@ -91,12 +58,9 @@ and perhaps my own <a href="./considerations_on_cryonics.html" title="Considerat
 analysis</a>).
 For instructions on how to sign up for cryonics in the US, see
 <a href="">here</a><!--TODO: link cryonics signup guide-->.</p>
-
-<h2>Structure</h2>
-
+<h2 id="Structure"><a class="hanchor" href="#Structure">Structure</a></h2>
 <p>This text is structured as a nested list, iterating through the possible
 options for each section and subsection:</p>
-
 <ul>
 <li>General Considerations: Things that are generally wise to do, regardless of place of residence (this point can also be a subsection of any other section)</li>
 <li>Place of Residence: Where the cryonicist is currently located (ideally, a permanent residence with citizenship in the country they reside in)
@@ -118,32 +82,23 @@ options for each section and subsection:</p>
 </ul></li>
 </ul></li>
 </ul>
-
 <p>Needless to say, this guide will very likely never be finished: Collecting
 the information about all regulatory hurdles in all countries for all
 possible causes of death and all possible steps to successful preservation
 would probably take more than a lifetime of work, and be obsolete by
 the time it is finished.</p>
-
 <p>My initial plan for this document is to first document my personal
 strategy for cryonics signup, and then search for people who have signed
 up for cryonics outside of the US to ask them about their considerations.</p>
-
 <p>Ideally, this document would grow over time, as people from different
 countries contribute the precautions they have taken.</p>
-
 <p><strong>If you don't have a US citizenship and have signed up with cryonics, or
 have considered and research it, but rejected it for logistical reasons,
 I would <a href="./about.html#Contact">like to talk to you</a> about why and how
 (email address is rot-13ed <!--TODO: link-->).</strong></p>
-
-<h2>European Union</h2>
-
-<h3>Germany</h3>
-
-<h4>General Considerations</h4>
-
-<h4>Contract with a US Organisation</h4>
-
-<h5>Slow Young Deteriorating Death</h5>
-</html>
+<h2 id="European_Union"><a class="hanchor" href="#European_Union">European Union</a></h2>
+<h3 id="Germany"><a class="hanchor" href="#Germany">Germany</a></h3>
+<h4 id="General_Considerations"><a class="hanchor" href="#General_Considerations">General Considerations</a></h4>
+<h4 id="Contract_with_a_US_Organisation"><a class="hanchor" href="#Contract_with_a_US_Organisation">Contract with a US Organisation</a></h4>
+<h5 id="Slow_Young_Deteriorating_Death"><a class="hanchor" href="#Slow_Young_Deteriorating_Death">Slow Young Deteriorating Death</a></h5>
+</body></html>

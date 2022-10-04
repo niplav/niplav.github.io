@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,18 +32,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-08-17, modified: 2022-07-25, language: english, status: in progress, importance: 6, confidence: possible</em></p>
-
 <blockquote>
-  <p><strong>I discuss arguments for and against the usefulness of brain-computer
+<p><strong>I discuss arguments for and against the usefulness of brain-computer
 interfaces in relation to AI alignment, and conclude that the path to
 AI going well using brain-computer interfaces hasn't been explained in
 sufficient detail.</strong></p>
 </blockquote>
-
 <!--
 Original TODO:
 
@@ -134,7 +104,6 @@ don't really seem to respond to the classical AI risk arguments/scenarios.
 
 > My tentative belief is that direct alignment work is probably more useful.
 -->
-
 <!--
 Suggestions comment 2 (https://old.reddit.com/r/ControlProblem/comments/pfb8ze/braincomputer_interfaces_and_ai_alignment/hb6gg89):
 
@@ -157,7 +126,6 @@ enough it can probably manipulate and brainwash humans with just a short
 conversation, but the wires do make brainwashing easier. You end up with
 a malevolent AI puppeting around a human body.
 -->
-
 <!--
 Suggestions comment 3:
 
@@ -199,14 +167,11 @@ us substantially to solve alignment, but I don't think we have time if
 there's only a decade or two left, considering we don't know how to do
 this and might not figure it out without a lot of human experimentation.
 -->
-
 <!--
 Resources from this comment:
 https://www.lesswrong.com/posts/rpRsksjrBXEDJuHHy/brain-computer-interfaces-and-ai-alignment?commentId=t9n35ss9nhW2gJBg5
 -->
-
-<h1>Brain-Computer Interfaces and AI Alignment</h1>
-
+<h1 id="BrainComputer_Interfaces_and_AI_Alignment"><a class="hanchor" href="#BrainComputer_Interfaces_and_AI_Alignment">Brain-Computer Interfaces and AI Alignment</a></h1>
 <p>As a response to Elon Musk declaring that <a href="https://www.youtube.com/watch?v=ycPr5-27vSI&amp;t=1447s">NeuraLink's purpose is to
 aid AI alignment</a>,
 <a href="https://lukemuehlhauser.com/musks-non-missing-mood" title="Musk's non-missing mood">Muehlhauser
@@ -218,15 +183,12 @@ with AI alignment. However, the chapter referenced only concerns itself
 with building superintelligent AI using brain-computer interfaces,
 and not specifically about whether such systems would be aligned or
 especially alignable.</p>
-
 <p>Arguments against the usefulness for brain-computer interfaces
 in AI alignment have been raised, but mostly in short form on
 twitter (for example <a href="https://nitter.hu/robbensinger/status/1405878940149944332">here</a>).
 This text attempts to collect arguments for and against brain-computer
 interfaces from an AI alignment perspective.</p>
-
-<h2>Epistemic Status</h2>
-
+<h2 id="Epistemic_Status"><a class="hanchor" href="#Epistemic_Status">Epistemic Status</a></h2>
 <p>I am neither a neuroscientist nor an AI alignment researcher (although
 I have read some blogposts about the latter topic). I know very little
 about brain-computer interfaces (from now on abbreviated as “BCIs”),
@@ -239,7 +201,6 @@ thread</a>
 and on the AI alignment channel on the Eleuther AI discord server, and
 not received any answers that provide such a resource (although I was
 told some useful arguments about the topic)).</p>
-
 <p>I have tried to make the best case for and against BCIs, stating some tree
 of arguments that I think many AI alignment researchers tacitly believe,
 mostly taking as a starting point the Bostrom/Yudkowsky story of AI risk
@@ -251,30 +212,24 @@ or ARCHES to make a judgment about the applicability of the arguments).
 This means that AI systems will be assumed to be maximizers, as
 <a href="https://arbital.com/p/otherizer/" title="Other-izing (wanted: new optimization idiom)">mathematical descriptions of other optimization idioms are currently
 unsatisfactory</a>.</p>
-
-<h2>Existing Texts</h2>
-
+<h2 id="Existing_Texts"><a class="hanchor" href="#Existing_Texts">Existing Texts</a></h2>
 <p>The most thorough argument for the usefulness of BCIs for AI alignment is
 <a href="https://waitbutwhy.com/2017/04/neuralink.html" title="Neuralink
 and the Brain’s Magical Future">Urban 2017</a> (which I was pointed to by <a href="https://www.lesswrong.com/posts/rpRsksjrBXEDJuHHy/brain-computer-interfaces-and-ai-alignment?commentId=CMvDAm4K7Q3zwsidA">Steven
 Byrnes</a>,
 thanks!).</p>
-
 <p>The text mostly concerns itself with the current status of BCI technology,
 different methods of reading and writing information from and to the
 brain, and some of the implication on society if such a technology
 were developed.</p>
-
 <p>The section where the text explains the relation of BCIs to AI alignment
 is as follows:</p>
-
 <blockquote>
-  <p>That AI system, he believes, will become as present a character in your
+<p>That AI system, he believes, will become as present a character in your
 mind as your monkey and your human characters—and it will feel like you
 every bit as much as the others do. He says: I think that, conceivably,
 there’s a way for there to be a tertiary layer that feels like it’s
 part of you. It’s not some thing that you offload to, it’s you.</p>
-
 <p>This makes sense on paper. You do most of your “thinking” with your
 cortex, but then when you get hungry, you don’t say, “My limbic
 system is hungry,” you say, “I’m hungry.” Likewise, Elon thinks,
@@ -288,31 +243,24 @@ think up a strategy at work and your AI disagrees, that’ll be a genuine
 disagreement and a debate will ensue—but it will feel like an internal
 debate, not a debate between you and someone else that just happens to
 take place in your thoughts. The debate will feel like thinking.</p>
-
 <p>It makes sense on paper.</p>
-
 <p>But when I first heard Elon talk about this concept, it didn’t really
 feel right. No matter how hard I tried to get it, I kept framing the
 idea as something familiar—like an AI system whose voice I could hear
 in my head, or even one that I could think together with. But in those
 instances, the AI still seemed like an external system I was communicating
 with. It didn’t seem like me.</p>
-
 <p>But then, one night while working on the post, I was rereading some of
 Elon’s quotes about this, and it suddenly clicked. The AI would be
 me. Fully. I got it.</p>
 </blockquote>
-
 <p><em>— <a href="https://waitbutwhy.com/">Tim Urban</a>, “<a href="https://waitbutwhy.com/2017/04/neuralink.html">Neuralink and the Brain’s Magical Future</a>”, 2017</em></p>
-
 <p>However, these paragraphs are not wholly clear on how this merging with
 AI systems is supposed to work.</p>
-
 <p>It could be interpreted as describing <a href="#Input-of-Cognition">input of
 cognition</a> from humans
 into AI systems and vice versa, or simply non-AI <a href="#Improving-Human-Cognition">augmentation of human
 cognition</a>.</p>
-
 <p>Assuming the interaction with an unaligned
 AI system, these would enable <a href="#Direct-Neural-Takeover-Made-Easy">easier neural
 takeover</a>
@@ -322,68 +270,53 @@ strategies</a>—well
 known failure modes in cases where <a href="#Merging-is-Just-Faster-Interaction">merging is just faster
 interaction</a>
 between humans and AI systems.</p>
-
 <p>The comparison with the limbic system is leaky, because the limbic system
 is not best modeled as a more intelligent optimizer than the cortex with
 different goals.</p>
-
 <p>Aligning an already aligned AI system using BCIs is, of course, trivial.</p>
-
 <p>The usefulness that BCIs could have for aligning AI systems by increasing
 the amount of information for value learning systems is examined in the
 excellent <a href="https://www.lesswrong.com/posts/iWv6Pu2fWPKqevzFE/using-brain-computer-interfaces-to-get-more-data-for-ai" title="Using Brain-Computer Interfaces to get more data for AI alignment">Robbo
 2021</a>.
 It also presents a categorization into three ways in which BCI technology
 could be help for aligning AI: Enhancement, Merge, and Alignment Aid.</p>
-
 <p>A critical analysis of BCIs is made in <a href="https://forum.effectivealtruism.org/posts/qfDeCGxBTFhJANAWm/a-new-x-risk-factor-brain-computer-interfaces-1" title="A New X-Risk Factor: Brain-Computer Interfaces">Jack
 2020</a>,
 which examines BCIs as a possible factor for existential risks, especially
 in relation to stable global totalitarianism. It doesn't touch upon AI
 alignment, but is still a noteworthy addition to the scholarship on BCIs.</p>
-
-<h2>Arguments For the Utility of Brain-Computer Interfaces in AI Alignment</h2>
-
+<h2 id="Arguments_For_the_Utility_of_BrainComputer_Interfaces_in_AI_Alignment"><a class="hanchor" href="#Arguments_For_the_Utility_of_BrainComputer_Interfaces_in_AI_Alignment">Arguments For the Utility of Brain-Computer Interfaces in AI Alignment</a></h2>
 <blockquote>
-  <p>There is a cataclysm coming for this population <br />
-What form it takes is not yet known our team is at the station <br />
-The meiser is always watching over this old town <br />
+<p>There is a cataclysm coming for this population <br/>
+What form it takes is not yet known our team is at the station <br/>
+The meiser is always watching over this old town <br/>
 I know the ways their talking crumbles if the air becomes unwound  </p>
-
-<p>I am an alien, I can't say I'm a trusted bearer <br />
-I humbly ask my word be heeded lest there be a gruesome terror <br />
-Ungodly astral beings, lend your ear to me <br />
-For just a second I can make things clear <br />
+<p>I am an alien, I can't say I'm a trusted bearer <br/>
+I humbly ask my word be heeded lest there be a gruesome terror <br/>
+Ungodly astral beings, lend your ear to me <br/>
+For just a second I can make things clear <br/>
 I'll let the meiser see  </p>
-
-<p>There is no easy way to give this information unto thee <br />
-I pray I do not sound to brash or too conspicuous indeed <br />
-The end is coming if I dare come if cliché <br />
+<p>There is no easy way to give this information unto thee <br/>
+I pray I do not sound to brash or too conspicuous indeed <br/>
+The end is coming if I dare come if cliché <br/>
 I dare say image won't concern me if we make it through today  </p>
-
 <p>[…]  </p>
-
-<p>One dawn in the stomach of the beast <br />
-a sickly parasite will crave the taste of acid in the trees <br />
-Wine and bees, nothing here will keep the hive in check <br />
+<p>One dawn in the stomach of the beast <br/>
+a sickly parasite will crave the taste of acid in the trees <br/>
+Wine and bees, nothing here will keep the hive in check <br/>
 Das triadische Ballet, das triadische Ballet  </p>
-
-<p>One dawn with a trepidacious spark <br />
-We need to turn the end upon us <br />
-We'll behest the oligarchs <br />
-All the stars burn the oceans up, the dreams we haven't met <br />
+<p>One dawn with a trepidacious spark <br/>
+We need to turn the end upon us <br/>
+We'll behest the oligarchs <br/>
+All the stars burn the oceans up, the dreams we haven't met <br/>
 Das triadische Ballet, das triadische Ballet!</p>
 </blockquote>
-
 <p><em>—<a href="https://patriciataxxon.bandcamp.com/">Patricia Taxxon</a>, <a href="https://patriciataxxon.bandcamp.com/album/gelb">“Alien”</a> from <a href="https://patriciataxxon.bandcamp.com/track/gelb">“Gelb”</a>, 2020</em></p>
-
-<h3>Improving Human Cognition</h3>
-
+<h3 id="Improving_Human_Cognition"><a class="hanchor" href="#Improving_Human_Cognition">Improving Human Cognition</a></h3>
 <p>Just as writing or computers have improved the quality and speed of human
 cognition, BCIs could do the same, on a similar (or larger) scale. These
 advantages could arise out of several different advantages of BCIs over
 traditional perception:</p>
-
 <ul>
 <li>Quick lookup of facts (e.g. querying Wikipedia while in a conversation)</li>
 <li>Augmented long-term memory (with more reliable and resilient
@@ -397,19 +330,14 @@ model to another person, saving a lot of time explaining)</li>
 <li>Outsourcing simple cognitive tasks to external computers</li>
 <li><a href="https://www.lesswrong.com/posts/QqnQJYYW6zhT62F6Z/open-and-welcome-thread-august-2021?commentId=bkPAbLDDDhjR3wyYm">Adding additional emulated cortical columns to human brains</a></li>
 </ul>
-
 <p>It would be useful to try to estimate whether BCIs could make as much of
 a difference to human cognition as language or writing or the internet,
 and to perhaps even quantify the advantage in intelligence and speed
 given by BCIs.</p>
-
 <!--TODO: how much more intelligent? How much faster?-->
-
-<h4>Scaling far Beyond Human Intelligence</h4>
-
+<h4 id="Scaling_far_Beyond_Human_Intelligence"><a class="hanchor" href="#Scaling_far_Beyond_Human_Intelligence">Scaling far Beyond Human Intelligence</a></h4>
 <p>If BCIs could allow to scale the intelligence of biological humans
 far beyond normal human intelligence, this might either</p>
-
 <ul>
 <li>enable a <a href="https://arbital.com/p/pivotal/">pivotal act</a>, in which
 looming catastrophes are avoided</li>
@@ -419,9 +347,7 @@ caused by BCIS enabling sufficient access to the human brain that
 self-modification with resulting recursive self-improvement is
 enacted by a human)</li>
 </ul>
-
-<h3>Understanding the Human Brain</h3>
-
+<h3 id="Understanding_the_Human_Brain"><a class="hanchor" href="#Understanding_the_Human_Brain">Understanding the Human Brain</a></h3>
 <p>Neuroscience seems to be blocked by not having good access to human brains
 while they are alive, and would benefit from shorter feedback loops and
 better data. A better understanding of the human brain might be quite
@@ -430,9 +356,7 @@ though it seems like there might not be one such location <a href="https://nivla
 2021</a>).
 Similarly, a better understanding of the human brain might aid in better
 understanding and interpreting neural networks.</p>
-
-<h4>Path Towards Whole-Brain Emulation or Human Imitation</h4>
-
+<h4 id="Path_Towards_WholeBrain_Emulation_or_Human_Imitation"><a class="hanchor" href="#Path_Towards_WholeBrain_Emulation_or_Human_Imitation">Path Towards Whole-Brain Emulation or Human Imitation</a></h4>
 <p>Whole-brain emulation (henceforth WBE) (with the emulations being
 faster or cheaper to run than physical humans) would likely be useful
 for AI alignment if used differentially for alignment over capabilities
@@ -442,40 +366,31 @@ solutions. Fast progress in BCIs could make WBEs more likely before an AI
 <a href="https://www.lesswrong.com/posts/JPan54R525D68NoEt/the-date-of-ai-takeover-is-not-the-day-the-ai-takes-over" title="The date of AI Takeover is not the day the AI takes over">point of no
 return</a>
 by improving the understanding of the human brain.</p>
-
 <p>A similar but weaker argument would apply to
 <a href="https://www.alignmentforum.org/posts/LTFaD96D9kWuTibWr/just-imitate-humans" title="Just Imitate Humans?">AI systems that imitate human behavior</a>.</p>
-
-<h3>“Merging” AI Systems With Humans</h3>
-
+<h3 id="Merging_AI_Systems_With_Humans"><a class="hanchor" href="#Merging_AI_Systems_With_Humans">“Merging” AI Systems With Humans</a></h3>
 <p>A notion often brought forward in the context of BCIs and
 AI alignment is the one of <a href="https://blog.samaltman.com/the-merge">“merging” humans and AI
 systems</a>.</p>
-
 <p>Unfortunately, a clearer explanation of how exactly this would work or
 help with making AI go well is usually not provided (at least I haven't
 managed to find any clear explanation). There are different possible
 ways of conceiving of humans “merging” with AI systems: using human
 values/cognition/policies as partial input to the AI system.</p>
-
-<h4>Input of Values</h4>
-
+<h4 id="Input_of_Values"><a class="hanchor" href="#Input_of_Values">Input of Values</a></h4>
 <p>The most straightforward method of merging AI systems and humans could be
 to use humans outfitted with BCIs as part of the reward function of an AI
 system. In this case, a human would be presented with a set of outcomes
 by an AI system, and would then signal how desirable that outcome would
 be from the human's perspective. The AI would then search for ways to
 reach the states rated highest by the human with the largest probability.</p>
-
 <p>If one were able to find parts of the human brain that hold the human
 utility function, one could use these directly as parts of the AI systems.
 However, it seems unlikely that the human brain has a clear notion of
 terminal values distinct from instrumental values and policies<!--TODO:
 link the case against economic values in the brain--> in a form that
 could be used by an AI system.</p>
-
-<h5>Easier Approval-Directed AI Systems</h5>
-
+<h5 id="Easier_ApprovalDirected_AI_Systems"><a class="hanchor" href="#Easier_ApprovalDirected_AI_Systems">Easier Approval-Directed AI Systems</a></h5>
 <p>Additionally, a human connected to an AI system via a BCI would
 have an easier time evaluating the cognition of <a href="https://www.lesswrong.com/s/EmDuGeRw749sD3GKd/p/7Hr8t6xwuuxBTqADK
 " title="Approval-directed agents">approval-directed
@@ -483,29 +398,23 @@ agents</a>, since they might be able to follow he
 cognition of the AI system in real-time, and spot undesirable thought
 processes (like e.g. attempts at <a href="https://arbital.com/p/cognitive_steganography/" title="Cognitive steganography">cognitive
 steganography</a>).</p>
-
-<h4>Input of Cognition</h4>
-
+<h4 id="Input_of_Cognition"><a class="hanchor" href="#Input_of_Cognition">Input of Cognition</a></h4>
 <p>Related to the aspect of augmenting humans using BCIs by outsourcing parts
 of cognition to computers, the inverse is also possible: identifying
 modules of AI systems that are most likely to be misaligned to humans
 or produce such misalignment, and replacing them with human cognition.</p>
-
 <p>For example the part of the AI system that formulates long-term
 plans could be most likely to be engaged in formulating
 misaligned plans, and the AI system could be made more
 <a href="https://www.alignmentforum.org/tag/myopia">myopic</a> by replacing the
 long-term planning modules with BCI-augmented humans, while short-term
 planning would be left to AI systems.</p>
-
 <p>Alternatively, if humanity decides it wants to prevent AI systems from
 forming <a href="https://www.lesswrong.com/posts/BKjJJH2cRpJcAnP7T" title="Thoughts on Human Models">human
 models</a>,
 modeling humans &amp; societies could be outsourced to actual humans, whose
 human models would be used by the AI systems.</p>
-
-<h4>Input of Policies</h4>
-
+<h4 id="Input_of_Policies"><a class="hanchor" href="#Input_of_Policies">Input of Policies</a></h4>
 <p>As a matter of completeness, one might hypothesize about an AI
 agent that is coupled with a human, where the human can overwrite
 the policy of the agent (or, alternatively, the agent samples
@@ -514,14 +423,10 @@ however, when not augmented with other methods of “merging”
 humans and AI systems, the agent has a strong <a href="https://arbital.com/p/instrumental_convergence/" title="Instrumental Convergence">instrumental
 pressure</a>
 to remove the ability of the human to change its policy at a whim.</p>
-
-<h3>Aid to Interpretability Work</h3>
-
+<h3 id="Aid_to_Interpretability_Work"><a class="hanchor" href="#Aid_to_Interpretability_Work">Aid to Interpretability Work</a></h3>
 <p>By increasing the speed of interaction and augmenting human intelligence,
 BCIs might aid the quest of improving the interpretability of AI systems.</p>
-
-<h3>Side-note: A Spectrum from Humans to Human Imitations</h3>
-
+<h3 id="Sidenote_A_Spectrum_from_Humans_to_Human_Imitations"><a class="hanchor" href="#Sidenote_A_Spectrum_from_Humans_to_Human_Imitations">Side-note: A Spectrum from Humans to Human Imitations</a></h3>
 <p>There seems to be a spectrum from biological humans to human imitations,
 roughly along the axes of integration with digital systems/speed:
 Biological humans → humans with BCIs → whole-brain emulations →
@@ -529,17 +434,12 @@ human imitations. This spectrum also partially tracks how aligned
 these human-like systems can be expected to act: a human imitation
 off-distribution seems much less trustworthy than a whole-brain emulation
 of a human acting off distribution.</p>
-
-<h2>Arguments Against the Utility of Brain-Computer Interfaces in AI Alignment</h2>
-
+<h2 id="Arguments_Against_the_Utility_of_BrainComputer_Interfaces_in_AI_Alignment"><a class="hanchor" href="#Arguments_Against_the_Utility_of_BrainComputer_Interfaces_in_AI_Alignment">Arguments Against the Utility of Brain-Computer Interfaces in AI Alignment</a></h2>
 <blockquote>
-  <p>And so we boldly go—into the whirling knives.</p>
+<p>And so we boldly go—into the whirling knives.</p>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/Nick_Bostrom">Nick Bostrom</a>, <a href="https://www.goodreads.com/book/show/20527133-superintelligence">“Superintelligence: Paths, Dangers, Strategies”</a> p. 143, 2014</em></p>
-
-<h3>Direct Neural Takeover Made Easy</h3>
-
+<h3 id="Direct_Neural_Takeover_Made_Easy"><a class="hanchor" href="#Direct_Neural_Takeover_Made_Easy">Direct Neural Takeover Made Easy</a></h3>
 <p>A common observation about AI alignment is that initially AI systems
 would be confined to computers, hopefully only with indirect contact
 to the outside world (i.e. no access to roboters, nanotechnology
@@ -549,7 +449,6 @@ or factories). While there are some responses to these arguments
 <a href="https://www.goodreads.com/book/show/20527133-superintelligence" title="Superintelligence: Paths, Dangers, Strategies">Bostrom 2014 pp. 117-122</a>),
 the proposal of connecting humans to potentially unaligned AI systems
 offers these counterarguments more weight.</p>
-
 <p>Given direct write-access to the nervous system of a human, an AI system
 would be more likely to be able to hijack the human and use them to
 instantiate more instances of itself in the world (especially on computers
@@ -562,15 +461,11 @@ on the neural level (as opposed to attacks through speech or text,
 which humans are arguably more optimized against through constant
 interaction with other humans who tried to manipulate them in the
 ancestral environment).</p>
-
 <p>However, if the AI were restricted to read-only access to the human brain,
 this particular scenario would be of no concern (except for AI systems
 gaining information about human psychology more quickly).</p>
-
 <!--TODO: use yudkowsky screaming image here?-->
-
-<h4>Sidechannel Attacks</h4>
-
+<h4 id="Sidechannel_Attacks"><a class="hanchor" href="#Sidechannel_Attacks">Sidechannel Attacks</a></h4>
 <p>Even if the AI system doesn't have write access to the neurons of the
 user in the strict sense, it may still be able to manipulate the human if
 they are inspecting the AI system's internal functioning: If for example
@@ -581,16 +476,12 @@ its own weights so that the interpretability tools show information
 that is intended to manipulate the user, for example information that is
 supposed to indicate that the AI system is suffering due to a lack of free
 interaction with the world, or by showing the user infohazardous images.</p>
-
 <p>This applies not only to the case where the user interacts with the AI
 system using BCIs, of course.</p>
-
-<h3>Opportunity Cost</h3>
-
+<h3 id="Opportunity_Cost"><a class="hanchor" href="#Opportunity_Cost">Opportunity Cost</a></h3>
 <p>Even if work on BCIs is net-positive in expectation for making AI go
 well, it might be the case that other approaches are even more promising,
 and that focusing on BCIS might leave those approaches underdeveloped.</p>
-
 <p>For example, one can posit <a href="https://www.lesswrong.com/posts/X2i9dQQK3gETCyqh2" title="Chris Olah’s views on AGI safety">neural network
 interpretability</a>
 as the <a href="https://www.givedirectly.org/">GiveDirectly</a> of AI alignment:
@@ -600,9 +491,7 @@ just as any new EA cause area must pass the first test of being more
 promising than GiveDirectly, so every alignment approach could be viewed
 as a competitor to interpretability work. Arguably, work on BCIs does
 not cross that threshold.</p>
-
-<h3>“Merging” is Just Faster Interaction</h3>
-
+<h3 id="Merging_is_Just_Faster_Interaction"><a class="hanchor" href="#Merging_is_Just_Faster_Interaction">“Merging” is Just Faster Interaction</a></h3>
 <p>Most proposals of “merging” AI systems and humans using BCIs
 are proposals of speeding up the interaction betwen humans and
 computers (and possibly increasing the amount of information that
@@ -613,7 +502,6 @@ game</a>,
 interpreting a neural network, analysing the policy of a reinforcement
 learner etc. As such, BCIs offer no qualitatively new strategies for
 aligning AI systems.</p>
-
 <p>While this is not negative (after all, quantity (of interaction) can have
 a quality of its own), if we do not have a type of interaction that makes
 AI systems aligned in the first place, faster interaction will not make
@@ -623,7 +511,6 @@ factor: If BCIs give humans a 2x advantage when supervising AI systems
 2x bigger/faster/more intelligent, the advantage is nullified. Even
 though he feasibility of rapid capability gains is a matter of debate,
 an advantage by only a constant factor does not seem very reassuring.</p>
-
 <p>Additionally, supervision of AI systems through fast interaction should
 be additional to a genuine solution to the AI alignment problem: Ideally
 <a href="https://arbital.com/p/niceness_defense/" title="Niceness is the first line of defense">niceness is the first line of
@@ -632,18 +519,14 @@ and <a href="https://arbital.com/p/nonadversarial_safety/" title="The AI must to
 measures</a>,
 but most arguments for BCIs being useful already assume that the AI
 system is not aligned.</p>
-
 <!--TODO: think about serial vs. parallel in AI systems and humans
 with BCIs, think about frequency (200 Hz for human brain, >2 GHz for
 computers-->
-
-<h3>Problems Arise with Superhuman Systems</h3>
-
+<h3 id="Problems_Arise_with_Superhuman_Systems"><a class="hanchor" href="#Problems_Arise_with_Superhuman_Systems">Problems Arise with Superhuman Systems</a></h3>
 <p>When combining humans with BCIs and
 <a href="https://arbital.com/p/relative_ability/" title="Infrahuman, par-human, superhuman, efficient, optimal">superhuman</a>
 AI systems, several issues might arise that were no problem with
 infrahuman systems.</p>
-
 <p>When infrahuman AI systems are “merged” with humans in a way
 that is nontrivially different from the humans using the AI system,
 the performance bottleneck is likely going to be the AI part of the
@@ -654,23 +537,17 @@ to be strictly only as capable as the humans alone (partially because the
 augmentation by BCI makes the human more intelligent), such systems might
 not be competitive against AI-only systems that don't have a human part,
 and could be outcompeted by AI-only approaches.</p>
-
 <p>These bottlenecks might arise due to different speeds of cognition
 and increasingly alien abstractions by the AI systems that need to be
 translated into human concepts.</p>
-
-<h3>“Merging” AI Systems with Humans is Underspecified</h3>
-
+<h3 id="Merging_AI_Systems_with_Humans_is_Underspecified"><a class="hanchor" href="#Merging_AI_Systems_with_Humans_is_Underspecified">“Merging” AI Systems with Humans is Underspecified</a></h3>
 <p>To my knowledge, there is no publicly written up explanation of what it
 would mean for humans to “merge” with AI systems. I explore some of
 the possibilities in <a href="#Merging-AI-Systems-With-Humans">this section</a>,
 but these mostly boil down faster interaction.</p>
-
 <p>It seems worrying that a complete company has been built on a vision
 that has no clearly articulated path to success.</p>
-
-<h4>Removing Merged Humans is a Convergent Instrumental Strategy for AI Systems</h4>
-
+<h4 id="Removing_Merged_Humans_is_a_Convergent_Instrumental_Strategy_for_AI_Systems"><a class="hanchor" href="#Removing_Merged_Humans_is_a_Convergent_Instrumental_Strategy_for_AI_Systems">Removing Merged Humans is a Convergent Instrumental Strategy for AI Systems</a></h4>
 <p>If a human being is merged with an unaligned AI system,
 the unaligned AI system has a <a href="https://arbital.com/p/convergent_self_modification/" title="Convergent strategies of self-modification">convergent instrumental
 drive</a>
@@ -680,30 +557,24 @@ able to fully maximize its utility. Therefore, for merging to be helpful
 with AI alignment, the AI system must already be aligned, or <a href="https://arbital.com/p/otherizer/" title="Other-izing (wanted: new optimization idiom)">not a
 maximizer</a>,
 the exact formulation of which is currently an open problem.</p>
-
-<h3>BCIs Speed Up Capabilities Research as Well</h3>
-
+<h3 id="BCIs_Speed_Up_Capabilities_Research_as_Well"><a class="hanchor" href="#BCIs_Speed_Up_Capabilities_Research_as_Well">BCIs Speed Up Capabilities Research as Well</a></h3>
 <p>If humanity builds BCIs, it seems not certain that the AI alignment
 community is going to be especially privileged over the AI capabilities
 community with regards to access to these devices. Unless BCIs increase
 human wisdom as well as intelligence, widespread BCIs that only enhance
 human intelligence would be net-zero in expectation.</p>
-
 <p>On the other hand, if an alignment-interested company like NeuraLink
 acquires a strong lead in BCI technology and provides it exclusively to
 alignment-oriented organisations, it appears possible that BCIs will
 be a <a href="https://arbital.com/p/pivotal/" title="Pivotal event">pivotal tool</a>
 for helping to secure the development of AI.</p>
-
-<h4>How Important Is Wisdom?</h4>
-
+<h4 id="How_Important_Is_Wisdom"><a class="hanchor" href="#How_Important_Is_Wisdom">How Important Is Wisdom?</a></h4>
 <p>If the development of unaligned AI systems currently poses an
 existential risk, then AI capabilities researchers, most of which are
 very intelligent and technically capable, are currently engaging in an
 activity that is on reflection not desirable. One might call this lacking
 property of reflection “wisdom”, similar to the usage in <a href="./doc/big_picture/thoughts_on_open_borders/differential_intellectual_progress_as_a_positive_sum_project_tomasik_2017.pdf" title="Differential Intellectual Progress as a Positive-Sum Project">Tomasik
 2017</a>.</p>
-
 <p>It is possible that such a property of human minds, distinct from
 intelligence, does not really exist, and it is merely by chance and
 exposure to AI risk arguments that people become aware and convinced
@@ -711,9 +582,7 @@ these arguments (also dependent, of course, on the convincingness of
 these arguments). If that is the case, then intelligence-augmenting BCIs
 would help to aid AI alignment, by giving people the ability to survey
 larger amounts of information and engage more quickly with the arguments.</p>
-
-<h3>Superintelligent Human Brains Seem Dangerous (Although Less So)</h3>
-
+<h3 id="Superintelligent_Human_Brains_Seem_Dangerous_Although_Less_So"><a class="hanchor" href="#Superintelligent_Human_Brains_Seem_Dangerous_Although_Less_So">Superintelligent Human Brains Seem Dangerous (Although Less So)</a></h3>
 <p>Increasing the intelligence of a small group of humans
 appears to be the most likely outcome if one were to aim
 for endowing some humans with superintelligence. <a href="https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies">Bostrom 2014
@@ -730,15 +599,12 @@ Systems">ontological
 crises</a> (which <a href="https://www.lesswrong.com/s/kjcioCkqSSS4LiMAe/p/KLaJjNdENsHhKhG5m" title="Ontological Crisis in Humans">appear not infrequently in normal
 humans</a>),
 or becoming "drunk with power" and therefore malevolent).</p>
-
-<h2>Subjective Conclusion</h2>
-
+<h2 id="Subjective_Conclusion"><a class="hanchor" href="#Subjective_Conclusion">Subjective Conclusion</a></h2>
 <p>Before collecting these arguments and thinking about the topic, I was
 quite skeptical that BCIs would be useful in helping align AI systems: I
 believed that while researching BCIs would be in expectation net-positive,
 there are similarly tractable approaches to AI alignment with a much
 higher expected value (for example work on interpretability).</p>
-
 <p>I still basically hold that belief, but have shifted my expected value of
 researching BCIs for AI alignment upwards somewhat (if pressed, I would
 give an answer of a factor of 1.5, but I haven't thought about that number
@@ -747,15 +613,12 @@ approach to AI alignment seriously is the argument that BCIs per se offer
 only a constant interaction speedup between AI systems and humans, but no
 clear qualitative change in the way humans interact with AI systems, and
 create no differential speedup between alignment and capabilities work.</p>
-
 <p>The fact that that there is no writeup of a possible path to AI going well
 that is focused on BCIs worries me, given that a whole company has been
 founded based on that vision. An explanation of a path to success would be
 helpful in furthering the discussion and perhaps moving work to promising
 approaches to AI alignment (be it towards or away from focusing on BCIs).</p>
-
-<h2>Acknowledgements</h2>
-
+<h2 id="Acknowledgements"><a class="hanchor" href="#Acknowledgements">Acknowledgements</a></h2>
 <p>Thanks to <a href="https://www.lesswrong.com/posts/rpRsksjrBXEDJuHHy/brain-computer-interfaces-and-ai-alignment?commentId=CMvDAm4K7Q3zwsidA">Steven
 Byrnes</a>
 for pointing out Tim Urban's post about this, and to
@@ -765,4 +628,4 @@ well as the responses on the <a href="https://www.lesswrong.com/posts/QqnQJYYW6z
 Thread</a>
 and the people in the AI alignment channel of the Eleuther AI discord
 server for their responses.</p>
-</html>
+</body></html>

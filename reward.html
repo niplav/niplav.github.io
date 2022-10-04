@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,38 +32,29 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-04-14, modified: 2022-05-07, language: english, status: draft, importance: 4, confidence: emotional</em></p>
-
 <blockquote>
-  <p><strong>I critique a recent prize from the Effective Altruism movement for
+<p><strong>I critique a recent prize from the Effective Altruism movement for
 being misguided, offer some alternatives, and then proceed to discuss
 the general downfall of epistemic infrastructure on the internet.</strong></p>
 </blockquote>
-
-<h1>Reward Long Content</h1>
-
+<h1 id="Reward_Long_Content"><a class="hanchor" href="#Reward_Long_Content">Reward Long Content</a></h1>
 <p>Recently, the Ideas Project
 <a href="https://forum.effectivealtruism.org/posts/xapRLBTpMYokrpd9q">announced</a>
 a <a href="https://effectiveideas.org/">$500,000 prize</a> for
 new blogs.</p>
-
 <p>The prize will award an up to $100,000 prize each to the five best recent
 blogs, in order to encourage the discussions around effective altruism
 and related topics. Blogs need to be public, generally concerned with
 effective altruism and longtermism, and should have been started within
 the last 12 months.</p>
-
 <p>I believe that this prize is flawed in some subtle and not-so-subtle
 ways, which I first lay out, and then propose some alternative prizes
 which solve some of the underlying issues.</p>
-
-<h2>Critique</h2>
-
+<h2 id="Critique"><a class="hanchor" href="#Critique">Critique</a></h2>
 <blockquote>
-  <p>‘Blog posts’ might be the answer. But I have read
+<p>‘Blog posts’ might be the answer. But I have read
 blogs for many years and most blog posts are the triumph
 of the hare over the tortoise. They are meant to be read
 by a few people on a weekday in 2004 and never again, and
@@ -104,11 +69,8 @@ content”, what would constitute Long Content as opposed to the
 existing culture of Short Content? How does one live in a Long Now sort
 of way?<a href="https://www.gwern.net/About#fn16">¹⁶</a></p>
 </blockquote>
-
 <p><em>— <a href="https://www.gwern.net/">Gwern Branwen</a>, <a href="https://www.gwern.net/About">“About This Website”</a>, 2021</em></p>
-
-<h3>Blogs Are Short Content</h3>
-
+<h3 id="Blogs_Are_Short_Content"><a class="hanchor" href="#Blogs_Are_Short_Content">Blogs Are Short Content</a></h3>
 <p>Except for rare exceptions (<a href="https://slatestarcodex.com">Slate Star Codex</a>
 being the most notable one), blogs usually don't provide much
 long-term value—who cares enough to read the whole archive of a
@@ -127,10 +89,9 @@ up-to-date, all in one place; built up over <em>10 years</em>). I should know,
 I started reading the Marginal Revolution archives and quickly abandoned
 the endeavour, I persisted a bit longer with Overcoming Bias, reading
 at least all posts from 2006 and half of the posts from 2007.</p>
-
 <p>Additionally, blogs fall prey to <a href="">bit rot</a>, in which facts fall out
 of date, replication crises happen, new relevant ideas are discovered,
-better citations become available &c; they also incentivize a focus
+better citations become available &amp;c; they also incentivize a focus
 on new posts (most blogs show posts chronologically by default,
 burying old ones in hard-to-navigate archives or with obscure tagging
 systems). (Similar with software projects: unmaintained software is worth
@@ -138,7 +99,6 @@ less and less over time, especially when it is far down the technology
 stack; the shiny new JavaScript framework is the most popular, even if
 <a href="https://en.wikipedia.org/wiki/JQuery">jQuery</a> would do the trick ust
 as well).</p>
-
 <p>What advantage, if any, do blogs have over other media? Books can be (and
 usually are) far more comprehensive and high-status, instant messaging
 and social media are more engaging, but move from one fashionable topic
@@ -148,15 +108,12 @@ here</a>. Blogs
 content to be accumulated slowly, and still stay up to date, connecting
 a larger network of ideas from a single person (in ways that wikis
 usually don't).</p>
-
 <p>As with software projects, the first 80% of the work is finding the idea
 and doing the work to have a basic prototype, the second 80% are writing
 clearer explanations with images, citing the claims, updating the text
 with new facts or arguments after they come out, and perhaps completely
 rewriting it after it has turned out to be wrong.</p>
-
-<h3>Did <strong>Anybody</strong> <em>Think</em> About The Incentives?</h3>
-
+<h3 id="None"><a class="hanchor" href="#None">Did </a><strong>Anybody</strong> <em>Think</em> About The Incentives?</h3>
 <p>We can then look at the prize from another lens: Which <a href="zackmdavis.net/blog/2013/08/measure/">algorithms'
 measures</a> does this prize
 increase? Surely not the one of people who are willing to put in a decade
@@ -168,42 +125,31 @@ juicy prize at the finish line”. (The website states that only blogs
 started "within the last 12 months" are eligible for the prize—does
 that refer to the 12 months before the announcement of the prize, or
 the date at which the prize is given out?)</p>
-
 <p>Of the blogs that will win the prizes, how many of them will persist
 <em>after</em> the prize is given out? Not many, I reckon.<!--TODO: make
 predictionbook predictions about this--></p>
-
 <p>Rewarding this kind of unmaintained one-shot content creates not epistemic
 infrastructure (posts that come to fruition slowly, that potentially
 will still be read in five years), but epistemic fireworks (or, in the
 best case, epistemic tinder that sparks discussions).</p>
-
-<h3>Long-Term Prizes for New Blogs</h3>
-
+<h3 id="LongTerm_Prizes_for_New_Blogs"><a class="hanchor" href="#LongTerm_Prizes_for_New_Blogs">Long-Term Prizes for New Blogs</a></h3>
 <p>This would be okay if it were a prize for blogs about current event or
 news, but the website states that the blogs in question should "explore
 themes related to effective altruism and longtermism" and that the
 Effective Ideas team has "a particular interest in iconic blog posts
 that stand the test of time."</p>
-
 <p>That, of course, makes perfect sense: You'd obviously like to exclude
 anyone who has put any real effort into their blog in the past, and
 prevent any possible evidence for which blogs and their posts actually
 stand the test of time. After all, there's nobody around who has already
 shown some capability for working on things for a long time, right⸮</p>
-
 <p>DID THEY NOT SEE THE IRONY OF PUTTING OUT A PRIZE LOOKING FOR BLOGS
 FOCUSED ON LONGERMISM WITH POSTS THAT STAND THE TEST OF TIME, BUT EXCLUDE
 ANY BLOG OLDER THAN 12 MONTHS? AM I GOING CRAZY?</p>
-
-<p><img src="./img/content/frustrated.jpg" alt="Well, that's not very lindy of you" title="Well, that's not very lindy of you" /></p>
-
+<p><img alt="Well, that's not very lindy of you" src="./img/content/frustrated.jpg" title="Well, that's not very lindy of you"/></p>
 <p><em>Supported by the <a href="http://ftxfuturefund.org/">FTX Future Fund</a>™ and <a href="https://www.longview.org/">Longview Philanthropy</a>®</em></p>
-
-<h3>Examples: “A Few Of Our Bloggers” Sections</h3>
-
+<h3 id="Examples_A_Few_Of_Our_Bloggers_Sections"><a class="hanchor" href="#Examples_A_Few_Of_Our_Bloggers_Sections">Examples: “A Few Of Our Bloggers” Sections</a></h3>
 <p>Luckily, they include some blogs in the "A Few of Our Bloggers" section, so I can take a look at how well they have fared so far with regards to producing long-term content.</p>
-
 <p>(If you are one of those bloggers, please don't take this as an
 indictment against your blogging abilities—but I'd like to do a
 case study. I'd be delighted if you proved me wrong :-)). For the
@@ -211,7 +157,6 @@ time being, this will unfortunately be limited to collecting few
 datapoints (number of posts, date of last post, length of post) and
 rough impressions (in the long term, I plan to add all those posts to
 <a href="https://niplav.github.io/texts_list.html">my collection</a>).</p>
-
 <ul>
 <li><a href="https://ziggurat.substack.com/">Ziggurat</a>
 <ul>
@@ -249,28 +194,20 @@ rough impressions (in the long term, I plan to add all those posts to
 <li>Impression: Outstanding (and <em>a bit</em> depressing): The posts are more solid than anything I've ever written, on very interesting topics, with quotes from relevant poetry: This could be turned into a long site in a whim. Also an excellent illustration for why chronological archives often don't make sense: There's no reason why <a href="https://handsandcities.com/2021/06/21/on-the-limits-of-idealized-values/">this post</a> is deprioritised in the list of posts compared to <a href="https://handsandcities.com/2022/02/18/simulation-arguments/">this post</a>. However, I suspect that these posts will not be updated over time (:-/), which will slowly make them less useful (although this is less of a problem for <a href="https://www.lesswrong.com/posts/NCzfvp7jmbouodsRP/integrating-the-lindy-effect">philosophy than for other disciplines</a>)—in ten years someone might stumble upon <a href="https://handsandcities.com/2021/08/27/can-you-control-the-past/">Can you control the past</a> and start scrolling, fascinatedly, an explorer in the ruins of a great ancient civilization.</li>
 </ul></li>
 </ul>
-
 <p>Verdict: two webpages that aren't actually blogs, two young (but
 potentially promising) blogs with few posts, two medium-age blogs that
 have <em>a lot</em> of content (to the degree that I fear the authors might burn
 out or get disillusioned from the endeavour), and a very cute &amp; old site.</p>
-
-<h2>Counter-Arguments</h2>
-
+<h2 id="CounterArguments"><a class="hanchor" href="#CounterArguments">Counter-Arguments</a></h2>
 <p>I imagine the organizers of the Effective Ideas blog prize have several
 objections, here's two I can anticipate:</p>
-
-<h3>There's Not That Many Longtermist Blogs Around</h3>
-
+<h3 id="Theres_Not_That_Many_Longtermist_Blogs_Around"><a class="hanchor" href="#Theres_Not_That_Many_Longtermist_Blogs_Around">There's Not That Many Longtermist Blogs Around</a></h3>
 <p>The prize exists explicitely to encourage new &amp; young writers, so
 I imagine the organizers perceive a current lack of blogs about
 longtermism and effective altruism (and related areas).</p>
-
 <p>There certainly is no Marginal Revolution of effective altruism, and not
 as many people comment on posts on the EA forum as on ACX open threads.</p>
-
-<h4>Counter-counter-argument</h4>
-
+<h4 id="Countercounterargument"><a class="hanchor" href="#Countercounterargument">Counter-counter-argument</a></h4>
 <p>Is that true? To be honest, I don't quite know: I recognize ~all blogs on
 <a href="https://www.finmoorhouse.com/writing/ea-blogs">this page</a>, and most
 on <a href="https://eablogs.net/">this blogroll</a>, but I would be a lying lier
@@ -279,25 +216,20 @@ their posts. But I looking over those lists, I don't get the impression
 that there's a dearth of blogs about effective altruism, but rather a
 lack of discoverability or aggregation (why doesn't everyone of those
 post their texts to the EA forum?).</p>
-
 <p>This is relevant: If there were very few EA blogs around, then it would
 make sense to incentivize the creation of new ones. If many old and
 semi-regularly updated EA blogs existed, but if they were just limited
 by funding or time, it would make sense to incentivize those blogs to
 increase their output (or reward them for their past contributions),
 and encourage them to better curate their content.</p>
-
-<h3>Blogs are for Discourse</h3>
-
+<h3 id="Blogs_are_for_Discourse"><a class="hanchor" href="#Blogs_are_for_Discourse">Blogs are for Discourse</a></h3>
 <blockquote>
-  <p>Further, we think EA needs more strong writers who can share key ideas
+<p>Further, we think EA needs more strong writers who can share key ideas
 in prestigious and popular venues — to persuade people to work on
 the most pressing issues of our time and to advance our thinking about
 them. We want to incentivize EAs to develop those skills.</p>
 </blockquote>
-
 <p><em>— <a href="https://forum.effectivealtruism.org/users/nick-whitaker-1">Nick Whitaker</a>, <a href="https://forum.effectivealtruism.org/posts/xapRLBTpMYokrpd9q/we-re-announcing-a-usd100-000-blog-prize">“We're announcing a $100,000 blog prize”</a>, 2022</em></p>
-
 <p>The goal of a blog, really, is not to produce really viable long-term
 content—it's often just about The Discourse™: Getting certain ideas
 into public perception, making the EA perspective a more acceptable
@@ -307,15 +239,11 @@ iterated embryo selection</a>—a short
 blog post is much more likely to be actually consumed by anyone (many
 people I've talked to tell me they've never finished a Gwern post—sad,
 of course, but understandable).</p>
-
-<h4>Counter-counter-argument</h4>
-
+<h4 id="Countercounterargument_1"><a class="hanchor" href="#Countercounterargument_1">Counter-counter-argument</a></h4>
 <blockquote>
-  <p>Blogging peaked in 2009; I was there, just.</p>
+<p>Blogging peaked in 2009; I was there, just.</p>
 </blockquote>
-
 <p><em>— <a href="https://www.gleech.org/">Gavin Leech</a>, <a href="https://www.gleech.org/sites">“Blogging is dead, long live sites”</a>, 2020</em></p>
-
 <p>But then, blogs occupy an uncomfortable spot in the informational
 ecosystem: The days of glory for blogging are unfortunately over, The
 Discourse™ is happening on social media now, in Twitter threads and
@@ -323,7 +251,6 @@ Discord messages. All the substacks in the world will not change that
 if you want to be plugged in, you might want to make YouTube videos
 about effective altruism instead. (Sorry, the era of BoingBoing is not
 coming back).</p>
-
 <p>Alternatively, I could see an <a href="https://forum.effectivealtruism.org/posts/iaSmu3t3QKTfkyQqZ/the-altruist-proposal-for-an-ea-newspaper">EA
 newspaper</a>
 as a good idea: having an institutionalized content &amp; Discourse-producing
@@ -334,7 +261,6 @@ of a newspaper—after all, <a href="https://www.overcomingbias.com/2007/07/blog
 high-status</a>
 (perhaps this perceived lack of status is why I am so enthusiastic about
 long sites: they just feel <em>classier</em>).</p>
-
 <!--
 Theory
 -------
@@ -373,40 +299,30 @@ See also [Gwern 2012](https://www.gwern.net/Wikipedia And Other Wikis.html).
 * Anders Sandberg
     * Although this might be remedied by his new book (if it *ever* comes out)
 -->
-
-<h2>Suggestions for Improvement</h2>
-
+<h2 id="Suggestions_for_Improvement"><a class="hanchor" href="#Suggestions_for_Improvement">Suggestions for Improvement</a></h2>
 <p>Since I obviously have opinions about blogs, but don't want to <em>just</em>
 criticize other people's hard work, here are some suggested improvements
 I believe would be quite beneficial.</p>
-
-<h3>Small Changes</h3>
-
+<h3 id="Small_Changes"><a class="hanchor" href="#Small_Changes">Small Changes</a></h3>
 <p>On the less invasive side, I can propose one small improvement:</p>
-
-<h4>Drop the Age Limit</h4>
-
+<h4 id="Drop_the_Age_Limit"><a class="hanchor" href="#Drop_the_Age_Limit">Drop the Age Limit</a></h4>
 <p>The 12 month age limit in the current prize makes little sense: If
 someone has been producing valuable content for a long time, they will
 probably <a href="https://en.wikipedia.org/wiki/Lindy_Effect">continue doing so</a>
 for quite a while. The current prize is unfairly excluding past effort.</p>
-
-<h3>Alternative Prizes</h3>
-
+<h3 id="Alternative_Prizes"><a class="hanchor" href="#Alternative_Prizes">Alternative Prizes</a></h3>
 <p>There's also more experimental structures available: Don't
 give out prizes; instead perform credit assignment for past work. <a href="http://zackmdavis.net/blog/2017/03/friends-can-change-the-world-or-request-for-social-technology-credit-assignment-rituals/">Zack M.
 Davis</a>
 outlines the idea in a personal context, transferring it to an
 organizational one should be <em>reasonably</em> easy:</p>
-
 <blockquote>
-  <p>So, I had an idea. You know how some people say we
+<p>So, I had an idea. You know how some people say we
 should <a href="http://www.overcomingbias.com/2011/01/be-a-charity-angel.html">fund the solutions to problems with after-the-fact
 prizes</a>,
 rather than picking a team in advance that we think might solve the
 problem and funding them? What if ... you did something like that,
 but on a much smaller scale? A personal scale.</p>
-
 <p>Like, suppose you've just successfully navigated a major personal
 life crisis that could have gone much worse if it weren't for some
 of the people in your life (both thanks to direct help they provided
@@ -419,22 +335,18 @@ understand at the time) in some sort of public ritual, to make them more
 powerful and incentivize others to emulate them, thereby increasing the
 <a href="http://zackmdavis.net/blog/2013/08/measure/">measure</a> of algorithms
 that result in humans successfully navigating major personal life crises.</p>
-
 <p>It might look something like this—  </p>
-
 <p>• If you have some spare money lying around, set aside some of it for
 rewarding the people you want to reward. If you don't have any spare
 money lying around, this ritual will be less effective! Maybe you should
-fix that! <br />
+fix that! <br/>
 • Decide how much of the money you want to use to reward each of the
 people you want to reward.  </p>
-
 <p>(Note: giving away something as powerful as money carries risks of
 breeding dependence and resentment if such gifts come to be expected! If
 people know that you've been going through a crisis and anyone so much
 as hints that they think they deserve an award, that person is missing
 the point and therefore does not deserve an award.)</p>
-
 <p>• Privately go to each of the people, explain all this, and give them
 the amount of money you decided to give them. Make it very clear that this
 is a special unilateral one-time award made for decision-theoretic reasons
@@ -444,13 +356,13 @@ accordance with the Bayes-structure of the universe. Refuse to accept
 words of thanks (it's not about you; it's not about me; it's about
 credit-assignment). If they try to refuse the money, explain that you
 will literally burn that much money in paper currency if they don't take
-it. (Shredding instead of burning is also acceptable.) <br />
+it. (Shredding instead of burning is also acceptable.) <br/>
 • Ask if they'd like to be publicly named and praised as having received
 an award as part of the credit-assignment ritual. (Remember that it's
 quite possible and understandable and good that they might want to accept
 the money, but not be publicly praised by you. After all, if you're the
 sort of person who is considering actually doing this, you're probably
-kind of weird! Maybe people don't want to be associated with you!) <br />
+kind of weird! Maybe people don't want to be associated with you!) <br/>
 • To complete the ritual, publish a blog post naming the people and
 the the awards they received. People who prefered not to be named should
 be credited as Anonymous Friend A, B, C, &amp;c. Also list the amount of
@@ -460,22 +372,16 @@ nature of the crisis or how the named people helped you. (You might want
 to tell the story in a different post, but that's not part of the ritual,
 which is about credit-assignment.)  </p>
 </blockquote>
-
 <p><em>— <a href="http://zackmdavis.net">Zack M. Davis</a>, <a href="http://zackmdavis.net/blog/2017/03/friends-can-change-the-world-or-request-for-social-technology-credit-assignment-rituals/">“"Friends Can Change the World"; Or, Request for Social Technology: Credit-Assignment Rituals”</a>, 2017</em></p>
-
-<h4>The Outstanding Wikipedians Prize</h4>
-
+<h4 id="The_Outstanding_Wikipedians_Prize"><a class="hanchor" href="#The_Outstanding_Wikipedians_Prize">The Outstanding Wikipedians Prize</a></h4>
 <p>Look at the Wikipedia pages for EA-relevant topics, and find the
 contributors who have participated most in the creation of those pages,
 contact them and grant them after-the-fact prizes for their efforts.</p>
-
 <p>The advantage is clear: Wikipedia is not going away, and the go-to
 resource for ~everybody on a new topic is the Wikipedia page. 10 minor
 edits to Wikipedia might outweigh a year of blogging in terms of eyeballs
 and social utility.<!--TODO: make fermi estimate here--></p>
-
-<h4>The Gwern Prize</h4>
-
+<h4 id="The_Gwern_Prize"><a class="hanchor" href="#The_Gwern_Prize">The Gwern Prize</a></h4>
 <p>Instead of rewarding blogs, look explicitely for sites with long
 content, the more long-term, the better (ideally complete with <a href="https://en.wikipedia.org/wiki/Special:Contributions/Gwern">Wikipedia
 contributions</a>
@@ -486,13 +392,10 @@ and <a href="predictionbook.com/users/gwern">predictions</a> and <a href="https:
 archiving</a>), if they don't have
 sufficient funding, offer to fund them completely for a year. Make online
 conscientiousness be <strong>worth it</strong>.</p>
-
-<h2>Conclusion</h2>
-
+<h2 id="Conclusion"><a class="hanchor" href="#Conclusion">Conclusion</a></h2>
 <p>I hope I have made a true case for why the Effective Ideas prize is
 currently misguided, and perhaps even suggested some pontential avenues
 for improvement.</p>
-
 <!--
 ----
 
@@ -507,9 +410,7 @@ vs. control](https://www.lesswrong.com/posts/ZDZmopKquzHYPRNxq) [outer
 loop](https://www.gwern.net/Backstop#internet-community-design)
 
 -->
-
 <!--https://anarchistfaq.org/afaq/index.html-->
-
 <!--
 * My comment: `https://forum.effectivealtruism.org/posts/xapRLBTpMYokrpd9q/?commentId=7Yp4DFGQZ9QHax6DE`
 
@@ -585,4 +486,4 @@ Text of the post:
 
 > This project is supported by FTX Future Fund and Longview Philanthropy.
 -->
-</html>
+</body></html>

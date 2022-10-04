@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,20 +32,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2020-06-25, modified: 2021-07-30, language: english, status: finished, importance: 1, confidence: log</em></p>
-
 <blockquote>
-  <p><strong>Series I have watched since January 2018.</strong></p>
+<p><strong>Series I have watched since January 2018.</strong></p>
 </blockquote>
-
-<h1>List of Series I have Watched</h1>
-
+<h1 id="List_of_Series_I_have_Watched"><a class="hanchor" href="#List_of_Series_I_have_Watched">List of Series I have Watched</a></h1>
 <p>These are the series I have watched since January 2018 (alphabetical
 order). I may not be finished with some of these yet.</p>
-
 <ul>
 <li><a href="https://www.imdb.com/title/tt2261227/">Altered Carbon</a></li>
 <li><a href="https://www.imdb.com/title/tt0318871/">Berserk</a></li>
@@ -96,4 +64,4 @@ order). I may not be finished with some of these yet.</p>
 <li><a href="https://www.imdb.com/title/tt4574334/">Stranger Things</a></li>
 <li><a href="https://www.imdb.com/title/tt8111088/">The Mandalorian</a></li>
 </ul>
-</html>
+</body></html>

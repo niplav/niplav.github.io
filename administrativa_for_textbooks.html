@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,27 +32,20 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-01-28, modified: 2022-07-24, language: english, status: in progress, importance: 1, confidence: likely</em></p>
-
 <blockquote>
-  <p><strong>I sometimes read textbooks (broadly defined as "a book with
+<p><strong>I sometimes read textbooks (broadly defined as "a book with
 exercises"), and create some stuff while reading them (e.g. making
 flashcards of facts &amp; definitions in the textbook and solving some
 exercises). I collect that information here, to my and maybe others'
 benefit.</strong></p>
 </blockquote>
-
-<h1>Administrativa for Textbooks</h1>
-
+<h1 id="Administrativa_for_Textbooks"><a class="hanchor" href="#Administrativa_for_Textbooks">Administrativa for Textbooks</a></h1>
 <p>For flashcards, if I include the screenshot of an algorithm, the goal
 is not to learn the algorithm by heart in all detail, but have a good
 mental model of how it works.</p>
-
-<h2>“Algorithmic Game Theory”</h2>
-
+<h2 id="Algorithmic_Game_Theory"><a class="hanchor" href="#Algorithmic_Game_Theory">“Algorithmic Game Theory”</a></h2>
 <ul>
 <li><a href="./flash/algorithmic_game_theory.apkg">Flashcards</a>
 <ul>
@@ -93,9 +60,7 @@ mental model of how it works.</p>
 <li>p. 1-35</li>
 </ul></li>
 </ul>
-
-<h2>“Reactive Systems”</h2>
-
+<h2 id="Reactive_Systems"><a class="hanchor" href="#Reactive_Systems">“Reactive Systems”</a></h2>
 <ul>
 <li><a href="./flash/reactive_systems.apkg">Flashcards</a>
 <ul>
@@ -116,9 +81,7 @@ mental model of how it works.</p>
 <li>p. 1-157</li>
 </ul></li>
 </ul>
-
-<h2>“Population Genetics”</h2>
-
+<h2 id="Population_Genetics"><a class="hanchor" href="#Population_Genetics">“Population Genetics”</a></h2>
 <ul>
 <li><a href="./flash/population_genetics.apkg">Flashcards</a>
 <ul>
@@ -135,9 +98,7 @@ mental model of how it works.</p>
 <li>p. 1-50</li>
 </ul></li>
 </ul>
-
-<h2>”Naïve Set Theory”</h2>
-
+<h2 id="Nave_Set_Theory"><a class="hanchor" href="#Nave_Set_Theory">”Naïve Set Theory”</a></h2>
 <ul>
 <li><a href="./flash/naïve_set_theory.apkg">Flashcards</a>
 <ul>
@@ -152,9 +113,7 @@ mental model of how it works.</p>
 <li>p. 1-63</li>
 </ul></li>
 </ul>
-
-<h2>“Pattern Recognition and Machine Learning”</h2>
-
+<h2 id="Pattern_Recognition_and_Machine_Learning"><a class="hanchor" href="#Pattern_Recognition_and_Machine_Learning">“Pattern Recognition and Machine Learning”</a></h2>
 <ul>
 <li><a href="./flash/pattern_recognition_and_machine_learning.apkg">Flashcards</a>
 <ul>
@@ -177,9 +136,7 @@ mental model of how it works.</p>
 <li>p. 692-699</li>
 </ul></li>
 </ul>
-
-<h2>“Programming in Lua”</h2>
-
+<h2 id="Programming_in_Lua"><a class="hanchor" href="#Programming_in_Lua">“Programming in Lua”</a></h2>
 <ul>
 <li>No flashcards for this one</li>
 <li><a href="./pil_solutions.html">Solutions to Exercises</a>
@@ -191,9 +148,7 @@ mental model of how it works.</p>
 <li>p. 1-152</li>
 </ul></li>
 </ul>
-
-<h2>“A Primer in Social Choice Theory”</h2>
-
+<h2 id="A_Primer_in_Social_Choice_Theory"><a class="hanchor" href="#A_Primer_in_Social_Choice_Theory">“A Primer in Social Choice Theory”</a></h2>
 <ul>
 <li><a href="./flash/a_primer_in_social_choice_theory.apkg">Flashcards</a>
 <ul>
@@ -213,9 +168,7 @@ mental model of how it works.</p>
 <li>p. 52-58</li>
 </ul></li>
 </ul>
-
-<h2>“Parameterized Algorithms”</h2>
-
+<h2 id="Parameterized_Algorithms"><a class="hanchor" href="#Parameterized_Algorithms">“Parameterized Algorithms”</a></h2>
 <ul>
 <li><a href="./flash/parameterized_algorithms.apkg">Flashcards</a>
 <ul>
@@ -227,9 +180,7 @@ mental model of how it works.</p>
 <li>p. 1-41</li>
 </ul></li>
 </ul>
-
-<h2>“Multivariable Calculus”</h2>
-
+<h2 id="Multivariable_Calculus"><a class="hanchor" href="#Multivariable_Calculus">“Multivariable Calculus”</a></h2>
 <ul>
 <li><a href="./flash/multivariable_calculus.apkg">Flashcards</a>
 <ul>
@@ -243,9 +194,7 @@ mental model of how it works.</p>
 <li>p. 37-40</li>
 </ul></li>
 </ul>
-
-<h2>“Artificial Intelligence: A Modern Approach”</h2>
-
+<h2 id="Artificial_Intelligence_A_Modern_Approach"><a class="hanchor" href="#Artificial_Intelligence_A_Modern_Approach">“Artificial Intelligence: A Modern Approach”</a></h2>
 <ul>
 <li><a href="./flash/artificial_intelligence_a_modern_approach.apkg">Flashcards</a>:
 <ul>
@@ -294,13 +243,10 @@ mental model of how it works.</p>
 <li>p. 850-855</li>
 </ul></li>
 </ul>
-
-<h2>“Causality”</h2>
-
+<h2 id="Causality"><a class="hanchor" href="#Causality">“Causality”</a></h2>
 <p>Strictly speaking, “Causality” by Judea Pearl is not a textbook,
 since it does not include exercises. It is nonetheless included here
 because I wrote flashcards for it.</p>
-
 <ul>
 <li><a href="./flash/causality.apkg">Flashcards</a>
 <ul>
@@ -313,9 +259,7 @@ because I wrote flashcards for it.</p>
 <li>p. 155-223</li>
 </ul></li>
 </ul>
-
-<h2>“The Jazz Piano Book”</h2>
-
+<h2 id="The_Jazz_Piano_Book"><a class="hanchor" href="#The_Jazz_Piano_Book">“The Jazz Piano Book”</a></h2>
 <ul>
 <li><a href="./flash/the_jazz_piano_book.apkg">Flashcards</a>
 <ul>
@@ -327,4 +271,4 @@ because I wrote flashcards for it.</p>
 <li>p. 1-26</li>
 </ul></li>
 </ul>
-</html>
+</body></html>

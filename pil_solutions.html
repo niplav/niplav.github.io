@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,22 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-01-08, modified: 2022-01-08, language: english, status: in progress, importance: 2, confidence: likely</em></p>
-
 <blockquote>
-  <p><strong>Solutions to the book “Programming in Lua” by Roberto
+<p><strong>Solutions to the book “Programming in Lua” by Roberto
 Ierusalimschy.</strong></p>
 </blockquote>
-
-<h1>Solutions to “Programming in Lua”</h1>
-
-<h2>Chapter 1</h2>
-
-<h3>Exercise 1.1</h3>
-
+<h1 id="Solutions_to_Programming_in_Lua"><a class="hanchor" href="#Solutions_to_Programming_in_Lua">Solutions to “Programming in Lua”</a></h1>
+<h2 id="Chapter_1"><a class="hanchor" href="#Chapter_1">Chapter 1</a></h2>
+<h3 id="Exercise_11"><a class="hanchor" href="#Exercise_11">Exercise 1.1</a></h3>
 <pre><code>function fact(n)
     elseif n==0 then
         return 1
@@ -86,76 +53,50 @@ print("enter a number:")
 a=io.read("*n")
 print(fact(a))
 </code></pre>
-
-<h3>Exercise 1.2</h3>
-
+<h3 id="Exercise_12"><a class="hanchor" href="#Exercise_12">Exercise 1.2</a></h3>
 <p>For a script that loads a library the dofile option is probably
 preferable, since then there is no need to deal with the different ways
 different platforms handle flags, when using lua interactively, the '-l'
 option is nicer, since one needs to type less.</p>
-
-<h3>Exercise 1.3</h3>
-
+<h3 id="Exercise_13"><a class="hanchor" href="#Exercise_13">Exercise 1.3</a></h3>
 <p>Actually, from the top of my head, I really can't. But apparently<!--TODO:
 link-->, Haskell does it, which is weird, since Lua and Haskell have
 pretty different lineages afaik.</p>
-
-<h3>Exercise 1.4</h3>
-
+<h3 id="Exercise_14"><a class="hanchor" href="#Exercise_14">Exercise 1.4</a></h3>
 <p>Valid identifiers from the list: <code>___</code>, <code>_end</code>, <code>End</code>, <code>NULL</code></p>
-
 <p>Invalid identifiers: <code>end</code>, <code>until?</code>, <code>nil</code></p>
-
-<h3>Exercise 1.5</h3>
-
+<h3 id="Exercise_15"><a class="hanchor" href="#Exercise_15">Exercise 1.5</a></h3>
 <pre><code>#!/usr/bin/lua
 print(arg[0])
 </code></pre>
-
 <p>Then, update the permissions (on a unix-based system):</p>
-
 <pre><code>$ chmod 0755 ex_5.lua
 </code></pre>
-
-<h2>Chapter 2</h2>
-
-<h3>Exercise 2.1</h3>
-
+<h2 id="Chapter_2"><a class="hanchor" href="#Chapter_2">Chapter 2</a></h2>
+<h3 id="Exercise_21"><a class="hanchor" href="#Exercise_21">Exercise 2.1</a></h3>
 <p>The result of the expression <code>type(nil)==nil</code> is <code>false</code>, since the type
 of <code>type(nil)</code> is <code>string</code>, and the string <code>"nil"</code> is not equal to the
 value <code>nil</code>.</p>
-
-<h3>Exercise 2.2</h3>
-
+<h3 id="Exercise_22"><a class="hanchor" href="#Exercise_22">Exercise 2.2</a></h3>
 <p>Invalid numerals: <code>.e12</code>, <code>0.0e</code>, <code>0xABFG</code>, <code>FFFF</code>, <code>0x</code></p>
-
-<p>Valid numerals (with value): <code>.0e12</code> -> <code>0.0</code>, <code>0x12</code> -> <code>18</code>, <code>0xA</code> ->
-<code>10</code>, <code>0xFFFFFFFF</code> -> <code>4294967295</code>, <code>0x1P10</code> -> <code>1024</code>, <code>0.1e1</code> -> <code>1.0</code>,
-<code>0x0.1p1</code> -> <code>0.125</code></p>
-
-<h3>Exercise 2.3</h3>
-
+<p>Valid numerals (with value): <code>.0e12</code> -&gt; <code>0.0</code>, <code>0x12</code> -&gt; <code>18</code>, <code>0xA</code> -&gt;
+<code>10</code>, <code>0xFFFFFFFF</code> -&gt; <code>4294967295</code>, <code>0x1P10</code> -&gt; <code>1024</code>, <code>0.1e1</code> -&gt; <code>1.0</code>,
+<code>0x0.1p1</code> -&gt; <code>0.125</code></p>
+<h3 id="Exercise_23"><a class="hanchor" href="#Exercise_23">Exercise 2.3</a></h3>
 <p>12.7 can't be represented by</p>
-
 <pre><code>(n*12.7)/2^m
 </code></pre>
-
 <p>but 5.5 can be represented by</p>
-
 <pre><code>11/2^1
 </code></pre>
-
-<h3>Exercise 2.4</h3>
-
+<h3 id="Exercise_24"><a class="hanchor" href="#Exercise_24">Exercise 2.4</a></h3>
 <pre><code>a="&lt;![CDATA[\n  Hello world\n]]&gt;"
 b=[=[
 &lt;![CDATA[
   Hello world
 ]]&gt;]=]
 </code></pre>
-
-<h3>Exercise 2.5</h3>
-
+<h3 id="Exercise_25"><a class="hanchor" href="#Exercise_25">Exercise 2.5</a></h3>
 <p>One good way to format the sequence of bytes would be to display it in a
 string with escaped bytes in hexadecimal format, split into several lines
 with <code>"\z"</code>. By doing this problems with line length can be avoided and
@@ -163,28 +104,20 @@ performance is probably not very bad, considering that computers handle
 byte sequences considerably well. Readability can, but should not be a
 problem, since when dealing with arbitrary byte sequences the value in
 hexadecimal is used more frequently than the ASCII value.</p>
-
-<h3>Exercise 2.6</h3>
-
+<h3 id="Exercise_26"><a class="hanchor" href="#Exercise_26">Exercise 2.6</a></h3>
 <pre><code>a={}
 a.a=a
 </code></pre>
-
 <p><code>a.a.a.a</code> evaluates to the table a the first <code>a</code> is a pointer to the
 table <code>a</code>, the other <code>a</code>s are all keys the expression can be rewritten as
 <code>a["a"]["a"]["a"]</code></p>
-
 <pre><code>a.a.a.a=3
 </code></pre>
-
 <p>Now the value for the key <code>"a"</code> is 3 in the table <code>a</code>, so <code>a.a</code> is 3,
 and <code>a.a.a</code> is not indexable, since 3 has no field called <code>"a"</code>. So Lua
 prints an error message.</p>
-
-<h2>Chapter 3</h2>
-
-<h3>Exercise 3.1</h3>
-
+<h2 id="Chapter_3"><a class="hanchor" href="#Chapter_3">Chapter 3</a></h2>
+<h3 id="Exercise_31"><a class="hanchor" href="#Exercise_31">Exercise 3.1</a></h3>
 <pre><code>-10 2
 -9 0
 -8 1
@@ -207,15 +140,11 @@ prints an error message.</p>
 9 0
 10 1
 </code></pre>
-
-<h3>Exercise 3.2</h3>
-
+<h3 id="Exercise_32"><a class="hanchor" href="#Exercise_32">Exercise 3.2</a></h3>
 <pre><code>2^3^4=2^(3^4)=1.4178e+24
 2^-3^4=(2^(-(3^4))=4.1359e-25
 </code></pre>
-
-<h3>Exercise 3.3</h3>
-
+<h3 id="Exercise_33"><a class="hanchor" href="#Exercise_33">Exercise 3.3</a></h3>
 <pre><code>function polyeval(a, x)
     local res=0
     for i=1, #a do
@@ -224,9 +153,7 @@ prints an error message.</p>
     return res
 end
 </code></pre>
-
-<h3>Exercise 3.4</h3>
-
+<h3 id="Exercise_34"><a class="hanchor" href="#Exercise_34">Exercise 3.4</a></h3>
 <pre><code>function polyeval(a, x)
     local res=0
     for i=1, #a do
@@ -236,49 +163,33 @@ end
     return res
 end
 </code></pre>
-
-<h3>Exercise 3.5</h3>
-
+<h3 id="Exercise_35"><a class="hanchor" href="#Exercise_35">Exercise 3.5</a></h3>
 <pre><code>function isbool(v)
     return v==true or v==false
 end
 </code></pre>
-
-<h3>Exercise 3.6</h3>
-
+<h3 id="Exercise_36"><a class="hanchor" href="#Exercise_36">Exercise 3.6</a></h3>
 <p>The parentheses are not necessary, since <code>not</code> binds stronger than
 <code>and</code>, and <code>and</code> binds stronger than <code>or</code>. However, the parentheses are
 probably still a good idea, since they make the expression easier to
 read and understand.</p>
-
-<h3>Exercise 3.7</h3>
-
+<h3 id="Exercise_37"><a class="hanchor" href="#Exercise_37">Exercise 3.7</a></h3>
 <pre><code>monday  sunday  sunday
 </code></pre>
-
-<h3>Exercise 3.8</h3>
-
+<h3 id="Exercise_38"><a class="hanchor" href="#Exercise_38">Exercise 3.8</a></h3>
 <p>One way to initialize the table would be to use the square bracket
 notation. Associating the escape sequence <code>"\a"</code> with the literal bell
 character would be done like this:</p>
-
 <pre><code>{["\\a"]="\a"}
 </code></pre>
-
 <p>This would be done for every escape sequence.</p>
-
-<h2>Chapter 4</h2>
-
-<h3>Exercise 4.1</h3>
-
+<h2 id="Chapter_4"><a class="hanchor" href="#Chapter_4">Chapter 4</a></h2>
+<h3 id="Exercise_41"><a class="hanchor" href="#Exercise_41">Exercise 4.1</a></h3>
 <p>In Lua there is no switch/case statement, so elseif is a necessary
 (albeit not sufficient) replacement.</p>
-
-<h3>Exercise 4.2</h3>
-
+<h3 id="Exercise_42"><a class="hanchor" href="#Exercise_42">Exercise 4.2</a></h3>
 <p>Preferred method is the first one, since it doesn't deal with limits
 and makes an infinite loop clear from the beginning.</p>
-
 <pre><code>while true do end
 
 for i=0, math.huge do end
@@ -287,18 +198,14 @@ for i=2, 1, 0 do end
 
 repeat until false
 </code></pre>
-
-<h3>Exercise 4.3</h3>
-
+<h3 id="Exercise_43"><a class="hanchor" href="#Exercise_43">Exercise 4.3</a></h3>
 <p>repeat-until is a construct similar to do-while in C, a construct which
 is also used rarely there. Apparently, in C only 5% of loops in C code are
 do-while loops. However, repeat-until can be useful to avoid initializing
 a variable the same way it is incremented in the loop, saving one line.
 It makes elegant solutions easier, but not much beyond that, so it could
 be left out easily.</p>
-
-<h3>Exercise 4.4</h3>
-
+<h3 id="Exercise_44"><a class="hanchor" href="#Exercise_44">Exercise 4.4</a></h3>
 <pre><code>local z = 0
 local c
 
@@ -314,22 +221,16 @@ else
     print('not ok')
 end
 </code></pre>
-
-<h3>Exercise 4.5</h3>
-
+<h3 id="Exercise_45"><a class="hanchor" href="#Exercise_45">Exercise 4.5</a></h3>
 <p>Jumping out of a function would jump into the scope of a local variable,
 which is not possible (per definition) in Lua.</p>
-
 <p>This would also cause problems in a function calling itself and
 jumping back into itself (or two different functions calling each other
 recursively), since there would be no good way to determine whether the
 goto would simply jump inside the function or outside into a previous
 call of itself.</p>
-
-<h3>Exercise 4.6</h3>
-
+<h3 id="Exercise_46"><a class="hanchor" href="#Exercise_46">Exercise 4.6</a></h3>
 <p>The program would first print:</p>
-
 <pre><code>10
 9
 8
@@ -341,14 +242,10 @@ call of itself.</p>
 2
 1
 </code></pre>
-
 <p>and then return an anonymous function that jumps to the end of getlabel()
 and return 0.</p>
-
-<h2>Chapter 5</h2>
-
-<h3>Exercise 5.1</h3>
-
+<h2 id="Chapter_5"><a class="hanchor" href="#Chapter_5">Chapter 5</a></h2>
+<h3 id="Exercise_51"><a class="hanchor" href="#Exercise_51">Exercise 5.1</a></h3>
 <pre><code>function concat(...)
     local args={...}
     local r=""
@@ -358,16 +255,12 @@ and return 0.</p>
     return r
 end
 </code></pre>
-
-<h3>Exercise 5.2</h3>
-
+<h3 id="Exercise_52"><a class="hanchor" href="#Exercise_52">Exercise 5.2</a></h3>
 <pre><code>function printarr(arr)
     print(table.unpack(arr))
 end
 </code></pre>
-
-<h3>Exercise 5.3</h3>
-
+<h3 id="Exercise_53"><a class="hanchor" href="#Exercise_53">Exercise 5.3</a></h3>
 <pre><code>function allbutone(...)
     local r={}
     local args=table.pack(...)
@@ -377,9 +270,7 @@ end
     return table.unpack(r)
 end
 </code></pre>
-
-<h3>Exercise 5.4</h3>
-
+<h3 id="Exercise_54"><a class="hanchor" href="#Exercise_54">Exercise 5.4</a></h3>
 <pre><code>function combi(t, n)
     local arg={}
     local res={}
@@ -415,11 +306,8 @@ function comb(t)
     return res
 end
 </code></pre>
-
-<h2>Chapter 6</h2>
-
-<h3>Exercise 6.1</h3>
-
+<h2 id="Chapter_6"><a class="hanchor" href="#Chapter_6">Chapter 6</a></h2>
+<h3 id="Exercise_61"><a class="hanchor" href="#Exercise_61">Exercise 6.1</a></h3>
 <pre><code>function integral(f)
     return function(x, y)
         local i, res, eps
@@ -431,9 +319,7 @@ end
     end
 end
 </code></pre>
-
-<h3>Exercise 6.2</h3>
-
+<h3 id="Exercise_62"><a class="hanchor" href="#Exercise_62">Exercise 6.2</a></h3>
 <pre><code>function newpoly(t)
     return function(x)
         local res=0
@@ -444,9 +330,7 @@ end
     end
 end
 </code></pre>
-
-<h3>Exercise 6.3</h3>
-
+<h3 id="Exercise_63"><a class="hanchor" href="#Exercise_63">Exercise 6.3</a></h3>
 <pre><code>n=100000
 
 function f()
@@ -461,9 +345,7 @@ end
 
 load(f)()
 </code></pre>
-
-<h3>Exercise 6.4</h3>
-
+<h3 id="Exercise_64"><a class="hanchor" href="#Exercise_64">Exercise 6.4</a></h3>
 <pre><code>function room1()
     local move=io.read()
     if move=="south" then room3()
@@ -500,11 +382,8 @@ end
 
 room1()
 </code></pre>
-
-<h2>Chapter 7</h2>
-
-<h3>Exercise 7.1</h3>
-
+<h2 id="Chapter_7"><a class="hanchor" href="#Chapter_7">Chapter 7</a></h2>
+<h3 id="Exercise_71"><a class="hanchor" href="#Exercise_71">Exercise 7.1</a></h3>
 <pre><code>function fromto(n, m)
     return fromit, {m}, n-1
 end
@@ -517,9 +396,7 @@ function fromit(t, v)
     end
 end
 </code></pre>
-
-<h3>Exercise 7.2</h3>
-
+<h3 id="Exercise_72"><a class="hanchor" href="#Exercise_72">Exercise 7.2</a></h3>
 <pre><code>function fromto(n, m, s)
     return fromit, {m, s}, n-s
 end
@@ -532,9 +409,7 @@ function fromit(t, v)
     end
 end
 </code></pre>
-
-<h3>Exercise 7.3</h3>
-
+<h3 id="Exercise_73"><a class="hanchor" href="#Exercise_73">Exercise 7.3</a></h3>
 <pre><code>function uniquewords()
     local line=io.read()
     local wordtable={}
@@ -558,9 +433,7 @@ end
     end
 end
 </code></pre>
-
-<h3>Exercise 7.4</h3>
-
+<h3 id="Exercise_74"><a class="hanchor" href="#Exercise_74">Exercise 7.4</a></h3>
 <pre><code>function substrings(s)
     local len, pos
     len=0
@@ -580,13 +453,9 @@ end
     end
 end
 </code></pre>
-
-<h2>Chapter 8</h2>
-
-<h3>Exercise 8.1</h3>
-
+<h2 id="Chapter_8"><a class="hanchor" href="#Chapter_8">Chapter 8</a></h2>
+<h3 id="Exercise_81"><a class="hanchor" href="#Exercise_81">Exercise 8.1</a></h3>
 <p><code>s</code> is definitely a string, <code>c</code> can be a string or a function</p>
-
 <pre><code>function loadwithprefix(s, c)
     return load(function ()
         local t
@@ -603,9 +472,7 @@ end
     end)
 end
 </code></pre>
-
-<h3>Exercise 8.2</h3>
-
+<h3 id="Exercise_82"><a class="hanchor" href="#Exercise_82">Exercise 8.2</a></h3>
 <pre><code>function multiload(...)
     local t=table.pack(...)
     local i=1
@@ -626,11 +493,8 @@ end
     end)
 end
 </code></pre>
-
-<h3>Exercise 8.3</h3>
-
+<h3 id="Exercise_83"><a class="hanchor" href="#Exercise_83">Exercise 8.3</a></h3>
 <p>The two functions have nearly the same speed.</p>
-
 <pre><code>function stringrep_n(n)
     local res=[[    s=...
     local r=""
@@ -647,11 +511,8 @@ end
     return load(res)
 end
 </code></pre>
-
-<h3>Exercise 8.4</h3>
-
+<h3 id="Exercise_84"><a class="hanchor" href="#Exercise_84">Exercise 8.4</a></h3>
 <p>Shamelessly stolen (years later, I don't know where from, though :-D):</p>
-
 <pre><code>function f()
     count = 0
     function g()
@@ -662,18 +523,12 @@ end
     debug.sethook(g, "r")
 end
 </code></pre>
-
 <p>with</p>
-
 <pre><code>pcall(pcall, f)
 </code></pre>
-
 <p>returns <code>false</code>, <code>nil</code>.</p>
-
-<h2>Chapter 9</h2>
-
-<h3>Exercise 9.1</h3>
-
+<h2 id="Chapter_9"><a class="hanchor" href="#Chapter_9">Chapter 9</a></h2>
+<h3 id="Exercise_91"><a class="hanchor" href="#Exercise_91">Exercise 9.1</a></h3>
 <pre><code>function combgen(t, n, r, i)
     local idx=i or 1
     local res=r or {}
@@ -692,9 +547,7 @@ function combinations(t, n)
     return coroutine.wrap(function() combgen(t, n) end)
 end
 </code></pre>
-
-<h3>Exercise 9.2</h3>
-
+<h3 id="Exercise_92"><a class="hanchor" href="#Exercise_92">Exercise 9.2</a></h3>
 <pre><code>socket=require("socket")
 
 function download(host, file)
@@ -750,9 +603,7 @@ end
 
 threads={}
 </code></pre>
-
-<h3>Exercise 9.3</h3>
-
+<h3 id="Exercise_93"><a class="hanchor" href="#Exercise_93">Exercise 9.3</a></h3>
 <pre><code>function transfer(cr)
     coroutine.yield(cr)
 end
@@ -764,11 +615,8 @@ function dispatch(b)
     end
 end
 </code></pre>
-
-<h2>Chapter 10</h2>
-
-<h3>Exercise 10.1</h3>
-
+<h2 id="Chapter_10"><a class="hanchor" href="#Chapter_10">Chapter 10</a></h2>
+<h3 id="Exercise_101"><a class="hanchor" href="#Exercise_101">Exercise 10.1</a></h3>
 <pre><code>local N=8
 
 local function isplaceok(a, n, c)
@@ -808,9 +656,7 @@ end
 
 addqueen({}, 1)
 </code></pre>
-
-<h3>Exercise 10.2</h3>
-
+<h3 id="Exercise_102"><a class="hanchor" href="#Exercise_102">Exercise 10.2</a></h3>
 <pre><code>local N=8
 
 function permgen(a, n)
@@ -857,9 +703,7 @@ for q in permutations({1, 2, 3, 4, 5, 6, 7, 8}) do
     if i==N+1 then printsolution(q) end
 end
 </code></pre>
-
-<h3>Exercise 10.3</h3>
-
+<h3 id="Exercise_103"><a class="hanchor" href="#Exercise_103">Exercise 10.3</a></h3>
 <pre><code>local function allwords()
     local auxwords=function()
         for line in io.lines() do
@@ -892,9 +736,7 @@ for i=1, (tonumber(arg[1]) or 10) do
     print(words[i], counter[words[i]])
 end
 </code></pre>
-
-<h3>Exercise 10.4</h3>
-
+<h3 id="Exercise_104"><a class="hanchor" href="#Exercise_104">Exercise 10.4</a></h3>
 <pre><code>local N=3
 
 function allwords()
@@ -962,15 +804,10 @@ for i=1, MAXGEN do
     pf[N]=nextword
 end
 </code></pre>
-
-<h2>Chapter 11</h2>
-
-<h3>Exercise 11.1</h3>
-
+<h2 id="Chapter_11"><a class="hanchor" href="#Chapter_11">Chapter 11</a></h2>
+<h3 id="Exercise_111"><a class="hanchor" href="#Exercise_111">Exercise 11.1</a></h3>
 <p>It's stupid to set both values to 0. This just restores the first state.</p>
-
 <p>queue={}</p>
-
 <pre><code>function queue.new()
     return {first=0, last=-1}
 end
@@ -1005,11 +842,8 @@ function queue.poplast(q)
     return value
 end
 </code></pre>
-
-<h3>Exercise 11.2</h3>
-
+<h3 id="Exercise_112"><a class="hanchor" href="#Exercise_112">Exercise 11.2</a></h3>
 <p>Using a closure for the allwords argument</p>
-
 <pre><code>local function allwords(f)
     local auxwords=function()
         for line in io.lines(f) do
@@ -1047,9 +881,7 @@ for i=1, (tonumber(arg[1]) or 10) do
     print(words[i], counter[words[i]])
 end
 </code></pre>
-
-<h3>Exercise 11.3</h3>
-
+<h3 id="Exercise_113"><a class="hanchor" href="#Exercise_113">Exercise 11.3</a></h3>
 <pre><code>function name2node(graph, name)
     local node=graph[name]
     if not node then
@@ -1094,16 +926,12 @@ function printpath(path)
     end
 end
 </code></pre>
-
-<h3>Exercise 11.4</h3>
-
+<h3 id="Exercise_114"><a class="hanchor" href="#Exercise_114">Exercise 11.4</a></h3>
 <ul>
 <li><code>g</code>: the graph</li>
 <li><code>s</code>: the name of the starting point</li>
 <li><p><code>e</code>: the name of the endpoint</p>
-
 <p>dofile("ex_3.lua")</p>
-
 <p>function dijkstra(g, s, e)
     local unvisited={}
     local dist={}
@@ -1111,7 +939,6 @@ end
     local start=g[s]
     local lst=g[e]
     local current=start</p>
-
 <pre><code>for i, j in pairs(g) do unvisited[j]=true end
 for i, j in pairs(g) do dist[j]=math.huge end
 
@@ -1143,14 +970,10 @@ end
 
 return prev
 </code></pre>
-
 <p>end</p></li>
 </ul>
-
-<h2>Chapter 12</h2>
-
-<h3>Exercise 12.1</h3>
-
+<h2 id="Chapter_12"><a class="hanchor" href="#Chapter_12">Chapter 12</a></h2>
+<h3 id="Exercise_121"><a class="hanchor" href="#Exercise_121">Exercise 12.1</a></h3>
 <pre><code>function serialize(o, l)
     l=l or 1
     if type(o)=="number" then
@@ -1173,9 +996,7 @@ return prev
     end
 end
 </code></pre>
-
-<h3>Exercise 12.2</h3>
-
+<h3 id="Exercise_122"><a class="hanchor" href="#Exercise_122">Exercise 12.2</a></h3>
 <pre><code>function serialize(o, l)
     l=l or 1
     if type(o)=="number" then
@@ -1198,9 +1019,7 @@ end
     end
 end
 </code></pre>
-
-<h3>Exercise 12.3</h3>
-
+<h3 id="Exercise_123"><a class="hanchor" href="#Exercise_123">Exercise 12.3</a></h3>
 <pre><code>function serialize(o, l)
     l=l or 1
     if type(o)=="number" then
@@ -1230,9 +1049,7 @@ function isidentifier(s)
     return string.match(s, "^[a-zA-Z_][a-zA-Z0-9_]*$")
 end
 </code></pre>
-
-<h3>Exercise 12.4</h3>
-
+<h3 id="Exercise_124"><a class="hanchor" href="#Exercise_124">Exercise 12.4</a></h3>
 <pre><code>function serialize(o, l)
     l=l or 1
     if type(o)=="number" then
@@ -1270,4 +1087,4 @@ function isidentifier(s)
     return string.match(s, "^[a-zA-Z_][a-zA-Z0-9_]*$")
 end
 </code></pre>
-</html>
+</body></html>

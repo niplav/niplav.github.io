@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,30 +22,8 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
-var anchorhash={}
-function addAnchor(element) {
-	var cnt=element.textContent
-	if(cnt==="home")
-		return;
-	var ref=element.textContent.replace(/[^a-zA-Z0-9 ]/mg, "")
-	ref=ref.replace(/ /mg, "-")
-	var newref=ref;
-	if(anchorhash[ref]===1)
-		for(i=1, newref=ref+"_"+i;anchorhash[ref+"_"+i]===1;i++, newref=ref+"_"+i)
-			;
-	ref=newref
-	element.setAttribute("id", `${ref}`)
-	element.innerHTML=`<a href="#${ref}" class="hanchor">${cnt}</a>`
-	anchorhash[ref]=1
-}
 document.addEventListener('DOMContentLoaded', function () {
-	// Add anchor links to all headings
-	var headers = document.querySelectorAll('h1, h2, h3, h4, h5, h6')
-	if (headers) {
-		headers.forEach(addAnchor)
-	}
 	// Change the title to the h1 header
 	var title = document.querySelector('h1')
 	if(title) {
@@ -58,19 +32,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2><a href="./index.html">home</a></h2>
-
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-01-25, modified: 2022-03-15, language: english, status: in progress, importance: 1, confidence: log</em></p>
-
 <blockquote>
-  <p><strong>;-)</strong></p>
+<p><strong>;-)</strong></p>
 </blockquote>
-
-<h1>Flags</h1>
-
+<h1 id="Flags"><a class="hanchor" href="#Flags">Flags</a></h1>
 <blockquote>
-  <p>The fitness contribution of each of the <code>$\hat{n}$</code> heterozygous
+<p>The fitness contribution of each of the <code>$\hat{n}$</code> heterozygous
 loci to the parthenogenetic individual's overall fitness is
 <code>$1+hs$</code>. If the overall fitness of an individual is the product
 of the fitnesses of individual loci (multiplicative epistasis),
@@ -78,16 +47,13 @@ then the total fitness contribution of the <code>$\hat{n}$</code> heterozygous
 loci is <code>$(1+hs)^{\hat{n}}$</code>. These same loci in the sexual species
 will have sped to fixation, so their total fitness contribution is
 <code>$(1+s)^{\hat{n}}$</code>. The relative advantage of the sexual species is</p>
-
 <div>
   $$W_s=\left (\frac{1+s}{1+hs}\right )^{\hat{n}}$$
 </div>
 </blockquote>
-
 <p><em>— <a href="https://en.wikipedia.org/wiki/John_H._Gillespie">John H. Gillespie</a>, “Population Genetics” p. 172, 2004</em></p>
-
 <ul>
 <li>🇧🇬 (October 2021)</li>
 <li>🇨🇳 (March 2022)</li>
 </ul>
-</html>
+</body></html>
