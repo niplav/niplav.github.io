@@ -1483,3 +1483,4 @@
 2022-10-04T12:22:54.000000Z	i care about the instantiation of human values in the universe, not about whether humanity reaches the stars
 2022-10-04T12:24:06.000000Z	actual nazise talk about moloch a lot
 2022-10-05T15:26:53.000000Z	public relations is a reality-masking puzzle.
+2022-10-07T13:57:26.000000Z	{adequate,¬adequate}×{exploitable,¬exploitable}×{efficient,¬efficient}
