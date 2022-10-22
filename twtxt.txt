@@ -1490,3 +1490,4 @@
 2022-10-19T22:13:02.000000Z	a lot of the value of reading attentively (as opposed to skimming or listening to audiobooks) is the mesa-skill of paying close attention and noticing when you didn't read something carefully—attentive reading, at its best, is deliberate practice for gears-level thinking
 2022-10-19T22:13:19.000000Z	possible also with other media, but practiced less often
 2022-10-21T15:05:11.000000Z	maybe social constructivism is just descriptive in how most social scientists create their theories?
+2022-10-22T21:35:34.000000Z	interpretability can ~re-create more discrete alignment methods over a leaky abstraction
