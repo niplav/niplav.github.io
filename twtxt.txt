@@ -1492,3 +1492,4 @@
 2022-10-21T15:05:11.000000Z	maybe social constructivism is just descriptive in how most social scientists create their theories?
 2022-10-22T21:35:34.000000Z	interpretability can ~re-create more discrete alignment methods over a leaky abstraction
 2022-10-22T23:04:13.000000Z	killing moloch is not glorious, it's just tedious.
+2022-10-23T17:04:39.000000Z	multifaceted fox
