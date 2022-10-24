@@ -1497,3 +1497,4 @@
 2022-10-24T09:44:08.000000Z	meetups ostensibly about X should actually about X, not fucking/partying/status games/etc
 2022-10-24T13:03:07.000000Z	open-source game theory is apparently “game theory with translucent players” in the academic literature
 2022-10-24T15:02:03.000000Z	have problem → pay attention → ??? → problem solved
+2022-10-24T15:10:46.000000Z	Marr's computational level should be called the “functional” level—since functions are really just concerned with mappings
