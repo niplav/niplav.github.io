@@ -1499,3 +1499,4 @@
 2022-10-24T15:02:03.000000Z	have problem → pay attention → ??? → problem solved
 2022-10-24T15:10:46.000000Z	Marr's computational level should be called the “functional” level—since functions are really just concerned with mappings
 2022-10-24T18:45:07.000000Z	“There's many nice women in the EA community–” ”Yeah, there's also a bunch of gold on Neptune.”
+2022-10-24T22:40:11.000000Z	gender ratio to sex ratio
