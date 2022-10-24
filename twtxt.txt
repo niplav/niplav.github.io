@@ -1494,3 +1494,4 @@
 2022-10-22T23:04:13.000000Z	killing moloch is not glorious, it's just tedious.
 2022-10-23T17:04:39.000000Z	multifaceted fox
 2022-10-23T18:09:52.000000Z	monotonic occam's razor
+2022-10-24T09:44:08.000000Z	meetups ostensibly about X should actually about X, not fucking/partying/status games/etc
