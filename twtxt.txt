@@ -1512,3 +1512,4 @@
 2022-10-25T18:31:26.000000Z	it's kind of alarming how often my willingness to carefully listen to a person's arguments boils down to how much i like them personally
 2022-10-25T18:31:44.000000Z	slightly less of a problem when I think of them purely as a resource.
 2022-10-25T18:32:56.000000Z	related: I really like having good personal relations with people from the radical left while also being openly EA and very much not leftist. feels like a good step towards coalitions forged between mostly orthogonal sozio-political camps
+2022-10-25T18:37:06.000000Z	the variance in likeability is not as high over text
