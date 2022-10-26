@@ -33,10 +33,43 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-10-19, modified: 2022-10-19, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2022-10-19, modified: 2022-10-25, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 <blockquote>
 <p><strong>Solutions to the textbook “Introduction to Optimization”.</strong></p>
 </blockquote>
 <h1 id="Solutions_to_Introduction_to_Optimization"><a class="hanchor" href="#Solutions_to_Introduction_to_Optimization">Solutions to “Introduction to Optimization”</a></h1>
-<h2 id="Chapter_1"><a class="hanchor" href="#Chapter_1">Chapter 1</a></h2>
+<h3 id="401"><a class="hanchor" href="#401">4.0.1</a></h3>
+<h4 id="a"><a class="hanchor" href="#a">a)</a></h4>
+<div>
+    $$XA+A^{\top}=\mathbf{I} \Leftrightarrow \\
+    XA=\mathbf{I}-A^{\top} \Leftrightarrow \\
+    X=(\mathbf{I}-A^{\top})A^{-1}$$
+</div>
+<h4 id="b"><a class="hanchor" href="#b">b)</a></h4>
+<div>
+    $$ X^{\top}C=(2A(X+B))^{\top} \Leftrightarrow \\
+    X^{\top}C=(2AX)^{\top}+(2AB)^{\top} \Leftrightarrow \\
+    X^{\top}C-X^{\top}(2A)^{\top}=(2AB)^{\top} \Leftrightarrow \\
+    X^{\top}(C-(2A)^{\top})=(2AB)^{\top} \\
+    X^{\top}=(2AB)^{\top} (C^{-1}-((2A)^{\top})^{-1}) \Leftrightarrow \\
+    X=((C^{-1})^{\top}-(2A)^{-1}) 2AB \Leftrightarrow \\
+    X=(C^{-1})^{\top}2AB-B $$
+</div>
+<h4 id="c"><a class="hanchor" href="#c">c)</a></h4>
+<div>
+    $$(Ax-y)^{\top}A=\mathbf{0}_n^{\top} \Leftrightarrow \\
+    A^{\top}(Ax-y)=\mathbf{0}_n^{\top} \Leftrightarrow \\
+    A^{\top}Ax -A^{\top}y=\mathbf{0}_n^{\top} \Leftrightarrow \\
+    x=(A^{\top}A)^{-1}(\mathbf{0}_n^{\top}+A^{\top}y)$$
+</div>
+<h4 id="d"><a class="hanchor" href="#d">d)</a></h4>
+<div>
+    $$(Ax-y)^{\top}A+x^{\top}B=\mathbf{0}_n^{\top} \Leftrightarrow \\
+    A^{\top}(Ax-y)+x^{\top}B=\mathbf{0}_n^{\top} \Leftrightarrow \\
+    A^{\top}Ax-A^{\top}y+x^{\top}B=\mathbf{0}_n^{\top} \Leftrightarrow \\
+    A^{\top}Ax+x^{\top}B=\mathbf{0}_n^{\top}+A^{\top}y \Leftrightarrow \\
+    A^{\top}Ax+B^{\top}x=\mathbf{0}_n^{\top}+A^{\top}y \Leftrightarrow \\
+    (A^{\top}A+B^{\top})x=\mathbf{0}_n^{\top}+A^{\top}y \Leftrightarrow \\
+    x=(A^{\top}A+B^{\top})^{-1}(\mathbf{0}_n^{\top}+A^{\top}y) $$
+</div>
 </body></html>
