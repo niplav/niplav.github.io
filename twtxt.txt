@@ -1515,3 +1515,4 @@
 2022-10-25T18:37:06.000000Z	the variance in likeability is not as high over text
 2022-10-25T19:24:17.000000Z	how much has EA looked into peak fertilizer and antibiotic resistance?
 2022-10-25T19:40:32.000000Z	bell curve meme with books with/without pictures
+2022-10-26T12:20:41.000000Z	futuristic city image “the world if all externalities were internalized”
