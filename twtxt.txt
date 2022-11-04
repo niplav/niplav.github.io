@@ -1525,3 +1525,4 @@
 2022-11-01T22:46:07.000000Z	MANGAO
 2022-11-04T14:17:17.000000Z	language is the middle layer of a qualia autoencoder
 2022-11-04T14:17:23.000000Z	podcast meditation
+2022-11-04T15:17:52.000000Z	elon musk is not playing 4d chess with neuralink, or with spacex.
