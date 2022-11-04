@@ -1523,3 +1523,4 @@
 2022-10-31T21:25:59.000000Z	Today, scientists fear the corpses
 2022-11-01T20:33:16.000000Z	Gauzian
 2022-11-01T22:46:07.000000Z	MANGAO
+2022-11-04T14:17:17.000000Z	language is the middle layer of a qualia autoencoder
