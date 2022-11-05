@@ -1528,3 +1528,4 @@
 2022-11-04T15:17:52.000000Z	elon musk is not playing 4d chess with neuralink, or with spacex.
 2022-11-04T15:19:49.000000Z	heuristics decline more gracefully in predictive accuracy than deep models. Example: Having the cosmological constant be off by one part in a thousand yields quite different predictions, while the heuristic "two objects of significant weight (e.g. >10²⁰kg) will enter an elliptical orbit" declines more gracefully as you change the weight
 2022-11-04T15:26:00.000000Z	thing that bugged me about don't look up is that they didn't restart the calculation in the beginning for four times and instead just immediately concluded doom.
+2022-11-05T12:01:26.000000Z	if agents are usually suffering negative sum games might be good via noncooperation
