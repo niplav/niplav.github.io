@@ -1530,3 +1530,4 @@
 2022-11-04T15:26:00.000000Z	thing that bugged me about don't look up is that they didn't restart the calculation in the beginning for four times and instead just immediately concluded doom.
 2022-11-05T12:01:26.000000Z	if agents are usually suffering negative sum games might be good via destructive warfare
 2022-11-06T00:42:35.000000Z	i only allow myself to go the hard way. good or bad?
+2022-11-07T23:15:01.000000Z	computational complexity theory of self-modifying code. probably not good for execution speed, but great for code size.
