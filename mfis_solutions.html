@@ -51,4 +51,38 @@ is allegedly a "real-valued quantity", what is that supposed to mean? Is
 it not a function?</p>
 <p>Alas, plugging in <code>$g$</code> into <code>$f$</code> gives <code>$f(x)=3x+2(2x)$</code> and
 <code>$\frac{\partial}{\partial x}f(x)=3+4=7$</code>.</p>
+<h3 id="24"><a class="hanchor" href="#24">2.4</a></h3>
+<h4 id="i"><a class="hanchor" href="#i">(i)</a></h4>
+<div>
+    $$XA+A^{\top}=\mathbf{I} \Leftrightarrow \\
+    XA=\mathbf{I}-A^{\top} \Leftrightarrow \\
+    X=(\mathbf{I}-A^{\top})A^{-1}$$
+</div>
+<h4 id="ii"><a class="hanchor" href="#ii">(ii)</a></h4>
+<div>
+    $$ X^{\top}C=(2A(X+B))^{\top} \Leftrightarrow \\
+    X^{\top}C=(2AX)^{\top}+(2AB)^{\top} \Leftrightarrow \\
+    X^{\top}C-X^{\top}(2A)^{\top}=(2AB)^{\top} \Leftrightarrow \\
+    X^{\top}(C-(2A)^{\top})=(2AB)^{\top} \\
+    X^{\top}=(2AB)^{\top} (C^{-1}-((2A)^{\top})^{-1}) \Leftrightarrow \\
+    X=((C^{-1})^{\top}-(2A)^{-1}) 2AB \Leftrightarrow \\
+    X=(C^{-1})^{\top}2AB-B $$
+</div>
+<h4 id="iii"><a class="hanchor" href="#iii">(iii)</a></h4>
+<div>
+    $$(Ax-y)^{\top}A=\mathbf{0}_n^{\top} \Leftrightarrow \\
+    A^{\top}(Ax-y)=\mathbf{0}_n^{\top} \Leftrightarrow \\
+    A^{\top}Ax -A^{\top}y=\mathbf{0}_n^{\top} \Leftrightarrow \\
+    x=(A^{\top}A)^{-1}(\mathbf{0}_n^{\top}+A^{\top}y)$$
+</div>
+<h4 id="iv"><a class="hanchor" href="#iv">(iv)</a></h4>
+<div>
+    $$(Ax-y)^{\top}A+x^{\top}B=\mathbf{0}_n^{\top} \Leftrightarrow \\
+    A^{\top}(Ax-y)+x^{\top}B=\mathbf{0}_n^{\top} \Leftrightarrow \\
+    A^{\top}Ax-A^{\top}y+x^{\top}B=\mathbf{0}_n^{\top} \Leftrightarrow \\
+    A^{\top}Ax+x^{\top}B=\mathbf{0}_n^{\top}+A^{\top}y \Leftrightarrow \\
+    A^{\top}Ax+B^{\top}x=\mathbf{0}_n^{\top}+A^{\top}y \Leftrightarrow \\
+    (A^{\top}A+B^{\top})x=\mathbf{0}_n^{\top}+A^{\top}y \Leftrightarrow \\
+    x=(A^{\top}A+B^{\top})^{-1}(\mathbf{0}_n^{\top}+A^{\top}y) $$
+</div>
 </body></html>
