@@ -1536,3 +1536,4 @@
 2022-11-10T14:34:14.000000Z	arrière and derrière having the same meaning is just such a thing
 2022-11-14T00:21:19.000000Z	matpotlib
 2022-11-14T12:16:01.000000Z	1) What
+2022-11-14T15:55:05.000000Z	beliefs are position, epistemology is speed. i care about acceleration
