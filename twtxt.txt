@@ -1541,3 +1541,4 @@
 2022-11-15T23:31:42.000000Z	concept: Codex but fine-tuned on ticket description & diff pairs, for debugging instead of new code.
 2022-11-15T23:32:56.000000Z	how much programmer activity is spent writing new code vs. debugging existing code?
 2022-11-17T22:04:20.000000Z	Sauerkraut: The German Kimchi
+2022-11-18T07:35:43.000000Z	proposal: ability to sort posts on forum magnum by length
