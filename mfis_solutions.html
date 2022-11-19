@@ -85,4 +85,65 @@ it not a function?</p>
     (A^{\top}A+B^{\top})x=\mathbf{0}_n^{\top}+A^{\top}y \Leftrightarrow \\
     x=(A^{\top}A+B^{\top})^{-1}(\mathbf{0}_n^{\top}+A^{\top}y) $$
 </div>
+<h4 id="v"><a class="hanchor" href="#v">(v)</a></h4>
+<!--TODO-->
+<h4 id="vi"><a class="hanchor" href="#vi">(vi)</a></h4>
+<!--TODO-->
+<h3 id="261"><a class="hanchor" href="#261">2.6.1</a></h3>
+<p>I… I don't know what the skew is :-/</p>
+<h3 id="262"><a class="hanchor" href="#262">2.6.2</a></h3>
+<!--TODO: do this later when I understand tensors, or am maybe just a
+bit more comfortable in general-->
+<h3 id="263"><a class="hanchor" href="#263">2.6.3</a></h3>
+<p>Writing code: This I can do.</p>
+<h4 id="i_1"><a class="hanchor" href="#i_1">i)</a></h4>
+<pre><code>using Random, LinearAlgebra
+
+function gradient_check(x, f, df):
+    n=length(x)
+    d=length(f(x))
+    ε=10^-6
+    J=zero(Matrix{Float64}(undef, d, n))
+    for i in 1:n
+        unit=zero(rand(n))
+        unit[i]=1
+        J[:,i]=(f(x+ε*unit)-f(x-ε*unit))/(2*ε)
+    end
+    if norm(J-df(x), Inf)&lt;10^-4
+        return true
+    else
+        return false
+    end
+end
+</code></pre>
+<h4 id="ii_1"><a class="hanchor" href="#ii_1">ii)</a></h4>
+<pre><code>julia&gt; A=rand(Float64, (10, 15))
+julia&gt; f(x)=A*x
+julia&gt; df(x)=A
+julia&gt; x=randn(15)
+15-element Vector{Float64}:
+  1.536516645971545
+  1.0136394994998532
+ -0.09863977762813898
+  1.3510191388362935
+  0.84503226122143
+  0.09296670831415606
+ -1.5390337565597376
+  1.4679194319980104
+ -0.7085023577127753
+ -0.10676335224166593
+ -0.8686753109089055
+  1.2912744597257453
+  0.7364123079861109
+  0.5736005534388826
+  0.5332386427039576
+julia&gt; gradient_check(x, f, df)
+true
+</code></pre>
+<p>And now the cooler <code>$f$</code>:</p>
+<pre><code>julia&gt; f(x)=transpose(x)*x
+f (generic function with 1 method)
+julia&gt; df(x)=2*transpose(x)
+df (generic function with 1 method)
+</code></pre>
 </body></html>
