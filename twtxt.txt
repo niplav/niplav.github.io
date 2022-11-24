@@ -1553,3 +1553,4 @@
 2022-11-23T12:30:57.000000Z	computers? miss me with that wimpy shit, that's for women
 2022-11-23T22:53:08.000000Z	tbh maybe the biggest innovations that Julia makes are the iseven() and isodd() functions
 2022-11-24T16:15:34.000000Z	I believe that in effective altruism, deciding where funds are redirected by classic one-person-gets-one-vote methods would be hugely misguided. leading to coalitions appropriating resources, working against specialization etc. not against funders trying better mechanisms to elicit local knowledge, but applause-lighting “democracy” ain't gonna cut it
+2022-11-24T16:18:41.000000Z	openphils first spent dollar is more effective at promoting public good than the first tax dollar to the eu (to speak nothing of the us)
