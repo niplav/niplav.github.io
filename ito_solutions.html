@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-10-19, modified: 2022-11-08, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2022-10-19, modified: 2022-11-25, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 <blockquote>
 <p><strong>Solutions to the textbook “Introduction to Optimization”.</strong></p>
 </blockquote>
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <h3 id="401"><a class="hanchor" href="#401">4.0.1</a></h3>
 <p>See <a href="./mfis_solutions.html#24">here</a>.</p>
 <h3 id="411"><a class="hanchor" href="#411">4.11</a></h3>
-<h4 id="i"><a class="hanchor" href="#i">i)</a></h4>
+<h4 id="i"><a class="hanchor" href="#i">(i)</a></h4>
 <p>Some standard numpy code:</p>
 <pre><code>import numpy as np
 
@@ -88,7 +88,7 @@ use a simple <a href="https://en.wikipedia.org/wiki/Quotient_rule">quotient rule
     retval_fsqgrad=fsqgrad(x, c=c, a=a)
     return (retval_fsqgrad*(a**2+retval_fsq)-retval_fsq*retval_fsqgrad)/((a**2+retval_fsq))**2
 </code></pre>
-<h4 id="ii"><a class="hanchor" href="#ii">ii)</a></h4>
+<h4 id="ii"><a class="hanchor" href="#ii">(ii)</a></h4>
 <p>The function can be pretty directly translated from the pseudocode in
 the book to Python (no surprise here):</p>
 <pre><code>def graddesc(f, fgrad, alpha=0.001, theta=10e-20, x0=[1,1], c=10, a=0.1):
@@ -125,7 +125,7 @@ solution:  [ 4.13240000e-11 -7.98149419e-19]
 iterations:  184068
 cost:  1.7076729729684466e-19
 </code></pre>
-<h4 id="iii"><a class="hanchor" href="#iii">iii)</a></h4>
+<h4 id="iii"><a class="hanchor" href="#iii">(iii)</a></h4>
 <pre><code>def backtrack_graddesc(f, fgrad, alpha=0.05, theta=10e-15, x0=[1,1], c=10, a=0.1, rho_ls=0.01, rho_plus=1.2, rho_minus=0.5, delta_max=math.inf):
     x=np.array(x0)
     i=0
@@ -150,4 +150,99 @@ cost:  1.7076729729684466e-19
     \frac{\partial ||-Xβ-(-y)||^2}{\partial β}+λ2β=\\
     2 \cdot \frac{-Xβ-(-y)}{||-Xβ-(-y)||}+λ2β$$
 </div>
+<h3 id="431"><a class="hanchor" href="#431">4.3.1</a></h3>
+<div>
+</div>
+<h3 id="433"><a class="hanchor" href="#433">4.3.3</a></h3>
+<div>
+    $$f(x)=\frac{1}{2}x^{\top} A x+b^{\top}+c=\\
+    \frac{1}{2} x^{\top} A x=\\
+    \frac{1}{2} x^{\top} \left [\matrix{2 &amp; 0 \cr 0 &amp; 1}\right ] x$$
+</div>
+<p>(since <code>$b=\mathbf{0}$</code> and <code>$c=0$</code>). So the negative gradient is</p>
+<div>
+    $$-\nabla f(x)= \\
+    \frac{1}{2} x^{\top} (A+A^{\top})=\\
+    \frac{1}{2} x^{\top} \left [\matrix{4 &amp; 0 \cr 0 &amp; 2}\right ]$$
+</div>
+<h4 id="i_1"><a class="hanchor" href="#i_1">(i)</a></h4>
+<p><code>$x_0=\left [ \matrix{1 \cr 1} \right ]$</code>, so</p>
+<div>
+    $$δ_0=\\
+    -\nabla f(x_0)=\\
+    -\frac{1}{2} \left [ \matrix{1 &amp; 1} \right ] \left [\matrix{4 &amp; 0 \cr 0 &amp; 2}\right ]=\\
+    -\left [ \matrix{2 &amp; 1} \right ]$$
+</div>
+<p>Then</p>
+<div>
+    $$f(x+αδ)=\\
+    \frac{1}{2} (\left [ \matrix{1 \cr 1} \right]-α\left [ \matrix{2 \cr 1} \right ])^{\top}\left [\matrix{2 &amp; 0 \cr 0 &amp; 1}\right ](\left [ \matrix{1 \cr 1} \right]-α\left [ \matrix{2 \cr 1} \right ])=\\
+    \frac{1}{2} (\left [ \matrix{1 \cr 1} \right]-α\left [ \matrix{2 \cr 1} \right ])^{\top}(\left [ \matrix{2 \cr 1} \right]-α\left [ \matrix{4 \cr 1} \right ])=\\
+    \frac{1}{2} (\left [ \matrix{1 &amp; 1} \right]-α\left [ \matrix{2 &amp; 1} \right ])(\left [ \matrix{2 \cr 1} \right]-α\left [ \matrix{4 \cr 1} \right ])=\\
+    \frac{1}{2}(3-10\cdot α+9 \cdot α^2)=\\
+    1.5-5\cdot α+9 \cdot α^2$$
+</div>
+<p>The derivative of that is <code>$5+18 \cdot α$</code>. Setting it to zero gives
+<code>$α=\frac{5}{18}$</code>.</p>
+<p>The next <code>$x$</code> then is (going by the values we computed)
+<code>$\left [ \matrix{0.\overline{4} \cr 0.7\overline{2}} \right ]$</code>.</p>
+<p>The new gradient then is</p>
+<div>
+    $$g=\\
+    -\nabla f(x)=\\
+    -\frac{1}{2} \left [ \matrix{0.\overline{4} &amp; 0.7\overline{2}} \right ] \left [\matrix{2 &amp; 0 \cr 0 &amp; 1}\right ]=\\
+    \left [ \matrix{-0.\overline{4} &amp; -0.36\overline{1}} \right ]$$
+</div>
+<p>Now computing <code>$β$</code>:</p>
+<div>
+    $$\frac{g^{\top}(g-g')}{g'^{\top}g'}=\\
+    \frac{\left [ \matrix{-0.\overline{4} &amp; -0.36\overline{1}} \right ]^{\top}(\left [ \matrix{-0.\overline{4} &amp; -0.36\overline{1}} \right ]-\left [ \matrix{-2 &amp; -1} \right ])}{\left [ \matrix{-2 &amp; -1} \right ]^{\top}\left [ \matrix{-2 &amp; -1} \right ]}\approx \\
+    -0.1844$$
+</div>
+<p>which is smaller than zero, so our new <code>$β$</code> is <code>$0$</code>.</p>
+<p>Then <code>$δ$</code> is <code>$\left [ \matrix{-0.\overline{4} &amp; -0.36\overline{1}} \right ]$</code>.</p>
+<p>We now go through the whole exercise a second time:</p>
+<div>
+    $$f(x+αδ)=\\
+    \frac{1}{2} (\left [ \matrix{0.\overline{4} \cr 0.7\overline{2}} \right ]-α\left [ \matrix{-1.8765 &amp; -1.4938} \right ])^{\top}\left [\matrix{2 &amp; 0 \cr 0 &amp; 1}\right ](\left [ \matrix{0.\overline{4} \cr 0.7\overline{2}} \right ]-α\left [ \matrix{-1.8765 &amp; -1.4938} \right ])=\\
+    (\frac{1}{2} (\left [ \matrix{0.\overline{4} \cr 0.7\overline{2}} \right ]-α\left [ \matrix{-1.8765 &amp; -1.4938} \right ])^{\top}\left [ \matrix{0.\overline{8} \cr 0.7\overline{2}} \right]-α\left [ \matrix{-0.\overline{8} \cr -0.36\overline{1}} \right ]) \approx \\
+    0.458\overline{3}-0.6559\cdot α+0.2627 \cdot α^2$$
+</div>
+<p>Then the derivative is approximately <code>$-0.6559+0.5255 \cdot α$</code>, and
+the new <code>$α$</code> is the solution to that, namely <code>$\approx 1.248$</code>.</p>
+<p>Then the new <code>$x$</code> is <code>$\approx \left [ \matrix{-0.1103 &amp; 0.2715} \right ]$</code>.
+The new <code>$g$</code> is <code>$\approx \left [ \matrix{0.11029 &amp; -0.1358} \right ]$</code>, and
+<code>$β\approx 0.0933$</code>, which is this time greater than zero so we can keep it.</p>
+<p>The new <code>$δ$</code> therefore is <code>$\approx \left [ \matrix{0.0688 &amp; -0.1694} \right ]$</code>.</p>
+<p>…And we're done with the second round. I'm not going to do this for
+<code>$x_0=(-1,2)$</code>, in case you were wondering, I hope I've shown that I <em>can</em>
+do this, and it's tedious to type out.</p>
+<!--TODO: maybe do other ones too?-->
+<h4 id="ii_1"><a class="hanchor" href="#ii_1">(ii)</a></h4>
+<p>Intuitively, this makes sense: We walked all the way to the minimum in
+the direction of the current gradient, so the next direction should not
+go "back" in the direction where we came from, or further than we needed
+to go.</p>
+<!--TODO: actually prove this-->
+<h3 id="441"><a class="hanchor" href="#441">4.4.1</a></h3>
+<p>Not gonna show you the sketch, of course. (I also don't have time right
+now to learn <a href="https://manim.community">manim</a> for that, though it would
+be cool).</p>
+<h4 id="i_2"><a class="hanchor" href="#i_2">(i)</a></h4>
+<p>The solution is <code>$\frac{-π}{2}$</code>.</p>
+<h4 id="ii_2"><a class="hanchor" href="#ii_2">(ii)</a></h4>
+<p>The solution is
+<code>$\left [ \matrix{-\frac{\sqrt{2}}{2} \cr -\frac{\sqrt{2}}{2}} \right ]$</code>.</p>
+<h4 id="iii_1"><a class="hanchor" href="#iii_1">(iii)</a></h4>
+<p>Since the gradient is "pulling" to the bottom left, the best one can do
+is to set <code>$x_1$</code> to zero. So
+<code>$x=\left [ \matrix{-\frac{\sqrt{2}}{2} \cr -\frac{\sqrt{2}}{2}} \right ]$</code>.</p>
+<h4 id="iv_1"><a class="hanchor" href="#iv_1">(iv)</a></h4>
+<p>The second constraint can be pictured the following way: On the <code>$x_2$</code>
+axis there is a parabola forming a paraboloid cylinder which is zero where
+<code>$x_2$</code> is zero, and grows symmetrically in both other directions. At
+<code>$x_2≥1$</code> and <code>$x_2≤-1$</code> this cylinder is greater than <code>$x_1$</code>,
+which we want to avoid. So we know that <code>$x_2=-1$</code>.</p>
+<p>But what is <code>$x_1$</code>? It should be as small as possible. Plugging in
+<code>$x_1=0$</code> tells us that this is the best we can do.</p>
 </body></html>
