@@ -32,7 +32,12 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h1 id="Iqisa_Documentation"><a class="hanchor" href="#Iqisa_Documentation">Iqisa Documentation</a></h1>
+</head><body><h2><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2022-07-15, modified: 2022-12-20, language: english, status: notes, importance: 6, confidence: certain</em></p>
+<blockquote>
+<p><strong>.</strong></p>
+</blockquote>
+<h1 id="Iqisa_Documentation"><a class="hanchor" href="#Iqisa_Documentation">Iqisa Documentation</a></h1>
 <p>Iqisa is a library for handling and comparing different forecasting
 datasets, focused on taking on the burden of dealing with differently
 organised datasets off the user and presenting them with a unified
@@ -210,7 +215,7 @@ in a subclass.</p>
 </ul>
 <h2 id="Loading_Functions"><a class="hanchor" href="#Loading_Functions">Loading Functions</a></h2>
 <p>The following functions can be used to load the forecasting data.</p>
-<h3 id="None"><a class="hanchor" href="#None"><code>gjp.load_surveys(files=None, processed=True, complete=False)</code></a> and <code>gjp.load_markets(files=None, processed=True, complete=False)</code></h3>
+<h3 id="None"><a class="hanchor" href="#None"><code>gjp.load_surveys(files=None, processed=True, complete=False)</code> and <code>gjp.load_markets(files=None, processed=True, complete=False)</code></a></h3>
 <p><code>gjp.load_surveys()</code> loads forecasting data from GJP surveys, and
 <code>gjp.load_markets()</code> loads forecasting data from GJP prediction
 markets. They have the same arguments.</p>
@@ -227,7 +232,7 @@ markets. They have the same arguments.</p>
 <h4 id="Returns"><a class="hanchor" href="#Returns">Returns</a></h4>
 <p>A DataFrame in the format described <a href="#Forecasts">here</a> loaded from
 <code>files</code>, potentially with additional columns.</p>
-<h5 id="None_1"><a class="hanchor" href="#None_1">Additional Fields when </a><code>complete=True</code></h5>
+<h5 id="None_1"><a class="hanchor" href="#None_1">Additional Fields when <code>complete=True</code></a></h5>
 <p>Setting <code>complete=True</code> loads the following additional fields for
 <code>gjp.load_surveys()</code>:</p>
 <ul>
@@ -315,7 +320,7 @@ trades on prediction markets:</p>
 <li>./data/gjp/pm_transactions.supers.yr4.csv</li>
 <li>./data/gjp/pm_transactions.teams.yr4.csv</li>
 </ul>
-<h3 id="None_2"><a class="hanchor" href="#None_2"><code>gjp.processed_survey_files</code></a> and <code>gjp.processed_market_files</code></h3>
+<h3 id="None_2"><a class="hanchor" href="#None_2"><code>gjp.processed_survey_files</code> and <code>gjp.processed_market_files</code></a></h3>
 <p>Preprocessed files that contain all survey data
 (<code>./data/gjp/surveys.csv.zip</code>) and all market data
 (<code>./data/gjp/markets.csv.zip</code>).</p>

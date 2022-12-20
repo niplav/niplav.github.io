@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-10-19, modified: 2022-10-24, language: english, status: in progress, importance: 2, confidence: likely</em></p>
+<p><em>author: niplav, created: 2022-10-19, modified: 2022-12-20, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 <blockquote>
 <p><strong>Solutions to the textbook “Maths for Intelligent Systems”.</strong></p>
 </blockquote>
@@ -90,7 +90,13 @@ it not a function?</p>
 <h4 id="vi"><a class="hanchor" href="#vi">(vi)</a></h4>
 <!--TODO-->
 <h3 id="261"><a class="hanchor" href="#261">2.6.1</a></h3>
-<p>I… I don't know what the skew is :-/</p>
+<p>I… I don't know what the skew matrix is :-/, and Wikipedia
+isn't very helpful (I don't think it's the <a href="https://en.wikipedia.org/wiki/Skew-Hermitian_matrix">skew-Hermitian
+matrix</a>
+or the <a href="https://en.wikipedia.org/wiki/Skew-symmetric_matrix">skew-symmetric
+matrix</a>
+or the <a href="https://en.wikipedia.org/wiki/Skew-Hamiltonian_matrix">skew-Hamiltonian
+matrix</a>).</p>
 <h3 id="262"><a class="hanchor" href="#262">2.6.2</a></h3>
 <!--TODO: do this later when I understand tensors, or am maybe just a
 bit more comfortable in general-->
@@ -146,4 +152,15 @@ f (generic function with 1 method)
 julia&gt; df(x)=2*transpose(x)
 df (generic function with 1 method)
 </code></pre>
+<h3 id="264"><a class="hanchor" href="#264">2.6.4</a></h3>
+<p>The derivative of <code>$σ(W_0 \times x_0)$</code>, using the chain rule and the derivative
+of <code>$\frac{dσ}{dx}=σ'$</code>, is <code>$σ'(W_0 \times x_0) \times W_0$</code>.</p>
+<p>Applying this again for <code>$W_1 \times σ(W_0 \times x_0)$</code>,
+we get <code>$W_1 \times σ'(W_0 \times x_0) \times W_0$</code>.</p>
+<p>Again: <code>$\frac{d}{d x_0} σ(W_1 \times σ(W_0 \times x_0))=σ'(W_1 \times σ(W_0 \times x_0)) \times W_1 \times σ'(W_0 \times x_0) \times W_0$</code>.</p>
+<p>And finally:
+<code>$\frac{d}{d x_0} W_2 \times σ(W_1 \times σ(W_0 \times x_0))=W_2 \times σ'(W_1 \times σ(W_0 \times x_0)) \times W_1 \times σ'(W_0 \times x_0) \times W_0$</code>.</p>
+<p>Then the formula for computing <code>$\frac{d f}{d x_0}$</code> is <code>$W_2 \times \prod_{l=0}^{m-1} σ'(z_{l+1}) \times W_l$</code>,
+where <code>$m$</code> is the number of matrices, and <code>$\prod$</code> is left matrix
+multiplication.</p>
 </body></html>

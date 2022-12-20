@@ -47,11 +47,11 @@ calculation in a countably infinite case:</p>
 <div>
     $$\mathbb{E}=\sum_{i=1}^{\infty} p_{i}*x_{i}$$
 </div>
-<h2 id="None"><a class="hanchor" href="#None">Finding </a><code>$x_{i}$</code></h2>
+<h2 id="None"><a class="hanchor" href="#None">Finding <code>$x_{i}$</code></a></h2>
 <p>We know that flipping the coin definitely ends when for 2*n coin flips,
 we have gotten heads n times and tails n times as well. This gives us
 <code>$x_{i}=2*i$</code>.</p>
-<h2 id="None_1"><a class="hanchor" href="#None_1">Finding </a><code>$p_{i}$</code></h2>
+<h2 id="None_1"><a class="hanchor" href="#None_1">Finding <code>$p_{i}$</code></a></h2>
 <p>Finding out <code>$p_{i}$</code> is a bit harder. In order to find it, it is best to look
 at the first iterations of the process.</p>
 <h3 id="Observing_Coin_Flips"><a class="hanchor" href="#Observing_Coin_Flips">Observing Coin Flips</a></h3>
@@ -147,7 +147,7 @@ sequences. So let oₙ be</p>
 </code></pre>
 <p>When one executes <code>o</code> and <code>f</code>, one notices something peculiar: it seems
 that <code>$o_{n}=2*n*f_{n}$</code>.</p>
-<h4 id="None_2"><a class="hanchor" href="#None_2">Proof that </a><code>$o_{n}=2*n*f_{n}$</code></h4>
+<h4 id="None_2"><a class="hanchor" href="#None_2">Proof that <code>$o_{n}=2*n*f_{n}$</code></a></h4>
 <p>Induction basis:</p>
 <div>
     $$o_{1}=2*1*f_{1}\\
@@ -170,7 +170,7 @@ of the Catalan numbers in the OEIS (sixth formula).</p>
 <!--TODO: This seems a tiny bit fishy: There is probably an offset here
 (first value of the catalan numbers is not used, so the whole sequence
 is shifted). Look at this.-->
-<h3 id="None_3"><a class="hanchor" href="#None_3">Probability of Finishing at </a><code>$2*n$</code> Steps</h3>
+<h3 id="None_3"><a class="hanchor" href="#None_3">Probability of Finishing at <code>$2*n$</code> Steps</a></h3>
 <p>So, what's the probability of finishing given <code>2*n</code> steps now? Simple:
 it's <code>$\frac{f_{n}}{o_{n}}=\frac{f_n}{2*n*f_{n}}=\frac{1}{2*n}$</code>.</p>
 <pre><code>pgn::{1%2*x}
@@ -242,7 +242,7 @@ and show that <code>$\sum_{i=1}^{n} r_{i}$</code> diverges as well.</p>
 <p>Let <code>$r_{n}$</code> be</p>
 <p><code>$r_{0}=1$</code> <br/>
 <code>$r_{n}=r_{n-1}-\frac{1}{2*(n-1)}*r_{n-1}$</code></p>
-<h4 id="None_4"><a class="hanchor" href="#None_4">Proof that </a><code>$r_n \ge \frac{1}{n}$</code></h4>
+<h4 id="None_4"><a class="hanchor" href="#None_4">Proof that <code>$r_n \ge \frac{1}{n}$</code></a></h4>
 <p>Proof by induction.</p>
 <p>Induction Basis:</p>
 <div>
