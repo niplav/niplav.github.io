@@ -750,8 +750,10 @@ or multiplication (counterexample: <code>$2^{3 \cdot 4}=4068 \not=128=2^3 \cdot 
 <p>Induction assumption: <code>$m+k&lt;n+k$</code></p>
 <p>Induction step:</p>
 <div>
-    $$m+k^+ 
-
+    $$m+k^+ &lt; n+k^+ \Leftrightarrow \\
+    (m+k)^+ &lt; (n+k)^+ \Leftrightarrow \\
+    \{m+k\} \cup (m+k) \subset \{n+k\} \cup (n+k)$$
+</div>
 <p>We know that <code>$m+k \subset n+k$</code>.</p>
 <p>We can prove that <code>$\{m+k\} \subset n+k$</code>:</p>
 <p>In the base case, <code>$m+k^+=(m+k)^+=\{m+k\} \cup (m+k)=n+k$</code>, in which
@@ -898,7 +900,7 @@ and <code>$\text{AOC} \Rightarrow \text{I}$</code>.</p>
 <p>For <code>$\text{AOC} \Rightarrow \text{I}$</code>, let <code>$\mathcal{C}^{\times}=C_1
 \times C_2 \times \dots$</code>.  Let <code>$C^{\times}$</code> be any element of
 <code>$\mathcal{C}^{\times}$</code> (Can we do that? Or does this then circularly
-depend on a choice function on <code>$\mathcal{C}^{\times}$</code>?). Then
+depend on a choice function on <code>$\mathcal{C}^{\times}$</code>?&lt;!-TODO--&gt;). Then
 we can define <code>$f$</code> by <code>$f(C_i)=C^{\times}(i)$</code> (since <code>$C^{\times}$</code>
 is a tuple).</p>
 <p>For <code>$\text{I} \Rightarrow \text{AOC}$</code>, we can construct at least one
@@ -909,4 +911,4 @@ therefore that Cartesian product can't be empty.</p>
 <h4 id="II_1"><a class="hanchor" href="#II_1">II.</a></h4>
 <p>This is actually a special case of I: we just define <code>$f(C)=C \cap
 A$</code>. This gives us the results from above.</p>
-</div></body></html>
+</body></html>
