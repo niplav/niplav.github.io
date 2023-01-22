@@ -1616,3 +1616,4 @@
 2023-01-08T20:57:00.000000Z	“(1) we don't know what is going on in LLMs (2) it's outlandish to say that LLMs have no understanding of the world” both claims cannot be true
 2023-01-13T10:38:08.000000Z	on reflection disinviting AI researchers from parties and conferences is not an effective way of stopping them in developing AGI
 2023-01-16T14:46:08.000000Z	how much money do I need to pay you for you to take a pill that makes you insane?
+2023-01-22T00:09:57.000000Z	the name of the lost+found/ directory encapsulates all that is great & bad about linux. i won't take any questions.
