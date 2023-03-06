@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2020-07-22, modified: 2022-06-06, language: english, status: maintenance, importance: 5, confidence: highly unlikely</em></p>
 <blockquote>
 <p><strong>In <a href="https://en.wikipedia.org/wiki/AI_control_problem">AI safety</a>,
@@ -47,13 +47,6 @@ a very simple <a href="https://en.wikipedia.org/wiki/Hill_climbing">hill-climbin
 algorithm and brute-force search on that space. Possible further
 improvements to the model are suggested, and implications are discussed.</strong></p>
 </blockquote>
-<!--
-TODO:
-* Another view on takeoff speeds in relation to the shape of optimization-space
-    *   Maybe model with n-dimensional space with perlin noise,
-        depth of current search determines size of subspace
-        being searchable at the moment
--->
 <h1 id="An_Exploratory_Toy_AI_Takeoff_Model"><a class="hanchor" href="#An_Exploratory_Toy_AI_Takeoff_Model">An Exploratory Toy AI Takeoff Model</a></h1>
 <blockquote>
 <p>Paraphrasing Roache (2008) the state of play is such that nobody
@@ -63,8 +56,8 @@ except the person who ran the experiment.</p>
 </blockquote>
 <p><em>— Ryan G. McClarren, “Uncertainty Quantification and Predictive Computational Science“ p. 9, 2018</em></p>
 <p>(Although the quote apparently goes back to Einstein, see “The
-advancement of science, and its burdens” p. 13, only there with "theory"
-instead of "simulation").</p>
+advancement of science, and its burdens” p. 13, only there with “theory”
+instead of “simulation”).</p>
 <blockquote>
 <p>And let me just make an aside. There’s a lot of meta-debate that goes
 on in the AI safety community which I don’t understand why: it’s not
@@ -76,10 +69,10 @@ long-termers and it’s like, there doesn’t need to be a conflict.</p>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Stuart_J._Russell">Stuart J. Russell</a>, <a href="https://80000hours.org/podcast/episodes/stuart-russell-human-compatible-ai/#what-most-needs-to-be-done-015014">“The flaws that make today’s AI architecture unsafe and a new approach that could fix it”</a> (Episode 80 of the <a href="https://80000hours.org/podcast/">80,000 hours podcast</a>), 2020</em></p>
 <h2 id="Introduction"><a class="hanchor" href="#Introduction">Introduction</a></h2>
 <p>Many regard the trajectory of future AI development as
-crucial<!--TODO: citation needed-->: when will AGI first be
+crucial: when will AGI first be
 developed? Will the development be slow, moderate, or fast (in
 economic doublings, or in wallclock time)? Will one AGI system become a
-<a href="https://en.wikipedia.org/wiki/Singleton_(global_governance">singleton</a>),
+<a href="https://en.wikipedia.org/wiki/Singleton_(global_governance)">singleton</a>,
 i.e come to dominate the whole world (individual vs. collective
 takeoff)? Will AGIs <a href="https://intelligence.org/ai-foom-debate/">FOOM</a>, i.e growing unexpectedly
 fast? And: will there be one or more discontinuity when AI systems
@@ -94,36 +87,17 @@ intelligence:</p>
 <li>By performing a very simple <a href="https://en.wikipedia.org/wiki/Hill_climbing">hill-climbing</a> algorithm in the space of possible optimization algorithms, such as rewriting parts of its source code in <a href="https://en.wikipedia.org/wiki/Assembly_language">assembly language</a> or making trivial small performance improvements</li>
 <li>By <a href="https://en.wikipedia.org/wiki/Brute-force_search">brute-force searching</a> the space of possible optimization algorithms, possibly in the vincinity of the current algorithm</li>
 </ul>
-<!--
-### Existing Approaches
-TODO: collect & write up.
-
-Articles:
-* https://aiimpacts.org/historical-growth-trends/
-* https://aiimpacts.org/likelihood-of-discontinuous-progress-around-the-development-of-agi/
-* https://intelligence.org/ai-foom-debate/
-* https://intelligence.org/files/IEM.pdf
-* https://longtermrisk.org/the-future-of-growth-near-zero-growth-rates/
-* https://sideways-view.com/2018/02/24/takeoff-speeds/
-* https://www.lesswrong.com/posts/5WECpYABCT62TJrhY/will-ai-undergo-discontinuous-progress
-* https://www.lesswrong.com/posts/66FKFkWAugS8diydF/modelling-continuous-progress
-* https://www.lesswrong.com/posts/77xLbXs6vYQuhT8hq/why-ai-may-not-foom
-* https://www.lesswrong.com/posts/CjW4axQDqLd2oDCGG/misconceptions-about-continuous-takeoff
-* https://www.lesswrong.com/posts/JBadX7rwdcRFzGuju/recursive-self-improvement
-* https://www.lesswrong.com/posts/YgNYA6pj2hPSDQiTE/distinguishing-definitions-of-takeoff
-* https://www.lesswrong.com/posts/cxgtQXnH2uDGBJJGa/redefining-fast-takeoff
-* https://www.lesswrong.com/posts/tjH8XPxAnr6JRbh7k/hard-takeoff
-* https://www.openphilanthropy.org/focus/global-catastrophic-risks/potential-risks-advanced-artificial-intelligence/ai-timelines
--->
 <h2 id="The_Argument"><a class="hanchor" href="#The_Argument">The Argument</a></h2>
 <p>The argument presented has the following premises:</p>
 <ul>
 <li>There exists a property of algorithms called “<strong>optimization power</strong>”
+
 <ul>
 <li>Optimization power describes (among other things) the ability of an algorithm to search a search space quickly and efficiently</li>
 </ul></li>
 <li>There is a space of algorithms, and each algorithm in that space can be given a number according to its optimization power</li>
 <li>The space of algorithms has certain properties
+
 <ul>
 <li>There are algorithms that have positive optimization power (&gt;0)</li>
 <li>There are algorithms that have vastly more optimization power than others</li>
@@ -135,11 +109,12 @@ to its optimization power:</p>
 <ul>
 <li>Start with an algorithm with optimization power &gt;0</li>
 <li>Let the algorithm search part of the search space for a better algorithm
+
 <ul>
 <li>If it finds one, it modifies itself to become that better algorithm</li>
 <li>Else it does nothing</li>
 </ul></li>
-<li>If it has searched the whole search space (or has proved that no
+<li>  If it has searched the whole search space (or has proved that no
 better algorithm can exist), it stops the search</li>
 <li>The algorithm acquires some more resources such as computing power</li>
 </ul>
@@ -204,16 +179,13 @@ repeatedly grows a little bit, does some hill-climbing, and brute-force
 searches the neighbouring space.</p>
 <h3 id="Generating_the_Search_Space"><a class="hanchor" href="#Generating_the_Search_Space">Generating the Search Space</a></h3>
 <p>The search space the AI would be inquiring into here is the
-<a href="https://en.wikipedia.org/wiki/Space_(mathematics">space</a>)
-of all possible algorithms. While I'm not very knowledgeable
+<a href="https://en.wikipedia.org/wiki/Space_(mathematics)">space</a>
+of all possible algorithms. While I’m not very knowledgeable
 about the structure of the space of algorithms, it seems
 plausible to me that it would be isomorphic to the perfect <a href="https://en.wikipedia.org/wiki/Binary_tree">binary
 tree</a> with infinite depth (for
 any given <a href="https://en.wikipedia.org/wiki/Turing_machine">turing machine</a>
 with a binary tape).</p>
-<!--TODO At the nth level, the parents describe the preceding bits, and the
-node describes whether the nth bit is 0 or 1.-->
-<!--Perhaps trinary tree? 0/1/$ for bits and ending-->
 <p>However, since I do not know algorithms that would assign
 possible values to nodes in the tree, as well as fitting
 search algorithms, I decided instead to use a <a href="https://en.wikipedia.org/wiki/Euclidean_space">Euclidean
@@ -226,21 +198,12 @@ space=np.zeros([size]*dim)
 </code></pre>
 <p>However, I might return to more accurate representations of the space
 of possible algorithms.</p>
-<!--TODO: actually do that-->
 <h3 id="Filling_the_Search_Space"><a class="hanchor" href="#Filling_the_Search_Space">Filling the Search Space</a></h3>
 <p>The most important decision in this model is how to fill the search space
 (that is, what values to give the points in the search space).</p>
 <p>Since I am very confused about what what a useful approximation of
 the search space of intelligent algorithms could look like, I start by
 generalizing the Diamond-Square algorithm to n dimensions.</p>
-<!--
-TODO:
-
-#### Desiderata for the Search Space
-
-* Sparse: Most algorithms don't really do any optimization work at all
-* "Spiky": Some optimization algorithms are vastly stronger than other, very similar algorithms
--->
 <h4 id="DiamondSquare"><a class="hanchor" href="#DiamondSquare">Diamond-Square</a></h4>
 <p>The <a href="https://en.wikipedia.org/wiki/Diamond-square_algorithm">Diamond-Square
 algorithm</a>
@@ -298,8 +261,7 @@ in this case, is a hypercube of dimension <code>$n$</code> and the size
 of that cube (<code>$i$</code> is the current intelligence).</p>
 <p>The choice of making the size of the hypercube cubic in the intelligence
 is pretty much arbitrary. I will test with different approaches,
-e.g. making it linear.<!--TODO: test around whether this makes any
-difference--></p>
+e.g. making it linear.</p>
 <pre><code>step=round(intelligence**(2/dim))
 subpos=[slice(0,0)]*dim
 for i in range(0, dim):
@@ -322,31 +284,24 @@ at a local maximum, this approach leads to it searching parts of the
 search space multiple times.</p>
 <h3 id="External_Intelligence_Improvements"><a class="hanchor" href="#External_Intelligence_Improvements">External Intelligence Improvements</a></h3>
 <p>Under this model, I assume an exponential growth as
-a backdrop. This exponential growth could be <a href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore's
+a backdrop. This exponential growth could be <a href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore’s
 Law</a> or <a href="https://en.wikipedia.org/wiki/Gross_world_product">Gross World
 Product</a> growth,
 or another uninterrupted exponential growth mode.</p>
 <p>This factor is currently set to 1.001 per timestep, or 0.1% growth.
-If the backdrop is Moore's Law, with a doubling time of 18 months (or
+If the backdrop is Moore’s Law, with a doubling time of 18 months (or
 540 days), then a timestep would be</p>
-<div>
-    $$\frac{540 \hbox{ days}}{\ln_{1.001}(2)} \approx 0.779 \hbox{ days}$$
-</div>
 <p>If one assumes GWP growth as a backdrop instead, one gets a
 doubling every 20 years (…yet. growth mindset) (see <a href="https://www.openphilanthropy.org/blog/modeling-human-trajectory" title="Modeling the Human Trajectory">Roodman
 2020</a>), which
 works out to</p>
-<div>
-    $$\frac{7300 \hbox{ days}}{\ln_{1.001}(2)} \approx 10.52 \hbox{ days}$$
-</div>
 <p>per timestep.</p>
-<p>Both assumptions seem not unreasonable to me (although I'm not an expert
+<p>Both assumptions seem not unreasonable to me (although I’m not an expert
 on such things): A day seems enough time for an AI to design and deploy
 an improvement to its own source code, although I acknowledge this might
 change with different AI designs (especially more clean and algorithmic
 designs might improve faster, while fuzzy &amp; big neural nets might take
 much longer).</p>
-<!--TODO: add analysis with growth mode of current ML models-->
 <h2 id="Parameters"><a class="hanchor" href="#Parameters">Parameters</a></h2>
 <p>I ran the model several times, varying the size and dimensionality of
 the search space. The spaces used were <code>$\mathbb{F}_{8193}^{1}$</code>,
@@ -361,7 +316,6 @@ space</a> of dimensionality
 <code>$b$</code> for the <a href="https://en.wikipedia.org/wiki/Finite_field">finite field</a>
 with <code>$a$</code> elements). The biggest search space contained 43m elements.</p>
 <p>Each iteration ran through 2048 timesteps, with a growth of 1.001.</p>
-<!--TODO: add explanations for minval, maxval & extrfact-->
 <pre><code>datagen(1, 8193, 0, 256, 0.5, 2048, 1.001)
 datagen(1, 16385, 0, 256, 0.5, 2048, 1.001)
 datagen(1, 32769, 0, 256, 0.5, 2048, 1.001)
@@ -435,13 +389,6 @@ due to hill-climbing to the local maximum.</p>
 246.0,248.22287669502674
 246.0,248.47109957172174
 </code></pre>
-<!--
-### Uniform Values
-
-### Normal Values
-
-### Lognormal Values
--->
 <h2 id="Limitations"><a class="hanchor" href="#Limitations">Limitations</a></h2>
 <p>As suggested in the title, this model is very much exploratory, and is
 in many regards highly inadequate for modeling real-world AI takeoff
@@ -454,7 +401,7 @@ like an infinite binary tree, with each edge representing one program
 (the left child of an edge being the current program appended with 0,
 the right child being the current program appended with 1, and the root
 being the empty program).</p>
-<p>The reason why I didn't use this search space was that I had no idea
+<p>The reason why I didn’t use this search space was that I had no idea
 how to distribute the values for intelligence in the tree, as well
 as being unsure how to implement both the hill climbing as well as the
 brute-force search in that space (except only tentative ideas).</p>
@@ -482,7 +429,7 @@ that including algorithms of inverse intelligence makes sense).</p>
 perfect. Apart from <a href="https://arbital.com/p/Vingean_uncertainty/">Vingean</a>
 considerations, it seems that an AI would search the space much more
 systematically, potentially ruling out large portions of the space by
-proving that they can't contain more intelligent algorithms.</p>
+proving that they can’t contain more intelligent algorithms.</p>
 <p>Furthermore, it would probably not search the space around the current
 algorithm repeatedly: This leads to many repeated searches, which could
 be avoided by just saving the positions of already observed points in
@@ -491,16 +438,11 @@ the search space.</p>
 obsolete, unless the algorithm is so weak that the brute-force search
 has a radius of less than 1: all hill-climbing steps are already included
 in the portion of the search space searched in with brute-force.</p>
-<!--
-### Hill Climbing
-
-Or something stronger, such as gradient descent?
--->
 <h3 id="Small_Dataset"><a class="hanchor" href="#Small_Dataset">Small Dataset</a></h3>
 <p>The dataset I base my conclusions on is relatively small, only 14 runs,
 with a different space and parameters each. This is mostly due to the
-fact that I am doing this on my laptop, and didn't want the experiment
-running for several days (while it is running, I can't use my browser,
+fact that I am doing this on my laptop, and didn’t want the experiment
+running for several days (while it is running, I can’t use my browser,
 because the model and my browser use more RAM than I have available,
 so the model is terminated by the OS).</p>
 <p>Generating the search-space is much more expensive than doing several runs
@@ -510,11 +452,6 @@ in the same search space, so I will focus on implementing these first.</p>
 biggest containing ~43m points, and the rest being around 25m points big.</p>
 <p>This makes inferences about how AI systems will optimize in much bigger
 (perhaps even infinite) search spaces harder.</p>
-<!--
-### Additional Factors
-
-What else? Problems with continuity?
--->
 <h2 id="Conclusion"><a class="hanchor" href="#Conclusion">Conclusion</a></h2>
 <p>This text provides a toy-model for AI takeoff scenarios using
 high-dimensional spaces filled using a n-dimensional variant of the
@@ -522,8 +459,6 @@ diamond square algorithm.</p>
 <p>Running the model with limited computing power, I observe that
 discontinuities indeed occur, and I hypothesize that in larger search
 spaces discontinuities occur later, and are larger.</p>
-<!--TODO: this makes sense: $n^t*c<n^{t+k}*c$, i.e. later jumps of the
-same factor are larger-->
 <p>However, due to multiple limitations, these conclusions are very
 haphazard.</p>
 <p>If people arguing in favour of discontinuous takeoffs agree that this
@@ -561,15 +496,4 @@ under which conditions no discontinuities occur.</p>
 <p><em>A run in <code>$\mathbb{F}_{17}^{6}$</code>, with one discontinuity</em></p>
 <p><img alt="Two-dimensional run" src="./img/toy_ai_takeoff_model/8_9_0.5_1.001.png" title="After ~200 timesteps two medium-sized jumps, then no jumps the rest of the time (but still growth)."/></p>
 <p><em>A run in <code>$\mathbb{F}_{9}^{8}$</code>, with two early discontinuities</em></p>
-<!--
-https://en.wikipedia.org/wiki/Brownian_surface
-https://en.wikipedia.org/wiki/Fractal_landscape
-https://en.wikipedia.org/wiki/Fractional_Brownian_motion
-https://en.wikipedia.org/wiki/Gradient_descent
-https://en.wikipedia.org/wiki/Newton%27s_method
-https://en.wikipedia.org/wiki/OpenSimplex_noise
-https://en.wikipedia.org/wiki/Perlin_noise
-https://en.wikipedia.org/wiki/Simplex_noise
-https://github.com/buckinha/DiamondSquare
--->
 </body></html>

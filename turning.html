@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-03-04, modified: 2023-01-28, language: english, status: notes, importance: 8, confidence: likely</em></p>
 <blockquote>
 <p><strong>Representing inconsistent preferences with specific mathematical
@@ -49,20 +49,6 @@ distance</a>. Implications
 for scenarios such as <a href="https://arbital.com/p/ontology_identification/">ontological
 shifts</a> are discussed.</strong></p>
 </blockquote>
-<!--https://www.lesswrong.com/posts/QZM6pErzL7JwE3pkv/niplav-s-shortform?commentId=XRmMoNCPmDhvyLzwc-->
-<!--https://www.lesswrong.com/posts/ky988ePJvCRhmCwGo/using-vector-fields-to-visualise-preferences-and-make-them-->
-<!--TODO: THIS FRICKING THING: https://www.lesswrong.com/posts/6RjL996E8Dsz3vHPk/two-more-decision-theory-problems-for-humans#Partial_Utility_Function_Problem
-One dimensional graph embedding
-Hitting distance-->
-<!--Distinguish between all preferences and inconsistent and consistent ones-->
-<!--Ontological degreebling (consider renaming turning into greeble)
-confusion is the "degreebledegree"
-Probability simplex satisfies first three vnm axioms iff every infinite series of ≥ε steps leads to the least/largest option
-type of ontology shift is S: W1 → P(W2 × [0;1])
-Does ontological degreebling satisfy the following property:
-For two ontology shifts s1 and s2 from W1 to W2 and W2 to W3, does resolving the ontology after s1 and then shifting again and then resolving again after s2 give different results from just concatenating s1 and s2 and then resolving the output after that?-->
-<!--Guarantee: Every disjoint set of consistent subpreferences will also occur at least once in the set of turnings. (Maybe even 50%+ of the time?-->
-<!--Can we put an upper bound on change in utility for preference change?-->
 <h1 id="Turning_Some_Inconsistent_Preferences_into_Consistent_Ones"><a class="hanchor" href="#Turning_Some_Inconsistent_Preferences_into_Consistent_Ones">Turning Some Inconsistent Preferences into Consistent Ones</a></h1>
 <blockquote>
 <p>A kind of God-made (or evolution-created) fairness between species is
@@ -117,10 +103,6 @@ preference relation with e.g. indifference over all options).</p>
 metric</a>
 <code>$d: \not \curlyvee \times \curlyvee \mapsto ℝ$</code> a function
 <code>$t$</code> so that</p>
-<div>
-    $$t= \underset{t}{\text{argmin }} d(\succsim, t(\succsim)) \\
-    \succeq=t(\succsim)$$
-</div>
 <p>I call this function a <strong>turner</strong>, and sometimes call the results of
 that function the <strong>set of turnings</strong> (an element from that set is a
 <strong>turning</strong>). The names mostly chosen for not having been used yet in
@@ -132,10 +114,11 @@ consistent ones then has these components:</p>
 <ul>
 <li>Inconsistent preferences over discrete options are represented via <a href="https://en.wikipedia.org/wiki/Directed_graph">directed graphs</a></li>
 <li>Inconsistent preferences over <a href="https://en.wikipedia.org/wiki/Lottery_(probability)">lotteries</a> of options are represented via
+
 <ul>
 <li>directed graphs over <a href="https://en.wikipedia.org/wiki/Simplex">probability simplices</a>
 <ul>
-<li>potentially more exotic structures such as <a href="https://en.wikipedia.org/wiki/Graphon">graphons</a> or results from <a href="https://en.wikipedia.org/wiki/Extremal_graph_theory">extremal graph theory</a> might be relevant here, but I haven't investigated these in detail</li>
+<li>potentially more exotic structures such as <a href="https://en.wikipedia.org/wiki/Graphon">graphons</a> or results from <a href="https://en.wikipedia.org/wiki/Extremal_graph_theory">extremal graph theory</a> might be relevant here, but I haven’t investigated these in detail</li>
 </ul></li>
 <li>vector fields on probability simplices</li>
 <li><a href="https://en.wikipedia.org/wiki/Graph_(discrete_mathematics)#Weighted_graph">graphs with edge weights</a> in <code>$ℝ$</code></li>
@@ -144,12 +127,12 @@ consistent ones then has these components:</p>
 <li>A specification for <code>$t$</code>
 <ul>
 <li>In the case of discrete options, I propose adding and removing edges from the directed graph</li>
-<li>In the case of lotteries I don't have yet any clear proposals</li>
+<li>In the case of lotteries I don’t have yet any clear proposals</li>
 </ul></li>
 <li>A specification for <code>$d$</code>
 <ul>
 <li>In the case of discrete options, I propose using the <a href="https://en.wikipedia.org/wiki/Graph_edit_distance">graph edit distance</a></li>
-<li>In the case of lotteries I don't yet have any definite proposals</li>
+<li>In the case of lotteries I don’t yet have any definite proposals</li>
 </ul></li>
 </ol>
 <h2 id="Related_Work"><a class="hanchor" href="#Related_Work">Related Work</a></h2>
@@ -188,21 +171,16 @@ options means that those two options are, from the view of the agent,
 <a href="https://en.wikipedia.org/wiki/Comparability">incomparable</a>.</p>
 <p>It violates the two von Neumann-Morgenstern axioms for discrete options:</p>
 <ul>
-<li>Completeness is violated because for example options <code>$d$</code> and <code>$e$</code> are incomparable (and we don't merely have <a href="https://en.wikipedia.org/wiki/Indifference_curve">indifference</a> between these options)</li>
+<li>Completeness is violated because for example options <code>$d$</code> and <code>$e$</code> are incomparable (and we don’t merely have <a href="https://en.wikipedia.org/wiki/Indifference_curve">indifference</a> between these options)</li>
 <li>Transitivity is violated because of the <code>$b → c → e → f → g → b$</code> loop</li>
 </ul>
-<!--TODO:
-#### Recap: von Neumann-Morgenstern Axioms for Discrete Options
-
------
--->
 <p>A possible turned version of these preferences could then be the
 following graph:</p>
 <p><img alt="A messy graph." src="./img/turning/turnubc_hyp_trans.png" title="A messy graph. Vertices {a, b, c, d, e, f, g, h}. Edges are the transitive closure over the complete order a → b → c → d → e → f → g."/></p>
-<p>This graph looks quite messy, but it's really just the <a href="https://en.wikipedia.org/wiki/transitive_closure">transitive
+<p>This graph looks quite messy, but it’s really just the <a href="https://en.wikipedia.org/wiki/transitive_closure">transitive
 closure</a> of this graph:</p>
 <p><img alt="A path graph." src="./img/turning/turnubc_hyp.png" title="A path graph. Vertices again {a, b, c, d, e, f, g, h}. Edges are a → b → c → d → e → f → g."/></p>
-<p>Whether this is the "right" way to turn the previous inconsistent
+<p>Whether this is the “right” way to turn the previous inconsistent
 preferences depends on the choice of distance metric we would like to use.</p>
 <h3 id="Resolving_Inconsistencies"><a class="hanchor" href="#Resolving_Inconsistencies">Resolving Inconsistencies</a></h3>
 <p>In some sense, we want to change the inconsistent preferences as little
@@ -211,7 +189,7 @@ have to remove or change. Since the presence or absence of preferences
 is encoded by the presence or absence of edges on the graph, removing
 edges or adding new edges is equivalent to removing or adding preferences
 (at the moment, we do <em>not</em> consider adding or removing vertices: we
-stay firmly inside the agent's <a href="https://en.wikipedia.org/wiki/Ontology_(information_science)">ontology</a>/world model).</p>
+stay firmly inside the agent’s <a href="https://en.wikipedia.org/wiki/Ontology_(information_science)">ontology</a>/world model).</p>
 <p>Luckily, there is a concept in computer science called the graph-edit
 distance: a measure for the difference between two graphs.</p>
 <p>The set of possible editing operations on the graph varies, e.g. Wikipedia lists</p>
@@ -246,9 +224,6 @@ edit distance that uses edge insertion and edge deletion.</p>
 <code>trans_closure(G)</code> is the transitive closure of a graph <code>G</code>, and <code>ged(G1,
 G2)</code> is the graph edit distance from <code>G1</code> to <code>G2</code>.</p>
 <p>Or, mathematically,</p>
-<div>
-    $$R=\underset{R \in σ(W)}{\text{argmin }}\text{GED}(R^+, G_{\succsim}))$$
-</div>
 <h4 id="Implementation"><a class="hanchor" href="#Implementation">Implementation</a></h4>
 <p>Implementing this in Python 3 using the <a href="http://networkx.github.io/">networkx</a>
 library turns out to be easy:</p>
@@ -317,7 +292,7 @@ is the non-transitive-closure version):</p>
 <p>Some of you might have noticed that this algorithm is <em>somewhat
 inefficient</em> (by which I mean <em>absolutely infeasible</em>).</p>
 <p>Since we iterate through the permutations of <code>$W$</code>, the runtime is
-<code>$\mathcal{O}(|W|!)$</code> (with the added "benefit" of additionally computing
+<code>$\mathcal{O}(|W|!)$</code> (with the added “benefit” of additionally computing
 the <a href="https://en.wikipedia.org/wiki/NP-completeness">NP-complete</a>
 graph edit distance inside of the loop, which is also
 <a href="https://en.wikipedia.org/wiki/APX">APX</a>-hard to approximate).</p>
@@ -327,7 +302,6 @@ tree</a>, perhaps the
 <a href="https://en.wikipedia.org/wiki/Transitive_reduction">transitive reduction</a>
 is helpful, or maybe the <a href="https://en.wikipedia.org/wiki/Feedback_arc_set">feedback arc
 set</a>?</p>
-<!--TODO: measure runtime, think about faster algorithms-->
 <p>Part of the solution turns out to be so blindingly simple that
 I missed it: When just considering the graph edit distance between
 a graph and one of its possible turnings, this <a href="https://cs.stackexchange.com/questions/153281/fast-algorithm-for-graph-edit-distance-to-vertex-labeled-path-graph/153321#153321">can be computed in linear
@@ -339,11 +313,11 @@ edge that appears in the original graph but not in its potential turning
 needs to be removed at some point, and every edge that appears in the
 potential turning but not in the original graph needs to be removed at
 some point. The symmetric set difference is simply the minimal set of
-those edges: any smaller and you'd be missing some edges.</p>
+those edges: any smaller and you’d be missing some edges.</p>
 <p>I really missed the forest for the trees with this one then: thinking
 too complicatedly about a simple problem (similar to solving the <a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem">maximum
 subarray problem</a>
-with <a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm">Kadane's
+with <a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem#Kadane's_algorithm">Kadane’s
 algorithm</a>).</p>
 <p>We can modify the algorithm to compute <code>dist</code> more efficiently:</p>
 <pre><code>turn(G≿=(W, E≿)):
@@ -360,7 +334,7 @@ algorithm</a>).</p>
 <p>This has a <em>very</em> significant practical speedup for the relevant cases
 I look at, but is still factorial in the number of nodes in the graph.</p>
 <h5 id="NonUnique_Results"><a class="hanchor" href="#NonUnique_Results">Non-Unique Results</a></h5>
-<p>Another, smaller problem is that the algorithm often doesn't have a unique
+<p>Another, smaller problem is that the algorithm often doesn’t have a unique
 result, as seen in the small example <a href="#Resolving_Inconsistencies">above</a>.</p>
 <p>We can compute the set of all possible turnings with some trivial
 changes to the algorithm:</p>
@@ -433,7 +407,7 @@ graph contains no edges (with <code>$n$</code> nodes), the confusion is maximal 
 distance of 0: any transitive closure of a path graph satisfies this
 criterion (if your preferences are already consistent, why change them
 to be more consistent?)</p>
-<p>However, those graphs aren't the only graphs with exactly one turning,
+<p>However, those graphs aren’t the only graphs with exactly one turning,
 consider the following graph (left) and a possible turning (right)
 (with graph-edit distance 1; the changed edge is red, a nice opportunity
 for some <a href="https://gwern.net/Red">rubrication</a>):</p>
@@ -471,17 +445,19 @@ union of complete digraphs with disjoint nodes. When we now pick two nodes
 we connect <code>$u$</code> and <code>$v$</code>, and all their neighbors) to <code>$G^{\circ}$</code>,
 we have necessarily increased the graph-edit distance to any path graph
 by the same amount, we have symmetrically added edge-pairs that need to
-be broken in either direction.<!--TODO: make this clearer.--></p>
+be broken in either direction.</p>
 <h3 id="Questions"><a class="hanchor" href="#Questions">Questions</a></h3>
 <p>One can now pose several (possibly distracting) questions:</p>
 <ul>
 <li>Does it matter whether we give <code>turn</code> a graph <code>$G$</code> or the transitive closure of <code>$G$</code>?</li>
 <li>Is there a more efficient algorithm to compute the turning?
+
 <ul>
 <li>Can it at least be made exponential?</li>
-<li>Can we exploit the fact that we're always computing the graph-edit distance to a path-graph?</li>
+<li>Can we exploit the fact that we’re always computing the graph-edit distance to a path-graph?</li>
 </ul></li>
 <li>As we add more options to our inconsistent preferences, do they become more likely to turn uniquely?
+
 <ul>
 <li>That is: Does it hold that <code>$\frac{|\mathcal{U}_n|}{|\mathcal{G}_n|}&lt;\frac{|\mathcal{U}_{n+1}|}{|\mathcal{G}_{n+1}|}$</code>?</li>
 <li>It should be possible to check this for small cases.</li>
@@ -490,6 +466,7 @@ be broken in either direction.<!--TODO: make this clearer.--></p>
 <h4 id="None"><a class="hanchor" href="#None">Number of Turnings for <code>$\mathcal{G}_n$</code></a></h4>
 <ul>
 <li>In general, how does the size of <code>$\mathcal{U}_n$</code> develop? What about <code>$\mathcal{T}_{n,2}$</code>, or in general <code>$\mathcal{T}_{n,m}$</code>?
+
 <ul>
 <li>Does the average number of turnings for inconsistent preferences converge to a specific number?</li>
 <li>That is, what is <code>$\lim_{n \rightarrow \infty} \frac{1}{\mathcal{G}_n} \sum_{i=1}^{n} \mathcal{T}_{n,i}$</code>?</li>
@@ -497,7 +474,7 @@ be broken in either direction.<!--TODO: make this clearer.--></p>
 </ul></li>
 </ul>
 <p>We can check these empirically! While it would be nice to prove anything
-about them, I'm just as happy to investigate them computationally. This is
+about them, I’m just as happy to investigate them computationally. This is
 pretty straightforward: For increasing <code>$n$</code>, generate <code>$\mathcal{G}_n$</code>,
 for every <code>$G \in \mathcal{G}_n$</code>, compute <code>$|\text{turn_all}(G)|$</code>, save
 the data in a file somewhere, and do interesting things with that data.</p>
@@ -537,15 +514,15 @@ be <code>$2^{(5^2)}=33554432$</code> (the number of <a href="https://en.wikipedi
 matrices</a> for
 graphs with 5 nodes), far too many for my puny laptop. But
 instead of generating them all, one can just generate a
-random sample and test on that, using the <a href="https://en.wikipedia.org/wiki/Erdős-Rényi_model">Erdős–Rényi
+random sample and test on that, using the <a href="https://en.wikipedia.org/wiki/Erd%C5%91s-R%C3%A9nyi_model">Erdős–Rényi
 model</a>,
 for which networkx has the helpful function
 <code>generators.random_graphs.gnp_random_graph</code> (Wikipedia informs us that
-"In particular, the case <code>$p=\frac{1}{2}$</code>  corresponds to the case
+“In particular, the case <code>$p=\frac{1}{2}$</code>  corresponds to the case
 where all <code>$2^{\binom {n}{2}}$</code> graphs on <code>$n$</code> vertices are chosen
-with equal probability."). We have to randomly add reflexive edges (not
+with equal probability.”). We have to randomly add reflexive edges (not
 included in the model, it seems) with probability <code>$\frac{1}{2}$</code> each,
-and labels for the nodes, and then we're good to go:</p>
+and labels for the nodes, and then we’re good to go:</p>
 <pre><code>samples=256
 for i in range(6,lim):
     for j in range(0,samples):
@@ -571,7 +548,7 @@ which runs squarely counter my expectations:</p>
 4   4.910156
 </code></pre>
 <p>It seems like the mean number of turnings actually increases
-with the graph size! Surprising. I'm also interested in the
+with the graph size! Surprising. I’m also interested in the
 exact numbers: Why <em>exactly</em> 4.910156… for the graphs with 4
 nodes? What is so special about that number‽</p>
 <p>Looking at unique turnings turns (hehe) up further questions:</p>
@@ -598,26 +575,26 @@ dtype: int64
 </code></pre>
 <p>This sequence of numbers is interesting: Its <code>$n$</code>th term is the number
 of labeled graphs with <code>$n$</code> nodes and confusion 1.</p>
-<p>Very much to my surprise, searching for "1,2,8,144,10752,3306240" <a href="https://oeis.org/search?q=0%2C2%2C8%2C144%2C10752&amp;sort=&amp;language=english&amp;go=Search">in the
+<p>Very much to my surprise, searching for “1,2,8,144,10752,3306240” <a href="https://oeis.org/search?q=0%2C2%2C8%2C144%2C10752&amp;sort=&amp;language=english&amp;go=Search">in the
 OEIS</a>
 yields <em>no results</em> (even <a href="https://oeis.org/search?q=2%2C8%2C144%2C10752&amp;sort=&amp;language=english&amp;go=Search">without leading
 one</a>)
 or using <a href="https://oeis.org/ol.html">Superseeker</a>, even though the sequence
 really looks like something that would already exist! (I think it has a
-specifically graph-theoretic "feel" to it). But apparently not so. An
-interesting fact about the sequence is that it is "redundant": Each
+specifically graph-theoretic “feel” to it). But apparently not so. An
+interesting fact about the sequence is that it is “redundant”: Each
 graph with <code>$n$</code> nodes is represented <code>$n!$</code> times, with all possible
 permutations of vertex labelings. For example, the example graph
 from <a href="#Minimal_and_Maximal_Number_of_Turnings">this section</a>
 is counted in 24 different variants. One can
 therefore divide the sequence by <code>$n!$</code>, which gives the sequence
-<a href="http://oeis.org/search?q=1%2C2%2C4%2C24%2C448%2C27552&amp;sort=&amp;language=english&amp;go=Search">"1,2,4,24,448,27552"</a>,
-which also doesn't occur in the OEIS
+<a href="http://oeis.org/search?q=1%2C2%2C4%2C24%2C448%2C27552&amp;sort=&amp;language=english&amp;go=Search">“1,2,4,24,448,27552”</a>,
+which also doesn’t occur in the OEIS
 (<a href="http://oeis.org/search?q=2%2C4%2C24%2C448%2C27552&amp;sort=&amp;language=english&amp;go=Search">neither does the sequence without the leading
 one</a>,
-and superseeker also doesn't find anything).  I have tried to submit
+and superseeker also doesn’t find anything).  I have tried to submit
 this sequence to the OEIS, but they require a real-world identity
-(which I'm not willing to reveal). Oh well. I still stake my claim for
+(which I’m not willing to reveal). Oh well. I still stake my claim for
 this sequence, it shall henceforth be called the niplav numbers (if I
 am indeed the first person to have found them).</p>
 <p>The number of unique resolutions for the graph with 1 node makes sense,
@@ -628,24 +605,13 @@ but the graph only has one unique resolution:</p>
 0  1  1        []
 1  1  1  [(1, 1)]
 </code></pre>
-<!--TODO: play around with this more, especially analyze:
-* Of the graphs with confusion 1/2/maximal confusion:
-    * degree sequence
-    * number of edges
-    * number of strongly connected components
-    * properties of the adjacency matrix:
-        * determinant
-        * eigenvalues
-        * whether it's singular
-        * symmetries
--->
 <h2 id="Encoding_Inconsistencies"><a class="hanchor" href="#Encoding_Inconsistencies">Encoding Inconsistencies</a></h2>
 <blockquote>
-<p>I've seen six cities fall for this <br/>
-mathematics with incompetence <br/>
-red flags stand among the trees <br/>
-repugnant symphonies <br/>
-a billionaires tarantula just ate the ceiling <br/>
+<p>I’ve seen six cities fall for this<br/>
+mathematics with incompetence<br/>
+red flags stand among the trees<br/>
+repugnant symphonies<br/>
+a billionaires tarantula just ate the ceiling<br/>
 thinking it was yet another floor</p>
 </blockquote>
 <p><em>—<a href="http://patriciataxxon.bandcamp.com/">Patricia Taxxon</a>, <a href="https://patriciataxxon.bandcamp.com/track/hellbulb">“Hellbulb”</a> from <a href="https://patriciataxxon.bandcamp.com/album/gelb">“Gelb”</a>, 2020</em></p>
@@ -662,7 +628,7 @@ and the mathematical structure that is used to represent them, here
 functions</a>,
 <a href="https://en.wikipedia.org/wiki/Finitary_relation">set-theoretical
 relations</a>, <a href="https://en.wikipedia.org/wiki/Utility">utility
-functions</a> or <a href="https://en.wikipedia.org/wiki/Directed graph">directed
+functions</a> or <a href="https://en.wikipedia.org/wiki/Directed%20graph">directed
 graphs</a> etc.).</p>
 <p>Assuming that we have a set of axioms <code>$\mathbf{A}$</code> that describe which
 preferences are consistent and which are inconsistent, for the purposes
@@ -671,6 +637,7 @@ of this text, we want to ideally find a set of mathematical structures
 <ol>
 <li>For every subset <code>$\mathbf{a} \subseteq \mathcal{P}(\mathbf{A})$</code> of the axioms, <code>$\not\curlyvee$</code> can represent a preference <code>$\not p \in \not P$</code> that violates all axioms in <code>$\mathbf{a}$</code>.</li>
 <li>Very weak condition of <em>Partial Representation</em>: There exists some subset of <code>$\not P' \subseteq \not P$</code> so that for each element <code>$\not p' \in \not P'$</code> there exists a non-empty subset of elements of <code>$\not \curlyvee$</code> that represents <code>$\not p'$</code>.
+
 <ol>
 <li>Weak Condition of <em>Partial Unique Representation</em>: For each element <code>$\not p'$</code> of that subset <code>$\not P'$</code>, there exists a unique element of <code>$\not \curlyvee$</code> that represents <code>$\not p'$</code></li>
 <li>Weak Condition of <em>Complete Representation</em>: For every <code>$\not p \in \not P$</code> there exists at least one element of <code>$\not \curlyvee$</code> that represents <code>$\not p$</code>.</li>
@@ -686,7 +653,7 @@ also represent the violation of both transitivity and completeness.</p>
 <p>For purposes of visualization and for the use of some graph-theoretic
 constructs, I chose to represent those relations as directed labeled
 graphs, but since binary relations and directed labeled graphs have a
-bijection between them, this shouldn't be an issue.</p>
+bijection between them, this shouldn’t be an issue.</p>
 <h4 id="Incompleteness"><a class="hanchor" href="#Incompleteness">Incompleteness</a></h4>
 <p><a href="https://en.wikipedia.org/wiki/Completeness_(order_theory)">Incompleteness</a>
 (or <a href="https://en.wikipedia.org/wiki/Comparability">incomparability</a>)
@@ -700,26 +667,25 @@ w_1) \not \in E$</code>.</p>
 is already satisfied if there is a triple of worlds <code>$w_1, w_2, w_2$</code>
 so that <code>$(w_1, w_2) \in E, (w_2, w_3) \in E$</code> but <code>$(w_1, w_3) \not \in
 E$</code> (which is another form of incomparability). So having a cycle in the
-graph doesn't necessarily entail intransitivity, unless we also demand
+graph doesn’t necessarily entail intransitivity, unless we also demand
 <a href="https://en.wikipedia.org/wiki/Antisymmetric_relation">antisymmetry</a>:</p>
 <p><img alt="A cycle graph with nodes/edges a→ b→ c→ a." src="./img/turning/intransitive.png" title="A cycle graph with nodes/edges a→ b→ c→ a"/></p>
 <p>I assume that antisymmetry is necessary for the consistent version of the
 preferences, no two options can be considered equally valuable, mainly
 for the purposes of simplicity (I do not think that this changes much).</p>
-<!--TODO: how does it change if they are allowed-->
 <h4 id="NonEncodable_Inconsistencies"><a class="hanchor" href="#NonEncodable_Inconsistencies">Non-Encodable Inconsistencies</a></h4>
 <p>I believe that using graphs/set theoretic relations is sufficient to be
 able to represent all von Neumann-Morgenstern inconsistent preferences.</p>
 <p>However, in the formalism of choice sets/choice functions (Gaertner
-2009<!--TODO: link--> p. 7-9) I believe that there are some cases which
-can't be represented by this formalism (because they violate expansion
+2009 p. 7-9) I believe that there are some cases which
+can’t be represented by this formalism (because they violate expansion
 consistency:</p>
 <p>With option set <code>$O_1=\{a,b\}$</code> have <code>$C(O_1)=\{a\}$</code>, but with option
 set <code>$O_2=\{a,b,c\}$</code> we have the choice <code>$C(O_2)=b$</code>.</p>
-<p>However, my mathematical knowledge here isn't very deep, so I'd be happy
+<p>However, my mathematical knowledge here isn’t very deep, so I’d be happy
 about comments.</p>
-<p>(Is this true? Can't we have that generate the relation <code>$a&gt;b, b&gt;a, b&gt;c$</code>?
-Maybe we'd need the choice for every subset…<!--TODO-->)</p>
+<p>(Is this true? Can’t we have that generate the relation <code>$a&gt;b, b&gt;a, b&gt;c$</code>?
+Maybe we’d need the choice for every subset…)</p>
 <h3 id="Continuous_Case"><a class="hanchor" href="#Continuous_Case">Continuous Case</a></h3>
 <p>Von Neumann-Morgenstern utility theory takes as a starting point the
 concept of a lottery: a discrete distribution of probability on a set
@@ -740,13 +706,13 @@ if <code>$L \preceq M \preceq N$</code>, then there exists a probability
 options: there are some probabilites for which we will accept high risks
 or abandon possible high rewards.</p>
 <p>So we want to have a situation where no linear combination between the
-two "outer" options <code>$L$</code> and <code>$N$</code> is equivalent to <code>$M$</code> (or we find
+two “outer” options <code>$L$</code> and <code>$N$</code> is equivalent to <code>$M$</code> (or we find
 a way that <code>$L \preceq M \preceq N$</code>, but <code>$M$</code> is nowhere to be found
-in any linear combination "between" <code>$L$</code> and <code>$N$</code>).</p>
+in any linear combination “between” <code>$L$</code> and <code>$N$</code>).</p>
 <h4 id="InDependence"><a class="hanchor" href="#InDependence">(In)Dependence</a></h4>
 <p>The axiom of independence intuitively states that if we have two options
 <code>$L$</code> and <code>$M$</code>, combining both of those with a third option with some
-probability shouldn't change our ordering between <code>$L$</code> and <code>$M$</code>. (That
+probability shouldn’t change our ordering between <code>$L$</code> and <code>$M$</code>. (That
 is, if we like apples more than bananas, then modifying the choice to
 have a 50% chance apple, 50% chance clementine versus a 50% chance banana,
 50% chance clementine should not change that we like the first case more
@@ -760,7 +726,7 @@ the implication.</p>
 <p>So one could have that <code>$L \preceq M \not \Rightarrow pL+(1-p)N \preceq pM+(1-p)N$</code>,
 or that <code>$L \preceq M \not \Leftarrow pL+(1-p)N \preceq pM+(1-p)N$</code>.</p>
 <p>Poetically, a specific datastructure would need to be able to encode a
-different preference in a "subspace" than in the whole space.</p>
+different preference in a “subspace” than in the whole space.</p>
 <h3 id="Specific_Proposals"><a class="hanchor" href="#Specific_Proposals">Specific Proposals</a></h3>
 <p>Following are notes on three different possible approaches for
 mathematical structures to represent inconsistent &amp; consistent
@@ -782,9 +748,9 @@ on the line between <code>$a$</code> and <code>$b$</code>, the lottery <code>$[�
 is represented by the point in the middle of an <a href="https://en.wikipedia.org/wiki/Equilateral_triangle">equilateral
 triangle</a>, while
 <code>$[0.5: a, 0.5: b, 0: c]$</code> is in the middle of one edge of that triangle.</p>
-<p><img alt="Line from a to b, with a short orthogonal red line in the middle and the text “[0.5: a, 0.5: b]” right above the short red line." src="./img/turning/simplex_1.png" title="Line from a to b, with a short orthogonal red line in the middle and the text “[0.5: a, 0.5: b]” right above the short red line."/></p>
-<p><img alt="Equilateral triangle, the vertices are labeled a, b and c. On the edge between a and b there is a short orthogonal red line in the middle and the text “[0.5: a, 0.5: b]” right above the short red line. In the middle of the triangle there is a red dot, and the text “[⅓: a, ⅓: b, ⅓: c]” above the dot." src="./img/turning/simplex_2.png" title="Equilateral triangle, the vertices are labeled a, b and c. On the edge between a and b there is a short orthogonal red line in the middle and the text “[0.5: a, 0.5: b]” right above the short red line. In the middle of the triangle there is a red dot, and the text “[⅓: a, ⅓: b, ⅓: c]” above the dot."/></p>
-<p>Let's call the probability simplex for lotteries over a world <code>$W$</code>
+<p><img alt="Line from a to b, with a short orthogonal red line in the middle and the text “\[0.5: a, 0.5: b\]” right above the short red line." src="./img/turning/simplex_1.png" title="Line from a to b, with a short orthogonal red line in the middle and the text “\[0.5: a, 0.5: b\]” right above the short red line."/></p>
+<p><img alt="Equilateral triangle, the vertices are labeled a, b and c. On the edge between a and b there is a short orthogonal red line in the middle and the text “\[0.5: a, 0.5: b\]” right above the short red line. In the middle of the triangle there is a red dot, and the text “\[⅓: a, ⅓: b, ⅓: c\]” above the dot." src="./img/turning/simplex_2.png" title="Equilateral triangle, the vertices are labeled a, b and c. On the edge between a and b there is a short orthogonal red line in the middle and the text “\[0.5: a, 0.5: b\]” right above the short red line. In the middle of the triangle there is a red dot, and the text “\[⅓: a, ⅓: b, ⅓: c\]” above the dot."/></p>
+<p>Let’s call the probability simplex for lotteries over a world <code>$W$</code>
 <code>$Δ_W$</code>, often just <code>$Δ$</code> for short (because of the triangle, get it?).</p>
 <p>So one can naïvely just extend the concept of graphs over options to
 graphs over lotteries: The vertices of the graph are elements in <code>$Δ$</code>,
@@ -798,23 +764,22 @@ exists if when for three lotteries <code>$l_1, l_2, l_3$</code> and edges <code>
 there exists no edge <code>$(l_1, l_3)$</code> (because of tacit antisymmetry this
 excludes cycles). However, because the graph is <em>very</em> dense (uncountably
 so, in fact!) this is difficult to visualize.</p>
-<!--TODO: captions for all of these-->
-<p><img alt="" src="./img/turning/incomplete_lott.jpg" title=""/></p>
+<p><img alt="" src="./img/turning/incomplete_lott.jpg"/></p>
 <p>In this example, we have two options <code>$\{a,b\}$</code>. Every lottery where
-<code>$a$</code> has a probability higher than some threshold (let's say <code>$0.55$</code>)
+<code>$a$</code> has a probability higher than some threshold (let’s say <code>$0.55$</code>)
 is incomparable to any lottery where <code>$p(a)&lt;0.55$</code>. But otherwise the
 preference is simple: <code>$[1-p:a, p:b] \succsim [1-q:a, q: b]$</code> iff <code>$p&gt;q$</code>.</p>
 <p>The image tries to say exactly that: everything left of the red line is
 comparable to one another, as is everything to the right of the red line,
 and in both cases the more <code>$b$</code> the better. It merely leaves out most
 of the edges.</p>
-<p><img alt="" src="./img/turning/intrans_lott_1.jpg" title=""/></p>
+<p><img alt="" src="./img/turning/intrans_lott_1.jpg"/></p>
 <p>This image details shows one intransitive case: We always prefer more
 <code>$b$</code>, <em>except</em> that we prefer pure <code>$a$</code> to pure <code>$b$</code> (I may display
 this preference in my personal life: In the case of cake with fruit,
 I always prefer less fruit and more cake, <em>but</em> I usually prefer pure
 fruit to pure cake).</p>
-<p><img alt="" src="./img/turning/intrans_lott_2.jpg" title=""/></p>
+<p><img alt="" src="./img/turning/intrans_lott_2.jpg"/></p>
 <p>Here we have a probability simplex with 3 options. The graph is a set
 of concentrical cycles, and across the cycles the lotteries with lower
 <a href="https://en.wikipedia.org/wiki/Entropy_(information_theory)">entropy</a>
@@ -865,7 +830,7 @@ minimally transforming <code>$G_{\succsim}$</code> into <code>$G_{\succeq}$</cod
 social choice theory, where one has a set of consistent but contradictory
 preferences from different agents and needs to aggregate those into
 a single preference. In that case the problem is overdetermined:
-we have "too much" information from the different agents as to what
+we have “too much” information from the different agents as to what
 is preferred to what. In the case of turning inconsistent preferences
 into consistent ones, one might be dealing both with overconstrained and
 underconstrained preferences. Still, a social choice theory perspective
@@ -884,7 +849,7 @@ of the model. We would then like the agent to generalize this utility
 function to the entire state space of the model.</p>
 </blockquote>
 <p><em>—Peter de Blanc, <a href="./doc/cs/ai/alignment/ontological_crises/ontological_crises_in_artificial_agents_value_systems_de_blanc_2011.pdf">“Ontological Crises in Artificial Agents’ Value Systems”</a>, 2010</em></p>
-<p>Ontological crises occur when an agents' world model changes,
+<p>Ontological crises occur when an agents’ world model changes,
 but its utility function over that world model still operates under
 outdated assumptions about the world. A common example for ontological
 shifts is a hypothetical society of humans who really care about
@@ -896,8 +861,8 @@ question. But their values still operate under the mistaken assumption
 that temperature is ontologically basic, that heat is good and chill is
 bad. For some who this example might strike as unrealistic, consider
 different responses of humans that read about arguments on personal
-identity and the philosophical difficulty of defending them: From "happy
-nihilism" over "everything is me" over "sad nihilism" to "utter despair"
+identity and the philosophical difficulty of defending them: From “happy
+nihilism” over “everything is me” over “sad nihilism” to “utter despair”
 we have the whole gang here.</p>
 <p>In the context of AI safety one can have the same worry: if a <a href="https://arbital.com/p/diamond_maximizer/">diamond
 maximizer</a> is created with
@@ -915,18 +880,8 @@ that the world is made up of atoms that on a macroscopic scale behave
 like wave functions in quantum mechanics, in some of the better cases
 it will stop acting (which might pose problems if it has implemented
 non-<a href="https://arbital.com/p/abortable/">abortable plans</a>).</p>
-<p>Okay, but what are an ontological shift/ontological crisis <em>really</em>? Let's
+<p>Okay, but what are an ontological shift/ontological crisis <em>really</em>? Let’s
 write down some type signatures of functions.</p>
-<!--
-If you know a mapping between objects from human to AI ontology, you
-could find the mapping from the (consistent) human probability simplex
-to the AI simplex?
-
-One can solve the problem [Dai
-2019](https://www.lesswrong.com/posts/6RjL996E8Dsz3vHPk/two-more-decision-theory-problems-for-humans#Partial_Utility_Function_Problem)
-describes as the "Partial Utility Function Problem" by turning that
-partial utility function into a full utility function.
--->
 <h4 id="Discrete_Case_2"><a class="hanchor" href="#Discrete_Case_2">Discrete Case</a></h4>
 <p>Assume we have a transitive and complete ordering <code>$\preceq$</code> over
 possible worlds <code>$W_1$</code>, which is our consistent preferences. Let <code>$W_2$</code>
@@ -939,20 +894,20 @@ weights for the new edges: <code>$s: W_1 \mapsto \mathcal{P}(W_2)$</code> or
 <code>$w_1$</code> is mapped to every <code>$w_2$</code> at most once. Additionally, the
 weights could be required to add up to one and be in <code>$[0;1]$</code>, though
 there are possible meanings of sums greater than 1 or less than 0.</p>
-<p>This is quite abstract. Let's consider a small example:</p>
+<p>This is quite abstract. Let’s consider a small example:</p>
 <p>An agent starts out with a set of possible worlds <code>$W_1$</code> which contains
 two elements: the world <code>$w_N$</code> with nothing in it, and the world <code>$w_F$</code>
 with a single fruit: also the agent likes fruit more than nothing <code>$w_F \succeq w_N$</code>.</p>
-<p>But then the agent refines its world model: It discovers that there's
+<p>But then the agent refines its world model: It discovers that there’s
 actually three worlds in the set <code>$W_2$</code>, which are <code>$w_T$</code> (a tomato),
 <code>$w_A$</code> (an apple) and <code>$w_N$</code> (still nothing). Because tomatoes are
 only kind of fruits, we define <code>$s$</code> as <code>$s(w_N)=\{(w_N, 1)\}$</code> and
-<code>$s(w_F)=\{(w_A, 0.8), (w_T, 0.2)\}$</code>. The agent hasn't changed
+<code>$s(w_F)=\{(w_A, 0.8), (w_T, 0.2)\}$</code>. The agent hasn’t changed
 its mind about what what nothing is, but the category fruit has now
 <a href="https://www.lesswrong.com/s/kjcioCkqSSS4LiMAe/p/k54rgSg7GcjtXnMHX">splintered</a>
 into apple and tomato (where the fruit world is <em>more</em>
 like the apple than like the tomato, because tomatos might
-be technically fruit, but they're definitely not a <a href="https://www.lesswrong.com/rationality/the-cluster-structure-of-thingspace">central
+be technically fruit, but they’re definitely not a <a href="https://www.lesswrong.com/rationality/the-cluster-structure-of-thingspace">central
 example</a>).
 Existing preferences are inherited: if <code>$w_F$</code> splits into <code>$w_A$</code> and <code>$w_T$</code>, both of them are still better than <code>$w_N$</code>.</p>
 <p><img alt="On the left a graph with wF→wN, then an arrow to the right (⇒ with s written over the arrow), on the right a graph wA → wN (edge labeled 0.8) and wT→ wN (edge labeled 0.2)." src="./img/turning/shift.png" title="On the left a graph with wF→wN, then an arrow to the right (⇒ with s written over the arrow), on the right a graph wA → wN (edge labeled 0.8) and wT→ wN (edge labeled 0.2)."/></p>
@@ -967,7 +922,7 @@ bad decisions (we here violate the von Neumann-Morgenstern axiom of
 procedure used for computing the set of turnings described earlier to
 resolve the ontological crises to full satisfaction: A node splits in
 two or more, or two or more nodes get merged, one adds nodes, or removes
-them. If the then resulting graph isn't a path graph, it can be turned
+them. If the then resulting graph isn’t a path graph, it can be turned
 with the method described above.</p>
 <p>Example with mammals &gt; birds &gt; fish (where dolphins &amp; trouts are both
 fish!), but then we go through an ontological shift where fish split

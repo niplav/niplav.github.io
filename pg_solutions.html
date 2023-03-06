@@ -32,13 +32,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-01-25, modified: 2022-02-23, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 <blockquote>
 <p><strong>Some solutions to exercises in the book “Population Genetics” by
 <a href="https://en.wikipedia.org/wiki/John_H._Gillespie">John H. Gillespie</a>. I
 did not simply copy out the solutions at the end of each chapter, and
-sometimes didn't even check the solutions against my own. Therefore,
+sometimes didn’t even check the solutions against my own. Therefore,
 these might be faulty.</strong></p>
 </blockquote>
 <h1 id="Solutions_to_Population_Genetics"><a class="hanchor" href="#Solutions_to_Population_Genetics">Solutions to “Population Genetics”</a></h1>
@@ -54,16 +54,14 @@ with 7 different genotypes.</p>
 <code>$A_2 A_2 A_3 A_3, A_2 A_2 A_3 A_4, A_2 A_2 A_4 A_4, A_2 A_3 A_3 A_3, A_2 A_3 A_3 A_4$</code>,
 <code>$A_2 A_3 A_4 A_4, A_2 A_4 A_4 A_4, A_3 A_3 A_3 A_3, A_3 A_3 A_3 A_4, A_3 A_3 A_4 A_4$</code>,
 <code>$A_3 A_4 A_4 A_4, A_4 A_4 A_4 A_4$</code>.</p>
-<!--TODO: what closed form formula describes the above counting
-partition?-->
 <p>So apparently, per solution, this is wrong, because I assumed that <code>$n$</code>
-different alleles resulted in a <code>$n$</code>ploid organism, which isn't the case.</p>
+different alleles resulted in a <code>$n$</code>ploid organism, which isn’t the case.</p>
 <p>For three alleles it would be <code>$A_1 A_1, A_1 A_2, A_1 A_3, A_2 A_2, A_2 A_3, A_3 A_3$</code>,
 which is 6 different genotypes.</p>
 <p>For four different alleles it would be 10 different genotypes:</p>
 <p><code>$A_1 A_1,A_1 A_2,A_1 A_3,A_1 A_4,A_2 A_2,A_2 A_3,A_2 A_4,A_3 A_3,A_3 A_4,A_4 A_4$</code></p>
 <p>The general formula is <code>$\frac{n (n+1)}{2}$</code> different genotypes,
-because it's just the upper half of the square again.</p>
+because it’s just the upper half of the square again.</p>
 <h3 id="Problem_12"><a class="hanchor" href="#Problem_12">Problem 1.2</a></h3>
 <ul>
 <li>For I: <code>$0.0151+\frac{1}{2}0.0452+\frac{1}{2}0.0964=0.0859$</code></li>
@@ -89,7 +87,7 @@ text(250;250;"2/q")
 
 draw()
 </code></pre>
-<p><img alt="Graph for 1.5" src="./img/pg_solutions/p1.5.png" title=""/></p>
+<p><img alt="Graph for 1.5" src="./img/pg_solutions/p1.5.png"/></p>
 <h3 id="Problem_16"><a class="hanchor" href="#Problem_16">Problem 1.6</a></h3>
 <pre><code>&gt;&gt;&gt; import numpy as np
 &gt;&gt;&gt; import scipy.stats as sps
@@ -98,7 +96,7 @@ draw()
 &gt;&gt;&gt; sps.chisquare(freq, expected)
 Power_divergenceResult(statistic=0.012244149537675565, pvalue=0.9999991214396423)
 </code></pre>
-<p>I guess? But checking the solution, I'm apparently wrong in multiple ways:
+<p>I guess? But checking the solution, I’m apparently wrong in multiple ways:
 3 degrees of freedom, and the genotype frequencies need to be multiplied
 by 332 before conducting the test.</p>
 <p>So, try again:</p>
@@ -110,7 +108,7 @@ by 332 before conducting the test.</p>
 Power_divergenceResult(statistic=4.065057646508287, pvalue=0.13100381641660697)
 </code></pre>
 <p>Which is what the solution to the exercise says as well. I guess the
-problem is that I don't really know how to apply statistical tests
+problem is that I don’t really know how to apply statistical tests
 (…yet. Growth mindset.)</p>
 <h2 id="Chapter_2"><a class="hanchor" href="#Chapter_2">Chapter 2</a></h2>
 <h3 id="Problem_22"><a class="hanchor" href="#Problem_22">Problem 2.2</a></h3>
@@ -162,7 +160,7 @@ draw()
 .fl()
 .cc(p2.5)
 </code></pre>
-<p><img alt="Graph for 2.5" src="./img/pg_solutions/p2.5.png" title=""/></p>
+<p><img alt="Graph for 2.5" src="./img/pg_solutions/p2.5.png"/></p>
 <p>These are, in fact, two different graphs, but the approximation is good
 enough that the difference between the two is not visible.</p>
 <h3 id="Problem_27"><a class="hanchor" href="#Problem_27">Problem 2.7</a></h3>
@@ -173,8 +171,8 @@ changes per chosen nucleotide, and two different nucleotides chosen from
 the whole allele).</p>
 <p>For <code>$n$</code> mutational steps, it would be <code>$3^n*{3000 \choose n}$</code>.</p>
 <h3 id="Problem_29"><a class="hanchor" href="#Problem_29">Problem 2.9</a></h3>
-<p>(The actual code doesn't contain the unicode symbols since either Klong
-or Postscript can't deal with them. Sad.)</p>
+<p>(The actual code doesn’t contain the unicode symbols since either Klong
+or Postscript can’t deal with them. Sad.)</p>
 <pre><code>p2.9::.oc("p2.9.eps")
 .tc(p2.9)
 
@@ -200,16 +198,8 @@ draw()
 .fl()
 .cc(p2.9)
 </code></pre>
-<p><img alt="Graph for 2.9" src="./img/pg_solutions/p2.9.png" title=""/></p>
+<p><img alt="Graph for 2.9" src="./img/pg_solutions/p2.9.png"/></p>
 <p>Does the same thing fall out of the math?</p>
-<p>Let's see:</p>
-<div>
-    $$-Δ_N \mathcal{H}=Δ_u \mathcal{H} \Leftrightarrow \\
-    \frac{1}{2N} \mathcal{H}=2u(1-\mathcal{H}) \Leftrightarrow \\
-    \mathcal{H}=4uN-4uN \mathcal{H} \Leftrightarrow \\
-    \mathcal{H}+4uN \mathcal{H}=4uN \Leftrightarrow \\
-    \mathcal{H}=\frac{4uN}{1+4uN} \Leftrightarrow \\
-    \mathcal{H}=0.\overline{6} $$
-</div>
+<p>Let’s see:</p>
 <p>At least the intersection does.</p>
 </body></html>

@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-04-02, modified: 2020-06-01, language: english, status: maintenance, importance: 3, confidence: likely</em></p>
 <blockquote>
 <p><strong>Two people are abducted and placed on the opposite poles of a
@@ -45,7 +45,7 @@ for finding each other is introduced.</strong></p>
 </blockquote>
 <h1 id="Two_People_on_a_Planet"><a class="hanchor" href="#Two_People_on_a_Planet">Two People on a Planet</a></h1>
 <blockquote>
-<p>Wo ist dein Delos, wo dein Olympia, <br/>
+<p>Wo ist dein Delos, wo dein Olympia,<br/>
 Daß wir uns alle finden am höchsten Fest?</p>
 </blockquote>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Friedrich_H%C3%B6lderlin">Friedrich Hölderlin</a>, <a href="https://www.textlog.de/17843.html">“Gesang des Deutschen”</a>, 1800</em></p>
@@ -72,9 +72,9 @@ surface, lacking oceans, where the two people can leave footprints.</p>
 new technology and communicating when they are out of sight (no fireworks,
 launching spaceships etc.).</p>
 <p>Both people are typical, but had no opportunity to communicate with
-each other beforehand. They can reason about each others' strategy and
+each other beforehand. They can reason about each others’ strategy and
 behavior, but have no intricate knowledge about each others decision
-process (if they are artificial agents, they don't know each others'
+process (if they are artificial agents, they don’t know each others’
 algorithm).</p>
 <p>These two people want to find each other.</p>
 <h2 id="Different_Existing_Solutions"><a class="hanchor" href="#Different_Existing_Solutions">Different Existing Solutions</a></h2>
@@ -95,17 +95,17 @@ Exchange post:</p>
 cues on where on the sphere you both are, and the sphere is way bigger
 than you two. There are no means of communication. You can determine
 your relative position and direction by navigating the stars. You can
-move anywhere, and your friend too. <br/>
+move anywhere, and your friend too.<br/>
 Upon inspecting the sphere, you see it is rock-solid, so you cannot
 create markings. To protect the environment, you are not allowed to
 leave other stuff, like a blood trace or breadcrumbs.</p>
 </blockquote>
 <p><em>— <a href="https://math.stackexchange.com/users/53495/robau">RobAu</a>, <a href="https://math.stackexchange.com/questions/1214022/fastest-way-to-meet-without-communication-on-a-sphere/">“Fastest way to meet, without communication, on a sphere?”</a>, 2015</em></p>
-<p>In this problem, marking are not possible, and players don't start at
+<p>In this problem, marking are not possible, and players don’t start at
 the opposite sides of the planet (which makes a solution a lot harder).</p>
 <h4 id="Moving_at_Random_but_Changing_Directions_Rarely"><a class="hanchor" href="#Moving_at_Random_but_Changing_Directions_Rarely">Moving at Random, but Changing Directions Rarely</a></h4>
 <blockquote>
-<p>Move at random. [...]
+<p>Move at random. […]
 you could prefer to walk longer distances in a straight line as opposed
 to choosing a completely new direction after every centimeter of movement.</p>
 </blockquote>
@@ -133,20 +133,20 @@ assumes that the person can generate random bits.</p>
 <h4 id="Randomizing_Speed_While_Keeping_Direction"><a class="hanchor" href="#Randomizing_Speed_While_Keeping_Direction">Randomizing Speed While Keeping Direction</a></h4>
 <blockquote>
 <p>I think a better strategy is to pick a direction (any will do), stick
-to it and randomise your speed. <br/>
+to it and randomise your speed.<br/>
 If both parties do this their paths will cross twice each orbit (unless
 they are on the same orbit in which case they will meet sooner due to
-randomised speed) <br/>
-if you go full random changing direction as well as velocity you aren't
+randomised speed)<br/>
+if you go full random changing direction as well as velocity you aren’t
 guaranteed to ever cross the path of the other. (although as t gets large
-it becomes increasingly likely that your paths will cross at least once.) <br/>
+it becomes increasingly likely that your paths will cross at least once.)<br/>
 Speed randomisation is necessary to avoid never meeting because of resonance.</p>
 </blockquote>
 <p><em>— <a href="https://math.stackexchange.com/users/30204/luke-mcgregor">Luke McGregor</a>, answer to <a href="https://math.stackexchange.com/a/1215229">“Fastest way to meet, without communication, on a sphere?”</a>, 2015</em></p>
 <h4 id="Find_a_Schelling_Point"><a class="hanchor" href="#Find_a_Schelling_Point">Find a Schelling Point</a></h4>
 <blockquote>
 <p>I would posit that a better-than-random solution would include finding
-the most "interesting" such configuration (so first you have to map
+the most “interesting” such configuration (so first you have to map
 them all by traveling the sphere methodically) and heading there as a
 Schelling point.</p>
 </blockquote>
@@ -159,8 +159,8 @@ The metric is the least difficult of them: given a size of the region
 of sky, the most interesting such region would be the one that is the
 most compressible (or most regular). The size aspect of this possible
 configuration is much more difficult: Where does such a configuration
-end? One possible answer is: "At the horizon.", then the <a href="https://en.wikipedia.org/wiki/Focal_point_(game_theory">Schelling
-point</a>) would
+end? One possible answer is: “At the horizon.”, then the <a href="https://en.wikipedia.org/wiki/Focal_point_(game_theory)">Schelling
+point</a> would
 be the point where the whole sky is most interesting.</p>
 <h3 id="Randomly_Switching_Positions"><a class="hanchor" href="#Randomly_Switching_Positions">Randomly Switching Positions</a></h3>
 <p>Another solution is possible due to the fact that both people start out
@@ -196,8 +196,8 @@ matter whether they would see other footsteps on the ground.</p>
 <p>This would ensure that they would deterministically meet in <code>$\cal{O}(n)$</code>
 (<code>$n$</code> being the circumference of the planet).</p>
 <h2 id="Pseudocode"><a class="hanchor" href="#Pseudocode">Pseudocode</a></h2>
-<p>This code does not deal with the possibility that the other agent doesn't
-use the same method, or that they don't arrive at the equator at the
+<p>This code does not deal with the possibility that the other agent doesn’t
+use the same method, or that they don’t arrive at the equator at the
 same time.</p>
 <pre><code>circumference=4*walk_to_equator() /* circumference in steps */
 
@@ -304,7 +304,7 @@ them continuing with their course. In this case, the algorithm fails,
 and results in them not meeting after less than one iteration. Several
 strategies would be possible at this point: Attempt the algorithm again by
 returning to the starting point, or assuming one of the other strategies.
-This becomes less of a problem depending on how exact the persons'
+This becomes less of a problem depending on how exact the persons’
 knowledge about the already walked distance and the circumference of
 the planet is. The more accurate, the less often the case of arriving
 at perceived opposite points of the equator occurs.</p>
@@ -313,23 +313,4 @@ at perceived opposite points of the equator occurs.</p>
 <li>Under given conditions, are there other deterministic algorithms for meeting on a sphere?</li>
 <li>In which ways can the conditions be made more/less strict, and which kinds of methods would they allow?</li>
 </ul>
-<!--
-External Links
---------------
-
-TODO: read.
-
-* /usr/local/doc/unread/rendezvous/deterministic_rendez_vous_ta_shma_zwick_2007.pdf
-* /usr/local/doc/unread/rendezvous/deterministic_rendezvous_in_graphs_dessmark_et_al_2006.pdf
-* /usr/local/doc/unread/rendezvous/how_to_meet_in_anonymous_network_kowalski_malinowski_2008.pdf
-* /usr/local/doc/unread/rendezvous/random_walks_universal_traversal_sequences_aleliunas_et_al_1979.pdf
-* /usr/local/doc/unread/rendezvous/rendezvous_problem_gasieniec_2004.pdf
-* /usr/local/doc/unread/rendezvous/theory_of_search_games_and_rendezvous_alpern_2002.pdf
-* https://mathoverflow.net/questions/184404/randall-munroes-lost-immortals
-* [Rendezvous problem](https://en.wikipedia.org/wiki/Rendezvous_problem)
-* [Deterministic rendezvous problem](https://en.wikipedia.org/wiki/Deterministic_rendezvous_problem)
-
-Graph that is isomorphic to a sphere in the limit of the number of nodes,
-and then apply standard theorems for graph rendezvous?
--->
 </body></html>

@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-01-21, modified: 2021-03-31, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 <blockquote>
 <p><strong>In which I solve exercsise from <a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">“Artificial Intelligence: A Modern
@@ -47,7 +47,7 @@ from 2010, because the exercises for the 4th edition were moved online.</strong>
 <h3 id="11"><a class="hanchor" href="#11">1.1</a></h3>
 <blockquote>
 <p>Define in your own words: (a) intelligence, (b) artificial intelligence,
-(c) agent, (d) rationality, (e) logical reasoning</p>
+© agent, (d) rationality, (e) logical reasoning</p>
 </blockquote>
 <h4 id="Intelligence"><a class="hanchor" href="#Intelligence">Intelligence</a></h4>
 <p>The word “intelligence” is mostly used to describe a property of
@@ -110,18 +110,9 @@ cycle time for an Aplysia neuron is roughly the same as for a human
 neuron, how does the computational power, in terms of memory updates
 per second, compare with the high-end computer described in Figure 1.3?</p>
 </blockquote>
-<!--TODO: un-fuck the dimensional analysis here-->
 <p>Given the cycle time of <code>$10^{-3}$</code> seconds, we can expect</p>
-<div>
-    $$\frac{2*10^{4} \hbox{ neurons}}{10^{-3}\frac{\hbox{s}}{\hbox{update}}}=2*10^{7} \frac{\hbox{neuron updates}}{s}$$
-</div>
 <p>which is seven orders of magnitude lower than a supercomputer. Aplysia
-won't be proving any important theorems soon.</p>
-<!--
-If Aplysia has 20k neurons, then it can be expected to have
-
-`$2*10^{4}\hbox{ neurons }*\frac{10 \hbox{ to } 10^{5} \hbox{ synapses }}{\hbox{neuron}}=2*10^{5}\hbox{ to } 2*10^{9} \hbox{ neurons}$`
--->
+won’t be proving any important theorems soon.</p>
 <h2 id="Chapter_2"><a class="hanchor" href="#Chapter_2">Chapter 2</a></h2>
 <h3 id="21"><a class="hanchor" href="#21">2.1</a></h3>
 <blockquote>
@@ -130,7 +121,7 @@ T time steps of the environment and ignores everything thereafter. Show
 that a rational agent’s action may depend not just on the state of
 the environment but also on the time step it has reached.</p>
 </blockquote>
-<p>Example: Let's say that we are in an environment with a button,
+<p>Example: Let’s say that we are in an environment with a button,
 and pressing the button causes a light to go on in the next timestep.
 The agent cares that the light is on (obtaining 1 util per timestep the
 light is on for the first T timesteps).</p>
@@ -152,7 +143,7 @@ be perfectly rational.</p>
 infer missing information by making deductions (logical or statistical)
 about the state of the environment, coming to full knowledge of the
 environment, and making perfectly rational choices using that information.</p>
-<p>For example, a chess-playing agent that can't see exactly one square
+<p>For example, a chess-playing agent that can’t see exactly one square
 could infer the piece standing on that square by observing which piece
 is missing from the rest of the board.</p>
 <blockquote>
@@ -163,7 +154,7 @@ behave rationally.</p>
 state and the previous state, a simple reflex agent will get outperformed
 by agents with an internal world-model.</p>
 <p>An example for this is a stock-trading agent: The future prices of stocks
-doesn't just depend on the current prices, but on the history of prices.</p>
+doesn’t just depend on the current prices, but on the history of prices.</p>
 <blockquote>
 <p>c. There exists a task environment in which every agent is rational.</p>
 </blockquote>
@@ -248,7 +239,7 @@ environments of Titan; actuators: motor with propeller, arms to grab
 things, perhaps wheels; sensors: radar, vision (if the agent has inbuilt
 light generation)</p>
 <p>Single-agent, continuous, partially observable, partially known (in case
-there's actually life there, we don't know how it behaves), sequential,
+there’s actually life there, we don’t know how it behaves), sequential,
 dynamic (maybe not very dynamic, but there might be currents/geothermal
 vents/life), stochastic.</p>
 <blockquote>
@@ -273,7 +264,7 @@ uses rounds? Maybe <code>$winrounds_{own}-winrounds_{enemy}$</code>); environmen
 tennis court; actuators: arms, tennis racket, wheels/legs to move around;
 sensors: vision, hearing</p>
 <p>Multi-agent, continous, fully observable, fully known (though caveats
-similar to soccer apply), episodic (after each round there's a reset,
+similar to soccer apply), episodic (after each round there’s a reset,
 right?), dynamic, stochastic (similar caveats as in soccer example)</p>
 <blockquote>
 <ul>
@@ -361,9 +352,9 @@ directions until we reach a turning point, and this is the only action
 we need to do. Reformulate the problem using these actions. Do we need
 to keep track of the robot’s orientation now?</p>
 </blockquote>
-<p>Since we don't have to turn before moving, we're equivalent to an
-unchanging directionless dot (only the position changes). We don't
-need to keep track of the orientation anymore, since we don't have to
+<p>Since we don’t have to turn before moving, we’re equivalent to an
+unchanging directionless dot (only the position changes). We don’t
+need to keep track of the orientation anymore, since we don’t have to
 a specific direction before moving.</p>
 <blockquote>
 <p>d. In our initial description of the problem we already abstracted
@@ -391,48 +382,25 @@ the strategy of backtracking with forward checking and the MRV and
 least-constraining-value heuristics.</p>
 </blockquote>
 <p><img alt="Figure 6.2" src="./img/aima_solutions/figure_6_2.png" title="Figure 6.2 (a) A cryptarithmetic problem. Each letter stands for a distinct digit; the aim is to find a substitution of digits for letters such that the resulting sum is arithmetically correct, with the added restriction that no leading zeroes are allowed. (b) The constraint hypergraph for the cryptarithmetic problem, showing the Alldiff constraint (square box at the top) as well as the column addition constraints (four square boxes in the middle). The variables C1, C2, and C3 represent the carry digits for the three columns."/></p>
-<p>Variables: <code>$X=\{F, T, U, W, R, O, C_1, C_2, C_3\}$</code> <br/>
-Constraints:</p>
-<div>
-    $$C=\{\langle O, R \rangle: O+O \mod 10=R, \\
-    \langle W, U, C_1 \rangle: W+W+C_1 \mod 10=U, \\
-    \langle T, O, C_2 \rangle: T+T+C_2 \mod 10=O, \\
-    \langle C_1, O \rangle: C_1=1 \hbox{ if } O+O&gt;9 \hbox { else } 0, \\
-    \langle C_2, W, C_1 \rangle: C_2=1 \hbox{ if } W+W+C_1&gt;9 \hbox { else } 0, \\
-    \langle C_3, T, C_2 \rangle: C_3=1 \hbox{ if } T+T+C_2&gt;9 \hbox { else } 0, \\
-    \langle F, C_3 \rangle: F=C_3\\
-    \langle F, T, U, W, R, O \rangle: Alldiff(F, T, U, W, R, O)\}$$
-</div>
+<p>Variables: <code>$X=\{F, T, U, W, R, O, C_1, C_2, C_3\}$</code><br/>
+Constraints:
+
+    $$C={\langle O, R \rangle: O+O \mod 10=R, \
+    \langle W, U, C<em>1 \rangle: W+W+C</em>1 \mod 10=U, \
+    \langle T, O, C<em>2 \rangle: T+T+C</em>2 \mod 10=O, \
+    \langle C<em>1, O \rangle: C</em>1=1 \hbox{ if } O+O&gt;9 \hbox { else } 0, \
+    \langle C<em>2, W, C</em>1 \rangle: C<em>2=1 \hbox{ if } W+W+C</em>1&gt;9 \hbox { else } 0, \
+    \langle C<em>3, T, C</em>2 \rangle: C<em>3=1 \hbox{ if } T+T+C</em>2&gt;9 \hbox { else } 0, \
+    \langle F, C<em>3 \rangle: F=C</em>3\
+    \langle F, T, U, W, R, O \rangle: Alldiff(F, T, U, W, R, O)}$$
+</p>
 <p>Domains: <code>$\{0..9\}$</code> for <code>$\{F, T, U, W, R, O\}$</code>, and <code>$\{0, 1\}$</code> for <code>$\{C_1, C_2, C_3\}$</code>.</p>
 <p>Replacing the Alldiff constraint with binary constraints:</p>
-<div>
-    $$C := (C \backslash \{\langle F, T, U, W, R, O \rangle: Alldiff(F, T, U, W, R, O)\}) \cup \\{ \langle x_1, x_2 \rangle: x_1 \not = x_2 | x_1, x_2 \in \{ F, T, U, W, R, O \} }$$
-</div>
 <p>Replacing the other trinary constraints with binary ones:</p>
 <p>New variables <code>$X_1, X_2 \in [10] \times \{0, 1\}$</code>.</p>
 <p>We remove the constraints</p>
-<div>
-    $$\{\langle W, U, C_1 \rangle: W+W+C_1 \mod 10=U, \\
-    \langle T, O, C_2 \rangle: T+T+C_2 \mod 10=O, \\
-    \langle C_2, W, C_1 \rangle: C_2=1 \hbox{ if } W+W+C_1&gt;9 \hbox { else } 0, \\
-    \langle C_3, T, C_2 \rangle: C_3=1 \hbox{ if } T+T+C_2&gt;9 \hbox { else } 0 \} $$
-</div>
 <p>and add some constraints to replace the trinary with binary constraints on
 <code>$X_{1 \hbox{ to } 4}$</code>. The result looks like this:</p>
-<div>
-    $$ C := \{ \langle X_1, U \rangle: U=fst(X_1)+fst(X_1)+snd(X_1) \mod 10, \\
-    \langle X_2, O \rangle: O=fst(X_2)+fst(X_2)+snd(X_2) \mod 10, \\
-    \langle X_1, C_2 \rangle: C_2=1 \hbox{ if } fst(X_1)+fst(X_1)+snd(X_1)&gt;9 \hbox { else } 0, \\
-    \langle X_2, C_3 \rangle: C_3=1 \hbox{ if } fst(X_2)+fst(X_2)+snd(X_2)&gt;9 \hbox { else } 0, \\
-    \langle X_1, W \rangle: W=fst(X_1), \\
-    \langle X_1, C_1 \rangle: C_1=snd(X_1), \\
-    \langle X_2, T \rangle: T=fst(X_2), \\
-    \langle X_2, C_2 \rangle: C_2=snd(X_2), \\
-    \langle O, R \rangle: O+O \mod 10=R, \\
-    \langle C_1, O \rangle: C_1=1 \hbox{ if } O+O&gt;9 \hbox { else } 0, \\
-    \langle F, C_3 \rangle: F=C_3 \} \\ \cup
-    \{ \langle x_1, x_2 \rangle: x_1 \not = x_2 | x_1, x_2 \in \{ F, T, U, W, R, O \} $$
-</div>
 <p>Variables sorted by domain size: <code>$X_1: 20, X_2: 20, F: 10, T: 10, U: 10, W: 10, R: 10, O: 10, C_1: 2, C_2: 2, C_3: 2$</code></p>
 <p>Variables sorted by degree: <code>$O: 8, W: 6, T: 6, R: 6, U: 6, F: 6, X_1: 4, X_2: 4, C_1: 2, C_2: 2, C_3: 2$</code></p>
 <p>Now, one can do the actual searching and inference:</p>
@@ -489,16 +457,6 @@ Constraints:</p>
 <p>The assignments are
 <code>$C_1=1, C_2=1, C_3=1, F=1, T=8, U=3, W=6, R=4, O=7, X_1=(6,4), X_2=(8,1).$</code>
 Or, in the puzzle:</p>
-<div>
-    $$
-    \matrix {
-        &amp; 8 &amp; 6 &amp; 7 \cr
-        + &amp; 8 &amp; 6 &amp; 7 \cr
-        \hline{}
-        1 &amp; 7 &amp; 3 &amp; 4 \cr
-    }
-    $$
-</div>
 <h2 id="Chapter_7"><a class="hanchor" href="#Chapter_7">Chapter 7</a></h2>
 <h3 id="710"><a class="hanchor" href="#710">7.10</a></h3>
 <blockquote>
@@ -507,11 +465,6 @@ or neither. Verify your decisions using truth tables or the equivalence
 rules of Figure 7.11 (page 249).</p>
 <p>a. <code>$Smoke \Rightarrow Smoke$</code></p>
 </blockquote>
-<div>
-    $$Smoke \Rightarrow Smoke \equiv \\
-    \lnot Smoke \lor Smoke \equiv \\
-    True$$
-</div>
 <p>The sentence is valid since True is valid.</p>
 <blockquote>
 <p>b. <code>$Smoke \Rightarrow Fire$</code></p>
@@ -522,11 +475,6 @@ if Smoke=False and Fire=False, the sentence is true.</p>
 <blockquote>
 <p>c. <code>$(Smoke \Rightarrow Fire) \Rightarrow (\lnot Smoke \Rightarrow \lnot Fire)$</code></p>
 </blockquote>
-<div>
-    $$(Smoke \Rightarrow Fire) \Rightarrow (\lnot Smoke \Rightarrow \lnot Fire) \equiv \\
-    \lnot (\lnot Smoke \lor Fire) \lor (Smoke \lor \lnot Fire) \equiv \\
-    (Smoke \land \lnot Fire) \lor Smoke \lor \lnot Fire$$
-</div>
 <p>Neither: For Smoke=False and Fire=True, the sentence is false, but for
 Smoke=True, the sentence is true.</p>
 <blockquote>
@@ -537,20 +485,10 @@ Smoke=True, the sentence is true.</p>
 <blockquote>
 <p>e. <code>$((Smoke \land Heat) \Rightarrow Fire) \Leftrightarrow ((Smoke \Rightarrow Fire) \lor (Heat \Rightarrow Fire))$</code></p>
 </blockquote>
-<div>
-    $$((Smoke \land Heat) \Rightarrow Fire) \Leftrightarrow ((Smoke \Rightarrow Fire) \lor (Heat \Rightarrow Fire)) \equiv \\
-    ((\lnot Smoke \lor \lnot Heat \lor Fire) \Leftrightarrow (\lnot Smoke \lor Fire \lor \lnot Heat)) \equiv \\
-    True$$
-</div>
 <p>This sentence is valid since <code>$a \Leftrightarrow a \equiv True$</code>.</p>
 <blockquote>
 <p>f. <code>$(Smoke \Rightarrow Fire) \Rightarrow ((Smoke \land Heat) \Rightarrow Fire)$</code></p>
 </blockquote>
-<div>
-    $$(Smoke \Rightarrow Fire) \Rightarrow ((Smoke \land Heat) \Rightarrow Fire) \equiv \\
-    \lnot (\lnot Smoke \lor Fire) \lor (\lnot (Smoke \land Heat) \lor Fire) \equiv \\
-    (Smoke \land \lnot Fire) \lor \not Smoke \lor \lnot Heat \lor Fire \equiv $$
-</div>
 <p>This sentence is valid. If Smoke=True, Heat=True and Fire=False, then
 <code>$Smoke \land \lnot Fire$</code> is true, and makes the whole sentence true.
 Otherwise, any of the other disjunctions make the sentence true.</p>
@@ -561,11 +499,11 @@ Otherwise, any of the other disjunctions make the sentence true.</p>
 <p>Therefore, this sentence is valid as heck.</p>
 <h3 id="714"><a class="hanchor" href="#714">7.14</a></h3>
 <blockquote>
-<p>According to some political pundits, a person who is radical (R) is
-electable (E) if he/she is conservative (C), but otherwise not electable.</p>
-<p>a. Which of the following are correct representations of this assertion? <br/>
-(i) <code>$R \land E \Leftrightarrow C$</code> <br/>
-(ii) <code>$R \Rightarrow (E \Leftrightarrow C)$</code> <br/>
+<p>According to some political pundits, a person who is radical ® is
+electable (E) if he/she is conservative ©, but otherwise not electable.</p>
+<p>a. Which of the following are correct representations of this assertion?<br/>
+(i) <code>$R \land E \Leftrightarrow C$</code><br/>
+(ii) <code>$R \Rightarrow (E \Leftrightarrow C)$</code><br/>
 (iii) <code>$R \Rightarrow ((C \Rightarrow E) \lor \lnot E)$</code></p>
 </blockquote>
 <p>(i) Would mean that a conservative is only electable if they are radical
@@ -579,31 +517,11 @@ radical conservatives (in this hypothetical scenario).</p>
 <p>b. Which of the sentences in (a) can be expressed in Horn form?</p>
 </blockquote>
 <p>(i)</p>
-<div>
-    $$(R \land E) \Leftrightarrow C \equiv \\
-    C \Rightarrow (R \land E) \land (R \land E) \Rightarrow C \equiv \\
-    \lnot C \lor (R \land E) \land \lnot (R \land E) \lor C \equiv \\
-    (\lnot C \lor R) \land (\lnot C \lor E) \land (\lnot R \lor \lnot E \lor C)$$
-</div>
-<p>This sentence can't be represented in Horn form, since it can't be
+<p>This sentence can’t be represented in Horn form, since it can’t be
 reduced down to only disjunctions of literals.</p>
 <p>(ii)</p>
-<div>
-    $$ R \Rightarrow (E \Leftrightarrow C) \equiv \\
-    \lnot R \lor (E \Rightarrow C \land C \Rightarrow E) \equiv \\
-    \lnot R \lor (\lnot E \lor C \land \lnot C \lor E) \equiv \\
-    (\lnot R \lor \lnot E \lor C) \land (\lnot R \lor \lnot C \lor E) \equiv \\
-    \lnot R \land (\lnot E \lor C) \land (\lnot C \lor E) $$
-</div>
 <p>Neither can this sentence.</p>
 <p>(iii)</p>
-<div>
-    $$ R \Rightarrow ((C \Rightarrow E) \lor \lnot E) \equiv \\
-    \lnot R \lor ((\lnot C \lor E) \lor \lnot E \equiv) \\
-    \lnot R \lor \lnot C \lor E \lor \lnot E \equiv \\
-    (R \land C \land E) \Rightarrow E \equiv \\
-    True$$
-</div>
 <p>This sentence can be represented in Horn form, and is also a tautology.</p>
 <h2 id="Chapter_9"><a class="hanchor" href="#Chapter_9">Chapter 9</a></h2>
 <h3 id="99"><a class="hanchor" href="#99">9.9</a></h3>
@@ -647,6 +565,7 @@ to success, not the irrelevant steps.</p>
 <li>Proof: <code>$0+7 \le 3+9$</code></li>
 <li>Rule 7: <code>$\{0/w, 7/x, 3/y, 9/z\}$</code></li>
 <li>Proof: <code>$0 \le 3 \land 7 \le 9$</code>:
+
 <ul>
 <li>Rule 1: <code>$0 \le 3$</code></li>
 <li>Rule 2: <code>$7 \le 9$</code></li>
@@ -671,34 +590,12 @@ show only the steps that lead to success.</p>
 <li>Rule 8: <code>$\{7/0, 0+7/y, 3+9/z$</code></li>
 <li>Known: <code>$7 \le 3+9$</code></li>
 </ul>
-<!--
-TODO
-
-### 9.10
-
-> A popular children's riddle is “Brothers and sisters have I none,
-but that man's father is my father's son.” Use the rules of the family
-domain (Section 8.3.2 on page 301) to show who that man is. You may
-apply any of the inference methods described in this chapter. Why do
-you think that this riddle is difficult?
-
-Constants: `$I$`, referring to the speaker, `$T$` referring to "that man".
-
-Variables: `$x, y, z$`.
-
-Known facts: `$\lnot Sibling(x, I), Father(T)=Son(Father(I))$`
-
-We don't know whether the speaker is male.
-
-Let's say we have a hunch that it is the case that `$Father(T)=I$`
-
--->
 <h2 id="Chapter_13"><a class="hanchor" href="#Chapter_13">Chapter 13</a></h2>
 <h3 id="131"><a class="hanchor" href="#131">13.1</a></h3>
 <blockquote>
 <p>Show from first principile that <code>$P(a|b \land a) = 1$</code>.</p>
 </blockquote>
-<p>I'm not sure whether this counts as "from first principles", but</p>
+<p>I’m not sure whether this counts as “from first principles”, but</p>
 <p><code>$P(a|b \land a)=\frac{P(a \land a \land b)}{P(a \land b)}=\frac{P(a \land b)}{P(a \land b)}=1$</code></p>
 <p>is my solution.</p>
 <h3 id="132"><a class="hanchor" href="#132">13.2</a></h3>
@@ -710,22 +607,12 @@ on a discrete random variable must sum to 1.</p>
 <p>Given a discrete random variable X (X is discrete (and therefore also
 countable?)), and a probability distribution <code>$P: X \rightarrow [0;1]$</code>.</p>
 <p>Then, setting <code>$\Omega=X$</code>, one can see that <code>$\sum_{x \in X} P(x)=1$</code>.</p>
-<!--Possible problem: What about other variables & their distributions?
-Conditional on those in joint, the result is still 1, but would be
-worthwhile to write down.-->
 <h3 id="133"><a class="hanchor" href="#133">13.3</a></h3>
 <blockquote>
 <p>For each of the following statements, either prove it is true or give
 a counterexample.</p>
 <p>a. If <code>$P(a|b,c)=P(b|a,c)$</code>, then <code>$P(a|c)=P(b|c)$</code></p>
 </blockquote>
-<div>
-    $$P(a|b,c)=P(b|a,c) \Leftrightarrow \\
-    \frac{P(a,b,c)}{P(b,c)}=\frac{P(a,b,c)}{P(a,c)} \Leftrightarrow \\
-    P(a,c)=P(b,c) \Leftrightarrow \\
-    \frac{P(a,c)}{P(c)}=\frac{P(b,c)}{P(c)} \Leftrightarrow \\
-    P(a|c)=P(b|c)$$
-</div>
 <p>True.</p>
 <blockquote>
 <p>b. If <code>$P(a|b,c)=P(a)$</code>, then <code>$P(b|c)=P(b)$</code></p>
@@ -744,29 +631,6 @@ make <code>$P(b)=\sum_{c \in C} P(b|c)*P(c)=0.5*0.2+0.5*0.3=0.25$</code> and
 independence given <code>$c$</code>. E.g.:</p>
 <p><code>$P(a)=0.5, P(b)=0.5, P(c|a, b)=1, P(c|\lnot a, \lnot b)=0, P(c|\lnot a, b)=1, P(c|a, \lnot b)=1$</code></p>
 <p>So this is false.</p>
-<!--
-### 13.4
-
-> Would it be rational for an agent to hold the three beliefs `$P(A)=0.4, P(B)=0.3$`,
-and `$P(A \lor B)=0.5$`? If so, what range of probabilities
-would be rational for the agent to hold for `$A \land B$`? Make up
-a table like the one in Figure 13.2, and show how it supports your
-argument about rationality. Then draw another version of the table where
-`$P(A \lor B)=0.7$`. Explain why it is rational to have this probability,
-even though the table shows one case that is a loss and three that just
-break even. (*Hint*: what is Agent 1 commited to about the probability
-of each of the four cases, especially the case that is a loss?)
-
-It is rational for an agent to believe `$P(A)=0.4, P(B)=0.3$` and
-`$P(A \lor B)=0.5$`, if
-`$P(A \land B)=P(A)+P(B)-P(A \lor B)=0.4+0.3-0.5=0.2$`.
-
-
-
-d004900b35d1cde5a03f5e812b9258f6
-
-
--->
 <h3 id="135"><a class="hanchor" href="#135">13.5</a></h3>
 <blockquote>
 <p>This question deals with the properties of possible worlds, defined
@@ -785,13 +649,6 @@ equivalent to <em>false</em>.</p>
 least one <code>$x_i$</code> so that <code>$x_i$</code> is part of the conjunction in <code>$s_1$</code>
 and <code>$\lnot x_i$</code> is part of the conjunction in <code>$s_2$</code>.</p>
 <p>Then:</p>
-<div>
-    $$s_1 \land s_2 = \\
-    s_1(1) \land \dots \land s_1(i-1) \land x_i \land s_1(i+1) \land \dots \land s_1(n) \land s_2(1) \land \dots \land s_2(i-1) \land \lnot x_i \land s_2(i+1) \land \dots \land s_2(n)=\\
-    s_1(1) \land \dots \land s_1(i-1) \land s_1(i+1) \land \dots \land s_1(n) \land s_2(1) \land \dots \land s_2(i-1) \land s_2(i+1) \land \dots \land s_2(n) \land x_i \land \lnot x_i=\\
-    s_1(1) \land \dots \land s_1(i-1) \land s_1(i+1) \land \dots \land s_1(n) \land s_2(1) \land \dots \land s_2(i-1) \land s_2(i+1) \land \dots \land s_2(n) \land false=\\
-    false$$
-</div>
 <blockquote>
 <p>b. Prove that the disjunction of all possible atomic events is logically
 equivalent to <em>true</em>.</p>
@@ -818,14 +675,6 @@ that makes the proposition true.</p>
 <p>More explicit: Prove <code>$P(a \lor b)= P(a)+P(b)-P(a \land b)$</code> from
 <code>$0 \le P(ω) \le 1, \sum_{ω \in Ω} P(ω)=1$</code>.</p>
 <p>Since <code>$a \lor b \Leftrightarrow ω \in a \cup b$</code> and <code>$\sum_{ω \in a \backslash b} P(ω) + \sum_{ω \in a \cap b} P(ω)=\sum_{ω \in a} P(ω)$</code>:</p>
-<div>
-    $$P(a \lor b)=\\
-    \sum_{ω \in a \cup b} P(ω)=\\
-    \sum_{ω \in a \backslash b} P(ω) + \sum_{ω \in b \backslash a} P(ω) + \sum_{ω \in a \cap b} P(ω)=\\
-    \sum_{ω \in a \backslash b} P(ω) + \sum_{ω \in b \backslash a} P(ω) + \sum_{ω \in a \cap b} P(ω) + \sum_{ω \in a \cap b} P(ω) - \sum_{ω \in a \cap b} P(ω)=\\
-    \sum_{ω \in a} P(ω) + \sum_{ω \in b} P(ω) - \sum_{ω \in a \cap b} P(ω)=\\
-    P(a)+P(b)-P(a \land b)$$
-</div>
 <h2 id="Chapter_14"><a class="hanchor" href="#Chapter_14">Chapter 14</a></h2>
 <h3 id="141"><a class="hanchor" href="#141">14.1</a></h3>
 <blockquote>
@@ -838,51 +687,7 @@ outcomes <code>$X_1$</code>, <code>$X_2$</code>, and <code>$X_3$</code>.</p>
 the necessary CPTs.</p>
 </blockquote>
 <p><img alt="A Bayesian network for drawing the coin &amp; throwing it thrice" src="./img/aima_solutions/14_1_bayesnet.png" title="A Bayesian network for drawing the coin &amp; throwing it thrice. The first parent node contains the coin, the three independent children are the three throws."/></p>
-<table>
-<thead>
-<tr>
-<td>$Coin$</td>
-<td>$P(Coin)$</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>a</td>
-<td>1/3</td>
-</tr>
-<tr>
-<td>b</td>
-<td>1/3</td>
-</tr>
-<tr>
-<td>c</td>
-<td>1/3</td>
-</tr>
-</tbody>
-</table>
 <p>The three conditional tables for <code>$X_1, X_2, X_3$</code> are very the same.</p>
-<table>
-<thead>
-<tr>
-<td>$Coin$</td>
-<td>$P(\{X_1, X_2, X_3\}=Head)$</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>a</td>
-<td>0.2</td>
-</tr>
-<tr>
-<td>b</td>
-<td>0.6</td>
-</tr>
-<tr>
-<td>c</td>
-<td>0.8</td>
-</tr>
-</tbody>
-</table>
 <p>Furthermore, <code>$X_1, X_2, X_3$</code> are mutually conditionally independent
 given <code>$Coin$</code>.</p>
 <blockquote>
@@ -890,26 +695,12 @@ given <code>$Coin$</code>.</p>
 bag if the observed flips come out heads twice and tails once.</p>
 </blockquote>
 <p><code>$C=\underset{coin \in \{a,b,c\}}{\hbox{argmax}} P(coin|H_1, H_2, T_3)$</code></p>
-<div>
-    $$P(coin|H_1, H_2, T_3)=\\
-    \frac{P(H_1, H_2, T_3|coin)*P(coin)}{P(H_1, H_2, H_3)}=\\
-    \frac{P(H_1, H_2, T_3|coin)*P(coin)}{P(H_1|Coin)*P(H_2|Coin)*P(T_3|Coin)}=\\
-    \frac{P(H_1, H_2, T_3|coin)*P(coin)}{\sum_{v \in \{a,b,c\}}(P(H_1|v)*P(v))*\sum_{v \in \{a,b,c\}}(P(H_2|v)*P(v))*\sum_{v \in \{a,b,c\}}(P(T_3|v)*P(v))}=\\
-    \frac{P(H_1|coin)*P(H_2|coin)*P(T_3|coin)*P(coin)}{\sum_{v \in \{a,b,c\}}(P(H_1|v)*P(v))^2*\sum_{v \in \{a,b,c\}}(P(T_3|v)*P(v))}=\\
-    \frac{P(H_1|coin)*P(H_2|coin)*P(T_3|coin)*P(coin)}{(0.2*1/3+0.6*1/3+0.8*1/3)^2*(0.8*1/3+0.4*1/3+0.2*1/3)}=\\
-    \frac{P(H_1|coin)*P(H_2|coin)*P(T_3|coin)*P(coin)}{0.1327407}$$
-</div>
 <p>Now we plug in the values for <code>$coin$</code>:</p>
-<div>
-    $$P(a|H_1, H_2, T_3)=\frac{P(H_1|a)*P(H_2|a)*P(T_3|a)*P(a)}{0.1327407}=\frac{0.2*0.2*0.8*1/3}{0.1327407}=0.0803571\\
-    P(b|H_1, H_2, T_3)=\frac{P(H_1|b)*P(H_2|b)*P(T_3|b)*P(b)}{0.1327407}=\frac{0.6*0.6*0.4*1/3}{0.1327407}=0.36160725384\\
-    P(c|H_1, H_2, T_3)=\frac{P(H_1|c)*P(H_2|c)*P(T_3|c)*P(c)}{0.1327407}=\frac{0.8*0.8*0.2*1/3}{0.1327407}=0.32142867$$
-</div>
 <p>Thus, I conclude that it is most likely that coin b was pulled out of
 the bag.</p>
-<p><em>Note</em>: the probabilities for <code>$P(coin|H_1, H_2, T_3)$</code> don't sum to
-1. I'm not sure what's up with that, but it's a good indicator that I
-have done something horribly wrong. Don't copy this solution.</p>
+<p><em>Note</em>: the probabilities for <code>$P(coin|H_1, H_2, T_3)$</code> don’t sum to
+1. I’m not sure what’s up with that, but it’s a good indicator that I
+have done something horribly wrong. Don’t copy this solution.</p>
 <h2 id="Chapter_15"><a class="hanchor" href="#Chapter_15">Chapter 15</a></h2>
 <h3 id="1513"><a class="hanchor" href="#1513">15.13</a></h3>
 <blockquote>
@@ -918,7 +709,7 @@ day, the professor observes whether the students sleep in class, and
 whether they have red eyes. The professor has the following domain theory:</p>
 <ul>
 <li>The prior probability of getting enough sleep, with no observations, is 0.7.</li>
-<li>The probability of getting enough sleep on night t is 0.8 given
+<li>  The probability of getting enough sleep on night t is 0.8 given
 that the student got enough sleep the previous night, and 0.3
 if not.</li>
 <li>The probability of having red eyes is 0.2 if the student got enough sleep, and 0.7 if not.</li>
@@ -936,101 +727,11 @@ on day t.</p>
 <p><img alt="Image of the resulting dynamic Bayesian network" src="./img/aima_solutions/15_3_bayesnet.png" title="The resulting dynamic Bayesian network, with E nodes in sequence, each parent of one R and one S node."/></p>
 <p>The conditional probabilities tables for the dynamic Bayesian network are:</p>
 <p><code>$P(E_{t+1}|E_t)$</code>:</p>
-<table>
-<thead>
-<tr>
-<td>$E_t$</td>
-<td>$e_{t+1}$</td>
-<td>$\lnot e_{t+1}$</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>0.8</td>
-<td>0.2</td>
-</tr>
-<tr>
-<td>0</td>
-<td>0.3</td>
-<td>0.7</td>
-</tr>
-</tbody>
-</table>
 <p><code>$P(S_t|E_t)$</code>:</p>
-<table>
-<thead>
-<tr>
-<td>$E_t$</td>
-<td>$s_t$</td>
-<td>$\lnot s_t$</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>0.1</td>
-<td>0.9</td>
-</tr>
-<tr>
-<td>0</td>
-<td>0.3</td>
-<td>0.7</td>
-</tr>
-</tbody>
-</table>
 <p><code>$P(R_t|E_t)$</code>:</p>
-<table>
-<thead>
-<tr>
-<td>$E_t$</td>
-<td>$r_t$</td>
-<td>$\lnot r_t$</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>0.2</td>
-<td>0.8</td>
-</tr>
-<tr>
-<td>0</td>
-<td>0.7</td>
-<td>0.3</td>
-</tr>
-</tbody>
-</table>
 <p>For the hidden Markov model, the table for <code>$P(E_{t+1}|E_t)$</code> stays
 the same. For <code>$P(S_t, R_t | E_t)$</code> we assume that <code>$S_t$</code> and <code>$R_t$</code>
 are conditionally independent given <code>$E_t$</code>:</p>
-<table>
-<thead>
-<tr>
-<td>$E_t$</td>
-<td>$r_t, s_t$</td>
-<td>$r_t, \lnot s_t$</td>
-<td>$\lnot r_t, s_t$</td>
-<td>$\lnot r_t, \lnot s_t$</td>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>0.02</td>
-<td>0.18</td>
-<td>0.08</td>
-<td>0.72</td>
-</tr>
-<tr>
-<td>0</td>
-<td>0.21</td>
-<td>0.49</td>
-<td>0.09</td>
-<td>0.21</td>
-</tr>
-</tbody>
-</table>
 <h3 id="1514"><a class="hanchor" href="#1514">15.14</a></h3>
 <blockquote>
 <p>For the DBN specified in Exercise 15.13 and for the evidence values</p>
@@ -1044,65 +745,21 @@ are conditionally independent given <code>$E_t$</code>:</p>
 </blockquote>
 <p>Note: In the previous exercise, I used e as a symbol for getting enough
 sleep. This collides with the abstract symbol for evidence variables,
-but I'm too lazy to change it back (I will use <code>$ev$</code> for the evidence
+but I’m too lazy to change it back (I will use <code>$ev$</code> for the evidence
 variables instead). I will not mix abstract variables and concrete
 variables (here R, S and E) to keep the confusion minimal.</p>
 <p>For t=1:</p>
-<div>
-    $$P(E_1|e_{1:1})=\\
-    E(E_1|\lnot r, \lnot s)=\\
-    \alpha P(\lnot r, \lnot s| E_1)*(P(E_1|e_0)*P(e_0)+P(E_1|\lnot e_0)*P(\lnot e_0)=\\
-    \alpha \langle 0.72, 0.21 \rangle * (\langle 0.8, 0.2 \rangle * 0.7 + \langle 0.2, 0.8 \rangle * 0.3)=\\
-    \alpha \langle 0.4464, 0.0798 \rangle \approx \\
-    \langle 0.8483, 0.151653 \rangle $$
-</div>
 <p>For t=2:</p>
-<div>
-    $$P(E_2|e_{1:2})=\\
-    E(E_2|r, \lnot s)=\\
-    \alpha P(r, \lnot s| E_2)*(P(E_2|e_1)*P(e_1)+P(E_2|\lnot e_1)*P(\lnot e_1)=\\
-    \alpha \langle 0.18, 0.49 \rangle * (\langle 0.8, 0.2 \rangle * 0.8483 + \langle 0.3, 0.7 \rangle * 0.151653)=\\
-    \alpha \langle 0.13034446, 0.13515 \rangle \approx \\
-    \langle 0.490949, 0.50905 \rangle $$
-</div>
 <p>For t=3:</p>
-<div>
-    $$P(E_3|e_{1:3})=\\
-    E(E_3|r, s)=\\
-    \alpha P(r, s| E_3)*(P(E_3|e_2)*P(e_2)+P(E_3|\lnot e_2)*P(\lnot e_2)=\\
-    \alpha \langle 0.02, 0.21 \rangle * (\langle 0.8, 0.2 \rangle * 0.490949 + \langle 0.3, 0.7 \rangle * 0.50905)=\\
-    \alpha \langle 0.0109095, 0.09545 \rangle \approx \\
-    \langle 0.1025715, 0.89742846\rangle $$
-</div>
 <blockquote>
 <p>b. Smoothing: Compute <code>$P(EnoughSleep_t|e_{1:3})$</code> for each of t = 1, 2, 3.</p>
 </blockquote>
-<p>I'll use k instead of t for the point of smoothing here, because, let's
-be real, I don't need more double-usage of symbols:</p>
+<p>I’ll use k instead of t for the point of smoothing here, because, let’s
+be real, I don’t need more double-usage of symbols:</p>
 <p>For k=1:</p>
-<div>
-    $$P(E_1|ev_{1:t}=\alpha P(E_1|ev_{1:1})\times P(ev_{2:3}|E_1)=\alpha f_{1:1} \times b_{2:3}=\\
-    \alpha \langle 0.8483, 0.151653 \rangle \times b_{2:3}=\\
-    \alpha \langle 0.8483, 0.151653 \rangle \times P(ev_{2:3}|E_1)=\\
-    \alpha \langle 0.8483, 0.151653 \rangle \times P(r, \lnot s | e_2)*P(ev_{3:3}|e_2)*P(e_2|E_1)+P(r, \lnot s| \lnot e_2)*P(ev_{3:3}|\lnot e_2) * P(\lnot e_2 | E_1)=\\
-    \alpha \langle 0.8483, 0.151653 \rangle \times P(r, \lnot s | e_2)*P(r,s|e_2)*P(e_2|E_1)+P(r, \lnot s| \lnot e_2)*P(r,s|\lnot e_2) * P(\lnot e_2 | E_1)=\\
-    \alpha \langle 0.8483, 0.151653 \rangle \times 0.18*0.02*\langle 0.8, 0.3 \rangle + 0.49*0.21*\langle 0.2, 0.7 \rangle=
-    \alpha \langle 0.8483, 0.151653 \rangle \times \langle 0.02346, 0.07311 \rangle=\\
-    \langle 0.64221, 0.3577896 \rangle $$
-</div>
 <p>For k=2:</p>
-<div>
-    $$P(E_2|ev_{1:t}=\alpha P(E_2|ev_{1:2})\times P(ev_{3:3}|E_2)=\alpha f_{1:2} \times b_{3:3}=\\
-    \alpha  \langle 0.490949, 0.50905 \rangle \times \langle 0.490949, 0.50905\rangle \times b_{3:3}=\\
-    \alpha  \langle 0.490949, 0.50905 \rangle \times \langle 0.490949, 0.50905\rangle \times P(ev_{3:3}|E_2)=\\
-    \alpha  \langle 0.490949, 0.50905 \rangle \times P(r, s | e_3)*P(ev_{4:3}|e_3)*P(e_3|E_2)+P(r, s| \lnot e_3)*P(ev_{4:3}|\lnot e_3) * P(\lnot e_3 | E_2)=\\
-    \alpha  \langle 0.490949, 0.50905 \rangle \times P(r, s | e_3)*P(e_3|E_2)+P(r, s| \lnot e_3) * P(\lnot e_3 | E_2)=\\
-    \alpha  \langle 0.490949, 0.50905 \rangle \times 0.02*\langle 0.8, 0.3 \rangle + 0.21*\langle 0.2, 0.7 \rangle=
-    \alpha  \langle 0.490949, 0.50905 \rangle \times \langle 0.058, 0.153\rangle=\\
-    \langle 0.2677723998, 0.732276 \rangle $$
-</div>
-<p>Since I don't know <code>$e_{4:3}$</code> (I think nobody does), I assign it
-probability 1. Should I assign it probability 0? I don't know!</p>
+<p>Since I don’t know <code>$e_{4:3}$</code> (I think nobody does), I assign it
+probability 1. Should I assign it probability 0? I don’t know!</p>
 <p>For k=3:</p>
 <p>The number is the same as for filtering, since k=t.</p>
 <blockquote>
@@ -1112,10 +769,10 @@ probability 1. Should I assign it probability 0? I don't know!</p>
 <code>$P(E_1|ev_{1:1})=\langle 0.8483, 0.151653 \rangle, P(E_2|ev_{1:2})=\langle 0.490949, 0.50905 \rangle$</code>,
 and
 <code>$P(E_1|ev_{1:3})=\langle 0.64221, 0.3577896 \rangle, P(E_2|ev_{1:3})=\langle 0.2677723998, 0.732276 \rangle$</code>.</p>
-<p>The probabilities don't disagree sharply at any point. Interestingly,
+<p>The probabilities don’t disagree sharply at any point. Interestingly,
 <code>$P(E_1|ev_{1:1})$</code> is more confident than <code>$P(E_1|ev_{1:3})$</code>, but
-it's the other way around for <code>$E_2$</code>.</p>
-<p>Otherwise, what's there to compare further?</p>
+it’s the other way around for <code>$E_2$</code>.</p>
+<p>Otherwise, what’s there to compare further?</p>
 <h2 id="Chapter_16"><a class="hanchor" href="#Chapter_16">Chapter 16</a></h2>
 <h3 id="161"><a class="hanchor" href="#161">16.1</a></h3>
 <blockquote>
@@ -1172,7 +829,7 @@ and presidents receiving on average ~50% of the vote.</p>
 <blockquote>
 <p>g. Number of eggs produced in Oregon in 1985.</p>
 </blockquote>
-<p>Let's say every Oregonian eats an egg a day, and Oregon produces all
+<p>Let’s say every Oregonian eats an egg a day, and Oregon produces all
 its own eggs.</p>
 <pre><code>    [100000 300000 1500000]*365
 [36500000 109500000 547500000]
@@ -1189,13 +846,13 @@ Buddhists making up 2% of the world population.</p>
 [18000000.0 120000000.0 600000000.0]
 </code></pre>
 <p>Other method: Most buddhists probably live in China/India/Japan. China
-had 1b, India had ~700m (?), Japan had ~100m. Let's say 20% in each of
+had 1b, India had ~700m (?), Japan had ~100m. Let’s say 20% in each of
 those countries (major religion, being generous because other countries
 are not included). Median comes out to</p>
 <pre><code>    0.2*700000000+1000000000+100000000
 360000000.0
 </code></pre>
-<p>That's not that far off of the other number. Let's say 100m, 240m (the
+<p>That’s not that far off of the other number. Let’s say 100m, 240m (the
 mean of the two estimates for the median), 600m.</p>
 <blockquote>
 <p>i. Number of deaths due to AIDS in the United States in 1981.</p>
@@ -1204,11 +861,11 @@ mean of the two estimates for the median), 600m.</p>
 <blockquote>
 <p>j. Number of U.S. patents granted in 1901.</p>
 </blockquote>
-<p>Let's say 1 patent per year for every 1000/2000/10000 people, for
+<p>Let’s say 1 patent per year for every 1000/2000/10000 people, for
 100m/150m/200m people.</p>
 <p>That results in 10k, 75k, 200k. But that seems a bit much. How
 big could the patent office be? 10k patents would mean processing
-~25 patents a day. Let's knock these numbers down a little.</p>
+~25 patents a day. Let’s knock these numbers down a little.</p>
 <p>5k, 50k, 150k.</p>
 <h4 id="Ranking_My_Answers"><a class="hanchor" href="#Ranking_My_Answers">Ranking My Answers</a></h4>
 <blockquote>
@@ -1222,15 +879,15 @@ fewer than half the answers will fall within the bounds. With practice,
 you can calibrate yourself to give realistic bounds, and thus be more
 useful in supplying information for decision making.</p>
 </blockquote>
-<p>a. Lies in my given range, but I was a bit pessimistic. <br/>
-b. Again, I was pessimistic, but I wasn't so bad, only 300k off. <br/>
-c. Yeah, I didn't perform well on this one. I guess I should have been more aggressive in my estimation how early much of the US was explored. Still, 1541 is surprising (the American continent was discovered in 1492, and only 50 years later they find the Mississippi?). <br/>
-d. I'm proud of this one–only 7m too optimistic, for a question I know next to nothing about (I couldn't name a single thing Jimmy Carter did during his presidency). <br/>
-e. I roughly knew the order of magnitude for this one for today, with the major hurdle being to estimate what the state of knowledge about tree age was in 2002. <br/>
-f. Pretty accurate on this one, too. I corrected the number down a couple of times before checking, reflecting on dams probably not being <em>that</em> high. <br/>
-g. I was way too pessimistic about this one. I didn't know whether Oregon was a major agricultural state (is it?) and I didn't include the possibility that Oregon overproduces eggs. Too bad. <br/>
-h. Also proud of this one. 50m off of the real number (and too low! I was fearing I was being too optimistic, being exposed to Buddhism much more than other religions). Glad I did the dialectical bootstrapping here. <br/>
-g. I presume 1980 was just at the start of the AIDS pandemic. I was careful enough to go very low, but I suspected that AIDS started in the 70s, and shit really hit the fan in the 90s, but wasn't sure how bad exactly the 80s were. Still, 250k as an upper range was way too careful (COVID-19 killed ~200k in the US in 2020, and that was the biggest pandemic since the Spanish Flu). <br/>
+<p>a. Lies in my given range, but I was a bit pessimistic.<br/>
+b. Again, I was pessimistic, but I wasn’t so bad, only 300k off.<br/>
+c. Yeah, I didn’t perform well on this one. I guess I should have been more aggressive in my estimation how early much of the US was explored. Still, 1541 is surprising (the American continent was discovered in 1492, and only 50 years later they find the Mississippi?).<br/>
+d. I’m proud of this one–only 7m too optimistic, for a question I know next to nothing about (I couldn’t name a single thing Jimmy Carter did during his presidency).<br/>
+e. I roughly knew the order of magnitude for this one for today, with the major hurdle being to estimate what the state of knowledge about tree age was in 2002.<br/>
+f. Pretty accurate on this one, too. I corrected the number down a couple of times before checking, reflecting on dams probably not being <em>that</em> high.<br/>
+g. I was way too pessimistic about this one. I didn’t know whether Oregon was a major agricultural state (is it?) and I didn’t include the possibility that Oregon overproduces eggs. Too bad.<br/>
+h. Also proud of this one. 50m off of the real number (and too low! I was fearing I was being too optimistic, being exposed to Buddhism much more than other religions). Glad I did the dialectical bootstrapping here.<br/>
+g. I presume 1980 was just at the start of the AIDS pandemic. I was careful enough to go very low, but I suspected that AIDS started in the 70s, and shit really hit the fan in the 90s, but wasn’t sure how bad exactly the 80s were. Still, 250k as an upper range was way too careful (COVID-19 killed ~200k in the US in 2020, and that was the biggest pandemic since the Spanish Flu).<br/>
 h. Very proud of this one. Bit too optimistic about the capabilities of the US patent office, but still in the right range.</p>
 <p>Summing up: 1 below my 25th percentile estimate, 4 between the 25th
 percentile and the median, 4 between the median and the 75th percentile,
@@ -1243,7 +900,7 @@ narrower.</p>
 <p>Try this second set of questions and see if there is any improvement:</p>
 <p>a. Year of birth of Zsa Zsa Gabor.</p>
 </blockquote>
-<p>I'm not sure who this is.</p>
+<p>I’m not sure who this is.</p>
 <p>1775, 1830, 1930</p>
 <blockquote>
 <p>b. Maximum distance from Mars to the sun in miles.</p>
@@ -1252,7 +909,6 @@ narrower.</p>
 <pre><code>    [1.5 2 5]*150%1.6
 [140.625 187.5 468.75]
 </code></pre>
-<!--TODO: Mars missions take how long there? That should be the minimum distance-->
 <blockquote>
 <p>c. Value in dollars of exports of wheat from the United States in 1992.</p>
 </blockquote>
@@ -1266,7 +922,7 @@ of exports.</p>
 <blockquote>
 <p>d. Tons handled by the port of Honolulu in 1991.</p>
 </blockquote>
-<p>Let's say 1/4/10 ships a day, with 20/100/500 tons cargo?</p>
+<p>Let’s say ¼/10 ships a day, with 20/100/500 tons cargo?</p>
 <pre><code>    [1 4 10]*[20 100 1000]*365
 [7300 146000 3650000]
 </code></pre>
@@ -1307,22 +963,22 @@ we were walking slowly, a speed of ~4km/h).</p>
 <p>j. Number of deaths due to automobile accidents in the United States in 1992.</p>
 </blockquote>
 <p>Car safety was probably worse back then. The US population was probably
-smaller (today it's ~310m). I think I remember something of ~20k car
+smaller (today it’s ~310m). I think I remember something of ~20k car
 deaths in the US some years ago?</p>
 <pre><code>    1.05*[5000 20000 50000]*290%310
 [4911.29032258064515 19645.1612903225806 49112.9032258064515]
 </code></pre>
 <h3 id="Ranking_My_Answers_1"><a class="hanchor" href="#Ranking_My_Answers_1">Ranking My Answers</a></h3>
-<p>a. I was a bit too careful on the lower rankings (maybe I should have taken into account that being a popstar was really hard before 1880, just because the media didn't exist) <br/>
-b. I was quite close to the lower bound, which surprises me. I maybe estimated the orbit of Mars to be more elliptical than circular. <br/>
-c. My estimate is way too low. I was probably decomposing too hard here. <br/>
-d. Again, my estimate was too low. Probably underestimated the amount of cargo in one ship? Also, duh, Honolulu is in the middle of the Pacific, of course there's going to be a lot of cargo. <br/>
-e. I'm quite happy with this one. <br/>
-f. Ditto. <br/>
-g. This one was close. I shouldn't underestimate how long the history of the US is, and how early the West Coast got explored. <br/>
-h. My value for the number of feet per meter was probably too low. <br/>
-i. Just below my lower estimate. We were walking pretty slow, I should have taken that more into account. <br/>
-j. Again, my estimates were a bit low. I've overestimated the number of deaths in car crashes, was corrected for that, and probably overcorrected here.</p>
+<p>a. I was a bit too careful on the lower rankings (maybe I should have taken into account that being a popstar was really hard before 1880, just because the media didn’t exist)<br/>
+b. I was quite close to the lower bound, which surprises me. I maybe estimated the orbit of Mars to be more elliptical than circular.<br/>
+c. My estimate is way too low. I was probably decomposing too hard here.<br/>
+d. Again, my estimate was too low. Probably underestimated the amount of cargo in one ship? Also, duh, Honolulu is in the middle of the Pacific, of course there’s going to be a lot of cargo.<br/>
+e. I’m quite happy with this one.<br/>
+f. Ditto.<br/>
+g. This one was close. I shouldn’t underestimate how long the history of the US is, and how early the West Coast got explored.<br/>
+h. My value for the number of feet per meter was probably too low.<br/>
+i. Just below my lower estimate. We were walking pretty slow, I should have taken that more into account.<br/>
+j. Again, my estimates were a bit low. I’ve overestimated the number of deaths in car crashes, was corrected for that, and probably overcorrected here.</p>
 <p>Summing up: 1 below my 25th percentile estimate, 2 between the 25th
 percentile and the median, 4 between the median and the 75th percentile,
 and 3 above the 75th percentile.</p>
@@ -1337,38 +993,25 @@ up heads. If the first heads appears on the nth toss, you win <code>$2^n$</code>
 dollars.</p>
 <p>a. Show that the expected monetary value of this game is infinite.</p>
 </blockquote>
-<div>
-    $$EU=\underset{n \rightarrow \infty}{\lim} \sum_{i=1}^{n} \frac{1}{2^i}*2^i=\\
-    \underset{n \rightarrow \infty}{\lim} \sum_{i=1}^{n} 1=\\
-    \underset{n \rightarrow \infty}{\lim} n$$
-</div>
 <blockquote>
 <p>b. How much would you, personally, pay to play the game?</p>
 </blockquote>
-<p>I'm not sure. Maybe ~\$20? I guess I value money linearly up to that
+<p>I’m not sure. Maybe ~$20? I guess I value money linearly up to that
 range.</p>
 <blockquote>
 <p>c. Nicolas’s cousin Daniel Bernoulli resolved the apparent
 paradox in 1738 by suggesting that the utility of money is measured
 on a logarithmic scale (i.e., <code>$U(S_n) = a \log_2 n+b$</code>, where <code>$S_n$</code>
-is the state of having \$n). What is the expected utility of the game
+is the state of having $n). What is the expected utility of the game
 under this assumption?</p>
 </blockquote>
-<div>
-    $$EU=\underset{n \rightarrow \infty}{\lim} \sum_{i=1}^{n} \frac{a*log_2(2^i+b)}{2^i}=\\
-    \underset{n \rightarrow \infty}{\lim} a*\sum_{i=1}^{n} \frac{log_2(2^i+b)}{2^i}=\\
-    \underset{n \rightarrow \infty}{\lim} a*\sum_{i=1}^{n} \frac{i}{2^i}=\\
-    \underset{n \rightarrow \infty}{\lim} a*\sum_{i=1}^{n} \frac{1}{2^i \ln(2)}= \\
-    \frac{a}{\ln(2)}$$
-</div>
 <p><code>$2^i+b$</code> converges towards <code>$2^i$</code>.</p>
 <blockquote>
 <p>d. What is the maximum amount that it would be rational to pay to play
-the game, assuming that one’s initial wealth is \$k ?</p>
+the game, assuming that one’s initial wealth is $k ?</p>
 </blockquote>
-<p>I assume that "the maximum amount" refers to "the maximum number of
-times".</p>
-<!--TODO: actually solve this.-->
+<p>I assume that “the maximum amount” refers to “the maximum number of
+times”.</p>
 <h3 id="1615"><a class="hanchor" href="#1615">16.15</a></h3>
 <blockquote>
 <p>Consider a student who has the choice to buy or not buy a textbook for a
@@ -1378,13 +1021,13 @@ Boolean chance nodes, M, indicating whether the student has mastered the
 material in the book, and P, indicating whether the student passes the
 course. Of course, there is also a utility node, U. A certain student,
 Sam, has an additive utility function: 0 for not buying the book and
--\$100 for buying it; and \$2000 for passing the course and 0 for not
+-$100 for buying it; and $2000 for passing the course and 0 for not
 passing. Sam’s conditional probability estimates are as follows:</p>
-<p><code>$P(p|b, m) = 0.9$</code> <br/>
-<code>$P(m|b) = 0.9$</code> <br/>
-<code>$P(p|b, \lnot m) = 0.5$</code> <br/>
-<code>$P(m|\lnot b) = 0.7$</code> <br/>
-<code>$P(p|\lnot b, m) = 0.8$</code> <br/>
+<p><code>$P(p|b, m) = 0.9$</code><br/>
+<code>$P(m|b) = 0.9$</code><br/>
+<code>$P(p|b, \lnot m) = 0.5$</code><br/>
+<code>$P(m|\lnot b) = 0.7$</code><br/>
+<code>$P(p|\lnot b, m) = 0.8$</code><br/>
 <code>$P(p|\lnot b, \lnot m) = 0.3$</code></p>
 <p>You might think that P would be independent of B given M, But [sic]
 this course has an open-book final—so having the book helps.</p>
@@ -1394,20 +1037,6 @@ this course has an open-book final—so having the book helps.</p>
 <blockquote>
 <p>b. Compute the expected utility of buying the book and of not buying it.</p>
 </blockquote>
-<div>
-    $$EU(b)=\\
-    P(p|b)*U(p|b)+P(\lnot p|b)*U(\lnot p|b)=\\
-    (P(p|b,m)*P(m|b)+P(p|b,\lnot m)*P(\lnot m|b))*(\$2000-\$100)+((P(\lnot p|b,m)*P(m|b)+P(\lnot p|b,\lnot m)*P(\lnot m|b))*(-\$100)=\\
-    (0.9*0.9+0.5*0.1)*(\$2000-\$100)+(0.1*0.9+0.5*0.1)*(-\$100)=\\
-    \$1620$$
-</div>
-<div>
-    $$EU(\lnot b)=\\
-    P(p|\lnot b)*U(p|\lnot b)+P(\lnot p|\lnot b)*U(\lnot p|\lnot b)=\\
-    (P(p|\lnot b,m)*P(m|\lnot b)+P(p|\lnot b,\lnot m)*P(\lnot m|\lnot b))*(\$2000)=\\
-    (0.8*0.7+0.3*0.3)*(\$2000)=\\
-    \$1300$$
-</div>
 <p>Since <code>$U(\lnot p|\lnot b)=0$</code>, it can be left out of the calculation.</p>
 <blockquote>
 <p>c. What should Sam do?</p>
@@ -1420,12 +1049,12 @@ various tests with various costs (e.g., kick the tires, take the car to
 a qualified mechanic) and then, depending on the outcome of the tests,
 decide which car to buy. We will assume that the buyer is deciding
 whether to buy car <code>$c_1$</code>, that there is time to carry out at most
-one test, and that <code>$t_1$</code> is the test of <code>$c_1$</code> and costs \$50. A car
+one test, and that <code>$t_1$</code> is the test of <code>$c_1$</code> and costs $50. A car
 can be in good shape (quality <code>$q^+$</code>) or bad shape (quality <code>$q^-$</code>),
 and the tests might help indicate what shape the car is in. Car <code>$c_1$</code>
-costs \$1,500, and its market value is \$2,000 if it is in good shape;
-if not, \$700 in repairs will be needed to make it in good shape. The
-buyer's estimate is that <code>$c_1$</code> has a 70% chance of being in good shape.</p>
+costs $1,500, and its market value is $2,000 if it is in good shape;
+if not, $700 in repairs will be needed to make it in good shape. The
+buyer’s estimate is that <code>$c_1$</code> has a 70% chance of being in good shape.</p>
 <p>a. Draw the decision network that represents this problem.</p>
 </blockquote>
 <p><img alt="Decision network for 16.17" src="img/aima_solutions/16_17_decisionnet.png" title="A decision network for exercise 16.17. A rectangle T and B, an oval Q, and a diamond U. Arrow from T to Q and B, from Q to B, and from B to U."/></p>
@@ -1436,46 +1065,23 @@ buyer's estimate is that <code>$c_1$</code> has a 70% chance of being in good sh
 <blockquote>
 <p>c. Tests can be described by the probability that the car will pass
 or fail the test given that the car is in good or bad shape. We have
-the following information: <br/>
-<code>$P(pass(c_1, t_1)|q^+(c_1))=0.8$</code> <br/>
-<code>$P(pass(c_1, t_1)|q^-(c_1))=0.35$</code> <br/>
-Use Bayes' theorem to calculate the probability that the car will pass
+the following information:<br/>
+<code>$P(pass(c_1, t_1)|q^+(c_1))=0.8$</code><br/>
+<code>$P(pass(c_1, t_1)|q^-(c_1))=0.35$</code><br/>
+Use Bayes’ theorem to calculate the probability that the car will pass
 (or fail) its test and hence the probability that it is in good (or bad)
 shape given each possible test outcome.</p>
 </blockquote>
-<div>
-    $$P(q^+(c_1)|pass(c_1, t_1))=\\
-    \frac{P(pass(c_1, t_1)|q^+(c_1)*P(q^+(c_1))}{P(pass(c_1, t_1))}=\\
-    \frac{0.8*0.7}{\sum_{i \in \{q^+(c_1), q^-(c_1)\}} P(pass(c_1, t_1)|i)*P(i)}=\\
-    \frac{0.8*0.7}{0.8*0.7+0.35*0.3} \approx 0.8421$$
-</div>
 <p>With that, <code>$P(q^-(c_1)|pass(c_1, t_1)) \approx 0.1579$</code>.</p>
-<div>
-    $$P(q^+(c_1)|\lnot pass(c_1, t_1))=\\
-    \frac{P(\lnot pass(c_1, t_1)|q^+(c_1)*P(q^+(c_1))}{P(\lnot pass(c_1, t_1))}=\\
-    \frac{0.2*0.7}{\sum_{i \in \{q^+(c_1), q^-(c_1)\}} P(\lnot pass(c_1, t_1)|i)*P(i)}=\\
-    \frac{0.2*0.7}{0.2*0.7+0.65*0.3} \approx 0.4179$$
-</div>
 <p>With that, <code>$P(\lnot q^-(c_1)|\lnot pass(c_1, t_1) \approx 0.5821$</code>.</p>
 <blockquote>
 <p>d. Calculate the optimal decisions given either a pass or a fail,
 and their expected utilities.</p>
 </blockquote>
-<div>
-    $$E(U|b, t, pass(c_1, t_1))=0.8421*(\$2000-\$1500)+0.1579*(\$2000-(\$1500+\$700))=\$389.47 \\
-    E(U|\lnot b, t, pass(c_1, t_1))=\$0 \\
-    E(U|b, t, \lnot pass(c_1, t_1))=0.4179*(\$2000-\$1500)+0.5821*(\$2000-(\$1500+\$700))=\$92.53 \\
-    E(U|\lnot b, t, \lnot pass(c_1, t_1))=0.4179*(-\$50)+0.5821*(-\$50)=\$0$$
-</div>
 <blockquote>
 <p>e. Calculate the value of information of the test, and derive an
 optimal conditional plan for the buyer.</p>
 </blockquote>
-<div>
-    $$VOI(pass(c_1, t_1))=(P(pass(c_1, t_1))*EU(b|t, pass(c_1, t_1)+P(\lnot pass(c_1, t_1))*EU(b|t, \lnot pass(c_1, t_1)))-EU(b|\lnot t)=\\
-    ((0.8*0.7+0.35*0.3)*\$389.47+(0.2*0.7+0.65*0.3)*\$92.53)-\$290 \approx \\
-    \$0$$
-</div>
 <p>This makes sense, since in all cases (even if the test says that the
 car is a lemon!), the optimal decision is to buy the car.</p>
 <h2 id="Chapter_17"><a class="hanchor" href="#Chapter_17">Chapter 17</a></h2>
@@ -1498,7 +1104,7 @@ violated.</p>
 <p>However, not all hope is lost. Given a sequence of rewards on states,
 one can define the utility to be the maximum of the average of all
 rewards in the sequence. This utility should be stationary.</p>
-<p>Disclaimer: I'm not sure what is exactly being asked in the second
+<p>Disclaimer: I’m not sure what is exactly being asked in the second
 part of the question. We have sequences of rewards, we have the utility
 function that ranks sequences based on the maximum, and we then have an
 agent that acts based on these utilities. Is my job to modify the reward

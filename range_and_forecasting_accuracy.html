@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2020-03-24, modified: 2023-01-20, language: english, status: maintenance, importance: 6, confidence: possible</em></p>
 <blockquote>
 <p><strong>This text looks at the accuracy of forecasts in
@@ -63,19 +63,18 @@ forecasting</a>
 in which humans aggregate both <a href="https://en.wikipedia.org/wiki/Forecasting#Qualitative_vs._quantitative_methods">qualitative and quantitative
 methods</a>
 to make predictions, and become better at doing so, is a comparatively
-simple idea. Basically, one needs to have only very few tools at one's
+simple idea. Basically, one needs to have only very few tools at one’s
 disposal to being ready to start forecasting:</p>
-<!--TODO: give more weight to the fact that it is humans doing this-->
 <ul>
 <li>View of belief as probabilistic (perhaps with some bayesian epistemology)</li>
 <li>Track records (grading results of forecasts using for example brier scores or log scores)</li>
 <li>Probability theory (a concept of probabilities, and maybe some simple probability distributions)</li>
 </ul>
-<p>Since the 1980s, forecasting has slowly but surely matured from "X is
-going to happen because divine revelation told me so" to "my probability
+<p>Since the 1980s, forecasting has slowly but surely matured from “X is
+going to happen because divine revelation told me so” to “my probability
 distribution on the outcome of this random variable is an X distribution
-with the following parameters", or alternatively "I assign a probability
-of X% to this event".</p>
+with the following parameters”, or alternatively “I assign a probability
+of X% to this event”.</p>
 <p>However, since this kind of forecasting is relatively recent, information
 about the accuracy of long-range forecasting is basically non-existent:</p>
 <blockquote>
@@ -106,7 +105,6 @@ training and methods we use are different.
 </ol>
 </blockquote>
 <p><em>— <a href="http://lukemuehlhauser.com">Luke Muehlhauser</a>, <a href="https://www.openphilanthropy.org/blog/how-feasible-long-range-forecasting">“How Feasible Is Long-range Forecasting?”</a>, 2019</em></p>
-<!--TODO: put in info where Metaculus and PredictionBook fit into this-->
 <p>In this text, I will try to look at the accuracy of short-term and
 mid-term forecasting, which may shine some light on the relation between
 the range of forecasts and their accuracy in general.</p>
@@ -135,17 +133,6 @@ forecasting data from these sites, and then analyze the data with <a href="https
 3</a>, using
 <a href="https://numpy.org/">NumPy</a>, <a href="https://scipy.org/scipylib/">SciPy</a> and
 <a href="https://matplotlib.org/">Matplotlib</a>.</p>
-<!--
-Make a point here that making forecasts is one of the best existing
-practical method of rationality verification & exercises:
-https://www.lesswrong.com/s/pvim9PZJ6qHRTMqD3/p/5K7CMa6dEL7TN7sae
-
-Not necessary, move elsewhere.
--->
-<!--
-Distinction between {probabilistic,non-probabilistic}
-{model-based,judgmental} forecasting
--->
 <h2 id="Related_Work"><a class="hanchor" href="#Related_Work">Related Work</a></h2>
 <p><a href="https://rethinkpriorities.org/publications/data-on-forecasting-accuracy-across-different-time-horizons" title="Data on forecasting accuracy across different time horizons and levels of forecaster experience">Dillon
 2021</a>
@@ -154,7 +141,7 @@ of predictions a forecaster has made (finding that more experienced
 forecasters are less overconfident), and investigates the relation between
 Brier score and range; finding, as in this analysis, that surprisingly
 predictions with longer horizons were <em>more accurate</em>. The latter finding
-is not likely not caused by more experienced forecasters making more
+is likely not caused by more experienced forecasters making more
 long-term predictions.</p>
 <h2 id="Results"><a class="hanchor" href="#Results">Results</a></h2>
 <p>Using two datasets with both ~45k predictions, having ranges between
@@ -163,38 +150,41 @@ range). I investigate the relation between the accuracy of predictions
 and their range (that is, the time between the prediction being made
 and the result of the prediction being known).</p>
 <p>I find that the data indicates the following conclusions (if any
-of the terms don't make sense, perhaps reading the <a href="#Three_Different_Analyses_An_Illustrative_Example">illustrative
+of the terms don’t make sense, perhaps reading the <a href="#Three_Different_Analyses_An_Illustrative_Example">illustrative
 example</a> can help):</p>
 <ol>
-<li>Comparing <strong>all forecasts on all questions</strong>, irrespective of the
+<li> Comparing <strong>all forecasts on all questions</strong>, irrespective of the
 question (<a href="#Accuracy_Between_Forecasts">more</a>):
+
 <ol>
-<li>Predictions made <em>a long time before their resolution</em>
+<li> Predictions made <em>a long time before their resolution</em>
 are generally <em>less accurate</em> than predictions made
 <em>a shorter time before their resolution</em> (<a href="#Results_1">more</a>).
+
 <ol>
 <li>The results for PredictionBook and Metaculus disagree here. This can be partially,
 but not completely, explained by the
 fact that questions with a longer
 range receive more accurate forecasts
 (<a href="#This_Partially_Explains_the_Result_Between_Forecasts">more</a>).</li>
-<li>The correlations (0.02 for Metaculus, -0.02 for
+<li> The correlations (0.02 for Metaculus, -0.02 for
 PredictionBook) and
 <a href="https://en.wikipedia.org/wiki/Slope">slopes</a>
 of the <a href="https://en.wikipedia.org/wiki/Linear_regression">linear
 regressions</a>
 are close to 0.</li>
 </ol></li>
-<li>The timespan into the future at which our forecasts
+<li> The timespan into the future at which our forecasts
 become <em>approximately random</em> (the
 <em><a href="#The_Horizon">horizon</a></em>) is <em>not easily estimated
 from the data</em> (<a href="#This_Is_Cool">more</a>).
+
 <ol>
-<li>Fitting a logistic function
+<li> Fitting a logistic function
 (<a href="##Fitting_a_Logistic_Function">more</a>), the
 expected horizon is ~3.6 years for Metaculus
 and ~18 years for PredictionBook</li>
-<li>Fitting an exponential function
+<li> Fitting an exponential function
 (<a href="#Fitting_an_Exponential_Function">more</a>),
 the expected horizon is ~75 days for Metaculus,
 and ~0.5 days for PredictionBook</li>
@@ -202,76 +192,48 @@ and ~0.5 days for PredictionBook</li>
 </ol></li>
 <li>Aggregating <strong>the forecasts on each question, and then comparing the
 questions</strong> to one another (<a href="#Accuracy_Between_Questions">more</a>):
+
 <ol>
-<li>Questions with a longer range (that is, <em>time between the question
+<li> Questions with a longer range (that is, <em>time between the question
 being written and the question being resolved</em>) generally receive
 predictions with a higher accuracy than questions with a shorter
 range (<a href="#Results_2">more</a>).
+
 <ol>
-<li>Again, the correlation coefficients (-0.01 for
+<li> Again, the correlation coefficients (-0.01 for
 Metaculus (though p&gt;0.8), and -0.05 for
 PredictionBook) and the slopes of the linear
 regressions are close to 0.</li>
 </ol></li>
-<li>The <a href="#The_Horizon">horizon</a> is <em>only a few days</em> in this
+<li> The <a href="#The_Horizon">horizon</a> is <em>only a few days</em> in this
 scenario (<a href="#NonLinear_CurveFitting_1">more</a>), which <a href="#Why_Longer_Range_Questions_More_Accurate">might
 make sense</a>.</li>
 </ol></li>
-<li>Comparing <strong>only predictions on the same question</strong>, for all
+<li> Comparing <strong>only predictions on the same question</strong>, for all
 questions (<a href="#Accuracy_Within_Questions">more</a>):
+
 <ol>
-<li>Predictions made <em>on the same question closer to
+<li> Predictions made <em>on the same question closer to
 resolution time</em> are generally <em>more accurate</em> than
 predictions that are made <em>long before resolution time</em>
 (<a href="#Aggregating_Linear_Regressions">more</a>).</li>
-<li>The distribution of horizons is
+<li> The distribution of horizons is
 <em>long-tailed</em>, perhaps distributed logarithmically
 (<a href="#Logistic_Forecast_Horizons_for_Questions">more</a> and
 <a href="#Exponential_Forecast_Horizons_for_Questions">more</a>)
+
 <ol>
 <li>Most expected horizons are very short (&lt;10 days)</li>
-<li>For logistic curve-fits, the mean horizon over
+<li> For logistic curve-fits, the mean horizon over
 questions is improbably high (10²³ days)
 (<a href="#Logistic_Forecast_Horizons_for_Questions">more</a>).</li>
-<li>For exponential curve-fits, the mean
+<li> For exponential curve-fits, the mean
 horizon over questions is ~4.5 years for
 Metaculus and ~120 years for PredictionBook
 (<a href="#Exponential_Forecast_Horizons_for_Questions">more</a>).</li>
 </ol></li>
 </ol></li>
 </ol>
-<table>
-<tbody>
-<tr>
-<td></td>
-<td>Logistic fit horizon (PredictionBook)</td>
-<td>Logistic fit horizon (Metaculus)</td>
-<td>Exponential fit horizon (PredictionBook)</td>
-<td>Exponential fit horizon (Metaculus)</td>
-</tr>
-<tr>
-<td>Between Forecasts</td>
-<td>18 years</td>
-<td>3.6 years</td>
-<td>75 days</td>
-<td>1 day</td>
-</tr>
-<tr>
-<td>Between Questions</td>
-<td>4.5 days</td>
-<td>1 day</td>
-<td>9 days</td>
-<td>&lt;1 day</td>
-</tr>
-<tr>
-<td>Within Questions mean</td>
-<td>1.08·10²¹ years</td>
-<td>5.28·10²⁰ years</td>
-<td>123.4 years</td>
-<td>4.42 years</td>
-</tr>
-</tbody>
-</table>
 <p>These results suggest what to expect with questions with even greater
 range: That later predictions (closer to resolution time) on them will
 generally be more accurate, and that the kinds of questions with a very
@@ -290,8 +252,6 @@ timescales are of a different kind and much less predictable.</p>
 ambiguous results, and more research in that area is needed. It appears
 plausible that horizon lengths follow a logarithmic distribution, and
 over all forecasts assume values of at most several decades.</p>
-<!--TODO: in 1/2/5/10 years, will the linear regression coefficients for
-these datasets still be positive/negative?-->
 <p>I hope to update this analysis in the future, when data from predictions
 with higher ranges has become available, and to check whether the findings
 in this analysis continue to be correct.</p>
@@ -304,24 +264,24 @@ forecasting, considering three different aspects:</p>
 <li>Within questions</li>
 </ul>
 <p>What exactly does this mean?</p>
-<p>Let's say there are two people: Bessie and Heloïse. They are trying
+<p>Let’s say there are two people: Bessie and Heloïse. They are trying
 to make predictions about the weather about different time horizons
 (it is currently midnight):</p>
 <ol>
 <li>Will it rain tomorrow? (resolution: no/0), which has a range of 1 day</li>
 <li>Will the average temperature in a week be higher than 20°C? (resolution: no/0), which has a range of 7 days</li>
 </ol>
-<p>Let's say that they make the following predictions:</p>
+<p>Let’s say that they make the following predictions:</p>
 <ul>
 <li>Bessie: 0.3 for 1, 0.95 for 2</li>
 <li>Heloïse: 0.1 for 1, 0.6 for 2</li>
 </ul>
-<p>Let's also say that they make their predictions in alphabetical order
+<p>Let’s also say that they make their predictions in alphabetical order
 of their names, eight hours after another (Bessie at 00:00 and Heloïse at
 10:00).</p>
 <p>The following chart shows that, in this scenario, later predictions on the
 same question are more accurate, and also that predictions on questions
-with a shorter range are more accurate (for simplicity's sake, I don't
+with a shorter range are more accurate (for simplicity’s sake, I don’t
 use a <a href="https://en.wikipedia.org/wiki/Scoring_rule">proper scoring rule</a>
 here to judge the accuracy of forecasts, but simply the probability
 assigned to the correct outcome (here the vertical distance of the
@@ -332,10 +292,10 @@ probability to the outcome)).</p>
 forecast, its resolution and its timespan are independently analyzed.</p>
 <p>We have four predictions:</p>
 <ol>
-<li>One with a range of 14 hours, a probability of 0.1 (Heloïse's prediction on 1), and a resolution of 0</li>
-<li>One with a range of 24 hours, a probability of 0.3, (Bessie's prediction on 1) and a resolution of 0</li>
-<li>One with a range of <code>$24h/d \cdot 7d-10h=158h$</code>, a probability of 0.6 (Heloïse's prediction on 2), and a resolution 0</li>
-<li>One with a range of <code>$24h/d \cdot 7d=168h$</code>, a probability of 0.95 (Bessie's prediction on 2), and a resolution 0</li>
+<li>One with a range of 14 hours, a probability of 0.1 (Heloïse’s prediction on 1), and a resolution of 0</li>
+<li>One with a range of 24 hours, a probability of 0.3, (Bessie’s prediction on 1) and a resolution of 0</li>
+<li>One with a range of <code>$24h/d \cdot 7d-10h=158h$</code>, a probability of 0.6 (Heloïse’s prediction on 2), and a resolution 0</li>
+<li>One with a range of <code>$24h/d \cdot 7d=168h$</code>, a probability of 0.95 (Bessie’s prediction on 2), and a resolution 0</li>
 </ol>
 <p>The Brier scores for ranges are then 0.01 for 14h, 0.09 for 24h, 0.36
 for 158h, and 0.9025 for 168h. Here, higher range between forecasts is
@@ -371,14 +331,14 @@ questions would be the cyan and mustard linear regressions.</p>
 <hr/>
 <p>These were of course only illustrative examples, but I hope that now
 the different approaches in this text are clearer than before.</p>
-<p>If you're busy, you can stop reading here (or re-read <a href="#Results">the results
+<p>If you’re busy, you can stop reading here (or re-read <a href="#Results">the results
 section</a>). This is a natural place to stop reading, everything
 below is certainly very interesting, but not central to understanding.</p>
 <h2 id="Metaculus_and_PredictionBook"><a class="hanchor" href="#Metaculus_and_PredictionBook">Metaculus and PredictionBook</a></h2>
 <p><a href="https://predictionbook.com">PredictionBook</a> and
 <a href="https://www.metaculus.com">Metaculus</a> are both forecasting websites
 for hobbyists.  They are not prediction markets, but rather function
-on the base of merit and track records: although you don't win money
+on the base of merit and track records: although you don’t win money
 by being right, you can still boast about it (it is an open question
 whether other people will be impressed). Besides that, these sites make
 it easier to train ones calibration on real-world questions and become
@@ -386,7 +346,7 @@ less wrong in the process.</p>
 <p>However, both sites differ in their approach to writing questions
 and judging and scoring forecasts. PredictionBook is much older than
 Metaculus: the former was first released in 2008, the latter started in 2015.
-It is also much less formal than Metaculus: it doesn't require
+It is also much less formal than Metaculus: it doesn’t require
 stringent resolution criteria, making possible for everybody to judge
 a question (unrelated to whether the person has even made a prediction
 on the question themselves!), while Metaculus requires a short text
@@ -396,7 +356,7 @@ Metaculus having fewer questions than PredictionBook, but each question
 having more predictions on it. Of the two, Metaculus is much more
 featureful: It supports not only binary questions, but also range
 questions with probability distributions, comment threads, closed
-questions (questions that haven't yet been resolved, but that can't
+questions (questions that haven’t yet been resolved, but that can’t
 be predicted on), three different kinds of scores (the
 <a href="https://en.wikipedia.org/wiki/Brier_score">Brier score</a>,
 and a <a href="https://en.wikipedia.org/wiki/Scoring_rule#Logarithmic_scoring_rule">logarithmic scoring
@@ -414,7 +374,7 @@ analysis: The two approaches must be analysed separately.</p>
 a reasonable format. This works nicer for Metaculus, and is a bit more
 difficult to achieve for PredictionBook.</p>
 <p>The resulting data from Metaculus is <a href="./data/met.csv">here</a>, for
-PredictionBook it's available <a href="./data/pb.csv">here</a>.</p>
+PredictionBook it’s available <a href="./data/pb.csv">here</a>.</p>
 <h3 id="For_Metaculus"><a class="hanchor" href="#For_Metaculus">For Metaculus</a></h3>
 <p>The Metaculus data is relatively easy to obtain:
 The forecasts are available on a JSON API at
@@ -476,7 +436,7 @@ which I will use in the future to get hold of the data.</p>
 <p>Not knowing this when I initially wrote the code, I regressed
 to barbaric behavior: I knew that all individual predictions are
 visible on the web, which means I had to parse the HTML itself using
-<a href="https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser">BeautifulSoup</a>).</p>
+<a href="https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser)">BeautifulSoup</a>.</p>
 <p>This time the code is more complex, but just slightly so: It starts at
 the <a href="https://predictionbook.com/predictions/page/1">first page</a>
 of predictions, and loops down to the <a href="https://predictionbook.com/predictions/page/326">last
@@ -485,19 +445,14 @@ through the questions on that page.</p>
 <p>It then loops through the predictions on each question and parses out
 the date for the prediction and the credence.</p>
 <p>Every question on PredictionBook has two dates related to its
-resolution: the 'known on' date, for which the resolution was originally
-planned, and by which the result should be known, and the 'judged on'
+resolution: the ‘known on’ date, for which the resolution was originally
+planned, and by which the result should be known, and the ‘judged on’
 date, on which the resolution was actually made. I take the second date
 to avoid predictions with negative differences between prediction and
 resolution time.</p>
-<!--
-Also, the 'known on' date has the CSS class `date created_at`, which
-doesn't seem right.
-TODO: submit pull request to fix this.
--->
 <p>The output of this script is in the same format as the one for Metaculus
 data: <code>id,questionrange,result,probability,range</code> (although here
-<code>probability</code> can also be 0 and 1, which Metaculus doesn't allow).</p>
+<code>probability</code> can also be 0 and 1, which Metaculus doesn’t allow).</p>
 <p>Code:</p>
 <pre><code>#!/usr/bin/env python2
 
@@ -612,7 +567,7 @@ after the retroactive resolution are still included in the data.</p>
 </ul>
 <p>For PredictionBook, users can still predict after any resolution. The
 script fetches the first resolution, making some predictions retroactive.
-I could instead retrieve the result of the last resolution, but I don't
+I could instead retrieve the result of the last resolution, but I don’t
 think it would be worth the effort, or improve the quality of the data
 very much.</p>
 <p>Examples:</p>
@@ -620,7 +575,6 @@ very much.</p>
 <li><a href="https://predictionbook.com/predictions/198593">Total deaths due to coronavirus in the Netherlands will go over &gt;5000 by the end of April.</a></li>
 <li><a href="https://predictionbook.com/predictions/155">Matt will be happy he will no longer be able to be instantly Rick rolled</a></li>
 </ul>
-<!--TODO: try this, and report back-->
 <hr/>
 <p>In the next step, I extract the individual variables from the data
 and give them names (handling the various indices is tiresome after
@@ -639,11 +593,6 @@ scoring rule for binary forecasts. It takes into account both the
 calibration and resolution of forecasts by calculating the <a href="https://en.wikipedia.org/wiki/Mean_squared_error">mean squared
 error</a> of forecasts
 (<code>$f_{t}$</code>) and outcomes (<code>$o_{t}$</code>):</p>
-<div>
-    $$BS=\frac{1}{N}\sum_{t=1}^{N}(f_{t}-o_{t})^{2}$$
-</div>
-<!--TODO: isn't there some function that implements the mean squared
-error in numpy‽-->
 <p>The Brier score is quite easy to implement:</p>
 <pre><code>def brier(x, y):
     return np.mean((x-y)**2)
@@ -669,7 +618,7 @@ metbriers=(metfcs-metress)**2
 <h3 id="Results_1"><a class="hanchor" href="#Results_1">Results</a></h3>
 <p>First, one can check how high the range of these two datasets really is.
 The PredictionBook forecasts with the highest range span 3730 days
-(more than 10 years), for Metaculus it's 1387 days (nearly 4 years):</p>
+(more than 10 years), for Metaculus it’s 1387 days (nearly 4 years):</p>
 <pre><code>&gt;&gt;&gt; np.max(metrngs)
 1387.018779324351
 &gt;&gt;&gt; np.max(pbrngs)
@@ -730,36 +679,35 @@ predictions for single days (or, in the case of weeks and months, for
 years/months with a high range, as not enough questions with this range
 have resolved yet).</p>
 <h4 id="NonLinear_CurveFitting"><a class="hanchor" href="#NonLinear_CurveFitting">Non-Linear Curve-Fitting</a></h4>
-<!--TODO: MSE of the fits-->
 <p>Using a linear regression on the Brier score here, however, carries
 with it a deep issue: Unless the slope is 0, the linear regression will
-be below 0 or above 1 for some positive range—so one can't use it to
+be below 0 or above 1 for some positive range—so one can’t use it to
 predict forecaster performance on questions with very long ranges.</p>
 <p>(There is also the additional issue that in non-0-slope regressions,
 the linear regression might tell us that forecasters would perform <em>worse
 than chance</em> at some point in the future, that is, give an expected Brier
 score <code>&gt;0.25</code>, which is not what I expect to happen, unless reality is
 actively preventing us from making accurate long-term predictions).</p>
-<p>Instead, I want to use functions that for positive values of <code>x</code> don't
+<p>Instead, I want to use functions that for positive values of <code>x</code> don’t
 produce out-of-bounds errors (they at least return valid Brier scores).</p>
 <p>I furthermore make some additional assumptions/desiderata about the the function
 <code>$r$</code> to fit to the data:</p>
 <ol>
 <li>For <code>$x \ge 0$</code>, it returns values in <code>$[0, 0.25]$</code></li>
 <li>For <code>$x=0$</code>, it returns <code>$0$</code> (at the time of resolution, we can predict the outcome perfectly, because we already know it)
+
 <ol>
-<li>It'd be technically elegant if for <code>$r(x)=0$</code> for <code>$x \le 0$</code> (since we can perfectly predict things from the past (although there's a philosophical discussion to be had here about how much we can actually know things from the past, and maybe it's even symmetric with the future)), but it's not super important</li>
+<li>It’d be technically elegant if for <code>$r(x)=0$</code> for <code>$x \le 0$</code> (since we can perfectly predict things from the past (although there’s a philosophical discussion to be had here about how much we can actually know things from the past, and maybe it’s even symmetric with the future)), but it’s not super important</li>
 </ol></li>
 <li><code>$r$</code> is <a href="https://en.wikipedia.org/wiki/Monotonic_function">monotonic</a> for <code>$x \ge 0$</code>, that is <code>$x_1&gt;x_2 \Rightarrow r(x_1) \ge r(x_2)$</code>
 <ol>
-<li>This is the one I'd be most willing to drop, since there might be <a href="#Why_Assume_Accuracy_will_Increase">weird non-monotonic effects</a> in ability to predict.</li>
+<li>This is the one I’d be most willing to drop, since there might be <a href="#Why_Assume_Accuracy_will_Increase">weird non-monotonic effects</a> in ability to predict.</li>
 </ol></li>
 </ol>
 <h5 id="Fitting_a_Logistic_Function"><a class="hanchor" href="#Fitting_a_Logistic_Function">Fitting a Logistic Function</a></h5>
 <p>The logistic function seems like an optimal candidate here: it fulfills
 at least desideratum 1 (if shrunk) and 3, and with some fiddling may
 even satisfy 2.</p>
-<!--TODO: link Armstrong https://www.lesswrong.com/posts/6tErqpd2tDcpiBrX9/why-sigmoids-are-so-hard-to-predict on the problem of fitting sigmoids here!-->
 <p>Because this is very different from a <a href="https://en.wikipedia.org/wiki/Logistic_regression">logistic
 regression</a> (scaled
 values above the maximum (with a maximum of 0.25, some of the observed
@@ -781,8 +729,8 @@ logistic function that the maximum is at 0.25:</p>
 the slope to negative values and the intercept to positive values
 (we want the function to be <em>monotonically rising</em>, and we want the
 <a href="https://en.wikipedia.org/wiki/y-intercept">y-intercept</a> to be below
-0.125, that is we want the "middle" of the logistic function to be to the
-right of 0, even if we can't guarantee that the function will be ~0 for
+0.125, that is we want the “middle” of the logistic function to be to the
+right of 0, even if we can’t guarantee that the function will be ~0 for
 <code>x=0</code>).</p>
 <pre><code>&gt;&gt;&gt; pblogifit=spo.curve_fit(shrunk_logistic, pbrngs, pbbriers, bounds=([-np.inf, 0], [0, np.inf]))
 (array([-4.78706654e-04,  1.40345975e-20]), array([[ 1.69607043e-09, -4.52668529e-07],
@@ -813,7 +761,7 @@ plt.savefig("allscatter_logi.png")
 <p>I wonder whether the reason the Metaculus fit reaches the Metaculus
 data so much faster is because the Metaculus data ends earlier? (Also,
 yes, that is the logistic function and not a linear function for the
-PredictionBook data, it's a really moderate slope).</p>
+PredictionBook data, it’s a really moderate slope).</p>
 <p>Also, both plots start out with <code>$r(0)=0.125$</code>: not restricting the
 intercept to positive values returns negative intercepts (meaning that
 at 0, the value is of the logistic function is even higher than (in this
@@ -831,28 +779,13 @@ case) 0.125):</p>
 </code></pre>
 <p>Here, the slopes are much steeper than in the more restricted case above.</p>
 <h5 id="Fitting_an_Exponential_Function"><a class="hanchor" href="#Fitting_an_Exponential_Function">Fitting an Exponential Function</a></h5>
-<!--TODO: a is actually unnecessary, cut it out-->
 <p>Another function we could fit to the data might be of the form
 <code>$\frac{b^x -1}{-4}$</code>, with some <code>$b \in (0, 1)$</code> (the function is
 decaying exponentially, but flipped so that it approaches 0, and then
 we scale it so that it always converges toward 0.25).</p>
 <p>We can guarantee this function to fulfill all three desiderata:</p>
-<div>
-    $$\frac{b^0 - 1}{-4}=\\
-    =\frac{0}{-4}=0$$
-</div>
 <p>and</p>
-<div>
-    $$ \underset{x \rightarrow \infty}{\text{lim}} \frac{b^x - 1}{-4}=\\
-    \frac{-1}{-4}=\\
-    0.25$$
-</div>
 <p>and (for <code>$ε \ge 0$</code>)</p>
-<div>
-    $$ \frac{b^x - 1}{-4} \le \frac{b^{x+ε} - 1}{-4} \Leftrightarrow (\text{signflip because multiplication with }-4) \\
-    b^x - 1 \ge b^{x+ε} - 1 \Leftrightarrow \\
-    b^x \ge b^{x+ε} $$
-</div>
 <p>which is the case.</p>
 <p>In python, this is simply</p>
 <pre><code>def shift_exp(x, b):
@@ -871,33 +804,28 @@ immediately for PredictionBook, and for ranges &gt;100 days for
 Metaculus. Perhaps there are some problems with <a href="https://en.wikipedia.org/wiki/floating-point_arithmetic">floating-point
 arithmetic</a>
 at play here: the best fit <em>would</em> be at something like
-<code>$10^{-78}$</code>, but <code>curve_fit</code> doesn't know how to <a href="https://acesounderglass.com/2021/10/20/i-dont-know-how-to-count-that-low/" title="I Don’t Know How To Count That Low (Elizabeth, 2021)">count that
+<code>$10^{-78}$</code>, but <code>curve_fit</code> doesn’t know how to <a href="https://acesounderglass.com/2021/10/20/i-dont-know-how-to-count-that-low/" title="I Don’t Know How To Count That Low (Elizabeth, 2021)">count that
 low</a>?</p>
 <h5 id="This_Is_Cool"><a class="hanchor" href="#This_Is_Cool">This Is Cool</a></h5>
 <p>I believe that these findings are pretty cool: They give some
 sense of how long the range of forecasts needs to be for them to be
 approximately random.</p>
 <p>We can do this by finding out at what point our function first
-predicts Brier scores sufficiently close to 0.25, let's take 0.24 as an
+predicts Brier scores sufficiently close to 0.25, let’s take 0.24 as an
 arbitrary cutoff (which would be, on average, assigning a probability of
 <code>$1-\sqrt{0.24} \approx 0.51$</code> to events that take place).</p>
 <h6 id="The_Horizon"><a class="hanchor" href="#The_Horizon">The Horizon</a></h6>
-<p>Let's call this number the <strong>horizon</strong>: beyond it, our forecasts
+<p>Let’s call this number the <strong>horizon</strong>: beyond it, our forecasts
 become random, we can neither steer nor see, the fogs of time have
 grown too thick. From our perspective, only chaos reigns there, and
 every decision-theoretic ship that sails it is never to return with
 valuable information.</p>
-<p>It is <a href="#Appendix_C_Quotes_About_the_Horizon_of…Forecasts">sometimes
+<p>It is <a href="#Appendix_C_Quotes_About_the_Horizon_of%E2%80%A6Forecasts">sometimes
 invoked</a>
 by people when they want to talk about the inherent unknowability of
 the future, always without evidence of any <em>actual number</em>.</p>
 <hr/>
 <p>Then, for the squashed logistic function, we have to find the <code>$x$</code> so that</p>
-<div>
-    $$0.24=0.25 \cdot \frac{1}{1+\exp(s \cdot x + i)} \Leftrightarrow \\
-    \frac{1}{0.96}-1=\exp(s \cdot x +i) \Leftrightarrow \\
-    \frac{\ln(\frac{1}{0.96}-1)-i}{s}=x$$
-</div>
 <p>Then, the logistic-ish forecasting horizon gives</p>
 <pre><code>&gt;&gt;&gt; (np.log((1/0.96)-1)-metlogifit[0][1])/metlogifit[0][0]
 1339.4812558296296
@@ -906,12 +834,6 @@ the future, always without evidence of any <em>actual number</em>.</p>
 </code></pre>
 <p>which is ~3.6 years for Metaculus, and ~18 years for PredictionBook.</p>
 <p>With the exponential fit, we know that</p>
-<div>
-    $$0.24=\frac{b^x -1}{-4} \Leftrightarrow \\
-    -0.96=b^x -1 \Leftrightarrow \\
-    -0.96+1=b^x \Leftrightarrow \\
-    \log_b(0.04)=x$$
-</div>
 <p>That gives</p>
 <pre><code>&gt;&gt;&gt; np.log(0.04)/np.log(metexpfit[0][0])
 74.80978286870999
@@ -920,16 +842,15 @@ the future, always without evidence of any <em>actual number</em>.</p>
 </code></pre>
 <p>less than a day for the PredictionBook predictive horizon, and ~75 days
 for the Metaculus predictive horizon.</p>
-<p>Of course, don't believe these numbers too much: The difference in dataset
+<p>Of course, don’t believe these numbers too much: The difference in dataset
 range is probably causing a lot of the difference in fit, the exponential
-fit is way more pessimistic, and I haven't performed any <a href="https://en.wikipedia.org/wiki/Statistical_hypothesis_testing">statistical
+fit is way more pessimistic, and I haven’t performed any <a href="https://en.wikipedia.org/wiki/Statistical_hypothesis_testing">statistical
 tests</a>
 to determine how to much believe these particular numbers.</p>
-<p>But I'm really excited about testing these conclusions with growing
+<p>But I’m really excited about testing these conclusions with growing
 datasets as forecasting platforms exist longer.</p>
-<!--TODO: do exactly that-->
 <p>Overall, I like the logistic fit <em>much</em> better than the exponential
-one: in practice, we know that forecasters don't give quasi-random
+one: in practice, we know that forecasters don’t give quasi-random
 predictions for questions that are further out than 100 days (or, as
 the PredictionBook fit suggests, that forecasting is impossible!).</p>
 <p>But one can also take a look at the quality of the fit to the data:
@@ -975,8 +896,6 @@ it reaches equilibrium in hanging straight down).</p>
 <p>(I got this observation from “The World as
 Holocaust” by Stanisław Lem, though it is obvious <a href="https://www.lesswrong.com/s/zpCiuR4T343j9WkcK/p/WnheMGAka4fL99eae" title="Hindsight Devalues Science">in
 hindsight</a>).</p>
-<!--TODO: Also, what are some probability theory & information theory
-theorems for this?-->
 <h3 id="Possible_Explanations"><a class="hanchor" href="#Possible_Explanations">Possible Explanations</a></h3>
 <p>So, what is the reason for this rather weird finding? Several possible
 reasons come to mind.</p>
@@ -987,8 +906,6 @@ risks</a>
 to <a href="https://www.metaculus.com/questions/1558/the-rise-and-fall-of-the-banana-will-the-current-main-export-cultivar-the-cavendish-be-replaced-by-2035/">questions about the extinction of banana
 brands</a>,
 very different kinds of questions with very different kinds of forecasts.</p>
-<!--TODO: replace these with PredictionBook questions that are that
-different, since the weird result is for PredictionBook, not Metaculus-->
 <p>Here, one would assume that the longer-term questions asked are generally
 easier to predict, and that the effect goes away when one compares
 predictions among very similary questions (or, better, within questions).</p>
@@ -999,19 +916,19 @@ bodies is much more thoroughly modelled than the development of markets,
 elections and the weather. This is of course only a weak trend, but
 one that could influence the questions (as will be investigated in
 <a href="#Accuracy_Between_Questions">this section</a>).</p>
-<h5 id="Simpsons_Paradox"><a class="hanchor" href="#Simpsons_Paradox">Simpson's Paradox</a></h5>
-<p><a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox">Simpson's Paradox</a>
+<h5 id="Simpsons_Paradox"><a class="hanchor" href="#Simpsons_Paradox">Simpson’s Paradox</a></h5>
+<p><a href="https://en.wikipedia.org/wiki/Simpson%27s_paradox">Simpson’s Paradox</a>
 is the phenomenon that while two features are correlated in a dataset,
 it can be true that the features are negatively correlated for some
 distinct subsets of the dataset.</p>
 <p>It is best explained visually:</p>
 <p><img alt="Simpson's paradox, taken from Wikipedia" src="./img/range_and_forecasting_accuracy/simpsons_paradox.gif" title="An animated gif of a plot. In the plot there is a set of points in a grid. The set of points is elongated, from the top-left corner to the bottom-right corner. It can be clearly separated into five subsets. Each subset is elongated from the bottom-left corner to the top-right corner. The animation first shows one line going from top-left to bottom-right, through the whole set of points, and then highlights the five subsets, while also showing five lines, each going through the subsets from the bottom-left to the top-right corner."/></p>
 <p>It might be the case that this analysis for PredictionBook data has come
-up against an instance of Simpson's paradox: The accuracy of forecasts
+up against an instance of Simpson’s paradox: The accuracy of forecasts
 is negatively correlated with range within the same question, but the
 accuracy of forecasts is positively correlated with range across questions
 (because the kinds of questions with longer time horizons generally allow
-more accurate forecasts). Unfortunately, whether Simpson's paradox applies
+more accurate forecasts). Unfortunately, whether Simpson’s paradox applies
 or not can not always be easily judged from the scatterplot of datapoints.</p>
 <p>However, <a href="#Results_2">below</a> I check the correlation of range and
 forecast accuracy between questions, and find that they are negatively
@@ -1019,7 +936,6 @@ correlated, and furthermore find that they are <em>positively</em> <a href="#Agg
 within questions</a>, which strongly
 indicates that the effect probably comes from questions with a long
 range receiving more accurate predictions (in the PredictionBook dataset).</p>
-<!--TODO: scatterplot for forecasts for Predictionbook, different forecasts have different colors-->
 <h4 id="Low_Sample_Sizes_With_High_Ranges"><a class="hanchor" href="#Low_Sample_Sizes_With_High_Ranges">Low Sample Sizes With High Ranges</a></h4>
 <p>Another question one might ask is: How big are the sample sizes at the
 tails when the range is high?</p>
@@ -1046,7 +962,7 @@ plt.savefig("ss_plot.png")
 for PredictionBook sample sizes.</p>
 <p>As one can see, the sample sizes have a drastical skew towards recent
 predictions, not surprising for relatively young platforms (although 10
-years for PredictionBook is sizable by internet standards, it's not that
+years for PredictionBook is sizable by internet standards, it’s not that
 much compared to the expected range of some predictions on the platform,
 which might go into the thousands of years).</p>
 <p>This can be seen in the data as well: The median range of Metaculus and
@@ -1103,8 +1019,8 @@ opening time than by proxy on the forecasts.</p>
 PredictionBook publish opening/resolution times, but PredictionBook has
 no clear distinction between closing and resolution time (there is,
 however, a distinction between effective resolution time and planned
-resolution time ("When was the question resolved?" vs. "When should the
-question have been resolved?")).</p>
+resolution time (“When was the question resolved?” vs. “When should the
+question have been resolved?”)).</p>
 <h3 id="Analysis_1"><a class="hanchor" href="#Analysis_1">Analysis</a></h3>
 <p>First, the dataset grouped by forecasts had to be grouped by the question
 ID, in both cases a positive integer. The resulting datastructure should
@@ -1212,9 +1128,9 @@ explain some of the effect seen with accuracy between forecasts in the
 <a href="#Accuracy_Between_Forecasts">previous section</a>). On the other hand,
 the data is still very noisy, the correlations found are quite weak,
 and the slopes of the linear regressions are are very near 0.</p>
-<p>All in all, it's plausible that the relation of range and accuracy between
+<p>All in all, it’s plausible that the relation of range and accuracy between
 questions explains a large part of the the weird relation for accuracy and
-range between forecasts, but I don't know enough statistics to tease these
+range between forecasts, but I don’t know enough statistics to tease these
 out exactly. My intuition tells me that the effect on accuracy between
 questions is too small to explain the whole anomaly between forecasts.</p>
 <h4 id="NonLinear_CurveFitting_1"><a class="hanchor" href="#NonLinear_CurveFitting_1">Non-Linear Curve-Fitting</a></h4>
@@ -1231,7 +1147,7 @@ questions is too small to explain the whole anomaly between forecasts.</p>
 &gt;&gt;&gt; metexpfit_betweenq=spo.curve_fit(shift_exp, metqbrier.T[0], metqbrier.T[1], bounds=([-np.inf, 0], [0, 1]))
 (array([0.70814538]), array([[0.01386776]]))
 </code></pre>
-<p>But these numbers don't tell us much by themselves, do they become
+<p>But these numbers don’t tell us much by themselves, do they become
 clearer when plotted?</p>
 <pre><code>fig=plt.figure(figsize=(8,8))
 
@@ -1266,7 +1182,7 @@ days are indistinguishable from randomness, given the assumptions made
 <p>This <em>actually makes sense</em>: We observe that the correlation between
 range and accuracy is positive, so the best curve that fits the data
 under the assumption of falling accuracy with higher range will conclude
-that we're immediately in a domain with uniform randomness.</p>
+that we’re immediately in a domain with uniform randomness.</p>
 <p>The predictive horizons here are</p>
 <pre><code>&gt;&gt;&gt; (np.log(1/(0.96)-1)-metlogifit_betweenq[0][1])/metlogifit_betweenq[0][0]
 4.627582089426849
@@ -1296,24 +1212,23 @@ the data (which is not surprising, since they look nearly identical):</p>
 <h4 id="Why_Longer_Range_Questions_More_Accurate"><a class="hanchor" href="#Why_Longer_Range_Questions_More_Accurate">Why Longer Range Questions More Accurate?</a></h4>
 <p>The big question now is: Why do forecasts on predictions on questions
 with a higher range generally receive better Brier scores?</p>
-<p>First, it's important to consider the p-value for the correlation with
-the Metaculus data. It's 80% likely we would have had the same result,
+<p>First, it’s important to consider the p-value for the correlation with
+the Metaculus data. It’s 80% likely we would have had the same result,
 given that the correlation was 0: not solid foundation to base further
 understanding on. But we got the same result with the PredictionBook data,
 with a very decent p-value, so what is going on?</p>
 <p>The explanation falls back to the considerations in <a href="#Range_and_Biased_Questions">the section on
 range and biased questions</a>: the long-range
-questions we might be asking could be "easier" to predict, at least in
+questions we might be asking could be “easier” to predict, at least in
 the medium term, than the short-range questions.</p>
 <p>How could one test this? Metaculus contains categories for questions,
 and one might want to examine whether the negative trend between
 question range and accuracy of predictions on that question still hold
 when questions in the same category are examined (although one might run
 into problems with the dataset size here—even the 557 questions in the
-dataset aren't enough to provide a decent p-value). Unfortunately, no
+dataset aren’t enough to provide a decent p-value). Unfortunately, no
 such categorization system exists for PredictionBook, one <em>might</em> try to
-analyze the titles of the questions, but it doesn't seem worth the effort.</p>
-<!--TODO: maybe implement the analysis described above?-->
+analyze the titles of the questions, but it doesn’t seem worth the effort.</p>
 <h4 id="This_Partially_Explains_the_Result_Between_Forecasts"><a class="hanchor" href="#This_Partially_Explains_the_Result_Between_Forecasts">This Partially Explains the Result Between Forecasts</a></h4>
 <p>For PredictionBook data, this explains why range and forecast
 accuracy were negatively correlated between forecasts:
@@ -1321,7 +1236,7 @@ the negative correlation between range and accuracy between
 questions <a href="https://en.wikipedia.org/wiki/Confounding">confounds</a> the
 relationship. We can test whether this is true by looking at the relation
 of range and accuracy within questions, where two forecasts at the same
-time are in some sense "equally difficult".</p>
+time are in some sense “equally difficult”.</p>
 <h2 id="Accuracy_Within_Questions"><a class="hanchor" href="#Accuracy_Within_Questions">Accuracy Within Questions</a></h2>
 <p>If there exists any bias in regard to what kinds of questions get asked in
 relation to their range, how can we correct for this bias?</p>
@@ -1335,8 +1250,6 @@ to forecast.</p>
 within questions; are forecasts made on the same question later generally
 more accurate than forecasts made on a question earlier?</p>
 <h3 id="Analysis_2"><a class="hanchor" href="#Analysis_2">Analysis</a></h3>
-<!--TODO: how about excluding regressions that have a p-value below a
-certain cutoff-value?-->
 <p>In order to do this, one can compute the Brier score for each prediction,
 and then perform one linear regression/compute the correlation per
 question to discern whether the relation is positive or not.</p>
@@ -1346,10 +1259,10 @@ data available to perform the analysis.</p>
 <pre><code>wmetqbrier=[[i[4], (i[3]-i[2])**2] for i in metquestions]
 wpbqbrier=[[i[4], (i[3]-i[2])**2] for i in pbquestions]
 </code></pre>
-<p>Since <code>lreg</code> can't deal with datasets of size 1, we have to filter
-those out of the dataset (the Metaculus dataset doesn't contain these,
+<p>Since <code>lreg</code> can’t deal with datasets of size 1, we have to filter
+those out of the dataset (the Metaculus dataset doesn’t contain these,
 but I want to prepare for a possible future dataset where it does),
-and they don't make much sense in our analysis anyway:</p>
+and they don’t make much sense in our analysis anyway:</p>
 <pre><code>wmetqbrier=list(filter(lambda x: len(x[0])&gt;1, wmetqbrier))
 wpbqbrier=list(filter(lambda x: len(x[0])&gt;1, wpbqbrier))
 </code></pre>
@@ -1378,7 +1291,6 @@ accuracy for some questions:</p>
 questions in the dataset have only two predictions, which all by chance
 anti-correlate with the range. This is not the case for all questions,
 as one can see.</p>
-<!--TODO: examine the correlations here, & define metqcorrs!-->
 <p>For the linear regression, one can simply map <code>sps.linregress</code> over
 the lists:</p>
 <pre><code>&gt;&gt;&gt; wmetqregs=list(map(lambda x: sps.linregress(x[0], x[1]), wmetqbrier))
@@ -1427,7 +1339,7 @@ plt.savefig("permetquestion.png")
 <p>Basically the same code for image generation is used also for the
 PredictionBook data:</p>
 <p><img alt="Linear regressions for the accuracy of questions by range" src="./img/range_and_forecasting_accuracy/perpbquestion.png" title="Linear regressions for the accuracy of questions by range, which, as above, looks like someone  threw a bunch of randomly-colored random-length lines onto a white canvas and then haphazardly shoved them into the bottom-left corner. But, like, way more of them, so that it's way too busy to look at."/></p>
-<p>Although the plots are kind of cool to look at, I'm not really sure what
+<p>Although the plots are kind of cool to look at, I’m not really sure what
 they can tell us. My <em>guess</em> would be that it somewhat shows a trend
 with higher ranges responding to higher Brier scores (and therefore
 lower accuracy).</p>
@@ -1437,9 +1349,9 @@ the average offset and the average ascension—if the ascension
 is positive, our suspicion is confirmed. We have to weight
 questions by how many predictions they have received, otherwise
 the result is skewed by questions with very few predictions (if
-you're trying to find out whether, in basketball, making more <a href="https://en.wikipedia.org/wiki/Free_throw">free
+you’re trying to find out whether, in basketball, making more <a href="https://en.wikipedia.org/wiki/Free_throw">free
 throws</a> makes you better at it,
-you'd also want to more strongly weight data from players with a larger
+you’d also want to more strongly weight data from players with a larger
 number of shots).</p>
 <p>This is done by computing the linear regression for range/accuracy for
 each question (we did that with <code>w{met,pb}qregs</code>), multiplying it by the
@@ -1460,9 +1372,9 @@ dataset (<code>clean_{met,pb}forecasts</code>):</p>
 <p>The PredictionBook data—how do I put this—simply makes no sense.
 I am pretty confident that this code <em>is</em> correct, but I think that
 the questions with very few prdictions are producing incorrect results,
-especially when the predictions are very close to each other. So let's
+especially when the predictions are very close to each other. So let’s
 arbitrarily exclude questions with less than ten predictions (actually
-an arbitrary choice I did not iterate over to get a "desired" result):</p>
+an arbitrary choice I did not iterate over to get a “desired” result):</p>
 <pre><code>&gt;&gt;&gt; fwpbqbrier=list(filter(lambda x: len(x[0])&gt;=10, wpbqbrier))
 &gt;&gt;&gt; len(fwpbqbrier)
 849
@@ -1567,11 +1479,11 @@ these plots:</p>
 <li>A few questions were posed long ago, but also have more accurate predictions at higher ranges, and therefore their plot is approximately a <a href="https://en.wikipedia.org/wiki/Step_function">step function</a> around the time when they were posed.</li>
 <li>And, finally, some questions have more accurate predictions at lower ranges, resulting in the functions that <em>actually look like sigmoids</em>.</li>
 </ol>
-<p>I'm unsure about the best way to aggregate these different sigmoids
+<p>I’m unsure about the best way to aggregate these different sigmoids
 into one, as I did with the linear regressions above.</p>
 <h5 id="Logistic_Forecast_Horizons_for_Questions"><a class="hanchor" href="#Logistic_Forecast_Horizons_for_Questions">Logistic Forecast Horizons for Questions</a></h5>
 <blockquote>
-<p>for there is in a god's face more of marvel than prediction can tell,
+<p>for there is in a god’s face more of marvel than prediction can tell,
 and when that face is vaster than a great temple and seen looking down at
 sunset in the cryptic silences of that upper world from whose dark lava it
 was divinely hewn of old, the marvel is so strong that none may escape it.</p>
@@ -1589,43 +1501,12 @@ the invalid fits represented by <code>[]</code>):</p>
 &gt;&gt;&gt; pb_logi_horizons=[(np.log((1/0.96)-1)-f[0][1])/f[0][0] for f in within_logi_fits_pb_filt]
 </code></pre>
 <p>So, what horizons do we have?</p>
-<table>
-<tbody>
-<tr>
-<td></td>
-<td>Mean</td>
-<td>Median</td>
-<td>Mode</td>
-<td>Variance</td>
-<td>Maximum</td>
-<td>Minimum</td>
-</tr>
-<tr>
-<td>Metaculus</td>
-<td>1.93e+23</td>
-<td>4.18</td>
-<td>4.18</td>
-<td>1.42e+49</td>
-<td>8.79e+25</td>
-<td>0.0043</td>
-</tr>
-<tr>
-<td>PredictionBook</td>
-<td>3.93e+23</td>
-<td>4.18</td>
-<td>4.18</td>
-<td>1.11e+50</td>
-<td>3.04e+26</td>
-<td>0.000137</td>
-</tr>
-</tbody>
-</table>
-<p>This shouldn't be <em>that</em> surprising: some of the logistic fits were
+<p>This shouldn’t be <em>that</em> surprising: some of the logistic fits were
 basically flat, and some were basically vertical, so it is to be
 expected that we have lots of outliers present. What is interesting is
 that the median &amp; mode in both datasets are the same number, ~4.17. This
 is probably due to many questions having a slope of -1 and an intercept
-1<!--TODO: when do they?-->, leading to the same logistic fit.</p>
+1, leading to the same logistic fit.</p>
 <p>We can plot a histogram of the horizons for questions (with the horizon
 length being logarithmic, base 10):</p>
 <pre><code>plt.savefig("perpbquestion_logi.png")
@@ -1649,7 +1530,7 @@ plt.savefig("logi_horizons.png")
 </ol>
 <h4 id="Exponential_CurveFit"><a class="hanchor" href="#Exponential_CurveFit">Exponential Curve-Fit</a></h4>
 <p>We can now perform a very similar analysis, just using exponential fits.
-Here, for some reason, we don't run into problems with inscrutable errors:</p>
+Here, for some reason, we don’t run into problems with inscrutable errors:</p>
 <pre><code>within_exp_fits_met=[spo.curve_fit(shift_exp, e[0], e[1], bounds=([0], [1])) for e in wmetqbrier]
 within_exp_fits_pb=[spo.curve_fit(shift_exp, e[0], e[1], bounds=([0], [1])) for e in fwpbqbrier]
 </code></pre>
@@ -1677,15 +1558,15 @@ plt.savefig("permetquestion_exp.png")
 <p><img alt="Sets of exponential fits on PredictionBook questions" src="./img/range_and_forecasting_accuracy/perpbquestion_exp.png" title="A plot, x-axis from 0 to 1400, y-axis from 0 to 0.25. On the plot there is a large number of graphs of functions, all exponential, with different steepnesses (all starting from 0 at 0, many reaching 0.25 immediately, and a few being less steep). Way more graphs of functions that in the Metaculus data. Basically ~0 “rivers”."/></p>
 <p>I personally believe that these plots
 are kind of gorgeous. Interesting are the two
-<a href="https://en.wikipedia.org/wiki/River_(typography)">"rivers"</a> in
+<a href="https://en.wikipedia.org/wiki/River_(typography)">“rivers”</a> in
 the Metaculus plots: they indicate that there are some horizons for which
 there are ~0 questions with that horizon. But this is possibly just due
-to a small sample-size &amp; randomness, as they don't really occur in the
+to a small sample-size &amp; randomness, as they don’t really occur in the
 PredictionBook data.</p>
 <p>Otherwise, these plots look as expected: Most exponential fits go to
 randomness very quickly (i.e. from an expected Brier score of 0 to a
 Brier score of 0.25 in a short range), and some show longer horizons.</p>
-<p>Again, I don't quite know how to aggregate these, but I can calculate
+<p>Again, I don’t quite know how to aggregate these, but I can calculate
 the expected horizons for the questions.</p>
 <h5 id="Exponential_Forecast_Horizons_for_Questions"><a class="hanchor" href="#Exponential_Forecast_Horizons_for_Questions">Exponential Forecast Horizons for Questions</a></h5>
 <p>Calculating the horizons is as easy as before:</p>
@@ -1693,40 +1574,9 @@ the expected horizons for the questions.</p>
 pb_exp_horizons=[np.log(0.04)/np.log(f[0][0]) for f in within_exp_fits_pb]
 </code></pre>
 <p>And the summary statistics (in days):</p>
-<table>
-<tbody>
-<tr>
-<td></td>
-<td>Mean</td>
-<td>Median</td>
-<td>Mode</td>
-<td>Variance</td>
-<td>Maximum</td>
-<td>Minimum</td>
-</tr>
-<tr>
-<td>Metaculus</td>
-<td>1613.62</td>
-<td>4.64</td>
-<td>4.64</td>
-<td>478494147</td>
-<td>497370.21</td>
-<td>0.064</td>
-</tr>
-<tr>
-<td>PredictionBook</td>
-<td>45041.92</td>
-<td>4.64</td>
-<td>4.64</td>
-<td>8.29e+11</td>
-<td>5.31e+7</td>
-<td>0.064</td>
-</tr>
-</tbody>
-</table>
 <p>The mean here is ~4.42 years for Metaculus data, and 123.4 years for
 PredictionBook data.</p>
-<p>We can see that the expected horizons aren't as large (at least ~15 orders
+<p>We can see that the expected horizons aren’t as large (at least ~15 orders
 of magnitude smaller), but again we observe that both the median <em>and</em>
 the mode take on the same value of 4.64.</p>
 <p>So we decide to plot a histogram of the expected horizons for the
@@ -1742,7 +1592,7 @@ plt.hist([np.log10(met_exp_horizons), np.log10(pb_exp_horizons)], bins=20, color
 plt.savefig("exp_horizons.png")
 </code></pre>
 <p><img alt="Histogram of expected horizons of forecasts on Metaculus &amp; PredictionBook questions" src="./img/range_and_forecasting_accuracy/exp_horizons.png" title="Histogram of expected horizons of forecasts on Metaculus &amp; PredictionBook questions: Horizons on the x-axis, ranging from 10⁻² to 10⁷, and number of questions in the bin on the y-axis, from 0 to ~450. For PredictionBook data, large peak at ~10 with ~420 (blaze it) questions. Then several bins, all with ~40 questions, to ~10⁴, then declining to ~15 questions per bin. Below 10, no strongly discernible pattern, again with ~20 questions per bin. Metaculus data quite similar: ~350 questions on the 10 bin, then a “hill” pattern that peaks at 10² and then declines to &lt;10 questions per bin at 10⁴. ~20 questions per bin for horizons &lt;10."/></p>
-<p>I wonder if the regularity I perceive (the nice declining "hill"-like
+<p>I wonder if the regularity I perceive (the nice declining “hill”-like
 patterns for horizons &gt;10) is a spurious artifact, a result of the
 specific method of analysis, or actually inherent in the data. If not,
 it indicates that PredictionBook contains more resolved questions with
@@ -1767,8 +1617,7 @@ more than 1 unique prediction in the PredictionBook dataset:</p>
 &gt;&gt;&gt; len(wpbqbrier)
 7596
 </code></pre>
-<!--TODO: histograms!-->
-<p>Let's first create sorted lists containing the numbers of forecasts on
+<p>Let’s first create sorted lists containing the numbers of forecasts on
 each question:</p>
 <pre><code>pblens=np.sort([len(x[0]) for x in wpbqbrier])
 metlens=np.sort([len(x[0]) for x in wmetqbrier])
@@ -1802,9 +1651,9 @@ new questions much harder, and more strongly encourages users to
 predict on existing questions, with an elaborate tagging system for
 questions. PredictionBook on the other hand simplifies the questions
 creation process, leaving out moderation, complex resolution criteria
-etc. Still, I'm surprised—there must be at least <em>one</em> PredictionBook
+etc. Still, I’m surprised—there must be at least <em>one</em> PredictionBook
 question popular enough for 100 forecasts! But apparently not.</p>
-<h4 id="Interlude_Its_Under_102"><a class="hanchor" href="#Interlude_Its_Under_102">Interlude: It's Under 102</a></h4>
+<h4 id="Interlude_Its_Under_102"><a class="hanchor" href="#Interlude_Its_Under_102">Interlude: It’s Under 102</a></h4>
 <p>One result here is, to say the least, confusing—where did
 all those 101s come from in the Metaculus data‽ Surely,
 there are questions with more than 101 forecasts (which
@@ -1818,7 +1667,7 @@ with elements removed so that the length was always 101.</p>
 <p>I can think of two reasons to do this:</p>
 <ul>
 <li>Metaculus wants to prevent other entities from using the predictions to create stronger forecasting algorithms that could rival the Metaculus algorithm</li>
-<li>It was programmed in as a hard limit when Metaculus wasn't as big as it is now, and never changed</li>
+<li>It was programmed in as a hard limit when Metaculus wasn’t as big as it is now, and never changed</li>
 </ul>
 <p>I mailed the support address on the site, asking for a full timeseries
 on resolved binary questions.</p>
@@ -1841,7 +1690,7 @@ significantly improved.</p>
 For PredictionBook, the full dataset of all predictions is available,
 while the Metaculus API only offers data of the weighted average of the
 community as a timeseries (with ≤101 datapoints). Due to this limitation,
-the PredictionBook results and the Metaculus results can't be easily compared.</p>
+the PredictionBook results and the Metaculus results can’t be easily compared.</p>
 <p>This is the reason why I reported the results for the Metaculus dataset
 and the PredictionBook dataset separately, so that future work can
 work either with aggregated timeseries data or with full datasets of
@@ -1861,7 +1710,7 @@ previous version of this analysis, which caused me to rewrite it nearly
 completely.</p>
 <p>Im am incredibly indebted to the Long-Term Future Fund, who
 gave me enough money for this project that I could justify to my
-parents that I wasn't wasting my time, and to pay my <a href="./considerations_on_cryonics.html">cryonics
+parents that I wasn’t wasting my time, and to pay my <a href="./considerations_on_cryonics.html">cryonics
 membership</a> for the year on top
 of that.</p>
 <h2 id="Miscellaneous"><a class="hanchor" href="#Miscellaneous">Miscellaneous</a></h2>
@@ -1889,10 +1738,10 @@ forecasts and fewer forecasts had introduced significant amounts of bias.</p>
 <h3 id="Some_Predictions_About_The_Results"><a class="hanchor" href="#Some_Predictions_About_The_Results">Some Predictions About The Results</a></h3>
 <p>This also gave me an excellent opportunity to test my own calibration
 on the findings: Would I be correct about which findings would
-and wouldn't hold up to scrutiny with nicer datasets? I used
+and wouldn’t hold up to scrutiny with nicer datasets? I used
 <a href="https://predictionbook.com/">PredictionBook</a> to record my predictions
 about the results before running the code on the data (relying on
-the reader's trust that I hadn't just run the code beforehand and
+the reader’s trust that I hadn’t just run the code beforehand and
 predicted with the benefit of hindsight). The private dataset was
 much bigger and more up-to-date than the compressed one from the
 <a href="https://www.metaculus.com/api2/questions/">API</a> I had used.</p>
@@ -1903,32 +1752,32 @@ forecasting research…)</p>
 <ul>
 <li><a href="#Results_1">Standard Results</a>
 <ul>
-<li>"<a href="https://predictionbook.com/predictions/209328">Will the Brier score on all resolved Metaculus binary forecasts be greater than or equal to 0.17085?</a>"<code>$_{10\%}$</code> (Yes, with the Brier score being ≈0.171305)</li>
-<li>"<a href="https://predictionbook.com/predictions/209329">Will the correlation between range and Brier score be non-negative for all resolved Metaculus binary forecasts?</a>"<code>$_{45\%}$</code> (Yes. The correlation is ≈0.0831)</li>
-<li>"<a href="https://predictionbook.com/predictions/209330">Will the correlation between range and Brier score be greater than or equal to 0.02166 for all resolved Metaculus binary forecasts?</a>"<code>$_{40\%}$</code> (Yes. Same value as above.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209331">Will the slope for the linear regression between range and Brier score be non-negative for all resolved Metaculus binary forecasts?</a>"<code>$_{45\%}$</code> (Yes, with the actual value being ≈6.814357e-5)</li>
-<li>"<a href="https://predictionbook.com/predictions/209332">Will the slope for the linear regression between range and Brier score be greater than or equal to 1.4922e-5 for all resolved Metaculus binary forecasts?</a>"<code>$_{40\%}$</code> (Yes, same value as above.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209333">Will the intercept for the linear regression between range and Brier score be non-negative for all resolved Metaculus binary forecasts?</a>"<code>$_{95\%}$</code> (Yes, actual value is ≈0.156991.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209334">Will the intercept for the linear regression between range and Brier score be greater than or equal to 0.1675 for all resolved Metaculus binary forecasts?</a>"<code>$_{20\%}$</code> (No, same value as above.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209335">Will the p-value for the linear regression between range and Brier score be greater than or equal to 1.8994e-6 for all resolved Metaculus binary forecasts?</a>"<code>$_{35\%}$</code> (No, actual value scipy gives is 0.0 (?))</li>
+<li>“<a href="https://predictionbook.com/predictions/209328">Will the Brier score on all resolved Metaculus binary forecasts be greater than or equal to 0.17085?</a>"<code>$_{10\%}$</code> (Yes, with the Brier score being ≈0.171305)</li>
+<li>“<a href="https://predictionbook.com/predictions/209329">Will the correlation between range and Brier score be non-negative for all resolved Metaculus binary forecasts?</a>"<code>$_{45\%}$</code> (Yes. The correlation is ≈0.0831)</li>
+<li>“<a href="https://predictionbook.com/predictions/209330">Will the correlation between range and Brier score be greater than or equal to 0.02166 for all resolved Metaculus binary forecasts?</a>"<code>$_{40\%}$</code> (Yes. Same value as above.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209331">Will the slope for the linear regression between range and Brier score be non-negative for all resolved Metaculus binary forecasts?</a>"<code>$_{45\%}$</code> (Yes, with the actual value being ≈6.814357e-5)</li>
+<li>“<a href="https://predictionbook.com/predictions/209332">Will the slope for the linear regression between range and Brier score be greater than or equal to 1.4922e-5 for all resolved Metaculus binary forecasts?</a>"<code>$_{40\%}$</code> (Yes, same value as above.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209333">Will the intercept for the linear regression between range and Brier score be non-negative for all resolved Metaculus binary forecasts?</a>"<code>$_{95\%}$</code> (Yes, actual value is ≈0.156991.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209334">Will the intercept for the linear regression between range and Brier score be greater than or equal to 0.1675 for all resolved Metaculus binary forecasts?</a>"<code>$_{20\%}$</code> (No, same value as above.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209335">Will the p-value for the linear regression between range and Brier score be greater than or equal to 1.8994e-6 for all resolved Metaculus binary forecasts?</a>"<code>$_{35\%}$</code> (No, actual value scipy gives is 0.0 (?))</li>
 </ul></li>
 <li><a href="#NonLinear_CurveFitting">Computing Horizons</a>
 <ul>
 <li><a href="#Fitting_a_Logistic_Functbion">Fitting a Logistic Function</a>
 <ul>
-<li>"<a href="https://predictionbook.com/predictions/209342">Will the slope for the logistic-ish fit between range and Brier score be greater than or equal to -1.08226e-6 for all resolved Metaculus binary forecasts?</a>"<code>$_{40\%}$</code> (No. Real answer is ≈-4.98313e-3.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209343">Will the intercept for the logistic-ish fit between range and Brier score be greater than or equal to 3.5976667e-4 for all resolved Metaculus binary forecasts?</a>"<code>$_{20\%}$</code> (No. Real value is ≈5.50015e-18.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209342">Will the slope for the logistic-ish fit between range and Brier score be greater than or equal to -1.08226e-6 for all resolved Metaculus binary forecasts?</a>"<code>$_{40\%}$</code> (No. Real answer is ≈-4.98313e-3.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209343">Will the intercept for the logistic-ish fit between range and Brier score be greater than or equal to 3.5976667e-4 for all resolved Metaculus binary forecasts?</a>"<code>$_{20\%}$</code> (No. Real value is ≈5.50015e-18.)</li>
 </ul></li>
 <li><a href="#Fitting_an_Exponential_Function">Fitting an Exponential Function</a>
 <ul>
-<li>"<a href="https://predictionbook.com/predictions/209344">Will the parameter b for the exponential-ish fit between range and Brier score be greater than or equal to 0.9579 for all resolved Metaculus binary forecasts?</a>"<code>$_{55\%}$</code> (Yes. Actual value is ≈0.971513.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209345">Will the parameter b for the exponential-ish fit between range and Brier score be greater than or equal to 0.5 for all resolved Metaculus binary forecasts?</a>"<code>$_{80\%}$</code> (Yes. Actual value same as above.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209344">Will the parameter b for the exponential-ish fit between range and Brier score be greater than or equal to 0.9579 for all resolved Metaculus binary forecasts?</a>"<code>$_{55\%}$</code> (Yes. Actual value is ≈0.971513.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209345">Will the parameter b for the exponential-ish fit between range and Brier score be greater than or equal to 0.5 for all resolved Metaculus binary forecasts?</a>"<code>$_{80\%}$</code> (Yes. Actual value same as above.)</li>
 </ul></li>
 <li><a href="#This_Is_Cool">Horizons</a>
 <ul>
-<li>"<a href="https://predictionbook.com/predictions/209346">Will the horizon for the logistic-ish fit between range and Brier score be greater than or equal to 1340 days for all resolved Metaculus binary forecasts?</a>"<code>$_{60\%}$</code> (No. Actual value is ≈637.7 days.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209347">Will the horizon for the exponential-ish fit between range and Brier score be greater than or equal to 75 days for all resolved Metaculus binary forecasts?</a>"<code>$_{55\%}$</code> (Yes. Actual value is ≈111.4 days.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209348">Will the mean squared error of the predicted to the actual Brier score for the forecasts be better on logistic fit than the exponential fit, for all resolved Metaculus binary forecasts?</a>"<code>$_{55\%}$</code> (Yes. The <a href="https://en.wikipedia.org/wiki/Mean_squared_error">MSE</a> is ≈0.052517 for exponential fit, ≈0.050224 for logistic fit. Makes logistic better, and resolves this positively.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209346">Will the horizon for the logistic-ish fit between range and Brier score be greater than or equal to 1340 days for all resolved Metaculus binary forecasts?</a>"<code>$_{60\%}$</code> (No. Actual value is ≈637.7 days.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209347">Will the horizon for the exponential-ish fit between range and Brier score be greater than or equal to 75 days for all resolved Metaculus binary forecasts?</a>"<code>$_{55\%}$</code> (Yes. Actual value is ≈111.4 days.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209348">Will the mean squared error of the predicted to the actual Brier score for the forecasts be better on logistic fit than the exponential fit, for all resolved Metaculus binary forecasts?</a>"<code>$_{55\%}$</code> (Yes. The <a href="https://en.wikipedia.org/wiki/Mean_squared_error">MSE</a> is ≈0.052517 for exponential fit, ≈0.050224 for logistic fit. Makes logistic better, and resolves this positively.)</li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -1936,54 +1785,55 @@ forecasting research…)</p>
 <ul>
 <li><a href="#Results_2">Standard Results</a>
 <ul>
-<li>"<a href="https://predictionbook.com/predictions/209349">Will the correlation between range and Brier score be non-negative for all resolved Metaculus binary questions?</a>"<code>$_{45\%}$</code> (Yes. The correlation is ≈0.017356.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209350">Will the correlation between range and Brier score be greater than or equal to -0.00994 for all resolved Metaculus binary questions?</a>"<code>$_{48\%}$</code> (Yes. Same value as above.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209351">Will the slope for the linear regression between range and Brier score be non-negative for all resolved Metaculus binary questions?</a>"<code>$_{45\%}$</code> (Yes, the slope for the linear regression is ≈1.17605e-10.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209352">Will the slope for the linear regression between range and Brier score be greater than or equal to -5.19915e-6 for all resolved Metaculus binary questions?</a>"<code>$_{48\%}$</code> (Yes, same value as above.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209353">Will the intercept for the linear regression between range and Brier score be non-negative for all resolved Metaculus binary questions?</a>"<code>$_{98\%}$</code> (Yes, the actual value is ≈0.178096.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209354">Will the intercept for the linear regression between range and Brier score be greater than or equal to 0.17513 for all resolved Metaculus binary questions?</a>"<code>$_{40\%}$</code> (Yes, same value as above.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209355">Will the p-value for the linear regression between range and Brier score be greater than or equal to 0.81493 for all resolved Metaculus binary questions?</a>"<code>$_{10\%}$</code> (No, actual p-value is ≈0.0.5999 (still very big!))</li>
+<li>“<a href="https://predictionbook.com/predictions/209349">Will the correlation between range and Brier score be non-negative for all resolved Metaculus binary questions?</a>"<code>$_{45\%}$</code> (Yes. The correlation is ≈0.017356.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209350">Will the correlation between range and Brier score be greater than or equal to -0.00994 for all resolved Metaculus binary questions?</a>"<code>$_{48\%}$</code> (Yes. Same value as above.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209351">Will the slope for the linear regression between range and Brier score be non-negative for all resolved Metaculus binary questions?</a>"<code>$_{45\%}$</code> (Yes, the slope for the linear regression is ≈1.17605e-10.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209352">Will the slope for the linear regression between range and Brier score be greater than or equal to -5.19915e-6 for all resolved Metaculus binary questions?</a>"<code>$_{48\%}$</code> (Yes, same value as above.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209353">Will the intercept for the linear regression between range and Brier score be non-negative for all resolved Metaculus binary questions?</a>"<code>$_{98\%}$</code> (Yes, the actual value is ≈0.178096.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209354">Will the intercept for the linear regression between range and Brier score be greater than or equal to 0.17513 for all resolved Metaculus binary questions?</a>"<code>$_{40\%}$</code> (Yes, same value as above.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209355">Will the p-value for the linear regression between range and Brier score be greater than or equal to 0.81493 for all resolved Metaculus binary questions?</a>"<code>$_{10\%}$</code> (No, actual p-value is ≈0.0.5999 (still very big!))</li>
 </ul></li>
 <li><a href="#NonLinear_CurveFitting_1">Computing Horizons</a>
 <ul>
-<li>"<a href="https://predictionbook.com/predictions/209356">Will the slope for the logistic-ish fit between range and Brier score be greater than or equal to -7.9206883 for all resolved Metaculus binary questions?</a>"<code>$_{38\%}$</code> (Yes. Actual value is (apparently) -1.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209357">Will the intercept for the logistic-ish fit between range and Brier score be greater than or equal to 33.48197 for all resolved Metaculus binary questions?</a>"<code>$_{50\%}$</code> (No. Actual value is (allegedly) 1.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209358">Will the parameter b for the exponential-ish fit between range and Brier score be greater than or equal to 4.77613e-20 for all resolved Metaculus binary questions?</a>"<code>$_{55\%}$</code> (Yes. Actual value is 0.5 (which still confuses me).)</li>
-<li>"<a href="https://predictionbook.com/predictions/209359">Will the parameter b for the exponential-ish fit between range and Brier score be greater than or equal to 0.5 for all resolved Metaculus binary questions?</a>"<code>$_{99\%}$</code> (Yes, <em>barely</em>, with the same value as above.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209360">Will the horizon for the logistic-ish fit between range and Brier score be greater than or equal to 4.5 days for all resolved Metaculus binary questions?</a>"<code>$_{55\%}$</code> (No, the actual value being ≈4.1781.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209361">Will the horizon for the exponential-ish fit between range and Brier score be greater than or equal to 9 days for all resolved Metaculus binary questions?</a>"<code>$_{45\%}$</code> (No, the actual value being ≈4.6439.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209362">Will the mean squared error of the predicted to the actual Brier score for the questions be better on logistic fit than the exponential fit, for all resolved Metaculus binary questions?</a>"<code>$_{60\%}$</code> (No, their mean squared errors are <em>equally good</em> at predicting the data (≈0.02445 in both cases).)</li>
+<li>“<a href="https://predictionbook.com/predictions/209356">Will the slope for the logistic-ish fit between range and Brier score be greater than or equal to -7.9206883 for all resolved Metaculus binary questions?</a>"<code>$_{38\%}$</code> (Yes. Actual value is (apparently) -1.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209357">Will the intercept for the logistic-ish fit between range and Brier score be greater than or equal to 33.48197 for all resolved Metaculus binary questions?</a>"<code>$_{50\%}$</code> (No. Actual value is (allegedly) 1.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209358">Will the parameter b for the exponential-ish fit between range and Brier score be greater than or equal to 4.77613e-20 for all resolved Metaculus binary questions?</a>"<code>$_{55\%}$</code> (Yes. Actual value is 0.5 (which still confuses me).)</li>
+<li>“<a href="https://predictionbook.com/predictions/209359">Will the parameter b for the exponential-ish fit between range and Brier score be greater than or equal to 0.5 for all resolved Metaculus binary questions?</a>"<code>$_{99\%}$</code> (Yes, <em>barely</em>, with the same value as above.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209360">Will the horizon for the logistic-ish fit between range and Brier score be greater than or equal to 4.5 days for all resolved Metaculus binary questions?</a>"<code>$_{55\%}$</code> (No, the actual value being ≈4.1781.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209361">Will the horizon for the exponential-ish fit between range and Brier score be greater than or equal to 9 days for all resolved Metaculus binary questions?</a>"<code>$_{45\%}$</code> (No, the actual value being ≈4.6439.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209362">Will the mean squared error of the predicted to the actual Brier score for the questions be better on logistic fit than the exponential fit, for all resolved Metaculus binary questions?</a>"<code>$_{60\%}$</code> (No, their mean squared errors are <em>equally good</em> at predicting the data (≈0.02445 in both cases).)</li>
 </ul></li>
 </ul></li>
 <li><a href="#Accuracy_Within_Questions">Accuracy Within Questions</a>
 <ul>
 <li><a href="#Results_3">Standard Results</a>
 <ul>
-<li>"<a href="https://predictionbook.com/predictions/209368">Will the slope of the aggregated linear regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to zero?</a>"<code>$_{85\%}$</code> (Yes. Actual value is ≈0.00272)</li>
-<li>"<a href="https://predictionbook.com/predictions/209369">Will the slope of the aggregated linear regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 0.00305?</a>"<code>$_{83\%}$</code> (No. Same value as above.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209370">Will the intercept of the aggregated linear regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to zero?</a>"<code>$_{52\%}$</code> (Yes. Actual value is ≈0.06956.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209371">Will the intercept of the aggregated linear regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 0.0388?</a>"<code>$_{50\%}$</code> (Yes. Actual value same as above.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209368">Will the slope of the aggregated linear regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to zero?</a>"<code>$_{85\%}$</code> (Yes. Actual value is ≈0.00272)</li>
+<li>“<a href="https://predictionbook.com/predictions/209369">Will the slope of the aggregated linear regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 0.00305?</a>"<code>$_{83\%}$</code> (No. Same value as above.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209370">Will the intercept of the aggregated linear regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to zero?</a>"<code>$_{52\%}$</code> (Yes. Actual value is ≈0.06956.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209371">Will the intercept of the aggregated linear regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 0.0388?</a>"<code>$_{50\%}$</code> (Yes. Actual value same as above.)</li>
 </ul></li>
 <li>Computing Horizons
+
 <ul>
 <li><a href="#Logistic_Forecast_Horizons_for_Questions">Logistic-ish Horizons</a>
 <ul>
-<li>"<a href="https://predictionbook.com/predictions/209372">Will the median forecast horizon of the logistic regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 4.18 days?</a>"<code>$_{52\%}$</code> (No. Actual value is ≈4.178.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209373">Will the mean forecast horizon of the logistic regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 1.93e+23 days?</a>"<code>$_{45\%}$</code> (No. Actual value is ≈5.1999e+20 days.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209374">Will the modal forecast horizon of the logistic regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 4.18 days?</a>"<code>$_{55\%}$</code> (No. Actual value is ≈4.178 (this is what happens when you round numbers in your forecasting questions!).)</li>
-<li>"<a href="https://predictionbook.com/predictions/209375">Will the variance of the forecast horizon of the logistic regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 1.42e+49?</a>"<code>$_{55\%}$</code> (No. Actual value is ≈2.231076e+20 days.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209372">Will the median forecast horizon of the logistic regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 4.18 days?</a>"<code>$_{52\%}$</code> (No. Actual value is ≈4.178.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209373">Will the mean forecast horizon of the logistic regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 1.93e+23 days?</a>"<code>$_{45\%}$</code> (No. Actual value is ≈5.1999e+20 days.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209374">Will the modal forecast horizon of the logistic regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 4.18 days?</a>"<code>$_{55\%}$</code> (No. Actual value is ≈4.178 (this is what happens when you round numbers in your forecasting questions!).)</li>
+<li>“<a href="https://predictionbook.com/predictions/209375">Will the variance of the forecast horizon of the logistic regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 1.42e+49?</a>"<code>$_{55\%}$</code> (No. Actual value is ≈2.231076e+20 days.)</li>
 </ul></li>
 <li><a href="#Exponential_Forecast_Horizons_for_Questions">Exponential-ish Horizons</a>
 <ul>
-<li>"<a href="https://predictionbook.com/predictions/209376">Will the median forecast horizon of the exponential-ish regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 4.64 days?</a>"<code>$_{48\%}$</code> (Answer: Yes. Actual answer is ≈4.6439.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209377">Will the mean forecast horizon of the exponential-ish regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 1613.62 days?</a>"<code>$_{60\%}$</code> (No. Actual answer is ≈256.0893 days.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209378">Will the modal forecast horizon of the exponential-ish regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 4.64 days?</a>"<code>$_{55\%}$</code> (Yes. Actual answer is ≈4.64386 days.)</li>
-<li>"<a href="https://predictionbook.com/predictions/209379">Will the variance of the forecast horizon of the exponential-ish regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 478494147?</a>"<code>$_{55\%}$</code> (No. Actual answer is ≈1503031.6 days.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209376">Will the median forecast horizon of the exponential-ish regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 4.64 days?</a>"<code>$_{48\%}$</code> (Answer: Yes. Actual answer is ≈4.6439.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209377">Will the mean forecast horizon of the exponential-ish regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 1613.62 days?</a>"<code>$_{60\%}$</code> (No. Actual answer is ≈256.0893 days.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209378">Will the modal forecast horizon of the exponential-ish regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 4.64 days?</a>"<code>$_{55\%}$</code> (Yes. Actual answer is ≈4.64386 days.)</li>
+<li>“<a href="https://predictionbook.com/predictions/209379">Will the variance of the forecast horizon of the exponential-ish regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 478494147?</a>"<code>$_{55\%}$</code> (No. Actual answer is ≈1503031.6 days.)</li>
 </ul></li>
 </ul></li>
 </ul></li>
 </ul>
-<p>So, how well did I predict the outcome of my own research? I'll use the
+<p>So, how well did I predict the outcome of my own research? I’ll use the
 log score for a change:</p>
 <pre><code>probs=[0.1, 0.45, 0.4, 0.45, 0.4, 0.95, 0.2, 0.35, 0.4, 0.2, 0.55, 0.8, 0.6, 0.55, 0.55, 0.45, 0.48, 0.45, 0.98, 0.4, 0.1, 0.38, 0.5, 0.55, 0.99, 0.55, 0.45, 0.6, 0.85, 0.83, 0.52, 0.5, 0.52, 0.45, 0.55, 0.55, 0.48, 0.6, 0.55, 0.55]
 outcs=[1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 0]
@@ -1995,7 +1845,7 @@ outcs=[1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1
 -0.6931471805599453
 </code></pre>
 <p>Apparently yes. So either making predictions about the replication of
-your own research is hard, or I'm just bad at it. Yours to decide.</p>
+your own research is hard, or I’m just bad at it. Yours to decide.</p>
 <h3 id="Analysis__Results"><a class="hanchor" href="#Analysis__Results">Analysis &amp; Results</a></h3>
 <p>I use <a href="./iqisa.html">iqisa</a> and the private Metaculus data to reproduce
 the analysis.</p>
@@ -2016,7 +1866,7 @@ the analysis.</p>
 &gt;&gt;&gt; pmetbriers=pmetbriers[pmetrngs&gt;0]
 &gt;&gt;&gt; pmetrngs=pmetrngs[pmetrngs&gt;0]
 </code></pre>
-<p>And can see that the Brier score isn't much different from the squashed
+<p>And can see that the Brier score isn’t much different from the squashed
 data (even though there are many more forecasts:</p>
 <pre><code>&gt;&gt;&gt; np.mean(pmetbriers)
 0.1713050461310057
@@ -2083,7 +1933,7 @@ for e in np.unique(m['question_id']):
 ... return np.mean((x-y)**2)
 &gt;&gt;&gt; pmetqbrier=np.array([[i[1], brier(i[3], i[2])] for i in pmetquestions])
 </code></pre>
-<p>And now we're ready to calcuate the results:</p>
+<p>And now we’re ready to calcuate the results:</p>
 <pre><code>&gt;&gt;&gt; np.corrcoef(pmetqbrier.T)
 array([[1.       , 0.0173564],
     [0.0173564, 1.       ]])
@@ -2098,7 +1948,7 @@ LinregressResult(slope=1.1760476061621512e-10, intercept=0.17809615527756018, rv
 (array([0.5]), array([[0.]]))
 </code></pre>
 <p>The exponential fit gives quite odd results—maybe a bug (another one‽)?</p>
-<p>But in the meantime, here's the (resulting) predictive horizons:</p>
+<p>But in the meantime, here’s the (resulting) predictive horizons:</p>
 <pre><code>&gt;&gt;&gt; (np.log(1/(0.96)-1)-pmetlogifit_betweenq[0][1])/pmetlogifit_betweenq[0][0]
 4.1780538303479435
 &gt;&gt;&gt; np.log(0.04)/np.log(pmetexpfit_betweenq[0][0])
@@ -2132,8 +1982,7 @@ each question.</p>
 &gt;&gt;&gt; pawmetqintercept=np.sum([len(pwmetqbrier[i][0])*pwmetqregs[i][1] for i in range(0, len(pwmetqregs))])/clean_pmetforecasts
 0.06956244334109736
 </code></pre>
-<!--TODO: examine the correlations here!-->
-<p>The number of forecasts on each question shouldn't be a problem here:</p>
+<p>The number of forecasts on each question shouldn’t be a problem here:</p>
 <pre><code>&gt;&gt;&gt; np.sort(list(map(lambda x: len(x[0]), pwmetqbrier)))
 array([   2,    7,   11,   12,   12,   13,   16,   17,   17,   20,   24,
 25,   26,   27,   28,   28,   29,   30,   30,   31,   31,   32,
@@ -2194,9 +2043,10 @@ for e in pwmetqbrier:
 original findings?</p>
 <ul>
 <li>Between forecasts
+
 <ul>
 <li>The positive correlation between range and accuracy stays the same ✓</li>
-<li>The linear regression is similar too (very small positive slope, intercept at ~0.16). ✓</li>
+<li> The linear regression is similar too (very small positive slope, intercept at ~0.16). ✓</li>
 <li>The logistic-ish fit gives values within ~2 orders of magnitude for the slope &amp; intercept, and both have the right sign. ✓</li>
 <li>The exponential-ish fit, though, gives a <em>much</em> different value close to 1, while the original was one close to zero. ✗</li>
 <li>The logistic-ish horizon is ~half as long as the one with the restricted data. ~</li>
@@ -2204,6 +2054,7 @@ original findings?</p>
 <li>The logistic-ish fit is better than the exponential-ish fit, again. ✓</li>
 </ul></li>
 <li>Between questions
+
 <ul>
 <li>The correlation between range and accuracy flips sign, but stays very small. ✗</li>
 <li>The slope of the linear regression also flips sign, but the intercept is remarkably similar. ~</li>
@@ -2215,6 +2066,7 @@ original findings?</p>
 <li>The mean squared errors of both methods are again remarkably close. ✓</li>
 </ul></li>
 <li>Within questions
+
 <ul>
 <li>Slope for linear regressions is surprising close, intercept off by a factor of ~2. Still ok. ✓</li>
 <li>Mean logistic-ish horizon is ~3 orders of magnitude away from original estimate, median &amp; mode are the same (?), variance is smaller (~5 orders of magnitude), maximum &amp; minimum are kind of close. Estimating the slope of a <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid</a> is difficut. ~</li>
@@ -2229,7 +2081,7 @@ function <code>val_shrinking_dataset</code> which first sorts the pre-computed
 Brier scores by range, and then calculates <a href="https://en.wikipedia.org/wiki/p-value">p-values</a> and correlation
 coefficients, afterwards removing the earliest prediction from the dataset (I
 have no idea whether this is statistically acceptable, but it seemed like
-a reasonable thing to do, lest there's some problem here with p-hacking).
+a reasonable thing to do, lest there’s some problem here with p-hacking).
 The values are concatenated into arrays, which are then returned.</p>
 <pre><code>def val_shrinking_dataset(briers, ranges):
     sortind=np.argsort(ranges)
@@ -2254,7 +2106,7 @@ pbpvals=val_shrinking_dataset(pbbriers, pbrngs)
 y-axis, p-values on the (logarithmic) right y-axis). Here, the datapoint
 at range <code>x</code> would be the correlation coefficient and its p-value for
 all Brier scores <em>after</em> <code>x</code> (sorry for the legend in the upper right
-corner, I couldn't figure out how to move it to the right middle-bottom).</p>
+corner, I couldn’t figure out how to move it to the right middle-bottom).</p>
 <pre><code>fig=plt.figure(figsize=(10,10), clear=True)
 
 _, ax1 = plt.subplots()
@@ -2278,14 +2130,14 @@ plt.savefig("pvals_ss_plot.png")
 to read (<em>allegedly</em>):</p>
 <p><img alt="The same plot, but without the outlier Metaculus p-values" src="./img/range_and_forecasting_accuracy/pvals_pb_plot.png" title="The same plot, but without the outlier Metaculus p-values"/></p>
 <p>These graphs are quite interesting in several regards. First, we can see
-that the correlation coefficients don't have a clear development as one
+that the correlation coefficients don’t have a clear development as one
 removes forecasts with low ranges from the dataset: for Metaculus the
 correlation first goes down, then up again. (This might be an artifact
 of having very little data for long ranges in the Metaculus dataset,
 though). PredictionBook data is a bit more consistent: the correlation
 between range and accuracy rises the more early datapoints we remove
 (again with the coefficient flailing around in the end because it just
-doesn't have enough data).</p>
+doesn’t have enough data).</p>
 <p>But truly odd is the p-value here: The dip in the correlation coefficient
 for Metaculus data is judged to be <em>extremely unlikely</em> to have occurred
 randomly, down to <code>$10^{-35}$</code>, so that it makes the chart nearly unreadable
@@ -2295,7 +2147,7 @@ the correlation between range and accuracy to start out strong with the
 whole dataset, and then become weaker, noisier and more likely to be
 random the more values I remove from the start of the dataset. Perhaps
 the short-range Metaculus forecasts just introduce a bunch of noise,
-because people scramble to get a last prediction in? But that doesn't
+because people scramble to get a last prediction in? But that doesn’t
 explain why the correlation is then negative with an extremely low
 p-value with predictions with a range of less than 18 months removed.</p>
 <p>The changes in Metaculus correlations might coincide with new years,
@@ -2303,7 +2155,7 @@ perhaps?</p>
 <p>For PredictionBook, there is a more straight-forward story to tell,
 namely that short-range predictions seem to just introduce noise,
 and the longer the range, the stronger the correlation (although the
-relation to p-values doesn't look strong in any way, I wonder whether
+relation to p-values doesn’t look strong in any way, I wonder whether
 there is a way to test that).</p>
 <h2 id="Appendix_C_Quotes_About_the_Horizon_of_Forecasts"><a class="hanchor" href="#Appendix_C_Quotes_About_the_Horizon_of_Forecasts">Appendix C: Quotes About the Horizon of Forecasts</a></h2>
 <blockquote>
@@ -2313,13 +2165,13 @@ the future we try to look, the more likely our forecasts are to be wrong.</p>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Richard_J._Herrnstein">Richard J. Hernstein</a> &amp; <a href="https://en.wikipedia.org/wiki/Charles_Murray_(political_scientist)">Charles Murray</a>, <a href="https://en.wikipedia.org/wiki/The_Bell_Curve">“The Bell Curve”</a> ch. 15, 1994</em></p>
 <blockquote>
 <p>The future is hard to predict. We may feel confident that eventually
-space will be colonized, or that eventually we'll make stuff by putting
+space will be colonized, or that eventually we’ll make stuff by putting
 each atom just where we want it. But so many other changes may happen
 before and during those changes that it is hard to say with much
 confidence how space travel or nanotechnology may affect the ordinary
 person. Our vision seems to fade into a fog of possibilities.</p>
 <p>The scenario I am about to describe excites me because it seems
-an exception to this general rule --[sic] more like a crack of dawn than
+an exception to this general rule –[sic] more like a crack of dawn than
 a fog, like a sharp transition with sharp implications regardless of
 the night that went before. Or like a sight on the horizon much clearer
 than the terrain inbetween. And, as scenarios go, this one seems rather
@@ -2351,8 +2203,8 @@ your undoing. And predicting that dinosaurs would continue to preside
 at the top of the food chain was a safe bet for tens of millions of
 years—until an asteroid set off a cataclysm that opened up ecological
 niches for a tiny mammal that eventually evolved into a species that
-tries to predict the future. <br/>
-[…] <br/>
+tries to predict the future.<br/>
+[…]<br/>
 The further out the forecaster tries to look, the more opportunity there
 is for chaos to flap its butterfly wings and blow away expectations. Big
 leaps in computing power and continued refinement of forecasting models
@@ -2379,7 +2231,7 @@ the accuracy of expert predictions declined toward chance five years out.</p>
 </blockquote>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Philip_E._Tetlock">Philip E. Tetlock</a> &amp; Dan Gardner, “Superforecasting” p. 234, 2015</em></p>
 <blockquote>
-<p>The future is usually "absurd" - it is unstable in its surface rules
+<p>The future is usually “absurd” - it is unstable in its surface rules
 over fifty-year intervals.</p>
 </blockquote>
 <p><em>— <a href="https://www.yudkowsky.net/">Eliezer Yudkowsky</a>, <a href="https://www.lesswrong.com/posts/P792Z4QA9dzcLdKkE/absurdity-heuristic-absurdity-bias">“Absurdity Heuristic, Absurdity Bias”</a>, 2007</em></p>

@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-07-15, modified: 2022-12-20, language: english, status: notes, importance: 6, confidence: certain</em></p>
 <blockquote>
 <p><strong>.</strong></p>
@@ -47,7 +47,7 @@ providing the user with every function they could need.</p>
 <h2 id="Examples"><a class="hanchor" href="#Examples">Examples</a></h2>
 <h3 id="Minimal_Example"><a class="hanchor" href="#Minimal_Example">Minimal Example</a></h3>
 <p>The minimal steps for getting started with the library are quite
-simple. Here's the code for loading the data from the Good Judgment
+simple. Here’s the code for loading the data from the Good Judgment
 Project prediction markets:</p>
 <pre><code>$ python3
 &gt;&gt;&gt; import gjp
@@ -60,7 +60,7 @@ surveys:</p>
 </code></pre>
 <p>Now <code>market_fcasts</code> contains the forecasts from all prediction markets
 from the Good Judgement Project as a <a href="https://pandas.pydata.org/">pandas</a>
-DataFrame<!--TODO: link--> (and <code>survey_fcasts</code> all from the surveys):</p>
+DataFrame (and <code>survey_fcasts</code> all from the surveys):</p>
 <pre><code>&gt;&gt;&gt; market_fcasts
         question_id  user_id  team_id  probability  ... n_opts          options q_status q_type
 0            1040.0     6203        0       0.4000  ...      2  (a) Yes, (b) No   closed      0
@@ -74,7 +74,7 @@ DataFrame<!--TODO: link--> (and <code>survey_fcasts</code> all from the surveys)
 <p>The <a href="#loadfilesNone"><code>load</code></a> functions are the central piece of the
 library, as they give you, the user, the data in <a href="#forecasts">a format</a>
 that can be compared across datasets. The other functions are merely
-suggestions and can be ignored if they don't fit your use-case (iqisa
+suggestions and can be ignored if they don’t fit your use-case (iqisa
 wants to provide you with the data, and not be opinionated with what
 you do with that data in the end, and how you do it).</p>
 <h3 id="Aggregating_and_Scoring"><a class="hanchor" href="#Aggregating_and_Scoring">Aggregating and Scoring</a></h3>
@@ -98,7 +98,6 @@ question_id
 score    0.137272
 dtype: float64
 </code></pre>
-<!--**-->
 <p>Next, the user might define an <a href="https://forum.effectivealtruism.org/s/hjiBqAJNKhfJFq7kf/p/sMjcjnnpoAQCcedL2">aggregation
 function</a>:</p>
 <pre><code>&gt;&gt;&gt; import statistics
@@ -149,7 +148,7 @@ for scoring users, but this is easy to implement:</p>
 
 trader_scores=iqs.score(marrket_fcasts, brier_score, on=['user_id'])
 </code></pre>
-<p>However, we might want to exclude traders who have made fewer than, let's
+<p>However, we might want to exclude traders who have made fewer than, let’s
 say, 100 trades:</p>
 <pre><code>filtered_trader_scores=iqs.score(market_fcasts.groupby(['user_id']).filter(lambda x: len(x)&gt;100), brier_score, on=['user_id'])
 </code></pre>
@@ -184,8 +183,7 @@ described here.</p>
 <p>Some functions (<code>gjp.load_markets(), gjp.load_surveys(),
 metaculus.load_private_binary()</code>) return data in a common format that
 is intended to be comparable across forecasting datasets. That format
-is a pandas DataFrame<!--TODO: link--> with shared columns:</p>
-<!--TODO: make this a table-->
+is a pandas DataFrame with shared columns:</p>
 <ul>
 <li><code>question_id</code>: The unique ID of the question, type <code>float64</code>.</li>
 <li><code>user_id</code>: The unique ID of the user who made the forecast, type <code>float64</code>.</li>
@@ -208,7 +206,6 @@ is a pandas DataFrame<!--TODO: link--> with shared columns:</p>
 the dataset. It is set either manually or by calling <code>load_questions()</code>
 in a subclass.</p>
 <p>Its columns are</p>
-<!--TODO: describe further-->
 <ul>
 <li><code>question_id</code>, <code>date_start</code>, <code>date_suspend</code>, <code>date_to_close</code>, <code>date_closed</code>, <code>outcome</code>, <code>q_type</code>, <code>q_status</code>, <code>days_open</code>, <code>n_opts</code>, <code>options</code>: As in the <a href="#forecasts">description of <code>forecasts</code> above</a></li>
 <li><code>q_title</code>: The title of the question, as a <code>str</code>.</li>
@@ -222,12 +219,13 @@ markets. They have the same arguments.</p>
 <h4 id="Arguments"><a class="hanchor" href="#Arguments">Arguments</a></h4>
 <ul>
 <li><code>files</code>: If <code>None</code>, the data is loaded from the default files (depending on the value of <code>processed</code>). Expects a list of strings of the filenames.
+
 <ul>
 <li>If <code>processed</code> is <code>True</code>, <code>files</code> is by default <code>gjp.processed_survey_files</code>) (for <code>gjp.load_surveys()</code>) or <code>gjp.processed_market_files</code> (for <code>gjp.load_markets()</code>)</li>
 <li>If <code>processed</code> is <code>False</code>, <code>files</code> is by default <code>gjp.survey_files</code> (for <code>gjp.load_surveys()</code>) or <code>gjp.market_files</code> (for <code>gjp.load_markets()</code>)</li>
 </ul></li>
 <li><code>processed</code>: Whether to load the data from a pre-processed file (if <code>True</code>) or from the original files (if <code>False</code>). The main difference is in speed, loading from the pre-processed file is much faster.</li>
-<li><code>complete</code>: Whether to load all columns present in the dataset (if <code>True</code>) or only columns described <a href="#Forecasts">here</a> (if <code>False</code>). Loading all columns returns a bigger and more confusing DataFrame, loading the comparable subset always returns a subset of the columns of the "complete" DataFrame.</li>
+<li><code>complete</code>: Whether to load all columns present in the dataset (if <code>True</code>) or only columns described <a href="#Forecasts">here</a> (if <code>False</code>). Loading all columns returns a bigger and more confusing DataFrame, loading the comparable subset always returns a subset of the columns of the “complete” DataFrame.</li>
 </ul>
 <h4 id="Returns"><a class="hanchor" href="#Returns">Returns</a></h4>
 <p>A DataFrame in the format described <a href="#Forecasts">here</a> loaded from
@@ -273,11 +271,12 @@ markets. They have the same arguments.</p>
 <p>The GJOpen forecast data has some peculiarities, which are described here:</p>
 <ul>
 <li><code>question_id</code>: Follows the format <code>[0-9]{4}</code>.</li>
-<li><code>team_id</code>: The team "DEFAULT" is given the ID 0.</li>
-<li><code>answer_option</code>: One of 'a', 'b', 'c', 'd' or 'e' (or rarely <code>numpy.nan</code> for market data).</li>
-<li><code>outcome</code>: One of 'a', 'b', 'c', 'd', or 'e' (or rarely <code>numpy.nan</code>, in the case of voided questions).</li>
-<li><code>q_status</code>: One of 'closed', 'voided' or 'open'.</li>
+<li><code>team_id</code>: The team “DEFAULT” is given the ID 0.</li>
+<li><code>answer_option</code>: One of ‘a’, ‘b’, ‘c’, ‘d’ or ‘e’ (or rarely <code>numpy.nan</code> for market data).</li>
+<li><code>outcome</code>: One of ‘a’, ‘b’, ‘c’, ‘d’, or ‘e’ (or rarely <code>numpy.nan</code>, in the case of voided questions).</li>
+<li><code>q_status</code>: One of ‘closed’, ‘voided’ or ‘open’.</li>
 <li><code>q_type</code>: Integer between 0 and 6 (inclusive).
+
 <ul>
 <li>0: regular binomial or multinomial question</li>
 <li>1-5: conditional question, index designated by the specific type (<code>q_type</code> 2: 2nd conditional question)</li>
@@ -289,7 +288,7 @@ markets. They have the same arguments.</p>
 loaded from <code>files</code>, by default from the files listed in
 <code>gjp.questions_files</code> (value <code>[./data/gjp/ifps.csv]</code>).</p>
 <p>The field <code>resolve_time</code> is the same as <code>close_time</code>, as the GJOpen data
-doesn't distinguish the two times.</p>
+doesn’t distinguish the two times.</p>
 <p>Additionally, this questions data contains the columns</p>
 <ul>
 <li><code>q_desc</code>: The description of the question, including resolution criteria, type <code>str</code>.</li>
@@ -346,6 +345,7 @@ over the <code>forecasts</code>, aggregation method provided by the user.</p>
 <p>To elaborate a bit further:</p>
 <ul>
 <li>First argument (<code>forecasts</code>): A DataFrame of the format described <a href="#Forecasts">here</a>, needs the following columns:
+
 <ul>
 <li><code>question_id</code></li>
 <li><code>timestamp</code></li>
@@ -354,8 +354,10 @@ over the <code>forecasts</code>, aggregation method provided by the user.</p>
 <li><code>outcome</code></li>
 </ul></li>
 <li>Second argument (<code>aggregation_function</code>): The user-defined aggregation function, which is called for on each set of forecasts made on the same question for the same answer option.
+
 <ul>
 <li>Receives:
+
 <ul>
 <li>A DataFrame that is a subset of rows of <code>forecasts</code> (all with the same <code>question_id</code>)</li>
 <li>Optional arguments passed on by <code>aggregate</code></li>
@@ -364,6 +366,7 @@ over the <code>forecasts</code>, aggregation method provided by the user.</p>
 </ul></li>
 <li><code>on</code>: What columns of <code>forecasts</code> to group by/aggregate over. By default the function groups by the question ID and the answer option, so we receive one probability for every answer on every question.</li>
 <li>Optional arguments which are passed to the aggregation function
+
 <ul>
 <li><code>*args</code> are the variable arguments, and</li>
 <li><code>**kwargs</code> are the variable keyword arguments</li>
@@ -386,6 +389,7 @@ given by the user.</p>
 <p>To elaborate a bit further:</p>
 <ul>
 <li>First argument (<code>forecasts</code>): A DataFrame of the format described <a href="#Comparable_Forecast_Data_General_Structure">here</a>, needs the following columns:
+
 <ul>
 <li><code>question_id</code></li>
 <li><code>probability</code></li>
@@ -393,8 +397,10 @@ given by the user.</p>
 <li><code>answer_option</code></li>
 </ul></li>
 <li>Second argument (<code>scoring_rule</code>): The scoring rule for forecasts.
+
 <ul>
 <li>Receives:
+
 <ul>
 <li>First argument: A numpy array containing the probabilities (in (0,1)</li>
 <li>Second argument: A numpy array containing the outcomes (in {0,1})</li>
@@ -404,6 +410,7 @@ given by the user.</p>
 </ul></li>
 <li><code>on</code>: What columns of <code>forecasts</code> to group by/score on. By default the function groups by the question ID , so we receive one score for every question</li>
 <li>Optional arguments which are passed to the scoring rule
+
 <ul>
 <li><code>*args</code> are the variable arguments, and</li>
 <li><code>**kwargs</code> are the variable keyword arguments</li>
@@ -422,7 +429,6 @@ on a question &amp; option, and score with the Brier score:</p>
 def brier_score(probabilities, outcomes):
     return np.mean((probabilities-outcomes)**2)
 </code></pre>
-<!--**-->
 <p>Using these in the repl:</p>
 <pre><code>&gt;&gt;&gt; import gjp
 &gt;&gt;&gt; import iqisa as iqs
@@ -467,6 +473,7 @@ before the time of prediction.</p>
 </code></pre>
 <ul>
 <li>First argument (<code>forecasts</code>): a DataFrame with the fields:
+
 <ul>
 <li><code>question_id</code></li>
 <li><code>user_id</code></li>
@@ -475,8 +482,10 @@ before the time of prediction.</p>
 <li><code>date_suspend</code></li>
 </ul></li>
 <li>Second argument (<code>scoring_rule</code>): the scoring rule by which the performance will be judged
+
 <ul>
 <li>Receives:
+
 <ul>
 <li>First argument: A numpy array containing the probabilities (in (0,1)</li>
 <li>Second argument: A numpy array containing the outcomes (in {0,1})</li>

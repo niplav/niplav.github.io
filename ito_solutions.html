@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-10-19, modified: 2022-11-25, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 <blockquote>
 <p><strong>Solutions to the textbook “Introduction to Optimization”.</strong></p>
@@ -62,7 +62,7 @@ def fhole(x, c=10, a=0.1):
 </code></pre>
 <p>The derivative of <code>$f_{\text{sq}}=x^{\top}Cx$</code> is <code>$(C+C^{\top})x$</code>
 (as per identity 81 from the Matrix Cookbook (Petersen &amp; Pedersen
-2012))<!--TODO: link-->.</p>
+2012)).</p>
 <p>Which is excellent, since the identity 2.3 of Maths for Intelligent
 Systems (Toussaint 2022) gives
 <code>$\frac{\partial}{\partial x} x^{\top}Cx=x^{\top}C \frac{\partial}{\partial x}x+x^{\top} C^{\top} \frac{\partial}{\partial x} x$</code>
@@ -76,12 +76,6 @@ Cookbook).</p>
 </code></pre>
 <p>Since <code>$f_{\text{sq}}$</code> and <code>$f_{\text{hole}}$</code> return a scalar, one can
 use a simple <a href="https://en.wikipedia.org/wiki/Quotient_rule">quotient rule</a>:</p>
-<div>
-        $$f_{\text{hole}}(x)=\\
-        \frac{(C^{\top}+C)x\cdot(a^2+x^{\top}Cx)-x^{\top}Cx\cdot (C^{\top}+C)x)}{(a^2+x^{\top}Cx)^2}= \\
-         \frac{(C^{\top}+C)x\cdot(a^2+x^{\top}Cx-x^{\top}Cx)}{(a^2+x^{\top}Cx)^2}= \\
-         \frac{a^2 \cdot (C^{\top}+C)x}{(a^2+x^{\top}Cx)^2}$$
-</div>
 <p>The implementation is straightforwardly</p>
 <pre><code>def fholegrad(x, c=10, a=0.1):
     retval_fsq=fsq(x, c=c)
@@ -144,88 +138,37 @@ cost:  1.7076729729684466e-19
 </code></pre>
 <h4 id="iv"><a class="hanchor" href="#iv">iv)</a></h4>
 <p>First we compute the derivative of <code>$\underset{β}{\text{argmin}}||y-Xβ||^2+λ||β||^2$</code>:</p>
-<div>
-    $$\frac{\partial ||y-Xβ||^2+λ||β||^2}{\partial β}= \\
-    \frac{\partial ||y-Xβ||^2}{\partial β} + \frac{\partial λ||β||^2}{\partial β}= \\
-    \frac{\partial ||-Xβ-(-y)||^2}{\partial β}+λ2β=\\
-    2 \cdot \frac{-Xβ-(-y)}{||-Xβ-(-y)||}+λ2β$$
-</div>
 <h3 id="431"><a class="hanchor" href="#431">4.3.1</a></h3>
-<div>
-</div>
 <h3 id="433"><a class="hanchor" href="#433">4.3.3</a></h3>
-<div>
-    $$f(x)=\frac{1}{2}x^{\top} A x+b^{\top}+c=\\
-    \frac{1}{2} x^{\top} A x=\\
-    \frac{1}{2} x^{\top} \left [\matrix{2 &amp; 0 \cr 0 &amp; 1}\right ] x$$
-</div>
 <p>(since <code>$b=\mathbf{0}$</code> and <code>$c=0$</code>). So the negative gradient is</p>
-<div>
-    $$-\nabla f(x)= \\
-    \frac{1}{2} x^{\top} (A+A^{\top})=\\
-    \frac{1}{2} x^{\top} \left [\matrix{4 &amp; 0 \cr 0 &amp; 2}\right ]$$
-</div>
 <h4 id="i_1"><a class="hanchor" href="#i_1">(i)</a></h4>
 <p><code>$x_0=\left [ \matrix{1 \cr 1} \right ]$</code>, so</p>
-<div>
-    $$δ_0=\\
-    -\nabla f(x_0)=\\
-    -\frac{1}{2} \left [ \matrix{1 &amp; 1} \right ] \left [\matrix{4 &amp; 0 \cr 0 &amp; 2}\right ]=\\
-    -\left [ \matrix{2 &amp; 1} \right ]$$
-</div>
 <p>Then</p>
-<div>
-    $$f(x+αδ)=\\
-    \frac{1}{2} (\left [ \matrix{1 \cr 1} \right]-α\left [ \matrix{2 \cr 1} \right ])^{\top}\left [\matrix{2 &amp; 0 \cr 0 &amp; 1}\right ](\left [ \matrix{1 \cr 1} \right]-α\left [ \matrix{2 \cr 1} \right ])=\\
-    \frac{1}{2} (\left [ \matrix{1 \cr 1} \right]-α\left [ \matrix{2 \cr 1} \right ])^{\top}(\left [ \matrix{2 \cr 1} \right]-α\left [ \matrix{4 \cr 1} \right ])=\\
-    \frac{1}{2} (\left [ \matrix{1 &amp; 1} \right]-α\left [ \matrix{2 &amp; 1} \right ])(\left [ \matrix{2 \cr 1} \right]-α\left [ \matrix{4 \cr 1} \right ])=\\
-    \frac{1}{2}(3-10\cdot α+9 \cdot α^2)=\\
-    1.5-5\cdot α+9 \cdot α^2$$
-</div>
 <p>The derivative of that is <code>$5+18 \cdot α$</code>. Setting it to zero gives
 <code>$α=\frac{5}{18}$</code>.</p>
 <p>The next <code>$x$</code> then is (going by the values we computed)
 <code>$\left [ \matrix{0.\overline{4} \cr 0.7\overline{2}} \right ]$</code>.</p>
 <p>The new gradient then is</p>
-<div>
-    $$g=\\
-    -\nabla f(x)=\\
-    -\frac{1}{2} \left [ \matrix{0.\overline{4} &amp; 0.7\overline{2}} \right ] \left [\matrix{2 &amp; 0 \cr 0 &amp; 1}\right ]=\\
-    \left [ \matrix{-0.\overline{4} &amp; -0.36\overline{1}} \right ]$$
-</div>
 <p>Now computing <code>$β$</code>:</p>
-<div>
-    $$\frac{g^{\top}(g-g')}{g'^{\top}g'}=\\
-    \frac{\left [ \matrix{-0.\overline{4} &amp; -0.36\overline{1}} \right ]^{\top}(\left [ \matrix{-0.\overline{4} &amp; -0.36\overline{1}} \right ]-\left [ \matrix{-2 &amp; -1} \right ])}{\left [ \matrix{-2 &amp; -1} \right ]^{\top}\left [ \matrix{-2 &amp; -1} \right ]}\approx \\
-    -0.1844$$
-</div>
 <p>which is smaller than zero, so our new <code>$β$</code> is <code>$0$</code>.</p>
 <p>Then <code>$δ$</code> is <code>$\left [ \matrix{-0.\overline{4} &amp; -0.36\overline{1}} \right ]$</code>.</p>
 <p>We now go through the whole exercise a second time:</p>
-<div>
-    $$f(x+αδ)=\\
-    \frac{1}{2} (\left [ \matrix{0.\overline{4} \cr 0.7\overline{2}} \right ]-α\left [ \matrix{-1.8765 &amp; -1.4938} \right ])^{\top}\left [\matrix{2 &amp; 0 \cr 0 &amp; 1}\right ](\left [ \matrix{0.\overline{4} \cr 0.7\overline{2}} \right ]-α\left [ \matrix{-1.8765 &amp; -1.4938} \right ])=\\
-    (\frac{1}{2} (\left [ \matrix{0.\overline{4} \cr 0.7\overline{2}} \right ]-α\left [ \matrix{-1.8765 &amp; -1.4938} \right ])^{\top}\left [ \matrix{0.\overline{8} \cr 0.7\overline{2}} \right]-α\left [ \matrix{-0.\overline{8} \cr -0.36\overline{1}} \right ]) \approx \\
-    0.458\overline{3}-0.6559\cdot α+0.2627 \cdot α^2$$
-</div>
 <p>Then the derivative is approximately <code>$-0.6559+0.5255 \cdot α$</code>, and
 the new <code>$α$</code> is the solution to that, namely <code>$\approx 1.248$</code>.</p>
 <p>Then the new <code>$x$</code> is <code>$\approx \left [ \matrix{-0.1103 &amp; 0.2715} \right ]$</code>.
 The new <code>$g$</code> is <code>$\approx \left [ \matrix{0.11029 &amp; -0.1358} \right ]$</code>, and
 <code>$β\approx 0.0933$</code>, which is this time greater than zero so we can keep it.</p>
 <p>The new <code>$δ$</code> therefore is <code>$\approx \left [ \matrix{0.0688 &amp; -0.1694} \right ]$</code>.</p>
-<p>…And we're done with the second round. I'm not going to do this for
-<code>$x_0=(-1,2)$</code>, in case you were wondering, I hope I've shown that I <em>can</em>
-do this, and it's tedious to type out.</p>
-<!--TODO: maybe do other ones too?-->
+<p>…And we’re done with the second round. I’m not going to do this for
+<code>$x_0=(-1,2)$</code>, in case you were wondering, I hope I’ve shown that I <em>can</em>
+do this, and it’s tedious to type out.</p>
 <h4 id="ii_1"><a class="hanchor" href="#ii_1">(ii)</a></h4>
 <p>Intuitively, this makes sense: We walked all the way to the minimum in
 the direction of the current gradient, so the next direction should not
-go "back" in the direction where we came from, or further than we needed
+go “back” in the direction where we came from, or further than we needed
 to go.</p>
-<!--TODO: actually prove this-->
 <h3 id="441"><a class="hanchor" href="#441">4.4.1</a></h3>
-<p>Not gonna show you the sketch, of course. (I also don't have time right
+<p>Not gonna show you the sketch, of course. (I also don’t have time right
 now to learn <a href="https://manim.community">manim</a> for that, though it would
 be cool).</p>
 <h4 id="i_2"><a class="hanchor" href="#i_2">(i)</a></h4>
@@ -234,7 +177,7 @@ be cool).</p>
 <p>The solution is
 <code>$\left [ \matrix{-\frac{\sqrt{2}}{2} \cr -\frac{\sqrt{2}}{2}} \right ]$</code>.</p>
 <h4 id="iii_1"><a class="hanchor" href="#iii_1">(iii)</a></h4>
-<p>Since the gradient is "pulling" to the bottom left, the best one can do
+<p>Since the gradient is “pulling” to the bottom left, the best one can do
 is to set <code>$x_1$</code> to zero. So
 <code>$x=\left [ \matrix{-\frac{\sqrt{2}}{2} \cr -\frac{\sqrt{2}}{2}} \right ]$</code>.</p>
 <h4 id="iv_1"><a class="hanchor" href="#iv_1">(iv)</a></h4>

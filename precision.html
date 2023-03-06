@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-02-04, modified: 2022-06-28, language: english, status: notes, importance: 4, confidence: likely</em></p>
 <blockquote>
 <p><strong>I discuss proposals for a function that estimates how much predictive
@@ -41,14 +41,8 @@ point additional precision is just noise, and investigate these proposals
 with empirical forecasting data. I furthermore describe desirable boundary
 conditions for such functions.</strong></p>
 </blockquote>
-<!--https://nitter.net/tenthkrige/status/1412457737380839432-->
-<!--https://stanford.edu/~knutson/nfc/mellers15.pdf-->
-<!--https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/D9FAZL-->
 <h1 id="Precision_of_Sets_of_Forecasts"><a class="hanchor" href="#Precision_of_Sets_of_Forecasts">Precision of Sets of Forecasts</a></h1>
 <p><em>epistemic status: likely not just reinventing the wheel, but the whole bicycle</em></p>
-<!--
-TODO: Revamp the naming & notation a bit. Granularity or precision instead?
--->
 <p>Say we have a set of resolved forecasts and can display them on a
 calibration plot.</p>
 <p>We can grade the forecasts according to some proper scoring rule,
@@ -60,7 +54,7 @@ our forecaster? I.e., at which level of finesse can we assume that
 the additional information is just noise?</p>
 <p>Take, for example, a hypothetical forecaster Baktiu who always gives
 their forecasts with 5 decimal digits of precision, such as forecasting a
-"24.566% probability of North Korea testing an ICBM in the year 2022",
+“24.566% probability of North Korea testing an ICBM in the year 2022”,
 even though if we look at their calibration plot, we see that they are
 pretty much random in any given interval of length 0.1 (i.e., their
 forecast with 15% and a forecast of 5% can be expected to resolve to
@@ -100,18 +94,21 @@ at <code>$\mathcal{F}$</code> and <code>$1$</code> if the forecasts are complete
 <ol>
 <li>If <code>$n=0$</code>, <code>$s(\emptyset, \mathcal{F})$</code> is undefined.</li>
 <li>If <code>$n=1$</code>, <code>$s(\mathbf{D}, \mathcal{F})=0$</code>: We are generally suspicious of any single forecast.
+
 <ol>
-<li>More generally, if <code>$\mathbf{D}$</code> contains an <code>$f_i$</code> so that there is no other prediction with a probability within <code>$[f_i-\frac{\mathcal{F}}{2}; f_i+\frac{\mathcal{F}}{2}]$</code>, then <code>$s(\mathbf{D}, \mathcal{F})=0$</code>. Yes, even if the set of forecasts is "dense" and non-random in other places.</li>
+<li>More generally, if <code>$\mathbf{D}$</code> contains an <code>$f_i$</code> so that there is no other prediction with a probability within <code>$[f_i-\frac{\mathcal{F}}{2}; f_i+\frac{\mathcal{F}}{2}]$</code>, then <code>$s(\mathbf{D}, \mathcal{F})=0$</code>. Yes, even if the set of forecasts is “dense” and non-random in other places.</li>
 </ol></li>
 <li>If <code>$n=2$</code>, then it should hold for an <code>$ε&gt;0$</code> (but close to 0): <code>$s(((ε, 0), (1-ε, 1)), 1)=1$</code>, and <code>$s(((ε, 0), (1-ε, 1)), 0.5)=0$</code>.
+
 <ol>
 <li>More generally, if we have only zeros in the left half and ones in the right half, with <code>$n \rightarrow \infty$</code>, and a sufficiently small <code>$\frac{1}{n}&gt;ε&gt;0$</code>, it should hold that <code>$s(((ε,0),(2ε,0), \dots, (\lfloor \frac{n}{2} \rfloor ε, 0), (\lceil \frac{n}{2} \rceil ε, 1), \dots, (nε, 1)), \mathcal{F})$</code> is <code>$1$</code> for <code>$\mathcal{F}=1$</code> and <code>$0$</code> for <code>$\mathcal{F} \le 0.5$</code>.</li>
 </ol></li>
 <li>For a sufficiently large <code>$n \rightarrow \infty$</code>, and a sufficiently small <code>$\frac{1}{n}&gt;ε&gt;0$</code>, and <code>$r(p)$</code> being 1 with probability <code>$p$</code> and 0 with probability <code>$1-p$</code>, it should hold that <code>$s(((ε,r(ε)),(2ε,r(2ε)), \dots, (\lfloor \frac{n}{2} \rfloor ε, r(\lfloor \frac{n}{2} \rfloor ε)), (\lceil \frac{n}{2} \rceil ε, r(\lceil \frac{n}{2} \rceil ε)), \dots, (nε, r(nε))), \mathcal{F})=1$</code> for any <code>$\mathcal{F}$</code>: If we have lots of datapoints, all perfectly calibrated, the score is nearly 0 at all finesses.</li>
 <li>In expectation, if we sample every <code>$o_i$</code> uniformly from <code>$\{0, 1\}$</code> with replacement, <code>$s(\mathbf{D}, \mathcal{F})=0$</code>.</li>
-<li>With <code>$\mathcal{F}_1&lt;\mathcal{F}_2$</code>, <code>$s(\mathbf{D}, \mathcal{F}_1) \le s(\mathbf{D}, \mathcal{F}_2)$</code> (smaller finesse shouldn't lead to a greater score, since if you're uncalibrated at a finesse of 10%, you're not going to be suddenly calibrated at a finesse of 5%)
+<li>With <code>$\mathcal{F}_1&lt;\mathcal{F}_2$</code>, <code>$s(\mathbf{D}, \mathcal{F}_1) \le s(\mathbf{D}, \mathcal{F}_2)$</code> (smaller finesse shouldn’t lead to a greater score, since if you’re uncalibrated at a finesse of 10%, you’re not going to be suddenly calibrated at a finesse of 5%)
+
 <ol>
-<li>We can't just do this by multiplying the result with the finesse, since that would violate condition 4</li>
+<li>We can’t just do this by multiplying the result with the finesse, since that would violate condition 4</li>
 </ol></li>
 </ol>
 <p>But what should be done about a calibration plot that looks like this?</p>
@@ -119,14 +116,16 @@ at <code>$\mathcal{F}$</code> and <code>$1$</code> if the forecasts are complete
 <p>There are two ways of arguing what, morally, the finesse of the
 forecasts is:</p>
 <ul>
-<li>The argument <em>for</em> having a score of <code>$~1$</code> for every finesse (assuming a large <code>$n$</code>) is that inferring the correct way to make forecasts from this calibration plot is trivial: With forecasts of probability <code>$f_i&gt;0.5$</code>, re-assign a probability <code>$f_i:=1-f_i$</code>.</li>
-<li><p>The argument <em>against</em> giving a score of <code>$~1$</code> is that extending this rule would mean that at every kind of correction on the plot is valid, but there is no clear cutoff point that prevents us from applying this to individual predictions ("If you predict 99% instead of 43%, and 1% instead of 13%, and 1% instead of 23%, and […], then you achieve perfect resolution and calibration.")</p></li>
+<li><p>The argument <em>for</em> having a score of <code>$~1$</code> for every finesse (assuming a large <code>$n$</code>) is that inferring the correct way to make forecasts from this calibration plot is trivial: With forecasts of probability <code>$f_i&gt;0.5$</code>, re-assign a probability <code>$f_i:=1-f_i$</code>.</p></li>
+<li><p>The argument <em>against</em> giving a score of <code>$~1$</code> is that extending this rule would mean that at every kind of correction on the plot is valid, but there is no clear cutoff point that prevents us from applying this to individual predictions (“If you predict 99% instead of 43%, and 1% instead of 13%, and 1% instead of 23%, and […], then you achieve perfect resolution and calibration.”)</p></li>
 <li><p>Algorithms for quantifying the finesse of calibration plots</p>
 <ul>
 <li>Input: A list of <code>n</code> forecasts and their resolutions</li>
 <li>First idea:
+
 <ul>
 <li>For i=2, n
+
 <ul>
 <li>Segment the forecasts into i different segments, ordered by probability</li>
 <li>Calculate average outcome</li>
@@ -136,24 +135,28 @@ forecasts is:</p>
 <li>Return <code>output</code></li>
 </ul></li>
 <li>Second idea:
+
 <ul>
 <li>For i=2, n
+
 <ul>
 <li>Segment the forecasts into i different segments, ordered by probability</li>
 <li>Re-scale each segment to give probabilities from 0 to 1</li>
-<li>Use a proper scoring rule? Idk I haven't thought this through</li>
+<li>Use a proper scoring rule? Idk I haven’t thought this through</li>
 </ul></li>
 </ul></li>
 <li>Third idea:
+
 <ul>
 <li>Something like the first idea, but with a sliding window</li>
 </ul></li>
 <li>Fourth idea:
+
 <ul>
 <li>Average linear regression of all subsequences with length<code>$\ge \mathcal{F}$</code></li>
 </ul></li>
 </ul></li>
-<li>Additional ideas:
+<li><p>Additional ideas:</p>
 <ul>
 <li>Multiply score with the average number of datapoints inside the given finesse</li>
 </ul></li>

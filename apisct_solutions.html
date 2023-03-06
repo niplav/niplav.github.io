@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-04-18, modified: 2021-04-21, language: english, status: on hold, importance: 2, confidence: likely</em></p>
 <blockquote>
 <p><strong>Solutions to the book “A Primer in Social Choice Theory” by
@@ -44,27 +44,14 @@ write <code>$x \sim y, x \succeq y$</code> and <code>$x \succ y$</code>.</p>
 <h2 id="Chapter_1"><a class="hanchor" href="#Chapter_1">Chapter 1</a></h2>
 <h3 id="11"><a class="hanchor" href="#11">1.1</a></h3>
 <blockquote>
-<p>Show that if R is reflexive, complete, and transitive, then for all <code>$x, y, z \in X$</code>: <br/>
+<p>Show that if R is reflexive, complete, and transitive, then for all <code>$x, y, z \in X$</code>:<br/>
 (a) <code>$(xIy \land yIz) \rightarrow xIz$</code>;  </p>
 </blockquote>
 <p>We know that <code>$x \sim y \Leftrightarrow x \succeq y \land x \preceq y$</code>.</p>
 <p>Then:</p>
-<div>
-    $$(x \sim y \land y \sim z) \Leftrightarrow \\
-    x \succeq y \land x \preceq y \land y \succeq z \land z \succeq y \Rightarrow \\
-    x \succeq z \land x \preceq z \Rightarrow \\
-    x \sim y $$
-</div>
 <blockquote>
 <p>(b) <code>$(xPy \land yRz) \rightarrow xPz$</code></p>
 </blockquote>
-<div>
-    $$ x \succ y \land y \succeq z \Leftrightarrow \\
-    x \succ y \land (y \succ z \lor y \sim z) \Leftrightarrow \\
-    (x \succ y \land y \succ z) \lor (x \succ y \land y \sim z) \Rightarrow \\
-    (x \succ z) \lor (x \succ z) \Rightarrow \\
-    x \succ z $$
-</div>
 <h3 id="12"><a class="hanchor" href="#12">1.2</a></h3>
 <blockquote>
 <p>Suppose that R is an ordering over the set <code>$X=\{x,y,z,w\}$</code> with
@@ -88,7 +75,7 @@ being the choice sets.</p>
 that for an element <code>$x$</code>, there is a finite set <code>$g(x):=\{y: yRx\} \backslash \{x\}$</code>.
 If <code>$g(x)=\emptyset$</code>, <code>$x$</code> is the best element. If <code>$g(x)$</code> is not
 empty, we can pick an element <code>$y \in g(x)$</code> and generate <code>$g(y)$</code>. We
-know that <code>$|g(y)|&lt;g(x)|$</code> (because we're removing at least one element
+know that <code>$|g(y)|&lt;g(x)|$</code> (because we’re removing at least one element
 from <code>$g(x)$</code>, namely <code>$y$</code>). If we repeat the procedure (finitely many
 times, since <code>$g(x) \subset S$</code> is finite), we finally arrive at a set
 <code>$g(z)$</code> with size <code>$|g(z)|=1$</code>. The element of <code>$g(z)$</code> is a chosen
@@ -97,18 +84,14 @@ element.</p>
 <blockquote>
 <p>Let F stand for Fahrenheit and C stand for Celsius. 32° in F are
 the same as 0° in C; and 68° in F are the same as 20° in C. Please
-specify the mapping F(C) and C(F). Do these mappings have the property
+specify the mapping F© and C(F). Do these mappings have the property
 that F values are based on a positive affine transformation of C values,
 and vice versa?</p>
 </blockquote>
-<p>I'm unsure what is asked here. The raw mapping given in set form is just
+<p>I’m unsure what is asked here. The raw mapping given in set form is just
 <code>$F(C)=\{(32, 0), (68, 20)\}$</code> and <code>$C(F)=\{(0, 32), (20, 68)\}$</code>.</p>
 <p>The conversion formula for degrees Fahrenheit to Celsius, based on the
 given values, can be determined easily from the set of linear equations</p>
-<div>
-    $$ a+32b=0 \\
-    a+36b=20 $$
-</div>
 <p>Upon solving, one determines that
 <code>$a=-32*\frac{5}{9} \approx -17.7778, b=\frac{5}{9} \approx 0.5556$</code>,
 so <code>$F(C) \approx -17.7778+0.5556*C$</code>

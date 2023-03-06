@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-04-24, modified: 2020-01-24, language: english, status: finished, importance: 4, confidence: possible</em></p>
 <blockquote>
 <p><strong><a href="https://en.wikipedia.org/wiki/Pipeline_(Unix)">Pipelines</a> are an
@@ -59,7 +59,7 @@ by the filters.</p>
 <pre><code>$ echo test &gt;a
 $ tail -f a &gt;&gt;a
 </code></pre>
-<p>It simply fills the disk with a file containing the line "test".</p>
+<p>It simply fills the disk with a file containing the line “test”.</p>
 <h3 id="Stop_Ring"><a class="hanchor" href="#Stop_Ring">Stop Ring</a></h3>
 <p>To stop the unconstrained use of hard disk memory, one can use sed:</p>
 <pre><code>$ echo test &gt;a
@@ -87,40 +87,40 @@ composed of those three letters.</p>
 <blockquote>
 <p>RULE I: If you possess a string whose last letter is I, you can add on a U at the end.</p>
 <p>By the way, if up to this point you had not guessed it, a fact about the
-meaning of "string" is that the letters are in a fixed order. For example,
+meaning of “string” is that the letters are in a fixed order. For example,
 MI and IM are two different strings. A string of symbols is not just a
-"bag" of symbols, in which the order doesn't make any difference.
+“bag” of symbols, in which the order doesn’t make any difference.
   Here is the second rule:</p>
 <p>RULE II: Suppose you have Mx. Then you may add Mxx to your collection.</p>
 <p>What I mean by this is shown below, in a few examples.</p>
-<p>From MIU, you may get MIUIU. <br/>
-From MUM, you may get MUMUM. <br/>
+<p>From MIU, you may get MIUIU.<br/>
+From MUM, you may get MUMUM.<br/>
 From MU, you may get MUU.</p>
-<p>So the letter 'x' in the rule simply stands for any string; but once
+<p>So the letter ‘x’ in the rule simply stands for any string; but once
 you have decided which string it stands for, you have to stick with your
 choice (until you use the rule again, at which point you may make a new
 choice). Notice the third example above. It shows how, once you possess
 MU, you can add another string to your collection; but you have to get
-MU first! I want to add one last comment about the letter 'x': it is
-not part of the formal system in the same way as the three letters 'M',
-'I', and 'U' are. It is useful for us, though, to have some way to talk
+MU first! I want to add one last comment about the letter ‘x’: it is
+not part of the formal system in the same way as the three letters ‘M’,
+‘I’, and ‘U’ are. It is useful for us, though, to have some way to talk
 in general about strings of the system, symbolically-and that is the
-function of the 'x': to stand for an arbitrary string. If you ever add
-a string containing an 'x' to your "collection", you have done something
-wrong, because strings of the MIU-system never contain "x" “s”!
+function of the ‘x’: to stand for an arbitrary string. If you ever add
+a string containing an ‘x’ to your “collection”, you have done something
+wrong, because strings of the MIU-system never contain “x” “s”!
 Here is the third rule:</p>
 <p>RULE III: If III occurs in one of the strings in your collection, you
 may make a new string with U in place of III.</p>
 <p>Examples:</p>
-<p>From UMIIIMU, you could make UMUMU. <br/>
-From MIIII, you could make MIU (also MUI). <br/>
-From IIMII, you can't get anywhere using this rule. <br/>
-(The three I's have to be consecutive.) <br/>
+<p>From UMIIIMU, you could make UMUMU.<br/>
+From MIIII, you could make MIU (also MUI).<br/>
+From IIMII, you can’t get anywhere using this rule.<br/>
+(The three I’s have to be consecutive.)<br/>
 From MIII, make MU.  </p>
 </blockquote>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Douglas_Hofstadter">Douglas Hofstadter</a>, <a href="./doc/cs/the_mu_puzzle_hofstadter_1994.pdf">“The MU-puzzle“ in “Gödel, Escher, Bach: An Eternal Golden Braid”</a> p. 2, 1994</em></p>
-<p>Hofstadter poses a challenge: starting with the string "mi", he asks
-whether the string "mu" can be constructed.</p>
+<p>Hofstadter poses a challenge: starting with the string “mi”, he asks
+whether the string “mu” can be constructed.</p>
 <p>An <a href="https://en.wikipedia.org/wiki/AWK">awk</a> script implements the
 four rules:</p>
 <pre><code>/i$/ { print($0 "u") }
@@ -143,7 +143,7 @@ tail -f mu | apr | stdbuf -oL grep -E '^.{,80}$' | stdbuf -oL awk '!a[$0]++' &gt
 </code></pre>
 <p><code>awk '!a[$0]++'</code> is taken from
 <a href="https://iridakos.com/how-to/2019/05/16/remove-duplicate-lines-preserving-order-linux.html">iridakos 2019</a>.
-Also, stdbuf doesn't work with rc functions, so it has to be written
+Also, stdbuf doesn’t work with rc functions, so it has to be written
 directly into the function. <code>grep</code> is used to prevent extremely long
 lines from forming through the repeated application of the first rule.</p>
 <p>Executing the script gives the desired result:</p>
@@ -168,7 +168,7 @@ $ # nothing there
 <p>This of course does not solve the puzzle posed by Hofstadter, after all,
 there could be a longer and more complex derivation that takes more time
 to generate. But in either case, one can rule out a simple and short
-derivation of "mu" from "mi".</p>
+derivation of “mu” from “mi”.</p>
 <h3 id="Crawl_a_Website"><a class="hanchor" href="#Crawl_a_Website">Crawl a Website</a></h3>
 <p>This also works for creating a list of links that start from a given
 web page (albeit only partially and not completely reliably).</p>
@@ -217,7 +217,7 @@ closed under the <a href="https://en.wikipedia.org/wiki/MD5">MD5 hash sum</a>. T
 means that applying a hash function to an element of this set results
 in the member of a set.</p>
 <p>The probability that there exists a hexadecimal string of
-length 32 that is it's own MD5 hash sum is approximately
+length 32 that is it’s own MD5 hash sum is approximately
 <code>$1-\frac{1}{e}≈63\%$</code> (see <a href="https://stackoverflow.com/questions/235785/is-there-an-md5-fixed-point-where-md5x-x">this stackoverflow
 question</a>).</p>
 <p>This can be illustrated easily with a toy example: the set of hexadecimal
@@ -295,7 +295,7 @@ e4
 <p>In the last example, one can see such a cycle starting with 87 and ending
 with 0a, as well as a collision: cc and 0a both have the hash 87.</p>
 <p>Theoretically, one could use this method to find cycles for longer
-hash sums, and while it would be interesting to find a string that is it's
+hash sums, and while it would be interesting to find a string that is it’s
 own <a href="https://en.wikipedia.org/wiki/SHA-1">SHA1 sum</a>, actually doing it
 seems like a frivolous waste of energy and computing power.</p>
 <p>Fortunately for me, somebody else has done this already,

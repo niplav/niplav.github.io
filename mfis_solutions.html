@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-10-19, modified: 2022-12-20, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 <blockquote>
 <p><strong>Solutions to the textbook “Maths for Intelligent Systems”.</strong></p>
@@ -43,63 +43,30 @@ document.addEventListener('DOMContentLoaded', function () {
 <blockquote>
 <p>Let me start with an example: We have three real-valued quantities <code>$x,
 g$</code> and <code>$f$</code> which depend on each other. Specifically, $f(x,g)=3x+2g$
-and <code>$g(x)=2x$</code>. <br/>
+and <code>$g(x)=2x$</code>.<br/>
 Question: What is the “derivative of <code>$f$</code> w.r.t. <code>$x$</code>”?</p>
 </blockquote>
-<p>Intuitively, I'd say that <code>$\frac{\partial}{\partial x}f(x,g)=3$</code>. But then I notice that <code>$g$</code>
-is allegedly a "real-valued quantity", what is that supposed to mean? Is
+<p>Intuitively, I’d say that <code>$\frac{\partial}{\partial x}f(x,g)=3$</code>. But then I notice that <code>$g$</code>
+is allegedly a “real-valued quantity”, what is that supposed to mean? Is
 it not a function?</p>
 <p>Alas, plugging in <code>$g$</code> into <code>$f$</code> gives <code>$f(x)=3x+2(2x)$</code> and
 <code>$\frac{\partial}{\partial x}f(x)=3+4=7$</code>.</p>
 <h3 id="24"><a class="hanchor" href="#24">2.4</a></h3>
 <h4 id="i"><a class="hanchor" href="#i">(i)</a></h4>
-<div>
-    $$XA+A^{\top}=\mathbf{I} \Leftrightarrow \\
-    XA=\mathbf{I}-A^{\top} \Leftrightarrow \\
-    X=(\mathbf{I}-A^{\top})A^{-1}$$
-</div>
 <h4 id="ii"><a class="hanchor" href="#ii">(ii)</a></h4>
-<div>
-    $$ X^{\top}C=(2A(X+B))^{\top} \Leftrightarrow \\
-    X^{\top}C=(2AX)^{\top}+(2AB)^{\top} \Leftrightarrow \\
-    X^{\top}C-X^{\top}(2A)^{\top}=(2AB)^{\top} \Leftrightarrow \\
-    X^{\top}(C-(2A)^{\top})=(2AB)^{\top} \\
-    X^{\top}=(2AB)^{\top} (C^{-1}-((2A)^{\top})^{-1}) \Leftrightarrow \\
-    X=((C^{-1})^{\top}-(2A)^{-1}) 2AB \Leftrightarrow \\
-    X=(C^{-1})^{\top}2AB-B $$
-</div>
 <h4 id="iii"><a class="hanchor" href="#iii">(iii)</a></h4>
-<div>
-    $$(Ax-y)^{\top}A=\mathbf{0}_n^{\top} \Leftrightarrow \\
-    A^{\top}(Ax-y)=\mathbf{0}_n^{\top} \Leftrightarrow \\
-    A^{\top}Ax -A^{\top}y=\mathbf{0}_n^{\top} \Leftrightarrow \\
-    x=(A^{\top}A)^{-1}(\mathbf{0}_n^{\top}+A^{\top}y)$$
-</div>
 <h4 id="iv"><a class="hanchor" href="#iv">(iv)</a></h4>
-<div>
-    $$(Ax-y)^{\top}A+x^{\top}B=\mathbf{0}_n^{\top} \Leftrightarrow \\
-    A^{\top}(Ax-y)+x^{\top}B=\mathbf{0}_n^{\top} \Leftrightarrow \\
-    A^{\top}Ax-A^{\top}y+x^{\top}B=\mathbf{0}_n^{\top} \Leftrightarrow \\
-    A^{\top}Ax+x^{\top}B=\mathbf{0}_n^{\top}+A^{\top}y \Leftrightarrow \\
-    A^{\top}Ax+B^{\top}x=\mathbf{0}_n^{\top}+A^{\top}y \Leftrightarrow \\
-    (A^{\top}A+B^{\top})x=\mathbf{0}_n^{\top}+A^{\top}y \Leftrightarrow \\
-    x=(A^{\top}A+B^{\top})^{-1}(\mathbf{0}_n^{\top}+A^{\top}y) $$
-</div>
 <h4 id="v"><a class="hanchor" href="#v">(v)</a></h4>
-<!--TODO-->
 <h4 id="vi"><a class="hanchor" href="#vi">(vi)</a></h4>
-<!--TODO-->
 <h3 id="261"><a class="hanchor" href="#261">2.6.1</a></h3>
-<p>I… I don't know what the skew matrix is :-/, and Wikipedia
-isn't very helpful (I don't think it's the <a href="https://en.wikipedia.org/wiki/Skew-Hermitian_matrix">skew-Hermitian
+<p>I… I don’t know what the skew matrix is :-/, and Wikipedia
+isn’t very helpful (I don’t think it’s the <a href="https://en.wikipedia.org/wiki/Skew-Hermitian_matrix">skew-Hermitian
 matrix</a>
 or the <a href="https://en.wikipedia.org/wiki/Skew-symmetric_matrix">skew-symmetric
 matrix</a>
 or the <a href="https://en.wikipedia.org/wiki/Skew-Hamiltonian_matrix">skew-Hamiltonian
 matrix</a>).</p>
 <h3 id="262"><a class="hanchor" href="#262">2.6.2</a></h3>
-<!--TODO: do this later when I understand tensors, or am maybe just a
-bit more comfortable in general-->
 <h3 id="263"><a class="hanchor" href="#263">2.6.3</a></h3>
 <p>Writing code: This I can do.</p>
 <h4 id="i_1"><a class="hanchor" href="#i_1">i)</a></h4>

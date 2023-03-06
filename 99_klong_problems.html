@@ -32,12 +32,11 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-01-14, modified: 2022-06-28, language: english, status: in progress, importance: 3, confidence: other</em></p>
 <blockquote>
 <p><strong>The list of 99 problems was original written by Werner Hett for
-<a href="https://sites.google.com/site/prologsite/prolog-problems
-" title="Original 99 Problems in Prolog">Prolog</a> and has been translated into <a href="./99_problems_collection.html" title="A Collection of
+<a href="https://sites.google.com/site/prologsite/prolog-problems" title="Original 99 Problems in Prolog">Prolog</a> and has been translated into <a href="./99_problems_collection.html" title="A Collection of
 Translations of the 99 Problems">a
 number of languages</a> since then. This is a translation for
 the programming language
@@ -46,7 +45,6 @@ inspired mainly by a
 <a href="https://www.ic.unicamp.br/%7Emeidanis/courses/mc336/2006s2/funcional/L-99_Ninety-Nine_Lisp_Problems.html" title="99 Problems for Lisp">Lisp</a>
 version.</strong></p>
 </blockquote>
-<!--TODO: ask author about images-->
 <h1 id="K99_NinetyNine_Klong_Problems"><a class="hanchor" href="#K99_NinetyNine_Klong_Problems">K-99: Ninety-Nine Klong Problems</a></h1>
 <h2 id="Caveat_Lector"><a class="hanchor" href="#Caveat_Lector">Caveat Lector</a></h2>
 <p>A number of changes were made to the original problems list. For one,
@@ -63,7 +61,7 @@ equivalents, but for now they will stand there in their original form.</p>
 of versions of the list on the internet.</p>
 <p>From <em>P60</em> on, the examples in the Lisp version were the original Prolog
 predicates, so I added fitting examples when appropriate. I also terminate
-each one-line description of a problem with a dot '.'.</p>
+each one-line description of a problem with a dot ‘.’.</p>
 <h2 id="Working_with_lists"><a class="hanchor" href="#Working_with_lists">Working with lists</a></h2>
 <h3 id="P01__Find_the_last_element_of_a_list"><a class="hanchor" href="#P01__Find_the_last_element_of_a_list">P01 (*): Find the last element of a list.</a></h3>
 <p>Example:</p>
@@ -75,7 +73,7 @@ each one-line description of a problem with a dot '.'.</p>
 <pre><code>    mybutlast([:a :b :c :d])
 [:c :d]
 </code></pre>
-<h3 id="P03__Find_the_Kth_element_of_a_list"><a class="hanchor" href="#P03__Find_the_Kth_element_of_a_list">P03 (*): Find the K'th element of a list.</a></h3>
+<h3 id="P03__Find_the_Kth_element_of_a_list"><a class="hanchor" href="#P03__Find_the_Kth_element_of_a_list">P03 (*): Find the K’th element of a list.</a></h3>
 <p>Example:</p>
 <pre><code>    elementat([:a :b :c :d :e];3)
 :c
@@ -85,7 +83,7 @@ each one-line description of a problem with a dot '.'.</p>
 <h3 id="P06__Find_out_whether_a_list_is_a_palindrome"><a class="hanchor" href="#P06__Find_out_whether_a_list_is_a_palindrome">P06 (*): Find out whether a list is a palindrome.</a></h3>
 <p>A palindrome can be read forward or backward; e.g. <code>[:x :a :m :a :x]</code>.</p>
 <h3 id="P07__Flatten_a_nested_list_structure"><a class="hanchor" href="#P07__Flatten_a_nested_list_structure">P07 (**): Flatten a nested list structure.</a></h3>
-<p>Transform a list, possibly holding lists as elements into a 'flat'
+<p>Transform a list, possibly holding lists as elements into a ‘flat’
 list by replacing each list with its elements (recursively).</p>
 <p>Example:</p>
 <pre><code>    myflatten([:a [:b [:c :d] :e]])
@@ -126,7 +124,7 @@ with duplicates are transferred as [N E] lists.</p>
 P11. Construct its uncompressed version.</p>
 <h3 id="P13__Runlength_encoding_of_a_list_direct_solution"><a class="hanchor" href="#P13__Runlength_encoding_of_a_list_direct_solution">P13 (**) Run-length encoding of a list (direct solution).</a></h3>
 <p>Implement the so-called run-length encoding data compression method
-directly. I.e. don't explicitly create the sublists containing the
+directly. I.e. don’t explicitly create the sublists containing the
 duplicates, as in problem P09, but only count them. As in problem P11,
 simplify the result list by replacing the singleton lists [1 X] by X.</p>
 <pre><code>    encodedirect([:a :a :a :a :b :c :c :a :a :d :e :e :e :e])
@@ -142,7 +140,7 @@ simplify the result list by replacing the singleton lists [1 X] by X.</p>
 <pre><code>    repli([:a :b :c];3)
 [:a :a :a :b :b :b :c :c :c]
 </code></pre>
-<h3 id="P16__Drop_every_Nth_element_from_a_list"><a class="hanchor" href="#P16__Drop_every_Nth_element_from_a_list">P16 (**) Drop every N'th element from a list.</a></h3>
+<h3 id="P16__Drop_every_Nth_element_from_a_list"><a class="hanchor" href="#P16__Drop_every_Nth_element_from_a_list">P16 (**) Drop every N’th element from a list.</a></h3>
 <p>Example:</p>
 <pre><code>    drop([:a :b :c :d :e :f :g :h :i :k];3)
 [:a :b :d :e :g :h :k]
@@ -155,7 +153,7 @@ simplify the result list by replacing the singleton lists [1 X] by X.</p>
 </code></pre>
 <h3 id="P18__Extract_a_slice_from_a_list"><a class="hanchor" href="#P18__Extract_a_slice_from_a_list">P18 (**) Extract a slice from a list.</a></h3>
 <p>Given two indices, I and K, the slice is the list containing the elements
-between the I'th and K'th element of the original list (both limits
+between the I’th and K’th element of the original list (both limits
 included). Start counting the elements with 1.</p>
 <p>Example:</p>
 <pre><code>    slice([:a :b :c :d :e :f :g :h :i :k];3;7)
@@ -168,7 +166,7 @@ included). Start counting the elements with 1.</p>
     rotate([:a :b :c :d :e :f :g :h];-2)
 [:g :h :a :b :c :d :e :f]
 </code></pre>
-<h3 id="P20__Remove_the_Kth_element_from_a_list"><a class="hanchor" href="#P20__Remove_the_Kth_element_from_a_list">P20 (*) Remove the K'th element from a list.</a></h3>
+<h3 id="P20__Remove_the_Kth_element_from_a_list"><a class="hanchor" href="#P20__Remove_the_Kth_element_from_a_list">P20 (*) Remove the K’th element from a list.</a></h3>
 <p>Example:</p>
 <pre><code>    removeat([:a :b :c :d];2)
 [:a :c :d]
@@ -237,8 +235,8 @@ of group sizes and the function will return a list of groups.</p>
 we make a difference between <code>[[:aldo :beat] [:carla :david] ...]</code> and
 <code>[[:carla :david] [:aldo :beat] ...]</code>.</p>
 <p>You may find more about this combinatorial problem in a good
-book on discrete mathematics under the term <a href="https://en.wikipedia.org/wiki/Multinomial_theorem#Multinomial_coefficients">"multinomial
-coefficients"</a>.</p>
+book on discrete mathematics under the term <a href="https://en.wikipedia.org/wiki/Multinomial_theorem#Multinomial_coefficients">“multinomial
+coefficients”</a>.</p>
 <h3 id="P28__Sorting_a_list_of_lists_according_to_length_of_sublists"><a class="hanchor" href="#P28__Sorting_a_list_of_lists_according_to_length_of_sublists">P28 (**) Sorting a list of lists according to length of sublists.</a></h3>
 <p>(a) We suppose that a list contains elements that are lists themselves. The
 objective is to sort the elements of this list according to their
@@ -268,7 +266,7 @@ most frequent length.</p>
 1
 </code></pre>
 <h3 id="P32__Determine_the_greatest_common_divisor_of_two_positive_integer_numbers"><a class="hanchor" href="#P32__Determine_the_greatest_common_divisor_of_two_positive_integer_numbers">P32 (**) Determine the greatest common divisor of two positive integer numbers.</a></h3>
-<p>Use <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclid's algorithm</a>.</p>
+<p>Use <a href="https://en.wikipedia.org/wiki/Euclidean_algorithm">Euclid’s algorithm</a>.</p>
 <p>Example:</p>
 <pre><code>    gcd(36;63)
 9
@@ -279,8 +277,8 @@ most frequent length.</p>
 <pre><code>    coprime(35;64)
 1
 </code></pre>
-<h3 id="P34__Calculate_Eulers_totient_function_phim"><a class="hanchor" href="#P34__Calculate_Eulers_totient_function_phim">P34 (**) Calculate Euler's totient function phi(m).</a></h3>
-<p><a href="https://en.wikipedia.org/wiki/Euler's_totient_function">Euler's so-called totient function</a>
+<h3 id="P34__Calculate_Eulers_totient_function_phim"><a class="hanchor" href="#P34__Calculate_Eulers_totient_function_phim">P34 (**) Calculate Euler’s totient function phi(m).</a></h3>
+<p><a href="https://en.wikipedia.org/wiki/Euler's_totient_function">Euler’s so-called totient function</a>
 phi(m) is defined as the number of positive integers r (<code>$1 \le r &lt; m$</code>) that
 are coprime to m.</p>
 <p>Example: m = 10: r = 1,3,7,9; thus phi(m) = 4.</p>
@@ -289,9 +287,9 @@ are coprime to m.</p>
 4
 </code></pre>
 <p>Find out what the value of phi(m) is if m is a prime
-number. Euler's totient function plays an important role in
+number. Euler’s totient function plays an important role in
 one of the most widely used public key cryptography methods
-(<a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem">RSA</a>)). In this
+(<a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a>). In this
 exercise you should use the most primitive method to calculate this
 function (there are smarter ways that we shall discuss later).</p>
 <h3 id="P35__Determine_the_prime_factors_of_a_given_positive_integer"><a class="hanchor" href="#P35__Determine_the_prime_factors_of_a_given_positive_integer">P35 (**) Determine the prime factors of a given positive integer.</a></h3>
@@ -307,30 +305,27 @@ function (there are smarter ways that we shall discuss later).</p>
 [[3 2] [5 1] [7 1]]
 </code></pre>
 <p>Hint: The problem is similar to problem P13.</p>
-<h3 id="P37__Calculate_Eulers_totient_function_phim_improved"><a class="hanchor" href="#P37__Calculate_Eulers_totient_function_phim_improved">P37 (**) Calculate Euler's totient function phi(m) (improved).</a></h3>
-<p>See problem P34 for the definition of Euler's totient function. If the
+<h3 id="P37__Calculate_Eulers_totient_function_phim_improved"><a class="hanchor" href="#P37__Calculate_Eulers_totient_function_phim_improved">P37 (**) Calculate Euler’s totient function phi(m) (improved).</a></h3>
+<p>See problem P34 for the definition of Euler’s totient function. If the
 list of the prime factors of a number m is known in the form of problem
 P36 then the function phi(m) can be efficiently calculated as follows:</p>
 <p>Let <code>[[p1 m1] [p2 m2] [p3 m3] ...]</code> be the list of prime factors (and their
 multiplicities) of a given number m. Then phi(m) can be calculated with
 the following formula:</p>
-<div>
-    $$phi(m)=(p_{1}-1)\cdot p_{1}^{m_{1}-1}\cdot (p_{2}-1)\cdot p_{2}^{m_{2}-1}\cdot ...=\prod_{i=1}^{n} (p_{i}-1) p_i^{m_{i}-1}$$
-</div>
 <p>Note that the <a href="https://www.ic.unicamp.br/%7Emeidanis/courses/mc336/2006s2/funcional/L-99_Ninety-Nine_Lisp_Problems.html">Lisp
 version</a>
 does not give the correct formula, as opposed to the <a href="https://sites.google.com/site/prologsite/prolog-problems/2">Prolog
 version</a>,
 which works.</p>
-<h3 id="P38__Compare_the_two_methods_of_calculating_Eulers_totient_function"><a class="hanchor" href="#P38__Compare_the_two_methods_of_calculating_Eulers_totient_function">P38 (*) Compare the two methods of calculating Euler's totient function.</a></h3>
+<h3 id="P38__Compare_the_two_methods_of_calculating_Eulers_totient_function"><a class="hanchor" href="#P38__Compare_the_two_methods_of_calculating_Eulers_totient_function">P38 (*) Compare the two methods of calculating Euler’s totient function.</a></h3>
 <p>Use the solutions of problems P34 and P37 to compare the algorithms.
 Take the number of logical inferences as a measure for efficiency.
 Try to calculate <code>phi(10090)</code> as an example.</p>
 <h3 id="P39__A_list_of_prime_numbers"><a class="hanchor" href="#P39__A_list_of_prime_numbers">P39 (*) A list of prime numbers.</a></h3>
 <p>Given a range of integers by its lower and upper limit, construct a list
 of all prime numbers in that range.</p>
-<h3 id="P40__Goldbachs_conjecture"><a class="hanchor" href="#P40__Goldbachs_conjecture">P40 (**) Goldbach's conjecture.</a></h3>
-<p><a href="https://en.wikipedia.org/wiki/Goldbach's_conjecture">Goldbach's conjecture</a>
+<h3 id="P40__Goldbachs_conjecture"><a class="hanchor" href="#P40__Goldbachs_conjecture">P40 (**) Goldbach’s conjecture.</a></h3>
+<p><a href="https://en.wikipedia.org/wiki/Goldbach's_conjecture">Goldbach’s conjecture</a>
 says that every positive even number greater than
 2 is the sum of two prime numbers. Example: 28 = 5 + 23. It is one of
 the most famous facts in number theory that has not been proved to be
@@ -429,7 +424,7 @@ n = 3: C(3) = ['000' '001' '011' '010' '110' '111' '101' '100'].
 specification:</p>
 <pre><code>C::gray(N) :"C is the N-bit Gray code"
 </code></pre>
-<p>Can you apply the method of "result caching" in order to make the function
+<p>Can you apply the method of “result caching” in order to make the function
 more efficient, when it is to be used repeatedly?</p>
 <h3 id="P50__Huffman_code"><a class="hanchor" href="#P50__Huffman_code">P50 (***) Huffman code.</a></h3>
 <p>First of all, consult a good book on discrete mathematics or algorithms
@@ -597,7 +592,7 @@ efficient ways to do that.</p>
 1,2,3,…,H-1 contain the maximum number of nodes (i.e <code>$2^{i-1}$</code> at
 the level i, note that we start counting the levels from 1 at the root).</p>
 <p>In level H, which may contain less than the maximum possible number of
-nodes, all the nodes are "left-adjusted". This means that in a levelorder
+nodes, all the nodes are “left-adjusted”. This means that in a levelorder
 tree traversal all internal nodes come first, the leaves come second, and
 empty successors (the empty lists which are not really nodes!) come last.</p>
 <p>Particularly, complete binary trees are used as data structures (or
@@ -605,7 +600,7 @@ addressing schemes) for heaps.</p>
 <p>We assign an address number to each node in a complete binary tree by
 enumerating the nodes in levelorder, starting at the root with number
 1. In doing so, we realize that for every node X with address A the
-following property holds: The address of X's left and right successors are
+following property holds: The address of X’s left and right successors are
 2*A and 2*A+1, respectively, supposed the successors do exist. This fact
 can be used to elegantly construct a complete binary tree structure. Write
 a function <code>completebintree</code> which returns a complete binary tree for
@@ -628,9 +623,9 @@ the following two rules:</p>
 <p>In order to store the position of the nodes, we extend the format for
 representing a node (and its successors) as follows: <code>[:w x y l r]</code>
 represents a (non-empty) binary tree with a root with the value <code>:w</code>
-"positioned" at <code>(x,y)</code>, and subtrees <code>l</code> and <code>r</code> (them again in the
+“positioned” at <code>(x,y)</code>, and subtrees <code>l</code> and <code>r</code> (them again in the
 same format).</p>
-<p>Write a function <code>layoutbinarytree</code> that returns a "positioned" binary
+<p>Write a function <code>layoutbinarytree</code> that returns a “positioned” binary
 tree obtained from its argument.</p>
 <p>Test your function in an appropriate way.</p>
 </body></html>
