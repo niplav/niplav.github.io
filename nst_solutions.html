@@ -52,17 +52,22 @@ which is also the result of insetting <code>$\emptyset$</code>.</p>
 <p>Proof:</p>
 <p>Insetting and pairing must have different results because insetting
 will always result in a set with 1 element, and pairing will always
-result in a set with 2 elements. Therefore, they can’t be the same set.</p>
-<p>Pairing the sets a, b and c, d can’t result in the same set unless
+result in a set with 2 elements. Therefore, they can't be the same set.</p>
+<p>Pairing the sets a, b and c, d can't result in the same set unless
 <code>$a=c$</code> and <code>$b=d$</code> or <code>$a=d$</code> and <code>$b=c$</code>. Otherwise, <code>$\{a,b\}$</code> would contain
 at least one element not in <code>$\{c,d\}$</code>.</p>
 <p>□</p>
 <h2 id="Section_4"><a class="hanchor" href="#Section_4">Section 4</a></h2>
 <h3 id="Exercise_1_1"><a class="hanchor" href="#Exercise_1_1">Exercise 1</a></h3>
-<p>I am not exactly sure what I’m supposed to do here. I guess
-“observe” means “prove” here, so “prove that the condition
-has nothing to do with the set B”.</p>
+<p>I am not exactly sure what I'm supposed to do here. I guess
+"observe" means "prove" here, so "prove that the condition
+has nothing to do with the set B".</p>
 <p>Proof:</p>
+<div>
+    $$(A \cap B) \cup C = A \cap (B \cup C) \Leftrightarrow C \subset A\\
+    (A \cup C) \cap (B \cup C) = A \cap (B \cup C) \Leftrightarrow C \subset A\\
+    A \cup C = A \Leftrightarrow C \subset A$$
+</div>
 <p>The last statement is trivially true.</p>
 <p>□</p>
 <h2 id="Section_5"><a class="hanchor" href="#Section_5">Section 5</a></h2>
@@ -73,24 +78,59 @@ has nothing to do with the set B”.</p>
 <p>□</p>
 <p><code>$A \subset B \hbox{ if and only if } A-B=\emptyset$</code></p>
 <p>Proof:</p>
+<div>
+    $$A \subset B \Leftrightarrow \forall a \in A:\\
+    a \in B \Leftrightarrow \exists C:\\
+    B=A \cup C \Leftrightarrow A-(A \cup C)=\emptyset \Leftrightarrow A-B=\emptyset$$
+</div>
 <p>□</p>
 <p><code>$A-(A-B)=A \cap B$</code></p>
 <p>Proof:</p>
+<div>
+    $$ A-(A-B)=\\
+    A-(A \cap B')=\\
+    A \cap (A \cap B')'=\\
+    A \cap (A' \cup B)=\\
+    A \cap A' \cup A \cap B=\\
+    \emptyset \cup A \cap B=\\
+    A\cap B$$
+</div>
 <p>□</p>
 <p><code>$A \cap (B-C)=(A \cap B)-(A \cap C)$</code></p>
 <p>Proof:</p>
+<div>
+    $$(A \cap B)-(A \cap C)=\\
+    (A \cap B) \cap (A \cap C)'=\\
+    (A \cap B) \cap (A' \cup C')=\\
+    (A \cap B \cap A') \cup (A \cap B \cap C')=\\
+    A \cap B \cap C'=\\
+    A \cap (B-C)$$
+</div>
 <p>□</p>
 <p><code>$A \cap B \subset (A \cap C) \cup (B \cap C')$</code></p>
 <p>Proof:</p>
+<div>
+    $$A \cap B \subset (A \cap C) \cup (B \cap C')\\
+    =((A \cap C) \cup B) \cap ((A \cap C) \cup C')\\
+    =((A \cap C) \cup B) \cap ((A \cup C') \cap (C \cup C'))\\
+    =((A \cap C) \cup B) \cap (A \cup C')\\
+    =(A \cup B) \cap (C \cup B) \cap (A \cup C')$$
+</div>
 <p><code>$A \cap B \subset (A \cup B) \cap (C \cup B) \cap (A \cup C')$</code> is true
 because <code>$A \subset (A \cup B)$</code> and <code>$B \subset (C \cup B)$</code> and
 <code>$A \subset (A \cup C')$</code>.</p>
 <p>□</p>
 <p><code>$ (A \cup C) \cap (B \cup C') \subset A \cup B $</code></p>
 <p>Proof:</p>
+<div>
+    $$ (A \cup C) \cap (B \cup C')\\
+    = ((A \cup C) \cap B) \cup ((A \cup C) \cap C')\\
+    = ((A \cup C) \cap B) \cup A\\
+    = (A \cap B) \cup (C \cap B) \cup A \subset A \cup B $$
+</div>
 <p>This is the case because <code>$(A \cap B) \cup (C \cap B) \subset B$</code> (since
 intersections with <code>$B$</code> are subsets of <code>$B$</code>), and the union with <code>$A$</code>
-doesn’t change the equation.</p>
+doesn't change the equation.</p>
 <p>□</p>
 <h3 id="Exercise_1_2"><a class="hanchor" href="#Exercise_1_2">Exercise 1</a></h3>
 <p>To be shown: The power set of a set with n elements has <code>$2^n$</code> elements.
@@ -146,6 +186,11 @@ If <code>${\cal{C}}={X_1, X_2, \dots, X_n}$</code>, then</p>
 <p>Induction assumption:</p>
 <p><code>$\bigcap_{X \in \cal{C}} {\cal{P}}(X)={\cal{P}}(\bigcap_{X \in \cal{C}} X)$</code></p>
 <p>Induction step:</p>
+<div>
+    $${\cal{P}}(Y) \cap \bigcap_{X \in \cal{C}} {\cal{P}}(X)\\
+    ={\cal{P}}(Y) \cap {\cal{P}}(\bigcap_{X \in \cal{C}} X)\\
+    ={\cal{P}}(Y \cap \bigcap_{X \in \cal{C}} X)$$
+</div>
 <p>The last step uses <code>${\cal{P}}(E) \cap {\cal{P}}(F)={\cal{P}}(E \cap F)$</code>,
 since <code>$\bigcap_{X \in \cal{C}} X$</code> is also just a set.</p>
 <p>□</p>
@@ -157,6 +202,11 @@ since <code>$\bigcap_{X \in \cal{C}} X$</code> is also just a set.</p>
 <p>Induction assumption:</p>
 <p><code>$\bigcup_{X \in \cal{C}} {\cal{P}}(X) \subset {\cal{P}}(\bigcup_{X \in \cal{C}} X)$</code></p>
 <p>Induction step:</p>
+<div>
+    $${\cal{P}}(Y) \cup \bigcup_{X \in \cal{C}} {\cal{P}}(X)\\
+    \subset {\cal{P}}(Y) \cup {\cal{P}}(\bigcup_{X \in \cal{C}} X)\\
+    \subset {\cal{P}}(Y \cup \bigcup_{X \in \cal{C}} X)$$
+</div>
 <p>The last step uses <code>${\cal{P}}(E) \cup {\cal{P}}(F) \subset {\cal{P}}(E\cup F)$</code>,
 since <code>$\bigcup_{X \in \cal{C}} X$</code> is also just a set.</p>
 <p>□</p>
@@ -167,14 +217,14 @@ since <code>$\bigcup_{X \in \cal{C}} X$</code> is also just a set.</p>
 Since <code>$A \subset E \Rightarrow A \cup E=E$</code>, it holds
 that <code>$E=\bigcup_{X \in {\cal{P}}(E)}=\bigcup {\cal{P}}(E)$</code>.</p>
 <p>□</p>
-<p>And “E is always equal to <code>$\bigcup_{X \in {\cal{P}}(E)}$</code> (that is
+<p>And "E is always equal to <code>$\bigcup_{X \in {\cal{P}}(E)}$</code> (that is
 <code>$\bigcup {\cal{P}}(E)=E$</code>), but that the result of applying <code>${\cal{P}}$</code>
 and <code>$\bigcup$</code> to <code>$E$</code> in the other order is a set that includes E as a
-subset, typically a proper subset” (p. 21).</p>
+subset, typically a proper subset" (p. 21).</p>
 <p>I am not entirely sure what this is supposed to mean. If it means
 that we treat <code>${\cal{E}}$</code> as a collection, then
 <code>$\forall X \in {\cal{E}}:\bigcup_{E \in {\cal{E}}} E \subset X$</code>.
-But that doesn’t mean that
+But that doesn't mean that
 <code>${\cal{E}} \subset {\cal{P}}(\bigcup_{E \in {\cal{E}}}E)$</code>:
 If <code>${\cal{E}}=\{\{a,b\},\{b,c\}\}$</code>, then <code>$\bigcup_{E \in {\cal{E}}} E=\{b\}$</code>,
 and
@@ -184,8 +234,8 @@ clear that <code>$E \subset {\cal{P}}(E)$</code>, as for all other subsets of <c
 <p>□</p>
 <h2 id="Section_6"><a class="hanchor" href="#Section_6">Section 6</a></h2>
 <h3 id="A_NonTrivial_Exercise"><a class="hanchor" href="#A_NonTrivial_Exercise">A Non-Trivial Exercise</a></h3>
-<p>“find an intrinsic characterization of those sets of subsets of A that
-correspond to some order in A”</p>
+<p>"find an intrinsic characterization of those sets of subsets of A that
+correspond to some order in A"</p>
 <p>Let <code>${\cal{M}} \subset {\cal{P}}({\cal{P}}(A))$</code> be the set of all possible
 orderings of <code>$A$</code>. In the case of <code>$A=\{a, b\}$</code>, <code>$\cal{M}$</code> would be
 <code>$\{\{\{a\}, \{a, b\}\}, \{\{b\}, \{a, b\}\}\}$</code>.</p>
@@ -210,8 +260,21 @@ to the question.</p>
 <h3 id="Exercise_1_3"><a class="hanchor" href="#Exercise_1_3">Exercise 1</a></h3>
 <p>(i) To be shown: <code>$(A \cup B) \times X=(A \times X) \cup (B \times X)$</code></p>
 <p>Proof:</p>
+<div>
+    $$(A \cup B) \times X=\\
+    \{(e, x): e \in A \lor e \in B, x \in X\}=\\
+    \{(e, x): e \in A, x \in X\} \cup \{(e, x): e \in B, x \in X\}=\\
+    (A \times X) \cup (B \times X)$$
+</div>
 <p>□</p>
 <p>(ii) Te be shown: <code>$(A \cap B) \times (X \cap Y)=(A \times X) \cap (B \times Y)$</code></p>
+<div>
+    $$(A \times X) \cap (B \times Y)=\\
+    \{(x,y), x \in A, y \in X\} \cap \{(v,w), v \in B, w \in Y\}=\\
+    \{(x,y), x \in A \land x \in B, y \in X \land y \in Y\}=\\
+    \{(x,y), x \in A \cap B, y \in X \cap Y\}=\\
+    (A \cap B) \times (X \cap Y)$$
+</div>
 <p>□</p>
 <p>(iii) To be shown: <code>$(A-B) \times X = (A \times X)-(B \times X)$</code></p>
 <p>Two-sided proof by contradiction:</p>
@@ -248,15 +311,15 @@ show that <code>$X/R$</code> is indeed a set by exhibiting a condition that spec
 exactly the subset <code>$X/R$</code> of the power set <code>${\cal{P}}(X)$</code>).</p>
 </blockquote>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Paul_Halmos">Paul Halmos</a>, <a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naïve Set Theory“</a> p. 38, 1960</em></p>
-<p>To be honest, I’m not quite sure what exactly I am supposed to do here.
+<p>To be honest, I'm not quite sure what exactly I am supposed to do here.
 <code>$X/R$</code> has been defined as being a set, how can I prove a definition?</p>
 <p>But I can try and construct <code>$X/R$</code> from <code>${\cal{P}}(X)$</code>:</p>
 <p><code>$X/R=\{E: (\forall x, y \in E: x R y) \land E \in {\cal{P}}(X) \} \subset {\cal{P}}(X)$</code></p>
 <p>□, I guess?</p>
 <h2 id="Section_8"><a class="hanchor" href="#Section_8">Section 8</a></h2>
 <h3 id="Exercise_1_5"><a class="hanchor" href="#Exercise_1_5">Exercise 1</a></h3>
-<p>Basically, the question is “Which projections are one-to-one”, or,
-“Which projections are injective”?</p>
+<p>Basically, the question is "Which projections are one-to-one", or,
+"Which projections are injective"?</p>
 <p>The answer is: A projection <code>$p: X\times Y \mapsto X$</code> is injective iff
 <code>$\forall (x,y)\in X \times Y: \nexists (x,z) \in X \times Y: z \neq y$</code>.
 Or, simpler: Every element of <code>$X$</code> occurs at most once in the relation.
@@ -279,7 +342,7 @@ that <code>$x \neq \emptyset$</code>. Therefore, no such <code>$x$</code> can ex
 <code>$f \subset X \times \emptyset \land \forall x \in X: \exists (x,y) \in f: y \in \emptyset$</code>
 (or: <code>$f$</code> maps all elements of <code>$X$</code> to an element in
 <code>$\emptyset$</code>). However there are no elements in the empty set (that I
-know of), so <code>$f$</code> can’t exist.</p>
+know of), so <code>$f$</code> can't exist.</p>
 <p>However, if <code>$X=\emptyset$</code>, then (i) applies. So <code>$\emptyset^{\emptyset}=\{\emptyset\}$</code>.</p>
 <h2 id="Section_9"><a class="hanchor" href="#Section_9">Section 9</a></h2>
 <h3 id="Exercise_1_6"><a class="hanchor" href="#Exercise_1_6">Exercise 1</a></h3>
@@ -291,18 +354,21 @@ formulated as follows:</p>
 <p>Suppose, for instance, that <code>$\{I_{j}\}$</code> is a family of sets with
 domain <code>$J$</code>, say; write <code>$K=\bigcup_{j} I_{j}$</code>, and let <code>$\{A_{k}\}$</code> be
 a family of sets with domain <code>$K$</code>. It is then not difficult to prove that
-
+</p><div>
   $$\bigcup<em>{k \in K} A</em>{k}=\bigcup<em>{j \in J}(\bigcup</em>{i \in I<em>{j}} A</em>{i})$$
-</p>
+</div>
 </blockquote>
 <p>Okay, this is all fine and dandy, but where am I going with this? Well,
 I have probably misunderstood this, because the way I understand it,
 the correct way to formulate the commutative law for unions of families
 does <em>not</em> hold.</p>
-<p>Let’s say <code>$X$</code> is a set indexed by <code>$I$</code>, or, in other words, <code>$x_{i}$</code>
-is a family. Let’s then define a new operator index-union to make these
+<p>Let's say <code>$X$</code> is a set indexed by <code>$I$</code>, or, in other words, <code>$x_{i}$</code>
+is a family. Let's then define a new operator index-union to make these
 expressions easier to read: <code>$I໔X$</code> as <code>$\bigcup_{i \in I} X_{i}$</code>.</p>
 <p>The associative law then expanded reads as</p>
+<div>
+    $$\bigcup_{k \in \bigcup_{j \in J} I_{j}} A_{k}=\bigcup_{j \in J}(\bigcup_{i \in I_{j}} A_{i})$$
+</div>
 <p>or, simpler, as <code>$(J໔I)໔A=J໔(I໔A)$</code>.</p>
 <p>Then, simply, the commutative version of the law would be <code>$A໔B=B໔A$</code>.</p>
 <p>Then there is a very simple counterexample:</p>
@@ -313,19 +379,33 @@ be <code>$\{(a,\{1\}),(b,\{2\})\}$</code>. Then
 and <code>$B໔A=\bigcup_{b \in B} A_{b}=\{a,b\}$</code>, and those
 two are different sets.</p>
 <p>Despite my obvious love for unnecessarily inventing new notation,
-I’m not a very good mathematician, and believe (credence <code>$\ge 99\%$</code>)
+I'm not a very good mathematician, and believe (credence <code>$\ge 99\%$</code>)
 that I have misunderstood something here (the rest is taken up by this
 being an editing/printing mistake). I am not sure what, but would be
-glad about some pointers where I’m wrong.</p>
+glad about some pointers where I'm wrong.</p>
 <h4 id="Other_Failing_Ways_of_Interpreting_the_Exercise"><a class="hanchor" href="#Other_Failing_Ways_of_Interpreting_the_Exercise">Other Failing Ways of Interpreting the Exercise</a></h4>
 <p>Other ways of interpreting the exercise also have obvious
 counter-examples.</p>
 <p>If <code>$f, g$</code> are two families in <code>$X$</code> (as functions:
 <code>$f: X \rightarrow X, g: X \rightarrow X$</code>), then the
 counterexample is</p>
+<div>
+    $$X=\{a,b\}\\
+    f_{a}=b, f_{b}=b\\
+    g_{a}=a, g_{b}=a\\
+    f໔g=\{b\}\\
+    g໔f=\{a\}$$
+</div>
 <p>If <code>$f, g$</code> are two families of sets in <code>$X$</code> (as functions:
 <code>$f: X \rightarrow {\cal{P}}(X), g: X \rightarrow {\cal{P}}(X)$</code>), then the
 counterexample is</p>
+<div>
+    $$X=\{a,b,c\}\\
+    f_{a}=\{b\}, f_{b}=\{b\}, f_{c}=\{b\}\\
+    g_{a}=\{a\}, g_{b}=\{c\}, g_{c}=\{c\}\\
+    f໔g=\{b\}\\
+    g໔f=\{c\}$$
+</div>
 <h3 id="Exercise_2_3"><a class="hanchor" href="#Exercise_2_3">Exercise 2</a></h3>
 <p>To be shown:</p>
 <p>(i): <code>$(\bigcup_{i \in I} A_{i}) \cap (\bigcup_{j \in J} B_{j})=\bigcup_{(i,j) \in I \times J} (A_{i} \cap B_{j})$</code></p>
@@ -337,6 +417,14 @@ Then <code>$(i_{e}, j_{e}) \in I \times J$</code>, and furthermore <code>$e \in 
 Since <code>$A_{i_{e}} \cap B_{j_{e}} \subset \bigcup_{(i,j) \in I \times J} (A_{i} \cap B_{j})$</code>,
 <code>$e$</code> is contained in there as well.</p>
 <p>Only in this case I will attempt to write out the the proof more formally:</p>
+<div>
+    $$e \in (\bigcup_{i \in I} A_{i}) \cap (\bigcup_{j \in J} B_{j}) \Rightarrow \\
+    e \in (\bigcup_{i \in I} A_{i}) \land e \in (\bigcup_{j \in J} B_{j}) \Rightarrow \\
+    (\exists i_{e} \in I: e \in A_{i_{e}}) \land (\exists j_{e} \in J: e \in B_{j_{e}}) \Rightarrow \\
+    \exists i_{e} \in I: \exists j_{e} \in J: e \in A_{i_{e}} \land e \in B_{j_{e}} \Rightarrow \\
+    \exists (i_{e}, j_{e}) \in I \times J: e \in (A_{i_{e}} \cap B_{j_{e}}) \Rightarrow \\
+    e \in \bigcup_{(i,j) \in I \times J} (A_{i} \cap B_{j})$$
+</div>
 <p>2. <code>$(\bigcup_{i \in I} A_{i}) \cap (\bigcup_{j \in J} B_{j}) \supset \bigcup_{(i,j) \in I \times J} (A_{i} \cap B_{j})$</code></p>
 <p>Let <code>$e \in \bigcup_{(i,j) \in I \times J} (A_{i} \cap B_{j})$</code>.
 Then there exists <code>$(i_{e}, j_{e}) \in I \times J$</code> so that
@@ -352,6 +440,14 @@ Then <code>$e$</code> is an element of all of <code>$A_{i}$</code> or an element
 <code>$A_{i} \cup B_{j}$</code>. Then <code>$e$</code> is also an element of the intersection
 of all of these unions <code>$\bigcap_{(i,j) \in I \times J} (A_{i} \cup B_{j})$</code>.</p>
 <p>This can be written down more formally as well:</p>
+<div>
+    $$e \in (\bigcap_{i \in I} A_{i}) \cup (\bigcap_{j \in J} B_{j}) \Rightarrow \\
+    e \in (\bigcap_{i \in I} A_{i}) \lor e \in (\bigcap_{j \in J} B_{j}) \Rightarrow \\
+    \forall i \in I: e \in A_{i} \lor \forall j \in J: e \in B_{j} \Rightarrow \\
+    \forall i \in I: \forall j \in J: e \in A_{i} \lor e \in B_{j} \Rightarrow \\
+    \forall i \in I: \forall j \in J: e \in A_{i} \cup B_{j} \Rightarrow \\
+    e \in \bigcap_{(i,j) \in I \times J} (A_{i} \cup B_{j})$$
+</div>
 <p>2. <code>$(\bigcap_{i \in I} A_{i}) \cup (\bigcap_{j \in J} B_{j}) \supset \bigcap_{(i,j) \in I \times J} (A_{i} \cup B_{j})$</code></p>
 <p>Let <code>$e \in \bigcap_{(i,j) \in I \times J} (A_{i} \cup B_{j})$</code>. Then
 for every <code>$i$</code> and <code>$j$</code>, <code>$e \in A_{i} \cup B_{j}$</code>. That means that
@@ -364,6 +460,16 @@ every <code>$A_{i}$</code> or every <code>$B_{j}$</code>, it surely must be in t
 <h3 id="Exercise_3"><a class="hanchor" href="#Exercise_3">Exercise 3</a></h3>
 <p>To be proven:</p>
 <p><code>$(\bigcup_{i} A_{i}) \times (\bigcup_{j} B_{j})=\bigcup_{i,j}(A_{i} \times B_{j})$</code></p>
+<div>
+$$ e \in \bigcup_{i,j}(A_{i} \times B_{j}) \\
+(e_{1},e_{2}) \in \bigcup_{i,j}(A_{i} \times B_{j}) \Leftrightarrow \\
+\exists i \in I, j \in J: (e_{1},e_{2}) \in A_{i} \times B_{j} \Leftrightarrow \\
+\exists i \in I, j \in J: (e_{1} A_{i}) \land (e_{2} \in B_{j}) \Leftrightarrow \\
+\exists i \in I: (e_{1} A_{i}) \land \exists j \in J: (e_{2} \in B_{j}) \Leftrightarrow \\
+(e_{1} \in \bigcup_{i} A_{i}) \land (e_{2} \in \bigcup_{j} B_{j}) \Leftrightarrow \\
+(e_{1}, e_{2}) \in (\bigcup_{i} A_{i}) \times (\bigcup_{j} B_{j}) \Leftrightarrow \\
+e \in (\bigcup_{i} A_{i}) \times (\bigcup_{j} B_{j}) $$
+</div>
 <p>One can say that
 <code>$(e_{1}, e_{2}) \in (\bigcup_{i} A_{i}) \times (\bigcup_{j} B_{j}) = \exists i \in I, j \in J: e_{1} \in A_{i} \land e_{2} \in B_{j}$</code>
 because there must be at least one <code>$i$</code> so that <code>$e \in A_{i}$</code>, and
@@ -371,10 +477,30 @@ because all combinations of elements are chosen from <code>$A$</code> and <code>
 <p>□</p>
 <p>To be proven:</p>
 <p><code>$(\bigcap_{i} A_{i}) \times (\bigcap_{j} B_{j})=\bigcap_{i,j}(A_{i} \times B_{j})$</code></p>
+<div>
+$$ e \in \bigcap_{i,j}(A_{i} \times B_{j}) \\
+(e_{1},e_{2}) \in \bigcap_{i,j}(A_{i} \times B_{j}) \Leftrightarrow \\
+\forall i \in I, j \in J: (e_{1},e_{2}) \in A_{i} \times B_{j} \Leftrightarrow \\
+\forall i \in I, j \in J: (e_{1} A_{i}) \land (e_{2} \in B_{j}) \Leftrightarrow \\
+\forall i \in I: (e_{1} A_{i}) \land \forall j \in J: (e_{2} \in B_{j}) \Leftrightarrow \\
+(e_{1} \in \bigcap_{i} A_{i}) \land (e_{2} \in \bigcap_{j} B_{j}) \Leftrightarrow \\
+(e_{1}, e_{2}) \in (\bigcap_{i} A_{i}) \times (\bigcap_{j} B_{j}) \Leftrightarrow \\
+e \in (\bigcap_{i} A_{i}) \times (\bigcap_{j} B_{j}) $$
+</div>
 <p>□</p>
 <p>To b proven:</p>
 <p><code>$\bigcap_{i} X_{i} \subset X_{j} \subset \bigcup_{i} X_{i}$</code></p>
 <p>Proof:</p>
+<div>
+    $$ e \in \bigcap_{i} X_{i} \Rightarrow \\
+    \forall i: e \in X_{i} \Rightarrow \\
+    \forall i: \exists j: {i,j} \subset I \land i=j \land e \in X_{i} \Rightarrow \\
+    \forall i: \exists j: i \in I \land j \in J \land i=j \land e \in X_{j} \Rightarrow \\
+    e \in X_{j} \Rightarrow \\
+    \exists j \in I: e \in X_{j} \Rightarrow \\
+    \exists i \in I: e \in X_{i} \Rightarrow \\
+    e \in \bigcup_{i} X_{i} $$
+</div>
 <p>□</p>
 <h2 id="Section_10"><a class="hanchor" href="#Section_10">Section 10</a></h2>
 <h3 id="Exercise_1_7"><a class="hanchor" href="#Exercise_1_7">Exercise 1</a></h3>
@@ -396,7 +522,9 @@ but <code>$\bigcap_{i} f(A_{i})=\{a\} \cap \{a\}=\{a\}$</code>.</p>
 is that the inverse image under <code>$f$</code> of each non-empty subset of <code>$Y$</code>
 be a non-empty subset of <code>$X$</code>. (Proof?)</p>
 </blockquote>
-<p>But that’s—false? Unless I understand something different by “map”
+<!--TODO: with "maps onto", he probably means "surjective", i.e. all
+values are mapped to-->
+<p>But that's—false? Unless I understand something different by "map"
 (which I just take as relates from one set to another, possibly in a
 many-to-one relation).</p>
 <p>Example:</p>
@@ -408,7 +536,7 @@ all subsets of $X$. Then <code>$f^{-1}(\{b\})=\emptyset$</code>.</p>
 <p>$((hg)f)(x)=((hg)(f(x)))=h(g(f(x)))=h(gf(x))$</p>
 <h3 id="Query_1"><a class="hanchor" href="#Query_1">Query 1</a></h3>
 <blockquote>
-<p>what do $R<sup>{-1}$,</sup> $S<sup>{-1}$,</sup> $RS$, and $R<sup>{-1}S<sup>{-1}$</sup></sup> mean?”</p>
+<p>what do $R<sup>{-1}$,</sup> $S<sup>{-1}$,</sup> $RS$, and $R<sup>{-1}S<sup>{-1}$</sup></sup> mean?"</p>
 </blockquote>
 <p>$yR<sup>{-1}x$:</sup> y father of x, $z S<sup>{-1}y$:</sup> z is brother of y. $xRSy$:
 x nephew of y. $xR<sup>{-1}S<sup>{-1}$.</sup></sup></p>
@@ -421,17 +549,17 @@ $yS<sup>{-1}x$</sup> and $zR<sup>{-1}y$,</sup> and then $zR<sup>{-1}S<sup>{-1}x$
 <blockquote>
 <p>is there a connection among I, $RR<sup>{-1}$,</sup> and $R<sup>{-1}R$?</sup></p>
 </blockquote>
-<p>Shouldn’t $I=RR<sup>{-1}$?</sup> No. Because if $xRy$ and $zRy$, then
+<p>Shouldn't $I=RR<sup>{-1}$?</sup> No. Because if $xRy$ and $zRy$, then
 $xRR<sup>{-1}z$.</sup> But $I \subset RR<sup>{-1}$,</sup> and $I \subset R<sup>{-1}R$.</sup> I think
 alsso that $RR<sup>{-1}=(R<sup>{-1}R)<sup>{-1}$,</sup></sup></sup> and $R<sup>{-1}R=(RR<sup>{-1})<sup>{-1}$</sup></sup></sup>
-(which is true by the previously proven theorem). I don’t think there’s
+(which is true by the previously proven theorem). I don't think there's
 any further connections here.</p>
 <h3 id="Exercise_5"><a class="hanchor" href="#Exercise_5">Exercise 5</a></h3>
-<p>(i) Given $g: Y \rightarrow X$ and $gf(x)=x$, then $f$ is “one-to-one”
-and “$g$ maps $Y$ onto $X$”.</p>
-<p>Judging from what I understand, “$f$ is one-to-one” would mean that $f$
+<p>(i) Given $g: Y \rightarrow X$ and $gf(x)=x$, then $f$ is "one-to-one"
+and "$g$ maps $Y$ onto $X$".</p>
+<p>Judging from what I understand, "$f$ is one-to-one" would mean that $f$
 is <a href="https://en.wikipedia.org/wiki/Injective_function">injective</a>,
-and “$g$ maps $X$ onto $X$” just means that $g$ is
+and "$g$ maps $X$ onto $X$" just means that $g$ is
 <a href="https://en.wikipedia.org/wiki/Surjective_function">surjective</a>?</p>
 <p>Wikipedia agrees with these hunches.</p>
 <p><code>$\forall x_1, x_2 \in X: x_1 \neq x_2 \Leftrightarrow f(x_1) \neq f(x_2)$</code>,
@@ -454,7 +582,7 @@ That means <code>$x \in A \land x \in B$</code>. Then <code>$e \in f(A) \land e 
 <p>Let then <code>$x_1 \neq x_2 \in X$</code>, so that <code>$f(x_1)=f(x_2)=y$</code>. Let then
 <code>$A, B$</code> so that <code>$x_1 \in A \backslash B$</code> and <code>$x_2 \in B \backslash A$</code>.</p>
 <p>Then <code>$y \in f(A) \cap f(B)$</code>, but <code>$y \not \in f(A \cap B)$</code>. So those
-<code>$x_1, x_2$</code> can’t exist, therefore f is injective.</p>
+<code>$x_1, x_2$</code> can't exist, therefore f is injective.</p>
 <p>□</p>
 <p>(iii) To be proven: f injective <code>$\Leftrightarrow f(X-A) \subset Y-f(A)$</code>
 for all subsets of A.</p>
@@ -478,7 +606,7 @@ there must be an x so that <code>$f(x)=y$</code> and <code>$x \not \in A$</code>
 <code>$\forall A \subset X: Y-f(A) \subset f(X-A) \Rightarrow \forall y: \exists x: f(x)=y$</code>.</p>
 <p>Assume <code>$ \exists y \in Y: \lnot \exists x: f(x)=y$</code>. Then <code>$y \in Y-f(A)$</code>
 for all A, but <code>$y \not \in f(X-A)$</code> (since y is not in the
-range). Contradiction of the assumption, such a y can’t exist.</p>
+range). Contradiction of the assumption, such a y can't exist.</p>
 <h2 id="Section_11"><a class="hanchor" href="#Section_11">Section 11</a></h2>
 <h3 id="Exercise_1_8"><a class="hanchor" href="#Exercise_1_8">Exercise 1</a></h3>
 <blockquote>
@@ -503,13 +631,21 @@ would make f a non-empty family, but
 <code>$\bigcap_{i \in I} s_i=\{\{\{\emptyset, \{\emptyset\}\}\}\}$</code>,
 which is definitely not a successor set. Since the solution I presented
 above seems exactly like the thing Halmos would want me to do, I guess
-I have misunderstood the definition for “family of sets”.</p>
+I have misunderstood the definition for "family of sets".</p>
 <h2 id="Section_12"><a class="hanchor" href="#Section_12">Section 12</a></h2>
 <h3 id="Exercise_1_9"><a class="hanchor" href="#Exercise_1_9">Exercise 1</a></h3>
 <blockquote>
 <p>Prove that if $n$ is a natural number, then <code>$n \not = n^{+}$</code></p>
 </blockquote>
 <p>For <code>$n=0=\emptyset$</code>, <code>$n \not = n^+$</code>:</p>
+<div>
+    $$n^+=\\
+    n \cup \{n\}=\\
+    \emptyset \cup \{\emptyset\}=\\
+    \{\emptyset\}\not =\\
+    \emptyset=\\
+    n$$
+</div>
 <p>Let <code>$n^-$</code> be the number such that <code>${n^-}^+=n$</code>, and assume that
 <code>$n^- \not =n$</code>.</p>
 <p>Then for <code>$n^+=n \cup \{n\}=n^- \cup \{n^-\} \cup \{n\}$</code> to be equal to
@@ -518,7 +654,7 @@ That would contradict the assumption, so <code>$n^+ \not =n$</code>.</p>
 <p>□</p>
 <p>This would be much easier to prove if the <a href="https://en.wikipedia.org/wiki/Axiom_of_regularity">Axiom of
 Regularity</a> had
-been introduced: if we know that it can’t be that <code>$a \in a$</code>, then
+been introduced: if we know that it can't be that <code>$a \in a$</code>, then
 <code>$n^+=n \cup \{n\}$</code> would need to be <code>$\{n\}$</code> for <code>$n^+$</code> to be equal
 to <code>$n$</code>, which could only be the case if <code>$n \in n$</code>, violating
 the axiom.</p>
@@ -528,8 +664,8 @@ the axiom.</p>
 <code>$n=m^+$</code> for some natural number <code>$m$</code>.</p>
 </blockquote>
 <p>This feels true almost by definition?</p>
-<p>On pg. 44 a natural number is defined as “an element of the minimal
-successor set <code>$ω$</code>”. Then, if <code>$n \in ω$</code>, there must be an element
+<p>On pg. 44 a natural number is defined as "an element of the minimal
+successor set <code>$ω$</code>". Then, if <code>$n \in ω$</code>, there must be an element
 <code>$n^-$</code> of <code>$ω$</code> so that <code>${n^-}^+=n$</code> (by the second Peano axiom and
 the condition that <code>$ω$</code> can contain no superfluous elements, which
 would be the third Peano axiom).</p>
@@ -537,8 +673,8 @@ would be the third Peano axiom).</p>
 <blockquote>
 <p>Prove that <code>$ω$</code> is transitive.</p>
 </blockquote>
-<p>I don’t understand what is being asked from me here. <code>$ω$</code> is not a
-relation since it’s not a set of ordered sets with two elements (tuples),
+<p>I don't understand what is being asked from me here. <code>$ω$</code> is not a
+relation since it's not a set of ordered sets with two elements (tuples),
 so this question is underspecified.</p>
 <h3 id="Exercise_4_1"><a class="hanchor" href="#Exercise_4_1">Exercise 4</a></h3>
 <blockquote>
@@ -560,8 +696,8 @@ so <code>$n \in n^{+_k}$</code>.</p>
 <hr/>
 <p>Assume such a <code>$k$</code> did not exist. Then for every <code>$k_i$</code>, it would hold
 that there is some <code>$m_i \not= k$</code> so that <code>$k_i \not \in m_i$</code>.</p>
-<p>But then it must hold that <code>$m_i \in k_i$</code> (it can’t be that <code>$m_i \not \in k_i$</code>
-and <code>$k_i \not \in m_i$</code> for natural numbers). If that isn’t
+<p>But then it must hold that <code>$m_i \in k_i$</code> (it can't be that <code>$m_i \not \in k_i$</code>
+and <code>$k_i \not \in m_i$</code> for natural numbers). If that isn't
 the case (so <code>$m_i \not \in k_i$</code>), then there must exists some <code>$r_i$</code>
 that <code>$m_i \not \in r_i$</code>. But since <code>$E$</code> contains only finitely many
 elements, this leads to a cycle (which is not possible, since that would
@@ -598,14 +734,14 @@ then <code>$1 \cdot n^+=(1 \cdot n)+1=n+1=n^+$</code>.</p>
 <p>Induction assumption: <code>$(k \cdot m) \cdot n=k \cdot (m \cdot n)$</code></p>
 <p>Induction step: <code>$k \cdot (m \cdot n^+)=k \cdot ((m \cdot n)+m)=k \cdot (m \cdot n)+k \cdot m=(k \cdot m) \cdot n+k \cdot m=(k \cdot m) \cdot n^+$</code> (using distributivity).</p>
 <hr/>
-<p>As for the properties of the power, I don’t really want to spend much
+<p>As for the properties of the power, I don't really want to spend much
 time and energy proving them. Let it suffice to say that the powers are
 neither associative (counterexample: <code>$2^{(3^2)}=512 \not =64=(2^3)^2$</code>)
 nor commutative (counterexample: <code>$2^3=8\not =9=3^2$</code>) nor distributive
 over either addition (counterexample: <code>$2^{3+4}=128 \not =24=2^3+2^4$</code>)
 or multiplication (counterexample: <code>$2^{3 \cdot 4}=4068 \not=128=2^3 \cdot 2^4$</code>).</p>
 <p>They have two interesting properties: <code>$a^{b\cdot c}=(a^b)^c$</code>, and
-<code>$a^{b+c}=a^b \cdot a^c$</code>. </p>
+<code>$a^{b+c}=a^b \cdot a^c$</code>. <!--TODO: prove these someday--></p>
 <p>For commutative hyperoperators, see <a href="https://observablehq.com/@ishi/arithmetic" title="Hyperlogarithmic Arithmetic">Ghalimi 2019</a>.</p>
 <h3 id="Exercise_1_10"><a class="hanchor" href="#Exercise_1_10">Exercise 1</a></h3>
 <p>To be shown: if <code>$m&lt;n$</code>, then <code>$m+k &lt; n+k$</code></p>
@@ -613,6 +749,11 @@ or multiplication (counterexample: <code>$2^{3 \cdot 4}=4068 \not=128=2^3 \cdot 
 <p>Induction base: If <code>$k=0$</code>, then <code>$m+k=m&lt;n=n+k$</code></p>
 <p>Induction assumption: <code>$m+k&lt;n+k$</code></p>
 <p>Induction step:</p>
+<div>
+    $$m+k^+ &lt; n+k^+ \Leftrightarrow \\
+    (m+k)^+ &lt; (n+k)^+ \Leftrightarrow \\
+    \{m+k\} \cup (m+k) \subset \{n+k\} \cup (n+k)$$
+</div>
 <p>We know that <code>$m+k \subset n+k$</code>.</p>
 <p>We can prove that <code>$\{m+k\} \subset n+k$</code>:</p>
 <p>In the base case, <code>$m+k^+=(m+k)^+=\{m+k\} \cup (m+k)=n+k$</code>, in which
@@ -622,8 +763,8 @@ Then <code>$n+k^+=(n+k)^+=\{n+k\} \cup (n+k) \supset n+k \supset m+k$</code>.</p
 <code>$m+k \subset n+k$</code> and therefore <code>$m+k &lt; n+k$</code>.</p>
 <hr/>
 <p>To be shown: if <code>$m&lt;n$</code> and <code>$k \not =0$</code>, then <code>$m \cdot k&lt;n \cdot k$</code>.</p>
-<p>Induction over <code>$k$</code>. Base case: <code>$m \cdot 1=m&lt;n=n \cdot 1$</code> (I don’t
-think the text proves that <code>$p_1(n)=n$</code>, but I also don’t think it would
+<p>Induction over <code>$k$</code>. Base case: <code>$m \cdot 1=m&lt;n=n \cdot 1$</code> (I don't
+think the text proves that <code>$p_1(n)=n$</code>, but I also don't think it would
 be <em>that</em> useful for me to do that here).</p>
 <p>Induction assumption: <code>$m \cdot k&lt;n \cdot k$</code>.</p>
 <p>Induction step:
@@ -649,13 +790,13 @@ are not in <code>$E$</code>.</p>
 natural number <code>$n$</code>. Then <code>$n \subset ω$</code>, but <code>$ω \not \subseteq n$</code>,
 since <code>$n \subset n^+=\{n\} \cup n \subseteq ω$</code>. Then, by the <a href="https://en.wikipedia.org/wiki/pigeonhole_principle">pigeonhole
 principle</a>, <code>$f$</code>
-can’t exist: there is at least one element too many in <code>$ω$</code> to be
+can't exist: there is at least one element too many in <code>$ω$</code> to be
 matched to <code>$n$</code>.</p>
-<p>Therefore, such an <code>$n$</code> can’t exist, <code>$ω$</code> is infinite.</p>
+<p>Therefore, such an <code>$n$</code> can't exist, <code>$ω$</code> is infinite.</p>
 <h3 id="Exercise_3_3"><a class="hanchor" href="#Exercise_3_3">Exercise 3</a></h3>
 <p>The proof here is the same as the one in exercise 2.</p>
 <h3 id="Exercise_4_2"><a class="hanchor" href="#Exercise_4_2">Exercise 4</a></h3>
-<p>To be shown: the union of a finite set of finite sets is finite (wouldn’t
+<p>To be shown: the union of a finite set of finite sets is finite (wouldn't
 this better be if it was a finite family of finite sets? Whatever.).</p>
 <p>Proof: Let <code>$\mathcal{S}$</code> be our set, and <code>$\bigcup_{S \in \mathcal{S}} S$</code>
 be the union of the finitely many elements of <code>$\mathcal{S}$</code>.</p>
@@ -759,14 +900,14 @@ and <code>$\text{AOC} \Rightarrow \text{I}$</code>.</p>
 <p>For <code>$\text{AOC} \Rightarrow \text{I}$</code>, let <code>$\mathcal{C}^{\times}=C_1
 \times C_2 \times \dots$</code>.  Let <code>$C^{\times}$</code> be any element of
 <code>$\mathcal{C}^{\times}$</code> (Can we do that? Or does this then circularly
-depend on a choice function on <code>$\mathcal{C}^{\times}$</code>?&lt;!-TODO–&gt;). Then
+depend on a choice function on <code>$\mathcal{C}^{\times}$</code>?&lt;!-TODO--&gt;). Then
 we can define <code>$f$</code> by <code>$f(C_i)=C^{\times}(i)$</code> (since <code>$C^{\times}$</code>
 is a tuple).</p>
 <p>For <code>$\text{I} \Rightarrow \text{AOC}$</code>, we can construct at least one
 element of the Cartesian product of <code>$\mathcal{C}$</code> by constructing
 the element <code>$(f(C_1), f(C_2), f(C_3), \dots)$</code>. This tuple must be an
 element of the Cartesian product of the elements in <code>$\mathcal{C}$</code>,
-therefore that Cartesian product can’t be empty.</p>
+therefore that Cartesian product can't be empty.</p>
 <h4 id="II_1"><a class="hanchor" href="#II_1">II.</a></h4>
 <p>This is actually a special case of I: we just define <code>$f(C)=C \cap
 A$</code>. This gives us the results from above.</p>

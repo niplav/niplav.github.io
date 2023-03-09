@@ -69,10 +69,13 @@ described by</p>
 • <code>$\delta: \mathcal{Q} \times A \rightarrow 2^{\mathcal{Q}}$</code> is the transition function.  </p>
 <p>Using the operators introduced so far, give a CCS process that describes <code>$T$</code>.</p>
 </blockquote>
+<div>
+    $$ T=q_0.\underset{a_1 \in A}{\mathbf{+}} (a_1. \underset{q_1 \in δ(q_0, a_1)}{\mathbf{+}} (q_1.\underset{a_2 \in A}{\mathbf{+}} (a_2. \underset{q_2 \in δ(q_1, a_2)}{\mathbf{+}} (q_2. \cdots))))$$
+</div>
 <p>where <code>$\mathbf{+}$</code> is <em>supposed</em> to be a big iterative operator like
 <code>$\sum$</code>, if only I could get MathJax to accept <code>\scalerel</code>. The equation
 is nested infinitely deep at most places that result in a loop that
-doesn’t include <code>$q_0$</code>, and in some places end with <code>$.T$</code>, if <code>$q_0
+doesn't include <code>$q_0$</code>, and in some places end with <code>$.T$</code>, if <code>$q_0
 \in δ(q_n,a)$</code>.</p>
 <h3 id="24"><a class="hanchor" href="#24">2.4</a></h3>
 <blockquote>
@@ -87,7 +90,7 @@ transitive closure of the binary relation <code>$\overset{α}{\rightarrow}$</cod
 </blockquote>
 <p>The process, in triple form, is
 <code>$(\{s, s_1, s_2, s_3\}, \{a\}, \overset{a}{\rightarrow}=\{(s, s_1), (s_1, s_2), (s_2, s_3), (s_3, s)\})$</code>.</p>
-<p>I’m not sure about the sketch part, but I can try to describe the
+<p>I'm not sure about the sketch part, but I can try to describe the
 different closures.</p>
 <p>The reflexive closure of <code>$\overset{a}{\rightarrow}$</code> would additionally
 contain the elements
@@ -102,7 +105,7 @@ contains the elements <code>$\{(s_1, s), (s_2, s_1), (s_3, s_2), (s, s_3)\}$</co
 <ul>
 <li><code>$a.b.A+B$</code> ✓</li>
 <li><code>$(a.\mathbf{0}.\overline{a}.A)\backslash \{a,b\}$</code> ✓</li>
-<li><code>$(a.\mathbf{0}|\overline{a}.A)\backslash \{a,τ\}$</code> ✗: <code>$τ$</code> can’t be excluded</li>
+<li><code>$(a.\mathbf{0}|\overline{a}.A)\backslash \{a,τ\}$</code> ✗: <code>$τ$</code> can't be excluded</li>
 <li><code>$a.B+[a/b]$</code> ✗: a renaming is not a process</li>
 <li><code>$τ.τ.B+\mathbf{0}$</code> ✓</li>
 <li><code>$(a.B+b.B)[a/b, b/a]$</code> ✓</li>
@@ -124,7 +127,7 @@ Table 2.1.)</p>
 <li><code>$\text{CM}\overset{\text{def}}{=}\text{coin}.\overline{\text{coffee}}.\text{CM}$</code></li>
 <li><code>$\text{CS}\overset{\text{def}}{=}\overline{\text{pub}}.\overline{\text{coin}}.\text{coffee}.\text{CS}$</code></li>
 </ul>
-<p>I’m not going to draw all the images, I’m way too lazy for that.</p>
+<p>I'm not going to draw all the images, I'm way too lazy for that.</p>
 <ul>
 <li>Using COM1: SmUni transitions to <code>$(\text{CM}|\text{CS}_1)\backslash\{\text{coin},\text{coffee}\}$</code> via <code>$\overline{\text{pub}}$</code></li>
 <li>Using COM3: <code>$(\text{CM}|\text{CS}_1)\backslash\{\text{coin},\text{coffee}\}$</code> transitions to <code>$(\text{CM}_1|\text{CS}_2)\backslash\{\text{coin},\text{coffee}\}$</code> via <code>$τ$</code>, internally <code>$\text{coin}$</code></li>
@@ -145,8 +148,8 @@ cells are emptied, the Bag restarts, otherwise it keeps its state.</p>
 <p>(The case where <code>$x$</code> is input and output, and then <code>$y$</code> is input and
 output, is equivalent to the second trace).</p>
 <p><code>$\text{FIFO} \overset{\text{def}}{=} (\text{Cell}+(\text{in}(x).\text{in}(y).\text{Cell}(x).\text{Cell}(y)).\text{FIFO}$</code></p>
-<p>This is much uglier than I thought it would be. Maybe there’s a nicer
-version? Just concatenating two cells doesn’t work, of course.</p>
+<p>This is much uglier than I thought it would be. Maybe there's a nicer
+version? Just concatenating two cells doesn't work, of course.</p>
 <h2 id="Chapter_3"><a class="hanchor" href="#Chapter_3">Chapter 3</a></h2>
 <h3 id="31"><a class="hanchor" href="#31">3.1</a></h3>
 <p>Identity relation is an equivalence relation, as well as the universal
@@ -158,12 +161,15 @@ relation is.  The standard <code>$\le$</code> relation is not an equivalence rel
 <p>To answer these questions, consider the coffee and tea machine CTM
 defined in (2.2) and compare it with the following machine:</p>
 </blockquote>
+<div>
+    $$\text{CTM}'\overset{\text{def}}{=} \text{coin}.\overline{\text{coffee}}.\text{CTM}' + \text{coin}.\overline{\text{tea}}$$
+</div>
 <blockquote>
-<p>You should be able to convince yourself that CTM and CTM’ afford the
+<p>You should be able to convince yourself that CTM and CTM' afford the
 same traces. (Do so!)</p>
 </blockquote>
-<p>It suffices to show that traces of one recursive iteration of CTM and CTM’
-are equivalent. The trace of CTM’ is
+<p>It suffices to show that traces of one recursive iteration of CTM and CTM'
+are equivalent. The trace of CTM' is
 <code>$\{(\text{coin}, \overline{\text{coffee}}),(\text{coin}, \overline{\text{tea}})\}$</code>
 (choose at the beginning, then insert coin &amp; get beverage), the trace
 of CTM is
@@ -171,11 +177,11 @@ of CTM is
 (insert coin, then choose).</p>
 <h3 id="32"><a class="hanchor" href="#32">3.2</a></h3>
 <blockquote>
-<p>1. Do the processes (CA|CTM)\{coin, coffee, tea} and (CA|CTM’)\{coin,
+<p>1. Do the processes (CA|CTM)\{coin, coffee, tea} and (CA|CTM')\{coin,
 coffee, tea} defined above have the same completed traces?</p>
 </blockquote>
 <p>Yes. Both processes start able to making the coin transition. Then
-(CA|CTM’) either finds itself in the coffee arm, makes the coffee
+(CA|CTM') either finds itself in the coffee arm, makes the coffee
 transition and returns to the starting state, or gets stuck only emitting
 tea, but only accepting coffee. (CA|CTM) decides after the first coin
 transition; if CTM transitions into the tea arm, we have a deadlock,
@@ -183,7 +189,7 @@ but if it transitions into the coffee arm, it can transition and returns
 to the starting state.</p>
 <p>For them to have different traces, CTM in (CA|CTM) would need to decide
 which arm to transition into by knowing which transitions are available
-in CA, which isn’t included in the formalism.</p>
+in CA, which isn't included in the formalism.</p>
 <p>Both processes have traces that can be described by the regular expression
 <code>coin(,coffee,coin)*</code></p>
 <blockquote>
@@ -243,7 +249,7 @@ know that it must also hold that</p>
 <ul>
 <li>We can transition via <code>$b$</code>
 <ul>
-<li>which again brings us into trouble, because we can’t transition via <code>$b$</code> on the right side</li>
+<li>which again brings us into trouble, because we can't transition via <code>$b$</code> on the right side</li>
 </ul></li>
 <li>Transitioning via <code>$c$</code> is fine, since this brings us back to <code>$\mathbf{0} \mathcal{R} \mathbf{0}$</code></li>
 </ul></li>
@@ -269,14 +275,14 @@ so that <code>$s_1 \overset{α}{\rightarrow} s_1'$</code>, <code>$\mathcal{R}_k$
 must have contained an element <code>$(s_1', s_2')$</code> such that
 <code>$s_2 \overset{α}{\rightarrow} s_2'$</code>, since <code>$\mathcal{R}_k$</code> is a
 bisimulation. So exactly that <code>$(s_1', s_2')$</code> must also be an element of
-<code>$ℜ$</code> because <code>$\mathcal{R}_k \subseteq ℜ$</code> and elements don’t just
+<code>$ℜ$</code> because <code>$\mathcal{R}_k \subseteq ℜ$</code> and elements don't just
 get lost during a union.</p>
-<p>Therefore, such a pair <code>$(s_1, s_2) \in ℜ$</code> can’t exist.</p>
+<p>Therefore, such a pair <code>$(s_1, s_2) \in ℜ$</code> can't exist.</p>
 <h3 id="39"><a class="hanchor" href="#39">3.9</a></h3>
 <p>This screams after a proof by induction.</p>
 <p>Induction basis: If <code>$σ$</code> is a label, that is, if there exists an action
 <code>$α=σ$</code>, then the definitions for strong bisimulation and string
-bisimulation coincide (I’m not gonna write it all out, sorry).</p>
+bisimulation coincide (I'm not gonna write it all out, sorry).</p>
 <p>Induction assumption: Assume that if <code>$σ$</code> is a sequence of actions, then
 two states <code>$s$</code> and <code>$s'$</code> are string bisimilar off they are strongly
 bisimilar.</p>
@@ -299,24 +305,24 @@ strongly bisimilar via <code>$β$</code>, then they are also string bisimilar vi
 <h3 id="312"><a class="hanchor" href="#312">3.12</a></h3>
 <p>To be shown: <code>$\{(P|Q, Q|P) |\text{where }P,Q \text{ are CCS processes}\}$</code>
 is a strong bisimulation.</p>
-<p>I am slightly confused: doesn’t strong bisimilarity apply to <em>states</em>,
-and aren’t <code>$P|Q$</code> and <code>$Q|P$</code> processes?</p>
+<p>I am slightly confused: doesn't strong bisimilarity apply to <em>states</em>,
+and aren't <code>$P|Q$</code> and <code>$Q|P$</code> processes?</p>
 <p>If there is no <code>$α$</code> so that either <code>$P$</code> or <code>$Q$</code> can transition to
 another state, <code>$P|Q$</code> and <code>$Q|P$</code> are strongly bisimilar.</p>
 <p>If <code>$P|Q \overset{α}{\rightarrow} P'|Q$</code>, then <code>$Q|P \overset{α}{\rightarrow} Q|P'$</code>
 by first applying COM1 and then COM2, and so <code>$P'|Q$</code> and <code>$Q|P'$</code>
 are strongly bisimilar.</p>
 <p>Another idea: we can prove this by backward induction, e.g. assuming that
-there is a final state <code>$P_f|Q_f$</code>, which can’t transition further, and
+there is a final state <code>$P_f|Q_f$</code>, which can't transition further, and
 then proving that every <code>$α$</code> transition that lands there is a strong
 bisimulation, and induced back as well?</p>
 <p>The same holds if <code>$Q$</code> can transition via <code>$α$</code>.</p>
 <p>If <code>$(P|Q)\backslash \{α\} \overset{τ}{\rightarrow} P'|Q'$</code>, then
 similarly <code>$(Q|P)\backslash \{α\} \overset{τ}{\rightarrow} Q|P$</code>
-per COM3, so they’re strongly bisimilar.</p>
+per COM3, so they're strongly bisimilar.</p>
 <p>To be shown: <code>$\{(P|\mathbf{0}, P) |\text{where }P \text{ is a CCS process}\}$</code>
 is a strong bisimulation.</p>
-<p>Isn’t this trivial? If <code>$P \overset{α}{\rightarrow} P'$</code>, then surely
+<p>Isn't this trivial? If <code>$P \overset{α}{\rightarrow} P'$</code>, then surely
 also <code>$P|\mathbf{0} \overset{α}{\rightarrow} P'|\mathbf{0}$</code>, and if
 <code>$P|\mathbf{0} \overset{α}{\rightarrow} P'|\mathbf{0}$</code>, then
 <code>$P \overset{α}{\rightarrow} P'$</code>. <code>$τ$</code>-transitions are not possible here.</p>
@@ -335,16 +341,16 @@ is a strong bisimulation.</p>
 <p>Otherwise asume that <code>$(P|Q)|R \overset{τ}{\rightarrow} (P|Q')|R'$</code>. Then
 there must be a <code>$β$</code> so that <code>$Q \overset{β}{\rightarrow} Q'$</code>
 and <code>$R \overset{\overline{β}}{\rightarrow} R'$</code> (or <code>$R$</code> outputs
-<code>$β$</code> and <code>$Q$</code> inputs <code>$β$</code>, but that’s symmetric). Then similarly
+<code>$β$</code> and <code>$Q$</code> inputs <code>$β$</code>, but that's symmetric). Then similarly
 <code>$P|(Q|R) \overset{τ}{\rightarrow} P|(Q'|R')$</code> by the same internal
 <code>$β$</code> transitions.</p>
-<p>All other cases are symmetric, and I won’t enumerate them here.</p>
+<p>All other cases are symmetric, and I won't enumerate them here.</p>
 <p>Since these relations are all bisimulations, it is clear that for any
 <code>$P,Q,R$</code>, the mentioned combined processes are bisimilar.</p>
 <blockquote>
 <p>Find three CCS processes <code>$P,Q,R$</code> such that <code>$(P+Q)|R \not \sim (P|R)+(Q|R)$</code>.</p>
 </blockquote>
-<p>I haven’t been able to solve this completely yet. Let’s take something
+<p>I haven't been able to solve this completely yet. Let's take something
 like <code>$P \overset{\text{def}}{=}a.a.a.a.a$</code>, <code>$Q \overset{\text{def}}{=}a.a.a.a.b$</code>
 and <code>$R \overset{\text{def}}{=}a.a.a.a.(a+b)$</code>. Then it <em>could</em> be the
 case that in a bisimulation game, the attacker has chosen the <code>$P$</code>
@@ -399,7 +405,7 @@ for the <code>$ᰑ‎$</code> transition.</p>
 <p>A preorder is reflexive and transitive.</p>
 <h5 id="Reflexivity"><a class="hanchor" href="#Reflexivity">Reflexivity</a></h5>
 <p><code>$\underset{\sim}{\sqsubset}$</code> is reflexive (<code>$s \underset{\sim}{\sqsubset} s$</code>)
-because, if we assume <code>$s$</code> can’t make any transitions, the condition
+because, if we assume <code>$s$</code> can't make any transitions, the condition
 is trivially fulfilled. If <code>$s$</code> can make an <code>$α$</code> transition
 <code>$s \overset{α}{\rightarrow} s'$</code>, the same <code>$s$</code> on the right
 hand side can also make that <code>$α$</code> transition, and we know that
@@ -427,25 +433,38 @@ it is also given here.</p>
 <h5 id="Symmetry"><a class="hanchor" href="#Symmetry">Symmetry</a></h5>
 <p><code>$\simeq$</code> is symmetric iff <code>$s \simeq t \Leftrightarrow t \simeq s$</code>.
 We know that <code>$s \simeq t$</code> iff <code>$s \underset{\sim}{\sqsubset} t \land t \underset{\sim}{\sqsubset} s$</code>. Because of the symmetry of the logical and operator, we therefore know that</p>
+<div>
+    $$s \simeq t \equiv \\
+     s \underset{\sim}{\sqsubset} t \land t \underset{\sim}{\sqsubset} s \equiv \\
+    t \underset{\sim}{\sqsubset} s \land s \underset{\sim}{\sqsubset} t \equiv \\
+    t \simeq s$$
+</div>
 <h5 id="Transitivity_1"><a class="hanchor" href="#Transitivity_1">Transitivity</a></h5>
 <p>For <code>$\simeq$</code> to be transitive, it must hold that if <code>$s \simeq t$</code>
 and <code>$t \simeq r$</code>, then also <code>$s \simeq r$</code>.</p>
+<div>
+    $$s \simeq t \land t \simeq r \equiv \\
+    s \underset{\sim}{\sqsubset} t \land t \underset{\sim}{\sqsubset} s \land t \underset{\sim}{\sqsubset} r \land r \underset{\sim}{\sqsubset} t \equiv \\
+    s \underset{\sim}{\sqsubset} t \land t \underset{\sim}{\sqsubset} r \land r \underset{\sim}{\sqsubset} t \land t \underset{\sim}{\sqsubset} s \Rightarrow (\text{by the transitivity of } \underset{\sim}{\sqsubset})\\
+    s \underset{\sim}{\sqsubset} r \land r \underset{\sim}{\sqsubset} s \equiv
+    s \simeq r$$
+</div>
 <h4 id="2"><a class="hanchor" href="#2">2.</a></h4>
 <p>For <code>$a.\mathbf{0} \underset{\sim}{\sqsubset} a.a.\mathbf{0}$</code>,
 <code>$\mathcal{R}$</code> is
 <code>$\{(a.\mathbf{0}, a.a.\mathbf{0}), (\mathbf{0}, a.\mathbf{0})\}$</code>.</p>
 <p>The converse is not true: <code>$a.a.\mathbf{0}$</code> can make an <code>$a$</code>-transition,
-but then it’s stuck in <code>$(a.\mathbf{0}, \mathbf{0})$</code>.</p>
+but then it's stuck in <code>$(a.\mathbf{0}, \mathbf{0})$</code>.</p>
 <p>For <code>$a.b.\mathbf{0} + a.c.\mathbf{0} \underset{\sim}{\sqsubset} a.(b.\mathbf{0}+c.\mathbf{0})$</code>,
 <code>$\mathcal{R}=\{(b.\mathbf{0}, (b.\mathbf{0}+c.\mathbf{0})), (c.\mathbf{0}, (b.\mathbf{0}+c.\mathbf{0}))\, (\mathbf{0}, \mathbf{0})\}$</code>.</p>
 <p>Here, as well, the converse relation does not hold: When we do
 the <code>$a$</code>-transition, we have to decide which branch on the left to
 take. But this brings us into a problematic situation: if we choose the
-<code>$b$</code> branch, we can’t do the <code>$b$</code> transition on the right anymore,
-if we choose the <code>$c$</code> branch, we can’t do the <code>$c$</code> transition on the
+<code>$b$</code> branch, we can't do the <code>$b$</code> transition on the right anymore,
+if we choose the <code>$c$</code> branch, we can't do the <code>$c$</code> transition on the
 right anymore.</p>
 <h4 id="3"><a class="hanchor" href="#3">3.</a></h4>
-<p>Let’s recap the basic definitions.</p>
+<p>Let's recap the basic definitions.</p>
 <p>A binary relation <code>$R$</code> is a simulation equivalence iff whenever
 <code>$s_1 \mathcal s_2$</code> and <code>$α$</code> is an action:</p>
 <ul>
@@ -495,11 +514,11 @@ cases:</p>
 <ul>
 <li>If <code>$s_{\star} \overset{α}{\Rightarrow} s_{\star}'$</code> is realized by <code>$s_{\star} \overset{α}{\rightarrow} s_{\star}'$</code> in the LTS, then this is equivalent to the definition of observational equivalence.</li>
 <li>If <code>$s_{\star} \overset{α}{\Rightarrow} s_{\star}'$</code> is realized by <code>$s_{\star} \overset{α}{\rightarrow} s_{\star}'' \overset{τ}{\rightarrow} s_{\star}'$</code> in the LTS, then there must be a <code>$t_{\star}''$</code> so that <code>$s_{\star}'' \mathcal{R}_{\star} t_{\star}''$</code> (per definition in the exercise), so we can take that relation as belonging to <code>$\approx$</code>.</li>
-<li>If <code>$s_{\star} \overset{α}{\Rightarrow} s_{\star}'$</code> is realized by <code>$s_{\star} \overset{τ}{\rightarrow} s_{\star}'' \overset{α}{\rightarrow} s_{\star}'$</code> in the LTS, then there must be a <code>$t_{\star}''$</code> so that <code>$s_{\star}'' \mathcal{R}_{\star} t_{\star}''$</code>, only this time via a <code>$τ$</code> transition (i.e. <code>$t_{\star} \overset{τ}{\rightarrow} t_{\star}''$</code>). So we can take that relation as belonging to <code>$\approx$</code>. (This doesn’t work! What if <code>$t_{\star} \overset{α}{\Rightarrow} t_{\star}'$</code> is realized by <code>$t_{\star} \overset{α}{\rightarrow} t_{\star}'' \overset{τ}{\rightarrow} t_{\star}'$</code>? Then we can’t just take the first part of the transition and declare it to be a <code>$τ$</code> transition. Hmmm.)</li>
+<li>If <code>$s_{\star} \overset{α}{\Rightarrow} s_{\star}'$</code> is realized by <code>$s_{\star} \overset{τ}{\rightarrow} s_{\star}'' \overset{α}{\rightarrow} s_{\star}'$</code> in the LTS, then there must be a <code>$t_{\star}''$</code> so that <code>$s_{\star}'' \mathcal{R}_{\star} t_{\star}''$</code>, only this time via a <code>$τ$</code> transition (i.e. <code>$t_{\star} \overset{τ}{\rightarrow} t_{\star}''$</code>). So we can take that relation as belonging to <code>$\approx$</code>. (This doesn't work! What if <code>$t_{\star} \overset{α}{\Rightarrow} t_{\star}'$</code> is realized by <code>$t_{\star} \overset{α}{\rightarrow} t_{\star}'' \overset{τ}{\rightarrow} t_{\star}'$</code>? Then we can't just take the first part of the transition and declare it to be a <code>$τ$</code> transition. Hmmm.)</li>
 <li>If <code>$s_{\star} \overset{α}{\Rightarrow} s_{\star}'$</code> is realized by <code>$s_{\star} \overset{α}{\rightarrow} s_{\star}'' \overset{τ}{\rightarrow} s_{\star}'$</code>, then we can again just chop off the last transition and declare the rest to be the <code>$α$</code> transition, so that now <code>$s_{\star} \approx t_{\star}$</code> and <code>$s_{\star}'' \approx t_{\star}'$</code>.</li>
 </ul>
 <p>Since every <code>$\rightarrow$</code> transition is also a weak transition,
-there can be no observational equivalence that isn’t also in
+there can be no observational equivalence that isn't also in
 <code>$\mathcal{R}_{\star}$</code>. So <code>$\mathcal{R}_{\star}$</code> is the biggest
 observational equivalence <code>$\approx$</code>.</p>
 <h3 id="337"><a class="hanchor" href="#337">3.37</a></h3>
@@ -507,7 +526,7 @@ observational equivalence <code>$\approx$</code>.</p>
 <ul>
 <li><code>$t \overset{a}{\rightarrow} t_1$</code>, defender answers with <code>$s \overset{a}{\rightarrow} s_1$</code></li>
 <li><code>$t_1 \overset{b}{\rightarrow} t_2$</code>, defender answers with <code>$s_1 \overset{b}{\rightarrow} s_2$</code></li>
-<li><code>$s_2 \overset{b}{\rightarrow} s_2$</code>, defender can’t transition anywhere using <code>$b$</code></li>
+<li><code>$s_2 \overset{b}{\rightarrow} s_2$</code>, defender can't transition anywhere using <code>$b$</code></li>
 </ul>
 <p><code>$s \sim u$</code>. Winning strategy for the defender:</p>
 <ul>
@@ -546,12 +565,12 @@ observational equivalence <code>$\approx$</code>.</p>
 <li>defender answers with <code>$v_1 \overset{b}{\rightarrow} v_2$</code>
 <ul>
 <li><code>$s_2 \overset{b}{\rightarrow} s_2$</code></li>
-<li>defender can’t transition using <code>$b$</code> from <code>$v_2$</code></li>
+<li>defender can't transition using <code>$b$</code> from <code>$v_2$</code></li>
 </ul></li>
 <li>defender answers with <code>$v_1 \overset{b}{\rightarrow} v_3$</code>
 <ul>
 <li><code>$s_2 \overset{a}{\rightarrow} s$</code></li>
-<li>defender can’t transition using <code>$a$</code> from <code>$v_3$</code></li>
+<li>defender can't transition using <code>$a$</code> from <code>$v_3$</code></li>
 </ul></li>
 </ul></li>
 </ul>
@@ -563,7 +582,7 @@ s'$</code>. Then the <code>$\overset{α}{\Rightarrow}$</code> would decompose in
 So the only additional possible action the attacker could additionally
 play would be <code>$τ$</code>. But in this case, the defender can answer by doing
 nothing, i.e. idling on the same state (see p. 89). So the additional
-<code>$τ$</code> transition doesn’t give the attacker any useful moves, and both
+<code>$τ$</code> transition doesn't give the attacker any useful moves, and both
 versions of the game are equivalent.</p>
 <h3 id="Stray_Exercise_2"><a class="hanchor" href="#Stray_Exercise_2">Stray Exercise 2</a></h3>
 <blockquote>
@@ -571,7 +590,7 @@ versions of the game are equivalent.</p>
 that the LTS associated with the CCS expression
 <code>$a_1.\mathbf{0}|a_2.\mathbf{0}|\dots|a_n.\mathbf{0}$</code> has <code>$2^n$</code> states.</p>
 </blockquote>
-<p>Actually, I don’t have a good idea of how to put this into LTS form?
+<p>Actually, I don't have a good idea of how to put this into LTS form?
 I would have to invent a starting state <code>$s_0$</code>, or maybe a set of
 <code>$n$</code> starting states, or perhaps <code>$2^n$</code> starting states? Then those
 would transition to <code>$\mathbf{0}$</code> via any subset of
@@ -587,6 +606,7 @@ iff there exists a <code>$w \in A^*$</code> so that <code>$sw=t$</code>).</p>
 <li>Antisymmetric: Yes, if <code>$sw=t$</code> and <code>$tw=s$</code>, then <code>$sw=tw$</code>, so <code>$s=t$</code> and <code>$w=ε$</code>.</li>
 <li>Transitive: Yes, if <code>$r$</code> is a prefix for <code>$s$</code> with <code>$v$</code> and <code>$s$</code> is a prefix for <code>$t$</code> with <code>$w$</code>, then <code>$r$</code> is a prefix for <code>$t$</code> with <code>$vw$</code>.</li>
 </ul>
+<!--TODO: finish with other examples-->
 <h3 id="42"><a class="hanchor" href="#42">4.2</a></h3>
 <blockquote>
 <p>Is the poset <code>$(2^S, \subseteq)$</code> totally ordered?</p>
@@ -605,6 +625,13 @@ must be comparable to every other upper bound of <code>$X$</code>, so there is n
 uncomparable least other upper bound <code>$d'$</code>.</p>
 <p>The same argument applies symmetrically to the greatest lower bound,
 and is not worth elaborating.</p>
+<!--
+### Stray Exercise 3
+
+p. 99, prove snd part of Tarski's fixed point theorem.
+
+TODO
+-->
 <h3 id="47"><a class="hanchor" href="#47">4.7</a></h3>
 <p>To summarize, <code>$f: 2^ℕ \mapsto 2^ℕ$</code>,
 <code>$f(X)=\{1,2,3\} \text{ if } X=\{2\}, X \cup \{1,2\} \text{ otherwise}$</code>.</p>
@@ -632,7 +659,7 @@ that is, the function <code>$\mathcal{F}$</code> is monotonic over
 (<code>$p, q \in \textbf{Proc}$</code>) that is not in <code>$\mathcal{F}(\mathcal{S})$</code>.</p>
 <p>Then there are <code>$(p', q') \in \mathcal{R}$</code> so that <code>$p, q$</code> can transition
 to <code>$p', q'$</code> via some <code>$α$</code>, and <code>$(p', q') \not \in \mathcal{S}$</code>. But
-that can’t be the case, since we assumed that <code>$\mathcal{R} \subseteq \mathcal{S}$</code>.
+that can't be the case, since we assumed that <code>$\mathcal{R} \subseteq \mathcal{S}$</code>.
 This is a contradiction.</p>
 <h2 id="Chapter_5"><a class="hanchor" href="#Chapter_5">Chapter 5</a></h2>
 <h3 id="51"><a class="hanchor" href="#51">5.1</a></h3>
@@ -640,6 +667,15 @@ This is a contradiction.</p>
 <p><code>$[ \cdot b \cdot ] \{s_1, t_1\}=\{s,t,t_1\}$</code></p>
 <h3 id="52"><a class="hanchor" href="#52">5.2</a></h3>
 <h4 id="1_1"><a class="hanchor" href="#1_1">1</a></h4>
+<div>
+    $$ ⟦ [\text{coffee}] \langle \text{biscuit} \rangle \textit{t}\!\textit{t}⟧=\\
+    [\cdot \text{coffee} \cdot ] ⟦ \langle \text{biscuit} \rangle \textit{t}\!\textit{t} ⟧=\\
+    [\cdot \text{coffee} \cdot ] \langle \cdot \text{biscuit} \cdot \rangle ⟦\textit{t}\!\textit{t} ⟧=\\
+    [\cdot \text{coffee} \cdot ](\langle \cdot \text{biscuit} \cdot \rangle \textbf{Proc})= \\
+    [\cdot \text{coffee} \cdot ] \{p \in \textbf{Proc} | p \overset{\text{biscuit}}{\rightarrow} p' \text{ and } p' \in \textbf{Proc} \text{ for some } p'\}= \\
+    [\cdot \text{coffee} \cdot ] \{p \in \textbf{Proc} | p \overset{\text{biscuit}}{\rightarrow}\} \\
+    \{p \in \textbf{Proc} | p \overset{\text{coffee}}{\rightarrow} p' \Rightarrow p' \overset{\text{biscuit}}{\rightarrow}\} $$
+</div>
 <p>An element would exactly not be in that set if the computer scientist
 were to not eat a biscuit after drinking coffee.</p>
 <h4 id="2_1"><a class="hanchor" href="#2_1">2</a></h4>
@@ -665,7 +701,7 @@ were to not eat a biscuit after drinking coffee.</p>
 <li><code>$s \overset{?}{\models} [ a ] \langle a \rangle [a] [b] \textit{f}\!\textit{f}$</code> : ✓ (<code>$[ a ] \langle a \rangle [a]$</code> ends up at <code>$s$</code> again, which has no <code>$b$</code> transitions, and an all quantification with no elements is automatically correct, even over unsatisfiable propositions like <code>$s_1 \in \emptyset$</code>)</li>
 <li><code>$s \overset{?}{\models} \langle a \rangle (\langle a \rangle \textit{t}\!\textit{t} \land \langle b \rangle \textit{t}\!\textit{t})$</code> : ✗ (it is not possible to <code>$b$</code>-transition from <code>$s_2$</code>)</li>
 <li><code>$s \overset{?}{\models} [ a ] (\langle a \rangle \textit{t}\!\textit{t} \lor \langle b \rangle \textit{t}\!\textit{t})$</code> : ✓</li>
-<li><code>$s \overset{?}{\models} \langle a \rangle ([b][a] \textit{f}\!\textit{f} \land \langle b \rangle \textit{t}\!\textit{t})$</code> : ✗ (it’s impossible to transition from <code>$s_2$</code> via <code>$b$</code>)</li>
+<li><code>$s \overset{?}{\models} \langle a \rangle ([b][a] \textit{f}\!\textit{f} \land \langle b \rangle \textit{t}\!\textit{t})$</code> : ✗ (it's impossible to transition from <code>$s_2$</code> via <code>$b$</code>)</li>
 <li><code>$s \overset{?}{\models} \langle a \rangle ([a] (\langle a \rangle \textit{t}\!\textit{t} \land [ b ] \textit{f}\!\textit{f}) \land \langle b \rangle \textit{f}\!\textit{f})$</code> : ✗ (since one can transition to <code>$s_1$</code> via <code>$a$</code>, and one can transition from <code>$s_1$</code> via <code>$b$</code>, which violates the <code>$\langle b \rangle \textit{f}\!\textit{f}$</code>)</li>
 </ul>
 <h4 id="2_2"><a class="hanchor" href="#2_2">2</a></h4>
@@ -676,6 +712,11 @@ were to not eat a biscuit after drinking coffee.</p>
 <li><code>$⟦[a][a][b] \textit{f}\!\textit{f}⟧=[\cdot a \cdot] \textbf{Proc}=\{s, s_1, s_2, s_3, s_4\}$</code></li>
 </ul>
 <h3 id="54"><a class="hanchor" href="#54">5.4</a></h3>
+<div>
+    $$⟦[\text{tick}](\langle \text{tick} \rangle \textit{t}\!\textit{t} \land [\text{tock}] \textit{f}\!\textit{f})⟧=\\
+    [\cdot \text{tick} \cdot ](⟦\langle \text{tick} \rangle \textit{t}\!\textit{t} ⟧ \cap ⟦[ \text{tock} ] \textit{f}\!\textit{f} ⟧)=\\
+    [\cdot \text{tick} \cdot ]((\langle \cdot \text{tick} \cdot \rangle \mathbf{Proc}) \cap ([ \cdot \text{tock} \cdot ] \emptyset))$$
+</div>
 <p>Since we know that <code>$\mathbf{Proc}=\{\text{tick}.\text{Clock}\}$</code>,
 <code>$(\langle \cdot \text{tick} \cdot \rangle \mathbf{Proc})=\{\text{Clock}\}=\{\text{tick}.\text{Clock}\}$</code>,
 and also, since there are no <code>$\text{tock}$</code>
@@ -702,7 +743,7 @@ is satisfied by <code>$a.b.\mathbf{0}+a.c.\mathbf{0}$</code> but not
 is satisfied by <code>$a.(b.c.\mathbf{0}+b.d.\mathbf{0})$</code> but not <code>$a.b.c.\mathbf{0}+a.b.d.\mathbf{0}$</code>.</p>
 <h3 id="57"><a class="hanchor" href="#57">5.7</a></h3>
 <p><img alt="" src="./img/rs_solutions/5_7.png"/>
-</p>
+<!--TODO: add tooltip explainin the content of the image--></p>
 <h3 id="511"><a class="hanchor" href="#511">5.11</a></h3>
 <p><code>$b.a.\mathbf{0}+b.\mathbf{0}$</code> and <code>$b.(a.\mathbf{0}+b.\mathbf{0})$</code>:
 Not strongly bisimilar, the right expression fulfills
@@ -720,6 +761,7 @@ are strongly bisimilar.</p>
 the right expression fulfills the formula
 <code>$\langle a \rangle \langle c \rangle \textit{t}\!\textit{t}$</code>,
 while the left one does not.</p>
+<!--TODO: check with concurrency workbench-->
 <h2 id="Chapter_6"><a class="hanchor" href="#Chapter_6">Chapter 6</a></h2>
 <h3 id="Stray_Exercise_4_1"><a class="hanchor" href="#Stray_Exercise_4_1">Stray Exercise 4</a></h3>
 <blockquote>
@@ -730,6 +772,13 @@ while the left one does not.</p>
 <blockquote>
 <p>calculate <code>$\mathcal{O}_{[b]\textit{f}\!\textit{f} \land [a]X} (\{p_2\})$</code>.</p>
 </blockquote>
+<div>
+    $$\mathcal{O}_{[b]\textit{f}\!\textit{f} \land [a]X} (\{p_2\})=\\
+    \mathcal{O}_{[b]\textit{f}\!\textit{f}}(\{p_2\}) \cap \mathcal{O}_{[a]X}(\{p_2\})=\\
+    ([ \cdot b \cdot ] \emptyset) \cap ([ \cdot a \cdot ] \{p_2\})=\\
+    \{p_2, p_3\} \cap \{p_1\}=\\
+    \emptyset$$
+</div>
 <h3 id="65"><a class="hanchor" href="#65">6.5</a></h3>
 <p>Base case <code>$F=\textit{t}\!\textit{t}$</code>: If <code>$S_1 \subseteq S_2$</code>, then <code>$\mathcal{O}_{\textit{t}\!\textit{t}}(S_1)=\mathbf{Proc} \subseteq \mathbf{Proc}=\mathcal{O}_{\textit{t}\!\textit{t}}(S_2)$</code></p>
 <p>Base case <code>$F=\textit{f}\!\textit{f}$</code>: If <code>$S_1 \subseteq S_2$</code>, then <code>$\mathcal{O}_{\textit{f}\!\textit{f}}(S_1)=\emptyset \subseteq \emptyset=\mathcal{O}_{\textit{f}\!\textit{f}}(S_2)$</code></p>
@@ -737,13 +786,29 @@ while the left one does not.</p>
 <p>Assume that for <code>$F$</code>, if <code>$S_1 \subseteq S_2$</code>, then
 <code>$\mathcal{O}_F(S_1) \subseteq \mathcal{O}_F(S_2)$</code>.</p>
 <p>Case <code>$\langle a \rangle F$</code>: If <code>$S_1 \subseteq S_2$</code>, then</p>
+<div>
+    $$\mathcal{O}_{\langle a \rangle F}(S_1)=\\
+    \langle \cdot a \cdot \rangle \mathcal{O}_{F}(S_1)=\\
+    \{p \in \mathbf{Proc} | p \overset{a}{\rightarrow} p' \text{ and } p'\in S_1 \text{ for some } p'\}$$
+</div>
 <p>Then we can argue: If <code>$S_1 \subseteq S_2$</code>, then every <code>$p' \in S_1$</code>
 that can be reached via <code>$a$</code> from <code>$p$</code> can also be reached in <code>$S_2$</code>,
 and there might be some <code>$p^* \in S_2 \backslash S_1$</code> so that
 there are some <code>$p^+$</code> that can only reach those <code>$p^*$</code> via <code>$a$</code>,
 but no <code>$p' \in S_1$</code> exists so that <code>$p^+ \overset{a}{\rightarrow} p'$</code>.</p>
 <p>So</p>
+<div>
+    $$\{p \in \mathbf{Proc} | p \overset{a}{\rightarrow} p' \text{ and } p'\in S_1 \text{ for some } p'\} \subseteq \\
+    \{p \in \mathbf{Proc} | p \overset{a}{\rightarrow} p' \text{ and } p'\in S_2 \text{ for some } p'\}=\\
+    \langle \cdot a \cdot \rangle \mathcal{O}_{F}(S_2)=\\
+    \mathcal{O}_{\langle a \rangle F}(S_2)$$
+</div>
 <p>We can argue very similarly in the case <code>$[a]F$</code>: If <code>$S_1 \subseteq S_2$</code>, then</p>
+<div>
+    $$\mathcal{O}_{[ a ] F}(S_1)=\\
+    [ \cdot a \cdot ] \mathcal{O}_{F}(S_1)=\\
+    \{p \in \mathbf{Proc} | p \overset{a}{\rightarrow} p' \text{ implies } p'\in S_1 \text{ for each } p'\}$$
+</div>
 <p>Assume there is a <code>$p \in [ \cdot a \cdot ] \mathcal{O}_{F}(S_1)$</code> and
 <code>$p \not \in [ \cdot a \cdot ] \mathcal{O}_{F}(S_2)$</code>. Then either
 <code>$p \overset{a}{\not \rightarrow}$</code>, in which case it must be that
@@ -754,15 +819,47 @@ violate the requirement that all <code>$a$</code>-descendants of <code>$p$</code
 the set following the <code>$[\cdot \cdot]$</code> operator).</p>
 <p>However, this would violate the assumption that <code>$S_1 \subseteq S_2$</code>.</p>
 <p>So</p>
+<div>
+    $$\{p \in \mathbf{Proc} | p \overset{a}{\rightarrow} p' \text{ implies } p'\in S_1 \text{ for each } p'\} \subseteq \\
+    \{p \in \mathbf{Proc} | p \overset{a}{\rightarrow} p' \text{ implies } p'\in S_2 \text{ for each } p'\}=\\
+    [ \cdot a \cdot ] \mathcal{O}_{F}(S_2)=\\
+    \mathcal{O}_{[ a ] F}(S_2)$$
+</div>
 <p>Case <code>$F=F_1 \land F_2$</code>:</p>
+<div>
+    $$\mathcal{O}_{F_1 \land F_2}(S_1)= \\
+    \mathcal{O}_{F_1}(S_1) \cap \mathcal{O}_{F_2}(S_1) \subseteq (\text{ adding elements to an intersection can only make it bigger})\\
+    \mathcal{O}_{F_1}(S_2) \cap \mathcal{O}_{F_2}(S_1) \subseteq (\text{ same here})\\
+    \mathcal{O}_{F_1}(S_2) \cap \mathcal{O}_{F_2}(S_2)= \\
+    \mathcal{O}_{F_1 \land F_2}(S_2)
+    $$
+</div>
 <p>Case <code>$F=F_1 \lor F_2$</code>:</p>
+<div>
+    $$\mathcal{O}_{F_1 \lor F_2}(S_1)= \\
+    \mathcal{O}_{F_1}(S_1) \cup \mathcal{O}_{F_2}(S_1) \subseteq (\text{ adding elements to a union can only make it bigger})\\
+    \mathcal{O}_{F_1}(S_2) \cup \mathcal{O}_{F_2}(S_1) \subseteq (\text{ same here})\\
+    \mathcal{O}_{F_1}(S_2) \cup \mathcal{O}_{F_2}(S_2)= \\
+    \mathcal{O}_{F_1 \lor F_2}(S_2)
+    $$
+</div>
 <hr/>
 <p>How might we add negation to our logic?</p>
 <p>We could define
 <code>$\mathcal{O}_{\lnot F}(S)=\mathbf{Proc} \backslash \mathcal{O}_{F}(S)$</code>.</p>
 <p>However, this would violate monotonicity: If we define <code>$S_1=\emptyset \subseteq \mathbf{Proc}=S_2$</code> and <code>$F=X$</code>, then</p>
+<div>
+    $$\mathcal{O}_{\lnot X}(\emptyset)=\\
+    \mathbf{Proc} \backslash \mathcal{O}_{X}(\emptyset)=\\
+    \mathbf{Proc} \backslash \emptyset=\\
+    \mathbf{Proc} \not \subseteq \\
+    \emptyset=\\
+    \mathbf{Proc} \backslash \mathbf{Proc}=\\
+    \mathbf{Proc} \backslash \mathcal{O}_{X}(\mathbf{Proc})=\\
+    \mathcal{O}_{\lnot X}(\mathbf{Proc})$$
+</div>
 <h3 id="67"><a class="hanchor" href="#67">6.7</a></h3>
-<p><img alt="The labeled transition system for problem 6.7" src="./img/rs_solutions/6_7_lts.png" title="The labeled transition system for problem 6.7"/></p>
+<p><img alt="The labeled transition system for problem 6.7" src="./img/rs_solutions/6_7_lts.png" title="The labeled transition system for problem 6.7"/><!--TODO: more elaborate description--></p>
 <h4 id="None_3"><a class="hanchor" href="#None_3">1. <code>$s_1$</code> satisfies the formula <code>$X\overset{\text{max}}{=} \langle b \rangle \textit{t}\!\textit{t} \land [b] X$</code></a></h4>
 <ul>
 <li>Starting with the configuration <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t} \land [b] X)$</code>.</li>
@@ -805,7 +902,7 @@ the set following the <code>$[\cdot \cdot]$</code> operator).</p>
 <li>The defender picks the next configuration
 
 <ul>
-<li>They don’t want to pick <code>$(s, \langle b \rangle \textit{t}\!\textit{t})$</code>, since then they are stuck</li>
+<li>They don't want to pick <code>$(s, \langle b \rangle \textit{t}\!\textit{t})$</code>, since then they are stuck</li>
 <li>They can pick <code>$(s, \langle \{a,b\} \rangle Y)$</code>, and then are next
 
 <ul>

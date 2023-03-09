@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <h2 id="Total_Tesla_Sales_in_2021"><a class="hanchor" href="#Total_Tesla_Sales_in_2021">Total Tesla Sales in 2021</a></h2>
 <p><a href="https://www.metaculus.com/questions/5582/total-tesla-sales-in-2021/">Link</a>.</p>
 <p>Question body states 90.65k sales in Q2 2020, and 139k sales in Q3 2020.
-That’s a <code>139000/90650=1.53</code> fold increase, and an increase in 50k.</p>
+That's a <code>139000/90650=1.53</code> fold increase, and an increase in 50k.</p>
 <p>Interpolating exponentially, that would be <code>213138</code> for Q4 2020, and</p>
 <pre><code>    +/{213138*1.533^x}'1+!4
 2772646.96740497209
@@ -56,7 +56,7 @@ That’s a <code>139000/90650=1.53</code> fold increase, and an increase in 50k.
 quite a lot, even for Tesla. But even the linear extrapolation is high.</p>
 <h2 id="India_GDP_growth_in_Q1Q3_2021"><a class="hanchor" href="#India_GDP_growth_in_Q1Q3_2021">India GDP growth in Q1-Q3 2021</a></h2>
 <p><a href="https://www.metaculus.com/questions/6316/india-gdp-growth-in-q1-q3-2021/">Link</a>.</p>
-<p>Assuming GDP growth per quarter iid (which it isn’t, but I can’t be
+<p>Assuming GDP growth per quarter iid (which it isn't, but I can't be
 bothered otherwise).</p>
 <p>Assuming 70% chance of positive growth in any quarter. Then chance of
 only growth in all quarter <code>$0.7^3=0.343$</code>.</p>
@@ -64,7 +64,7 @@ only growth in all quarter <code>$0.7^3=0.343$</code>.</p>
 <p><a href="https://www.metaculus.com/questions/5931/number-of-commercial-flights-on-30-june-2021/">Link</a>.</p>
 <p>Assuming 2021 numbers are a constant fraction of 2019 numbers, I sample
 the first date of every month (maybe this introduces bias? I could also
-use the CSV, but can’t be bothered to):</p>
+use the CSV, but can't be bothered to):</p>
 <pre><code>    (+/[68909 60576 68976 78173 78207]%[102167 104960 108395 109471 114037])%5
 0.657569826823178416
 </code></pre>
@@ -101,43 +101,43 @@ vaccinated. Trend decreasing as well.</p>
 <pre><code>    lr(221;lreg(nlvaccperc))
 50.0988848758083841
 </code></pre>
-<p>Calculating back (by hand, <code>date</code> couldn’t do what I wanted it to),
-this gives 2021-07-09 as the date for &gt;50% vaccinations. I’m not sure
-whether to be more pessimistic or optimistic, while there hasn’t been
+<p>Calculating back (by hand, <code>date</code> couldn't do what I wanted it to),
+this gives 2021-07-09 as the date for &gt;50% vaccinations. I'm not sure
+whether to be more pessimistic or optimistic, while there hasn't been
 any growth in the last week, the overall trend looks kind of superlinear
 (maybe because of systems for vaccine distribution being put in place &amp;
 optimized over time).</p>
-<h2 id="How_many_NASA_space_launch_system_SLS_launches_before_2030"><a class="hanchor" href="#How_many_NASA_space_launch_system_SLS_launches_before_2030">How many NASA “space launch system” (SLS) launches before 2030?</a></h2>
+<h2 id="How_many_NASA_space_launch_system_SLS_launches_before_2030"><a class="hanchor" href="#How_many_NASA_space_launch_system_SLS_launches_before_2030">How many NASA "space launch system" (SLS) launches before 2030?</a></h2>
 <p><a href="https://www.metaculus.com/questions/1503/how-many-nasa-space-launch-system-sls-launches-before-2030/">Link</a>.</p>
-<p>Feels like a “too big to fail halfway through” situation. Either they
+<p>Feels like a "too big to fail halfway through" situation. Either they
 scrap it before anything launches, or they carry out at least one mission
 with it before stopping the program.</p>
 <p>I want to look up how often (&amp; how early) NASA cancels projects like
 these.  Being a big organisation, I expect them to fall prey to sunk-cost
-thinking, but on the other hand, it’s still a bunch of engineers.</p>
+thinking, but on the other hand, it's still a bunch of engineers.</p>
 <h2 id="When_will_India_send_their_first_own_astronauts_to_space"><a class="hanchor" href="#When_will_India_send_their_first_own_astronauts_to_space">When will India send their first own astronauts to space?</a></h2>
 <p><a href="https://www.metaculus.com/questions/1434/when-will-india-send-their-first-own-astronauts-to-space/">Link</a>.</p>
 <p>COVID-19 hitting India hard reduces GDP growth (though there is a
 question of how long-term this reduction is), and also slows down highly
 collaborative projects (such as sending people to space).</p>
-<p>We probably can’t expect widespread vaccinations for a while
+<p>We probably can't expect widespread vaccinations for a while
 (at the time of writing, <a href="https://ourworldindata.org/covid-vaccinations">India has a vaccination rate of
 10.81%</a>).</p>
 <p>I wish I had an equivalent of the <a href="https://web.archive.org/web/20210302224031/https://anthony.boyles.cc/Essays/portfolio/ElonMuskFor%0AecastCorrectionFunction.html">Musk forecast correction
 function</a> for announcements by the average politician.</p>
-<h2 id="Elon_Musks_Net_Worth_at_the_End_of_2021"><a class="hanchor" href="#Elon_Musks_Net_Worth_at_the_End_of_2021">Elon Musk’s Net Worth at the End of 2021</a></h2>
+<h2 id="Elon_Musks_Net_Worth_at_the_End_of_2021"><a class="hanchor" href="#Elon_Musks_Net_Worth_at_the_End_of_2021">Elon Musk's Net Worth at the End of 2021</a></h2>
 <p><a href="https://www.metaculus.com/questions/4790/elon-musks-net-worth-at-the-end-of-2021/">Link</a>.</p>
 <p>According to the <a href="https://www.bloomberg.com/billionaires/">Bloomberg
-index</a>, Musk’s networth currently
+index</a>, Musk's networth currently
 is $167b.</p>
-<p>If we predict 2.5% more economic growth this year, and Musk’s networth
+<p>If we predict 2.5% more economic growth this year, and Musk's networth
 tracks with that, we can expect his networth to be ~$171b.</p>
 <h2 id="Date_COVID19_epidemic_subsides_in_Russia"><a class="hanchor" href="#Date_COVID19_epidemic_subsides_in_Russia">Date COVID-19 epidemic subsides in Russia.</a></h2>
 <p><a href="https://www.metaculus.com/questions/4737/when-will-the-covid-19-epidemic-subside-in-russia/">Link</a>.</p>
 <p><a href="https://covid19.who.int/region/euro/country/ru">WHO</a> says that the last
 week with &lt;1000 cases of COVID-19 was March 30 2020.</p>
 <p>Extremely naively starting with the <a href="https://en.wikipedia.org/wiki/Lindy_effect">Lindy
-effect</a>, we assume it’s going
+effect</a>, we assume it's going
 to take as long to subside as it took to get to this point, we calculate:</p>
 <pre><code>    $ date -d '2020-03-30' '+%s'
 1585519200
@@ -159,13 +159,13 @@ more). Assuming they vaccinate at similar rate as previously, this gives
 <code>((75-15)/15)*3=12</code> more months.</p>
 <p>This is too pessimistic: vaccine dose prices will fall when richer
 countries have more vaccinations, &amp; also over time with economies of
-scale and other optimizations. Infection rates will shrink as there’s
+scale and other optimizations. Infection rates will shrink as there's
 less cross-infection from other countries with better vaccination rates,
 the russian government will figure out how to distribute vaccines faster
 and to more people.</p>
 <p>Still, I think Russia will need at median 9 more months before they
 reach this level of immunity (and after that a relatively long tail,
-because 1k cases per week is actually really fricking low, and there’s
+because 1k cases per week is actually really fricking low, and there's
 still the scenario of COVID-19 becoming endemic).</p>
 <h2 id="2025_Price_of_a_Crunchwrap_Supreme"><a class="hanchor" href="#2025_Price_of_a_Crunchwrap_Supreme">2025 Price of a Crunchwrap Supreme?</a></h2>
 <p><a href="https://www.metaculus.com/questions/6344/2025-price-of-a-crunchwrap-supreme/">Link</a>.</p>
@@ -175,17 +175,17 @@ still the scenario of COVID-19 becoming endemic).</p>
 <p>Unfortunately, this hinges a lot on how motivated Metaculites are to
 dig up studies &amp; compare the numbers (including all kinds of weird
 selection effects, KBCs and factors of laziness). On the level above,
-there’s the usual p&lt;0.05 conservatism of the scientific community to
-“accept a hypothesis”, which places a burden on showing that a delay of
-the second dose helps (by implicitely assuming that it probably doesn’t).
+there's the usual p&lt;0.05 conservatism of the scientific community to
+"accept a hypothesis", which places a burden on showing that a delay of
+the second dose helps (by implicitely assuming that it probably doesn't).
 (This is not a critique of the resolution criteria, I have <em>some</em> idea of
 how hard these kinds of questions are to write, and this one is especially
-finicky.  Compared to what I would have done, it’s pretty good).</p>
+finicky.  Compared to what I would have done, it's pretty good).</p>
 <p>All these considerations would push my estimate down way further than
 my actual belief that a delay of second vaccine dose would save lives.</p>
-<p>I’m conflicted about whether to predict to maximize my points (and take
+<p>I'm conflicted about whether to predict to maximize my points (and take
 the question literally), or to estimate whether delaying a second dose
-<strong>would actually save lives</strong>. I’m interested in how other Metaculites
+<strong>would actually save lives</strong>. I'm interested in how other Metaculites
 interpret this.</p>
 <h2 id="Tenth_Sabaton_Album"><a class="hanchor" href="#Tenth_Sabaton_Album">Tenth Sabaton Album</a></h2>
 <p><a href="https://www.metaculus.com/questions/7204/tenth-sabaton-album/">Link</a>.</p>

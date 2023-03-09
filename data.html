@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded', function () {
 usable shape, data quality and other random assortments.</strong></p>
 </blockquote>
 <h1 id="Types__Methods_of_Data_Collection_I_Use"><a class="hanchor" href="#Types__Methods_of_Data_Collection_I_Use">Types &amp; Methods of Data Collection I Use</a></h1>
-<p>I’ve always collected some data about myself and the world around me,
-but not using/analyzing it because of a chronic “I’ll get around to it
-<em>eventually</em>” syndrome. Which is a shame, because that means I’ve been
+<p>I've always collected some data about myself and the world around me,
+but not using/analyzing it because of a chronic "I'll get around to it
+<em>eventually</em>" syndrome. Which is a shame, because that means I've been
 putting in a reasonably large amount of effort and have nothing to show
 for it, a 1-legged stool:</p>
 <blockquote>
@@ -88,8 +88,8 @@ a treadmill, and perhaps more he didn’t mention. […]</p>
 4-legged beast: if any leg is far too short or far too long, it can’t
 carry our burdens.</p>
 </blockquote>
-<p>At least I now know that I’m falling into this trap, “Selbsterkenntnis
-ist der erste Schritt zur Besserung”. And the second step is to bring
+<p>At least I now know that I'm falling into this trap, "Selbsterkenntnis
+ist der erste Schritt zur Besserung". And the second step is to bring
 all of your data in a usable format.</p>
 <h2 id="Anki"><a class="hanchor" href="#Anki">Anki</a></h2>
 <p>I use spaced repetition, and plan to take it as a proxy for cognitive
@@ -138,7 +138,7 @@ the ease factor is 2500, the card’s interval will be multiplied by
 sides of the card before selecting an ease button.</p>
 <p>type  </p>
 <p>This is 0 for learning cards, 1 for review cards, 2 for relearn cards,
-and 3 for “cram” cards (cards being studied in a filtered deck when they
+and 3 for "cram" cards (cards being studied in a filtered deck when they
 are not due).</p>
 </blockquote>
 <p><em>— Anki developers, <a href="https://docs.ankiweb.net/stats.html#manual-analysis">“Manual Analysis”</a> in <a href="https://docs.ankiweb.net/stats.html#manual-analysis">“Graphs and Statistics”</a>, year unknown</em></p>
@@ -153,11 +153,11 @@ tr '|' ',' &gt;meditations.csv
 </code></pre>
 <p>The names for the columns are exceedingly obvious and need no further
 explanation.</p>
-<p>I didn’t rate my sessions in the beginning (and manually inserted
+<p>I didn't rate my sessions in the beginning (and manually inserted
 data from meditation retreats with unrated sessions), leading to a
-very optimistic default of 4.0 mindfulness and “concentration” (better
+very optimistic default of 4.0 mindfulness and "concentration" (better
 called absorption, I claim). So we execute, using the sam language in
-vis:</p>
+vis<!--TODO: links-->:</p>
 <pre><code>/^1,/;/^860,/
 x/4\.0,4\.0,/c/,/
 /^1210,/;/^1308,/
@@ -193,7 +193,7 @@ x/4\.0,4\.0,/c/,/
 <p>Sanitizing the sessions file:</p>
 <p>Converting f***ed up Google sheets date format (why does <strong>nobody</strong>
 use the perfect <a href="https://en.wikipedia.org/wiki/ISO-8601">ISO-8601</a> when
-it’s right there‽), then removing stray spaces after semicolons,
+it's right there‽), then removing stray spaces after semicolons,
 then removing the <code>^M</code> from the end of each line, using
 <a href="./doc/cs/structural_regular_expressions_pike_1990.pdf" title="Structural Regular Expressions">structural regular                                                                                  expressions</a>:</p>
 <pre><code>,x/([0-9]+)\/([0-9]+)\/([0-9]+) /c/\3-\1-\2T/
@@ -235,7 +235,7 @@ $ mv daygame_approaches_anon.csv daygame_approaches.csv
 <p>The approaches file can be found <a href="./data/daygame_approaches.csv">here</a>,
 the sessions file can be found <a href="./data/daygame_sessions.csv">here</a>.</p>
 <h2 id="Others"><a class="hanchor" href="#Others">Others</a></h2>
-<p>Other metrics I track don’t deserve as much elaboration.</p>
+<p>Other metrics I track don't deserve as much elaboration.</p>
 <h3 id="Masturbation"><a class="hanchor" href="#Masturbation">Masturbation</a></h3>
 <p>I track when I masturbate &amp; how good it feels &amp; the type of
 pornography in <a href="./data/masturbations.csv">this file</a> via <a href="./data/mstrbt">this
@@ -250,16 +250,16 @@ script</a>. Data quality is pretty high.</p>
 <p>I track my mood via the excellent <a href="https://play.google.com/store/apps/details?id=info.moodpatterns.moodpatterns&amp;hl=en&amp;gl=US">Mood
 Patterns</a>
 which allows swift CSV export of the data. They even turned changed the
-<em>annoying</em> “hitting a block of wood with a hammer” notification sound to
+<em>annoying</em> "hitting a block of wood with a hammer" notification sound to
 the OS default. No post-processing needed, the data <em>is just there</em>. An
 app by programmers, for programmers.</p>
 <p>CSV <a href="./data/mood.csv">here</a>, the data quality is mediocre (long stretches
 of not responding to questions, giving more conservative (closer to
 50) answers over time, starting to use activities around July 2022
 (and not using it for what it was intended for: when the activity is
-“Nothing” that means I carried on with my day as normal afterwards, if
-the activity is “Mindfulness” it means I spend a couple of seconds in
-a more mindful state)). Also, I use the “interested — uninterested”
+"Nothing" that means I carried on with my day as normal afterwards, if
+the activity is "Mindfulness" it means I spend a couple of seconds in
+a more mindful state)). Also, I use the "interested — uninterested"
 metric to track horniness.</p>
 <h3 id="Substances"><a class="hanchor" href="#Substances">Substances</a></h3>
 <p>I track which substances I take (nootropics/melatonin/drugs) in <a href="./data/substances.csv">this

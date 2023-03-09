@@ -44,14 +44,15 @@ shared and analysed here.</strong></p>
 </blockquote>
 <h1 id="Subjective_Estimates_of_Life_Expectancy"><a class="hanchor" href="#Subjective_Estimates_of_Life_Expectancy">Subjective Estimates of Life Expectancy</a></h1>
 <h2 id="Abstract"><a class="hanchor" href="#Abstract">Abstract</a></h2>
+<!--TODO: at ≥1000 data points, put results into the abstract.-->
 <p>Actuarial tables are of great interest to statisticians, gerontologists
 and policymakers. In this piece, data about subjective life expectancy
 of urban germans is presented, analyzed using linear regression and
 compared to actuarial tables. Gender and age differences in accuracy of
 assessing ones own life expectancy are also considered.</p>
 <h2 id="Terminology"><a class="hanchor" href="#Terminology">Terminology</a></h2>
-<p>This text uses the terms “subjective life expectancy” and “estimated
-life expectancy” interchangeably.</p>
+<p>This text uses the terms "subjective life expectancy" and "estimated
+life expectancy" interchangeably.</p>
 <h2 id="Data_Collection_Method"><a class="hanchor" href="#Data_Collection_Method">Data Collection Method</a></h2>
 <p>~500 random people were approached (the
 exact number of approaches was <a href="./estimated_life_expectancy.html#No_Tracking_of_the_Answering_Rate">regrettably not
@@ -59,31 +60,33 @@ recorded</a>)
 during the day in the streets of the center of a major german city. They
 were asked the following questions (in the presented order):</p>
 <ol>
-<li>“Entschuldigung, darf ich Ihnen kurz zwei Fragen stellen?”</li>
-<li>“Wie alt, schätzen Sie, werden sie werden?”</li>
-<li>“Und wie alt sind Sie?”</li>
-<li>“Vielen Dank, schönen Tag noch.”</li>
+<li>"Entschuldigung, darf ich Ihnen kurz zwei Fragen stellen?"</li>
+<li>"Wie alt, schätzen Sie, werden sie werden?"</li>
+<li>"Und wie alt sind Sie?"</li>
+<li>"Vielen Dank, schönen Tag noch."</li>
 </ol>
 <p>If the respondent was unsure after the second question, they were told:
-“Nur eine grobe Schätzung” to indicate that they weren’t expected to make
+"Nur eine grobe Schätzung" to indicate that they weren't expected to make
 a perfect estimate. If at any point the respondent seemed uncomfortable,
 the interrogation was stopped with step 4 directly.</p>
-<p>If after the first question the respondent didn’t seem able to understand,
+<p>If after the first question the respondent didn't seem able to understand,
 they were asked the following questions (in that order):</p>
 <ol>
-<li>“Do you speak English?”</li>
-<li>“How old, do you think, will you become?”</li>
-<li>“And how old are you?”</li>
-<li>“Thank you very much, have a nice day.”</li>
+<li>"Do you speak English?"</li>
+<li>"How old, do you think, will you become?"</li>
+<li>"And how old are you?"</li>
+<li>"Thank you very much, have a nice day."</li>
 </ol>
 <p>Similarly, if the respondent seemed unsure after step 2, they were told
-to only give “a rough estimate” of the number.</p>
+to only give "a rough estimate" of the number.</p>
 <p>The perceived gender of the respondent was then noted together with
 their age and estimated age.</p>
-<p>Data was collected in the time from February 2019 to August 2019.</p>
+<p>Data was collected in the time from February 2019 to August 2019<!--(TODO:
+Finish, collect at least 1000 data points, then do analysis)-->.</p>
 <p>The raw data is available in CSV
 <a href="./data/estimated_life_expectancy.csv">here</a>.</p>
 <h2 id="Analysis"><a class="hanchor" href="#Analysis">Analysis</a></h2>
+<!--TODO: Add p-values!-->
 <p>Code to load the data from the CSV file:</p>
 <pre><code>    .l("csv")
     .l("nstat")
@@ -148,6 +151,8 @@ segplot(100:^fm)
 draw()
 </code></pre>
 <p><img alt="The ages of the participants" src="./img/estimated_life_expectancy/ages.png" title="The ages of the participants: Scatterplot where the data points are sorted, male age grows a little bit slower than female age, and female age has a gap between 42 and 50."/></p>
+<!--TODO: there is an annoying red line at the border of the image here
+and in est_ages.png. Fix that.-->
 <p>As one can see in the image, the ages of the respondents by gender
 follow a very similar pattern, except a lack of women aged 40 to 50
 and a lack of women older than 75. Perhaps a bias on my side? But I
@@ -369,6 +374,9 @@ ytitle("male: average estimated life expectancy (blue), average life expectancy 
 draw()
 </code></pre>
 <p><img alt="Mean estimate per year to actuarial table" src="./img/estimated_life_expectancy/avg_est.png" title="Mean estimate per year to actuarial table. The values for the actuarial table follow a standard distribution, starting at 80 years of age. They don't really change until the age of ~50, where they slowly start rising somewhat linearly. They end with 102 expected years for 100 year olds. The subjective life expectancy for a given age is clustered around the actuarial data, sometimes with 20 years differcen (probably due to a small sample size)."/></p>
+<!--TODO: Write something about the [Gompertz
+distribution](https://en.wikipedia.org/wiki/Gompertz_distribution)
+in the tooltip-->
 <p>For men:</p>
 <pre><code>.l("nplot")
 .l("nstat")
@@ -411,6 +419,8 @@ ytitle("female: average estimated life expectancy (red), average life expectancy
 draw()
 </code></pre>
 <p><img alt="Mean estimate per year to actuarial table for men" src="./img/estimated_life_expectancy/f_res.png" title="Mean estimate per year to actuarial table for women. The graph shows the life expectancy for a person with a given age (actuarial values) (how old the person is to how old they will become on average) and the average subjective estimate for life expectancy per age (how old the person is to how old they think they will become). The actuarial data for women also rises with the standard Gompertz curve, starting at 82 and beginning to rise at around the person reaching the age of 60. The mean estimate is clustered around this curve, but still quite noisy."/></p>
+<!--TODO: difference between estimated age and actuarial value, is there
+a correlation? Would that even be a useful measure?-->
 <h2 id="Problems"><a class="hanchor" href="#Problems">Problems</a></h2>
 <p>As with most self-reported data, there are numerous problems with this
 approach. The data presented here represents estimates often made in a
@@ -437,7 +447,7 @@ of people who either looked way too old or lied about their age.</p>
 40-50 in the data set, as well as a lack of people older than 70. One
 possible explanation for this observation is an age-related bias by the
 interrogator. Another possible explanation could be that people older
-than 70 don’t like to answer questions in the street, don’t go outside
+than 70 don't like to answer questions in the street, don't go outside
 very often, are rare, or lie about their age regularly. I note that it
 seemed to me that older women were most reluctant to answer my questions,
 but that may just be another manifestation of personal bias.</p>
@@ -463,7 +473,8 @@ therefore decreased the amount of usable responses.</p>
 encountering and misgendering a trans person. According to <a href="./doc/sociology/how_many_adults_identify_as_transgender_us_flores_et_al_2016.pdf" title="How Many Adults Identify as Transgender in the United States">Flores et al.
 2016</a>,
 0.6% of the U.S. adult population identifies as transgender. It is
-assumed that the numbers for Germany are similar.  It is also assumed that the probability for a trans
+assumed that the numbers for Germany are similar. <!--TODO: Find a
+german source--> It is also assumed that the probability for a trans
 person passing is around 90% (I am just making this number up).</p>
 <p>One can then use the <a href="https://en.wikipedia.org/wiki/Binomial_distribution">binomial
 distribution</a> to
@@ -492,10 +503,25 @@ probability of not correctly gendering all of them.</p>
 <p>The result shows that the probability of encountering and misgendering at
 least one trans person (and therefore at least one incorrect data point)
 is ~13%.</p>
+<!--TODO Question: How many people pass as gender X, but identify as gender Y≠X?-->
 <h3 id="No_Tracking_of_the_Answering_Rate"><a class="hanchor" href="#No_Tracking_of_the_Answering_Rate">No Tracking of the Answering Rate</a></h3>
 <p>While answers were tracked, I did not think of writing down the number
 and gender of the people approached. It would have been interesting
 to see whether there are any gender-specific differences in answering
 rates, and it generally have been a better practice to write them down
 (also to determine the overall answering rate).</p>
+<!--
+Conclusion
+-----------
+
+### Comparison with Existing Results
+
+External Links
+--------------
+-->
+<!--
+TODO: read:
+
+/usr/local/doc/unread/sle/*
+-->
 </body></html>

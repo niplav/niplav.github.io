@@ -37,11 +37,145 @@ document.addEventListener('DOMContentLoaded', function () {
 <blockquote>
 <p><strong>I discuss arguments for and against the usefulness of brain-computer
 interfaces in relation to AI alignment, and conclude that the path to
-AI going well using brain-computer interfaces hasn’t been explained in
+AI going well using brain-computer interfaces hasn't been explained in
 sufficient detail.</strong></p>
 </blockquote>
+<!--
+Original TODO:
+
+* BCIs and AI Alignment
+
+> Unfortunately, I don't know of a good write-up of the argument for why
+BCIs wouldn't be *that* useful for AI alignment (maybe I should go and
+try to write it out – so many things to write). Superintelligence
+ch. 2 by Bostrom explains why it seems unlikely that we will create
+superintelligence by BCIs, but doesn't explain why, even if they existed,
+they would be unhelpful for alignment.
+
+> Arguments against why BCIs might be use/helpful:
+
+> * There doesn't seem to be a clear notion of what it would mean for
+    humans to merge with AI systems/no clear way of stating how having
+    *   Humans [likely don't have fully specified coherent utility
+        functions](https://nivlab.princeton.edu/publications/case-against-economic-values-brain),
+        and there also doesn't seem to be an area in the brain
+        that is the *value module* so that we could plug it into
+        the AI system as a utility function
+    *   Human augmentation with AI systems of [infrahuman
+        capability](https://arbital.com/p/relative_ability/) might
+        work, but might carry the risk of causing amounts of value
+        drift large enough to count as human values being lost
+    *   Human augmentation with [superhuman (or even
+        par-human)](https://arbital.com/p/relative_ability/) AI
+        systems seems pretty bad: if the AI system is unaligned to
+        begin with, it probably doesn't help you if it has *direct
+        access to your brain and therefore your nervous system*
+    *   Using humans in AI systems as
+        [approvers/disapprovers](https://www.lesswrong.com/posts/7Hr8t6xwuuxBTqADK/approval-directed-agents-1)
+        works just as fine with screens & keyboards
+*   To re-emphasise: It seems really really bad to have an unaligned
+    AI system plugged into your brain, or to provide attack vectors
+    for possible unaligned future AI systems
+
+> Arguments for why BCIs might be useful:
+
+> * Humans would become effectively a bit more intelligent (though I'd
+    guess that functional intelligence would be <2x what we have now)
+*   Reaction times compared to AI systems would be sped up (maybe
+    by around 10x – BCIs seem faster than typing on a keyboard,
+    but not *that* much, since we're limited by processing speed
+    (brain at 200 Hz, CPUs at 2000000000 Hz, and GPUs/TPUs with
+    similar orders of magnitude), not reaction speed)
+*   BCIs might help with human
+    imitation/[WBEs](https://www.fhi.ox.ac.uk/brain-emulation-roadmap-report.pdf):
+    the more information you have about the human brain, the easier
+    it is to imitate/emulate it.
+*   BCIs and human augmentation might lessen the pressure to create
+    AGI due to high economic benefits, especially if coupled with
+    [KANSI](https://arbital.com/p/KANSI/) infrahuman systems
+
+> My intuition is that the pro-usefulness arguments are fairly weak (if
+more numerous than the anti arguments), and that there is no really
+clear case *for* BCIs in alignment, especially if you expect AI growth
+to speed up (at least, I haven't run across it, if someone knows one,
+I'd be interested in reading it). They mostly rely on a vague notion of
+humans and AI systems merging, but under closer inspection, so far they
+don't really seem to respond to the classical AI risk arguments/scenarios.
+
+> My tentative belief is that direct alignment work is probably more useful.
+-->
+<!--
+Suggestions comment 2 (https://old.reddit.com/r/ControlProblem/comments/pfb8ze/braincomputer_interfaces_and_ai_alignment/hb6gg89):
+
+The obvious argument against BCI is that human brains aren't designed
+to be extensible. Even if you have the hardware, writing software that
+interfaces with the human brain to do X is harder than writing software
+that does X on its own.
+
+If you have something 100x smarter than a human, if there is a human
+brain somewhere in that system, its only doing a small fraction of the
+work. If you can make a safe substantially superhuman mind with BCI,
+you can make the safe superhuman mind without BCI.
+
+Alignment isn't a magic contagion that spreads into any AI system
+wired into the human brain. If you wire humans to algorithms, and the
+algorithm on its own is dumb, you can get a human with a calculator in
+their head. Which is about as smart as a human with a calculator in their
+hand. If the algorithm on the computer is itself smart, well if its smart
+enough it can probably manipulate and brainwash humans with just a short
+conversation, but the wires do make brainwashing easier. You end up with
+a malevolent AI puppeting around a human body.
+-->
+<!--
+Suggestions comment 3:
+
+Agree with your point about such merging just being faster
+interaction. The concept seems confused, merging wholesale to the
+point where you just have a separate AI agent inside your head solves
+nothing. But i'm guessing that isn't what people usually mean?
+
+If we can substitute the AI's goal-oriented part with human reward
+mechanisms, feelings, beliefs and goals, then that may solve the intent
+alignment problem. I think it would be different to eg. human-in-the-loop
+type alignment, where reward is trained on abstracted human
+input. Instead, rather than just being closer interaction, the brain's
+reward function IS the AI's reward function, in the same way that it's
+the brain's reward function. In other words since we already have an
+intelligent agent with goals, we simply need to upgrade its capabilities.
+
+So the question is how far can we increase human intelligence by expanding
+the brain's capabilities while leaving goal structures intact. What are
+the other components of (super)intelligence?
+
+Better algorithms: As far as we know the brain's algorithms are
+already superior to what we can do artificially, since we're generally
+intelligent. But maybe we can add on modules with different architectures
+for specific types of processing (like maybe the way the brain works is
+inefficient for eg. some kinds of math or thinking)
+
+More compute:
+
+Feels like this might be the real bottleneck. Imagine what you could do
+with upgraded working memory, upgraded attention, upgraded processing
+speed. When I try to imagine what it's like to be a superintelligence,
+this is part of what I think of, alongside maybe better ways of thinking,
+less reliance on language, etc. Like imagine being able to hold even 20
+items in working memory with perfect attention.
+
+It seems like any safe increases to the limits of intelligence could help
+us substantially to solve alignment, but I don't think we have time if
+there's only a decade or two left, considering we don't know how to do
+this and might not figure it out without a lot of human experimentation.
+-->
+<!--
+Resources from this comment:
+https://www.lesswrong.com/posts/rpRsksjrBXEDJuHHy/brain-computer-interfaces-and-ai-alignment?commentId=t9n35ss9nhW2gJBg5
+-->
+<!-- Additional pro-argument: Chinchilla scaling laws imply that info
+about human values is more important.  Since we relatively lack info
+about human values vs. general training data, BCIs supply those.-->
 <h1 id="BrainComputer_Interfaces_and_AI_Alignment"><a class="hanchor" href="#BrainComputer_Interfaces_and_AI_Alignment">Brain-Computer Interfaces and AI Alignment</a></h1>
-<p>As a response to Elon Musk declaring that <a href="https://www.youtube.com/watch?v=ycPr5-27vSI&amp;t=1447s">NeuraLink’s purpose is to
+<p>As a response to Elon Musk declaring that <a href="https://www.youtube.com/watch?v=ycPr5-27vSI&amp;t=1447s">NeuraLink's purpose is to
 aid AI alignment</a>,
 <a href="https://lukemuehlhauser.com/musks-non-missing-mood" title="Musk's non-missing mood">Muehlhauser
 2021</a>
@@ -64,7 +198,7 @@ about brain-computer interfaces (from now on abbreviated as “BCIs”),
 so I will assume easy and fast technological advances in creating
 high-fidelity, high-throughput BCIs. I have done a cursory internet
 search for a resource laying out the case for the utility of BCIs in
-AI alignment, but haven’t been able to find anything that satisfies my
+AI alignment, but haven't been able to find anything that satisfies my
 standards (I have also asked on the <a href="https://www.lesswrong.com/posts/QqnQJYYW6zhT62F6Z/?commentId=dMpstgZ3gQnGBbRhh">LessWrong open
 thread</a>
 and on the AI alignment channel on the Eleuther AI discord server, and
@@ -74,7 +208,7 @@ told some useful arguments about the topic)).</p>
 of arguments that I think many AI alignment researchers tacitly believe,
 mostly taking as a starting point the Bostrom/Yudkowsky story of AI risk
 (although it might be generalizable to a
-<a href="https://www.lesswrong.com/posts/HBxe6wdjxK239zajf/what-failure-looks-like" title="What failure looks like">Christiano-like</a> story; I don’t know enough about
+<a href="https://www.lesswrong.com/posts/HBxe6wdjxK239zajf/what-failure-looks-like" title="What failure looks like">Christiano-like</a> story; I don't know enough about
 <a href="https://www.lesswrong.com/posts/x3fNwSe5aWZb5yXEG" title="Reframing Superintelligence: Comprehensive AI Services as General Intelligence">CAIS</a>
 or ARCHES to make a judgment about the applicability of the arguments).
 This means that AI systems will be assumed to be maximizers, as
@@ -151,7 +285,7 @@ could be help for aligning AI: Enhancement, Merge, and Alignment Aid.</p>
 <p>A critical analysis of BCIs is made in <a href="https://forum.effectivealtruism.org/posts/qfDeCGxBTFhJANAWm/a-new-x-risk-factor-brain-computer-interfaces-1" title="A New X-Risk Factor: Brain-Computer Interfaces">Jack
 2020</a>,
 which examines BCIs as a possible factor for existential risks, especially
-in relation to stable global totalitarianism. It doesn’t touch upon AI
+in relation to stable global totalitarianism. It doesn't touch upon AI
 alignment, but is still a noteworthy addition to the scholarship on BCIs.</p>
 <h2 id="Arguments_For_the_Utility_of_BrainComputer_Interfaces_in_AI_Alignment"><a class="hanchor" href="#Arguments_For_the_Utility_of_BrainComputer_Interfaces_in_AI_Alignment">Arguments For the Utility of Brain-Computer Interfaces in AI Alignment</a></h2>
 <blockquote>
@@ -159,15 +293,15 @@ alignment, but is still a noteworthy addition to the scholarship on BCIs.</p>
 What form it takes is not yet known our team is at the station<br/>
 The meiser is always watching over this old town<br/>
 I know the ways their talking crumbles if the air becomes unwound  </p>
-<p>I am an alien, I can’t say I’m a trusted bearer<br/>
+<p>I am an alien, I can't say I'm a trusted bearer<br/>
 I humbly ask my word be heeded lest there be a gruesome terror<br/>
 Ungodly astral beings, lend your ear to me<br/>
 For just a second I can make things clear<br/>
-I’ll let the meiser see  </p>
+I'll let the meiser see  </p>
 <p>There is no easy way to give this information unto thee<br/>
 I pray I do not sound to brash or too conspicuous indeed<br/>
 The end is coming if I dare come if cliché<br/>
-I dare say image won’t concern me if we make it through today  </p>
+I dare say image won't concern me if we make it through today  </p>
 <p>[…]  </p>
 <p>One dawn in the stomach of the beast<br/>
 a sickly parasite will crave the taste of acid in the trees<br/>
@@ -175,8 +309,8 @@ Wine and bees, nothing here will keep the hive in check<br/>
 Das triadische Ballet, das triadische Ballet  </p>
 <p>One dawn with a trepidacious spark<br/>
 We need to turn the end upon us<br/>
-We’ll behest the oligarchs<br/>
-All the stars burn the oceans up, the dreams we haven’t met<br/>
+We'll behest the oligarchs<br/>
+All the stars burn the oceans up, the dreams we haven't met<br/>
 Das triadische Ballet, das triadische Ballet!</p>
 </blockquote>
 <p><em>—<a href="https://patriciataxxon.bandcamp.com/">Patricia Taxxon</a>, <a href="https://patriciataxxon.bandcamp.com/album/gelb">“Alien”</a> from <a href="https://patriciataxxon.bandcamp.com/track/gelb">“Gelb”</a>, 2020</em></p>
@@ -202,6 +336,7 @@ model to another person, saving a lot of time explaining)</li>
 a difference to human cognition as language or writing or the internet,
 and to perhaps even quantify the advantage in intelligence and speed
 given by BCIs.</p>
+<!--TODO: how much more intelligent? How much faster?-->
 <h4 id="Scaling_far_Beyond_Human_Intelligence"><a class="hanchor" href="#Scaling_far_Beyond_Human_Intelligence">Scaling far Beyond Human Intelligence</a></h4>
 <p>If BCIs could allow to scale the intelligence of biological humans
 far beyond normal human intelligence, this might either</p>
@@ -240,7 +375,7 @@ by improving the understanding of the human brain.</p>
 AI alignment is the one of <a href="https://blog.samaltman.com/the-merge">“merging” humans and AI
 systems</a>.</p>
 <p>Unfortunately, a clearer explanation of how exactly this would work or
-help with making AI go well is usually not provided (at least I haven’t
+help with making AI go well is usually not provided (at least I haven't
 managed to find any clear explanation). There are different possible
 ways of conceiving of humans “merging” with AI systems: using human
 values/cognition/policies as partial input to the AI system.</p>
@@ -249,12 +384,13 @@ values/cognition/policies as partial input to the AI system.</p>
 to use humans outfitted with BCIs as part of the reward function of an AI
 system. In this case, a human would be presented with a set of outcomes
 by an AI system, and would then signal how desirable that outcome would
-be from the human’s perspective. The AI would then search for ways to
+be from the human's perspective. The AI would then search for ways to
 reach the states rated highest by the human with the largest probability.</p>
 <p>If one were able to find parts of the human brain that hold the human
 utility function, one could use these directly as parts of the AI systems.
 However, it seems unlikely that the human brain has a clear notion of
-terminal values distinct from instrumental values and policies in a form that
+terminal values distinct from instrumental values and policies<!--TODO:
+link the case against economic values in the brain--> in a form that
 could be used by an AI system.</p>
 <h5 id="Easier_ApprovalDirected_AI_Systems"><a class="hanchor" href="#Easier_ApprovalDirected_AI_Systems">Easier Approval-Directed AI Systems</a></h5>
 <p>Additionally, a human connected to an AI system via a BCI would
@@ -329,10 +465,11 @@ ancestral environment).</p>
 <p>However, if the AI were restricted to read-only access to the human brain,
 this particular scenario would be of no concern (except for AI systems
 gaining information about human psychology more quickly).</p>
+<!--TODO: use yudkowsky screaming image here?-->
 <h4 id="Sidechannel_Attacks"><a class="hanchor" href="#Sidechannel_Attacks">Sidechannel Attacks</a></h4>
-<p>Even if the AI system doesn’t have write access to the neurons of the
+<p>Even if the AI system doesn't have write access to the neurons of the
 user in the strict sense, it may still be able to manipulate the human if
-they are inspecting the AI system’s internal functioning: If for example
+they are inspecting the AI system's internal functioning: If for example
 the human is using interpretability tools to visualize the weights of
 the neural network, and the AI system has sufficient knowlegde of human
 psychology and the interpretability tools being used, it could change
@@ -383,6 +520,9 @@ and <a href="https://arbital.com/p/nonadversarial_safety/" title="The AI must to
 measures</a>,
 but most arguments for BCIs being useful already assume that the AI
 system is not aligned.</p>
+<!--TODO: think about serial vs. parallel in AI systems and humans
+with BCIs, think about frequency (200 Hz for human brain, >2 GHz for
+computers-->
 <h3 id="Problems_Arise_with_Superhuman_Systems"><a class="hanchor" href="#Problems_Arise_with_Superhuman_Systems">Problems Arise with Superhuman Systems</a></h3>
 <p>When combining humans with BCIs and
 <a href="https://arbital.com/p/relative_ability/" title="Infrahuman, par-human, superhuman, efficient, optimal">superhuman</a>
@@ -396,7 +536,7 @@ in most domains necessary for the task at hand, the bottleneck is going
 to be the humans in the system. While such a tandem is likely not going
 to be strictly only as capable as the humans alone (partially because the
 augmentation by BCI makes the human more intelligent), such systems might
-not be competitive against AI-only systems that don’t have a human part,
+not be competitive against AI-only systems that don't have a human part,
 and could be outcompeted by AI-only approaches.</p>
 <p>These bottlenecks might arise due to different speeds of cognition
 and increasingly alien abstractions by the AI systems that need to be
@@ -413,7 +553,7 @@ that has no clearly articulated path to success.</p>
 the unaligned AI system has a <a href="https://arbital.com/p/convergent_self_modification/" title="Convergent strategies of self-modification">convergent instrumental
 drive</a>
 to remove the (to it) unaligned human: If the human can interfere with
-the AI systems’ actions or goals or policies, the AI system will not be
+the AI systems' actions or goals or policies, the AI system will not be
 able to fully maximize its utility. Therefore, for merging to be helpful
 with AI alignment, the AI system must already be aligned, or <a href="https://arbital.com/p/otherizer/" title="Other-izing (wanted: new optimization idiom)">not a
 maximizer</a>,
@@ -457,7 +597,7 @@ structure of reality (e.g. by being unable to cope with <a href="./doc/cs/ai/ali
 Systems">ontological
 crises</a> (which <a href="https://www.lesswrong.com/s/kjcioCkqSSS4LiMAe/p/KLaJjNdENsHhKhG5m" title="Ontological Crisis in Humans">appear not infrequently in normal
 humans</a>),
-or becoming “drunk with power” and therefore malevolent).</p>
+or becoming "drunk with power" and therefore malevolent).</p>
 <h2 id="Subjective_Conclusion"><a class="hanchor" href="#Subjective_Conclusion">Subjective Conclusion</a></h2>
 <p>Before collecting these arguments and thinking about the topic, I was
 quite skeptical that BCIs would be useful in helping align AI systems: I
@@ -466,7 +606,7 @@ there are similarly tractable approaches to AI alignment with a much
 higher expected value (for example work on interpretability).</p>
 <p>I still basically hold that belief, but have shifted my expected value of
 researching BCIs for AI alignment upwards somewhat (if pressed, I would
-give an answer of a factor of 1.5, but I haven’t thought about that number
+give an answer of a factor of 1.5, but I haven't thought about that number
 very much). The central argument that prevents me from taking BCIs as an
 approach to AI alignment seriously is the argument that BCIs per se offer
 only a constant interaction speedup between AI systems and humans, but no
@@ -480,7 +620,7 @@ approaches to AI alignment (be it towards or away from focusing on BCIs).</p>
 <h2 id="Acknowledgements"><a class="hanchor" href="#Acknowledgements">Acknowledgements</a></h2>
 <p>Thanks to <a href="https://www.lesswrong.com/posts/rpRsksjrBXEDJuHHy/brain-computer-interfaces-and-ai-alignment?commentId=CMvDAm4K7Q3zwsidA">Steven
 Byrnes</a>
-for pointing out Tim Urban’s post about this, and to
+for pointing out Tim Urban's post about this, and to
 <a href="https://www.lesswrong.com/posts/rpRsksjrBXEDJuHHy/brain-computer-interfaces-and-ai-alignment?commentId=t9n35ss9nhW2gJBg5">Robbo</a>
 for many helpful resources about the topic, as
 well as the responses on the <a href="https://www.lesswrong.com/posts/QqnQJYYW6zhT62F6Z/?commentId=dMpstgZ3gQnGBbRhh">LessWrong August 2021 Open

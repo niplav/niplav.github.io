@@ -56,10 +56,11 @@ print(fact(a))
 <h3 id="Exercise_12"><a class="hanchor" href="#Exercise_12">Exercise 1.2</a></h3>
 <p>For a script that loads a library the dofile option is probably
 preferable, since then there is no need to deal with the different ways
-different platforms handle flags, when using lua interactively, the ‘-l’
+different platforms handle flags, when using lua interactively, the '-l'
 option is nicer, since one needs to type less.</p>
 <h3 id="Exercise_13"><a class="hanchor" href="#Exercise_13">Exercise 1.3</a></h3>
-<p>Actually, from the top of my head, I really can’t. But apparently, Haskell does it, which is weird, since Lua and Haskell have
+<p>Actually, from the top of my head, I really can't. But apparently<!--TODO:
+link-->, Haskell does it, which is weird, since Lua and Haskell have
 pretty different lineages afaik.</p>
 <h3 id="Exercise_14"><a class="hanchor" href="#Exercise_14">Exercise 1.4</a></h3>
 <p>Valid identifiers from the list: <code>___</code>, <code>_end</code>, <code>End</code>, <code>NULL</code></p>
@@ -82,7 +83,7 @@ value <code>nil</code>.</p>
 <code>10</code>, <code>0xFFFFFFFF</code> -&gt; <code>4294967295</code>, <code>0x1P10</code> -&gt; <code>1024</code>, <code>0.1e1</code> -&gt; <code>1.0</code>,
 <code>0x0.1p1</code> -&gt; <code>0.125</code></p>
 <h3 id="Exercise_23"><a class="hanchor" href="#Exercise_23">Exercise 2.3</a></h3>
-<p>12.7 can’t be represented by</p>
+<p>12.7 can't be represented by</p>
 <pre><code>(n*12.7)/2^m
 </code></pre>
 <p>but 5.5 can be represented by</p>
@@ -187,7 +188,7 @@ character would be done like this:</p>
 <p>In Lua there is no switch/case statement, so elseif is a necessary
 (albeit not sufficient) replacement.</p>
 <h3 id="Exercise_42"><a class="hanchor" href="#Exercise_42">Exercise 4.2</a></h3>
-<p>Preferred method is the first one, since it doesn’t deal with limits
+<p>Preferred method is the first one, since it doesn't deal with limits
 and makes an infinite loop clear from the beginning.</p>
 <pre><code>while true do end
 
@@ -511,7 +512,7 @@ end
 end
 </code></pre>
 <h3 id="Exercise_84"><a class="hanchor" href="#Exercise_84">Exercise 8.4</a></h3>
-<p>Shamelessly stolen (years later, I don’t know where from, though :-D):</p>
+<p>Shamelessly stolen (years later, I don't know where from, though :-D):</p>
 <pre><code>function f()
     count = 0
     function g()
@@ -805,7 +806,7 @@ end
 </code></pre>
 <h2 id="Chapter_11"><a class="hanchor" href="#Chapter_11">Chapter 11</a></h2>
 <h3 id="Exercise_111"><a class="hanchor" href="#Exercise_111">Exercise 11.1</a></h3>
-<p>It’s stupid to set both values to 0. This just restores the first state.</p>
+<p>It's stupid to set both values to 0. This just restores the first state.</p>
 <p>queue={}</p>
 <pre><code>function queue.new()
     return {first=0, last=-1}
@@ -930,7 +931,7 @@ end
 <li><p><code>g</code>: the graph</p></li>
 <li><p><code>s</code>: the name of the starting point</p></li>
 <li><p><code>e</code>: the name of the endpoint</p>
-<p>dofile(“ex_3.lua”)</p>
+<p>dofile("ex_3.lua")</p>
 <p>function dijkstra(g, s, e)
     local unvisited={}
     local dist={}

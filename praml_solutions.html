@@ -42,27 +42,53 @@ M. Bishop</a>.</strong></p>
 <h1 id="Solutions_to_Pattern_Recognition_and_Machine_Learning"><a class="hanchor" href="#Solutions_to_Pattern_Recognition_and_Machine_Learning">Solutions to “Pattern Recognition and Machine Learning”</a></h1>
 <h2 id="Chapter_1"><a class="hanchor" href="#Chapter_1">Chapter 1</a></h2>
 <h3 id="11"><a class="hanchor" href="#11">1.1</a></h3>
+<!--TODO, unfinished-->
 <blockquote>
 <p>(*) Consider the sum-of-squares error function given by (1.2) in which
 the function <code>$y(x, \textbf{w})$</code> is given by the polynomial (1.1). Show that
 the coefficients <code>$\textbf{w}=\{w_i\}$</code> that minimizes this error function
 are given by the solution to the following set of linear equations</p>
 </blockquote>
+<div>
+    $$ \sum_{j=0}^{M} A_{ij}w_{j}=T_i$$
+</div>
 <blockquote>
 <p>where</p>
 </blockquote>
+<div>
+    $$A_{ij}=\sum_{n=1}^{N} (x_n)^{i+j}, T_i=\sum_{n=1}^{N} (x_n)^i t_n.$$
+</div>
 <blockquote>
 <p>Here a suffix <code>$i$</code> or <code>$j$</code> denotes the index of a component, whereas
 <code>$(x)^i$</code> denotes <code>$x$</code> raised to the power of <code>$i$</code>.</p>
 </blockquote>
 <p>Recap: formula 1.1 is</p>
+<div>
+    $$ y(x, \textbf{w}) = w_0 + w_1 x + w_2 x^2+ \dots +w_M x^M = \sum_{j=0}^{M} w_j x^j$$
+</div>
 <p>and formula 1.2 (the error function) is</p>
+<div>
+    $$E(\textbf{w})=\frac{1}{2} \sum_{n=1}^{N} (y(x_n, \textbf{w})-t_n)^2$$
+</div>
 <p>Substituting 1.1 into 1.2 gives</p>
+<div>
+    $$ E(\textbf{w})=\frac{1}{2} \sum_{n=1}^{N} (\sum_{j=0}^{M} w_j x^j-t_n)^2 $$
+</div>
 <p>Differentiating after <code>$\textbf{w}$</code> then returns</p>
+<div>
+    $$ E(\textbf{w})'=\sum_{n=1}^{N} (\sum_{j=0}^{M} (w_j x^j)'-t_n) $$
+</div>
 <p>I really should learn multivariable calculus.</p>
 <h3 id="15"><a class="hanchor" href="#15">1.5</a></h3>
 <blockquote>
 <p>(*) Using the definition (1.38) show that <code>$\text{var}[f(x)]$</code> satisfies
 (1.39).</p>
 </blockquote>
+<div>
+    $$ \mathbb{E}[(f(x)-\mathbb{E}[f(x)])^2]=\\
+    \mathbb{E}[f(x)^2-2\mathbb{E}[f(x)]f(x)+\mathbb{E}[f(x)]^2]=\\
+    \mathbb{E}[f(x)^2]-\mathbb{E}[2\mathbb{E}[f(x)]f(x)]+\mathbb{E}[\mathbb{E}[f(x)]^2]=\\
+    \mathbb{E}[f(x)^2]-2\mathbb{E}[f(x)]^2+\mathbb{E}[f(x)]^2=\\
+    \mathbb{E}[f(x)^2]-\mathbb{E}[f(x)]^2$$
+</div>
 </body></html>

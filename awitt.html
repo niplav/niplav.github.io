@@ -40,7 +40,7 @@ described and compared to other similar projects. Then, its releases
 and outstanding bugs are listed.</strong></p>
 </blockquote>
 <h1 id="awitt__Another_Window_Title_Tracker"><a class="hanchor" href="#awitt__Another_Window_Title_Tracker">awitt – Another Window Title Tracker</a></h1>
-<p>The project’s sourced code is available on
+<p>The project's sourced code is available on
 <a href="https://github.com/niplav/awitt">github</a>, along with its
 <a href="https://github.com/niplav/awitt/blob/master/README.html">README</a> and
 <a href="https://github.com/niplav/awitt/blob/master/awitt.1">man-page</a> for
@@ -68,15 +68,15 @@ needing only one interaction per restart.</p>
 polished project.</p>
 <p>So why not simply choose arbtt and be done with it?</p>
 <p>My main problem is with the fact that arbtt is implemented in Haskell.
-It’s not that Haskell is a bad language, but I heavily dislike having to
+It's not that Haskell is a bad language, but I heavily dislike having to
 install several hundred megabytes of libraries to just run a simple time
 tracker. On the other hand, awitt is implemented in C, which makes it
 possible to compile and run it on every platform that also provides X11.</p>
 <p>awitt also provides little features beyond printing window information
 if the focussed window changes, while arbtt seems to integrate a lot of
 functionality into a core program. While both approaches have their advantages
-and disadvantages, awitt is closer to the unix philosophy of “do one thing,
-and do it well”.</p>
+and disadvantages, awitt is closer to the unix philosophy of "do one thing,
+and do it well".</p>
 <p>The disadvantage is that awitt is a duplication of work in arbtt,
 and therefore technically a waste of time and energy. I still did it,
 because reinventing the wheel is fun.</p>
@@ -87,7 +87,7 @@ because reinventing the wheel is fun.</p>
 <h2 id="Bugs"><a class="hanchor" href="#Bugs">Bugs</a></h2>
 <h3 id="Definitely_Bugs"><a class="hanchor" href="#Definitely_Bugs">Definitely Bugs</a></h3>
 <ul>
-<li>Encoding problems: ‘ä’ is printed as the two bytes 0xe4 0x2e. <code>file windows.log</code> says ‘Non-ISO extended-ASCII text, with escape sequences’</li>
+<li>Encoding problems: 'ä' is printed as the two bytes 0xe4 0x2e. <code>file windows.log</code> says 'Non-ISO extended-ASCII text, with escape sequences'</li>
 <li><code>awitt</code> crashes when the currently focussed window is closed before obtaining the title (a race condition).</li>
 </ul>
 <h3 id="Possibly_Bugs"><a class="hanchor" href="#Possibly_Bugs">Possibly Bugs</a></h3>
