@@ -35,13 +35,68 @@ document.addEventListener('DOMContentLoaded', function () {
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-07-15, modified: 2022-12-20, language: english, status: notes, importance: 6, confidence: certain</em></p>
 <blockquote>
-<p><strong>.</strong></p>
+<p><strong>Iqisa is <a href="https://github.com/niplav/iqisa">a library</a> for handling and comparing forecasting datasets from different platforms.</strong></p>
 </blockquote>
 <h1 id="Iqisa_A_Library_For_Handling_Forecasting_Datasets"><a class="hanchor" href="#Iqisa_A_Library_For_Handling_Forecasting_Datasets">Iqisa: A Library For Handling Forecasting Datasets</a></h1>
-<p>Iqisi is a collection of forecasting datasets and a simple library for
-handling those datasets.</p>
-<p>So far it contains data from the Good Judgment Project<!--TODO: link-->
-and <a href="https://metaculus.com">Metaculus</a>, but I plan to also add data from
-various other sources.</p>
-<p>The documentation can be found <a href="./iqisadoc.html">here</a>.</p>
+<p>Iqisa is a collection of forecasting datasets and a simple
+library for handling those datasets. Code and data available
+<a href="https://github.com/niplav/iqisa">here</a>.</p>
+<p>So far it contains data from the <a href="https://en.wikipedia.org/wiki/The_Good_Judgment_Project">Good Judgment
+Project</a> and
+code for handling the private <a href="https://metaculus.com">Metaculus</a> data
+(available on request to Metaculus for researchers), but I plan to also
+add data from various other sources.</p>
+<p>The documentation can be found <a href="./iqisadoc.html">here</a>, but a simple
+example for using the library is seeing whether traders with more than
+100 trades have a better Brier score than traders in general:</p>
+<pre><code>import gjp
+import iqisa as iqs
+market_fcasts=gjp.load_markets()
+
+def brier_score(probabilities, outcomes):
+        return np.mean((probabilities-outcomes)**2)
+
+def brier_score_user(user_forecasts):
+    user_right=(user_forecasts['outcome']==user_forecasts['answer_option'])
+    probabilities=user_forecasts['probability']
+    return np.mean((probabilities-user_right)**2)
+
+trader_scores=iqs.score(market_fcasts, brier_score, on=['user_id'])
+filtered_trader_scores=iqs.score(market_fcasts.groupby(['user_id']).filter(lambda x: len(x)&gt;100), brier_score, on=['user_id'])
+</code></pre>
+<p>And we can see:</p>
+<pre><code>&gt;&gt;&gt; np.mean(trader_scores)
+score    0.159194
+dtype: float64
+&gt;&gt;&gt; np.mean(filtered_trader_scores)
+score    0.159018
+dtype: float64
+</code></pre>
+<p>Concluding that more experienced traders are only very slightly better
+at trading.</p>
+<h2 id="Usages"><a class="hanchor" href="#Usages">Usages</a></h2>
+<ul>
+<li><a href="https://niplav.github.io/range_and_forecasting_accuracy#Analysis__Results">Range and Forecasting Accuracy (niplav, 2023)</a></li>
+</ul>
+<h2 id="Potential_Additional_Sources_for_Forecasting_Data"><a class="hanchor" href="#Potential_Additional_Sources_for_Forecasting_Data">Potential Additional Sources for Forecasting Data</a></h2>
+<ul>
+<li><a href="https://metaforecast.org/api/graphql?query=%23%0A%23+Welcome+to+Yoga+GraphiQL%0A%23%0A%23+Yoga+GraphiQL+is+an+in-browser+tool+for+writing%2C+validating%2C+and%0A%23+testing+GraphQL+queries.%0A%23%0A%23+Type+queries+into+this+side+of+the+screen%2C+and+you+will+see+intelligent%0A%23+typeaheads+aware+of+the+current+GraphQL+type+schema+and+live+syntax+and%0A%23+validation+errors+highlighted+within+the+text.%0A%23%0A%23+GraphQL+queries+typically+start+with+a+%22%7B%22+character.+Lines+that+start%0A%23+with+a+%23+are+ignored.%0A%23%0A%23+An+example+GraphQL+query+might+look+like%3A%0A%23%0A%23+++++%7B%0A%23+++++++field%28arg%3A+%22value%22%29+%7B%0A%23+++++++++subField%0A%23+++++++%7D%0A%23+++++%7D%0A%23%0A%23+Keyboard+shortcuts%3A%0A%23%0A%23++Prettify+Query%3A++Shift-Ctrl-P+%28or+press+the+prettify+button+above%29%0A%23%0A%23+++++Merge+Query%3A++Shift-Ctrl-M+%28or+press+the+merge+button+above%29%0A%23%0A%23+++++++Run+Query%3A++Ctrl-Enter+%28or+press+the+play+button+above%29%0A%23%0A%23+++Auto+Complete%3A++Ctrl-Space+%28or+just+start+typing%29%0A%23%0A">Metaforecast API</a></li>
+<li><a href="http://predictionbook.com/">PredictionBook</a></li>
+<li><a href="https://www.cset-foretell.com/">Foretell (CSET)</a></li>
+<li><a href="https://www.gjopen.com/">Good Judgment Open</a></li>
+<li><a href="https://www.hypermind.com">Hypermind</a></li>
+<li><a href="https://augur.net/">Augur</a></li>
+<li><a href="https://www.foretold.io/">Foretold</a></li>
+<li><a href="https://www.fsu.gr/en/fss/omen">Omen</a></li>
+<li><a href="https://www.givewell.org/">GiveWell</a></li>
+<li><a href="https://www.openphilanthropy.org/">Open Philanthropy Project</a></li>
+<li><a href="https://www.predictit.org/">PredictIt</a></li>
+<li><a href="https://elicit.org/">Elicit</a></li>
+<li><a href="https://polymarket.com/">PolyMarket</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Iowa_Electronic_Markets">Iowa Electronic Markets</a></li>
+<li><a href="https://www.infer-pub.com/">INFER</a></li>
+<li><a href="https://manifold.markets/home">Manifold</a></li>
+<li><a href="https://smarkets.com/">Smarkets</a></li>
+<li><a href="https://the-odds-api.com/">The Odds API</a></li>
+</ul>
 </body></html>
