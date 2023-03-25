@@ -44,7 +44,7 @@ library for handling those datasets. Code and data available
 <p>So far it contains data from the <a href="https://en.wikipedia.org/wiki/The_Good_Judgment_Project">Good Judgment
 Project</a> and
 code for handling the private <a href="https://metaculus.com">Metaculus</a> data
-(available on request to Metaculus for researchers), but I plan to also
+(available to researchers on request to Metaculus), but I plan to also
 add data from various other sources.</p>
 <p>The documentation can be found <a href="./iqisadoc.html">here</a>, but a simple
 example for using the library is seeing whether traders with more than
@@ -54,7 +54,7 @@ import iqisa as iqs
 market_fcasts=gjp.load_markets()
 
 def brier_score(probabilities, outcomes):
-        return np.mean((probabilities-outcomes)**2)
+    return np.mean((probabilities-outcomes)**2)
 
 def brier_score_user(user_forecasts):
     user_right=(user_forecasts['outcome']==user_forecasts['answer_option'])
@@ -78,7 +78,12 @@ at trading.</p>
 <ul>
 <li><a href="https://niplav.github.io/range_and_forecasting_accuracy#Analysis__Results">Range and Forecasting Accuracy (niplav, 2023)</a></li>
 </ul>
-<h2 id="Potential_Additional_Sources_for_Forecasting_Data"><a class="hanchor" href="#Potential_Additional_Sources_for_Forecasting_Data">Potential Additional Sources for Forecasting Data</a></h2>
+<h2 id="Feature_Wishlist"><a class="hanchor" href="#Feature_Wishlist">Feature Wishlist</a></h2>
+<ul>
+<li>Create a pip package</li>
+<li>Add data from more platforms</li>
+</ul>
+<h3 id="Potential_Additional_Sources_for_Forecasting_Data"><a class="hanchor" href="#Potential_Additional_Sources_for_Forecasting_Data">Potential Additional Sources for Forecasting Data</a></h3>
 <ul>
 <li><a href="https://metaforecast.org/api/graphql?query=%23%0A%23+Welcome+to+Yoga+GraphiQL%0A%23%0A%23+Yoga+GraphiQL+is+an+in-browser+tool+for+writing%2C+validating%2C+and%0A%23+testing+GraphQL+queries.%0A%23%0A%23+Type+queries+into+this+side+of+the+screen%2C+and+you+will+see+intelligent%0A%23+typeaheads+aware+of+the+current+GraphQL+type+schema+and+live+syntax+and%0A%23+validation+errors+highlighted+within+the+text.%0A%23%0A%23+GraphQL+queries+typically+start+with+a+%22%7B%22+character.+Lines+that+start%0A%23+with+a+%23+are+ignored.%0A%23%0A%23+An+example+GraphQL+query+might+look+like%3A%0A%23%0A%23+++++%7B%0A%23+++++++field%28arg%3A+%22value%22%29+%7B%0A%23+++++++++subField%0A%23+++++++%7D%0A%23+++++%7D%0A%23%0A%23+Keyboard+shortcuts%3A%0A%23%0A%23++Prettify+Query%3A++Shift-Ctrl-P+%28or+press+the+prettify+button+above%29%0A%23%0A%23+++++Merge+Query%3A++Shift-Ctrl-M+%28or+press+the+merge+button+above%29%0A%23%0A%23+++++++Run+Query%3A++Ctrl-Enter+%28or+press+the+play+button+above%29%0A%23%0A%23+++Auto+Complete%3A++Ctrl-Space+%28or+just+start+typing%29%0A%23%0A">Metaforecast API</a></li>
 <li><a href="http://predictionbook.com/">PredictionBook</a></li>
