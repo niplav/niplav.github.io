@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-12-25, modified: 2023-03-20, language: english, status: in progress, importance: 4, confidence: remote</em></p>
+<p><em>author: niplav, created: 2019-12-25, modified: 2023-03-28, language: english, status: in progress, importance: 4, confidence: remote</em></p>
 <blockquote>
 <p><strong>Is daygame worth it, and if yes,
 how much? I first present a simple <a href="https://en.wikipedia.org/wiki/Point_estimation">point
@@ -414,6 +414,7 @@ https://old.reddit.com/r/seduction/comments/9ock2a/my_daygame_experience_so_far_
 <li>Blue: Mr. White</li>
 <li>Purple: Thomas Crown</li>
 <li>Red: Krauser</li>
+<li>Orange: Mr. Wolfe</li>
 </ul>
 <p>The plotted data for lay ratios looks like this:</p>
 <pre><code>.l("./load.kg")
@@ -454,6 +455,11 @@ scplot2(slayrat)
 
 fillrgb(1;0;0)
 scplot2(klayrat)
+
+:"Data for Mr. Wolfe ratios"
+
+fillrgb(1.0;0.6;0.1)
+scplot2(wlayrat)
 
 draw()
 </code></pre>
@@ -497,6 +503,11 @@ scplot2(sdaterat)
 
 fillrgb(1;0;0)
 scplot2(kdaterat)
+
+:"Data for Mr. Wolfe ratios"
+
+fillrgb(1.0;0.6;0.1)
+scplot2(wdaterat)
 
 draw()
 </code></pre>
