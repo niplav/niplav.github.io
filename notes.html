@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-05-22, modified: 2023-04-10, language: english, status: in progress, importance: 3, confidence: other</em></p>
+<p><em>author: niplav, created: 2019-05-22, modified: 2023-04-11, language: english, status: in progress, importance: 3, confidence: other</em></p>
 <blockquote>
 <p><strong>Short texts on different topics.</strong></p>
 </blockquote>
@@ -1511,8 +1511,8 @@ minutes to arrive<sub>10%</sub>" equivalent to "I assign 90% probability
 to the train arriving within the next 5 minutes".</p>
 <p>With multiple statements, my favorite way of delimiting is currently
 half brackets: "I think ⸤it'll rain tomorrow⸥<sub>55%</sub>, but
-⸤Tuesday is going to be sunny⸥<sub>80%</sub>, but I don't think your
-⸤uncle is going to be happy about that⸥<sub>15%</sub>."</p>
+⸤Tuesday is going to be sunny⸥<sub>80%</sub>, but I don't think
+⸤your uncle is going to be happy about that⸥<sub>15%</sub>."</p>
 <p>The probabilities in this context aren't quite
 <a href="https://en.wikipedia.org/wiki/Evidentiality">evidentials</a>, but neither
 are they <a href="https://en.wikipedia.org/wiki/Veridicality">veridicals</a> nor
@@ -1523,13 +1523,28 @@ are they <a href="https://en.wikipedia.org/wiki/Veridicality">veridicals</a> nor
 single central statement, there are multiple locations one could place
 the probability.</p>
 <ul>
-<li>After the verb related to belief: "I think<sub>55%</sub> it'll rain tomorrow."</li>
-<li>At the end of the statement: "I think it'll rain tomorrow<sub>55%</sub>."</li>
+<li>After the verb related to belief: "I think<sub>55%</sub> it'll rain tomorrow."
+
+<ul>
+<li>Advantage: Close to the word relating to the belief (which could reflect the strength of belief in itself, using "guess"/"wager"/"think"/"believe").</li>
+<li>Disadvantages:
+
+<ul>
+<li>Conflicts with assigning probabilities to multiple statements.</li>
+<li>Puts visual clutter before the statement in question.</li>
+</ul></li>
+</ul></li>
+<li>At the end of the statement: "I think it'll rain tomorrow<sub>55%</sub>."
+
+<ul>
+<li>Advantage: Allows assigning probabilities to simple statements ("It'll rain tomorrow<sub>55%</sub>") and to multiple statements (see below).</li>
+<li>Disadvantage: If the probability is intended to contextualise the statement, this context is weaker if it is introduced <em>after</em> the statement in question.</li>
+</ul></li>
 <li>At the subject of the sentence: "I<sub>55%</sub> think it'll rain tomorrow."
 
 <ul>
 <li>Advantage: This can be used to distinguish the beliefs of different people. "I<sub>55%</sub> think it'll rain tomorrow, but <a href="https://en.wikipedia.org/wiki/C%C3%BA_Chulainn">Cú Chulainn</a><sub>22%</sub> is skeptical about it."</li>
-<li>Disadvantage: Putting the probability before the statement the probability is about feels quite unnatural. This also applies to the case of putting the probability directly after the verb relating to belief.</li>
+<li>Disadvantage: Putting the probability before the statement the probability is about feels quite unnatural.</li>
 </ul></li>
 </ul>
 <p>This becomes trickier in sentences with multiple statements.</p>
@@ -1540,17 +1555,17 @@ the probability.</p>
 <li>Adding in delimiters to denote a specific subclaim the probability is about. I wonder whether there are better unicode characters for this, corner brackets might be a good candidate.
 
 <ul>
-<li>Lower [half brackets]( (or <a href="https://en.wikipedia.org/wiki/Bracket#Quine_corners_%E2%8C%9C%E2%8C%9D_and_half_brackets_%E2%B8%A4_%E2%B8%A5_or_%E2%B8%A2_%E2%B8%A3">Quine corners</a> which look almost the same): "I think ⸤it'll rain tomorrow⸥<sub>55%</sub>, but ⸤Tuesday is going to be sunny⸥<sub>80%</sub>, but I don't think your ⸤uncle is going to be happy about that⸥<sub>15%</sub>."</li>
-<li>Upper half brackets to the left, lower half brackets to the right: "I think ⸢it'll rain tomorrow⸥<sub>55%</sub>, but ⸢Tuesday is going to be sunny⸥<sub>80%</sub>, but I don't think your ⸢uncle is going to be happy about that⸥<sub>15%</sub>."</li>
-<li>Subscripted <a href="https://en.wikipedia.org/wiki/Parenthesis">parentheses</a>: "I think <sub>(</sub>it'll rain tomorrow<sub>)</sub><sub>55%</sub>, but <sub>(</sub>Tuesday is going to be sunny<sub>)</sub><sub>80%</sub>, but I don't think your <sub>(</sub>uncle is going to be happy about that<sub>)</sub><sub>15%</sub>."</li>
-<li>Subscripted half <a href="https://en.wikipedia.org/wiki/Guillemet">guillemets</a>: "I think <sub>‹</sub>it'll rain tomorrow<sub>›</sub><sub>55%</sub>, but <sub>‹</sub>Tuesday is going to be sunny<sub>›</sub><sub>80%</sub>, but I don't think your <sub>‹</sub>uncle is going to be happy about that<sub>›</sub><sub>15%</sub>."</li>
-<li>And subscripted full guillemets: "I think <sub>«</sub>it'll rain tomorrow<sub>»</sub><sub>55%</sub>, but <sub>«</sub>Tuesday is going to be sunny<sub>»</sub><sub>80%</sub>, but I don't think your <sub>«</sub>uncle is going to be happy about that<sub>»</sub><sub>15%</sub>."</li>
+<li>Lower <a href="https://en.wikipedia.org/wiki/Half_Bracket">half brackets</a> (or <a href="https://en.wikipedia.org/wiki/Bracket#Quine_corners_%E2%8C%9C%E2%8C%9D_and_half_brackets_%E2%B8%A4_%E2%B8%A5_or_%E2%B8%A2_%E2%B8%A3">Quine corners</a> which look almost the same): "I think ⸤it'll rain tomorrow⸥<sub>55%</sub>, but ⸤Tuesday is going to be sunny⸥<sub>80%</sub>, but I don't think ⸤your uncle is going to be happy about that⸥<sub>15%</sub>."</li>
+<li>Upper half brackets to the left, lower half brackets to the right: "I think ⸢it'll rain tomorrow⸥<sub>55%</sub>, but ⸢Tuesday is going to be sunny⸥<sub>80%</sub>, but I don't think ⸢your uncle is going to be happy about that⸥<sub>15%</sub>."</li>
+<li>Subscripted <a href="https://en.wikipedia.org/wiki/Parenthesis">parentheses</a>: "I think <sub>(</sub>it'll rain tomorrow<sub>)</sub><sub>55%</sub>, but <sub>(</sub>Tuesday is going to be sunny<sub>)</sub><sub>80%</sub>, but I don't think <sub>(</sub>your uncle is going to be happy about that<sub>)</sub><sub>15%</sub>."</li>
+<li>Subscripted half <a href="https://en.wikipedia.org/wiki/Guillemet">guillemets</a>: "I think <sub>‹</sub>it'll rain tomorrow<sub>›</sub><sub>55%</sub>, but <sub>‹</sub>Tuesday is going to be sunny<sub>›</sub><sub>80%</sub>, but I don't think <sub>‹</sub>your uncle is going to be happy about that<sub>›</sub><sub>15%</sub>."</li>
+<li>And subscripted full guillemets: "I think <sub>«</sub>it'll rain tomorrow<sub>»</sub><sub>55%</sub>, but <sub>«</sub>Tuesday is going to be sunny<sub>»</sub><sub>80%</sub>, but I don't think <sub>«</sub>your uncle is going to be happy about that<sub>»</sub><sub>15%</sub>."</li>
 </ul></li>
 </ul></li>
 <li>I basically rule out lists of probabilities after the verb relating to each subclaim, as it's very mentally taxing to relate each probability to each claim:
 
 <ul>
-<li>"I think<sub>55%, 80%, 15%</sub> ⸤it'll rain tomorrow⸥, but ⸤Tuesday is going to be sunny⸥, but I don't think your ⸤uncle is going to be happy about that⸥.</li>
+<li>"I think<sub>55%, 80%, 15%</sub> ⸤it'll rain tomorrow⸥, but ⸤Tuesday is going to be sunny⸥, but I don't think ⸤your uncle is going to be happy about that⸥.</li>
 </ul></li>
 </ul>
 <p>Since the people writing the text
@@ -1578,11 +1593,29 @@ subscripts</a>, which are
 available for all digits, but tragically not for the percentage sign
 '%' or a simple dot '.'. Perhaps a project for the future: After all,
 they did include a subscript '+'₊, a subscript '-'₋, equality sign
-'='₌ and parentheses '()'₍₎, and many subscript letters (b, c, d,
+'='₌ and parentheses '()'₍₎, but many subscript letters (b, c, d,
 f, g, j, q, r, u, v, w, y and z) are still missing…</p>
 <h3 id="Applications"><a class="hanchor" href="#Applications">Applications</a></h3>
 <p>I've used this notation sparingly but
 increasingly, a good example of a first exploration is
 <a href="./range_and_forecasting_accuracy.html#Appendix_A_Replicating_Metaculus_Findings_With_Full_Data">here</a><!--TODO:
 release, and interspersed in the text [here](./spans.html)-->.</p>
+<p><a href="https://forum.effectivealtruism.org/s/y5n47MfgrKvTLE3pw/p/Qk3hd6PrFManj8K6o">Fischer
+2023</a>
+uses a different notation:</p>
+<blockquote>
+<ul>
+<li>Given hedonism and conditional on sentience, we think (credence: 0.7) that none of the vertebrate nonhuman animals of interest have a welfare range that’s more than double the size of any of the others. While carp and salmon have lower scores than pigs and chickens, we suspect that’s largely due to a lack of research.</li>
+<li>Given hedonism and conditional on sentience, we think (credence: 0.65) that the welfare ranges of humans and the vertebrate animals of interest are within an order of magnitude of one another.</li>
+<li>Given hedonism and conditional on sentience, we think (credence 0.6) that all the invertebrates of interest have welfare ranges within two orders of magnitude of the vertebrate nonhuman animals of interest. Invertebrates are so diverse and we know so little about them; hence, our caution.</li>
+</ul>
+</blockquote>
+<p>The notation proposed here would change the text:</p>
+<blockquote>
+<ul>
+<li>Given hedonism and conditional on sentience, we think that none of the vertebrate nonhuman animals of interest have a welfare range that’s more than double the size of any of the others<sub>70%</sub>. While carp and salmon have lower scores than pigs and chickens, we suspect that’s largely due to a lack of research.</li>
+<li>Given hedonism and conditional on sentience, we think that the welfare ranges of humans and the vertebrate animals of interest are within an order of magnitude of one another<sub>65%</sub>.</li>
+<li>Given hedonism and conditional on sentience, we think that all the invertebrates of interest have welfare ranges within two orders of magnitude of the vertebrate nonhuman animals of interest<sub>60%</sub>. Invertebrates are so diverse and we know so little about them; hence, our caution.</li>
+</ul>
+</blockquote>
 </body></html>
