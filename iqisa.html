@@ -33,19 +33,31 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-07-15, modified: 2023-04-02, language: english, status: notes, importance: 6, confidence: certain</em></p>
+<p><em>author: niplav, created: 2022-07-15, modified: 2023-04-14, language: english, status: notes, importance: 6, confidence: certain</em></p>
 <blockquote>
 <p><strong>Iqisa is <a href="https://github.com/niplav/iqisa">a library</a> for handling and comparing forecasting datasets from different platforms.</strong></p>
 </blockquote>
 <h1 id="Iqisa_A_Library_For_Handling_Forecasting_Datasets"><a class="hanchor" href="#Iqisa_A_Library_For_Handling_Forecasting_Datasets">Iqisa: A Library For Handling Forecasting Datasets</a></h1>
+<blockquote>
+<p>The eventual success of my archives reinforced my view that
+public permission-less datasets are often a bottleneck to
+research: you cannot guarantee that people will use your dataset,
+but you can guarantee that they won’t use it.</p>
+</blockquote>
+<p><em>—<a href="https://gwern.net/">Gwern Branwen</a>, <a href="https://gwern.net/newsletter/2019/13">“2019 News”</a>, 2019</em></p>
 <p>Iqisa is a collection of forecasting datasets and a simple
 library for handling those datasets. Code and data available
 <a href="https://github.com/niplav/iqisa">here</a>.</p>
-<p>So far it contains data from the <a href="https://en.wikipedia.org/wiki/The_Good_Judgment_Project">Good Judgment
-Project</a> and
-code for handling the private <a href="https://metaculus.com">Metaculus</a> data
-(available to researchers on request to Metaculus), but I plan to also
-add data from various other sources.</p>
+<p>So far it contains data from:</p>
+<ul>
+<li>The <a href="https://en.wikipedia.org/wiki/The_Good_Judgment_Project">Good Judgment Project</a>: ~790k market trades+~3.14m survey predictions≈3.9m forecasts</li>
+<li>The <a href="https://metaculus.com">Metaculus</a> public API: ~210k forecasts</li>
+<li><a href="https://predictionbook.com/">PredictionBook</a>: ~64k forecasts</li>
+</ul>
+<p>for a total of ~4.2m forecasts, as well as code for handling private
+<a href="https://metaculus.com">Metaculus</a> data (available to researchers on
+request to Metaculus), but I plan to also add data from various other
+sources.</p>
 <p>The documentation can be found <a href="./iqisadoc.html">here</a>, but a simple
 example for using the library is seeing whether traders with more than
 100 trades have a better Brier score than traders in general:</p>
@@ -78,6 +90,28 @@ at trading.</p>
 <ul>
 <li><a href="https://niplav.github.io/range_and_forecasting_accuracy#Analysis__Results">Range and Forecasting Accuracy (niplav, 2023)</a></li>
 </ul>
+<h2 id="Possible_Projects"><a class="hanchor" href="#Possible_Projects">Possible Projects</a></h2>
+<ul>
+<li>Take questions from different platforms that are close to each other on <a href="https://github.com/stanleyfok/sentence2vec">sentence2vec</a>, and check which platform made the better predictions on that question.</li>
+</ul>
+<h2 id="Known_Bugs"><a class="hanchor" href="#Known_Bugs">Known Bugs</a></h2>
+<p>Since this is a project I'm now doing in my free time, it might not be
+as polished as it should be. Sorry :-/</p>
+<p>If you decide to work with this library, feel free to <a href="./about.html#Contact">contact me</a>.</p>
+<ul>
+<li>Issues with the time fields
+
+<ul>
+<li>The native pandas datetime format is too restricted for some time ranges in these datasets, those values might be set to <code>NaT</code>.</li>
+<li>Not all time-related fields have timezone information attached to them.</li>
+</ul></li>
+<li>Some predictions in the dataset have occurred after question resolution. There should be a way to filter those out programmatically.</li>
+<li>The columns of the datasets are not sorted the same way for question DataFrames and forecast DataFrames.</li>
+<li>I fear that despite my best efforts, not all data frome the GJP data has been transferred.</li>
+<li>The default fields in the Metaculus &amp; PredictionBook data should be <code>NA</code> more often than they are right now.</li>
+<li>The documentation is still <em>slightly</em> spotty, and tests are mostly nonexistent.</li>
+<li>Some variables shouldn't be exposed, but are.</li>
+</ul>
 <h2 id="Feature_Wishlist"><a class="hanchor" href="#Feature_Wishlist">Feature Wishlist</a></h2>
 <ul>
 <li>Create a pip package</li>
@@ -86,7 +120,6 @@ at trading.</p>
 <h3 id="Potential_Additional_Sources_for_Forecasting_Data"><a class="hanchor" href="#Potential_Additional_Sources_for_Forecasting_Data">Potential Additional Sources for Forecasting Data</a></h3>
 <ul>
 <li><a href="https://metaforecast.org/api/graphql?query=%23%0A%23+Welcome+to+Yoga+GraphiQL%0A%23%0A%23+Yoga+GraphiQL+is+an+in-browser+tool+for+writing%2C+validating%2C+and%0A%23+testing+GraphQL+queries.%0A%23%0A%23+Type+queries+into+this+side+of+the+screen%2C+and+you+will+see+intelligent%0A%23+typeaheads+aware+of+the+current+GraphQL+type+schema+and+live+syntax+and%0A%23+validation+errors+highlighted+within+the+text.%0A%23%0A%23+GraphQL+queries+typically+start+with+a+%22%7B%22+character.+Lines+that+start%0A%23+with+a+%23+are+ignored.%0A%23%0A%23+An+example+GraphQL+query+might+look+like%3A%0A%23%0A%23+++++%7B%0A%23+++++++field%28arg%3A+%22value%22%29+%7B%0A%23+++++++++subField%0A%23+++++++%7D%0A%23+++++%7D%0A%23%0A%23+Keyboard+shortcuts%3A%0A%23%0A%23++Prettify+Query%3A++Shift-Ctrl-P+%28or+press+the+prettify+button+above%29%0A%23%0A%23+++++Merge+Query%3A++Shift-Ctrl-M+%28or+press+the+merge+button+above%29%0A%23%0A%23+++++++Run+Query%3A++Ctrl-Enter+%28or+press+the+play+button+above%29%0A%23%0A%23+++Auto+Complete%3A++Ctrl-Space+%28or+just+start+typing%29%0A%23%0A">Metaforecast API</a></li>
-<li><a href="http://predictionbook.com/">PredictionBook</a></li>
 <li><a href="https://www.cset-foretell.com/">Foretell (CSET)</a></li>
 <li><a href="https://www.gjopen.com/">Good Judgment Open</a></li>
 <li><a href="https://www.hypermind.com">Hypermind</a></li>
@@ -106,6 +139,6 @@ at trading.</p>
 </ul>
 <h2 id="Acknowledgements"><a class="hanchor" href="#Acknowledgements">Acknowledgements</a></h2>
 <p>Credits go to <a href="https://arbresearch.com/">Arb Research</a> for funding the
-first 90% of this work, and Misha Yagudin in particular for guidance
+first 85% of this work, and Misha Yagudin in particular for guidance
 and mentorship.</p>
 </body></html>

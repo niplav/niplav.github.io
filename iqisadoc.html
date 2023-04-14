@@ -33,11 +33,16 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-07-15, modified: 2023-03-24, language: english, status: notes, importance: 6, confidence: certain</em></p>
+<p><em>author: niplav, created: 2022-07-15, modified: 2023-04-14, language: english, status: notes, importance: 6, confidence: certain</em></p>
 <blockquote>
 <p><strong>A library for handling forecasting datasets is documented.</strong></p>
 </blockquote>
 <h1 id="Iqisa_Documentation"><a class="hanchor" href="#Iqisa_Documentation">Iqisa Documentation</a></h1>
+<blockquote>
+<p>[…] there is a great gap between a tool existing and everyone using
+it, and good documentation is as underestimated as open datasets.</p>
+</blockquote>
+<p><em>—<a href="https://gwern.net">Gwern Branwen</a>, <a href="https://gwern.net/newsletter/2019/13">“2019 News”</a>, 2019</em></p>
 <p>Iqisa is a library for handling and comparing different forecasting
 datasets, focused on taking on the burden of dealing with differently
 organised datasets off the user and presenting them with a unified
@@ -215,7 +220,7 @@ in a subclass.</p>
 <p>Its columns are</p>
 <!--TODO: describe further-->
 <ul>
-<li><code>question_id</code>, <code>date_start</code>, <code>date_suspend</code>, <code>date_to_close</code>, <code>date_closed</code>, <code>outcome</code>, <code>q_type</code>, <code>q_status</code>, <code>time_open</code>, <code>n_opts</code>, <code>options</code>: As in the <a href="#forecasts">description of <code>forecasts</code> above</a></li>
+<li><code>question_id</code>, <code>q_title</code>, <code>q_status</code>, <code>open_time</code>, <code>close_time</code>, <code>resolve_time</code>, <code>close_date</code>, <code>outcome</code>, <code>time_open</code>, <code>n_opts</code>, <code>options</code>: As in the <a href="#forecasts">description of <code>forecasts</code> above</a></li>
 <li><code>q_title</code>: The title of the question, as a <code>str</code>.</li>
 </ul>
 <h2 id="Loading_Functions"><a class="hanchor" href="#Loading_Functions">Loading Functions</a></h2>
@@ -296,14 +301,44 @@ a subset of the forecasts in <code>data_file</code>.</p>
 <h3 id="metaculusloadquestionsfilesNone"><a class="hanchor" href="#metaculusloadquestionsfilesNone"><code>metaculus.load_questions(files=None)</code></a></h3>
 <p>Returns a pandas DataFrame with the columns described <a href="#Questions">here</a>
 loaded from <code>files</code>, by default from the files listed in
-<code>metaculus.questions_files</code> (value <code>[./data/metaculus/questions.csv]</code>).</p>
+<code>metaculus.questions_files</code> (value <code>["./data/metaculus/questions.csv"]</code>).</p>
+<h3 id="metaculusloadpublicbinaryfilesNone_processedTrue"><a class="hanchor" href="#metaculusloadpublicbinaryfilesNone_processedTrue"><code>metaculus.load_public_binary(files=None, processed=True)</code></a></h3>
+<p><strong>Note</strong>: This data is not the data for individual forecasters, but
+timeseries data for each question (capped at 101 interpolated datapoints
+per question).</p>
+<p>Returns a pandas DataFrame with forecasting data frome the
+public Metaculus API. The columns of the data are described
+<a href="#Questions">here</a>, and the data is loaded from <code>files</code>, by
+default from the files in <code>metaculus.public_files</code> (value
+(<code>["./data/metaculus/public.csv.zip"]</code>).</p>
+<h4 id="Arguments_1"><a class="hanchor" href="#Arguments_1">Arguments</a></h4>
+<ul>
+<li><code>files</code>: Specify a different file do load the data from.</li>
+<li><code>processed</code>: If <code>True</code>, load the data from a pre-processed CSV, if <code>False</code>, load it from the original JSON. Currently the only difference is that loading from the original data is slower.</li>
+</ul>
+<h3 id="predictionbookloadfilesNone_processedTrue"><a class="hanchor" href="#predictionbookloadfilesNone_processedTrue"><code>predictionbook.load(files=None, processed=True)</code></a></h3>
+<p>Return a pandas DataFrame with forecasts from PredictionBook (columns
+of the data described <a href="#Questions">here</a>).</p>
+<p>The data is loaded from <code>files</code>, by default <code>public_files</code>
+(<code>["./data/predictionbook/public.csv.zip"]</code>).</p>
+<h4 id="Arguments_2"><a class="hanchor" href="#Arguments_2">Arguments</a></h4>
+<ul>
+<li><code>files</code>: Specify a different file do load the data from.</li>
+<li><code>processed</code>: If <code>True</code>, load the data from a pre-processed CSV, if <code>False</code>, load it from the original HTML files. Currently the only difference is that loading from the original data is far far slower.</li>
+</ul>
+<h3 id="predictionbookloadquestionsdatafileNone_processedTrue"><a class="hanchor" href="#predictionbookloadquestionsdatafileNone_processedTrue"><code>predictionbook.load_questions(data_file=None, processed=True)</code></a></h3>
+<p>Returns a pandas DataFrame with the columns described <a href="#Questions">here</a>
+loaded from <code>data_file</code>, by default from the files listed in
+<code>predictionbook.questions_file</code> (value <code>["./data/metaculus/questions.csv.zip"]</code>).</p>
+<p>Setting <code>processed=False</code> makes the loading much slower, and currently
+has no other effect.</p>
 <h2 id="General_Functions"><a class="hanchor" href="#General_Functions">General Functions</a></h2>
 <h3 id="aggregateforecasts_aggregationfunction_onquestionid_answeroption_args_kwargs"><a class="hanchor" href="#aggregateforecasts_aggregationfunction_onquestionid_answeroption_args_kwargs"><code>aggregate(forecasts, aggregation_function, on=['question_id', 'answer_option'], *args, **kwargs)</code></a></h3>
 <p>Combine multiple forecasts on questions into a single probability by
 running <code>aggregation_function</code> over the <code>forecasts</code>, aggregation
 method provided by the user (e.g. the <a href="https://forum.effectivealtruism.org/posts/sMjcjnnpoAQCcedL2/when-pooling-forecasts-use-the-geometric-mean-of-odds">geometric mean of
 odds</a>).</p>
-<h4 id="Arguments_1"><a class="hanchor" href="#Arguments_1">Arguments</a></h4>
+<h4 id="Arguments_3"><a class="hanchor" href="#Arguments_3">Arguments</a></h4>
 <p>The type signature of the function is</p>
 <pre><code>aggregate: DataFrame × (DataFrame × Optional(arguments) -&gt; [0,1]) × list × Optional(arguments) -&gt; DataFrame
 </code></pre>
@@ -368,7 +403,7 @@ answer option on the question.</p>
 <h3 id="scoreforecasts_scoringrule_onquestionid_args_kwargs"><a class="hanchor" href="#scoreforecasts_scoringrule_onquestionid_args_kwargs"><code>score(forecasts, scoring_rule, on=['question_id'] *args, **kwargs)</code></a></h3>
 <p>Score predictions or aggregated predictions on questions, method can be
 given by the user.</p>
-<h4 id="Arguments_2"><a class="hanchor" href="#Arguments_2">Arguments</a></h4>
+<h4 id="Arguments_4"><a class="hanchor" href="#Arguments_4">Arguments</a></h4>
 <p>Throws an exception if there are no forecasts loaded/aggregations computed
 (i.e. the number of rows of <code>forecasts</code>/<code>aggregations</code> is zero).</p>
 <p>The type signature of the function is</p>
@@ -456,7 +491,7 @@ before the time of prediction.</p>
 <p>Change <code>forecasts</code> so that it has contains a new field <code>cumul_score</code>. The
 field contains the past performance of the user making that forecast,
 before the time of prediction.</p>
-<h4 id="Arguments_3"><a class="hanchor" href="#Arguments_3">Arguments</a></h4>
+<h4 id="Arguments_5"><a class="hanchor" href="#Arguments_5">Arguments</a></h4>
 <p>The type signature of the function is</p>
 <pre><code>cumul_user_score: Dataframe × ([0,1]ⁿ × {0,1}ⁿ × Optional(arguments) -&gt; float) × Optional(arguments) -&gt; DataFrame
 </code></pre>
@@ -492,7 +527,7 @@ before <code>timestamp</code>), as judged by <code>scoring_rule</code></p>
 <h3 id="addcumuluserpercforecasts_lowerbetterTrue"><a class="hanchor" href="#addcumuluserpercforecasts_lowerbetterTrue"><code>add_cumul_user_perc(forecasts, lower_better=True)</code></a></h3>
 <p>Based on cumulative past scores, add the percentile of forecaster
 performance the forecaster finds themselves in at the time of forecasting.</p>
-<h4 id="Arguments_4"><a class="hanchor" href="#Arguments_4">Arguments</a></h4>
+<h4 id="Arguments_6"><a class="hanchor" href="#Arguments_6">Arguments</a></h4>
 <p>Takes a DataFrame with at least the columns</p>
 <ul>
 <li><code>timestamp</code></li>
@@ -517,7 +552,7 @@ bigger, which might lead to running of out RAM.</p>
 <p>Return a new DataFrame with a set of forecasts so that forecasts by
 individual forecasters are repeated daily until they make a new forecast
 or the question is closed.</p>
-<h4 id="Arguments_5"><a class="hanchor" href="#Arguments_5">Arguments</a></h4>
+<h4 id="Arguments_7"><a class="hanchor" href="#Arguments_7">Arguments</a></h4>
 <p>A DataFrame of the format described <a href="#Forecasts">here</a>, necessary columns
 are <code>question_id</code>, <code>user_id</code>, <code>answer_option</code>, <code>timestamp</code>, <code>time_close</code>.</p>
 <h4 id="Returns_5"><a class="hanchor" href="#Returns_5">Returns</a></h4>
@@ -540,7 +575,7 @@ or the question is closed.</p>
 <p>A generic method for combining multiple forecasts into a
 single number, intended to be plugged as a second argument into
 <a href="./iqisadoc.html#aggregateforecasts_aggregationfunction_onquestionid_answeroption_args_kwargs"><code>aggregate</code></a>.</p>
-<h4 id="Arguments_6"><a class="hanchor" href="#Arguments_6">Arguments</a></h4>
+<h4 id="Arguments_8"><a class="hanchor" href="#Arguments_8">Arguments</a></h4>
 <ul>
 <li><code>group</code>: A <code>DataFrame</code> containing a set of forecasts</li>
 <li><code>summ</code>: Which method to use to combine forecasts together. Options are:
@@ -596,7 +631,7 @@ single number, intended to be plugged as a second argument into
 <h3 id="normaliseforecasts_onquestionid"><a class="hanchor" href="#normaliseforecasts_onquestionid"><code>normalise(forecasts, on=['question_id'])</code></a></h3>
 <p>Changes the field <code>forecasts</code> so that the values on the field
 <code>probability</code> assigned to different options on the same question sum to 1.</p>
-<h4 id="Arguments_7"><a class="hanchor" href="#Arguments_7">Arguments</a></h4>
+<h4 id="Arguments_9"><a class="hanchor" href="#Arguments_9">Arguments</a></h4>
 <ul>
 <li><code>forecasts</code>: A <code>DataFrame</code> with predictions, should have at least the columns `['question_id', 'probability']</li>
 <li><code>on</code>: The "scope" under which the values should sum to 1, by default <code>['question_id']</code></li>
