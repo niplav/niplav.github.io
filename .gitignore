@@ -1,3 +1,4 @@
+*.html
 *.eps
 *.log
 *.aux
@@ -6,3 +7,5 @@
 *.log
 *.dvi
 .*vis*
+!header.html
+code/turning/subpref_freq.txt
