@@ -2495,9 +2495,9 @@ eine kontingente verschmelzung von fast-sein und konkretheit"</p>
 </ul>
 <h2 id="Programming"><a class="hanchor" href="#Programming">Programming</a></h2>
 <ul>
-<li><p>cap
+<li>cap
 
-</p><ul>
+<ul>
 <li>  simple language for assembling different files into one. syntax very
 sed/ed like, mostly like this: <code>[line,]line@file[&lt;|^|&gt;][line,]line[|comm]</code>
 where line is a regex enclosed in '/' with an optional number suffix
@@ -2505,15 +2505,16 @@ or a line number, file is a filename and comm is a shell command in
 single quotes. the text from each file is inserted into a buffer and
 printed at the end of the cap script.</li>
 </ul></li>
-<li><p>toc
+<li>toc
 
-</p><ul>
+<ul>
 <li>  time out cat, which prints its input unless there was no
 input for more than argv[1] seconds (try different
 versions, settle for the most exact version that is
 not unbearably slow).</li>
 </ul></li>
-<li><p>lvst</p>
+<li>lvst
+
 <ul>
 <li><p>print levensthein distances of strings</p></li>
 <li><p>option '-f' for the field separator</p></li>
@@ -2526,7 +2527,8 @@ bar
 4:test:bar
 </code></pre></li>
 </ul></li>
-<li><p>cy</p>
+<li>cy
+
 <ul>
 <li>A very simple version control system, written in rc. inspiration from put and get, from "the unix programming environment".</li>
 <li>supports 3 operations
@@ -2540,7 +2542,8 @@ bar
 <li>reason: git/hg are good, but way too huge for private, simple, linear, personal repositories.</li>
 <li>inspiration: svn/rvn/eie<!--TODO: links for these--></li>
 </ul></li>
-<li><p>fle</p>
+<li>fle
+
 <ul>
 <li>suckless pager</li>
 <li>commands
@@ -2559,7 +2562,8 @@ bar
 </ul></li>
 <li>support for arbitrary length files, loading lazily, unicode is displayed properly, big lines are dealt with properly.</li>
 </ul></li>
-<li><p>recog</p>
+<li>recog
+
 <ul>
 <li>program that accepts one backus-naur form grammar and checks if it's input or other files match that grammar.</li>
 <li>BNF -(Convert to Chomsky Normal Form)&gt; CNF -(Cocke-Younger-Kasami algorithm)&gt; Boolean</li>
@@ -2589,7 +2593,8 @@ bar
 </ul></li>
 </ul></li>
 </ul></li>
-<li><p>sif</p>
+<li>sif
+
 <ul>
 <li>simple text processing filter that takes only one instruction</li>
 <li>(single instruction filter)</li>
@@ -2604,7 +2609,8 @@ bar
 <li>sif does not do input/output buffering and does treat whitespace as any other character.</li>
 <li>normally, everything is printed, unless the option '-n' is used.</li>
 </ul></li>
-<li><p>pau</p>
+<li>pau
+
 <ul>
 <li>vis-digraph reads from the terminal input directly and emulates the input of the corresponding character
 
@@ -2643,11 +2649,13 @@ bar
 <li>  daemon that catches such digraphs and emulates them as
 if they were typed, using vis-digraph</li>
 </ul></li>
-<li><p>mtfs</p>
+<li>mtfs
+
 <ul>
 <li>plan9 file server for a file that returns the current metric time on read</li>
 </ul></li>
-<li><p>libbruch</p>
+<li>libbruch
+
 <ul>
 <li>rational numbers with libzahl</li>
 <li>some functions:
@@ -2667,12 +2675,14 @@ bmod, bcmp, bcmpu, bsqrt, binit, bfree, bsave,
 bload, bsetup, bunsetup, berror, bperror</li>
 </ul></li>
 </ul></li>
-<li><p>nager</p>
+<li>nager
+
 <ul>
 <li>sxhkd for the mouse</li>
 <li>syntax: <code>[MOUSEEVENT] [, MOUSEEVENT] [ /*possibly nested*/ COMMAND ]</code></li>
 </ul></li>
-<li><p>erle</p>
+<li>erle
+
 <ul>
 <li>rlwrap alternative, takes ideas from the fish shell interactive mode</li>
 <li>normal readline like behavior (but using something simpler, like linenoise/dietline)</li>
@@ -2691,7 +2701,8 @@ of the last command beginning with the current line.</li>
 <li>benchmark and optimise, of course</li>
 </ul></li>
 </ul></li>
-<li><p>pandeck</p>
+<li>pandeck
+
 <ul>
 <li>convert files from different spaced repetition softwares into another
 
@@ -2702,66 +2713,77 @@ of the last command beginning with the current line.</li>
 <li><a href="https://withorbit.com/">orbit</a></li>
 </ul></li>
 </ul></li>
-<li><p>unitspheretransform</p>
+<li>unitspheretransform
+
 <ul>
 <li>VR application that visualizes the transformation of the unit sphere in 3-dimensional space</li>
 <li>also unit circle transform</li>
 <li>color code the original vectors</li>
 <li>interpolate them?</li>
 </ul></li>
-<li><p>hedonium</p>
+<li>hedonium
+
 <ul>
 <li>look up different information-processing centric ideas about consciousness</li>
 <li>combine them with the symmetry theory of valence</li>
 <li>implement the best approximation of these</li>
 </ul></li>
-<li><p>minspantree</p>
+<li>minspantree
+
 <ul>
 <li>implement all algorithms for the minimum spanning tree in a functional programming language</li>
 <li>like sml/ocaml</li>
 <li><code>/usr/local/doc/unread/cs/state_of_the_art_algorithms_for_minimum_spanning_trees_eisner_1997.pdf</code></li>
 </ul></li>
-<li><p>nenio</p>
+<li>nenio
+
 <ul>
 <li>a suckless prolog implementation</li>
 <li>ISO prolog</li>
 </ul></li>
-<li><p>rien</p>
+<li>rien
+
 <ul>
 <li>suckless sml implementation, sml '97</li>
 <li>maybe build on mosml</li>
 </ul></li>
-<li><p>curve</p>
+<li>curve
+
 <ul>
 <li>C with significant whitespace</li>
 <li>indentation instead of braces</li>
 <li>optional semicolons &amp; optional parentheses around for/while/if/switch</li>
 </ul></li>
-<li><p>jmp</p>
+<li>jmp
+
 <ul>
 <li>j/z for rc</li>
 <li>jumps into frecent directories</li>
 <li>should also work on plan9</li>
 </ul></li>
-<li><p>ladder</p>
+<li>ladder
+
 <ul>
 <li>datastructure where key and value are interchangeable</li>
 <li>two arrays/slice, sorted, where each element has a pointer to the corresponding element in the other list</li>
 <li>searching has the speed of binary search</li>
 <li>insertion has the speed of the underlying datastructure, but twice</li>
 </ul></li>
-<li><p>openspace</p>
+<li>openspace
+
 <ul>
 <li>  Given a rectangle with many inscribed rectangles, what is the
 biggest open rectangle in there?</li>
 <li>Seems like a packing problem</li>
 </ul></li>
-<li><p>species</p>
+<li>species
+
 <ul>
 <li>browsable tree of all currently known biological species</li>
 <li>starting from the highest classification</li>
 </ul></li>
-<li><p>texdown</p>
+<li>texdown
+
 <ul>
 <li>small TeX library that offers basic markdown-like functionality:
 
@@ -2776,7 +2798,8 @@ biggest open rectangle in there?</li>
 <li>paragraph headings</li>
 </ul></li>
 </ul></li>
-<li><p>librule</p>
+<li>librule
+
 <ul>
 <li>C library for raku rules</li>
 <li>read about:
@@ -2789,66 +2812,78 @@ biggest open rectangle in there?</li>
 <li>example program: far (find after rule, grep; but with raku rules)</li>
 <li>github.com/zorgnax/librx</li>
 </ul></li>
-<li><p>nest</p>
+<li>nest
+
 <ul>
 <li>program dealing with nested data structures</li>
 <li>similar to lisp, but without execution</li>
 <li>am I NIHing this?</li>
 </ul></li>
-<li><p>noise</p>
+<li>noise
+
 <ul>
 <li>utility for producing white/pink/brown/&amp;c noise</li>
 </ul></li>
-<li><p>spiel</p>
+<li>spiel
+
 <ul>
 <li>utility for logging/visualizing daygame stats</li>
 </ul></li>
-<li><p>orakel</p>
+<li>orakel
+
 <ul>
 <li>utility for making/ranking/visualizing forecasts</li>
 </ul></li>
-<li><p>dukkha</p>
+<li>dukkha
+
 <ul>
 <li>utility for logging/visualizing meditation stats</li>
 <li>get inspiration from meditavo</li>
 </ul></li>
-<li><p>tomate</p>
+<li>tomate
+
 <ul>
 <li>little pomodoro utility</li>
 </ul></li>
-<li><p>sent2tex</p>
+<li>sent2tex
+
 <ul>
 <li>converts a sent presentation to a pdf presentation</li>
 </ul></li>
-<li><p>1on1match: Platform that connects people who'd like to do 1-on-1s,
-by personality style</p></li>
-<li><p>Offline version of guesstimate</p></li>
-<li><p>A reddit bot on /r/gonewildstories that does a gender analysis for
-the writing and posts the result</p></li>
-<li><p>choiceworth</p>
+<li>  1on1match: Platform that connects people who'd like to do 1-on-1s,
+by personality style</li>
+<li>Offline version of guesstimate</li>
+<li>  A reddit bot on /r/gonewildstories that does a gender analysis for
+the writing and posts the result</li>
+<li>choiceworth
+
 <ul>
 <li>A small program implementing the method by MacAskill, Ord &amp; Bykvist 2020 in “Moral Uncertainty”</li>
 <li>Using MEC, variance voting, and the Borda rule</li>
 </ul></li>
-<li><p>socialchoice: Library implementing most of the concepts from social choice theory, e.g. (not inclusive):</p>
+<li>socialchoice: Library implementing most of the concepts from social choice theory, e.g. (not inclusive):
+
 <ul>
 <li>Tournament graphs</li>
 <li>Top cycle, Banks set, Uncovered set</li>
 <li>Majority voting, plurality, Borda score, Kemeny rule</li>
 <li>Methods for checking manipulability, single-peakedness</li>
 </ul></li>
-<li><p>interweave</p>
+<li>interweave
+
 <ul>
 <li>A utility that takes a list of files and "interweaves" their lines (or by some other separator)</li>
 <li>E.g. "a\nb\n" and "1\n2\n3\n4\n" will become "a\n1\n2\nb\n3\n4\n"</li>
 </ul></li>
-<li><p>Computing Shapley Values in Klong</p>
+<li>Computing Shapley Values in Klong
+
 <ul>
 <li>First argument: the function, second argument: the given values, third argument: the fallback values.</li>
 <li><code>shapleyval::{f::x;g::y;d::z;{s::!#g;s::ps(&amp;~s=x)}'!#y}</code></li>
 <li><code>shapleyval({(x@2)+(*x)^x@1};[2 4 4];[1 1 0])</code></li>
 </ul></li>
-<li><p>A distributed issue tracking system</p>
+<li>A distributed issue tracking system
+
 <ul>
 <li>See <a href="https://nullprogram.com/blog/2009/02/14/">Wellons 2009</a></li>
 <li>Why didn't this happen in the first place?</li>
@@ -2862,15 +2897,16 @@ focused on the issue tracking/continuous builds component
 </ul></li>
 <li>Check out <a href="http://ditz.rubyforge.org/">ditz</a>/cil/ticgit and others (bug from the suckless page?)</li>
 </ul></li>
-<li><p>ssam</p>
+<li>ssam
+
 <ul>
 <li>A stream version of sam: ssam : sam :: sed : ed</li>
 <li>Like, a proper one, not just a thin shell script wrapped around sam</li>
 <li>Maybe this exists already?</li>
 </ul></li>
-<li><p>Dovetail the shortest brainfuck quine, in practice</p></li>
-<li><p>EA idea repository</p></li>
-<li><p>Open source onlyfans</p></li>
+<li>Dovetail the shortest brainfuck quine, in practice</li>
+<li>EA idea repository</li>
+<li>Open source onlyfans</li>
 </ul>
 <h3 id="Klong_Libraries"><a class="hanchor" href="#Klong_Libraries">Klong Libraries</a></h3>
 <ul>
@@ -2925,22 +2961,22 @@ focused on the issue tracking/continuous builds component
 </ul>
 <h3 id="Contributions"><a class="hanchor" href="#Contributions">Contributions</a></h3>
 <ul>
-<li><p>mupdf
+<li>mupdf
 
-</p><ul>
+<ul>
 <li>implement unicode search</li>
 <li>improve search overall, lacking</li>
 <li>why don't ← and → work for next/prev page?</li>
 </ul></li>
-<li><p>myrddin
+<li>myrddin
 
-</p><ul>
+<ul>
 <li>documentation: "and modern features with a high cost-benefit ratio"</li>
 <li>cost/benefit is high? Clarify</li>
 </ul></li>
-<li><p>vis
+<li>vis
 
-</p><ul>
+<ul>
 <li>add C-a and C-e for beginning of line and end of line in insert mode</li>
 <li>add C-← and C-→ for jumping words in insert mode (equivalent of b and e)</li>
 <li>fix syntax highlighting for ocaml with single quotes: 'a takes the whole line</li>
@@ -2957,52 +2993,54 @@ focused on the issue tracking/continuous builds component
 <li>plugin for adding markdown wikipedia link easily</li>
 <li>Add syntax highlighting for Julia</li>
 </ul></li>
-<li><p>sad
+<li>sad
 
-</p><ul>
+<ul>
 <li>implement features that weren't finished</li>
 <li>care for it</li>
 </ul></li>
-<li><p>toxcore
+<li>toxcore
 
-</p><ul>
+<ul>
 <li>maybe</li>
 <li>single/group</li>
 <li>chat/audio/video</li>
 <li>not much more, really</li>
 </ul></li>
-<li><p>neo2
+<li>neo2
 
-</p><ul>
+<ul>
 <li>port neo2 to plan9/9front/Haiku OS</li>
 </ul></li>
-<li><p>git
+<li>git
 
-</p><ul>
+<ul>
 <li>Add heatmap flag for git blame (for recency)</li>
 </ul></li>
-<li><p>WebTeX
+<li>WebTeX
 
-</p><ul>
+<ul>
 <li>Make it able to display <code>\bigsqcap</code>, <code>\bigplus</code>, <code>\bigmult</code></li>
 </ul></li>
-<li><p>Help administering schelling.pt, it needs it</p></li>
-<li><p>klong</p>
-<ul>
-<li><p>receiving output of shell commands (maybe via pipe?)</p></li>
-<li><p>self adverb (options are :!, :&amp;, :,, :;, :&lt;, :&gt;, :?)
+<li>Help administering schelling.pt, it needs it</li>
+<li>klong
 
-</p><ul>
+<ul>
+<li>receiving output of shell commands (maybe via pipe?)</li>
+<li>self adverb (options are :!, :&amp;, :,, :;, :&lt;, :&gt;, :?)
+
+<ul>
 <li>:&lt; and :&gt; should be reserved for something symmetric</li>
 <li>:; is not fit because ; is not really a verb or adverb</li>
 <li>:!, :&amp;, :? and :, are the best options</li>
 </ul></li>
-<li><p>support for complex numbers
+<li>support for complex numbers
 
-</p><ul>
+<ul>
 <li>logarithms for complex numbers</li>
 </ul></li>
-<li><p>nplot</p>
+<li>nplot
+
 <ul>
 <li><p>Support for multiple bargraphs</p></li>
 <li><p>Bargraphs with negative values</p></li>
@@ -3019,40 +3057,46 @@ text(100;100;"Baz")
 draw()
 </code></pre></li>
 </ul></li>
-<li><p>nstat</p>
+<li>nstat
+
 <ul>
 <li>n% confidence interval</li>
 <li>polynomial/exponential/logarithmic (?) fit for a dataset</li>
 </ul></li>
-<li><p>Range is extremely slow for anything but integers, why?</p></li>
-<li><p>error with klong: <code>#'s58'!40</code> returns <code>kg: error: call: type error: [6 :triad %call1 %pop1]</code></p>
+<li>Range is extremely slow for anything but integers, why?</li>
+<li>error with klong: <code>#'s58'!40</code> returns <code>kg: error: call: type error: [6 :triad %call1 %pop1]</code>
 <ul>
 <li>bug, report</li>
 </ul></li>
-<li><p>Pivot in the gauss/elim implementations</p></li>
+<li>Pivot in the gauss/elim implementations</li>
 </ul></li>
-<li><p>fzf</p>
+<li>fzf
+
 <ul>
 <li>Why doesn't fzf cope well with shuffled or repeated letters?</li>
 <li>'niiiiiplav' and 'nlapiv' both take me to the wrong directory, they're obviously meant for my home directory</li>
 </ul></li>
-<li><p>txtnish</p>
+<li>txtnish
+
 <ul>
 <li>add a <code>mentions</code> command</li>
 </ul></li>
-<li><p>Mood Patterns</p>
+<li>Mood Patterns
+
 <ul>
 <li>Add option to change the notification sound</li>
 </ul></li>
-<li><p>Find schelling.pt thread for bugs</p></li>
-<li><p>pandas apply to Expanding allows only single float values, not tables</p></li>
-<li><p>numpy unique that doesn't require sortability, just comparability</p></li>
-<li><p>Anki doesn't let you set the backup directory</p></li>
-<li><p>Julia</p>
+<li>Find schelling.pt thread for bugs</li>
+<li>pandas apply to Expanding allows only single float values, not tables</li>
+<li>numpy unique that doesn't require sortability, just comparability</li>
+<li>Anki doesn't let you set the backup directory</li>
+<li>Julia
+
 <ul>
 <li>repl only goes back one item in history through keypress up</li>
 </ul></li>
-<li><p>dc 9base manpage:</p>
+<li>dc 9base manpage:
+
 <ul>
 <li>typo in the order of operations in the manpage</li>
 </ul></li>
@@ -3144,6 +3188,11 @@ functions in general produce contractions
 <li>Scaling Laws for Large Language Models</li>
 <li>Bounded Agency</li>
 <li>Pentagon 2023 leaks</li>
+<li>Devonian Toolkit
+
+<ul>
+<li><code>https://www.annualreviews.org/doi/full/10.1146/annurev-ento-011613-162041</code></li>
+</ul></li>
 </ul>
 <h3 id="Improve"><a class="hanchor" href="#Improve">Improve</a></h3>
 <ul>
@@ -3220,6 +3269,7 @@ functions in general produce contractions
 </ul></li>
 <li>Network cost-sharing game</li>
 <li>Full list of 10,000 vital articles</li>
+<li>Improve Mathematical Alphanumeric Symbols: Add explanation of how to write them in <code>$\LaTeX$</code></li>
 </ul>
 <h2 id="Lesswrong_wiki"><a class="hanchor" href="#Lesswrong_wiki">Lesswrong wiki</a></h2>
 <ul>
