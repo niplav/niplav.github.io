@@ -1467,7 +1467,7 @@ dataset (<code>clean_{met,pb}forecasts</code>):</p>
 </code></pre>
 <p>The PredictionBook data—how do I put this—simply makes no sense.
 I am pretty confident that this code <em>is</em> correct, but I think that
-the questions with very few prdictions are producing incorrect results,
+the questions with very few predictions are producing incorrect results,
 especially when the predictions are very close to each other. So let's
 arbitrarily exclude questions with less than ten predictions (actually
 an arbitrary choice I did not iterate over to get a "desired" result):</p>
@@ -1821,7 +1821,7 @@ record</a>
 has 765 forecasts)!</p>
 <p><img alt="If an item does not appear in our records, it does not exist" src="./img/range_and_forecasting_accuracy/api_incomplete.png" title="Image of confused Obi-Wan Kenobi, with the text “Impossible. Perhaps the api is incomplete.” (If an item does not appear in our records, it does not exist)"/></p>
 <p>I initially suspected a bug in my code, but to my surprise, after further
-investigation, it turns out that the Metaculus API returns timeseries
+investigation, it turns out that the Metaculus API returned timeseries
 with elements removed so that the length was always 101.</p>
 <p>I can think of two reasons to do this:</p>
 <ul>
@@ -1840,7 +1840,8 @@ my job, luckily the Metaculus admins also allowed me to use it for my
 private investigations.</p>
 <p>I subsequently <a href="./range_and_forecasting_accuracy.html#Appendix_A_Replicating_Metaculus_Findings_With_Full_Data">tried to replicate my previous
 findings</a>
-with the private data, finding that the findings <a href="#Replication_Inbound">mostly replicate, or are slightly different</a>.</p>
+with the private data, finding that the findings <a href="#Replication_Inbound">mostly replicate,
+or are only slightly different</a>.</p>
 <h2 id="Limitations"><a class="hanchor" href="#Limitations">Limitations</a></h2>
 <p>This analysis is still quite lacking in several aspects and could be
 significantly improved.</p>
