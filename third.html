@@ -32,19 +32,19 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-02-03, modified: 2022-02-03, language: english, status: draft, importance: 1, confidence: fiction</em></p>
 <h1 id="Third_Variable"><a class="hanchor" href="#Third_Variable">Third Variable</a></h1>
 <blockquote>
-<p><strong><em>IC* Algorithm</em></strong> (<strong>Inductive Causation with Latent Variables</strong>)<br/>
-<strong>Input:</strong> <code>$\hat{P}$</code>, a stable distribution (with respect to some latent structure).<br/>
-<strong>Output</strong>: core (<code>$\hat{P}$</code>), a marked pattern.<br/>
-1. For each pair of variables <code>$a$</code> and <code>$b$</code>, search for a set <code>$S_{ab}$</code> such that <code>$a$</code> and <code>$b$</code> are independent in <code>$\hat{P}$</code>, conditioned on <code>$S_{ab}$</code>. If there is no such <code>$S_{ab}$</code>, place an undirected link between the two variables, <code>$a—b$</code>.<br/>
-2. For each pair of nonadjacent variables <code>$a$</code> and <code>$b$</code> with a common neighbor <code>$c$</code>, check if <code>$c \in S_{ab}$</code>.<br/>
-        If it is, then continue.<br/>
-        If it is not, then add arrowheads pointing at <code>$c$</code> (i.e., <code>$a \rightarrow c \leftarrow b$</code>).<br/>
-3. In the partially directed graph that results, add (recursively) as many arrowheads as possible, and mark as many edges as possible, according to the following two rules:<br/>
-        R₁: For each pair of nonadjacent nodes <code>$a$</code> and <code>$b$</code> with a common neighbor <code>$c$</code>, if the link between <code>$a$</code> and <code>$c$</code> has an arrowhead into <code>$c$</code> and if the link between <code>$c$</code> and <code>$b$</code> has no arrowhead into <code>$c$</code>, then the arrowhead on the link between <code>$c$</code> and <code>$b$</code> and the mark that link to obtain <code>$c \overset{*}{\rightarrow} b$</code>.<br/>
+<p><strong><em>IC* Algorithm</em></strong> (<strong>Inductive Causation with Latent Variables</strong>) <br/>
+<strong>Input:</strong> <code>$\hat{P}$</code>, a stable distribution (with respect to some latent structure). <br/>
+<strong>Output</strong>: core (<code>$\hat{P}$</code>), a marked pattern. <br/>
+1. For each pair of variables <code>$a$</code> and <code>$b$</code>, search for a set <code>$S_{ab}$</code> such that <code>$a$</code> and <code>$b$</code> are independent in <code>$\hat{P}$</code>, conditioned on <code>$S_{ab}$</code>. If there is no such <code>$S_{ab}$</code>, place an undirected link between the two variables, <code>$a—b$</code>. <br/>
+2. For each pair of nonadjacent variables <code>$a$</code> and <code>$b$</code> with a common neighbor <code>$c$</code>, check if <code>$c \in S_{ab}$</code>. <br/>
+        If it is, then continue. <br/>
+        If it is not, then add arrowheads pointing at <code>$c$</code> (i.e., <code>$a \rightarrow c \leftarrow b$</code>). <br/>
+3. In the partially directed graph that results, add (recursively) as many arrowheads as possible, and mark as many edges as possible, according to the following two rules: <br/>
+        R₁: For each pair of nonadjacent nodes <code>$a$</code> and <code>$b$</code> with a common neighbor <code>$c$</code>, if the link between <code>$a$</code> and <code>$c$</code> has an arrowhead into <code>$c$</code> and if the link between <code>$c$</code> and <code>$b$</code> has no arrowhead into <code>$c$</code>, then the arrowhead on the link between <code>$c$</code> and <code>$b$</code> and the mark that link to obtain <code>$c \overset{*}{\rightarrow} b$</code>. <br/>
         R₂: If <code>$a$</code> and <code>$b$</code> are adjacent and there is a directed path (composed strictly of marked links) from <code>$a$</code> to <code>$b$</code> […], then add an arrowhead pointing toward <code>$b$</code> on the link between <code>$a$</code> and <code>$b$</code>.</p>
 </blockquote>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Judea_Pearl">Judea Pearl</a>, “Causality: Models, Reasoning, And Inference” p. 52-53, 2009</em></p>

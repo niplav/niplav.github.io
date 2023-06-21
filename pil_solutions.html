@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-01-08, modified: 2022-01-08, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 <blockquote>
 <p><strong>Solutions to the book “Programming in Lua” by Roberto
@@ -928,8 +928,8 @@ end
 </code></pre>
 <h3 id="Exercise_114"><a class="hanchor" href="#Exercise_114">Exercise 11.4</a></h3>
 <ul>
-<li><p><code>g</code>: the graph</p></li>
-<li><p><code>s</code>: the name of the starting point</p></li>
+<li><code>g</code>: the graph</li>
+<li><code>s</code>: the name of the starting point</li>
 <li><p><code>e</code>: the name of the endpoint</p>
 <p>dofile("ex_3.lua")</p>
 <p>function dijkstra(g, s, e)
@@ -941,6 +941,7 @@ end
     local current=start</p>
 <pre><code>for i, j in pairs(g) do unvisited[j]=true end
 for i, j in pairs(g) do dist[j]=math.huge end
+
 
 dist[start]=0
 while current~=lst do
@@ -954,14 +955,18 @@ while current~=lst do
         end
     end
 
-    unvisited[current]=false
-    current=lst
-    for i, j in pairs(unvisited) do
-        if j==true and dist[i]&lt;dist[current] then
-            current=i
-        end
+
+<pre><code>unvisited[current]=false
+current=lst
+for i, j in pairs(unvisited) do
+    if j==true and dist[i]&amp;lt;dist[current] then
+        current=i
     end
 end
+</code></pre>
+
+end
+
 
 return prev
 </code></pre>

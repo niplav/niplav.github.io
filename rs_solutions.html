@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-10-14, modified: 2022-03-22, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 <blockquote>
 <p><strong>This page contains some solutions to exercises from the textbook
@@ -62,10 +62,10 @@ described by</p>
 <p>Hey look! <code>$+$</code> is commutative here!</p>
 <h3 id="23"><a class="hanchor" href="#23">2.3</a></h3>
 <blockquote>
-<p>A finite process graph <code>$T$</code> is a quadruple <code>$(\mathcal{Q}, A, \delta, q_0)$</code>, where<br/>
-• <code>$\mathcal{Q}$</code> is a finite set of states,<br/>
-• <code>$A$</code> is a finite set of labels,<br/>
-• <code>$q_0 \in \mathcal{Q}$</code> is the start state, and<br/>
+<p>A finite process graph <code>$T$</code> is a quadruple <code>$(\mathcal{Q}, A, \delta, q_0)$</code>, where <br/>
+• <code>$\mathcal{Q}$</code> is a finite set of states, <br/>
+• <code>$A$</code> is a finite set of labels, <br/>
+• <code>$q_0 \in \mathcal{Q}$</code> is the start state, and <br/>
 • <code>$\delta: \mathcal{Q} \times A \rightarrow 2^{\mathcal{Q}}$</code> is the transition function.  </p>
 <p>Using the operators introduced so far, give a CCS process that describes <code>$T$</code>.</p>
 </blockquote>
@@ -235,7 +235,6 @@ know that it must also hold that</p>
 <li>We assume that <code>$P \mathcal{R} Q \equiv a.(b.\mathbf{0}+c.\mathbf{0}) \mathcal{R} a.b.\mathbf{0} + a.c.\mathbf{0}$</code>
 <ul>
 <li>We transition on the left side, which we can only do via <code>$a$</code>, with the resulting assumptions
-
 <ul>
 <li><code>$b.\mathbf{0}+c.\mathbf{0} \mathcal{R} b.\mathbf{0}$</code>
 <ul>
@@ -331,7 +330,6 @@ is a strong bisimulation.</p>
 <p>Assume that <code>$(P|Q)|R$</code> makes an <code>$α$</code> transition. Then:</p>
 <ul>
 <li>If <code>$(P|Q)$</code> made the transition, then:
-
 <ul>
 <li>If <code>$P$</code> made the transition, then on the right side <code>$P$</code> can also make the transition</li>
 <li>If <code>$Q$</code> made the transition, then on the right side <code>$(Q|R)$</code> can make the transition (e.g. to <code>$(Q'|R)$</code>)</li>
@@ -742,7 +740,7 @@ is satisfied by <code>$a.b.\mathbf{0}+a.c.\mathbf{0}$</code> but not
 <p><code>$[a]\langle b \rangle(\langle c \rangle \textit{t}\!\textit{t} \land \langle d \rangle \textit{f}\!\textit{f})$</code>
 is satisfied by <code>$a.(b.c.\mathbf{0}+b.d.\mathbf{0})$</code> but not <code>$a.b.c.\mathbf{0}+a.b.d.\mathbf{0}$</code>.</p>
 <h3 id="57"><a class="hanchor" href="#57">5.7</a></h3>
-<p><img alt="" src="./img/rs_solutions/5_7.png"/>
+<p><img alt="" src="./img/rs_solutions/5_7.png" title=""/>
 <!--TODO: add tooltip explainin the content of the image--></p>
 <h3 id="511"><a class="hanchor" href="#511">5.11</a></h3>
 <p><code>$b.a.\mathbf{0}+b.\mathbf{0}$</code> and <code>$b.(a.\mathbf{0}+b.\mathbf{0})$</code>:
@@ -864,10 +862,8 @@ the set following the <code>$[\cdot \cdot]$</code> operator).</p>
 <ul>
 <li>Starting with the configuration <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t} \land [b] X)$</code>.</li>
 <li>The attacker can pick the next configuration
-
 <ul>
 <li>If they pick <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t})$</code>, the defender is next
-
 <ul>
 <li>The defender can only pick the configuration <code>$(s_2, \textit{t}\!\textit{t})$</code></li>
 <li>The defender wins</li>
@@ -877,16 +873,13 @@ the set following the <code>$[\cdot \cdot]$</code> operator).</p>
 <li>The attacker can pick the next state, which can only be <code>$(s_2, X)$</code></li>
 <li>The next move is made by the referee of the game, and results in <code>$(s_2, \langle b \rangle \textit{t}\!\textit{t} \land [b] X)$</code></li>
 <li>The attacker then can decide on two moves:
-
 <ul>
 <li>If they pick <code>$(s_2, \langle b \rangle \textit{t}\!\textit{t})$</code>, the defender is next
-
 <ul>
 <li>The defender can only pick the configuration <code>$(s_2, \textit{t}\!\textit{t})$</code></li>
 <li>The defender wins</li>
 </ul></li>
 <li>If they pick <code>$(s_2, [b] X)$</code>, the attacker is next
-
 <ul>
 <li>The attacker can only pick <code>$(s_2, X)$</code>, which brings us back to $(s_2, \langle b \rangle \textit{t}!\textit{t} \land [b] X)$`, which means the game is infinite here</li>
 <li>Since the formula is defined via <code>$\overset{\text{max}}{=}$</code>, the defender wins</li>
@@ -900,11 +893,9 @@ the set following the <code>$[\cdot \cdot]$</code> operator).</p>
 <ul>
 <li>Starting with the configuration <code>$(s, \langle b \rangle \textit{t}\!\textit{t} \lor \langle \{a,b\} \rangle Y)$</code></li>
 <li>The defender picks the next configuration
-
 <ul>
 <li>They don't want to pick <code>$(s, \langle b \rangle \textit{t}\!\textit{t})$</code>, since then they are stuck</li>
 <li>They can pick <code>$(s, \langle \{a,b\} \rangle Y)$</code>, and then are next
-
 <ul>
 <li>The only possible resulting state is <code>$(s_1, Y)$</code>, which the referee resolves to <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t} \lor \langle \{a,b\} \rangle Y)$</code></li>
 <li>They can now pick <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t})$</code></li>
@@ -917,7 +908,6 @@ the set following the <code>$[\cdot \cdot]$</code> operator).</p>
 <li>Starting with the configuration <code>$(t, \langle b \rangle \textit{t}\!\textit{t} \lor \langle \{a,b\} \rangle Y)$</code>
 <ul>
 <li>The defender can pick:
-
 <ul>
 <li><code>$(t, \langle b \rangle \textit{t}\!\textit{t})$</code>
 <ul>
@@ -927,7 +917,6 @@ the set following the <code>$[\cdot \cdot]$</code> operator).</p>
 <ul>
 <li>The next configuration they can choose is <code>$(t_1, \langle \{a,b\} \rangle Y)$</code></li>
 <li>From there, the defender can choose two configurations:
-
 <ul>
 <li><code>$(t_1, Y)$</code>
 <ul>

@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-02-10, modified: 2022-02-23, language: english, status: in progress, importance: 3, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>Solutions to the <a href="./99_klong_problems.html" title="99 Klong
@@ -43,7 +43,7 @@ problems up to date.</strong></p>
 </blockquote>
 <h1 id="99_Problems_Klong_Solutions"><a class="hanchor" href="#99_Problems_Klong_Solutions">99 Problems Klong Solutions</a></h1>
 <blockquote>
-<p>Weil ein Vers dir gelingt in einer gebildeten Sprache,<br/>
+<p>Weil ein Vers dir gelingt in einer gebildeten Sprache, <br/>
 Die für dich dichtet und denkt, glaubst du schon Dichter zu sein?</p>
 </blockquote>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Friedrich_Schiller">Friedrich Schiller</a>, “Votivtafeln” (Die Kunstschätzer), 1804</em></p>
@@ -148,7 +148,7 @@ compare <code>x</code> and its reversion that way.</p>
 </code></pre>
 <h3 id="P07__Flatten_a_nested_list_structure"><a class="hanchor" href="#P07__Flatten_a_nested_list_structure">P07 (**) Flatten a nested list structure.</a></h3>
 <p>This solution is taken from the Klong
-<a href="(http://t3x.org/klong/klong-ref.txt.html)">documentation</a>, while fixing
+<a href="(http://t3x.org/klong/klong-ref.txt.html">documentation</a>), while fixing
 a little problem. The original solution was <code>s7::{,/:~x}</code>, which applied
 the concatenation operator to the sublists of a list as long as the
 list changes with each operation, and then returned the list. However,
@@ -587,7 +587,7 @@ Each recursive step first creates all suffixes of the list, then calls
 of the results.</p>
 <p>If the suffixes were not created, calling the function would result in
 duplicates: <code>s26([:a :b];2)</code> would return <code>[[:a :b][:b :a]]</code>.</p>
-<p>The suffixes are created with the expression <code>{x}{1_x}\</code><code>y</code>, using the
+<p>The suffixes are created with the expression <code>{x}{1_x}\``y</code>, using the
 While adverb and exploiting the fact that <code>[]</code> is equivalent to <code>0</code>
 (false) in Klong. This expression can be expressed as "While x is not
 the empty list, drop one element of the front of list, and return all
@@ -1290,7 +1290,7 @@ kg: error: interrupted
 </code></pre>
 <p>This is to be expected, since negative-bit Gray codes do not make
 any sense.</p>
-<h3 id="P50__Huffman_code"><a class="hanchor" href="#P50__Huffman_code">P50 (***) Huffman code.</a></h3>
+<h3 id="None"><a class="hanchor" href="#None">P50 (<em>*</em>) Huffman code.</a></h3>
 <p>I am especially proud of this code.</p>
 <p>The problem statement only asks to create a code from the list of
 frequencies, but to make everything easier, one can write a function
@@ -1360,24 +1360,23 @@ returns the result string.</p>
 <ul>
 <li><code>frq</code> builds the frequency table</li>
 <li><code>treewalk</code> builds the huffman code from an existing tree</li>
-<li> <code>combsmallest</code> gets a list of trees and combines the ones with
+<li><code>combsmallest</code> gets a list of trees and combines the ones with
 the smallest root value</li>
-<li> <code>gencode</code> combines <code>combsmallest</code> and <code>treewalk</code> to generate a
+<li><code>gencode</code> combines <code>combsmallest</code> and <code>treewalk</code> to generate a
 huffman code from a frequency table</li>
 <li><code>bin</code> returns the binary representation of a number</li>
 <li><code>comp</code> creates an ASCII string from a list of binary digits</li>
-<li> <code>decomp</code> creates a list of binary digits from an ASCII string
+<li><code>decomp</code> creates a list of binary digits from an ASCII string
 (the inverse operation of <code>comp</code>)</li>
-<li> <code>encode</code> generates the huffman-encoded bit-array from a string,
+<li><code>encode</code> generates the huffman-encoded bit-array from a string,
 and from that creates a list with 3 elements
-
 <ul>
-<li>  the length of the bit array (needed because the conversion
+<li>the length of the bit array (needed because the conversion
 to a string pads the bit array with 0s or 1s)</li>
 <li>the frequency table of the string (using <code>frq</code>)</li>
 <li>the encoded string itself (using <code>comp</code>)</li>
 </ul></li>
-<li> <code>decode</code> receives a list created by <code>encode</code> and returns the
+<li><code>decode</code> receives a list created by <code>encode</code> and returns the
 original string by first generating the huffman code from the frequency
 table (using <code>gencode</code>), then decompressing the ASCII string using
 <code>decomp</code>, and then iterating through the string</li>
@@ -1730,7 +1729,7 @@ hbaltree::s59
 </code></pre>
 <p><code>hbaltree(2)</code> returns all height-balanced binary trees with height 3,
 I checked.<!--TODO: add images for all the different trees returned by
-`hbaltree(3)`?--> One could modify <code>hbaltree</code> to return an error message
+<code>hbaltree(3)</code>?--> One could modify <code>hbaltree</code> to return an error message
 for negative parameters, but since this is an exercise and not production
 code, this seems unnecessary here.</p>
 <p>One can now also find out how many height-balanced binary trees exist for
@@ -1819,12 +1818,12 @@ fit for the given purpose.</p>
 In the best case, a heigh-balanced binary tree of height <code>$h$</code> has
 at least <code>$\text{fib}_{h+3}-1$</code> nodes. Proof:</p>
 <ol>
-<li> Induction base: For height 0, the tree with the smallest amount
+<li>Induction base: For height 0, the tree with the smallest amount
 of nodes has 1 node (a single, unconnected node). For height 1, the
 heigh-balanced tree with the smallest amount of nodes has 2 nodes (2
 connected nodes).</li>
 <li>Induction assumption: <code>$\text{minnodes}_{h}=\text{fib}_{h+3}-1$</code>.</li>
-<li> Induction step: The height-balanced tree with height <code>$h+1$</code>
+<li>Induction step: The height-balanced tree with height <code>$h+1$</code>
 with the minimal number of nodes can be constructed using
 the tree with height <code>$h$</code> and the tree with height <code>$h-1$</code>
 and combining them using another node as a root. This way,
@@ -2020,7 +2019,7 @@ to standard library as a fix-->:</p>
 [[[0] [3]] [[0] [4]] [[0] [5]] [[1] [3]] [[1] [4]] [[1] [5]] [[2] [3]] [[2] [4]] [[2] [5]]]
 </code></pre>
 <p>When dealing with the cartesian product of two sets of trees,
-this is important to get right.<!--TODO: report bug & send correct
+this is important to get right.<!--TODO: report bug &amp; send correct
 implementation?--></p>
 <p><code>d7</code> then returns a list of lists, each of which contains two trees.
 Two combine each of these into a single tree, we use <code>d1</code> that was

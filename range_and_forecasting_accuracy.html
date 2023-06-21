@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2020-03-24, modified: 2023-01-20, language: english, status: maintenance, importance: 6, confidence: possible</em></p>
 <blockquote>
 <p><strong>This text looks at the accuracy of forecasts in
@@ -166,38 +166,35 @@ and the result of the prediction being known).</p>
 of the terms don't make sense, perhaps reading the <a href="#Three_Different_Analyses_An_Illustrative_Example">illustrative
 example</a> can help):</p>
 <ol>
-<li> Comparing <strong>all forecasts on all questions</strong>, irrespective of the
+<li>Comparing <strong>all forecasts on all questions</strong>, irrespective of the
 question (<a href="#Accuracy_Between_Forecasts">more</a>):
-
 <ol>
-<li> Predictions made <em>a long time before their resolution</em>
+<li>Predictions made <em>a long time before their resolution</em>
 are generally <em>less accurate</em> than predictions made
 <em>a shorter time before their resolution</em> (<a href="#Results_1">more</a>).
-
 <ol>
 <li>The results for PredictionBook and Metaculus disagree here. This can be partially,
 but not completely, explained by the
 fact that questions with a longer
 range receive more accurate forecasts
 (<a href="#This_Partially_Explains_the_Result_Between_Forecasts">more</a>).</li>
-<li> The correlations (0.02 for Metaculus, -0.02 for
+<li>The correlations (0.02 for Metaculus, -0.02 for
 PredictionBook) and
 <a href="https://en.wikipedia.org/wiki/Slope">slopes</a>
 of the <a href="https://en.wikipedia.org/wiki/Linear_regression">linear
 regressions</a>
 are close to 0.</li>
 </ol></li>
-<li> The timespan into the future at which our forecasts
+<li>The timespan into the future at which our forecasts
 become <em>approximately random</em> (the
 <em><a href="#The_Horizon">horizon</a></em>) is <em>not easily estimated
 from the data</em> (<a href="#This_Is_Cool">more</a>).
-
 <ol>
-<li> Fitting a logistic function
+<li>Fitting a logistic function
 (<a href="##Fitting_a_Logistic_Function">more</a>), the
 expected horizon is ~3.6 years for Metaculus
 and ~18 years for PredictionBook</li>
-<li> Fitting an exponential function
+<li>Fitting an exponential function
 (<a href="#Fitting_an_Exponential_Function">more</a>),
 the expected horizon is ~75 days for Metaculus,
 and ~0.5 days for PredictionBook</li>
@@ -205,42 +202,38 @@ and ~0.5 days for PredictionBook</li>
 </ol></li>
 <li>Aggregating <strong>the forecasts on each question, and then comparing the
 questions</strong> to one another (<a href="#Accuracy_Between_Questions">more</a>):
-
 <ol>
-<li> Questions with a longer range (that is, <em>time between the question
+<li>Questions with a longer range (that is, <em>time between the question
 being written and the question being resolved</em>) generally receive
 predictions with a higher accuracy than questions with a shorter
 range (<a href="#Results_2">more</a>).
-
 <ol>
-<li> Again, the correlation coefficients (-0.01 for
+<li>Again, the correlation coefficients (-0.01 for
 Metaculus (though p&gt;0.8), and -0.05 for
 PredictionBook) and the slopes of the linear
 regressions are close to 0.</li>
 </ol></li>
-<li> The <a href="#The_Horizon">horizon</a> is <em>only a few days</em> in this
+<li>The <a href="#The_Horizon">horizon</a> is <em>only a few days</em> in this
 scenario (<a href="#NonLinear_CurveFitting_1">more</a>), which <a href="#Why_Longer_Range_Questions_More_Accurate">might
 make sense</a>.</li>
 </ol></li>
-<li> Comparing <strong>only predictions on the same question</strong>, for all
+<li>Comparing <strong>only predictions on the same question</strong>, for all
 questions (<a href="#Accuracy_Within_Questions">more</a>):
-
 <ol>
-<li> Predictions made <em>on the same question closer to
+<li>Predictions made <em>on the same question closer to
 resolution time</em> are generally <em>more accurate</em> than
 predictions that are made <em>long before resolution time</em>
 (<a href="#Aggregating_Linear_Regressions">more</a>).</li>
-<li> The distribution of horizons is
+<li>The distribution of horizons is
 <em>long-tailed</em>, perhaps distributed logarithmically
 (<a href="#Logistic_Forecast_Horizons_for_Questions">more</a> and
 <a href="#Exponential_Forecast_Horizons_for_Questions">more</a>)
-
 <ol>
 <li>Most expected horizons are very short (&lt;10 days)</li>
-<li> For logistic curve-fits, the mean horizon over
+<li>For logistic curve-fits, the mean horizon over
 questions is improbably high (10²³ days)
 (<a href="#Logistic_Forecast_Horizons_for_Questions">more</a>).</li>
-<li> For exponential curve-fits, the mean
+<li>For exponential curve-fits, the mean
 horizon over questions is ~4.5 years for
 Metaculus and ~120 years for PredictionBook
 (<a href="#Exponential_Forecast_Horizons_for_Questions">more</a>).</li>
@@ -483,7 +476,7 @@ which I will use in the future to get hold of the data.</p>
 <p>Not knowing this when I initially wrote the code, I regressed
 to barbaric behavior: I knew that all individual predictions are
 visible on the web, which means I had to parse the HTML itself using
-<a href="https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser)">BeautifulSoup</a>.</p>
+<a href="https://en.wikipedia.org/wiki/Beautiful_Soup_(HTML_parser">BeautifulSoup</a>).</p>
 <p>This time the code is more complex, but just slightly so: It starts at
 the <a href="https://predictionbook.com/predictions/page/1">first page</a>
 of predictions, and loops down to the <a href="https://predictionbook.com/predictions/page/326">last
@@ -754,7 +747,6 @@ produce out-of-bounds errors (they at least return valid Brier scores).</p>
 <ol>
 <li>For <code>$x \ge 0$</code>, it returns values in <code>$[0, 0.25]$</code></li>
 <li>For <code>$x=0$</code>, it returns <code>$0$</code> (at the time of resolution, we can predict the outcome perfectly, because we already know it)
-
 <ol>
 <li>It'd be technically elegant if for <code>$r(x)=0$</code> for <code>$x \le 0$</code> (since we can perfectly predict things from the past (although there's a philosophical discussion to be had here about how much we can actually know things from the past, and maybe it's even symmetric with the future)), but it's not super important</li>
 </ol></li>
@@ -895,7 +887,7 @@ become random, we can neither steer nor see, the fogs of time have
 grown too thick. From our perspective, only chaos reigns there, and
 every decision-theoretic ship that sails it is never to return with
 valuable information.</p>
-<p>It is <a href="#Appendix_C_Quotes_About_the_Horizon_of%E2%80%A6Forecasts">sometimes
+<p>It is <a href="#Appendix_C_Quotes_About_the_Horizon_of…Forecasts">sometimes
 invoked</a>
 by people when they want to talk about the inherent unknowability of
 the future, always without evidence of any <em>actual number</em>.</p>
@@ -1974,7 +1966,6 @@ forecasting research…)</p>
 <li>"<a href="https://predictionbook.com/predictions/209371">Will the intercept of the aggregated linear regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 0.0388?</a>"<code>$_{50\%}$</code> (Yes. Actual value same as above.)</li>
 </ul></li>
 <li>Computing Horizons
-
 <ul>
 <li><a href="#Logistic_Forecast_Horizons_for_Questions">Logistic-ish Horizons</a>
 <ul>
@@ -2204,10 +2195,9 @@ for e in pwmetqbrier:
 original findings?</p>
 <ul>
 <li>Between forecasts
-
 <ul>
 <li>The positive correlation between range and accuracy stays the same ✓</li>
-<li> The linear regression is similar too (very small positive slope, intercept at ~0.16). ✓</li>
+<li>The linear regression is similar too (very small positive slope, intercept at ~0.16). ✓</li>
 <li>The logistic-ish fit gives values within ~2 orders of magnitude for the slope &amp; intercept, and both have the right sign. ✓</li>
 <li>The exponential-ish fit, though, gives a <em>much</em> different value close to 1, while the original was one close to zero. ✗</li>
 <li>The logistic-ish horizon is ~half as long as the one with the restricted data. ~</li>
@@ -2215,7 +2205,6 @@ original findings?</p>
 <li>The logistic-ish fit is better than the exponential-ish fit, again. ✓</li>
 </ul></li>
 <li>Between questions
-
 <ul>
 <li>The correlation between range and accuracy flips sign, but stays very small. ✗</li>
 <li>The slope of the linear regression also flips sign, but the intercept is remarkably similar. ~</li>
@@ -2227,10 +2216,9 @@ original findings?</p>
 <li>The mean squared errors of both methods are again remarkably close. ✓</li>
 </ul></li>
 <li>Within questions
-
 <ul>
 <li>Slope for linear regressions is surprising close, intercept off by a factor of ~2. Still ok. ✓</li>
-<li>Mean logistic-ish horizon is ~3 orders of magnitude away from original estimate, median &amp; mode are the same (?), variance is smaller (~5 orders of magnitude), maximum &amp; minimum are kind of close. Estimating the slope of a <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid</a> is difficut. ~</li>
+<li>Mean logistic-ish horizon is ~3 orders of magnitude away from original estimate, median &amp; mode are the same (?), variance is smaller (~5 orders of magnitude), maximum &amp; minimum are kind of close. Estimating the slope of a <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid</a> is difficult. ~</li>
 <li>Mean exponential-ish horizon is factor ~7 smaller than original estimate, median &amp; mode again are the same, variance smaller, maximum smaller and minimum slightly larger. ~</li>
 </ul></li>
 </ul>
@@ -2364,8 +2352,8 @@ your undoing. And predicting that dinosaurs would continue to preside
 at the top of the food chain was a safe bet for tens of millions of
 years—until an asteroid set off a cataclysm that opened up ecological
 niches for a tiny mammal that eventually evolved into a species that
-tries to predict the future.<br/>
-[…]<br/>
+tries to predict the future. <br/>
+[…] <br/>
 The further out the forecaster tries to look, the more opportunity there
 is for chaos to flap its butterfly wings and blow away expectations. Big
 leaps in computing power and continued refinement of forecasting models

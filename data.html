@@ -32,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-07-07, modified: 2022-08-07, language: english, status: notes, importance: 2, confidence: log</em></p>
+</head><body><h2><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2022-07-07, modified: 2023-06-17, language: english, status: notes, importance: 2, confidence: log</em></p>
 <blockquote>
 <p><strong>Notes for myself on the data I track, how to transform it into a
 usable shape, data quality and other random assortments.</strong></p>
@@ -47,9 +47,9 @@ for it, a 1-legged stool:</p>
 <blockquote>
 <p>The QS cycle is straightforward and flexible:  </p>
 <ol>
-<li>Have an idea<br/></li>
-<li>Gather data<br/></li>
-<li>Test the data<br/></li>
+<li>Have an idea  </li>
+<li>Gather data  </li>
+<li>Test the data  </li>
 <li>Make a change; GOTO 1</li>
 </ol>
 <p>Any of these steps can overlap: you may be collecting sleep data long
@@ -156,14 +156,14 @@ explanation.</p>
 <p>I didn't rate my sessions in the beginning (and manually inserted
 data from meditation retreats with unrated sessions), leading to
 a very optimistic default of 4.0 mindfulness and "concentration"
-(better called absorption, I claim). So we execute, using
+(better called absorption, I claim). So we remove those, using
 the <a href="https://plan9.io/sys/doc/sam/sam.html">sam</a> language in
 <a href="https://github.com/martanne/vis">vis</a>:</p>
-<pre><code>/^1,/;/^860,/
+<pre><code>,/^1,/;/^860,/
 x/4\.0,4\.0,/c/,/
-/^1210,/;/^1308,/
+,/^1210,/;/^1308,/
 x/4\.0,4\.0,/c/,/
-/^1594,/;/^1615,/
+,/^1594,/;/^1615,/
 x/4\.0,4\.0,/c/,/
 </code></pre>
 <p>The CSV of the meditation data can be found <a href="./data/meditations.csv">here</a>.</p>
@@ -196,7 +196,8 @@ x/4\.0,4\.0,/c/,/
 use the perfect <a href="https://en.wikipedia.org/wiki/ISO-8601">ISO-8601</a> when
 it's right there‽), then removing stray spaces after semicolons,
 then removing the <code>^M</code> from the end of each line, using
-<a href="./doc/cs/structural_regular_expressions_pike_1990.pdf" title="Structural Regular Expressions">structural regular                                                                                  expressions</a>:</p>
+<a href="./doc/cs/structural_regular_expressions_pike_1990.pdf" title="Structural Regular Expressions">structural regular
+expressions</a>:</p>
 <pre><code>,x/([0-9]+)\/([0-9]+)\/([0-9]+) /c/\3-\1-\2T/
 ,x/; /c/;/
 ,x/.$/c//
@@ -213,8 +214,8 @@ then removing the <code>^M</code> from the end of each line, using
 </code></pre>
 <p>and manually correct them (this is useful for the other fields as well,
 just to check consistency).</p>
-<p>Anonymizing locations and the names of girls:</p>
-<pre><code>$ awk -F,  'BEGIN { OFS="," }
+<p>Anonymizing locations and the names of the women:</p>
+<pre><code>$ awk -F, 'BEGIN { OFS="," }
 {
     if(loc[$2]=="" &amp;&amp; $2!="Location")
     {
@@ -254,6 +255,17 @@ which allows swift CSV export of the data. They even turned changed the
 <em>annoying</em> "hitting a block of wood with a hammer" notification sound to
 the OS default. No post-processing needed, the data <em>is just there</em>. An
 app by programmers, for programmers.</p>
+<p>But there is still <em>some</em> data cleanup to do:</p>
+<pre><code>cat mood.csv ~/site/data/mood.csv |
+sort |
+uniq |
+sed -E 's/^([0-9T: -]+),"/\1,\1,"/g' |
+sed 's/nothing/Nothing/g;s/mindfulness/Mindfulness/' |
+sort |
+uniq &gt;newmood.csv
+</code></pre>
+<p>The file contains (because of a slight screwup) some duplicated
+entries.<!--TODO: remove these (by hand or otherwise?)--></p>
 <p>CSV <a href="./data/mood.csv">here</a>, the data quality is mediocre (long stretches
 of not responding to questions, giving more conservative (closer to
 50) answers over time, starting to use activities around July 2022

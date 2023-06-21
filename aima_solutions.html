@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+</head><body><h2><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2021-01-21, modified: 2021-03-31, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 <blockquote>
 <p><strong>In which I solve exercsise from <a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">“Artificial Intelligence: A Modern
@@ -391,17 +391,17 @@ the strategy of backtracking with forward checking and the MRV and
 least-constraining-value heuristics.</p>
 </blockquote>
 <p><img alt="Figure 6.2" src="./img/aima_solutions/figure_6_2.png" title="Figure 6.2 (a) A cryptarithmetic problem. Each letter stands for a distinct digit; the aim is to find a substitution of digits for letters such that the resulting sum is arithmetically correct, with the added restriction that no leading zeroes are allowed. (b) The constraint hypergraph for the cryptarithmetic problem, showing the Alldiff constraint (square box at the top) as well as the column addition constraints (four square boxes in the middle). The variables C1, C2, and C3 represent the carry digits for the three columns."/></p>
-<p>Variables: <code>$X=\{F, T, U, W, R, O, C_1, C_2, C_3\}$</code><br/>
-Constraints:
-</p><div>
-    $$C={\langle O, R \rangle: O+O \mod 10=R, \
-    \langle W, U, C<em>1 \rangle: W+W+C</em>1 \mod 10=U, \
-    \langle T, O, C<em>2 \rangle: T+T+C</em>2 \mod 10=O, \
-    \langle C<em>1, O \rangle: C</em>1=1 \hbox{ if } O+O&gt;9 \hbox { else } 0, \
-    \langle C<em>2, W, C</em>1 \rangle: C<em>2=1 \hbox{ if } W+W+C</em>1&gt;9 \hbox { else } 0, \
-    \langle C<em>3, T, C</em>2 \rangle: C<em>3=1 \hbox{ if } T+T+C</em>2&gt;9 \hbox { else } 0, \
-    \langle F, C<em>3 \rangle: F=C</em>3\
-    \langle F, T, U, W, R, O \rangle: Alldiff(F, T, U, W, R, O)}$$
+<p>Variables: <code>$X=\{F, T, U, W, R, O, C_1, C_2, C_3\}$</code> <br/>
+Constraints:</p>
+<div>
+    $$C=\{\langle O, R \rangle: O+O \mod 10=R, \\
+    \langle W, U, C_1 \rangle: W+W+C_1 \mod 10=U, \\
+    \langle T, O, C_2 \rangle: T+T+C_2 \mod 10=O, \\
+    \langle C_1, O \rangle: C_1=1 \hbox{ if } O+O&gt;9 \hbox { else } 0, \\
+    \langle C_2, W, C_1 \rangle: C_2=1 \hbox{ if } W+W+C_1&gt;9 \hbox { else } 0, \\
+    \langle C_3, T, C_2 \rangle: C_3=1 \hbox{ if } T+T+C_2&gt;9 \hbox { else } 0, \\
+    \langle F, C_3 \rangle: F=C_3\\
+    \langle F, T, U, W, R, O \rangle: Alldiff(F, T, U, W, R, O)\}$$
 </div>
 <p>Domains: <code>$\{0..9\}$</code> for <code>$\{F, T, U, W, R, O\}$</code>, and <code>$\{0, 1\}$</code> for <code>$\{C_1, C_2, C_3\}$</code>.</p>
 <p>Replacing the Alldiff constraint with binary constraints:</p>
@@ -563,9 +563,9 @@ Otherwise, any of the other disjunctions make the sentence true.</p>
 <blockquote>
 <p>According to some political pundits, a person who is radical (R) is
 electable (E) if he/she is conservative (C), but otherwise not electable.</p>
-<p>a. Which of the following are correct representations of this assertion?<br/>
-(i) <code>$R \land E \Leftrightarrow C$</code><br/>
-(ii) <code>$R \Rightarrow (E \Leftrightarrow C)$</code><br/>
+<p>a. Which of the following are correct representations of this assertion? <br/>
+(i) <code>$R \land E \Leftrightarrow C$</code> <br/>
+(ii) <code>$R \Rightarrow (E \Leftrightarrow C)$</code> <br/>
 (iii) <code>$R \Rightarrow ((C \Rightarrow E) \lor \lnot E)$</code></p>
 </blockquote>
 <p>(i) Would mean that a conservative is only electable if they are radical
@@ -647,7 +647,6 @@ to success, not the irrelevant steps.</p>
 <li>Proof: <code>$0+7 \le 3+9$</code></li>
 <li>Rule 7: <code>$\{0/w, 7/x, 3/y, 9/z\}$</code></li>
 <li>Proof: <code>$0 \le 3 \land 7 \le 9$</code>:
-
 <ul>
 <li>Rule 1: <code>$0 \le 3$</code></li>
 <li>Rule 2: <code>$7 \le 9$</code></li>
@@ -762,18 +761,11 @@ It is rational for an agent to believe `$P(A)=0.4, P(B)=0.3$` and
 `$P(A \lor B)=0.5$`, if
 `$P(A \land B)=P(A)+P(B)-P(A \lor B)=0.4+0.3-0.5=0.2$`.
 
-<table>
-<thead>
-    <tr>
-        <td>Proposition</td>
-        <td>Belief</td>
-    </tr>
-</thead>
-<tbody>
-    <tr>
-    </tr>
-</tbody>
-</table>
+
+
+d004900b35d1cde5a03f5e812b9258f6
+
+
 -->
 <h3 id="135"><a class="hanchor" href="#135">13.5</a></h3>
 <blockquote>
@@ -926,7 +918,7 @@ day, the professor observes whether the students sleep in class, and
 whether they have red eyes. The professor has the following domain theory:</p>
 <ul>
 <li>The prior probability of getting enough sleep, with no observations, is 0.7.</li>
-<li>  The probability of getting enough sleep on night t is 0.8 given
+<li>The probability of getting enough sleep on night t is 0.8 given
 that the student got enough sleep the previous night, and 0.3
 if not.</li>
 <li>The probability of having red eyes is 0.2 if the student got enough sleep, and 0.7 if not.</li>
@@ -1230,15 +1222,15 @@ fewer than half the answers will fall within the bounds. With practice,
 you can calibrate yourself to give realistic bounds, and thus be more
 useful in supplying information for decision making.</p>
 </blockquote>
-<p>a. Lies in my given range, but I was a bit pessimistic.<br/>
-b. Again, I was pessimistic, but I wasn't so bad, only 300k off.<br/>
-c. Yeah, I didn't perform well on this one. I guess I should have been more aggressive in my estimation how early much of the US was explored. Still, 1541 is surprising (the American continent was discovered in 1492, and only 50 years later they find the Mississippi?).<br/>
-d. I'm proud of this one–only 7m too optimistic, for a question I know next to nothing about (I couldn't name a single thing Jimmy Carter did during his presidency).<br/>
-e. I roughly knew the order of magnitude for this one for today, with the major hurdle being to estimate what the state of knowledge about tree age was in 2002.<br/>
-f. Pretty accurate on this one, too. I corrected the number down a couple of times before checking, reflecting on dams probably not being <em>that</em> high.<br/>
-g. I was way too pessimistic about this one. I didn't know whether Oregon was a major agricultural state (is it?) and I didn't include the possibility that Oregon overproduces eggs. Too bad.<br/>
-h. Also proud of this one. 50m off of the real number (and too low! I was fearing I was being too optimistic, being exposed to Buddhism much more than other religions). Glad I did the dialectical bootstrapping here.<br/>
-g. I presume 1980 was just at the start of the AIDS pandemic. I was careful enough to go very low, but I suspected that AIDS started in the 70s, and shit really hit the fan in the 90s, but wasn't sure how bad exactly the 80s were. Still, 250k as an upper range was way too careful (COVID-19 killed ~200k in the US in 2020, and that was the biggest pandemic since the Spanish Flu).<br/>
+<p>a. Lies in my given range, but I was a bit pessimistic. <br/>
+b. Again, I was pessimistic, but I wasn't so bad, only 300k off. <br/>
+c. Yeah, I didn't perform well on this one. I guess I should have been more aggressive in my estimation how early much of the US was explored. Still, 1541 is surprising (the American continent was discovered in 1492, and only 50 years later they find the Mississippi?). <br/>
+d. I'm proud of this one–only 7m too optimistic, for a question I know next to nothing about (I couldn't name a single thing Jimmy Carter did during his presidency). <br/>
+e. I roughly knew the order of magnitude for this one for today, with the major hurdle being to estimate what the state of knowledge about tree age was in 2002. <br/>
+f. Pretty accurate on this one, too. I corrected the number down a couple of times before checking, reflecting on dams probably not being <em>that</em> high. <br/>
+g. I was way too pessimistic about this one. I didn't know whether Oregon was a major agricultural state (is it?) and I didn't include the possibility that Oregon overproduces eggs. Too bad. <br/>
+h. Also proud of this one. 50m off of the real number (and too low! I was fearing I was being too optimistic, being exposed to Buddhism much more than other religions). Glad I did the dialectical bootstrapping here. <br/>
+g. I presume 1980 was just at the start of the AIDS pandemic. I was careful enough to go very low, but I suspected that AIDS started in the 70s, and shit really hit the fan in the 90s, but wasn't sure how bad exactly the 80s were. Still, 250k as an upper range was way too careful (COVID-19 killed ~200k in the US in 2020, and that was the biggest pandemic since the Spanish Flu). <br/>
 h. Very proud of this one. Bit too optimistic about the capabilities of the US patent office, but still in the right range.</p>
 <p>Summing up: 1 below my 25th percentile estimate, 4 between the 25th
 percentile and the median, 4 between the median and the 75th percentile,
@@ -1321,15 +1313,15 @@ deaths in the US some years ago?</p>
 [4911.29032258064515 19645.1612903225806 49112.9032258064515]
 </code></pre>
 <h3 id="Ranking_My_Answers_1"><a class="hanchor" href="#Ranking_My_Answers_1">Ranking My Answers</a></h3>
-<p>a. I was a bit too careful on the lower rankings (maybe I should have taken into account that being a popstar was really hard before 1880, just because the media didn't exist)<br/>
-b. I was quite close to the lower bound, which surprises me. I maybe estimated the orbit of Mars to be more elliptical than circular.<br/>
-c. My estimate is way too low. I was probably decomposing too hard here.<br/>
-d. Again, my estimate was too low. Probably underestimated the amount of cargo in one ship? Also, duh, Honolulu is in the middle of the Pacific, of course there's going to be a lot of cargo.<br/>
-e. I'm quite happy with this one.<br/>
-f. Ditto.<br/>
-g. This one was close. I shouldn't underestimate how long the history of the US is, and how early the West Coast got explored.<br/>
-h. My value for the number of feet per meter was probably too low.<br/>
-i. Just below my lower estimate. We were walking pretty slow, I should have taken that more into account.<br/>
+<p>a. I was a bit too careful on the lower rankings (maybe I should have taken into account that being a popstar was really hard before 1880, just because the media didn't exist) <br/>
+b. I was quite close to the lower bound, which surprises me. I maybe estimated the orbit of Mars to be more elliptical than circular. <br/>
+c. My estimate is way too low. I was probably decomposing too hard here. <br/>
+d. Again, my estimate was too low. Probably underestimated the amount of cargo in one ship? Also, duh, Honolulu is in the middle of the Pacific, of course there's going to be a lot of cargo. <br/>
+e. I'm quite happy with this one. <br/>
+f. Ditto. <br/>
+g. This one was close. I shouldn't underestimate how long the history of the US is, and how early the West Coast got explored. <br/>
+h. My value for the number of feet per meter was probably too low. <br/>
+i. Just below my lower estimate. We were walking pretty slow, I should have taken that more into account. <br/>
 j. Again, my estimates were a bit low. I've overestimated the number of deaths in car crashes, was corrected for that, and probably overcorrected here.</p>
 <p>Summing up: 1 below my 25th percentile estimate, 2 between the 25th
 percentile and the median, 4 between the median and the 75th percentile,
@@ -1388,11 +1380,11 @@ course. Of course, there is also a utility node, U. A certain student,
 Sam, has an additive utility function: 0 for not buying the book and
 -\$100 for buying it; and \$2000 for passing the course and 0 for not
 passing. Sam’s conditional probability estimates are as follows:</p>
-<p><code>$P(p|b, m) = 0.9$</code><br/>
-<code>$P(m|b) = 0.9$</code><br/>
-<code>$P(p|b, \lnot m) = 0.5$</code><br/>
-<code>$P(m|\lnot b) = 0.7$</code><br/>
-<code>$P(p|\lnot b, m) = 0.8$</code><br/>
+<p><code>$P(p|b, m) = 0.9$</code> <br/>
+<code>$P(m|b) = 0.9$</code> <br/>
+<code>$P(p|b, \lnot m) = 0.5$</code> <br/>
+<code>$P(m|\lnot b) = 0.7$</code> <br/>
+<code>$P(p|\lnot b, m) = 0.8$</code> <br/>
 <code>$P(p|\lnot b, \lnot m) = 0.3$</code></p>
 <p>You might think that P would be independent of B given M, But [sic]
 this course has an open-book final—so having the book helps.</p>
@@ -1444,9 +1436,9 @@ buyer's estimate is that <code>$c_1$</code> has a 70% chance of being in good sh
 <blockquote>
 <p>c. Tests can be described by the probability that the car will pass
 or fail the test given that the car is in good or bad shape. We have
-the following information:<br/>
-<code>$P(pass(c_1, t_1)|q^+(c_1))=0.8$</code><br/>
-<code>$P(pass(c_1, t_1)|q^-(c_1))=0.35$</code><br/>
+the following information: <br/>
+<code>$P(pass(c_1, t_1)|q^+(c_1))=0.8$</code> <br/>
+<code>$P(pass(c_1, t_1)|q^-(c_1))=0.35$</code> <br/>
 Use Bayes' theorem to calculate the probability that the car will pass
 (or fail) its test and hence the probability that it is in good (or bad)
 shape given each possible test outcome.</p>
