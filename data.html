@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-07-07, modified: 2023-06-17, language: english, status: notes, importance: 2, confidence: log</em></p>
+<p><em>author: niplav, created: 2022-07-07, modified: 2023-06-22, language: english, status: notes, importance: 2, confidence: log</em></p>
 <blockquote>
 <p><strong>Notes for myself on the data I track, how to transform it into a
 usable shape, data quality and other random assortments.</strong></p>
@@ -167,30 +167,11 @@ x/4\.0,4\.0,/c/,/
 x/4\.0,4\.0,/c/,/
 </code></pre>
 <p>The CSV of the meditation data can be found <a href="./data/meditations.csv">here</a>.</p>
+<p><code>mindfulness_ranking</code> and <code>concentration_ranking</code> are both subjective
+impressions directly after meditation, where "mindfulness" describes the
+degree of sensory clarity, and "concentration" (better called "absorption"
+or "rest") describes my ability to rest on a specific sensory object.</p>
 <h2 id="Daygame"><a class="hanchor" href="#Daygame">Daygame</a></h2>
-<p>2 datasets, first containing approaches, 2nd containing approach sessions</p>
-<p>1st file datapoints (in CSV):</p>
-<ul>
-<li>Approach index number</li>
-<li>Datetime</li>
-<li>Location</li>
-<li>Blowout</li>
-<li>Contact info ∈{number,instagram,facebook,skype,snapchat etc.,other}</li>
-<li>Idate length (minutes)</li>
-<li>Idate cost (euro)</li>
-<li>Flake before 1st date (boolean)</li>
-<li>Date before first sex [1..10] cost (euro)</li>
-<li>Date before first sex [1..10] length (minutes)</li>
-<li>Sex number of times (approximately)</li>
-<li>Attractiveness (∈[1..10])</li>
-</ul>
-<p>2nd file:</p>
-<ul>
-<li>Datetime start</li>
-<li>Datetime end</li>
-<li>Approaches index number range</li>
-<li>Number of approaches</li>
-</ul>
 <p>Sanitizing the sessions file:</p>
 <p>Converting f***ed up Google sheets date format (why does <strong>nobody</strong>
 use the perfect <a href="https://en.wikipedia.org/wiki/ISO-8601">ISO-8601</a> when
@@ -236,6 +217,28 @@ $ mv daygame_approaches_anon.csv daygame_approaches.csv
 </code></pre>
 <p>The approaches file can be found <a href="./data/daygame_approaches.csv">here</a>,
 the sessions file can be found <a href="./data/daygame_sessions.csv">here</a>.</p>
+<p>Approaches file datapoints (in CSV):</p>
+<ul>
+<li>Approach index number</li>
+<li>Datetime</li>
+<li>Location</li>
+<li>Blowout</li>
+<li>Contact info ∈{number,instagram,facebook,skype,snapchat etc.,other}</li>
+<li>Idate length (minutes)</li>
+<li>Idate cost (euro)</li>
+<li>Flake before 1st date (boolean)</li>
+<li>Date before first sex [1..10] cost (euro)</li>
+<li>Date before first sex [1..10] length (minutes)</li>
+<li>Sex number of times (approximately)</li>
+<li>Attractiveness (∈[1..10])</li>
+</ul>
+<p>Sessions file:</p>
+<ul>
+<li>Datetime start</li>
+<li>Datetime end</li>
+<li>Approaches index number range</li>
+<li>Number of approaches</li>
+</ul>
 <h2 id="Others"><a class="hanchor" href="#Others">Others</a></h2>
 <p>Other metrics I track don't deserve as much elaboration.</p>
 <h3 id="Masturbation"><a class="hanchor" href="#Masturbation">Masturbation</a></h3>
@@ -251,10 +254,12 @@ script</a>. Data quality is pretty high.</p>
 <h3 id="Mood"><a class="hanchor" href="#Mood">Mood</a></h3>
 <p>I track my mood via the excellent <a href="https://play.google.com/store/apps/details?id=info.moodpatterns.moodpatterns&amp;hl=en&amp;gl=US">Mood
 Patterns</a>
-which allows swift CSV export of the data. They even turned changed the
-<em>annoying</em> "hitting a block of wood with a hammer" notification sound to
-the OS default. No post-processing needed, the data <em>is just there</em>. An
-app by programmers, for programmers.</p>
+which performs <a href="https://en.wikipedia.org/wiki/Experience_sampling_method">experience
+sampling</a> allows
+swift CSV export of the data. They even turned changed the <em>annoying</em>
+"hitting a block of wood with a hammer" notification sound to the OS
+default. No post-processing needed, the data <em>is just there</em>. An app by
+programmers, for programmers.</p>
 <p>But there is still <em>some</em> data cleanup to do:</p>
 <pre><code>cat mood.csv ~/site/data/mood.csv |
 sort |
@@ -264,6 +269,8 @@ sed 's/nothing/Nothing/g;s/mindfulness/Mindfulness/' |
 sort |
 uniq &gt;newmood.csv
 </code></pre>
+<p>Finally I rename the mood columns simply to "happy", "content", "relaxed",
+and "horny".</p>
 <p>The file contains (because of a slight screwup) some duplicated
 entries.<!--TODO: remove these (by hand or otherwise?)--></p>
 <p>CSV <a href="./data/mood.csv">here</a>, the data quality is mediocre (long stretches

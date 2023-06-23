@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-04-24, modified: 2020-01-24, language: english, status: finished, importance: 4, confidence: possible</em></p>
+<p><em>author: niplav, created: 2019-04-24, modified: 2023-06-22, language: english, status: finished, importance: 4, confidence: possible</em></p>
 <blockquote>
 <p><strong><a href="https://en.wikipedia.org/wiki/Pipeline_(Unix)">Pipelines</a> are an
 integral part of the Unix operating system. They come in different
@@ -142,7 +142,8 @@ fn apr{
 tail -f mu | apr | stdbuf -oL grep -E '^.{,80}$' | stdbuf -oL awk '!a[$0]++' &gt;&gt;mu
 </code></pre>
 <p><code>awk '!a[$0]++'</code> is taken from
-<a href="https://iridakos.com/how-to/2019/05/16/remove-duplicate-lines-preserving-order-linux.html">iridakos 2019</a>.
+<a href="https://iridakos.com/how-to/2019/05/16/remove-duplicate-lines-preserving-order-linux.html">iridakos 2019</a>
+and filters out duplicate lines.
 Also, stdbuf doesn't work with rc functions, so it has to be written
 directly into the function. <code>grep</code> is used to prevent extremely long
 lines from forming through the repeated application of the first rule.</p>
