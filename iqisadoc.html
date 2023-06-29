@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-07-15, modified: 2023-04-14, language: english, status: notes, importance: 6, confidence: certain</em></p>
+<p><em>author: niplav, created: 2022-07-15, modified: 2023-06-12, language: english, status: notes, importance: 6, confidence: certain</em></p>
 <blockquote>
 <p><strong>A library for handling forecasting datasets is documented.</strong></p>
 </blockquote>
@@ -81,7 +81,7 @@ from the Good Judgement Project as a <a href="https://pandas.pydata.org/">pandas
 [793501 rows x 15 columns]
 </code></pre>
 <p>The <a href="#loadfilesNone"><code>load</code></a> functions are the central piece of the
-library, as they give you, the user, the data in <a href="#forecasts">a format</a>
+library, as they give you, the user, the data in <a href="#Forecasts">a format</a>
 that can be compared across datasets. The other functions are merely
 suggestions and can be ignored if they don't fit your use-case (iqisa
 wants to provide you with the data, and not be opinionated with what
@@ -220,7 +220,7 @@ in a subclass.</p>
 <p>Its columns are</p>
 <!--TODO: describe further-->
 <ul>
-<li><code>question_id</code>, <code>q_title</code>, <code>q_status</code>, <code>open_time</code>, <code>close_time</code>, <code>resolve_time</code>, <code>close_date</code>, <code>outcome</code>, <code>time_open</code>, <code>n_opts</code>, <code>options</code>: As in the <a href="#forecasts">description of <code>forecasts</code> above</a></li>
+<li><code>question_id</code>, <code>q_title</code>, <code>q_status</code>, <code>open_time</code>, <code>close_time</code>, <code>resolve_time</code>, <code>close_date</code>, <code>outcome</code>, <code>time_open</code>, <code>n_opts</code>, <code>options</code>: As in the <a href="#Forecasts">description of <code>forecasts</code> above</a>.</li>
 <li><code>q_title</code>: The title of the question, as a <code>str</code>.</li>
 </ul>
 <h2 id="Loading_Functions"><a class="hanchor" href="#Loading_Functions">Loading Functions</a></h2>
@@ -232,7 +232,6 @@ markets. They have the same arguments.</p>
 <h4 id="Arguments"><a class="hanchor" href="#Arguments">Arguments</a></h4>
 <ul>
 <li><code>files</code>: If <code>None</code>, the data is loaded from the default files (depending on the value of <code>processed</code>). Expects a list of strings of the filenames.
-
 <ul>
 <li>If <code>processed</code> is <code>True</code>, <code>files</code> is by default <code>gjp.processed_survey_files</code> (for <code>gjp.load_surveys()</code>) or <code>gjp.processed_market_files</code> (for <code>gjp.load_markets()</code>)</li>
 <li>If <code>processed</code> is <code>False</code>, <code>files</code> is by default <code>gjp.survey_files</code> (for <code>gjp.load_surveys()</code>) or <code>gjp.market_files</code> (for <code>gjp.load_markets()</code>)</li>
@@ -345,7 +344,6 @@ odds</a>).</p>
 <p>To elaborate a bit further:</p>
 <ul>
 <li>First argument (<code>forecasts</code>): A DataFrame of the format described <a href="#Forecasts">here</a>, needs the following columns:
-
 <ul>
 <li><code>question_id</code></li>
 <li><code>timestamp</code></li>
@@ -354,10 +352,8 @@ odds</a>).</p>
 <li><code>outcome</code></li>
 </ul></li>
 <li>Second argument (<code>aggregation_function</code>): The user-defined aggregation function, which is called for on each set of forecasts made on the same question for the same answer option.
-
 <ul>
 <li>Receives:
-
 <ul>
 <li>A DataFrame that is a subset of rows of <code>forecasts</code> (all with the same <code>question_id</code>)</li>
 <li>Optional arguments passed on by <code>aggregate</code></li>
@@ -366,7 +362,6 @@ odds</a>).</p>
 </ul></li>
 <li><code>on</code>: What columns of <code>forecasts</code> to group by/aggregate over. By default the function groups by the question ID and the answer option, so we receive one probability for every answer on every question.</li>
 <li>Optional arguments which are passed to the aggregation function
-
 <ul>
 <li><code>*args</code> are the variable arguments, and</li>
 <li><code>**kwargs</code> are the variable keyword arguments</li>
@@ -412,7 +407,6 @@ given by the user.</p>
 <p>To elaborate a bit further:</p>
 <ul>
 <li>First argument (<code>forecasts</code>): A DataFrame of the format described <a href="#Comparable_Forecast_Data_General_Structure">here</a>, needs the following columns:
-
 <ul>
 <li><code>question_id</code></li>
 <li><code>probability</code></li>
@@ -420,10 +414,8 @@ given by the user.</p>
 <li><code>answer_option</code></li>
 </ul></li>
 <li>Second argument (<code>scoring_rule</code>): The scoring rule for forecasts.
-
 <ul>
 <li>Receives:
-
 <ul>
 <li>First argument: A numpy array containing the probabilities (in (0,1)</li>
 <li>Second argument: A numpy array containing the outcomes (in {0,1})</li>
@@ -433,7 +425,6 @@ given by the user.</p>
 </ul></li>
 <li><code>on</code>: What columns of <code>forecasts</code> to group by/score on. By default the function groups by the question ID , so we receive one score for every question</li>
 <li>Optional arguments which are passed to the scoring rule
-
 <ul>
 <li><code>*args</code> are the variable arguments, and</li>
 <li><code>**kwargs</code> are the variable keyword arguments</li>
@@ -497,7 +488,6 @@ before the time of prediction.</p>
 </code></pre>
 <ul>
 <li>First argument (<code>forecasts</code>): a DataFrame with the fields:
-
 <ul>
 <li><code>question_id</code></li>
 <li><code>user_id</code></li>
@@ -506,10 +496,8 @@ before the time of prediction.</p>
 <li><code>date_suspend</code></li>
 </ul></li>
 <li>Second argument (<code>scoring_rule</code>): the scoring rule by which the performance will be judged
-
 <ul>
 <li>Receives:
-
 <ul>
 <li>First argument: A numpy array containing the probabilities (in (0,1)</li>
 <li>Second argument: A numpy array containing the outcomes (in {0,1})</li>
@@ -579,29 +567,25 @@ single number, intended to be plugged as a second argument into
 <ul>
 <li><code>group</code>: A <code>DataFrame</code> containing a set of forecasts</li>
 <li><code>summ</code>: Which method to use to combine forecasts together. Options are:
-
 <ul>
 <li><code>arith</code> (default): The <a href="https://en.wikipedia.org/wiki/Arithmetic_mean">arithmetic mean</a></li>
 <li><code>geom</code>: The <a href="https://en.wikipedia.org/wiki/Geometric_mean">geometric mean</a></li>
 <li><code>median</code>: The <a href="https://en.wikipedia.org/wiki/Median">median</a></li>
 </ul></li>
 <li><code>format</code>: Which format to convert the given probabilities to before aggregating
-
 <ul>
 <li><code>probs</code>: Keep the raw probabilities</li>
 <li><code>odds</code>: Convert the probabilities to <a href="https://en.wikipedia.org/wiki/Odds">odds</a></li>
 <li><code>logodds</code>: The logarithm of the odds ratios</li>
 </ul></li>
 <li><code>decay</code>: Parameter that describes how much forecasts that were made longer before resolution time should be discounted. If it is <code>1</code> (default), no such discounting is done. Otherwise the discount factor is <code>decay</code> to the power of the number of days between the timestamp for the prediction and the closing time of the forecast.
-
 <ul>
 <li>This parameter is only used if <code>summ</code> is <code>'arith'</code></li>
 </ul></li>
 <li><code>extremize</code>: Whether and how to <a href="https://arxiv.org/pdf/1506.06405.pdf">extremize</a> forecasts.
-
 <ul>
 <li><code>noextr</code>: Don't extremize, leave the probabilities as they are</li>
-<li><code>gjpextr</code>: Use the extremising method described in <a href="./doc/prediction/the_good_judgement_project_a_large_scale_test_of_different_methods_of_combining_expert_predictions_ungar_et_al_2012.pdf">Ungar et al 2012</a>: Given the already aggregated probability <code>$p$</code> and extremization factor <code>$a$</code> (function argument <code>extrfactor</code>, default 3), set the new probaility to <code>$\frac{p^a}{(p^a+(1-p))^{1/a}}$</code></li>
+<li><code>gjpextr</code>: Use the extremising method described in <a href="./doc/prediction/the_good_judgement_project_a_large_scale_test_of_different_methods_of_combining_expert_predictions_ungar_et_al_2012.pdf">Ungar et al 2012</a>: Given the already aggregated probability <code>$p$</code> and extremization factor <code>$a$</code> (function argument <code>extrfactor</code>, default 3), set the new probability to <code>$\frac{p^a}{(p^a+(1-p))^{1/a}}$</code></li>
 <li><code>postextr</code>: Given the already aggregated probability <code>$p$</code> and extremization factor <code>$a$</code> (function argument <code>extrfactor</code>, default 3), extremise the probaility to <code>$p^a$</code></li>
 <li><code>neyextr</code>: Use the extremising method developed in <a href="https://arxiv.org/pdf/2111.03153.pdf">Neyman &amp; Roughgarden 2022</a>: Given <code>$n$</code> forecasts, already aggregated to a probability <code>$p$</code>, extremise to <code>$n \cdot \frac{\sqrt{3 \cdot n^2-3n+1}-2}{n^2-n-1}$</code></li>
 </ul></li>
@@ -677,7 +661,6 @@ trades on prediction markets:</p>
 <li><code>outcome</code>: One of 'a', 'b', 'c', 'd', or 'e' (or rarely <code>numpy.nan</code>, in the case of voided questions).</li>
 <li><code>q_status</code>: One of 'closed', 'voided' or 'open'.</li>
 <li><code>q_type</code>: Integer between 0 and 6 (inclusive).
-
 <ul>
 <li>0: regular binomial or multinomial question</li>
 <li>1-5: conditional question, index designated by the specific type (<code>q_type</code> 2: 2nd conditional question)</li>

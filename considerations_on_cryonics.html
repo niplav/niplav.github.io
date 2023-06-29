@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-10-18, modified: 2023-03-20, language: english, status: maintenance, importance: 7, confidence: remote</em></p>
+<p><em>author: niplav, created: 2019-10-18, modified: 2023-06-12, language: english, status: maintenance, importance: 7, confidence: remote</em></p>
 <blockquote>
 <p><strong>Is <a href="https://en.wikipedia.org/wiki/Cryonics">cryonics</a>
 worth it, and if yes, should one
@@ -362,6 +362,7 @@ constant (see chart), so this is a reasonable assumption.</li>
 their membership starting from that year.</li>
 </ol>
 <p><img alt="Inflation adjusted historical cryonics prices" src="https://timelines.issarice.com/images/7/79/Historical_cost_of_cryonics%2C_inflation_adjusted.png" title="Inflation adjusted historical cryonics prices"/></p>
+<!--TODO: make this image local-->
 <p>The implementation is quite straightforward:</p>
 <pre><code>function alcor_fees(age)
     local left=math.min(math.floor(actval[age])-age, levyear-curyear)
@@ -702,7 +703,6 @@ option, and several forces work against the preserved person
 being that option:</p>
 <ul>
 <li>If whole-brain emulation is wide-spread, and copying of whole-brain emulations is easy:
-
 <ul>
 <li>Competition among whole-brain emulations is likely fierce, and labor by emulations would be as cheap as slave labour (so there is no particular reason to enslave emulations)</li>
 <li>The average emulation is likely very competent and elite, and a much better worker than the average college-educated person (<a href="https://ageofem.com" title="The Age of Em">Hanson 2016 pp. 161-163</a>) estimates that most ems are going to be copies of fewer than a thousand or so original humans, each most likely again selected from several thousand individual childhoods to select the most capable educational lineage)</li>
@@ -829,6 +829,7 @@ contains 7 estimates of success: 0.04%, 0.223%, 29%, 6.71%, 14.86%,
 <div>
     $$\frac{0.2\%+15\%+13\%+77\%+85\%+6\%+23\%+9\%+17\%+0.2\%+1100*18\%+59*12\%+117*16\%+407*2\%+0.04\%+0.223\%+29\%+6.71\%+14.86\%+0.23\%+22.8\%}{1700} \approx 13.83\%$$
 </div>
+<!--TODO: use a better method for aggregation, such as geometric mean of log-odds or Neyman aggregation, for this-->
 <p>It would certainly be interesting to set up a prediction market for this
 question, or get a team of superforecasters to estimate it, but basically,
 it seems like for a young or middle-aged person, the estimated probability
@@ -936,7 +937,6 @@ deanimation), as well as sometimes explanation for reasoning for the
 number:</p>
 <ul>
 <li>&lt;1 year:
-
 <ul>
 <li>Cause 1: <a href="https://en.wikipedia.org/wiki/Birth_defect">Congenital Anomalies</a>: 70%; brain might already be damaged at birth, or become damaged during birth, but many deaths seem to be due to <a href="https://en.wikipedia.org/wiki/Congenital_heart_defect">congenital heart defects</a>, which only decreases oxygen supply, and <a href="https://en.wikipedia.org/wiki/Neural_tube_defect">neural tube defect</a>, which directly affets the nervous system and often the brain</li>
 <li>Cause 2: <a href="https://en.wikipedia.org/wiki/Gestation">Short Gestation</a>: 90%; might reduce damage to the brain because of smaller head, but also baby might be born already dead for a while</li>
@@ -950,7 +950,6 @@ number:</p>
 <li>Cause 10: <a href="https://en.wikipedia.org/wiki/Subgaleal_hemorrhage">Neonatal hemorrhage</a>: 40%; bleeding inside the brain &amp; dying as a result is probably pretty bad</li>
 </ul></li>
 <li>1-4 years:
-
 <ul>
 <li>Cause 1: <a href="https://en.wikipedia.org/wiki/Accident">Accident/Unintentional Injury</a>: 55%</li>
 <li>Cause 2: <a href="https://en.wikipedia.org/wiki/Birth_defect">Congenital Anomalies</a>: 75%; here already slightly less because if somebody survived one year, the damage can't be as substantial</li>
@@ -964,7 +963,6 @@ number:</p>
 <li>Cause 10: <a href="https://en.wikipedia.org/wiki/Cerebrovascular_disease">Cerebrovascular Disease</a>: 30%; this directly affects the brain. Bad.</li>
 </ul></li>
 <li>5-9 years:
-
 <ul>
 <li>Cause 1: <a href="https://en.wikipedia.org/wiki/Accident">Accident/Unintentional Injury</a>: 55%</li>
 <li>Cause 2: <a href="https://en.wikipedia.org/wiki/Cancer">Malignant Neoplasms</a>: 60%</li>
@@ -978,7 +976,6 @@ number:</p>
 <li>Cause 10: <a href="https://en.wikipedia.org/wiki/Benign_tumor">Benign Neoplasms</a>: 30%; if this leads to death, it usually happens in the brain: "Unlike most benign tumors elsewhere in the body, benign brain tumors can be life-threatening."</li>
 </ul></li>
 <li>10-14 years:
-
 <ul>
 <li>Cause 1: <a href="https://en.wikipedia.org/wiki/Accident">Accident/Unintentional Injury</a>: 55%</li>
 <li>Cause 2: <a href="https://en.wikipedia.org/wiki/Suicide">Suicide</a>: 60%; but I haven't investigated the leading methods of suicide for 10-14 year olds (partially because reading about it is probably horrifying). My guess would be that at this age, suicide is less often commited by using a gun, and more often by overdosing on pills, cutting &amp; then bleeding out, or jumping off heights. Of these, especially jumping seems very damaging to the brain. It also seems more likely than not that cryonicists are less likely to commit suicide than the general population.</li>
@@ -992,7 +989,6 @@ number:</p>
 <li>Cause 10: <a href="https://en.wikipedia.org/wiki/Benign_tumor">Benign Neoplasms</a>: 30%</li>
 </ul></li>
 <li>15-24 years:
-
 <ul>
 <li>Cause 1: <a href="https://en.wikipedia.org/wiki/Accident">Accident/Unintentional Injury</a>: 55%</li>
 <li>Cause 2: <a href="https://en.wikipedia.org/wiki/Suicide">Suicide</a>: 60%</li>
@@ -1006,7 +1002,6 @@ number:</p>
 <li>Cause 10: <a href="https://en.wikipedia.org/wiki/Diabetes">Complicated Pregnancy</a>: 55%; already in a hospital, but death is relatively quick &amp; perhaps unforeseen</li>
 </ul></li>
 <li>25-34 years:
-
 <ul>
 <li>Cause 1: <a href="https://en.wikipedia.org/wiki/Accident">Accident/Unintentional Injury</a>: 55%</li>
 <li>Cause 2: <a href="https://en.wikipedia.org/wiki/Suicide">Suicide</a>: 55%; I suspect people become more competent with age at committing suicide, which means probably more damage to the brain</li>
@@ -1020,7 +1015,6 @@ number:</p>
 <li>Cause 10: <a href="https://en.wikipedia.org/wiki/Influenza">Influenza</a> and <a href="https://en.wikipedia.org/wiki/Pneumonia">Pneumonia</a>: 85%</li>
 </ul></li>
 <li>35-44 years:
-
 <ul>
 <li>Cause 1: <a href="https://en.wikipedia.org/wiki/Accident">Accident/Unintentional Injury</a>: 55%</li>
 <li>Cause 2: <a href="https://en.wikipedia.org/wiki/Cancer">Malignant Neoplasms</a>: 60%</li>
@@ -1034,7 +1028,6 @@ number:</p>
 <li>Cause 10: <a href="https://en.wikipedia.org/wiki/Sepsis">Septicemia</a>: 65%; The reasons for this being worse for middle-aged's people's brains seem to balance out with the good ones</li>
 </ul></li>
 <li>45-54 years:
-
 <ul>
 <li>Cause 1: <a href="https://en.wikipedia.org/wiki/Cancer">Malignant Neoplasms</a>: 60%</li>
 <li>Cause 2: <a href="https://en.wikipedia.org/wiki/Cardiovascular_disease">Heart Disease</a>: 85%</li>
@@ -1048,7 +1041,6 @@ number:</p>
 <li>Cause 10: <a href="https://en.wikipedia.org/wiki/Influenza">Influenza</a> and <a href="https://en.wikipedia.org/wiki/Pneumonia">Pneumonia</a>: 85%</li>
 </ul></li>
 <li>55-64 years:
-
 <ul>
 <li>Cause 1: <a href="https://en.wikipedia.org/wiki/Cancer">Malignant Neoplasms</a>: 60%</li>
 <li>Cause 2: <a href="https://en.wikipedia.org/wiki/Cardiovascular_disease">Heart Disease</a>: 85%</li>
@@ -1062,7 +1054,6 @@ number:</p>
 <li>Cause 10: <a href="https://en.wikipedia.org/wiki/Influenza">Influenza</a> and <a href="https://en.wikipedia.org/wiki/Pneumonia">Pneumonia</a>: 85%</li>
 </ul></li>
 <li>&gt;64 years:
-
 <ul>
 <li>Cause 1: <a href="https://en.wikipedia.org/wiki/Cardiovascular_disease">Heart Disease</a>: 85%</li>
 <li>Cause 2: <a href="https://en.wikipedia.org/wiki/Cancer">Malignant Neoplasms</a>: 60%</li>

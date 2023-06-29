@@ -168,12 +168,10 @@ example</a> can help):</p>
 <ol>
 <li> Comparing <strong>all forecasts on all questions</strong>, irrespective of the
 question (<a href="#Accuracy_Between_Forecasts">more</a>):
-
 <ol>
 <li> Predictions made <em>a long time before their resolution</em>
 are generally <em>less accurate</em> than predictions made
 <em>a shorter time before their resolution</em> (<a href="#Results_1">more</a>).
-
 <ol>
 <li>The results for PredictionBook and Metaculus disagree here. This can be partially,
 but not completely, explained by the
@@ -191,7 +189,6 @@ are close to 0.</li>
 become <em>approximately random</em> (the
 <em><a href="#The_Horizon">horizon</a></em>) is <em>not easily estimated
 from the data</em> (<a href="#This_Is_Cool">more</a>).
-
 <ol>
 <li> Fitting a logistic function
 (<a href="##Fitting_a_Logistic_Function">more</a>), the
@@ -205,13 +202,11 @@ and ~0.5 days for PredictionBook</li>
 </ol></li>
 <li>Aggregating <strong>the forecasts on each question, and then comparing the
 questions</strong> to one another (<a href="#Accuracy_Between_Questions">more</a>):
-
 <ol>
 <li> Questions with a longer range (that is, <em>time between the question
 being written and the question being resolved</em>) generally receive
 predictions with a higher accuracy than questions with a shorter
 range (<a href="#Results_2">more</a>).
-
 <ol>
 <li> Again, the correlation coefficients (-0.01 for
 Metaculus (though p&gt;0.8), and -0.05 for
@@ -224,7 +219,6 @@ make sense</a>.</li>
 </ol></li>
 <li> Comparing <strong>only predictions on the same question</strong>, for all
 questions (<a href="#Accuracy_Within_Questions">more</a>):
-
 <ol>
 <li> Predictions made <em>on the same question closer to
 resolution time</em> are generally <em>more accurate</em> than
@@ -234,7 +228,6 @@ predictions that are made <em>long before resolution time</em>
 <em>long-tailed</em>, perhaps distributed logarithmically
 (<a href="#Logistic_Forecast_Horizons_for_Questions">more</a> and
 <a href="#Exponential_Forecast_Horizons_for_Questions">more</a>)
-
 <ol>
 <li>Most expected horizons are very short (&lt;10 days)</li>
 <li> For logistic curve-fits, the mean horizon over
@@ -754,7 +747,6 @@ produce out-of-bounds errors (they at least return valid Brier scores).</p>
 <ol>
 <li>For <code>$x \ge 0$</code>, it returns values in <code>$[0, 0.25]$</code></li>
 <li>For <code>$x=0$</code>, it returns <code>$0$</code> (at the time of resolution, we can predict the outcome perfectly, because we already know it)
-
 <ol>
 <li>It'd be technically elegant if for <code>$r(x)=0$</code> for <code>$x \le 0$</code> (since we can perfectly predict things from the past (although there's a philosophical discussion to be had here about how much we can actually know things from the past, and maybe it's even symmetric with the future)), but it's not super important</li>
 </ol></li>
@@ -1974,7 +1966,6 @@ forecasting research…)</p>
 <li>"<a href="https://predictionbook.com/predictions/209371">Will the intercept of the aggregated linear regressions on resolved Metaculus binary questions with ≥10 predictions be greater or equal to 0.0388?</a>"<code>$_{50\%}$</code> (Yes. Actual value same as above.)</li>
 </ul></li>
 <li>Computing Horizons
-
 <ul>
 <li><a href="#Logistic_Forecast_Horizons_for_Questions">Logistic-ish Horizons</a>
 <ul>
@@ -2204,7 +2195,6 @@ for e in pwmetqbrier:
 original findings?</p>
 <ul>
 <li>Between forecasts
-
 <ul>
 <li>The positive correlation between range and accuracy stays the same ✓</li>
 <li> The linear regression is similar too (very small positive slope, intercept at ~0.16). ✓</li>
@@ -2215,7 +2205,6 @@ original findings?</p>
 <li>The logistic-ish fit is better than the exponential-ish fit, again. ✓</li>
 </ul></li>
 <li>Between questions
-
 <ul>
 <li>The correlation between range and accuracy flips sign, but stays very small. ✗</li>
 <li>The slope of the linear regression also flips sign, but the intercept is remarkably similar. ~</li>
@@ -2227,10 +2216,9 @@ original findings?</p>
 <li>The mean squared errors of both methods are again remarkably close. ✓</li>
 </ul></li>
 <li>Within questions
-
 <ul>
 <li>Slope for linear regressions is surprising close, intercept off by a factor of ~2. Still ok. ✓</li>
-<li>Mean logistic-ish horizon is ~3 orders of magnitude away from original estimate, median &amp; mode are the same (?), variance is smaller (~5 orders of magnitude), maximum &amp; minimum are kind of close. Estimating the slope of a <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid</a> is difficut. ~</li>
+<li>Mean logistic-ish horizon is ~3 orders of magnitude away from original estimate, median &amp; mode are the same (?), variance is smaller (~5 orders of magnitude), maximum &amp; minimum are kind of close. Estimating the slope of a <a href="https://en.wikipedia.org/wiki/Sigmoid_function">sigmoid</a> is difficult. ~</li>
 <li>Mean exponential-ish horizon is factor ~7 smaller than original estimate, median &amp; mode again are the same, variance smaller, maximum smaller and minimum slightly larger. ~</li>
 </ul></li>
 </ul>
