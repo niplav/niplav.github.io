@@ -133,7 +133,6 @@ consistent ones then has these components:</p>
 <ul>
 <li>Inconsistent preferences over discrete options are represented via <a href="https://en.wikipedia.org/wiki/Directed_graph">directed graphs</a></li>
 <li>Inconsistent preferences over <a href="https://en.wikipedia.org/wiki/Lottery_(probability)">lotteries</a> of options are represented via
-
 <ul>
 <li>directed graphs over <a href="https://en.wikipedia.org/wiki/Simplex">probability simplices</a>
 <ul>
@@ -479,13 +478,11 @@ be broken in either direction.<!--TODO: make this clearer.--></p>
 <ul>
 <li>Does it matter whether we give <code>turn</code> a graph <code>$G$</code> or the transitive closure of <code>$G$</code>?</li>
 <li>Is there a more efficient algorithm to compute the turning?
-
 <ul>
 <li>Can it at least be made exponential?</li>
 <li>Can we exploit the fact that we're always computing the graph-edit distance to a path-graph?</li>
 </ul></li>
 <li>As we add more options to our inconsistent preferences, do they become more likely to turn uniquely?
-
 <ul>
 <li>That is: Does it hold that <code>$\frac{|\mathcal{U}_n|}{|\mathcal{G}_n|}&lt;\frac{|\mathcal{U}_{n+1}|}{|\mathcal{G}_{n+1}|}$</code>?</li>
 <li>It should be possible to check this for small cases.</li>
@@ -494,7 +491,6 @@ be broken in either direction.<!--TODO: make this clearer.--></p>
 <h4 id="None"><a class="hanchor" href="#None">Number of Turnings for <code>$\mathcal{G}_n$</code></a></h4>
 <ul>
 <li>In general, how does the size of <code>$\mathcal{U}_n$</code> develop? What about <code>$\mathcal{T}_{n,2}$</code>, or in general <code>$\mathcal{T}_{n,m}$</code>?
-
 <ul>
 <li>Does the average number of turnings for inconsistent preferences converge to a specific number?</li>
 <li>That is, what is <code>$\lim_{n \rightarrow \infty} \frac{1}{\mathcal{G}_n} \sum_{i=1}^{n} \mathcal{T}_{n,i}$</code>?</li>
@@ -633,6 +629,33 @@ but the graph only has one unique resolution:</p>
 0  1  1        []
 1  1  1  [(1, 1)]
 </code></pre>
+<p>We can now try to plot this:</p>
+<pre><code>import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+def plot_confusions(df, multiplier):
+        values=np.pad(df[2], (0, len(x)-len(df[2])), 'constant', constant_values=0)
+        offset=width*multiplier
+        rects=ax.bar(x+offset, values, width, log=True)
+
+confusions=pd.read_csv('../../data/compressed.csv', header=None)
+labels=np.sort(confusions[1].unique())
+x=np.arange(len(labels))
+width=1/6
+multiplier=0
+
+fig, ax=plt.subplots(constrained_layout=True)
+
+for c in list(confusions.groupby(0)):
+        plot_confusions(c[1], c[0])
+
+ax.set_ylabel('Number of graphs with confusion')
+ax.set_xticks(x+width, labels)
+
+plt.savefig('nconfusions.png')
+</code></pre>
+<p><img alt="" src="./img/turning/nconfusions.png"/></p>
 <!--TODO: play around with this more, especially analyze:
 * Of the graphs with confusion 1/2/maximal confusion:
     * degree sequence
@@ -676,7 +699,6 @@ of this text, we want to ideally find a set of mathematical structures
 <ol>
 <li>For every subset <code>$\mathbf{a} \subseteq \mathcal{P}(\mathbf{A})$</code> of the axioms, <code>$\not\curlyvee$</code> can represent a preference <code>$\not p \in \not P$</code> that violates all axioms in <code>$\mathbf{a}$</code>.</li>
 <li>Very weak condition of <em>Partial Representation</em>: There exists some subset of <code>$\not P' \subseteq \not P$</code> so that for each element <code>$\not p' \in \not P'$</code> there exists a non-empty subset of elements of <code>$\not \curlyvee$</code> that represents <code>$\not p'$</code>.
-
 <ol>
 <li>Weak Condition of <em>Partial Unique Representation</em>: For each element <code>$\not p'$</code> of that subset <code>$\not P'$</code>, there exists a unique element of <code>$\not \curlyvee$</code> that represents <code>$\not p'$</code></li>
 <li>Weak Condition of <em>Complete Representation</em>: For every <code>$\not p \in \not P$</code> there exists at least one element of <code>$\not \curlyvee$</code> that represents <code>$\not p$</code>.</li>

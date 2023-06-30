@@ -235,7 +235,6 @@ know that it must also hold that</p>
 <li>We assume that <code>$P \mathcal{R} Q \equiv a.(b.\mathbf{0}+c.\mathbf{0}) \mathcal{R} a.b.\mathbf{0} + a.c.\mathbf{0}$</code>
 <ul>
 <li>We transition on the left side, which we can only do via <code>$a$</code>, with the resulting assumptions
-
 <ul>
 <li><code>$b.\mathbf{0}+c.\mathbf{0} \mathcal{R} b.\mathbf{0}$</code>
 <ul>
@@ -331,7 +330,6 @@ is a strong bisimulation.</p>
 <p>Assume that <code>$(P|Q)|R$</code> makes an <code>$α$</code> transition. Then:</p>
 <ul>
 <li>If <code>$(P|Q)$</code> made the transition, then:
-
 <ul>
 <li>If <code>$P$</code> made the transition, then on the right side <code>$P$</code> can also make the transition</li>
 <li>If <code>$Q$</code> made the transition, then on the right side <code>$(Q|R)$</code> can make the transition (e.g. to <code>$(Q'|R)$</code>)</li>
@@ -864,10 +862,8 @@ the set following the <code>$[\cdot \cdot]$</code> operator).</p>
 <ul>
 <li>Starting with the configuration <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t} \land [b] X)$</code>.</li>
 <li>The attacker can pick the next configuration
-
 <ul>
 <li>If they pick <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t})$</code>, the defender is next
-
 <ul>
 <li>The defender can only pick the configuration <code>$(s_2, \textit{t}\!\textit{t})$</code></li>
 <li>The defender wins</li>
@@ -877,16 +873,13 @@ the set following the <code>$[\cdot \cdot]$</code> operator).</p>
 <li>The attacker can pick the next state, which can only be <code>$(s_2, X)$</code></li>
 <li>The next move is made by the referee of the game, and results in <code>$(s_2, \langle b \rangle \textit{t}\!\textit{t} \land [b] X)$</code></li>
 <li>The attacker then can decide on two moves:
-
 <ul>
 <li>If they pick <code>$(s_2, \langle b \rangle \textit{t}\!\textit{t})$</code>, the defender is next
-
 <ul>
 <li>The defender can only pick the configuration <code>$(s_2, \textit{t}\!\textit{t})$</code></li>
 <li>The defender wins</li>
 </ul></li>
 <li>If they pick <code>$(s_2, [b] X)$</code>, the attacker is next
-
 <ul>
 <li>The attacker can only pick <code>$(s_2, X)$</code>, which brings us back to $(s_2, \langle b \rangle \textit{t}!\textit{t} \land [b] X)$`, which means the game is infinite here</li>
 <li>Since the formula is defined via <code>$\overset{\text{max}}{=}$</code>, the defender wins</li>
@@ -900,11 +893,9 @@ the set following the <code>$[\cdot \cdot]$</code> operator).</p>
 <ul>
 <li>Starting with the configuration <code>$(s, \langle b \rangle \textit{t}\!\textit{t} \lor \langle \{a,b\} \rangle Y)$</code></li>
 <li>The defender picks the next configuration
-
 <ul>
 <li>They don't want to pick <code>$(s, \langle b \rangle \textit{t}\!\textit{t})$</code>, since then they are stuck</li>
 <li>They can pick <code>$(s, \langle \{a,b\} \rangle Y)$</code>, and then are next
-
 <ul>
 <li>The only possible resulting state is <code>$(s_1, Y)$</code>, which the referee resolves to <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t} \lor \langle \{a,b\} \rangle Y)$</code></li>
 <li>They can now pick <code>$(s_1, \langle b \rangle \textit{t}\!\textit{t})$</code></li>
@@ -917,7 +908,6 @@ the set following the <code>$[\cdot \cdot]$</code> operator).</p>
 <li>Starting with the configuration <code>$(t, \langle b \rangle \textit{t}\!\textit{t} \lor \langle \{a,b\} \rangle Y)$</code>
 <ul>
 <li>The defender can pick:
-
 <ul>
 <li><code>$(t, \langle b \rangle \textit{t}\!\textit{t})$</code>
 <ul>
@@ -927,7 +917,6 @@ the set following the <code>$[\cdot \cdot]$</code> operator).</p>
 <ul>
 <li>The next configuration they can choose is <code>$(t_1, \langle \{a,b\} \rangle Y)$</code></li>
 <li>From there, the defender can choose two configurations:
-
 <ul>
 <li><code>$(t_1, Y)$</code>
 <ul>
