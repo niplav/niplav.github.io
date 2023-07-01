@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-03-04, modified: 2023-01-28, language: english, status: notes, importance: 8, confidence: likely</em></p>
+<p><em>author: niplav, created: 2022-03-04, modified: 2023-07-01, language: english, status: notes, importance: 8, confidence: likely</em></p>
 <blockquote>
 <p><strong>Representing inconsistent preferences with specific mathematical
 structures can clarify thoughts about how to make those preferences
@@ -635,9 +635,14 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 def plot_confusions(df, multiplier):
-        values=np.pad(df[2], (0, len(x)-len(df[2])), 'constant', constant_values=0)
-        offset=width*multiplier
-        rects=ax.bar(x+offset, values, width, log=True)
+values=np.zeros(len(labels))
+    for i in range(0, len(labels)):
+        try:
+            values[i]=df.loc[df[1]==labels[i]][2].iloc[0]
+        except:
+            continue
+    offset=width*multiplier
+    rects=ax.bar(x+offset, values, width, log=True)
 
 confusions=pd.read_csv('../../data/compressed.csv', header=None)
 labels=np.sort(confusions[1].unique())
@@ -648,7 +653,7 @@ multiplier=0
 fig, ax=plt.subplots(constrained_layout=True)
 
 for c in list(confusions.groupby(0)):
-        plot_confusions(c[1], c[0])
+    plot_confusions(c[1], c[0])
 
 ax.set_ylabel('Number of graphs with confusion')
 ax.set_xticks(x+width, labels)
@@ -738,10 +743,10 @@ for the purposes of simplicity (I do not think that this changes much).</p>
 <h4 id="NonEncodable_Inconsistencies"><a class="hanchor" href="#NonEncodable_Inconsistencies">Non-Encodable Inconsistencies</a></h4>
 <p>I believe that using graphs/set theoretic relations is sufficient to be
 able to represent all von Neumann-Morgenstern inconsistent preferences.</p>
-<p>However, in the formalism of choice sets/choice functions (Gaertner
-2009<!--TODO: link--> p. 7-9) I believe that there are some cases which
-can't be represented by this formalism (because they violate expansion
-consistency:</p>
+<p>However, in the formalism of choice sets/choice functions (<a href="https://www.goodreads.com/book/show/6390481-a-primer-in-social-choice-theory">Gaertner
+2009</a>
+p. 7-9) I believe that there are some cases which can't be represented
+by this formalism (because they violate expansion consistency:</p>
 <p>With option set <code>$O_1=\{a,b\}$</code> have <code>$C(O_1)=\{a\}$</code>, but with option
 set <code>$O_2=\{a,b,c\}$</code> we have the choice <code>$C(O_2)=b$</code>.</p>
 <p>However, my mathematical knowledge here isn't very deep, so I'd be happy

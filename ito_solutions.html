@@ -61,8 +61,8 @@ def fhole(x, c=10, a=0.1):
     return retval/(a**2+retval)
 </code></pre>
 <p>The derivative of <code>$f_{\text{sq}}=x^{\top}Cx$</code> is <code>$(C+C^{\top})x$</code>
-(as per identity 81 from the Matrix Cookbook (Petersen &amp; Pedersen
-2012))<!--TODO: link-->.</p>
+(as per identity 81 from the <a href="https://www.math.uwaterloo.ca/~hwolkowi/matrixcookbook.pdf">Matrix
+Cookbook</a>).</p>
 <p>Which is excellent, since the identity 2.3 of Maths for Intelligent
 Systems (Toussaint 2022) gives
 <code>$\frac{\partial}{\partial x} x^{\top}Cx=x^{\top}C \frac{\partial}{\partial x}x+x^{\top} C^{\top} \frac{\partial}{\partial x} x$</code>
