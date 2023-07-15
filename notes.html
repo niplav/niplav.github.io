@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-05-22, modified: 2023-07-07, language: english, status: in progress, importance: 3, confidence: other</em></p>
+<p><em>author: niplav, created: 2019-05-22, modified: 2023-07-14, language: english, status: in progress, importance: 3, confidence: other</em></p>
 <blockquote>
 <p><strong>Short texts on different topics.</strong></p>
 </blockquote>
@@ -1678,7 +1678,8 @@ not work.</p>
 <li> ☐ requires a <a href="https://en.wikipedia.org/wiki/Dynamic_stochastic_general_equilibrium">DSGE</a><a> model with 200 free parameters to perfectly track reality perfectly</a></li>
 </ul>
 </li>
-<!--<li>☐ Furthermore, all predictions your model has made look like this:</li>TODO: find images here-->
+<li>☐ Furthermore, all predictions your model has made look like this:</li>
+<img src="./img/checklist/outlooks.jpg"/>
 <li>Your policy would:
     <ul style="list-style: none;">
 <li> ☐ disincentivize good things</li>
@@ -1744,7 +1745,11 @@ to be easy to implement in Python using networkx and numpy, with some help from 
 guide</a>.
 Since other people might find the code valuable as well, I provide it here
 (mostly without comment or explanation).</p>
-<pre><code>def positive_edges(prefs):
+<pre><code>import numpy as np
+import networkx as nx
+import itertools as it
+
+def positive_edges(prefs):
     edges=[]
     for e in it.combinations(prefs.keys(), 2):
         if np.all(np.isnan(prefs[e[0]]-prefs[e[1]])):
@@ -1773,6 +1778,12 @@ def decompose(g):
 
     origins=np.zeros((len(g.edges), len(g.nodes)))
 
+    idx=dict()
+    nodes=list(g.nodes)
+    for i in range(0, len(nodes)):
+        idx[nodes[i]]=i
+
+    origins=np.zeros((len(g.edges), len(g.nodes)))
     c=0
     for e in g.edges:
         sign=np.sign(g[e[0]][e[1]]['weight'])
@@ -1787,7 +1798,12 @@ def decompose(g):
     except LinAlgError:
         s=np.zeros(len(list(g.nodes)))
 
-    return s,f,W,origins
+    values=dict()
+
+    for option in idx.keys():
+        values[option]=s[idx[option]]
+
+    return values
 
 def hodgerank(prefs):
         g=prefgraph(prefs)
@@ -1795,13 +1811,53 @@ def hodgerank(prefs):
 </code></pre>
 <p>If <code>decompose</code> can't find a solution to the given preferences, it returns
 a vector of 0s as a default result.</p>
-<p>The input for <code>hodgerank</code> is a dictionary of preferences, where the keys
-must be the numbers from 0 to the number of options.</p>
-<p>Example:</p>
-<pre><code>&gt;&gt;&gt; prefs7={0:np.array([5,3]),1:np.array([4,5]),2:np.array([3, np.nan]),3:np.array([5,2]),4:np.array([np.nan,2])}
-&gt;&gt;&gt; s,f,W,origins=hodgerank(prefs7)
-&gt;&gt;&gt; s
-array([ 0.63571429,  1.13571429, -0.97142857,  0.31428571, -1.11428571])
+<p>The input for <code>hodgerank</code> is a dictionary of preferences, where the
+keys are the options and the preferences are arrays of the same size,
+empty answers being designated as <code>np.nan</code>. The output is a dictionary
+with the options as keys and the corresponding HodgeRank values.</p>
+<p>Examples:</p>
+<pre><code>&gt;&gt;&gt; prefs1={0:np.array([5,3]),1:np.array([4,5]),2:np.array([3, np.nan]),3:np.array([5,2])}
+&gt;&gt;&gt; hodgerank(prefs1)
+{0: 0.4642857142857137, 1: 0.7499999999999991, 2: -1.2499999999999987, 3: 0.0357142857142852}
+
+&gt;&gt;&gt; prefs2={0:np.array([5,3]),1:np.array([4,5]),2:np.array([3, 1]),3:np.array([5,2])}
+&gt;&gt;&gt; hodgerank(prefs2)
+{0: 0.5000000000000002, 1: 0.9999999999999998, 2: -1.4999999999999993, 3: 4.163336342344337e-16}
+</code></pre>
+<p><code>prefs2</code> is an interesting case: We know from
+<a href=".doc/preference/statistical_ranking_and_combinatorial_hodge_theory_jiang_et_al_2011.pdf" title="Statistical ranking and combinatorial Hodge theory">Jiang et al.
+2011</a>
+that if the preferences are all complete, then HodgeRank is equivalent
+to the sum of values under some linear transformation. That linear
+transformation here is <code>$(x \cdot 2)+7$</code>, and yields the values
+<code>{0: 8, 1: 9, 2: 4, 3: 7}</code>.</p>
+<pre><code>&gt;&gt;&gt; prefs3={0:np.array([4,np.nan,3]),1:np.array([3,4,np.nan]),2:np.array([np.nan, 3,4])}
+&gt;&gt;&gt; hodgerank(prefs3)
+{0: 0.0, 1: 1.3877787807814457e-17, 2: 0.0}
+
+&gt;&gt;&gt; prefs4={0:np.array([5,np.nan,3]),1:np.array([3,4,np.nan]),2:np.array([np.nan, 3,4])}
+&gt;&gt;&gt; hodgerank(prefs4)
+{0: 0.3333333333333334, 1: -0.3333333333333334, 2: -1.1102230246251565e-16}
+</code></pre>
+<p>Going from <code>prefs3</code> to <code>prefs4</code> shows that HodgeRank can be manipulated
+by the first voter: they simply increase their score of the first option
+(which they like most anyway) and thereby make it the highest ranking
+option in the global ranking.</p>
+<pre><code>&gt;&gt;&gt; prefs5={0:np.array([5,np.nan,3]),1:np.array([3,4,np.nan]),2:np.array([1, 3,4])}
+&gt;&gt;&gt; hodgerank(prefs5)
+{0: 1.0000000000000002, 1: 5.551115123125783e-17, 2: -1.0000000000000004}
+
+&gt;&gt;&gt; prefs6={0:np.array([1,1]),1:np.array([1,1]),2:np.array([1,1])}
+&gt;&gt;&gt; hodgerank(prefs6)
+{0: 0.0, 1: 0.0, 2: 0.0}
+
+&gt;&gt;&gt; prefs7={0:np.array([5,3]),1:np.array([4,5]),2:np.array([3, np.nan]),3:np.array([5,2]),4:np.array([np.nan,2])}
+&gt;&gt;&gt; hodgerank(prefs7)
+{0: 0.6357142857142856, 1: 1.1357142857142855, 2: -0.971428571428572, 3: 0.3142857142857142, 4: -1.114285714285714}
+
+&gt;&gt;&gt; prefs8={'a':np.array([5,3]),'b':np.array([4,5]),'c':np.array([3, np.nan]),'d':np.array([5,2])}
+&gt;&gt;&gt; hodgerank(prefs8)
+{'a': 0.4642857142857137, 'b': 0.7499999999999991, 'c': -1.2499999999999987, 'd': 0.0357142857142852}
 </code></pre>
 <h2 id="All_Things_People_Have_Written_About_Lumenators"><a class="hanchor" href="#All_Things_People_Have_Written_About_Lumenators">All Things People Have Written About Lumenators</a></h2>
 <ul>
@@ -1810,6 +1866,7 @@ array([ 0.63571429,  1.13571429, -0.97142857,  0.31428571, -1.11428571])
 <li><a href="https://meaningness.com/sad-light-led-lux">MORE LUX: light bars for SAD (David Chapman, 2019)</a></li>
 <li><a href="https://www.benkuhn.net/lux/">Your room can be as bright as the outdoors (Ben Kuhn, 2019)</a></li>
 <li><a href="https://www.lesswrong.com/posts/hC2NFsuf5anuGadFm/how-to-build-a-lumenator">How to Build a Lumenator (Raemon 2018)</a></li>
+<li><a href="http://www.lincolnquirk.com/2019/11/26/lumenator.html">Someone should probably start a bright home lighting company (lincolnquirk, 2019)</a></li>
 <li><a href="https://www.lesswrong.com/posts/ZAMA4y6SbtFCTjjY4/a-new-option-for-building-lumenators">A new option for building lumenators (Alex Altair, 2021)</a></li>
 <li><a href="https://www.lesswrong.com/posts/xSfn84q3vdotALHuB/how-to-lumenate-uk-edition">How to Lumenate (UK Edition) (chanamessinger, 2022)</a></li>
 <li><a href="https://www.lesswrong.com/posts/HJNtrNHf688FoHsHM/guide-to-rationalist-interior-decorating#Lumenators">Guide to rationalist interior decorating (mingyuan 2023)</a></li>
@@ -1832,7 +1889,7 @@ possible.</p>
 is no way of making a single person better off through redistribution)
 seems too strong, there is probably always a redistribution that gives
 the available resources to a single agent.</p>
-<p>A simple negation of the criteria, then perhaps makes more sense: A
+<p>A simple negation of the criteria then perhaps makes more sense: A
 change is a Kaldor-Hicks-worsening if and only if everyone is worse (or
 equally well) off and there is no way of creating a Pareto-improvement
 through reallocation.</p>
@@ -1841,4 +1898,89 @@ off, <em>but</em> there is some reallocation that creates a Pareto improvement.<
 <p>Example: We have a Sadist and a Masochist. The Masochist starts hurting
 the Sadist, thus creating opportunity cost for them both. Switching the
 roles creates a Pareto improvement.</p>
+<h2 id="Does_Recent_Masturbation_Decrease_Meditation_Quality"><a class="hanchor" href="#Does_Recent_Masturbation_Decrease_Meditation_Quality">Does Recent Masturbation Decrease Meditation Quality?</a></h2>
+<p>Probably not<sub>75%</sub>.<!--TODO: image of dril tweet?--> Correlations
+between meditation quality and time since last masturbation are generally
+&lt;0.1, and sometimes negative.</p>
+<p>There is some received wisdom that ejaculation and masturbation
+in particular decreases meditation quality: The retreats of
+<a href="http://www.dhamma.org/en/">dhamma.org</a> in the tradition of S.N. Goenka
+forbid any sexual activity, and <a href="https://en.wikipedia.org/wiki/Taoist_sexual_practices#Male_control_of_ejaculation">Taoist sexual practices recommend semen
+retention</a>.
+Since I track both <a href="./data.html#Meditation">my meditations</a> and
+<a href="./data.html#Masturbation">masturbations</a>, I can check whether this is
+observationally true. Of course with observational data there can be
+many confounders, but such data may still point to possible experimental
+studies.</p>
+<p>First, I load both meditation data and masturbation data (using my
+loading code from <a href="./code/experiments/load.py">here</a>):</p>
+<pre><code>&gt;&gt;&gt; meditations=get_meditations()
+&gt;&gt;&gt; masturbations=get_masturbations()
+</code></pre>
+<p>Since I only started tracking my masturbations on 2021-01-15, I have to
+filter out all meditation I did before that:</p>
+<pre><code>tohu=masturbations['datetime'].min()
+meditations=meditations.loc[meditations['meditation_start']&gt;tohu]
+</code></pre>
+<p>And then I merge <code>meditations</code> and <code>masturbations</code> so that each meditation
+is relation to the masturbation last before it:</p>
+<pre><code>meditations=meditations.sort_values('meditation_start')
+combined=pd.merge_asof(meditations, masturbations, left_on='meditation_start', right_on='datetime', direction='backward')
+combined['diff']=combined['meditation_start']-combined['datetime']
+</code></pre>
+<p>All hail <code>merge_asof</code>!<!--TOOO: meme with Elmo?--></p>
+<p>Just to check whether the difference computed is the right one, I do a
+quick sanity check:</p>
+<pre><code>&gt;&gt;&gt; combined['diff'].describe()
+count                         1462
+mean     3 days 21:46:44.564929548
+std      6 days 10:27:57.403873207
+min         0 days 00:03:45.389000
+25%         0 days 16:00:47.628250
+50%         1 days 12:27:33.874500
+75%         3 days 14:14:14.750500
+max        39 days 09:24:06.877000
+Name: diff, dtype: object
+</code></pre>
+<p>And now I can simply compute the correlation with time since last
+masturbation and concentration &amp; mindfulness during meditation:</p>
+<pre><code>&gt;&gt;&gt; combined[['mindfulness_rating', 'concentration_rating', 'diff']].corr(numeric_only=False)
+                      mindfulness_rating  concentration_rating      diff
+mindfulness_rating              1.000000              0.687853  0.088458
+concentration_rating            0.687853              1.000000 -0.049699
+diff                            0.088458             -0.049699  1.000000
+</code></pre>
+<p>As one can see, the correlation between time since last masturbation
+and concentration/mindfulness are weak and contradictory, and I
+weakly conclude that masturbation does not influence meditation quality
+noticeably in practice regimes like mine. One might criticize my analysis
+for not including periods of long abstinence from ejaculation, which
+I guess is fair. So we can simply restrict the dataset to meditations
+4 or more days after the last masturbation. We still have n=329, which
+is appreciable.</p>
+<pre><code>&gt;&gt;&gt; combined_long=combined.loc[combined['diff']&gt;pd.Timedelta('4d')]
+&gt;&gt;&gt; combined_long['diff'].describe()
+count                           329
+mean     12 days 19:50:39.986796352
+std       8 days 20:16:12.256869649
+min          4 days 01:15:13.941000
+25%          6 days 09:45:24.187000
+50%          9 days 21:45:40.422000
+75%         14 days 12:50:55.863000
+max         39 days 09:24:06.877000
+Name: diff, dtype: object
+&gt;&gt;&gt; combined_long[['mindfulness_rating', 'concentration_rating', 'diff']].corr(numeric_only=False)
+                      mindfulness_rating  concentration_rating      diff
+mindfulness_rating              1.000000              0.542909  0.169900
+concentration_rating            0.542909              1.000000 -0.040382
+diff                            0.169900             -0.040382  1.000000
+</code></pre>
+<p>The correlation of ≅0.17 of abstinence-time with concentration is
+still not strong enough to convince me, but perhaps points in some
+interesting direction.</p>
+<p>I'd like someone to do an experimental analysis on this (keeping
+a strict meditation schedule and randomizing 2-week pairs for
+masturbation/abstinence), since the common wisdowm is so widespread.</p>
+<p>But I won't do it in the forseeable future, since other experiments have
+higher priority.</p>
 </body></html>
