@@ -1,0 +1,81 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML>
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav &amp; Alexander Gietelink Oldenziel, created: 2023-05-24, modified: 2023-07-06, language: english, status: draft, importance: 9, confidence: likely</em></p>
+<blockquote>
+<p><strong>Not sure yet.</strong></p>
+</blockquote>
+<h1 id="PreAgent_Theory"><a class="hanchor" href="#PreAgent_Theory">Pre-Agent Theory</a></h1>
+<p>In 1947, John von Neumann and Oskar Morgenstern published their book
+Theory of Games and Economic Behavior. This has made a lot of people
+very angry and has been widely regarded as a bad move.</p>
+<p>The theorem is deceptively simple. Given a set of options <code>$\Omega$</code>
+(not further elaborated on), and a preference relation on lotteries
+of those options satisfying four axioms (completeness, transitivity,
+continuity, indepedence), one can construct a utility function <code>$u: \Omega \rightarrow [0;1]$</code>
+that assigns real values to all the options. The value of a lottery
+<code>$\mathcal{L}$</code>, then, is simply the <em>expected</em> value of the elements
+in the lottery.</p>
+<p>However.</p>
+<p>There are some points of, ah, contention around the von
+Neumman-Morgenstern setup. One of those is around the set <code>$\Omega$</code>:
+the common examples include sets of fruits, or other cute edible &amp;
+easily handleable objects. (Is <code>$\Omega$</code> assumed to be finite?)</p>
+<p>However, when pressed, proponents of vNM utility theory start talking
+about how <code>$\Omega$</code> <em>really</em> is a set of universe-histories
+or multiverse-histories. This introduces some problems: For
+example, one can't guarantee that the resulting utility function is
+<a href="https://www.lesswrong.com/s/PKKsrXtuptWzaKCjr/p/A8iGaZ3uHNNGgJeaD">computable</a>,
+and every behavior can be interpreted as being <a href="https://www.lesswrong.com/posts/NxF5G6CJiof6cemTw">compatible with expected
+utility maximization</a>.</p>
+<p>But even leaving those aside, there is ample evidence that humans
+don't fulfill the axioms stated above, at least in the case where
+we partition the world into objects such as distinct amounts of
+money. For example, humans violate the independence axiom in the
+<a href="https://en.wikipedia.org/wiki/Allais_Paradox">Allais Paradox</a>,
+and instead might have preferences with a more <a href="./doc/psychology/on_the_structural_consistency_of_preferences_el_gamal_2013.pdf" title="On the Structural Consistency of Preferences">involved
+structure</a>.
+Additionally, there has been some noises that <a href="https://www.lesswrong.com/posts/3xF66BNSC5caZuKyC/why-subagents">markets
+may</a>
+(or <a href="https://www.lesswrong.com/posts/bzmLC3J8PsknwRZbr/why-not-subagents">may
+not</a>?)
+violate the completeness axiom.</p>
+<p>All of this points into a similar direction. Agents don't spring into
+the world <a href="https://en.wikipedia.org/wiki/Athena#Birth">fully formed</a>,
+instead they grow and develop. They might start out as collections of
+dumber "agents", undergo pressure from exploitation, refactor their
+models of the world and sometimes their preference, perform internal
+bargaining and more.</p>
+</body></html>
