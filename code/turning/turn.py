@@ -130,6 +130,43 @@ def maximal_consistent_subgraphs(graph):
 				maximal_consistencies.add(subgraph)
 	return list(maximal_consistencies)
 
+def preserves_dominance(graph, result):
+
+	try:
+		if not nx.is_weakly_connected(graph):
+			return True
+	except nx.NetworkXPointlessConcept:
+		return True
+
+	dominating_sets=gen_dominating_sets(graph)
+
+	result_tmp=result.copy()
+	for p in dominating_sets:
+		if not is_dominating_set(result, p):
+			return False
+		result.remove_nodes_from(p)
+
+	return True
+
+def gen_dominating_sets(graph):
+	g=graph.copy()
+	dominating_sets=list()
+	while len(g.nodes)>0:
+		for p in powerset(g.nodes):
+			if len(p)>0 and is_dominating_set(g, p):
+				g.remove_nodes_from(p)
+				dominating_sets.append(p)
+				break
+	return dominating_sets
+
+def is_dominating_set(graph, dominating):
+	rest=set(graph.nodes).difference(dominating)
+	for d in dominating:
+		for r in rest:
+			if not (d,r) in graph.edges or (r,d) in graph.edges:
+				return False
+	return True
+
 def powerset(iterable):
 	s = list(iterable)
 	allcomb=[]
@@ -239,6 +276,9 @@ for i in range(0, len(smallworld)):
 
 smallgraph.add_edges_from([('a', 'b')])
 smallre=turn(smallgraph)
+
+domgraph=smallgraph.copy()
+domgraph.add_edges_from([('a', 'c')])
 
 mediumworld=['a', 'b', 'c', 'd', 'e', 'f', 'g']
 mediumgraph=nx.DiGraph()
