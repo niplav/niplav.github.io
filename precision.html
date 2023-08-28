@@ -35,46 +35,57 @@ document.addEventListener('DOMContentLoaded', function () {
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-02-04, modified: 2023-06-12, language: english, status: notes, importance: 4, confidence: likely</em></p>
 <blockquote>
-<p><strong>I discuss proposals for a function that estimates how much predictive
+<p><strong>I discuss proposals for a method that estimates how much predictive
 information additional degrees of precision in forecasts add and at which
 point additional precision is just noise, and investigate these proposals
 with empirical forecasting data. I furthermore describe desirable criteria
-such functions ought to fulfill.</strong></p>
+such functions ought to fulfill. I conclude that methods based on rounding
+probabilities are hot flaming garbage, methods based on rounding odds
+or log-odds are regular garbage, and methods based on applying noise to
+probabilities are ok but slow.</strong></p>
 </blockquote>
 <!--https://nitter.net/tenthkrige/status/1412457737380839432-->
 <!--https://stanford.edu/~knutson/nfc/mellers15.pdf-->
 <!--https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/D9FAZL-->
 <h1 id="Precision_of_Sets_of_Forecasts"><a class="hanchor" href="#Precision_of_Sets_of_Forecasts">Precision of Sets of Forecasts</a></h1>
-<p><em>epistemic status: likely not just reinventing the wheel, but the whole bicycle</em></p>
+<h4 id="Epistemic_Status"><a class="hanchor" href="#Epistemic_Status">Epistemic Status</a></h4>
+<p>Likely not just reinventing the wheel, but the whole bicycle.</p>
+<hr/>
 <p>Say we have a set of resolved forecasts and can display them on a
 calibration plot.</p>
 <p>We can grade the forecasts according to some proper scoring rule,
 e.g. the <a href="https://en.wikipedia.org/wiki/Brier_score">Brier score</a>
 or the <a href="https://en.wikipedia.org/wiki/Scoring_rule#Logarithmic_scoring_rule">logarithmic scoring
-rule</a>.</p>
+rule</a>,
+perhaps broken up by calibration and resolution<!--TODO: links and/or
+citation-->.</p>
 <p>But we can also ask the question: how fine-grained are the predictions of
 our forecaster? I.e., at which level of precision can we assume that
 the additional information is just noise?</p>
 <h3 id="Overprecise_Omar"><a class="hanchor" href="#Overprecise_Omar">Overprecise Omar</a></h3>
 <p>Take, for example, a hypothetical forecaster Omar who always gives
-their forecasts with 5 decimal digits of precision, such as forecasting a
-"24.566% probability of North Korea testing an ICBM in the year 2022",
-even though if we look at their calibration plot (of sufficiently many
-forecasts), we see that they are pretty much random in any given interval
-of length 0.1 (i.e., their forecast with 15% and a forecast of 5% can
-be expected to resolve to the same outcome with equal probability). This
-means that 4 of the 5 decimal digits of precision are likely just noise!</p>
-<p>Omar would be behaving absurdly; misleading their audience into
-believing they had spent much more time on their forecasts than they
-actually had (or, more likely, into correctly leading the audience into
-believing that there was something epistemically sketchy going on).</p>
+their forecasts with 5 decimal digits of precision, such as forecasting
+a "24.566% probability of North Korea testing an ICBM in the year
+2022"<!--TODO: link Metaculus-->, even though if we look at their
+calibration plot (of sufficiently many forecasts), we see that they
+are pretty much random in any given interval of length 0.1 (i.e.,
+their forecast with 15% and a forecast of 5% can be expected to
+resolve to the same outcome with equal probability). This means that
+4 of the 5 decimal digits of precision are likely just noise!</p>
+<p>Omar would be behaving absurdly; misleading their audience into believing
+they had spent much more time on their forecasts than they actually had
+(or, more likely, into correctly leading the audience into believing
+that there was something epistemically sketchy going on). It is certainly
+useful to use <a href="https://forum.effectivealtruism.org/s/dg852CXinRkieekxZ/p/m65R6pAAvd99BNEZL">probability resilience, and not imprecision, to communicate
+uncertainty</a>,
+but not but there is an adequate &amp; finite limit to precision.</p>
 <p>I believe something similar is going on when people encounter
-others putting probabilities on claims: It appears like an attempt
-at claiming undue quantitativeness (quantitativity?) in their
-reasoning, and at making the listener fall prey to <a href="https://en.wikipedia.org/wiki/Precision_bias">precision
-bias</a>,
-as well as an implicit claim at scientific
-rigour. However, not all precision in prediction is <a href="https://en.wikipedia.org/wiki/False_precision">false
+others putting probabilities on claims: It appears like an
+attempt at claiming undue quantitativeness (quantitativity?) in
+their reasoning, and at making the listener fall prey to
+<a href="https://en.wikipedia.org/wiki/Precision_bias">precision bias</a>,
+as well as an implicit claim at scientific rigour. However,
+not <em>all</em> precision in judgmental forecasting is <a href="https://en.wikipedia.org/wiki/False_precision">false
 precision</a>: At some
 point, if remove digits of precision, the forecasts will become worse
 in expectation.</p>
@@ -83,30 +94,31 @@ estimate the level of degrees of precision after which their forecasts
 gave no more additional information?</p>
 <h2 id="Definitions"><a class="hanchor" href="#Definitions">Definitions</a></h2>
 <p>Ideally we'd want to find a number that tells us, for a given set of
-prediction, the precision that those predictions display: Any additional
-digits added to the probability beyond this precision would just be noise.</p>
+(resolved) forecasts, the precision that those predictions display:
+Any additional digits added to the probability beyond this precision
+would just be noise.</p>
 <p>Let us call this number the precision <code>$ᚠ$</code> of a set of forecasts.</p>
 <p>Let <code>$\mathbf{D}=((f_1, o_1), \dots, (f_n, o_n)) \in ((0,1),\{0,1\})^n$</code>
 be a dataset of <code>$n$</code> forecasts <code>$f_i$</code> and resolutions <code>$o_i$</code>.</p>
 <p>Then <code>$ᚠ$</code> is simply a function that takes in such a dataset of
-forecasts and produces a real number <code>$ᚠ: ((0;1),\{0,1\})^n \rightarrow
-\mathbb{R}$</code>, so for example <code>$ᚠ(D)=0.8$</code> for the forecasts and outcomes
-<code>$D$</code> of some forecaster, or team of forecasters.</p>
+forecasts and produces a real number <code>$ᚠ: ((0;1),\{0,1\})^n \rightarrow \mathbb{R}$</code>,
+so for example <code>$ᚠ(D)=0.2$</code> for the forecasts and outcomes <code>$D$</code>
+of some forecaster, or team of forecasters.</p>
 <h3 id="Bits_Not_Probabilities_for_Precision"><a class="hanchor" href="#Bits_Not_Probabilities_for_Precision">Bits, Not Probabilities, for Precision</a></h3>
-<p>It is natural to assume that <code>$ᚠ$</code> returns a <em>probability</em>:
+<p>It is natural to assume that <code>$ᚠ$</code> is a <em>probability</em>:
 after all, the input dataset has probabilities, and
 when talking about <a href="#Overprecise_Omar">Omar's</a> <a href="https://en.wikipedia.org/wiki/Probabilistic_classification#Probability_calibration">calibration
 plot</a>
 I was explicitely calling out the loss of accuracy in probability
 intervals shorter than 0.1.</p>
-<p>Furthermore, Tetlock et al.<!--TODO: read & link their precision paper-->
-also talk about precision in terms of probabilities, we are all used to
-probabilities, probabilities are friends.</p>
+<p>Furthermore, Tetlock et al. 2018<!--TODO: read & link their precision
+paper--> also talk about precision in terms of probabilities, we are
+all used to probabilities, probabilities are <em>friends</em>.</p>
 <p>But this doesn't stand up to scrutiny: If we accept this,
 assuming we use probability buckets of size 5%, then 99.99999%
 and 96% are as similar to each other as 51% and 54.99999%. But the
 readers familiar with the formulation of probability in <a href="https://en.wikipedia.org/wiki/Logit">log-odds
-form</a> surely balk at this
+form</a> will surely balk at this
 equivalence: 99.99999% is a beast of a probability, an invocation only
 uttered in situations of extreme certainty, while 96%, 51% and 54.99999%
 (modulo false precision) are everyday probabilities, plebeian even.</p>
@@ -125,79 +137,188 @@ moving from 50% to 75% is one bit, but similarly moving from ~99.954%
 to ~99.977% is also a change of one bit).<!--TODO: check whether example
 is actually correct--></p>
 <h2 id="Algorithms"><a class="hanchor" href="#Algorithms">Algorithms!</a></h2>
-<p>The assumption of expressing precision in bits naturally leads to an
-algorithm:</p>
+<p>The assumption of expressing precision in bits naturally leads to two
+different algorithms.</p>
+<p>These algorithms follow a common pattern:</p>
 <ol>
-<li>Transform the dataset of forecasts <code>$D$</code> into log-odds.</li>
-<li>Apply some noise <code>$ⴟ(θ)$</code> for some parameters <code>$θ$</code> to those forecasts.</li>
-<li>Transform those the forecasts back to probabilities.</li>
-<li>Check whether this noising has changed the score for the forecasts.</li>
-<li>If 4. hasn't determined the precision at which forecasts in <code>$D$</code> receive worse scores, change <code>$θ$</code> and go back to step 1.</li>
-<li>Else convert <code>$ⴟ(θ)$</code> into an estimate of precision and return it.</li>
+<li>Input: a dataset <code>$D$</code> of forecasts and resolutions.</li>
+<li>Set a perturbation parameter <code>$σ$</code> to a minimum value.</li>
+<li>Repeat:
+<ol>
+<li>Potentially do <em>something</em> with the probabilities</li>
+<li>Perturb the probabilities, using <code>$σ$</code> as a parameter for the perturbation function <code>$ఐ: ((0,1),\{0,1\})^n \times ℝ \rightarrow ((0,1),\{0,1\})^n$</code> so that <code>$D'=ఐ(D, σ)$</code>.</li>
+<li>Potentially reverse the things done in step 1.</li>
+<li>Calculate the score of <code>$D'$</code>.</li>
+<li>If the perturbed score is significantly worse than the unperturbed score, then <code>$σ$</code> is the correct level of precision, stop.</li>
+<li>Else increase <code>$σ$</code>.</li>
+</ol></li>
 </ol>
-<p>This has some free parameters (Which noise function <code>$ⴟ(θ)$</code>
-<em>exactly</em> does one use? How does one change <code>$θ$</code> at the end of each
-iteration?) and is potentially quite resource intensive (potentially
-requiring many samples to find the correct <code>$θ$</code>).</p>
-<p>Uniform noise (in both directions) is easiest to interpret: The "width"
-of the noise is then the precision that is being investigated.</p>
-<!--TODO: image of uniform noise at various points on the log-odds
-curve-->
-<p>So one can first define some helper functions</p>
-<pre><code>import csv
-import statistics
-import numpy as np
-
-def mse(o,p):
-    return np.mean(np.abs(o-p)**2)
-
-def logit(p):
-    return np.log(p/(1-p))
-
-def logistic(p):
-    return 1/(1+np.exp(-p))
+<h3 id="LogOdds_Rounding"><a class="hanchor" href="#LogOdds_Rounding">Log-Odds Rounding</a></h3>
+<p>A technique <a href="https://twitter.com/tenthkrige/status/1412457737380839432">explored
+by</a>
+<a href="https://twitter.com/tenthkrige/">@tenthkrige</a> explores rounding in
+odds-form: The probabilities are converted into odds-form and there
+rounded to the nearest multiple of the perturbation parameter <code>$σ$</code>.</p>
+<p><img alt="" src="./img/precision/tenthkrige_odds_precision.png"/></p>
+<p>Here, the precision of the community predictions <em>looks like</em> it
+is somewhere between 0.5 and 1, and the precision of the Metaculus
+prediction is around 0.25 and 0.5, but it's hard to tell without access
+to the measurements.</p>
+<p>Log-odds rounding is pretty similar to odds-rounding.</p>
+<h4 id="Implementation"><a class="hanchor" href="#Implementation">Implementation</a></h4>
+<p>Once a probability <code>$p$</code> has been converted into log-odds
+form <code>$l_p$</code>, then rounding with a perturbation <code>$σ$</code> is
+<a href="https://en.wikipedia.org/wiki/Rounding#Rounding_to_a_specified_multiple">simply</a>
+<code>$l'_p=σ \cdot \text{round}(σ \cdot l_p)$</code>.</p>
+<p>Scoring the forecasts using the logarithmic scoring rule, one can then
+write this in a couple of lines of python code:</p>
+<pre><code>def logodds_rounded_score(forecasts, perturbation=1):
+    p=forecasts[1]
+    lo=logit(p)
+    rounded_lo=perturbation*np.round(lo/perturbation)
+    rounded_probs=logistic(rounded_lo)
+    return np.mean(logscore(forecasts[0], rounded_probs))
 </code></pre>
-<p>and then a simple function that</p>
-<pre><code>def perturbed_score_difference(forecasts, perturbation=1, samples=1000):
+<p>Full code for all algorithms is <a href="./code/precision/algorithms.py">here</a>.</p>
+<h4 id="Testing_with_Toy_Data"><a class="hanchor" href="#Testing_with_Toy_Data">Testing with Toy Data</a></h4>
+<p>One can then check whether everything is working nicely by applying the
+method to a couple of small (n=4,4,4,100,100,2000) toy datasets.</p>
+<p>The smallest three datasets, all of n=4, are <code>d1</code> (red in the chart),
+<code>d2</code> (blue in the chart) and <code>d3</code> (green in the chart).</p>
+<p>They are</p>
+<pre><code>d1=np.array([[1,0.8],[0,0.4],[0,0.65],[1,0.99]]).T
+d2=np.array([[1,0.8],[0,0.4],[0,0.65],[1,0.9]]).T
+d3=np.array([[0,0.8],[1,0.4],[1,0.65],[0,0.9]]).T
+</code></pre>
+<p>One notices that <code>d2</code> is just a slightly less resolute &amp; precise <code>d1</code>,
+and <code>d3</code> is pretty bad.</p>
+<p><img alt="" src="./img/precision/lo_rounded.png"/></p>
+<h4 id="Problems"><a class="hanchor" href="#Problems">Problems</a></h4>
+<p>Now this is not… great, and certainly quite different from the data
+by tenthkrige. I'm pretty sure this isn't a bug in my implementation or
+due to the switch from odds to log-odds, but a deeper problem with the
+method of rounding for perturbation.</p>
+<p>There are two forces that make these charts so weird:</p>
+<ol>
+<li><p>If you decrease precision by rounding, you can actually make a
+probability <em>better</em> by moving it closer to 0%/100%. If you have one
+forecast with probability <code>$p=0.75$</code> and the outcome <code>$o=1$</code>. Without
+rounding, this has a log-score of ~-0.29. Setting <code>$σ=0.3$</code> and rounding
+in log-odds space and transforming back gives <code>$p_r \approx 0.77$</code>, with
+an improved log-score of ~-0.26. When one sees the weird zig-zag pattern
+for log-score, I believe that <em>this</em> is the reason. This is likely
+only an issue in smaller datasets: In larger ones, these individual
+random improving/worsening effects cancel each other out, and one can
+see the underlying trend of worsening (as is already visible with the
+purple plot for n=2000, and to a lesser extent brown &amp; orange). Still,
+I count this as a major problem with rounding-based methods.</p></li>
+<li><p>Rounding very strongly rounds everything to 50%, so with strong
+enough rounding <em>every</em> dataset has the same score. This has some
+counter-intuitive implications: If you are worse than chance, perturbing
+your probabilities more and more leads you reliably to a better score
+(in the case of the log score, <code>$\log(0.5) \approx -0.69$</code>). One can also
+see this in the plot above: All but one datasets end up with approximately
+the same log score. This isn't an property that <em>kills</em> rounding, since
+we in theory only care about the point where the perturbed score starts
+diverging from the unperturbed score, but it is still undesirable.</p></li>
+</ol>
+<h4 id="Advantages"><a class="hanchor" href="#Advantages">Advantages</a></h4>
+<p>That said, the method has one big advantage: It is quite fast, running
+~instantaneously for even big datasets on my laptop.</p>
+<h3 id="Noise_in_LogOdds_Space"><a class="hanchor" href="#Noise_in_LogOdds_Space">Noise in Log-Odds Space</a></h3>
+<p>But one can also examine a different paradigm: applying noise to
+the predictions. In our <a href="#Algorithms">framework</a>, this is concretely
+operationalized by repeatedly (<code>$s$</code> times) projecting the probabilities
+into log-odds space, applying some noise with width <code>$σ$</code> to them,
+and then calculating the resulting probabilities and scoring them,
+finally taking the mean of the scores.</p>
+<p>There are some free parameters here, especially around the exact type
+of noise to use (normal? beta? uniform?), as well as the number <code>$s$</code>
+of samples.</p>
+<p>I have decided to use uniform noise, but for no special mathematical
+reason, and adjust the number of samples by the size of the dataset
+(with small datasets <code>$n \approx 1000$</code>, less with bigger datasets).</p>
+<pre><code>def noised_score(forecasts, perturbation=1, samples=100):
     o=forecasts[0]
     p=forecasts[1]
-    score=mse(o,p)
     pert_scores=[]
     for i in range(0,samples):
-        perturbed=logistic(logit(p)+np.random.default_rng().uniform(-perturbation/2,perturbation/2,len(p)))
-        pert_scores.append(mse(o,perturbed))
-    return np.mean(pert_scores)-score
+        noised=logistic(logit(p)+np.random.default_rng(seed=time.monotonic_ns()).uniform(-perturbation/2,perturbation/2,len(p)))
+        pert_scores.append(logscore(o,noised))
+    return np.mean(pert_scores)
 </code></pre>
-<p>One could then simply sample the precisions and estimate the <a href="https://en.wikipedia.org/wiki/Knee_of_a_curve">elbow
-point</a> with a threshold
-value (why doesn't <code>range</code> allow floating point values as parameters?):</p>
-<pre><code>def score_differences(forecasts, samples=100, low=0, high=100, div=100):
-    return np.array([[s/div, perturbed_score_difference(d1, perturbation=s/div, samples=samples)] for s in range(low,high)]).T
+<p>This gives a <em>much</em> nicer looking plot, with <code>$n=500$</code> samples:</p>
+<p><img alt="" src="./img/precision/noised.png"/></p>
+<p>The plots are falling ~monotonously, with a worse score for increasing
+noise, as expected. The score for <code>d2</code> drops more quickly than the one
+for <code>d1</code>, maybe because <code>d2</code> is less precise than <code>d1</code>? I'm not sure.</p>
+<h4 id="Advantages_and_Problems"><a class="hanchor" href="#Advantages_and_Problems">Advantages and Problems</a></h4>
+<p>Noising log-odds has a bunch of advantages: As we increase the
+perturbation, the score falls ~monotonically (which I conjecture to
+always be true in the limit of infinitely many samples), and doesn't
+converge to a specific value as rounding-based methods do.</p>
+<p>This can be seen when comparing increasing perturbation with the
+<code>$n=2000$</code> dataset:</p>
+<p><img alt="" src="./img/precision/comparison.png"/></p>
+<p>The disadvantage lies in the runtime: Taking many samples makes the
+method slow, but a small number of samples is too noisy to reliably
+detect when the the quality of forecasts starts dropping off. I think
+this is less of a problem with bigger datasets, but in the worst case
+I'd have to do a bunch of numpy-magic to optimize this further (or
+rewrite the code in a faster programming language, with a prototype in C
+<a href="./code/precision/precision.c">here</a>).</p>
+<h3 id="Finding_Divergence"><a class="hanchor" href="#Finding_Divergence">Finding Divergence</a></h3>
+<p>If the unperturbed dataset <code>$D$</code> has a score <code>$r=S(D)$</code>, then we also need
+to find a value for <code>$σ$</code> with <code>$D'=ఐ(D, σ)$</code> so that <code>$r'=S(D')\not
+\approx r$</code>, perhaps even <code>$r'&lt;r$</code> (in the case of scoring rules where
+lower scores are worse) or even that for all positive <code>$δ \in ℝ$</code>
+and <code>$D''=ఐ(D, σ+δ)$</code> it holds that <code>$r''=S(D'')&lt;r'$</code>. That is,
+as we increase the perturbation more and more, the score becomes worse
+and worse.</p>
+<p>The easiest way to do this is to iterate through values for <code>$σ$</code>,
+and once the difference between <code>$r$</code> and <code>$r'$</code> is too big, return the
+corresponding <code>$σ$</code>. This method has disadvantages (the least-noteworthy
+difference between <code>$r$</code> and <code>$r'$</code> is probably an arbitrary constant,
+simply iterating requires a bunch of compute and only finds an upper
+bound on a <code>$σ$</code> which is "too much"), but shines by virtue of being
+bog-simple and easy to implement. A more sophisticated method can use
+binary search to zero in on a <code>$σ$</code> that <em>just</em> crosses the threshold.</p>
+<pre><code>def lo_find_precision(forecasts, samples=100, low=10e-4, high=10, change=1.05, mindiff=0.01, mode='round'):
+    clean_score=pert_score=np.mean(logscore(forecasts[0], forecasts[1]))
+    p=low
+    while np.abs(clean_score-pert_score)&lt;mindiff and p&lt;high:
+        if mode=='round':
+            pert_score=logodds_rounded_score(forecasts, perturbation=p)
+        elif mode=='noise':
+            pert_score=noised_score(forecasts, perturbation=p, samples=samples)
+        p=p*change
+    return p
 </code></pre>
-<p>We can now define a toy dataset to visualize the differences in Brier
-score of the perturbed data and the unperturbed data:</p>
-<pre><code>d1=np.array([[1,0.8],[0,0.4],[0,0.65],[1,0.99]]).T
-oc=d1[0]
-pr=d1[1]
-
-d2=np.array([[1,0.8],[0,0.4],[0,0.65],[1,0.9]]).T
-oc2=d1[0]
-pr2=d1[1]
-
-d3=np.array([[0,0.8],[1,0.4],[1,0.65],[0,0.9]]).T
-oc3=d1[0]
-pr3=d1[1]
+<p>Unfortunately, this method doesn't really give reliable results for small sample sizes:</p>
+<pre><code>&gt;&gt;&gt; lo_find_precision(d1, change=1.05, mode='noise', samples=500)
+1.2406168179333095
+&gt;&gt;&gt; lo_find_precision(d1, change=1.05, mode='noise', samples=500)
+1.1815398266031518
+&gt;&gt;&gt; lo_find_precision(d1, change=1.05, mode='noise', samples=500)
+1.1815398266031518
+&gt;&gt;&gt; lo_find_precision(d1, change=1.05, mode='noise', samples=500)
+1.0716914527012713
+&gt;&gt;&gt; lo_find_precision(d1, change=1.05, mode='noise', samples=500)
+1.2406168179333095
+&gt;&gt;&gt; lo_find_precision(d1, change=1.05, mode='noise', samples=500)
+1.125276025336335
 </code></pre>
-<p>Then we can set</p>
-<pre><code>differences1=score_differences(d1, samples=5000, low=0, high=50, div=50)
-differences2=score_differences(d1, samples=5000, low=0, high=50, div=50)
-differences3=score_differences(d1, samples=5000, low=0, high=50, div=50)
-</code></pre>
-<p>and plot the result:</p>
-<p><img alt="" src="./img/precision/toy_elbow.png"/><!--TODO: plot description--></p>
-<p>One can now eyeball this plot and try to determine the point where the
-difference in Brier score starts diverging from 0, which I would put at
-around 0.25 bits.</p>
+<p>But this <em>does</em> tell us that <code>$ᚠ(d1)\approx 1.15$</code> bits.</p>
+<p>The code can be changed to be faster, using <a href="https://en.wikipedia.org/wiki/Binary_search">binary
+search</a> (rewriting the code
+to be <a href="https://en.wikipedia.org/wiki/Binary_search">noisy binary search</a>,
+since the comparisons of scores are not reliable, might be a cool
+project<!--TODO-->):</p>
+<!--TODO-->
+<p>A more sophisticated technique could try to estimate the  <a href="https://en.wikipedia.org/wiki/Knee_of_a_curve">elbow
+point</a> of the declining
+curve of scores, but as far as I know there is no reliable method for
+doing so, nor is there a mathematical framework for this.</p>
 <h2 id="Usage"><a class="hanchor" href="#Usage">Usage</a></h2>
 <p>Given the precision of some forecaster or forecasting platform, one can
 much easier perform sensitivity analysis (especially after correcting
