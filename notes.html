@@ -2124,4 +2124,35 @@ which always feels hollow without the math).</p>
 <li><a href="https://www.quantamagazine.org/the-secret-language-of-plants-20131216/">The Secret Language of Plants (Kat McGowan, 2013)</a></li>
 <li><a href="https://quantamagazine.org/in-natural-networks-strength-in-loops-20130814/">In Natural Networks, Strength in Loops (Emily Singer, 2013)</a></li>
 </ul>
+<h2 id="None_1"><a class="hanchor" href="#None_1">Ordering Outgoing <em>and</em> Incoming Edges in Dot</a></h2>
+<p>Let's say you have a graph like this, drawn by the <code>dot</code> program:</p>
+<pre><code>digraph {
+    c-&gt;a
+    d-&gt;c [color="red"]
+    c-&gt;b
+    b-&gt;d
+    a-&gt;d
+}
+</code></pre>
+<p><img alt="" src="./img/incoming/example_wrong.png"/></p>
+<p>but you want to move the red edge to the middle. In this particular
+example, you <em>could</em> use <code>circo</code> and make the graph more circular,
+but that pattern fails with more complicated graphs, especially when
+you want specific edges to be on top or at the bottom (e.g. when each
+edge in the example graph is replaced by an edge, a node and another
+edge). Neither do edge-weighting, subgraphs or ordering of nodes work.</p>
+<p>The best solution I've found is to add an invisible further edge <code>c-&gt;d</code>:</p>
+<pre><code>digraph {
+    c-&gt;a
+    d-&gt;c [color="red"]
+    c-&gt;d [color="white"]
+    c-&gt;b
+    b-&gt;d
+    a-&gt;d
+}
+</code></pre>
+<p><img alt="" src="./img/incoming/example_right.png"/></p>
+<p>The result looks slightly wonky. but works. If one wants more assurances,
+one can also add the line <code>{ordering=out; c};</code> to make it more likely
+that the red edge isn't just banished to the side.</p>
 </body></html>
