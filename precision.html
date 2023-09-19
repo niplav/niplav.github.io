@@ -33,33 +33,33 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-02-04, modified: 2023-06-12, language: english, status: notes, importance: 4, confidence: likely</em></p>
+<p><em>author: niplav, created: 2022-02-04, modified: 2023-09-19, language: english, status: finished, importance: 4, confidence: possible</em></p>
 <blockquote>
 <p><strong>I discuss proposals for a method that estimates how much predictive
 information additional degrees of precision in forecasts add and at which
 point additional precision is just noise, and investigate these proposals
 with empirical forecasting data. I furthermore describe desirable criteria
 such functions ought to fulfill. I conclude that methods based on rounding
-probabilities are hot flaming garbage, methods based on rounding odds
-or log-odds are regular garbage, and methods based on applying noise to
-probabilities are ok but slow. Finding the maximal informative precision
-turns out to be tricky.</strong></p>
+probabilities are hot flaming garbage, methods based on <a href="#LogOdds_Rounding">rounding odds
+or log-odds</a> are <a href="#Problems">regular garbage</a>, and
+methods based on <a href="#Noise_in_LogOdds_Space">applying noise to log-odds</a>
+are <a href="#Advantages_and_Problems">ok but sort of slow</a>. Finding the <a href="#Finding_Divergence">maximal
+informative precision</a> turns out to be tricky.</strong></p>
 </blockquote>
-<!--https://nitter.net/tenthkrige/status/1412457737380839432-->
 <!--https://stanford.edu/~knutson/nfc/mellers15.pdf-->
 <!--https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/D9FAZL-->
 <h1 id="Precision_of_Sets_of_Forecasts"><a class="hanchor" href="#Precision_of_Sets_of_Forecasts">Precision of Sets of Forecasts</a></h1>
 <h4 id="Epistemic_Status"><a class="hanchor" href="#Epistemic_Status">Epistemic Status</a></h4>
-<p>Likely not just reinventing the wheel, but the whole bicycle.</p>
+<p>Maybe not just reinventing the wheel, but the whole bicycle.</p>
 <hr/>
 <p>Say we have a set of resolved forecasts and can display them on a
 calibration plot.</p>
-<p>We can grade the forecasts according to some proper scoring rule,
+<p>We can grade the forecasts according to some <a href="./doc/prediction/calibration_scoring_rules_for_practical_prediction_training_greenberg_2018.pdf">proper scoring
+rule</a>,
 e.g. the <a href="https://en.wikipedia.org/wiki/Brier_score">Brier score</a>
 or the <a href="https://en.wikipedia.org/wiki/Scoring_rule#Logarithmic_scoring_rule">logarithmic scoring
 rule</a>,
-perhaps broken up by calibration and resolution<!--TODO: links and/or
-citation-->.</p>
+maybe even broken up by calibration and resolution.</p>
 <p>But we can also ask the question: how fine-grained are the predictions of
 our forecaster? I.e., at which level of precision can we assume that
 the additional information is just noise?</p>
@@ -79,7 +79,7 @@ they had spent much more time on their forecasts than they actually had
 that there was something epistemically sketchy going on). It is certainly
 useful to use <a href="https://forum.effectivealtruism.org/s/dg852CXinRkieekxZ/p/m65R6pAAvd99BNEZL">probability resilience, and not imprecision, to communicate
 uncertainty</a>,
-but not but there is an adequate &amp; finite limit to precision.</p>
+but there is an adequate &amp; finite limit to precision.</p>
 <p>I believe something similar is going on when people encounter
 others putting probabilities on claims: It appears like an
 attempt at claiming undue quantitativeness (quantitativity?) in
@@ -105,38 +105,45 @@ be a dataset of <code>$n$</code> forecasts <code>$f_i$</code> and resolutions <c
 forecasts and produces a real number <code>$ᚠ: ((0;1),\{0,1\})^n \rightarrow \mathbb{R}$</code>,
 so for example <code>$ᚠ(D)=0.2$</code> for the forecasts and outcomes <code>$D$</code>
 of some forecaster, or team of forecasters.</p>
+<p>We call <code>$ᚠ$</code>  the <strong>precision function</strong>.</p>
 <h3 id="Bits_Not_Probabilities_for_Precision"><a class="hanchor" href="#Bits_Not_Probabilities_for_Precision">Bits, Not Probabilities, for Precision</a></h3>
-<p>It is natural to assume that <code>$ᚠ$</code> is a <em>probability</em>:
+<p>It is natural to assume that <code>$ᚠ$</code> returns a <em>probability</em>:
 after all, the input dataset has probabilities, and
 when talking about <a href="#Overprecise_Omar">Omar's</a> <a href="https://en.wikipedia.org/wiki/Probabilistic_classification#Probability_calibration">calibration
 plot</a>
 I was explicitely calling out the loss of accuracy in probability
 intervals shorter than 0.1.</p>
-<p>Furthermore, Tetlock et al. 2018<!--TODO: read & link their precision
-paper--> also talk about precision in terms of probabilities, we are
-all used to probabilities, probabilities are <em>friends</em>.</p>
-<p>But this doesn't stand up to scrutiny: If we accept this,
-assuming we use probability buckets of size 5%, then 99.99999%
+<p>Furthermore, <a href="./doc/prediction/the_value_of_precision_in_probability_assessment_friedman_et_al_2018.pdf">Friedman et al.
+2018</a>
+also talk about precision in terms of probabilities (or rather "bins
+of probabilities"), we are all used to probabilities, probabilities
+are <em>friends</em>.</p>
+<p>But this doesn't stand up to scrutiny: If we accept this, assuming
+we use probability "bins" or "buckets" of size 5%, then 99.99999%
 and 96% are as similar to each other as 51% and 54.99999%. But the
 readers familiar with the formulation of probability in <a href="https://en.wikipedia.org/wiki/Logit">log-odds
 form</a> will surely balk at this
 equivalence: 99.99999% is a beast of a probability, an invocation only
 uttered in situations of extreme certainty, while 96%, 51% and 54.99999%
 (modulo false precision) are everyday probabilities, plebeian even.</p>
-<p>However, in terms of <em>precision</em>, 54.99999% stands out
-like a sore thumb: while 99.99999% is supremely confident,
+<p>And, in terms of <em>precision</em>, 54.99999% stands out like
+a sore thumb: while 99.99999% is supremely confident,
 it is not <em>overprecise</em>, since rounding up to 100% <a href="https://www.lesswrong.com/posts/QGkYCwyC7wTDyt3yT/0-and-1-are-not-probabilities">would be
 foolish</a>;
 but with 54.99999%, there is no good reason we can't just round to 55%.</p>
-<p>So precision should be calculated in log-odds space, where one moves in
+<p>So precision should not be investigated on probabilities. Instead I
+claim that it should be calculated in log-odds space (which has an
+advantage over the odds form by being symmetric), where one moves in
 bits instead of probabilities. Since we want to make a statement how
 much we can move the probabilities around until the <a href="https://en.wikipedia.org/wiki/Scoring_rule">proper scoring
 rule</a> we apply starts
 giving worse results, it is only natural to express the precision in
 bits as well. (Which can't be converted linearly into probabilities:
 moving from 50% to 75% or from 80% to 40% is one bit, but similarly
-moving from ~99.954% to ~99.977% is also a change of one bit).<!--TODO:
-check whether example is actually correct--></p>
+moving from ~99.954% to ~99.977% is also a change of one bit). Instead
+one uses the <a href="https://en.wikipedia.org/wiki/Logit">logit function</a>,
+and the <a href="https://en.wikipedia.org/wiki/Logistic_function">logistic function</a>
+to return to probabilities.</p>
 <h2 id="Algorithms"><a class="hanchor" href="#Algorithms">Algorithms!</a></h2>
 <p>The assumption of expressing precision in bits naturally leads to two
 different algorithms.</p>
@@ -146,9 +153,9 @@ different algorithms.</p>
 <li>Set a perturbation parameter <code>$σ$</code> to a minimum value.</li>
 <li>Repeat:
 <ol>
-<li>Potentially do <em>something</em> with the probabilities</li>
-<li>Perturb the probabilities, using <code>$σ$</code> as a parameter for the perturbation function <code>$ఐ: ((0,1),\{0,1\})^n \times ℝ \rightarrow ((0,1),\{0,1\})^n$</code> so that <code>$D'=ఐ(D, σ)$</code>.</li>
-<li>Potentially reverse the things done in step 1.</li>
+<li>Potentially do <em>something</em> with the probabilities, for example by moving to log-odds.</li>
+<li>Perturb the result, using <code>$σ$</code> as a parameter for the <strong>perturbation function</strong> <code>$ఐ: ((0,1),\{0,1\})^n \times ℝ \rightarrow ((0,1),\{0,1\})^n$</code> so that <code>$D'=ఐ(D, σ)$</code>.</li>
+<li>Reverse the things done in step 1 (if necessary).</li>
 <li>Calculate the score of <code>$D'$</code>.</li>
 <li>If the perturbed score is significantly worse than the unperturbed score, then <code>$σ$</code> is the correct level of precision, stop. This is the output of <code>$ᚠ(D)$</code>.</li>
 <li>Else increase <code>$σ$</code>.</li>
@@ -210,9 +217,10 @@ an improved log-score of ~-0.26. When one sees the weird zig-zag pattern
 for log-score, I believe that <em>this</em> is the reason. This is likely only
 an issue in smaller datasets: In larger ones, these individual random
 improving/worsening effects cancel each other out, and one can see the
-underlying trend of worsening (as is already visible with the purple plot
-for n=2000, and to a lesser extent brown &amp; orange). Still, I count this
-as a major problem with rounding-based methods. <a href="">Friedman et al. 2018</a><!--TODO: link-->
+underlying trend of worsening (as is already visible with the purple
+plot for n=2000, and to a lesser extent brown &amp; orange). Still, I count
+this as a major problem with rounding-based methods. <a href="./doc/prediction/the_value_of_precision_in_probability_assessment_friedman_et_al_2018.pdf">Friedman et al.
+2018</a>
 note the same: "Coarsening probability estimates could actually <em>improve</em>
 predictive accuracy if this prevents foreign policy analysts from making
 their judgments too extreme".</p></li>
@@ -230,15 +238,17 @@ diverging from the unperturbed score, but it is still undesirable.</p></li>
 <p>That said, the method has one big advantage: It is quite fast, running
 ~instantaneously for even big datasets on my laptop.</p>
 <h3 id="Noise_in_LogOdds_Space"><a class="hanchor" href="#Noise_in_LogOdds_Space">Noise in Log-Odds Space</a></h3>
-<p>But one can also examine a different paradigm: applying noise to
+<p>But one can also examine a different paradigm: Applying noise to
 the predictions. In our <a href="#Algorithms">framework</a>, this is concretely
 operationalized by repeatedly (<code>$s$</code> times) projecting the probabilities
 into log-odds space, applying some noise with width <code>$σ$</code> to them,
 and then calculating the resulting probabilities and scoring them,
 finally taking the mean of the scores.</p>
-<p>There are some free parameters here, especially around the exact type
-of noise to use (normal? beta? uniform?), as well as the number <code>$s$</code>
-of samples.</p>
+<p>There are some free parameters here, especially around the exact type of
+noise to use (<a href="https://en.wikipedia.org/wiki/Normal_distribution">normal</a>?
+<a href="https://en.wikipedia.org/wiki/Beta_distribution">beta</a>?
+<a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">uniform</a>?),
+as well as the number <code>$s$</code> of samples.</p>
 <p>I have decided to use uniform noise, but for no special mathematical
 reason, and adjust the number of samples by the size of the dataset
 (with small datasets <code>$n \approx 1000$</code>, less with bigger datasets).</p>
@@ -273,12 +283,11 @@ case I'd have to do a bunch of numpy-magic to optimize this further
 <a href="./code/precision/precision.c">here</a>).</p>
 <h3 id="Finding_Divergence"><a class="hanchor" href="#Finding_Divergence">Finding Divergence</a></h3>
 <p>If the unperturbed dataset <code>$D$</code> has a score <code>$r=S(D)$</code>, then we also need
-to find a value for <code>$σ$</code> with <code>$D'=ఐ(D, σ)$</code> so that <code>$r'=S(D')\not
-\approx r$</code>, perhaps even <code>$r'&lt;r$</code> (in the case of scoring rules where
-lower scores are worse) or even that for all positive <code>$δ \in ℝ$</code>
-and <code>$D''=ఐ(D, σ+δ)$</code> it holds that <code>$r''=S(D'')&lt;r'$</code>. That is,
-as we increase the perturbation more and more, the score becomes worse
-and worse.</p>
+to find a value for <code>$σ$</code> with <code>$D'=ఐ(D, σ)$</code> so that <code>$r'=S(D')\not \approx r$</code>,
+with <code>$r'&lt;r$</code> (in the case of scoring rules where lower scores are worse)
+or even that for all positive <code>$δ \in ℝ$</code> and <code>$D''=ఐ(D, σ+δ)$</code>
+it holds that <code>$r''=S(D'')&lt;r'$</code>. That is, as we increase the perturbation
+more and more, the score becomes worse and worse.</p>
 <p>The easiest way to do this is to iterate through values for <code>$σ$</code>,
 and once the difference between <code>$r$</code> and <code>$r'$</code> is too big, return the
 corresponding <code>$σ$</code>. This method has disadvantages (the least-noteworthy
@@ -381,63 +390,130 @@ search biases them upwards? We can check by changing the stepsize to linear:</p>
 <p>This, prima facie, resolves our dilemma, and indicates that linear
 steps are better than exponential steps, and if speed is a problem,
 then binary search is better.</p>
+<h4 id="More_Ideas"><a class="hanchor" href="#More_Ideas">More Ideas</a></h4>
 <p>Rewriting the code
 to use <a href="https://en.wikipedia.org/wiki/Binary_search">noisy binary search</a>,
 since the comparisons of scores are not reliable, might be a cool
 project<!--TODO-->.</p>
+<p>But perhaps the entire idea of using a fixed value for divergence
+is flawed? The divergence point needs to depend on the perturbance
+parameter. I think I should instead assume there is a perfectly
+calibrated, infinitely big dataset <code>$D^{\star}$</code>. How much does its
+score drop if we perturb by <code>$σ$</code>? If <code>$D$</code>, perturbed, drops by half
+(or whatever) as much as the score of <code>$D^{\star}$</code> then we have found
+our point.</p>
+<p>A more sophisticated technique could try to estimate the  <a href="https://en.wikipedia.org/wiki/Knee_of_a_curve">elbow
+point</a> of the declining
+curve of scores, but as far as I know there is no reliable method for
+doing so, nor is there a mathematical framework for this.</p>
 <!--TODO:
 
 ##### Binary Search With Noise
 
 #### Perturbation Parameter-Dependent Divergence Finding
 
-Divergence point needs to depend on the perturbance parameter. Maybe:
-Assume there is a perfectly calibrated, infinitely big dataset
-`$D^{\star}$`. How much does its score drop if we perturb by `$σ$`? If
-`$D$`, perturbed, drops by half (or whatever) as much then we have found
-our point.
-
 -->
-<hr/>
-<p>A more sophisticated technique could try to estimate the  <a href="https://en.wikipedia.org/wiki/Knee_of_a_curve">elbow
-point</a> of the declining
-curve of scores, but as far as I know there is no reliable method for
-doing so, nor is there a mathematical framework for this.</p>
 <h2 id="Precision_of_Forecasting_Datasets"><a class="hanchor" href="#Precision_of_Forecasting_Datasets">Precision of Forecasting Datasets</a></h2>
 <p>Equipped with some shaky heuristics about forecasting precision, one
 can now try to estimate the precision of different forecasting datasets
 (especially interesting should be comparing different platforms).</p>
 <p>I will be doing so using the library <a href="./iqisa.html">iqisa</a>.</p>
 <pre><code>import numpy as np
+import pandas as pd
 import iqisa as iqs
 import iqisa.gjp as gjp
 
-market_fcasts=gjp.load_markets()
-survey_fcasts=gjp.load_surveys()
-d_gjpmarket=np.vstack((np.int64(market_fcasts['answer_option']==market_fcasts['outcome']), market_fcasts['probability']))
+gjpmarket_fcasts=gjp.load_markets()
+gjpsurvey_fcasts=gjp.load_surveys()
+gjpmarket=gjpmarket_fcasts[['probability', 'answer_option', 'outcome']].dropna()
+gjpsurvey=gjpsurvey_fcasts[['probability', 'answer_option', 'outcome']].dropna()
+gjpmarket=np.array([np.int64(gjpmarket['answer_option']==gjpmarket['outcome']), gjpmarket['probability']])
+gjpsurvey=np.array([np.int64(gjpsurvey['answer_option']==gjpsurvey['outcome']), gjpsurvey['probability']])
 </code></pre>
-<!--TODO: remove nans from the datasets-->
+<p>Now we can use the algorithms for estimating precision on the dataset:</p>
+<pre><code>import algorithms as prc
+
+&gt;&gt;&gt; prc.binsearch_precision(gjpsurvey, mode='noise', samples=10)
+1.5017044067382812
+&gt;&gt;&gt; prc.binsearch_precision(gjpmarket, mode='noise', samples=10)
+1.279558654785156
+</code></pre>
+<p>Apparently the markets were more precise than the survey
+forecasts. Interesting. Now let's see <strike>Paul Allen's</strike>
+<em>Metaculus'</em> precision.</p>
+<pre><code>import iqisa.metaculus as metaculus
+metaculus_fcasts=metaculus.load_public_binary()
+met_fcasts=met_fcasts_fcasts[['probability', 'answer_option', 'outcome']].dropna()
+met_fcasts=np.array([np.int64(met_fcasts['answer_option']==met_fcasts['outcome']), met_fcasts['probability']])
+
+&gt;&gt;&gt; prc.binsearch_precision(met_fcasts, mode='noise', samples=10)
+1.1941179809570313
+</code></pre>
+<p>Harsh words from Metaculus here… the precision is <em>higher</em> here, to be
+clear: The smallest perturbation for which the score becomes noticeably
+worse is smaller.</p>
+<p>Same with PredictionBook:</p>
+<pre><code>import iqisa.predictionbook as predictionbook
+pred_fcasts=predictionbook.load()
+pred_fcasts=pred_fcasts[['probability', 'answer_option', 'outcome']].dropna()
+pred_fcasts=np.array([np.int64(pred_fcasts['answer_option']==pred_fcasts['outcome']), pred_fcasts['probability']])
+
+&gt;&gt;&gt; prc.binsearch_precision(pred_fcasts, mode='noise', samples=10)
+1.3198378295898436
+</code></pre>
+<p>The difference is quite small but noticeable, and the purple and the green
+plot overlap a bunch: Metaculus and PredictionBook aren't so different
+(?):</p>
+<p><img alt="" src="./img/precision/platforms.png"/></p>
+<p>The precision tracks the unperturbed score to a high degree. I'm not
+sure whether this is an airtight relation or just commonly the case,
+perhaps someone will look into this.</p>
 <h2 id="Usage"><a class="hanchor" href="#Usage">Usage</a></h2>
 <p>Given the precision of some forecaster or forecasting platform, one can
 much easier perform sensitivity analysis (especially after correcting
-for miscalibration).</p>
+for miscalibration), as it allows to create a distribution over what a
+probability could reasonably mean, given some resolved past data from
+the same source.</p>
+<p>Knowing the precision of some source of forecasts can also be nice to
+stave off criticism of false precision: One can now answer "No, you're
+wrong: I'm being wholly correct at reporting my forecasts at 1.2 bits
+of precision!". Surely no incredulous stares with that.</p>
+<h2 id="Conclusion"><a class="hanchor" href="#Conclusion">Conclusion</a></h2>
+<p>When evaluating the precision of a set of forecasts, all sources I know
+agree that perturbing the forecasts in some way and then observing how
+the forecasts worsen with more perturbation is the correct way to go
+about evaluating the precision of forecasts.</p>
+<p>However, the existing attempts are based on <em>rounding</em>: Moving
+probabilities, odds or log-odds that are close together to the same
+number.</p>
+<p>I believe that these approaches are not good: For small datasets they
+produce large oscillations in the score, not smooth declines, and they
+<em>improve</em> the scores of worse-than-random forecast datasets.</p>
+<p>Instead, a better way to estimate the precision is to apply noise to
+the forecasts and track how the score worsens. This has the advantage
+of producing monotonically declining scores.</p>
+<p>Testing the method of noising forecasts on real-world datasets shows
+that they have similar precisions.</p>
 <h2 id="Appendix_A_Conditions_for_a_Precision_Evaluation_Function"><a class="hanchor" href="#Appendix_A_Conditions_for_a_Precision_Evaluation_Function">Appendix A: Conditions for a Precision Evaluation Function</a></h2>
-<p>Use precision <code>$ᚠ$</code> and noise <code>$ⴟ$</code>.</p>
+<p>Using a <strong>precision function</strong> <code>$ᚠ$</code>, <strong>perturbation function</strong> <code>$ఐ$</code>,
+<strong>proper scoring rule</strong> <code>$s$</code> and noise <code>$σ$</code>. These are very much me
+thinking out loud.</p>
 <ol>
-<li>If <code>$n=0$</code>, <code>$s(\emptyset, \mathcal{F})$</code> is undefined.</li>
-<li>If <code>$n=1$</code>, <code>$s(\mathbf{D}, \mathcal{F})=0$</code>: We are generally suspicious of any single forecast.
+<li><strong>(Emptiness)</strong> If <code>$n=0$</code>, <code>$ᚠ(\emptyset)$</code> is undefined.</li>
+<li><strong>(Loneliness)</strong> If <code>$n=1$</code>, <code>$ᚠ(\mathbf{D})=1$</code>: We are generally suspicious of any single forecast.
 <ol>
-<li>More generally, if <code>$\mathbf{D}$</code> contains an <code>$f_i$</code> so that there is no other prediction with a probability within <code>$[f_i-\frac{\mathcal{F}}{2}; f_i+\frac{\mathcal{F}}{2}]$</code>, then <code>$s(\mathbf{D}, \mathcal{F})=0$</code>. Yes, even if the set of forecasts is "dense" and non-random in other places.</li>
+<li>More generally, if <code>$\mathbf{D}$</code> contains an <code>$f_i$</code> so that there is no other prediction with a probability within <code>$[f_i-\frac{σ}{2}; f_i+\frac{σ}{2}]$</code>, then <code>$ఐ(\mathbf{D}, σ)=s(D)$</code>. Yes, even if the set of forecasts is "dense" and non-random in other places.</li>
 </ol></li>
-<li>If <code>$n=2$</code>, then it should hold for an <code>$ε&gt;0$</code> (but close to 0): <code>$s(((ε, 0), (1-ε, 1)), 1)=1$</code>, and <code>$s(((ε, 0), (1-ε, 1)), 0.5)=0$</code>.
+<li><strong>(Edginess)</strong> If <code>$n=2$</code>, then it should hold for an <code>$ε&gt;0$</code> (but close to 0): <code>$ᚠ(((ε, 0), (1-ε, 1)))=1$</code>.
 <ol>
-<li>More generally, if we have only zeros in the left half and ones in the right half, with <code>$n \rightarrow \infty$</code>, and a sufficiently small <code>$\frac{1}{n}&gt;ε&gt;0$</code>, it should hold that <code>$s(((ε,0),(2ε,0), \dots, (\lfloor \frac{n}{2} \rfloor ε, 0), (\lceil \frac{n}{2} \rceil ε, 1), \dots, (nε, 1)), \mathcal{F})$</code> is <code>$1$</code> for <code>$\mathcal{F}=1$</code> and <code>$0$</code> for <code>$\mathcal{F} \le 0.5$</code>.</li>
+<li>More generally, if we have only zeros in the left half and ones in the right half, with <code>$n \rightarrow \infty$</code>, and a sufficiently small <code>$\frac{1}{n}&gt;ε&gt;0$</code>, it should hold that <code>$ఐ(((ε,0),(2ε,0), \dots, (\lfloor \frac{n}{2} \rfloor ε, 0), (\lceil \frac{n}{2} \rceil ε, 1), \dots, (nε, 1)), σ)$</code> is <code>$0$</code> for <code>$σ=1$</code> and <code>$1$</code> for <code>$σ \le 0.5$</code>.</li>
 </ol></li>
-<li>For a sufficiently large <code>$n \rightarrow \infty$</code>, and a sufficiently small <code>$\frac{1}{n}&gt;ε&gt;0$</code>, and <code>$r(p)$</code> being 1 with probability <code>$p$</code> and 0 with probability <code>$1-p$</code>, it should hold that <code>$s(((ε,r(ε)),(2ε,r(2ε)), \dots, (\lfloor \frac{n}{2} \rfloor ε, r(\lfloor \frac{n}{2} \rfloor ε)), (\lceil \frac{n}{2} \rceil ε, r(\lceil \frac{n}{2} \rceil ε)), \dots, (nε, r(nε))), \mathcal{F})=1$</code> for any <code>$\mathcal{F}$</code>: If we have lots of datapoints, all perfectly calibrated, the score is nearly 0 at all precisions.</li>
-<li>In expectation, if we sample every <code>$o_i$</code> uniformly from <code>$\{0, 1\}$</code> with replacement, <code>$s(\mathbf{D}, \mathcal{F})=0$</code>.</li>
-<li>With <code>$\mathcal{F}_1&lt;\mathcal{F}_2$</code>, <code>$s(\mathbf{D}, \mathcal{F}_1) \le s(\mathbf{D}, \mathcal{F}_2)$</code> (smaller precision shouldn't lead to a greater score, since if you're uncalibrated at a precision of 10%, you're not going to be suddenly calibrated at a precision of 5%)
+<li><strong>(Perfection)</strong> For a sufficiently large <code>$n \rightarrow \infty$</code>, and a sufficiently small <code>$\frac{1}{n}&gt;ε&gt;0$</code>, and <code>$r(p)$</code> being 1 with probability <code>$p$</code> and 0 with probability <code>$1-p$</code>, it should hold that <code>$ᚠ(((ε,r(ε)),(2ε,r(2ε)), \dots, (\lfloor \frac{n}{2} \rfloor ε, r(\lfloor \frac{n}{2} \rfloor ε)), (\lceil \frac{n}{2} \rceil ε, r(\lceil \frac{n}{2} \rceil ε)), \dots, (nε, r(nε))))=0$</code>: If we have lots of datapoints, all perfectly calibrated, the score is nearly 0 at all precisions.</li>
+<li><strong>(Anti-Uniformity)</strong> In expectation, if we sample every <code>$o_i$</code> uniformly from <code>$\{0, 1\}$</code> with replacement, <code>$ᚠ(\mathbf{D})=1$</code>.</li>
+<li><strong>(Monotonicity)</strong> With <code>$σ_1&lt;σ_2$</code>, <code>$ఐ(\mathbf{D}, σ_1) \le ఐ(\mathbf{D}, σ_2)$</code> (smaller precision shouldn't lead to a greater score, since if you're uncalibrated at a precision of 10%, you're not going to be suddenly calibrated at a precision of 5%).
 <ol>
-<li>We can't just do this by multiplying the result with the precision, since that would violate condition 4</li>
+<li>We can't just do this by multiplying the result with the precision, since that would violate condition 4.</li>
+<li>This gets violated if one uses a proper scoring rule that is always negative, but if we flip the score this can still trivially hold.</li>
 </ol></li>
 </ol>
 <p>But what should be done about a calibration plot that looks like this?</p>
