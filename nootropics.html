@@ -72,12 +72,12 @@ do by recording the outcomes. That's what I did.</p>
 <tr>
 <td>Absorption</td>
 <td>0.61 (λ=13.3, p=0.00017, -0.072)</td>
-<td></td>
+<td>0.04 (λ=1.38, p=0.77, -0.07)</td>
 </tr>
 <tr>
 <td>Mindfulness</td>
 <td>0.58 (λ=11.8, p=0.0007, 0.021)</td>
-<td></td>
+<td>0.12 (λ=0.72, p=0.89, -0.018)</td>
 </tr>
 <tr>
 <td>Productivity</td>
@@ -590,7 +590,7 @@ test).<sup><a href="https://examine.com/supplements/theanine/research/#ref-17">[
 <li>19th dose: Took L-Theanine &amp; did my routine, then took a nap and woke up 3 hours later.</li>
 <li>43rd dose: Woke up with "brain fog", meditation was dull &amp; all over the place. Maybe because I'd been drying laundry in my room during the night? Also took nicotine later the day to kickstart some work on a project that needed to be finished.</li>
 </ul>
-<p>Ran the experiment from 2023-06-22 to 2023-09-28, skipping many days in the experiment.</p>
+<p>Ran the experiment from 2023-06-22 to 2023-09-28, sometimes with pauses inbetween samples.</p>
 <p>I use the same <a href="#Statistical_Method">statistical techniques as in the caffeine
 experiment</a>, and start, as usual, with my predictions
 about the content of the pill:</p>
@@ -613,17 +613,22 @@ from the last experiments to get the other results, and they don't point
 a rosy picture for L-theanine:</p>
 <pre><code>&gt;&gt;&gt; analyze('B', 'l-theanine', 'sugar')
     absorption  mindfulness  productivity  creativity     happy   content   relaxed     horny      ease     factor       ivl       time
-d          NaN          NaN     -0.278448   -0.116001  0.164261  0.254040  0.119069 -0.031665 -0.072098   0.002561 -0.015955   0.003073
-λ          NaN          NaN      5.517769    5.049838  3.983760  6.833004  1.496601  1.148131       inf        inf       inf        inf
-p          NaN          NaN      0.109735    0.146420  0.266491  0.045270  0.740705  0.813279  0.000000   0.000000  0.000000   0.000000
-dσ         NaN          NaN      0.039855   -0.043241 -0.155797 -0.046668  0.019655  0.251454 -0.016542 -18.901846  3.108518  13.660820
+d     0.040887     0.124170     -0.278448   -0.116001  0.164261  0.254040  0.119069 -0.031665 -0.072098   0.002561 -0.015955   0.003073
+λ     1.378294     0.720780      5.517769    5.049838  3.983760  6.833004  1.496601  1.148131       inf        inf       inf        inf
+p     0.765758     0.894798      0.109735    0.146420  0.266491  0.045270  0.740705  0.813279  0.000000   0.000000  0.000000   0.000000
+dσ   -0.067847    -0.017736      0.039855   -0.043241 -0.155797 -0.046668  0.019655  0.251454 -0.016542 -18.901846  3.108518  13.660820
 </code></pre>
 <p>It worsens productivity and creativity (though not <em>quite</em> statistically
 significantly, but it's on the way there), but at least it improves my
 mood somewhat (though those results, besides contentment, might as well be
 due to random chance). No clear effect sizes with the flashcards either.</p>
-<p>So a hard pass on L-theanine, I think. Maybe it's better when combined
-with caffeine?</p>
+<h4 id="Conclusion_1"><a class="hanchor" href="#Conclusion_1">Conclusion</a></h4>
+<p>So a hard pass on L-theanine, I think. My current best guess is that
+as a night owl in the morning I'm still quite tired, and lack energy,
+with l-theanine just making me more sleepy than I already am. But then
+again, under Bonferroni-correction none of the p-values are statistically
+significant, so it looks like l-theanine just doesn't do anything. Maybe
+it's better when combined with caffeine?</p>
 <h2 id="Melatonin"><a class="hanchor" href="#Melatonin">Melatonin</a></h2>
 <p>See <a href="./reports.html#Melatonin">my report on my melatonin consumption</a>.</p>
 <!--TODO: describe the weird sometimes-insomnia effects-->
@@ -681,70 +686,70 @@ link to PredictionBook/Fatebook.</p>
 <td><a href="https://predictionbook.com/predictions/211895">60%</a></td>
 <td>Yes</td>
 <td><a href="https://fatebook.io/q/on-l-theanine-days-my-average--cln3mrtwq0005mj080hxfovnk">45%</a></td>
-<td></td>
+<td>Yes</td>
 </tr>
 <tr>
 <td>On interventional days, my average absorption during meditation was higher than days with placebo</td>
 <td><a href="https://predictionbook.com/predictions/211896">40%</a></td>
 <td>No</td>
 <td><a href="https://fatebook.io/q/on-l-theanine-days-my-average--cln3msvxw0007mj08v6v0thr6">55%</a></td>
-<td></td>
+<td>Yes</td>
 </tr>
 <tr>
 <td>On interventional days, the variance of values for mindfulness during meditation was lower than on placebo days</td>
 <td><a href="https://predictionbook.com/predictions/211897">55%</a></td>
 <td>No</td>
 <td><a href="https://fatebook.io/q/on-l-theanine-days-the-variance-of--cln3mtcp60009mj08w2tttjcs">60%</a></td>
-<td></td>
+<td>No</td>
 </tr>
 <tr>
 <td>On interventional days, the variance of values for absorption during meditation was lower than on placebo days</td>
 <td><a href="https://predictionbook.com/predictions/211898">35%</a></td>
 <td>Yes</td>
 <td><a href="https://fatebook.io/q/on-l-theanine-days-the-variance-of--cln3mtrxc000bmj08gsnbuo2a">65%</a></td>
-<td></td>
+<td>No</td>
 </tr>
 <tr>
 <td><code>$\lambda&lt;1$</code> for the mindfulness values</td>
 <td><a href="https://predictionbook.com/predictions/211899">20%</a></td>
 <td>No</td>
 <td><a href="https://fatebook.io/q/-1-for-the-mindfulness-values--cln3muaor0001jx08qm23vbcu">7%</a></td>
-<td></td>
+<td>Yes</td>
 </tr>
 <tr>
 <td><code>$\lambda&lt;1$</code> for the absorption values</td>
 <td><a href="https://predictionbook.com/predictions/211900">25%</a></td>
 <td>No</td>
 <td><a href="https://fatebook.io/q/-1-for-the-absorption-values-for--cln3mv8020001m808r7qfhxvr">5%</a></td>
-<td></td>
+<td>No</td>
 </tr>
 <tr>
 <td><code>$\lambda&lt;4$</code> for the mindfulness values</td>
 <td><a href="https://predictionbook.com/predictions/211901">82%</a></td>
 <td>No</td>
 <td><a href="https://fatebook.io/q/-4-for-the-mindfulness-values-for--cln3mw7710003l808hhlwezyn">15%</a></td>
-<td></td>
+<td>Yes</td>
 </tr>
 <tr>
 <td><code>$\lambda&lt;4$</code> for the absorption values</td>
 <td><a href="https://predictionbook.com/predictions/211902">88%</a></td>
 <td>No</td>
 <td><a href="https://fatebook.io/q/-4-for-the-absorption-values-for--cln3mvlv40001l50807gv6orv">20%</a></td>
-<td></td>
+<td>Yes</td>
 </tr>
 <tr>
 <td><code>$\lambda&lt;10$</code> for the mindfulness values</td>
 <td></td>
 <td></td>
 <td><a href="https://fatebook.io/q/-10-for-the-mindfulness-values--cln3n0zqf0001lb08kbdkgsn9">65%</a></td>
-<td></td>
+<td>Yes</td>
 </tr>
 <tr>
 <td><code>$\lambda&lt;10$</code> for the absorption values</td>
 <td></td>
 <td></td>
 <td><a href="https://fatebook.io/q/-10-for-the-absorption-values--cln3n1erx0003jt08myozekxy">60%</a></td>
-<td></td>
+<td>Yes</td>
 </tr>
 <tr>
 <td><strong>Mood</strong></td>
@@ -973,7 +978,8 @@ link to PredictionBook/Fatebook.</p>
 </tbody>
 </table>
 <p>I also recorded my predictions about the content of the pill on PredictionBook (Caffeine: <a href="https://predictionbook.com/predictions/211311">1</a> <a href="https://predictionbook.com/predictions/211312">2</a> <a href="https://predictionbook.com/predictions/211313">3</a> <a href="https://predictionbook.com/predictions/211314">4</a> <a href="https://predictionbook.com/predictions/211857">5</a> <a href="https://predictionbook.com/predictions/211858">6</a> <a href="https://predictionbook.com/predictions/211859">7</a> <a href="https://predictionbook.com/predictions/211860">8</a> <a href="https://predictionbook.com/predictions/211861">9</a> <a href="https://predictionbook.com/predictions/211862">10</a> <a href="https://predictionbook.com/predictions/211863">11</a> <a href="https://predictionbook.com/predictions/211864">12</a> <a href="https://predictionbook.com/predictions/211865">13</a> <a href="https://predictionbook.com/predictions/211866">14</a> <a href="https://predictionbook.com/predictions/211867">15</a> <a href="https://predictionbook.com/predictions/211868">16</a> <a href="https://predictionbook.com/predictions/211869">17</a> <a href="https://predictionbook.com/predictions/211870">18</a> <a href="https://predictionbook.com/predictions/211871">19</a> <a href="https://predictionbook.com/predictions/211872">20</a> <a href="https://predictionbook.com/predictions/211873">21</a> <a href="https://predictionbook.com/predictions/211874">22</a> <a href="https://predictionbook.com/predictions/211875">23</a> <a href="https://predictionbook.com/predictions/211876">24</a> <a href="https://predictionbook.com/predictions/211877">25</a> <a href="https://predictionbook.com/predictions/211878">26</a> <a href="https://predictionbook.com/predictions/211879">27</a> <a href="https://predictionbook.com/predictions/211880">28</a> <a href="https://predictionbook.com/predictions/211967">29</a> <a href="https://predictionbook.com/predictions/211968">30</a> <a href="https://predictionbook.com/predictions/211969">31</a> <a href="https://predictionbook.com/predictions/211970">32</a> <a href="https://predictionbook.com/predictions/211971">33</a> <a href="https://predictionbook.com/predictions/211972">34</a> <a href="https://predictionbook.com/predictions/211973">35</a> <a href="https://predictionbook.com/predictions/211974">36</a> <a href="https://predictionbook.com/predictions/211975">37</a> <a href="https://predictionbook.com/predictions/211976">38</a> <a href="https://predictionbook.com/predictions/211881">39</a> <a href="https://predictionbook.com/predictions/211882">40</a> <a href="https://predictionbook.com/predictions/211883">41</a> <a href="https://predictionbook.com/predictions/211884">42</a> <a href="https://predictionbook.com/predictions/211885">43</a> <a href="https://predictionbook.com/predictions/211886">44</a> <a href="https://predictionbook.com/predictions/211887">45</a> <a href="https://predictionbook.com/predictions/211888">46</a> <a href="https://predictionbook.com/predictions/211889">47</a> <a href="https://predictionbook.com/predictions/211890">48</a> <a href="https://predictionbook.com/predictions/211891">49</a> <a href="https://predictionbook.com/predictions/211892">50</a>) and Fatebook (L-theanine: <a href="https://fatebook.io/q/b-1-was-l-theanine--cln3nlpzp0003lf0884psl2ib">1</a>, <a href="https://fatebook.io/q/b-2-was-l-theanine--cln3nlyxb0005lf08k0rajsdn">2</a>, <a href="https://fatebook.io/q/b-3-was-l-theanine--cln3nm7fe0007lf088nhg6c6c">3</a>, <a href="https://fatebook.io/q/b-4-was-l-theanine--cln3nmf250009lf08dxxykycc">4</a>, <a href="https://fatebook.io/q/b-5-was-l-theanine--cln3nmqpk000blf08qwo2g3fh">5</a>, <a href="https://fatebook.io/q/b-6-was-l-theanine--cln3nn1km000dlf088dneeojq">6</a>, <a href="https://fatebook.io/q/b-7-was-l-theanine--cln3nndil0001l6089v0s4ech">7</a>, <a href="https://fatebook.io/q/b-8-was-l-theanine--cln3nnotx0001l308a3d6yl3i">8</a>, <a href="https://fatebook.io/q/b-9-was-l-theanine--cln3nnzjk0001jg088mzwzaj9">9</a>, <a href="https://fatebook.io/q/b-10-was-l-theanine--cln3no8yp0005jy08nf3d6l5i">10</a>, <a href="https://fatebook.io/q/b-11-was-l-theanine--cln3noi4l0007jy08zy3rakyj">11</a>, <a href="https://fatebook.io/q/b-12-was-l-theanine--cln3nov1a0005l708x511km76">12</a>, <a href="https://fatebook.io/q/b-13-was-l-theanine--cln3np7ky0003mm08laa92q7k">13</a>, <a href="https://fatebook.io/q/b-14-was-l-theanine--cln3npguy0003l608jrpz8rl5">14</a>, <a href="https://fatebook.io/q/b-15-was-l-theanine--cln3npnq50005l6081tsw7nm4">15</a>, <a href="https://fatebook.io/q/b-16-was-l-theanine--cln3npydv0001mw089qn8n3i3">16</a>, <a href="https://fatebook.io/q/b-17-was-l-theanine--cln3nq5cd0009l3088vb790kx">17</a>, <a href="https://fatebook.io/q/b-18-was-l-theanine--cln3nqdb2000bl308j0zp8szo">18</a>, <a href="https://fatebook.io/q/b-19-was-l-theanine--cln3nqjwz000dl3086mhgtx0c">19</a>, <a href="https://fatebook.io/q/b-20-was-l-theanine--cln3nqs180009jy085s7hcb2j">20</a>, <a href="https://fatebook.io/q/b-21-was-l-theanine--cln3nr0n20009lc08gvz8dyqv">21</a>, <a href="https://fatebook.io/q/b-22-was-l-theanine--cln3nr6vl000blc08jvlqkop4">22</a>, <a href="https://fatebook.io/q/b-23-was-l-theanine--cln3nrdzp0001mb08hnsfx62p">23</a>, <a href="https://fatebook.io/q/b-24-was-l-theanine--cln3nrlwf0001lf08ze31fei4">24</a>, <a href="https://fatebook.io/q/b-25-was-l-theanine--cln3nrrj80003lf08oxvumyol">25</a>, <a href="https://fatebook.io/q/b-26-was-l-theanine--cln3nrz1e0003mb08lgpjnfcp">26</a>, <a href="https://fatebook.io/q/b-27-was-l-theanine--cln3ns73t0003mn0847juzfs6">27</a>, <a href="https://fatebook.io/q/b-28-was-l-theanine--cln3nshqo0005lf08weefbhh8">28</a>, <a href="https://fatebook.io/q/b-29-was-l-theanine--cln3nsob40001mm086d4h6h3x">29</a>, <a href="https://fatebook.io/q/b-30-was-l-theanine--cln3nsx8w0001jt08gl24gn3s">30</a>, <a href="https://fatebook.io/q/b-31-was-l-theanine--cln3nt98t0003mm084oan2rel">31</a>, <a href="https://fatebook.io/q/b-32-was-l-theanine--cln3nth3p0005mm08krm6qwlq">32</a>, <a href="https://fatebook.io/q/b-33-was-l-theanine--cln3ntlcu0007mm08suqrvb55">33</a>, <a href="https://fatebook.io/q/b-34-was-l-theanine--cln3ntqzl0009mm087nrhe6hj">34</a>, <a href="https://fatebook.io/q/b-35-was-l-theanine--cln3ntw12000bmm08ht8mls5l">35</a>, <a href="https://fatebook.io/q/b-36-was-l-theanine--cln3nuaar0001lh08cyhevs62">36</a>, <a href="https://fatebook.io/q/b-37-was-l-theanine--cln3nuh0j0003lh0839dl2j9b">37</a>, <a href="https://fatebook.io/q/b-38-was-l-theanine--cln3nupmh0001mr08kp6sd8as">38</a>, <a href="https://fatebook.io/q/b-39-was-l-theanine--cln3nuz1n0007l708p37hk2w3">39</a>, <a href="https://fatebook.io/q/b-40-was-l-theanine--cln3nvbmf000flf08y6ljte6w">40</a>, <a href="https://fatebook.io/q/b-41-was-l-theanine--cln3nyq7s000dlc08mogrfrxb">41</a>, <a href="https://fatebook.io/q/b-42-was-l-theanine--cln3nywvk0005mn0852sa7imk">42</a>, <a href="https://fatebook.io/q/b-43-was-l-theanine--cln3nz6ra0007lf088bfchitm">43</a>, <a href="https://fatebook.io/q/b-44-was-l-theanine--cln3nzh0g0003jo0808diqg88">44</a>, <a href="https://fatebook.io/q/b-45-was-l-theanine--cln3nzq2m0001l408ck1bh6ca">45</a>, <a href="https://fatebook.io/q/b-46-was-l-theanine--cln3nzzdx0005m808tp1ouvt6">46</a>, <a href="https://fatebook.io/q/b-47-was-l-theanine--cln3o07fx0003mr087ntixwuc">47</a>, <a href="https://fatebook.io/q/b-48-was-l-theanine--cln3o0hoe0001mh09gwb2hq2g">48</a>, <a href="https://fatebook.io/q/b-49-was-l-theanine--cln3o0sgd0001l309z03l6ire">49</a>, <a href="https://fatebook.io/q/b-50-was-l-theanine--cln3o0ywv0001l508g2gq1ykj">50</a>).</p>
-<p>This comes out badly for me, again:</p>
+<p>I continue to be <em>worse than chance</em> in my predictions on the outcomes
+of my own experiments:</p>
 <pre><code>&gt;&gt;&gt; import math
 &gt;&gt;&gt; import numpy as np
 &gt;&gt;&gt; probs=np.array([0.8, 0.6, 0.6, 0.4, 0.55, 0.35, 0.2, 0.25, 0.82, 0.88, 0.65, 0.45, 0.35, 0.5, 0.55, 0.3, 0.3, 0.5, 0.45, 0.4, 0.37, 0.6, 0.85, 0.9, 0.9, 0.95, 0.52, 0.55, 0.4, 0.65, 0.4, 0.45, 0.75, 0.8])
@@ -983,7 +989,6 @@ link to PredictionBook/Fatebook.</p>
 &gt;&gt;&gt; np.mean(list(map(lambda x: math.log(x[0]) if x[1]==1 else math.log(1-x[0]), zip([0.5]*50, outcomes))))
 -0.6931471805599452
 </code></pre>
-<p>I am significantly <em>worse</em> than chance in my predictions.</p>
 <blockquote>
 <p>Die Welt gibt dir viel falsche Zeichen,<br/>
 dem tückischen Geist zu vergleichen,<br/>
