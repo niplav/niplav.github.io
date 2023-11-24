@@ -2224,4 +2224,62 @@ after the global substack domain, which gets us
 <a href="https://substack.com/api/v1/audio/upload/3b5196e4-3c8e-40aa-b1a2-d334923ca874/src">https://substack.com/api/v1/audio/upload/3b5196e4-3c8e-40aa-b1a2-d334923ca874/src</a>.
 Calling that address starts the download process automatically.</p>
 <p>Adding the download functionality to <code>yt-dlp</code> is on my todo list.</p>
+<h2 id="A_Response_on_FOOM"><a class="hanchor" href="#A_Response_on_FOOM">A Response on FOOM</a></h2>
+<p>The most fleshed-out model of AI takeoff is <a href="https://niplav.site/doc/cs/ai/alignment/takeoff/a_compute_centric_framework_of_takeoff_speeds_davidson_2023.pdf">Davidson
+2023</a>,
+which makes the median prediction of 20% automation to 100% automation
+in ~3 years (10th percentile: 0.8 years, 90th percentile: 12.5 years).</p>
+<p>Along the axes of {fast, slow}×{continuous, discountinuous}, that feels
+quite fast to me, even if it isn't very discountinuous.</p>
+<p>The other reasons make me move towards "but it might be a lot faster
+than that". One reason is that the Davidson model assumes that the human
+brain performs 10¹⁵ FLOP/s, and that the AI systems will be at most
+that efficient or slightly less efficient. So most of my disagreement
+is around <em>how much the ceiling of cognitive algorithms is above humans</em>.</p>
+<p>One reason is that human brains don't seem like the optimal substrate
+for performing cognition: Warm &amp; wet, very low information transmission
+speed (signals on neurons are limited to at most 200 m/s)—and still
+they are incredibly sample-efficient!</p>
+<p>Then there's the <em>power of error-corrected computation</em>: Digital
+computers can make very long inferences in discrete domains without
+problems, and when I introspect, I have the strong intuition that
+my system 2 tries to approximate this, especially when trying to
+enumerate options in a decision, recursively decompose a plan into
+its components, perform abstraction (while caching which parts of the
+abstraction are tight and which are leaky)—but my system 2 only has
+<a href="https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two">7±2</a>
+(or maybe <a href="https://en.wikipedia.org/wiki/Working_Memory#Capacity">actually just
+4</a>?) usable
+slots. And unless the limit is due to combinatorial explosion (which
+might be handleable by careful pruning, or prioritized search), AI
+systems could have larger (perhaps vastly larger?) working memories.</p>
+<p>The standard rejoinder here is that evolution has optimized human brains
+really really hard, and our current technology is usually 2-6 orders of
+magnitude worse than what evolution has come up with. But if we believe
+that error-corrected computation is quite rare in biology, then this opens
+up a new niche to make progress in, similar to how there are no plants
+in space because they couldn't evolve rocket-like tech and transparent
+shells that were resistant enough in vacuum.</p>
+<p>This points at an intuition I have: There is a bunch of α left in
+combining error-corrected/discrete computation (which computers are good
+at) with error-resistant/continuous computation (à la neural networks
+or brains). And especially if I think about cognition through the lens of
+algorithms, it feels like there's a <em>deep mine of algorithms</em>: The space
+of possible algorithms is vast, and even in <em>very</em> simple problem domains
+we have found surprising innovations (such as going from the <a href="https://en.wikipedia.org/wiki/Karatsuba_algorithm">Karatsuba
+algorithm</a>
+to the <a href="https://en.wikipedia.org/wiki/Sch%C3%B6nhage-Strassen_algorithm">Schönhage-Strassen
+algorithm</a>,
+or from the naive algorithm for the <a href="https://en.wikipedia.org/wiki/Maximum_Subarray_problem">maximum subarray
+problem</a>
+to Kadane's algorithm)). My "optimism" here has been hindered
+somewhat by some evidence on how well <a href="https://www.lesswrong.com/posts/J6gktpSgYoyq5q3Au/benchmarking-an-old-chess-engine-on-new-hardware">old chess algorithms perform on new
+hardware</a>,
+and the observation that the surprising algorithms we find
+are usually galactic (such as in the case of the <a href="https://en.wikipedia.org/wiki/Computational_complexity_of_matrix_multiplication#Matrix_multiplication_exponent">slowly
+shrinking best-case exponent in the computational complexity of matrix
+multiplication</a>—where
+yet we still only use <a href="https://en.wikipedia.org/wiki/Strassen's_algorithm">Strassen's
+algorithm</a>.</p>
+<p>Additionally, people seem to have <em>forgotten about thinking</em>:</p>
 </body></html>
