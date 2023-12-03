@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-04-02, modified: 2023-11-13, language: english, status: in progress, importance: 3, confidence: log</em></p>
+<p><em>author: niplav, created: 2019-04-02, modified: 2023-12-02, language: english, status: in progress, importance: 3, confidence: log</em></p>
 <blockquote>
 <p><strong>A monthly review of changes on this website.</strong></p>
 </blockquote>
@@ -51,22 +51,46 @@ with fecundity.</p>
 <p>Monthly updates are sent out <a href="https://niplav.substack.com/">via substack</a>.</p>
 <h2 id="November_2023"><a class="hanchor" href="#November_2023">November 2023</a></h2>
 <ul>
+<li>Wrote publishable version of <a href="./platforms.html">Using Prediction Platforms to Select Quantified Self Experiments</a>. Please predict the markets!</li>
+<li><a href="./bcis_and_alignment.html">Brain-Computer Interfaces and AI Alignment</a>: <a href="./bcis_and_alignment.html#TopDown_WBE">Top-Down WBE</a></li>
 <li><a href="./language.html">Playing with Language</a>: <a href="./language.html#New_Eponymous_Laws">New Eponymous Laws</a></li>
 <li><a href="./microfiction.html">Microfiction</a>: <a href="./microfiction.html#Switcheroos">Switcheroos</a></li>
+<li><a href="./data.html">Data</a>: <a href="./data.html#Fitbit_Biometrics">FitBit Biometrics</a></li>
 <li><a href="./notes.html">Notes</a>
 <ul>
 <li><a href="./notes.html#Downloading_a_Substack_Podcast_by_Hand">Downloading a Substack Podcast by Hand</a></li>
 <li><a href="./notes.html#PredictionBook_Archive">PredictionBook Archive</a></li>
 </ul></li>
 </ul>
+<h3 id="Code"><a class="hanchor" href="#Code">Code</a></h3>
+<ul>
+<li>"Forked" <a href="https://git.sr.ht/~mcepl/vis-fzf-open">vis-fzf-open</a> to create a <a href="https://github.com/martanne/vis">vis</a> plugin that allows for inserting lines from specific files: <a href="https://github.com/niplav/vis-fzf-insert">vis-fzf-insert</a>.</li>
+<li>Decided to get out of theorycel stasis and started working on the project described in <a href="https://arbital.com/p/environmental_goals/">Yudkowsky 2017</a>, code <a href="https://github.com/niplav/timidity">here</a>. It currently does exactly the opposite of what I want it to do, which means I am one bit away from success.</li>
+</ul>
 <h3 id="Links"><a class="hanchor" href="#Links">Links</a></h3>
 <ul>
+<li><a href="https://en.wikipedia.org/wiki/D%C3%A9rive">Dérive (English Wikipedia, 2023)</a>: Remembered the <a href="https://en.wikipedia.org/wiki/Situationist_International">Situationists</a>.</li>
 <li><a href="https://en.wikipedia.org/wiki/Wild_knot">Wild knot (English Wikipedia, 2023)</a></li>
 <li><a href="https://forum.effectivealtruism.org/s/y5n47MfgrKvTLE3pw/p/qEsDhFL8mQARFw6Fj">The Subjective Experience of Time: Welfare Implications (Jason Schukraft, 2020)</a></li>
 <li><a href="https://nintil.com/bloom-sigma">On Bloom's two sigma problem: A systematic review of the effectiveness of mastery learning, tutoring, and direct instruction (José Luis Ricón, 2020)</a>: Oldie but goodie. Computer-based tutoring is still under-rated! Maybe I will use language models more intensely for study.</li>
 <li><a href="https://tsvibt.blogspot.com/2022/09/dangers-of-deferrence.html">Dangers of deference (Tsvi Benson-Tilsen, 2022)</a>: It's nice to have a comprehensive list about this kind of to-me-obviously-flawed epistemic practice.</li>
 <li><a href="https://traditionsofconflict.substack.com/p/snake-detection-theory">Snake detection theory (William Buckner, 2022)</a>: Are primates genetically programmed to be afraid of snakes? Apparently, <a href="https://en.wikipedia.org/wiki/Ophidiophobia">ophidiophobia</a> is one of the most common phobias, which I can't really understand (snakes were for quite a while my favorite type of animal). Related question: Is the common and apparently instinctive fear that cats display towards long green objects (e.g. cucumbers) that appear suddenly in their field of view<!--TODO: link video compilation?--> slight evidence for snake detection theory, since those cats had never seen a snake in their life? Also, if snakes are <a href="https://www.lesswrong.com/s/nyEFg3AuJpdAozmoX/p/CQAMdzA4MZEhNRtTp">accessible to the genome</a>, what else could be?</li>
 <li><a href="https://www.quantamagazine.org/in-cryptography-advances-in-program-obfuscation-20140130/">Perfecting the Art of Sensible Nonsense (Erica Klarreich, 2014)</a>: I had not heard to <a href="https://en.wikipedia.org/wiki/Indistinguishability_obfuscation">indistinguishability obfuscation</a> before! It turns out you <em>can</em> (in theory) build a program that only runs if you give it the correct password, even if you have access to the binary, and this leads to <a href="https://en.wikipedia.org/wiki/Indistinguishability_obfuscation#Potential_applications">being able to construct</a> a whole zoo of cryptographic operations, including <a href="https://en.wikipedia.org/wiki/Fully_homomorphic_encryption">fully homomorphic encryption</a> and many others I don't even recognize. Curiously, in <a href="https://en.wikipedia.org/wiki/Russell_Impagliazzo">Russell Impagliazzo's</a> five worlds, indistinguishability obfuscation only <a href="https://en.wikipedia.org/wiki/Indistinguishability_obfuscation#Existence">exists in two</a>. Quanta magazine continues to deliver, as the researcher mentioned in the article, <a href="https://en.wikipedia.org/wiki/Amit_Sahai">Amit Sahai</a>, shows up in the comments to correct the misunderstanding of another commenter.</li>
+</ul>
+<h4 id="Ways_of_Classifying_Strings_Computationally"><a class="hanchor" href="#Ways_of_Classifying_Strings_Computationally">Ways of Classifying Strings, Computationally</a></h4>
+<p>Started reading a bit about this because I was dissatisfied
+with the standard explanation of neural networks having a
+simplicity prior, but of course got distracted by the cool
+things you can do with Turing machines. I wonder whether
+you can create a sophistication/anti-sophistication/logical
+depth prior, and what that would compare to <a href="https://en.wikipedia.org/wiki/Kolmogorov_Complexity">Kolmogorov
+complexity</a>
+in terms of
+<a href="https://www.lesswrong.com/s/hFom77cBBnnbNLzzm/p/Tr7tAyt5zZpdTwTQK">malignity</a>.</p>
+<ul>
+<li><a href="https://scottaaronson.blog/?p=762">The First Law of Complexodynamics (Scott Aaronson, 2011)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Logical_depth">Logical depth (English Wikipedia, 2023)</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Speed_prior">Speed prior (English Wikipedia, 2023)</a></li>
 </ul>
 <h2 id="October_2023"><a class="hanchor" href="#October_2023">October 2023</a></h2>
 <p>Meditation.</p>
