@@ -1897,6 +1897,8 @@ option in the global ranking.</p>
 <li><a href="https://www.lesswrong.com/posts/xSfn84q3vdotALHuB/how-to-lumenate-uk-edition">How to Lumenate (UK Edition) (chanamessinger, 2022)</a></li>
 <li><a href="https://www.lesswrong.com/posts/HJNtrNHf688FoHsHM/guide-to-rationalist-interior-decorating#Lumenators">Guide to rationalist interior decorating (mingyuan 2023)</a></li>
 <li><a href="https://www.lesswrong.com/posts/R6ByTTv9dpnjNA45C/angelinahli-s-shortform?commentId=hBPd4HGxRLGzkEGsj">Shortform on cheap lumenator (Angelinahli 2023)</a></li>
+<li><a href="https://meaningness.com/sad-light-led-lux">YOU NEED MORE LUX (David Chapman, 2023)</a></li>
+<li><a href="https://meaningness.com/sad-light-lumens">Seriously bright light vs. winter blahs (David Chapman, 2023)</a></li>
 </ul>
 <h2 id="KaldorHicks_Worsenings"><a class="hanchor" href="#KaldorHicks_Worsenings">Kaldor-Hicks Worsenings</a></h2>
 <p>There are
@@ -2173,6 +2175,8 @@ which always feels hollow without the math).</p>
 <ul>
 <li><a href="https://www.quantamagazine.org/in-cryptography-advances-in-program-obfuscation-20140130/">Perfecting the Art of Sensible Nonsense (Erica Klarreich, 2014)</a></li>
 <li><a href="https://www.quantamagazine.org/a-new-thermodynamics-theory-of-the-origin-of-life-20140122/">A New Physics Theory of Life (Natalie Wolchover, 2014)</a></li>
+<li><a href="https://www.quantamagazine.org/big-bang-secrets-swirling-in-a-fluid-universe-20140212/">Big Bang Secrets Swirling in a Fluid Universe (Natalie Wolchover, 2014)</a></li>
+<li><a href="https://www.quantamagazine.org/scientists-reveal-structure-of-pain-sensor-20140220/">Scientists Reveal Structure of Pain Sensor (Emily Singer, 2014)</a></li>
 </ul>
 <h2 id="None_1"><a class="hanchor" href="#None_1">Ordering Outgoing <em>and</em> Incoming Edges in Dot</a></h2>
 <p>Let's say you have a graph like this, drawn by the <code>dot</code> program:</p>
@@ -2234,18 +2238,25 @@ quite fast to me, even if it isn't very discountinuous.</p>
 <p>The other reasons make me move towards "but it might be a lot faster
 than that". One reason is that the Davidson model assumes that the human
 brain performs 10¹⁵ FLOP/s, and that the AI systems will be at most
-that efficient or slightly less efficient. So most of my disagreement
-is around <em>how much the ceiling of cognitive algorithms is above humans</em>.</p>
+that efficient or slightly less efficient. So a lot of my disagreement is
+around: <strong>how much the ceiling of cognitive algorithms is above humans</strong>
+(my belief: very high<sub>80%</sub>), and the rest of the disagreement
+is <strong>how quickly can AI systems move towards that ceiling</strong> (my belief:
+not sure, but potentially within days<sub>40%</sub>).</p>
+<h3 id="Better_Algorithms_Exist"><a class="hanchor" href="#Better_Algorithms_Exist">Better Algorithms Exist</a></h3>
 <p>One reason is that human brains don't seem like the optimal substrate
 for performing cognition: Warm &amp; wet, very low information transmission
-speed (signals on neurons are limited to at most 200 m/s)—and still
-they are incredibly sample-efficient!</p>
-<p>Then there's the <em>power of error-corrected computation</em>: Digital
-computers can make very long inferences in discrete domains without
-problems, and when I introspect, I have the strong intuition that
-my system 2 tries to approximate this, especially when trying to
-enumerate options in a decision, recursively decompose a plan into
-its components, perform abstraction (while caching which parts of the
+speed (signals on neurons are limited to at most 200 m/s)<a href="https://www.lesswrong.com/posts/HhWhaSzQr6xmBki8F/birds-brains-planes-and-ai-against-appeals-to-the-complexity">Kokotajlo
+2021</a>
+— and still brains are incredibly sample-efficient!</p>
+<p>Then there's the <em>power of error-corrected/discrete computation</em>:
+Digital computers can make very long inferences in discrete domains
+without problems, and when I introspect, I have the strong intuition
+that my system 2 tries to approximate this, especially when trying
+to enumerate options in a decision, recursively decompose a plan
+into its components (which gets much easier <a href="https://bmk.sh/2020/08/17/Building-AGI-Using-Language-Models/">once you have a world
+model</a>),
+perform abstraction (while caching which parts of the
 abstraction are tight and which are leaky)—but my system 2 only has
 <a href="https://en.wikipedia.org/wiki/The_Magical_Number_Seven,_Plus_or_Minus_Two">7±2</a>
 (or maybe <a href="https://en.wikipedia.org/wiki/Working_Memory#Capacity">actually just
@@ -2253,10 +2264,11 @@ abstraction are tight and which are leaky)—but my system 2 only has
 slots. And unless the limit is due to combinatorial explosion (which
 might be handleable by careful pruning, or prioritized search), AI
 systems could have larger (perhaps vastly larger?) working memories.</p>
-<p>The standard rejoinder here is that evolution has optimized human brains
-really really hard, and our current technology is usually 2-6 orders of
-magnitude worse than what evolution has come up with. But if we believe
-that error-corrected computation is quite rare in biology, then this opens
+<p>The standard rejoinder here is that evolution has optimized human
+brains really really hard, and our current technology is usually 2-6
+orders of magnitude worse than what evolution has come up with<!--TODO:
+find Christiano investigation into this-->. But if we believe that
+error-corrected computation is quite rare in biology, then this opens
 up a new niche to make progress in, similar to how there are no plants
 in space because they couldn't evolve rocket-like tech and transparent
 shells that were resistant enough in vacuum.</p>
@@ -2275,11 +2287,30 @@ problem</a>
 to Kadane's algorithm)). My "optimism" here has been hindered
 somewhat by some evidence on how well <a href="https://www.lesswrong.com/posts/J6gktpSgYoyq5q3Au/benchmarking-an-old-chess-engine-on-new-hardware">old chess algorithms perform on new
 hardware</a>,
-and the observation that the surprising algorithms we find
-are usually galactic (such as in the case of the <a href="https://en.wikipedia.org/wiki/Computational_complexity_of_matrix_multiplication#Matrix_multiplication_exponent">slowly
-shrinking best-case exponent in the computational complexity of matrix
+and the observation that the surprising algorithms we find are
+usually galactic (such as in the case of the <a href="https://en.wikipedia.org/wiki/Computational_complexity_of_matrix_multiplication#Matrix_multiplication_exponent">decreasing shrinking
+rate of the best-case exponent in the computational complexity of matrix
 multiplication</a>—where
 yet we still only use <a href="https://en.wikipedia.org/wiki/Strassen's_algorithm">Strassen's
 algorithm</a>).</p>
-<p>Additionally, people seem to have <em>forgotten about thinking</em>:</p>
+<p>Additionally, there's some domains of computation of which we have
+made little use, <em>because</em> our minds are limited in a way that makes
+it difficult to think about them. As the adage goes, programming is
+divided into four levels of difficulty: <code>if</code> statements, <code>while</code>
+loops, <a href="https://en.wikipedia.org/wiki/Recursion">recursion</a> and
+<a href="https://en.wikipedia.org/wiki/Parallelism_(computing)">parallelism</a>;
+but what about domains like <a href="https://en.wikipedia.org/wiki/Self-modifying_code">self-modifying
+code</a> (where, except
+maybe <a href="https://en.wikipedia.org/wiki/G%C3%B6del_machine">Gödel machines</a>,
+there is no respectable theory, and except <a href="https://en.wikipedia.org/wiki/Alexia_Massalin">Alexia
+Massalin's</a>
+<a href="https://en.wikipedia.org/wiki/Superoptimization">superoptimization</a> there
+isn't really any application)? Although, to be fair, <a href="https://en.wikipedia.org/wiki/Neural_architecture_search">neural architecture
+search</a> might
+be getting there, sometime.</p>
+<!--Additionally, people seem to have *forgotten about thinking*:-->
+<p>My view on better algorithms existing is <em>not</em>
+informed very much by <a href="https://www.lesswrong.com/posts/hvz9qjWyv8cLX9JJR/evolution-provides-no-evidence-for-the-sharp-left-turn">specific observations about
+evolution</a>.</p>
+<h3 id="Better_Algorithms_are_Quickly_Reachable"><a class="hanchor" href="#Better_Algorithms_are_Quickly_Reachable">Better Algorithms are Quickly Reachable</a></h3>
 </body></html>
