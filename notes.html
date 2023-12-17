@@ -1075,7 +1075,6 @@ data-scientist.</p>
 <li>Can the benefit compare to this?</li>
 </ul></li>
 </ul></li>
-<li>Ceramic plates and cups made of glass that break easily</li>
 <li>Non-velcro shoes</li>
 <li>Courses at university are not 3blue1brown + Q&amp;A + extensive quizzes (or automated tutoring à la DARPA)</li>
 <li>TSA security theater</li>
@@ -1093,6 +1092,58 @@ TODO: I got pushback on LW for this:
         * And this is still disregarding increased crash probabilities from higher cognitive load! (Although maybe automatic cars cost more?)
 TODO: do
 -->
+<h3 id="Fragile_Tableware"><a class="hanchor" href="#Fragile_Tableware">Fragile Tableware</a></h3>
+<p>Ceramic/porcelain plates and cups made of glass break easily, while the
+æsthetics we have around them seem mostly path-dependent (and perhaps
+even <em>caused</em> by their fragility, leftovers from a time where fragile
+tableware signaled wealth).</p>
+<p><strong>Cooling</strong>: Generally, porcelain plates have the advantage
+that food placed on them cools less quickly. Wikipedia <a href="https://en.wikipedia.org/wiki/List_of_thermal_conductivities">states
+that</a>
+porcelain has a thermal conductivity of ~1.4 to 1.9
+<code>$\frac{W}{K \cdot m}$</code> at ~400 Kelvin, and <a href="https://en.wikipedia.org/wiki/Pyrex">pyrex
+glass</a> variants have thermal
+conductivities of 1-2 in the the range 273-373 Kelvin, while Aluminium
+(a contender for a substance out of which to make plates, glasses &amp;
+cups) has a thermal conductivity of ~100 <code>$\frac{W}{K \cdot m}$</code> at
+273 Kelvin — which leads to faster cooling, and colder food is less
+enjoyable to eat. However, we don't <em>have</em> to be stupid about this:
+plastics lose heat even more slowly than porcelain (generally with
+thermal conductivities &lt;1).</p>
+<p><strong>Æsthetics</strong>: The other advantage of porcelain and glass is that they
+just <em>look so much nicer</em>. I don't have any strong rejoinders here,
+my æsthetics rejoice in knowing that I'm doing a thing that is more
+economical—but I acknowledge that I'm in the minority there. The
+only guidepost I can offer is to look at the price and then ask: "Are
+the æsthetics worth this price?" If yes, go ahead! If not, I may have
+pointed out something interesting.</p>
+<p>Code for a slightly more complicated Fermi
+estimate, (mis)using the <a href="https://en.wikipedia.org/wiki/Probabilistic_programming_language">probabilistic programming
+language</a>
+Turing.jl:</p>
+<pre><code>using Turing, Plots
+
+@model function ceramic_glass()
+    people ~ Normal(8*10^9, 0.05)
+    meals_per_day ~ truncated(Normal(2.5, 1), lower=0)
+    proportion_tableware_users ~ Beta(5, 2.5) # Mean ⅔
+    breakage_per_meal ~ Beta(1.5, 1000) # Mean ~0.0015
+    cost_per_tableware ~ truncated(Normal(2, 0.5), lower=0) # In dollars
+end
+
+chains = sample(ceramic_glass(), IS(), 10000)
+sampled=get(chains, [:people, :meals_per_day, :proportion_tableware_users, :breakage_per_meal, :cost_per_tableware])
+total_cost_per_day=sampled[:people] .* sampled[:meals_per_day] .* sampled[:proportion_tableware_users] .* sampled[:breakage_per_meal] .* sampled[:cost_per_tableware]
+mean(total_cost_per_day)
+4.00195809996674e7
+gui(histogram(total_cost_per_day, label="samples", xlabel="cost", ylabel="number of samples"))
+</code></pre>
+<p><img alt="" src="./img/civilizational_inadequacies/cost_histogram.png"/></p>
+<p>I'm aware that this code is ugly, and I'll fix it<!--TODO: look at how
+to do this properly in Turing, maybe download documentation-->.</p>
+<p>Note that this code only estimates the costs of fragile tableware, and
+makes no statements about the costs of e.g. switching to alternative
+materials.</p>
 <h2 id="An_Example_for_Not_Updating_Uncertain_Utility_Functions"><a class="hanchor" href="#An_Example_for_Not_Updating_Uncertain_Utility_Functions">An Example for Not Updating Uncertain Utility Functions</a></h2>
 <p>Just having uncertainty over your reward function does not
 mean that you will necessarily be open to changing that
@@ -2312,5 +2363,7 @@ be getting there, sometime.</p>
 <p>My view on better algorithms existing is <em>not</em>
 informed very much by <a href="https://www.lesswrong.com/posts/hvz9qjWyv8cLX9JJR/evolution-provides-no-evidence-for-the-sharp-left-turn">specific observations about
 evolution</a>.</p>
-<h3 id="Better_Algorithms_are_Quickly_Reachable"><a class="hanchor" href="#Better_Algorithms_are_Quickly_Reachable">Better Algorithms are Quickly Reachable</a></h3>
+<!--
+### Better Algorithms are Quickly Reachable
+-->
 </body></html>
