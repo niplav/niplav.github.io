@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-07-06, modified: 2023-12-20, language: english, status: notes, importance: 6, confidence: possible</em></p>
+<p><em>author: niplav, created: 2023-07-06, modified: 2024-01-17, language: english, status: notes, importance: 6, confidence: possible</em></p>
 <blockquote>
 <p><strong>Humans get around 80 years of life. How can that time be made to
 feel as long as possible?</strong></p>
@@ -58,14 +58,23 @@ and <a href="https://nintil.com/longevity">Ricón 2021</a>.</p>
 <th><a href="https://en.wikipedia.org/wiki/Net_Present_Value">Net present value</a></th>
 <th>State of evidence</th>
 <th>Papers</th>
+<th>Notes</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Meditating 2.5 hours per day</td>
+<td>Meditating 2.5 hours per day → Reduces sleep need</td>
 <td>$33k</td>
 <td>Poor, a single case study (n=7)</td>
 <td><a href="./doc/meditation/science/meditation_acutely_improves_psychomotor_vigilance_and_may_decrease_sleep_need_kaul_et_al_2010.pdf">Kaul et al. 2010</a></td>
+<td>Can also confer <a href="https://en.wikipedia.org/wiki/Research_on_Meditation">other benefits</a>, but multiple hours of meditation per day <a href="https://harpers.org/archive/2021/04/lost-in-thought-psychological-risks-of-meditation/">could be risky</a></td>
+</tr>
+<tr>
+<td>Taking melatonin → Reduces sleep need</td>
+<td>$7.5k</td>
+<td>Data collected from two individuals (n=2)</td>
+<td><a href="https://www.gwern.net/Melatonin#tempus-fugit">Gwern 2019</a>, <a href="./nootropics.html#Reducing_Sleep_Duration">Niplav 2024</a></td>
+<td>Low risk</td>
 </tr>
 </tbody>
 </table>
@@ -109,12 +118,35 @@ if one slept for 7 hours, one awakes as refreshed as if one had slept
 for 8 hours etc. From comparing with others, I think I benefit more than
 around two-thirds of people.</p>
 </blockquote>
-<!--TODO: analyze own data-->
+<h5 id="Niplav_2024"><a class="hanchor" href="#Niplav_2024">Niplav 2024</a></h5>
+<p>I <a href="./nootropics.html#Reducing_Sleep_Duration">analyze</a> my own data,
+and (weakly) conclude that melatonin reduces my sleep duration by ~25
+minutes, although I have not checked whether melatonin simply makes my
+body go into sleep debt which is then paid off the next night.</p>
+<h5 id="CostBenefit"><a class="hanchor" href="#CostBenefit">Cost-Benefit</a></h5>
+<p>Assuming a (conservative) 15 minutes of sleep time saved, at a price of
+~4 cent per pill, assuming the benefit does not taper off, we get a net
+present value (over the next 40 years) of</p>
+<p><code>$\sum_{i=0}^{40} \frac{365 \cdot (0.25 \text{hr} \cdot 5 \frac{\$}{\text{hr}})}{1.05^i} \approx \$7578$</code>.</p>
+<h4 id="OrexinA"><a class="hanchor" href="#OrexinA">Orexin-A</a></h4>
+<blockquote>
+<p>If you are a naive reader, you might expect that we give people
+with narcolepsy type 1 orexin-A as a supplement because that would be
+obvious. We don’t. You might expect that someone tried to bring it to
+market as a drug and ran a clinical trial. They didn’t.<br/>
+The problem seems to be that the solution is too obvious. The patent
+office likely decided that the solution would be too obvious to give
+out a <a href="https://qr.ae/pvWJAr">patent for it</a>, and thus the narcoleptic
+patients are without orexin-A supplementation unless they go through
+<a href="https://forum.biohack.me/index.php?p=/discussion/1075/orexin-a-group-purchase">efforts</a>
+to procure it themselves.</p>
+</blockquote>
+<p><em>—<a href="https://www.lesswrong.com/users/christiankl">ChristianKl</a>, <a href="https://www.lesswrong.com/posts/sksP9Lkv9wqaAhXsA/orexin-and-the-quest-for-more-waking-hours">“Orexin and the quest for more waking hours”</a>, 2022</em></p>
+<!--TODO: check up on Orexin agonists!-->
 <h4 id="Others"><a class="hanchor" href="#Others">Others</a></h4>
 <p>Selected from <a href="https://harsimony.wordpress.com/2023/01/20/research-areas-for-reducing-sleep-need/">Harsimony 2023</a>:</p>
 <ul>
 <li>Modafinil</li>
-<li>Orexin-A</li>
 <li>Neuropeptide S</li>
 <li>S-Adenosyl methionine</li>
 <li>Sodium Oxybate</li>
@@ -171,18 +203,26 @@ increasing the time spent lucid, if one values time in meditation half
 as much as other waking time at $2.5/hr. This gives a <a href="https://en.wikipedia.org/wiki/Net_Present_Value">net present
 value</a> over the next
 40 years of</p>
-<p><code>$\sum_{i=0}^{40} \frac{365 \cdot \$5/\text{hr} \cdot 2 \text{hr} \cdot 0.5}{1.05^i}=\$33140$</code>.</p>
-<p>The quality of the evidence here is very slim, but anecdotes<!--TODO:
-link, maybe MCTB?--> point towards sleep durations decreasing during
-meditation retreats. It would be quite interesting to know the relation
-between time spent meditating and amount of time slept.</p>
+<p><code>$\sum_{i=0}^{40} \frac{365 \cdot \$5/\text{hr} \cdot 2 \text{hr} \cdot 0.5}{1.05^i} \approx \$33140$</code>.</p>
+<p>The quality of the evidence here is very slim, but anecdotes point
+towards sleep durations decreasing during meditation retreats. It would
+be quite interesting to know the relation between time spent meditating
+and amount of time slept.</p>
 <h3 id="Behavioral_Interventions_1"><a class="hanchor" href="#Behavioral_Interventions_1">Behavioral Interventions</a></h3>
 <ul>
 <li>Sleep Hygiene</li>
 <li>Cognitive Behavioral Therapy</li>
 <li>Polyphasic Sleep</li>
 <li>Unihemispheric Sleep</li>
+<li>Going to Bed Later and Waking Up At The Same Time</li>
+<li>Going to Bed At The Same Time And Waking Up Earlier</li>
 </ul>
+<blockquote>
+<p>There are two plausible ways to cut sleep duration without harming
+cognition: increasing the proportion of slow wave sleep that is spent
+in deep sleep and reducing REM sleep.</p>
+</blockquote>
+<p><em>—<a href="https://www.lesswrong.com/users/angela-pretorius">Angela Pretorius</a>, <a href="https://www.lesswrong.com/posts/sksP9Lkv9wqaAhXsA/orexin-and-the-quest-for-more-waking-hours?commentId=L6HTekbs6hrCdATAv">LessWrong comment</a>, 2022</em></p>
 <h3 id="Other_Interventions"><a class="hanchor" href="#Other_Interventions">Other Interventions</a></h3>
 <h4 id="Reducing_Sleep_Inertia"><a class="hanchor" href="#Reducing_Sleep_Inertia">Reducing Sleep Inertia</a></h4>
 <h4 id="Stimulation"><a class="hanchor" href="#Stimulation">Stimulation</a></h4>
@@ -211,9 +251,15 @@ sleep without negative consequences [3137, 3167].][sic]</p>
 <li>[3137] Ji Hyun Yook, Muneeba Rizwan, Noor ul ain Shahid, Noreen Naguit, Rakesh Jakkoju, Sadia Laeeq, Tiba Reghefaoui, Hafsa Zahoor, and Lubna Mohammed. Some twist of molecular circuitry fast forwards overnight sleep hours: A systematic review of natural short sleepers’ genes. Cureus, 13(10), 2021.</li>
 <li>[3167] Liubin Zheng and Luoying Zhang. The molecular mechanism of natural short sleep: A path towards understanding why we need to sleep. Brain Science Advances, 2022.</li>
 </ul>
+<p>See also <a href="https://forum.effectivealtruism.org/posts/nSwaDrHunt3ohh9Et/cause-area-short-sleeper-genes">JohnBoyle
+2022</a>,
+and a <a href="https://forum.effectivealtruism.org/posts/nSwaDrHunt3ohh9Et/cause-area-short-sleeper-genes?commentId=GCQf5qjG4LyEdEJov">skeptical
+comment</a>
+on the state of research on these genes.</p>
 <h2 id="Making_Sleep_More_Lucid"><a class="hanchor" href="#Making_Sleep_More_Lucid">Making Sleep More Lucid</a></h2>
-<h3 id="Lucid_Dreaming"><a class="hanchor" href="#Lucid_Dreaming">Lucid Dreaming</a></h3>
-<h4 id="Behavioral_Interventions_2"><a class="hanchor" href="#Behavioral_Interventions_2">Behavioral Interventions</a></h4>
+<h3 id="Dreams"><a class="hanchor" href="#Dreams">Dreams</a></h3>
+<h4 id="Lucid_Dreaming"><a class="hanchor" href="#Lucid_Dreaming">Lucid Dreaming</a></h4>
+<h5 id="Behavioral_Interventions_2"><a class="hanchor" href="#Behavioral_Interventions_2">Behavioral Interventions</a></h5>
 <blockquote>
 <p>While self-assessed numbers of awakenings, polyphasic sleep and
 physiologically validated wake-REM sleep tran- sitions were associated
@@ -221,7 +267,7 @@ with lucid dreaming, neither self-assessed sleep quality, nor physiologi-
 cally validated numbers of awakenings were.</p>
 </blockquote>
 <p><em>–Gott et al., “Sleep fragmentation and lucid dreaming”, 2019</em></p>
-<h4 id="Drugs_2"><a class="hanchor" href="#Drugs_2">Drugs</a></h4>
+<h5 id="Drugs_2"><a class="hanchor" href="#Drugs_2">Drugs</a></h5>
 <ul>
 <li>Galantamine (h/t <a href="https://twitter.com/sashachapin/status/1743332700143174124">Chapin</a>)</li>
 </ul>
