@@ -264,7 +264,7 @@ and <code>$P(Y_3|Y_1, Y_2)$</code> &amp;c, and then multiply them together to es
 probability that is close to <code>$P(X)$</code>?  Does this <em>improve</em> forecasts where
 one tries to estimate <code>$P(X)$</code> directly?</p>
 <p>This type of question decomposition (which one could
-call <em>multiplicative decomposition</em>) appears to be a
+call <strong>multiplicative decomposition</strong>) appears to be a
 relatively common method for forecasting, see <a href="https://forum.effectivealtruism.org/posts/ARkbWch5RMsj6xP5p/transformative-agi-by-2043-is-less-than-1-likely">Allyn-Feuer &amp; Sanders
 2023</a>,
 <a href="http://fivethirtyeight.com/features/donald-trumps-six-stages-of-doom/">Silver
@@ -351,7 +351,7 @@ more recent literature on the question.</p>
 <ul>
 <li>Would decomposition work better if one were operating with log-odds instead of probabilities?</li>
 </ul>
-<h4 id="Improvements"><a class="hanchor" href="#Improvements">Improvements</a></h4>
+<h4 id="Classification_and_Improvements"><a class="hanchor" href="#Classification_and_Improvements">Classification and Improvements</a></h4>
 <p>The description of such decomposition in <a href="#Forecasting_Techniques">this
 section</a> is, of course, lacking: A
 <em>better</em> way of decomposition would be, for a specific outcome,
@@ -361,10 +361,30 @@ and <a href="https://en.wikipedia.org/wiki/Collectively_exhaustive">collectively
 exhaustive</a>, find
 a chain that precedes them (or another MECE decomposition), and iterate
 until a whole (possibly interweaving) tree of options has been found.</p>
-<p>I'll call the technique of solely multiplying conditional probabilities
-<strong>multiplicative decomposition</strong>, and allowing for finding mutually
-exclusive and colletively exhaustive preconditions (together wilth
-multiplication) <strong>MECE decomposition</strong>.</p>
+<p>Thus one can define three types of question decomposition:</p>
+<ol>
+<li><strong>Multiplicative Decomposition</strong>: Given an event <code>$X$</code>, find conditions <code>$Y_1, \dots Y_n$</code> so that <code>$X$</code> if any only if all of <code>$Y_1, \dots, Y_n$</code> happen. Estimate <code>$P(Y_1)$</code> and <code>$P(Y_2|Y_1)$</code> and <code>$P(Y_3|Y_1, Y_2)$</code> &amp;c, and then multiply them together to estimate <code>$P(X)=P(Y_1)·P(Y_2|Y_1)·P(Y_3|Y_2,Y_1·) \dots P(Y_n | Y_{n-1}, \dots, Y_2, Y_1)$</code>.</li>
+<li><strong>Additive Decomposition</strong> or <strong><a href="https://en.wikipedia.org/wiki/Mutually-exclusive">ME</a><a href="https://en.wikipedia.org/wiki/Collectively_Exhaustive_Events">CE</a> Decomposition</strong>: Given an event <code>$X$</code>, find a set of scenarios <code>$Y_1, \dots Y_n$</code> such that <code>$X$</code> happens if any <code>$Y$</code> happens, and only then, and no two <code>$Y_k, Y_l$</code> have <code>$P(Y_k \cap Y_l)&gt;0$</code>. Estimate <code>$P(Y_1), P(Y_2), \dots P(Y_n)$</code> and then estimate <code>$P(X)=\sum_{i=1}^n P(Y_i)$</code>.</li>
+<li><strong>Recursive Decomposition</strong>: For each scenario <code>$X'$</code>, decide to pursue one of the following strategies:
+<ol>
+<li>Estimate <code>$P(X')$</code> directly</li>
+<li>Multiplicative decomposition of <code>$P(X')$</code>
+<ol>
+<li>Find a multiplicative decomposition <code>$Y_1', \dots Y_n'$</code> for <code>$X'$</code></li>
+<li>Estimate <code>$P(Y_1'), \dots P(Y_n' | Y_1', \dots Y_{n-1}')$</code> each via recursive decomposition</li>
+<li>Determine <code>$P(X')=P(Y_1')·P(Y_2'|Y_1')·P(Y_3'|Y_2', Y_1') \dots P(Y_n' | Y_{n-1}', \dots, Y_2', Y_1')$</code>.</li>
+</ol></li>
+<li>Additive decomposition of <code>$P(X')$</code>
+<ol>
+<li>Find a multiplicative decomposition <code>$Y_1', \dots Y_n'$</code> for <code>$X'$</code></li>
+<li>Estimate <code>$P(Y_1'), \dots P(Y_n')$</code> each via recursive decomposition</li>
+<li>Determine <code>$P(X')=P(Y_1')+P(Y_2')+ \dots P(Y_n')$</code>.</li>
+</ol></li>
+</ol></li>
+</ol>
+<p>A keen reader will notice that recursive decomposition is similar to
+<a href="https://en.wikipedia.org/wiki/Bayesian_Network">Bayes nets</a>. True, though
+it doesn't deal as well with conditional probabilities.</p>
 <h4 id="Using_LLMs"><a class="hanchor" href="#Using_LLMs">Using LLMs</a></h4>
 <p>This is a scenario where large language models are quite useful, and
 we have a testable hypothesis: Does question decomposition (or MECE
