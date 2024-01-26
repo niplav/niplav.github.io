@@ -1,0 +1,66 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML>
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2024-01-26, modified: 2024-01-26, language: english, status: in progress, importance: 2, confidence: certain</em></p>
+<blockquote>
+<p><strong>I've decided to learn some real math, not just computer scientist
+math.</strong></p>
+</blockquote>
+<h1 id="Solutions_to_An_Infinitely_Large_Napkin"><a class="hanchor" href="#Solutions_to_An_Infinitely_Large_Napkin">Solutions to “An Infinitely Large Napkin”</a></h1>
+<blockquote>
+<p>Natural explations supersede proofs.</p>
+</blockquote>
+<p><em>—Evan Chen, “An Infinitely Large Napkin” p. 6, 2023</em></p>
+<h2 id="Chapter_1"><a class="hanchor" href="#Chapter_1">Chapter 1</a></h2>
+<h3 id="Question_1110"><a class="hanchor" href="#Question_1110">Question 1.1.10</a></h3>
+<blockquote>
+<p>Why do we need the fact that <code>$p$</code> is a prime?</p>
+</blockquote>
+<p>If <code>$p$</code> weren't a prime, then the operation is not closed (because there
+are elements of the group that divide the group size), and therefore there
+are elements that are not invertible. Take <code>$(ℤ/4ℤ)^{\times}$</code>. Then
+the element <code>$2$</code> is not invertible:
+<code>$2 \cdot 1=2, 2 \cdot 2=4 \text{ mod } 4=0, 2 \cdot 3=6 \text{ mod } 4=2$</code>.</p>
+<p>So the group operation is not closed, and also <code>$2$</code> doesn't have
+an inverse.</p>
+<h3 id="Question_1116"><a class="hanchor" href="#Question_1116">Question 1.1.16</a></h3>
+<blockquote>
+<p>What are the identity and the inverses of the product group?</p>
+</blockquote>
+<ul>
+<li>Identity: The tuple that contains the identities of each group, <code>$(1_G, 1_H)$</code></li>
+<li>Inverses: The tuple that contains the element-wise inverses for <code>$(g_1, h_1)^{-1}=(g_1^{-1}, h_1^{-1})$</code></li>
+</ul>
+</body></html>

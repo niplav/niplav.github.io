@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-04-04, modified: 2024-01-06, language: english, status: notes, importance: 6, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2022-04-04, modified: 2024-01-26, language: english, status: notes, importance: 6, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>Beginnings of a research agenda about <a href="https://en.wikipedia.org/wiki/Forecasting#Judgmental_methods">judgmental
 forecasting</a>.</strong></p>
@@ -257,6 +257,7 @@ that's even better.</p>
 <li>Is there any conceivable way of incentivizing good predictions on extinction events?</li>
 </ul>
 <h3 id="Forecasting_Techniques"><a class="hanchor" href="#Forecasting_Techniques">Forecasting Techniques</a></h3>
+<h4 id="Question_Decomposition"><a class="hanchor" href="#Question_Decomposition">Question Decomposition</a></h4>
 <p>If we say "<code>$X$</code> will happen if and only if <code>$Y_1$</code> and <code>$Y_2$</code> and
 <code>$Y_3$</code>... <em>all</em> happen, so we estimate <code>$P(Y_1)$</code> and <code>$P(Y_2|Y_1)$</code>
 and <code>$P(Y_3|Y_1, Y_2)$</code> &amp;c, and then multiply them together to estimate
@@ -351,7 +352,7 @@ more recent literature on the question.</p>
 <ul>
 <li>Would decomposition work better if one were operating with log-odds instead of probabilities?</li>
 </ul>
-<h4 id="Classification_and_Improvements"><a class="hanchor" href="#Classification_and_Improvements">Classification and Improvements</a></h4>
+<h5 id="Classification_and_Improvements"><a class="hanchor" href="#Classification_and_Improvements">Classification and Improvements</a></h5>
 <p>The description of such decomposition in <a href="#Forecasting_Techniques">this
 section</a> is, of course, lacking: A
 <em>better</em> way of decomposition would be, for a specific outcome,
@@ -385,7 +386,7 @@ until a whole (possibly interweaving) tree of options has been found.</p>
 <p>A keen reader will notice that recursive decomposition is similar to
 <a href="https://en.wikipedia.org/wiki/Bayesian_Network">Bayes nets</a>. True, though
 it doesn't deal as well with conditional probabilities.</p>
-<h4 id="Using_LLMs"><a class="hanchor" href="#Using_LLMs">Using LLMs</a></h4>
+<h5 id="Using_LLMs"><a class="hanchor" href="#Using_LLMs">Using LLMs</a></h5>
 <p>This is a scenario where large language models are quite useful, and
 we have a testable hypothesis: Does question decomposition (or MECE
 decomposition) improve language model forecasts by any amount?</p>
@@ -440,7 +441,7 @@ Necessary factors:
 Multiplying out the probabilities: 0.75*0.99*0.7*0.9=0.467775
 46.7775%
 </code></pre>
-<h3 id="Discussions"><a class="hanchor" href="#Discussions">Discussions</a></h3>
+<h4 id="Discussions"><a class="hanchor" href="#Discussions">Discussions</a></h4>
 <ul>
 <li><a href="https://www.lesswrong.com/posts/YjZ8sJmkGJQhNcjHj/the-evidence-for-question-decomposition-is-weak">LessWrong</a></li>
 <li><a href="https://forum.effectivealtruism.org/posts/beRtXkMpCT39y8bPj/there-is-little-evidence-on-question-decomposition">Effective Altruism Forum</a></li>

@@ -35,10 +35,11 @@ document.addEventListener('DOMContentLoaded', function () {
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2020-11-20, modified: 2023-12-21, language: english, status: notes, importance: 4, confidence: highly likely</em></p>
 <blockquote>
-<p><strong>The Diamond-Square algorithm is a terrain-generation algorithm for
-two dimensions (producing a three-dimensional terrain). I generalize
-the algorithm to any positive number of dimensions, and analyze the
-resulting algorithm.</strong></p>
+<p><strong>The <a href="https://en.wikipedia.org/wiki/Diamond-square_algorithm">Diamond-Square
+algorithm</a>
+is a terrain-generation algorithm for two dimensions (producing a
+three-dimensional terrain). I generalize the algorithm to any positive
+number of dimensions, and analyze the resulting algorithm.</strong></p>
 </blockquote>
 <h1 id="Generalizing_the_DiamondSquare_Algorithm_to_n_Dimensions"><a class="hanchor" href="#Generalizing_the_DiamondSquare_Algorithm_to_n_Dimensions">Generalizing the Diamond-Square Algorithm to n Dimensions</a></h1>
 <blockquote>
@@ -48,6 +49,19 @@ mapa de Aquel que es todas Sus estrellas.</p>
 </blockquote>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Jorge_Luis_Borges">Jorge Luis Borges</a>, <a href="https://thefunambulist.net/literature/litterature-spinoza-by-borges">“Spinoza”</a>, 1964</em></p>
 <h2 id="Introduction"><a class="hanchor" href="#Introduction">Introduction</a></h2>
+<p>I learned of the diamond-square algorithm by reading through the archives
+of <a href="https://nullprogram.com/">Chris Wellon's blog</a>, specifically his post
+on <a href="https://nullprogram.com/blog/2007/11/20">noise fractals</a> and terrain
+generation. The algorithm is a fairly simple and old one (dating back
+to the 80s), but not being interested in graphics or game programming,
+I shelved it as a curiosity.</p>
+<p>However, a while later I needed a way to generate high-dimensional
+landscapes for <a href="./toy_ai_takeoff_model.html">a simulation</a>, and
+remembered the algorithm, I felt like I could contribute something here
+by generalizing the algorithm to produce landscapes in an arbitrary number
+of dimensions, and that this would be a fun challenge to sharpen my (then
+fairly weak) Python and <a href="https://en.wikipedia.org/wiki/NumPy">numpy</a>
+skills.</p>
 <h2 id="Description"><a class="hanchor" href="#Description">Description</a></h2>
 <p>Code <a href="code/diamond/ndim_diamond_square.py">here</a>.</p>
 <h3 id="Square"><a class="hanchor" href="#Square">Square</a></h3>
