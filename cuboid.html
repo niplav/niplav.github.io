@@ -1,0 +1,113 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML>
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2024-01-30, modified: 2024-01-30, language: english, status: finished, importance: 2, confidence: log</em></p>
+<blockquote>
+<p><strong>Report of having built a <a href="https://dynomight.net/better-DIY-air-purifier.html">cuboid</a>.</strong></p>
+</blockquote>
+<h1 id="Building_a_Cuboid"><a class="hanchor" href="#Building_a_Cuboid">Building a Cuboid</a></h1>
+<p>Inspired by <a href="https://dynomight.net/air/" title="Better air quality is the easiest way not to die">dynomight 2021a</a>,
+I decided to replicate their design for the
+<a href="https://dynomight.net/better-DIY-air-purifier.html" title="The Cuboid: A DIY air purifier that's better than a box-fan">cuboid</a>
+(the <a href="https://dynomight.net/2020/12/15/some-real-data-on-a-DIY-box-fan-air-purifier/" title="Experiments on a $50 DIY air purifier you can make in 30s">cheaper box fan air
+purifier</a>
+was intolerably violating my æsthetic sensibilities). The
+design is, incidentally, very similar to the <a href="https://en.wikipedia.org/wiki/Corsi%E2%80%93Rosenthal_Box">Corsi-Rosenthal
+Box</a>.</p>
+<h3 id="Materials"><a class="hanchor" href="#Materials">Materials</a></h3>
+<ul>
+<li>4 filters</li>
+<li>1 fan</li>
+<li>2 pieces of string</li>
+<li>4 pieces of cardboard</li>
+</ul>
+<h3 id="Building_Process"><a class="hanchor" href="#Building_Process">Building Process</a></h3>
+<p>First, I arranged the four filters as described in <a href="https://dynomight.net/better-DIY-air-purifier.html" title="The Cuboid: A DIY air purifier that's better than a box-fan">dynomight
+2021b</a>
+and tied them together using some pieces of string I had lying around
+(the bungee cords I had ordered were too short and would have broken
+the filters—a lesson in thinking about dependencies! Fortunately
+they weren't expensive), with the red rope giving the contraption a nice
+<a href="https://en.wikipedia.org/Japanese_bondage">kinbaku</a> æsthetic.</p>
+<p><img alt="The filters forming a column, held together by a red and an orange rope" src="./img/cuboid/frontal_no_lid.jpg" title="The filters forming a column, held together by a red and an orange rope"/></p>
+<p>I then cut out two pieces of cardboard (<code>$2110 \text{mm} \cdot 2400 \text{mm}$</code>)
+that fit right into the column, for stabilization,</p>
+<p><img alt="A view into the column, where one can see the upper piece of cardboard inside" src="./img/cuboid/bottom.jpg" title="A view into the column, where one can see the upper piece of cardboard inside"/></p>
+<p>and also a piece (<code>$2340 \text{mm} \cdot 2650\text{mm}$</code>) that I could
+impishly tape to the bottom of the cuboid ("works for me").</p>
+<p><img alt="The bottom of the cuboid, where one piece of cardboard is taped impishly to the filters" src="./img/cuboid/bottom_lid.jpg" title="The bottom of the cuboid, where one piece of cardboard is taped impishly to the filter"/></p>
+<p>Next, the fan arrived, so I cut out a lid from some cardboard I got
+my <a href="https://queal.com">queal</a> packages in (again <code>$2110 \text{mm} \cdot 2400 \text{mm}$</code>,
+as with the bottom), and from that lid I cut a 950mm diameter circle
+for the fan.</p>
+<p><img alt="Fan, lid, and cut-out" src="./img/cuboid/fan_and_lid.jpg" title="Fan, lid, and cut-out"/></p>
+<p>Assembling the cuboid was now easy: Just put the lid on top, put in the
+fan, plug in the fan, and voilà:</p>
+<p><img alt="The cuboid, seen from the top" src="./img/cuboid/complete_top.jpg" title="The cuboid, seen from the top"/></p>
+<p><img alt="The cuboid, seen from the side" src="./img/cuboid/complete.jpg" title="The cuboid, seen from the side"/></p>
+<p>My cuboid ~3200mm wide, ~2900mm deep, and ~3900mm high (the knots in
+the cords make exact measurement difficult).
+Æsthetically, the three different primary colors are a bit much, but
+I'm not <em>that</em> bothered by it (although if someone wants to set up a line
+of turbo cuboids, all red and black and sleek, sign me up as interested).</p>
+<h3 id="Does_it_Work"><a class="hanchor" href="#Does_it_Work">Does it Work?</a></h3>
+<p>Probably! I haven't measured air quality yet, but at least it appears
+to be sucking the air through the filters:</p>
+<p><video controls="" src="./vid/cuboid/it_works.webm" type="video/webm">
+The video shows a piece of paper affixed to the cuboid, when I try to move the paper with a pencil, it gets sucked back to the cuboid.
+</video></p>
+<!--TODO: add tooltip for video-->
+<p>I also haven't checked the energy usage yet.</p>
+<p>My cuboid is loud enough that I probably won't be running it while I
+try to sleep: With a background noise of ~18dB, the cuboid raises that
+to ~40dB at 1m horizontal and 0m vertical distance (measured using <a href="https://play.google.com/store/apps/details?id=com.gamebasic.decibel" title="no affiliation">Sound
+Meter</a>):</p>
+<p><img alt="A line-chart, with the x-axis from 1 to 30 (secconds), and the y-axis being 0 to 100 (dB). The chart is barely under 20 for x between 0 and 5 seconds, then for two seconds there are two spikes, after which the line rises to 40dB, where
+it stays until x is 22. Then, there is a short spike, after which the curve falls geometrically, until it reaches ~20dB at second 25, where it stays until second 30." src="./img/cuboid/decibel.jpg" title="A line-chart, with the x-axis from 1 to 30 (s
+ecconds), and the y-axis being 0 to 100 (dB). The chart is barely under 20 for x between 0 and 5 seconds, then for two seconds there are two spikes, after which the line rises to 40dB, where it stays until x is 22. Then, there is a short
+spike, after which the curve falls geometrically, until it reaches ~20dB at second 25, where it stays until second 30."/></p>
+<h3 id="Price__Time_Cost"><a class="hanchor" href="#Price__Time_Cost">Price &amp; Time Cost</a></h3>
+<p>My cuboid was a bit pricier than the one by dynomight, but not by much:
+4 filters, each 23€, the fan  with 38€, and the two bungee cords
+for 2€ (I don't count them since I didn't use them in the end): 130€
+in total.</p>
+<p>It took me a quite a while longer to assemble my cuboid than the alleged
+5 minutes: I would estimate that I spent at least 90 minutes one it
+(plus another 45 minutes writing this note).</p>
+<p>But, all in all, I'm very happy with
+my little cuboid. It's humming along to some
+<a href="https://en.wikipedia.org/wiki/Piano_Concerto_No._1_(Beethoven)">Beethoven</a>
+while I write this.</p>
+</body></html>

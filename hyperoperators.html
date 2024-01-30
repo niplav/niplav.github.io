@@ -1,0 +1,124 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML>
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2024-01-30, modified: 2024-01-30, language: english, status: in progress, importance: 2, confidence: certain</em></p>
+<blockquote>
+<p><strong>I implement an obscure mathematical construct in an obscure
+programming language. Edge cases are encountered.</strong></p>
+</blockquote>
+<h1 id="Implementing_Commutative_Hyperoperators"><a class="hanchor" href="#Implementing_Commutative_Hyperoperators">Implementing Commutative Hyperoperators</a></h1>
+<p><a href="https://observablehq.com/@ishi/arithmetic" title="Hyperlogarithmic Arithmetic">Ghalimi 2019</a>
+presents and discusses a novel construction of a class of hyperoperators,
+here I implement these in <a href="http://t3x.org/klong/index.html">Klong</a>.</p>
+<p>I choose to implement these operators on base <code>$e$</code>, just as the author
+recommends.</p>
+<p>The problem with this is that with with operations of order 4 or
+higher, the results are in <code>$\mathbb{C}$</code> (because <code>$ln(ln(2))&lt;0$</code>),
+so we would need a logarithm function that deals with complex numbers
+to implement this, this is not available natively under Klong yet, so I
+have to write the principal function of the complex logarithm using <a href="https://en.wikipedia.org/wiki/Complex_logarithm#Calculating_the_principal_value">this
+section</a>
+from the Wikipedia article:</p>
+<pre><code>    .l("math")
+    cln::{ln(sqr(+/x^2)),atan2@x}
+</code></pre>
+<p>Since the complex logarithm is only defined for
+<code>$\mathbb{C}^{\times}:=\mathbb{C} \backslash \{0\}$</code>, <code>cln</code> returns
+a nonsense value for <code>$0+0i$</code>:</p>
+<pre><code>            cln(0,0)
+    [:undefined -1.57079632679489661]
+</code></pre>
+<p>We know that <code>$e^{\log z}=z$</code> for all <code>$z \in \mathbb{C}^{\times}$</code>,
+which we can test here:</p>
+<pre><code>            cexp(cln(1,1))
+    [0.999999999999999911 0.999999999999999915]
+            cexp(cln(1,2))
+    [1.00132433601450641 1.9993372837280625]
+            cexp(cln(2,1))
+    [2.00148381847841902 0.997026842351321174]
+            cexp(cln(1,-1))
+    [0.999999999999999928 -1.00000000000000105]
+            cexp(cln(-1,1))
+    [-0.999999999999999908 -1.00000000000000151]
+            cexp(cln(-1,-1))
+    [-0.999999999999999812 0.999999999999999918]
+            cexp(cln(-1,0))
+    [-0.999999999999998211 0.0]
+            cexp(cln(0,-1))
+    [0.00000000000000001 -1.00000000000000078]
+            cexp(cln(1,0))
+    [0.999999999999999984 0.0]
+            cexp(cln(0,1))
+    [0.0 0.999999999999999984]
+</code></pre>
+<p>This all looks relatively fine (the rounding errors are probably
+unavoidable), however, we see that <code>cexp(cln(-1,1))=[-1 -1]≠[-1 1]</code>
+(and <code>cexp(cln(-1,-1))=[-1 1]≠[-1 -1]</code>).  This is very unfortunate. I
+suspect that the implementation of <code>atan2</code> is at fault: <code>atan2(1;0)=0</code>
+here, but the python math library gives <code>math.atan2(1,0)=π/2</code> (python
+gives <code>0</code> for <code>math.atan2(0,1)</code> and Klong's <code>atan2</code> gives <code>π/2</code> for
+<code>atan2(0;1)</code>).</p>
+<!--TODO: fix local atan2-->
+<p>With this, one can implement the commutative hyperoperator:</p>
+<pre><code>    comhyp::{:[z=0;cln(cadd(cexp(x);cexp(y))):|
+            z=1;cadd(x;y):|
+            z=2;cmul(x;y):|
+            z=3;cexp(cmul(cln(x);cln(y)));
+            cexp(comhyp(cln(x);cln(y);z-1))]}
+</code></pre>
+<p>This implementation deals only in <code>$\mathbb{C}$</code>.</p>
+<p>Nearly identically, one can treat reversion:</p>
+<pre><code>    revhyp::{:[z=0;cln(csub(cexp(x);cexp(y))):|
+            z=1;csub(x;y):|
+            z=2;cdiv(x;y):|
+            z=3;cexp(cdiv(cln(x);cln(y)));
+            cexp(revhyp(cln(x);cln(y);z-1))]}
+</code></pre>
+<p>For implementing transaction, one needs to implement exponentiation in
+<code>$\mathbb{C}$</code> (for <code>$x, y \in \mathbb{C}$</code>, <code>$x^y=e^{y*\ln(x)}$</code>):</p>
+<pre><code>    cpow::{cexp(cmul(y;cln(x)))}
+</code></pre>
+<p>Next, one can turn ones attention to the transaction operation itself:</p>
+<pre><code>    tranhyp::{:[z=0;cadd(x;cexp(y)):|
+            z=1;cmul(x;cexp(y)):|
+            z=2;cpow(x;y):|
+            z=3;cexp(cpow(cln(x);cln(y)));
+            cexp(tranhyp(cln(x);cln(y);z-1))]}
+</code></pre>
+<p>And thereby we have implemented the entire class of hyperoperators.</p>
+<!--When you're less tired, check over this again:
+2^x^y=b^{1^log_b(x)^{log_b(y)}}=b^{log_b(x)*b^log_b(y)}=x^{b^_log_b(y)}=x^y
+I think this checks out-->
+</body></html>
