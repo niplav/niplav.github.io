@@ -927,45 +927,47 @@ function printpath(path)
 end
 </code></pre>
 <h3 id="Exercise_114"><a class="hanchor" href="#Exercise_114">Exercise 11.4</a></h3>
-<ul>
-<li><p><code>g</code>: the graph</p></li>
-<li><p><code>s</code>: the name of the starting point</p></li>
-<li><p><code>e</code>: the name of the endpoint</p>
-<p>dofile("ex_3.lua")</p>
-<p>function dijkstra(g, s, e)
+<pre><code>dofile("ex_3.lua")
+
+function dijkstra(g, s, e)
     local unvisited={}
     local dist={}
     local prev={}
     local start=g[s]
     local lst=g[e]
-    local current=start</p>
-<pre><code>for i, j in pairs(g) do unvisited[j]=true end
-for i, j in pairs(g) do dist[j]=math.huge end
+    local current=start
 
-dist[start]=0
-while current~=lst do
-    for to, l in pairs(current.adj) do
-        if unvisited[to]==true then
-            local ndist=dist[current]+l
-            if dist[to]&gt;ndist then
-                dist[to]=ndist
-                prev[to]=current
+    for i, j in pairs(g) do unvisited[j]=true end
+    for i, j in pairs(g) do dist[j]=math.huge end
+
+    dist[start]=0
+    while current~=lst do
+        for to, l in pairs(current.adj) do
+            if unvisited[to]==true then
+                local ndist=dist[current]+l
+                if dist[to]&gt;ndist then
+                    dist[to]=ndist
+                    prev[to]=current
+                end
+            end
+        end
+
+        unvisited[current]=false
+        current=lst
+        for i, j in pairs(unvisited) do
+            if j==true and dist[i]&lt;dist[current] then
+                current=i
             end
         end
     end
 
-    unvisited[current]=false
-    current=lst
-    for i, j in pairs(unvisited) do
-        if j==true and dist[i]&lt;dist[current] then
-            current=i
-        end
-    end
+    return prev
 end
-
-return prev
 </code></pre>
-<p>end</p></li>
+<ul>
+<li><code>g</code>: the graph</li>
+<li><code>s</code>: the name of the starting point</li>
+<li><code>e</code>: the name of the endpoint</li>
 </ul>
 <h2 id="Chapter_12"><a class="hanchor" href="#Chapter_12">Chapter 12</a></h2>
 <h3 id="Exercise_121"><a class="hanchor" href="#Exercise_121">Exercise 12.1</a></h3>

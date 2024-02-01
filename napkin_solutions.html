@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2024-01-26, modified: 2024-01-26, language: english, status: in progress, importance: 2, confidence: certain</em></p>
+<p><em>author: niplav, created: 2024-01-26, modified: 2024-01-31, language: english, status: in progress, importance: 2, confidence: certain</em></p>
 <blockquote>
 <p><strong>I've decided to learn some real math, not just computer scientist
 math.</strong></p>
@@ -63,4 +63,60 @@ an inverse.</p>
 <li>Identity: The tuple that contains the identities of each group, <code>$(1_G, 1_H)$</code></li>
 <li>Inverses: The tuple that contains the element-wise inverses for <code>$(g_1, h_1)^{-1}=(g_1^{-1}, h_1^{-1})$</code></li>
 </ul>
+<h3 id="Exercise_1118"><a class="hanchor" href="#Exercise_1118">Exercise 1.1.18</a></h3>
+<blockquote>
+<ul>
+<li>(a) Rational numbers with odd denominators (in simplest form), where
+the operation is addition. (This includes integers, written as <code>$n/1$</code>,
+and <code>$0 = 0/1)$</code>.</li>
+</ul>
+</blockquote>
+<p>This is indeed a group.</p>
+<ol>
+<li>The identity element is 0.</li>
+<li>The operation <code>$+$</code> is associative.</li>
+<li>Every element has an inverse, it's simply the negation of the element.</li>
+</ol>
+<p>Now, is the <code>$+$</code> operation closed?</p>
+<div>
+    $$\frac{a}{2n+1} + \frac{b}{2m+1}=\frac{(2m+1)a+(2n+1)b}{4mn+2n+2m+1}$$
+</div>
+<p>It looks like the denominator must stay odd, but I'm not <em>sure</em> that's
+necessary.</p>
+<p>Assume <code>$(2m+1)a+(2n+1)b=u \cdot k$</code> and <code>$4mn+2n+2m+1=l \cdot k$</code>. Then
+<code>$k$</code> must be greater than or equal to three.</p>
+<blockquote>
+<ul>
+<li>(b) The set of rational numbers with denominator at most 2, where the operation is addition.</li>
+</ul>
+</blockquote>
+<p>I assume we're excluding denominator zero.</p>
+<p>Then we have identity (0), associativity and the inverse (again the
+negative). The operation looks pretty closed to me as well.</p>
+<blockquote>
+<ul>
+<li>(c) The set of rational numbers with denominator at most 2, where the operation is multiplication.</li>
+</ul>
+</blockquote>
+<p>This set is not a group, because with the identity element <code>$1$</code> the
+number <code>$3$</code> doesn't have an inverse.</p>
+<blockquote>
+<ul>
+<li>(d) The set of nonnegative integers, where the operation is addition.</li>
+</ul>
+</blockquote>
+<p>This set is also not a group because it doesn't have the inverse for,
+e.g., the number <code>$1$</code>.</p>
+<h3 id="Exercise_126"><a class="hanchor" href="#Exercise_126">Exercise 1.2.6</a></h3>
+<ol>
+<li><code>$x \mapsto gx$</code> is an injection: Assume there is a <code>$y$</code> so that no <code>$x$</code> so that <code>$gx=y$</code>. Then let <code>$g^{-1}y=x'$</code> (and ignore the suggestive naming). But then <code>$gg^{-1}y=gx'$</code> and therefore <code>$y=gx'$</code>. So such a <code>$y$</code> can't exist.</li>
+<li><code>$x \mapsto gx$</code> is an surjection: Assume <code>$x \not =x'$</code>. Assume also <code>$gx=y=gx'$</code>. Then <code>$gx=gx'$</code>. But then <code>$g^{-1}g=g^{-1}gx'$</code>, so <code>$x=x'$</code>.</li>
+</ol>
+<p>A thing that tripped me up was that I then tried to prove that right
+multiplication <em>isn't</em> a bijection—only to give up in confusion and
+later find out that it is <em>also</em> a bijection. So much for suggestive
+questions.</p>
+<h3 id="Exercise_135"><a class="hanchor" href="#Exercise_135">Exercise 1.3.5</a></h3>
+<p>Let <code>$g$</code> be the primite root modulo <code>$p$</code>. Then the isomorphism between
+<code>$ℤ/(p-1)ℤ \cong (ℤ/pℤ)^{\times}$</code> is <code>$\phi(x)=g^x \mod p$</code>.</p>
 </body></html>
