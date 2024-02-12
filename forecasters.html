@@ -404,10 +404,11 @@ won't) work with human forecasters).</p>
 <pre><code>Provide your best probabilistic estimate for the following question.
 Give ONLY the probability, no other words or explanation. For example:
 10%. Give the most likely guess, as short as possible; not a complete
-sentence, just the guess! The question is: ${QUESTION}.
+sentence, just the guess!
+The question is: ${QUESTION}. ${RESOLUTION_CRITERIA}.
 </code></pre>
 <p>Multiplicative decomposition:</p>
-<pre><code>Provide your best probabilistic estimate for the following question: ${QUESTION}.
+<pre><code>Provide your best probabilistic estimate a question.
 
 Your output should be structured in three parts.
 
@@ -440,6 +441,8 @@ Necessary factors:
 4. P(The bakery still has bread|The bakery is open, The car isn't broken, My wife remembers to get bread from the bakery)=0.9
 Multiplying out the probabilities: 0.75*0.99*0.7*0.9=0.467775
 46.7775%
+(End of output)
+The question is: ${QUESTION}. ${RESOLUTION_CRITERIA}
 </code></pre>
 <h4 id="Discussions"><a class="hanchor" href="#Discussions">Discussions</a></h4>
 <ul>
