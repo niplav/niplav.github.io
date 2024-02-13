@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-10-18, modified: 2023-07-22, language: english, status: maintenance, importance: 7, confidence: remote</em></p>
+<p><em>author: niplav, created: 2019-10-18, modified: 2024-02-13, language: english, status: maintenance, importance: 7, confidence: remote</em></p>
 <blockquote>
 <p><strong>Is <a href="https://en.wikipedia.org/wiki/Cryonics">cryonics</a>
 worth it, and if yes, should one
@@ -841,35 +841,48 @@ to be signed up for cryonics.</p>
 </blockquote>
 <p><em>— <a href="https://www.gwern.net">Gwern Branwen</a>, <a href="https://www.gwern.net/plastination">“Plastination versus Cryonics”</a>, 2014</em></p>
 <p>Besides these estimates, there exist also two related questions
-on the prediction website Metaculus. <a href="https://www.metaculus.com/questions/1626/before-1-january-2050-will-any-human-cryonically-preserved-for-at-least-1-year-be-successfully-revived/">"Before 1 January 2050,
-will any human cryonically preserved for at least 1 year be successfully
-revived?"</a>
-has a median probability of 16% (n=117)<!--TODO: now 4% with n=403-->, <a href="https://www.metaculus.com/questions/455/if-you-die-today-and-get-cryonically-frozen-will-you-wake-up/">"If
-you die today and get cryonically frozen, will you "wake
-up"?"</a>
-receives 2% (n=407)<!--now 5% with n=702-->. I am not sure where the difference comes from,
-perhaps either from worries about the quality of current preservation or
-from a low trust in the longevity of cryonics organisations. <a href="https://docs.google.com/spreadsheets/d/1qn7c7rYmYx3KtqvhXTUGiiyuBk5e9kG3sA3jF-4zk6U/">This google
+on the prediction website Metaculus.<!--TODO: dig out manifold questions on this--></p>
+<ul>
+<li><a href="https://www.metaculus.com/questions/455/if-you-die-today-and-get-cryonically-frozen-will-you-wake-up/">"If you die today and get cryonically frozen, will you "wake up"?"</a> receives 5% (n=436).</li>
+<li><a href="https://www.metaculus.com/questions/4785/what-percentage-of-people-cryopreserved-between-2020-and-2050-will-be-revived-by-2200/">"What percentage of people cryopreserved between 2020 and 2050 will be revived by 2200?"</a> has a community prediction of 2.138% (n=44).</li>
+</ul>
+<p>I am not sure where the difference comes from, perhaps either
+from worries about the quality of current preservation or from
+a low trust in the longevity of cryonics organisations. <a href="https://docs.google.com/spreadsheets/d/1qn7c7rYmYx3KtqvhXTUGiiyuBk5e9kG3sA3jF-4zk6U/">This google
 sheet</a>
 contains 7 estimates of success: 0.04%, 0.223%, 29%, 6.71%, 14.86%,
 0.23% and 22.8%, with various different models underlying these estimates.</p>
-<p>Calculating the mean of these results in a chance of ~13%:</p>
-<div>
-    $$\frac{0.2\%+15\%+13\%+77\%+85\%+6\%+23\%+9\%+17\%+0.2\%+1100*18\%+59*12\%+117*16\%+407*2\%+0.04\%+0.223\%+29\%+6.71\%+14.86\%+0.23\%+22.8\%}{1700} \approx 13.83\%$$
-</div>
-<!--TODO: use a better method for aggregation, such as geometric mean of log-odds or Neyman aggregation, for this-->
-<p>It would certainly be interesting to set up a prediction market for this
-question, or get a team of superforecasters to estimate it, but basically,
-it seems like for a young or middle-aged person, the estimated probability
-is around 10%. However, the people surveyed are often sympathetic to
-cryonics or even signed up, and people in general are overconfident,
-so being conservative by halving the estimate seems like a good idea.</p>
+<p>For forecast aggregation, the <a href="https://forum.effectivealtruism.org/s/hjiBqAJNKhfJFq7kf/p/sMjcjnnpoAQCcedL2">geometric mean of odds is currently
+SOTA</a>,
+so we will be using that, which results in a chance of ~13%:</p>
+<!--TODO: maybe load individual forecasts from Metaculus private data?-->
+<pre><code>import numpy as np
+&gt;&gt;&gt; probs=np.array([0.002, 0.15, 0.13, 0.77, 0.85, 0.06, 0.23, 0.09, 0.17, 0.002]+1100*[0.18]+59*[0.12]+436*[0.05]+44*[0.02138]+[0.0004]+[0.00223]+[0.29]+[0.0671]+[0.1486]+[0.23]+[0.228])
+&gt;&gt;&gt; odds=probs/(1-probs)
+&gt;&gt;&gt; statistics.geometric_mean(odds)
+0.1379626857389968
+</code></pre>
+<p>(If we remove the numbers from the 2012 LessWrong Survey, the aggregated
+probability drops to ~5%.)</p>
+<p>It would certainly be interesting to set up a prediction market for
+this question, or get a team of superforecasters to estimate it,
+but basically, it seems like for a young or middle-aged person, the
+estimated probability is around 10%. However, the people surveyed are
+often sympathetic to cryonics or even signed up. People are in general
+overconfident, things generally don't happen, so being conservative by
+halving the estimate seems like a good idea.</p>
 <pre><code>prob_succ=0.05
 </code></pre>
 <p>This is quite pessimistic: It assumes that cryobiology will make no
 progress <em>whatsoever</em> in the fidelity of the preserved tissue (remember,
 the probabilities given are usually for the success of a preservation
 given that it happens <em>now</em>).</p>
+<h4 id="Other_Relevant_Questions"><a class="hanchor" href="#Other_Relevant_Questions">Other Relevant Questions</a></h4>
+<ul>
+<li><a href="https://www.metaculus.com/questions/1626/before-1-january-2050-will-any-human-cryonically-preserved-for-at-least-1-year-be-successfully-revived/">"Before 1 January 2050, will any human cryonically preserved for at least 1 year be successfully revived?"</a> has a median probability of 2% (n=260).</li>
+<li><a href="https://www.metaculus.com/questions/3330/will-any-person-that-has-been-cryopreserved-for-more-than-1-year-be-resuscitated-or-emulated-before-2200/">"Will any person that has been cryopreserved for more than 1 year be resuscitated or emulated before 2200?"</a>: 57% (n=63).</li>
+<li><a href="https://www.metaculus.com/questions/3382/what-will-the-earliest-preservation-date-of-any-resuscitated-cryonics-patient-be/">"What will the earliest preservation date of any resuscitated cryonics patient be?"</a> with a community prediction of ~2060 (n=49).</li>
+</ul>
 <h3 id="Years_Gained"><a class="hanchor" href="#Years_Gained">Years Gained</a></h3>
 <p>Conditional on being revived, what is the average life expectancy?</p>
 <p>If revival is achieved, it seems highly likely that aging and most
