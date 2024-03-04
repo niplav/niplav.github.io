@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-05-22, modified: 2024-02-07, language: english, status: in progress, importance: 3, confidence: other</em></p>
+<p><em>author: niplav, created: 2019-05-22, modified: 2024-03-04, language: english, status: in progress, importance: 3, confidence: other</em></p>
 <blockquote>
 <p><strong>Short texts on different topics.</strong></p>
 </blockquote>
@@ -1199,7 +1199,8 @@ and
 </ul>
 <h2 id="Economic_Policy_Checklist"><a class="hanchor" href="#Economic_Policy_Checklist">Economic Policy Checklist</a></h2>
 <p>Courtesy of the <a href="https://www.mcmillen.dev/language_checklist.html">programming language
-checklist</a>.</p>
+checklist</a> and the
+<a href="https://craphound.com/spamsolutions.txt">spam filter solution checklist</a>.</p>
 <p>So you're proposing a new economic policy. Here's why your policy will
 not work.</p>
 <div>
@@ -1481,7 +1482,7 @@ designer</a>, then.</p>
 </ul></li>
 <li>Game theory
 <ul>
-<li><a href="https://www.lesswrong.com/s/yiFxBWDXnLpbWGTkK/p/KwbJFexa4MEdhJbs4">Classification</a> of <code>$2 \times 2$</code> normal-form games<!--TODO: book or paper on this--></li>
+<li><a href="https://www.lesswrong.com/s/yiFxBWDXnLpbWGTkK/p/KwbJFexa4MEdhJbs4">Classification</a> of <a href="https://arxiv.org/pdf/1010.4727.pdf"><code>$2 \times 2$</code> normal-form games</a></li>
 </ul></li>
 </ul></li>
 <li>Physics
@@ -1564,7 +1565,7 @@ designer</a>, then.</p>
 <li>Meditation
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Jh%C4%81na">Jhanas</a></li>
-<li>Maps of insight</li>
+<li><a href="https://www.integrateddaniel.info/mind-maps">Maps</a> <a href="https://www.dharmaoverground.org/dharma-wiki/-/wiki/Main/MCTB+The+Progress+of+Insight">of insight</a></li>
 </ul></li>
 <li><a href="https://en.wikipedia.org/wiki/Dewey_Decimal_System">Dewey Decimal classification</a></li>
 </ul>
@@ -1574,4 +1575,81 @@ designer</a>, then.</p>
 <a href="https://en.wikipedia.org/wiki/Classification_of_demons">demons</a>,
 <a href="https://en.wikipedia.org/wiki/Classifications_of_fairies">fairies</a>,
 and <a href="https://en.wikipedia.org/wiki/Classification_of_swords">swords</a>.</p>
+<h2 id="A_FIRE_Upon_the_Deep"><a class="hanchor" href="#A_FIRE_Upon_the_Deep">A FIRE Upon the Deep</a></h2>
+<p>Consider the problem of being automated away in a period of human history
+with explosive growth, and having to subsist on one's capital. Property
+rights are respected, but there is no financial assistance by governments
+or AGI corporations.</p>
+<p>What wealth does one need to have to survive, ideally indefinitely?</p>
+<p>At the moment, the world economy is growing at a pace that leads to
+doublings in <a href="https://en.wikipedia.org/wiki/Gross_World_Product">GWP</a>
+every 20 years, steadily since ~1960. Explosive growth might instead be
+<a href="https://sideways-view.com/2017/10/04/hyperbolic-growth/">hyperbolic</a>
+(continuing the trend <a href="https://www.openphilanthropy.org/blog/modeling-human-trajectory">we've seen seen through human history so
+far</a>),
+with the economy first doubling in 20, then in 10, then in 5, then
+2.5, then 15 months, and so on. I'll assume that the smallest time for
+doublings is 1 year.</p>
+<pre><code>initial_doubling_time=20
+final_doubling_time=1
+initial_growth_rate=2^(1/(initial_doubling_time*12))
+final_growth_rate=2^(1/(final_doubling_time*12))
+
+function generate_growth_rate_array(months::Int)
+    growth_rate_array = zeros(Float64, years)
+    growth_rate_step = (final_growth_rate - initial_growth_rate) / (years - 1)
+
+    current_growth_rate = initial_growth_rate
+
+    for i in 1:years
+        growth_rate_array[i] = current_growth_rate
+        current_growth_rate += growth_rate_step
+    end
+
+    return growth_rate_array
+end
+</code></pre>
+<p>We can then define the doubling sequence:</p>
+<pre><code>years=12*ceil(Int, 10+5+2.5+1.25+final_doubling_time)
+economic_growth_rate = generate_growth_rate_array(years)
+economic_growth_rate=cat(economic_growth_rate, repeat([final_growth_rate], 60*12-size(economic_growth_rate)[1]), dims=1)
+</code></pre>
+<p>And we can then write a very simple model of monthly spending to figure
+out how our capital develops.</p>
+<pre><code>capital=collect(1:250000)
+monthly_spending=1000 # if we really tighten our belts
+
+for growth_rate in economic_growth_rate
+    capital=capital.*growth_rate
+    capital=capital.-monthly_spending
+end
+</code></pre>
+<p><code>capital</code> now contains the capital we end up with after 60 years. To find
+the minimum amount of capital we need to start out with to not lose out
+we find the index of the number closest to zero:</p>
+<pre><code>julia&gt; findmin(abs.(capital))
+(1.1776066747029436e13, 70789)
+</code></pre>
+<p>So, under these requirements, starting out with more than $71k should be fine.</p>
+<p>But maybe we'll only lose our job somewhat into the singularity
+already! We can simulate that as losing a job when initial doubling
+times are 15 years:</p>
+<pre><code>initial_doubling_time=15
+initial_growth_rate=2^(1/(initial_doubling_time*12))
+years=12*ceil(Int, 10+5+2.5+1.25+final_doubling_time)
+economic_growth_rate = generate_growth_rate_array(years)
+    economic_growth_rate=cat(economic_growth_rate, repeat([final_growth_rate], 60*12-size(economic_growth_rate)[1]), dims=1)
+
+capital=collect(1:250000)
+    monthly_spending=1000 # if we really tighten our belts
+
+    for growth_rate in economic_growth_rate
+            capital=capital.*growth_rate
+            capital=capital.-monthly_spending
+    end
+</code></pre>
+<p>The amount of initially required capital doesn't change by that much:</p>
+<pre><code>julia&gt; findmin(abs.(capital))
+(9.75603002635271e13, 68109)
+</code></pre>
 </body></html>
