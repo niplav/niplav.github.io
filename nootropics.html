@@ -293,6 +293,8 @@ mood['alarm']=pd.DatetimeIndex(alarms.dt.tz_localize('CET', ambiguous='infer')).
 dates=pd.to_datetime(pd.Series(mood['date']), format='mixed')
 mood['date']=pd.DatetimeIndex(dates.dt.tz_localize('CET', ambiguous='infer')).tz_convert(tz='UTC')
 </code></pre>
+<p>This data can now be plotted unwieldly:</p>
+<p><img alt="" src="./img/nootropics/caffeine_results.png"/></p>
 <h5 id="Summary_Statistics"><a class="hanchor" href="#Summary_Statistics">Summary Statistics</a></h5>
 <p>We can first test how well my predictions fared:</p>
 <pre><code>probs=np.array(expa['prediction'])
@@ -631,6 +633,7 @@ dσ   -0.067847    -0.017736      0.039855   -0.043241 -0.155797 -0.046668  0.01
 significantly, but it's on the way there), but at least it improves my
 mood somewhat (though those results, besides contentment, might as well be
 due to random chance). No clear effect sizes with the flashcards either.</p>
+<p><img alt="" src="./img/nootropics/l-theanine_results.png"/></p>
 <h4 id="Conclusion_1"><a class="hanchor" href="#Conclusion_1">Conclusion</a></h4>
 <p>So a hard pass on L-theanine, I think. My current best guess is that
 as a night owl in the morning I'm still quite tired, and lack energy,
