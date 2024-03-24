@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2024-02-28, modified: 2024-02-28, language: english, status: notes, importance: 6, confidence: certain</em></p>
+<p><em>author: niplav, created: 2024-02-28, modified: 2024-02-28, language: english, status: in progress, importance: 6, confidence: certain</em></p>
 <blockquote>
 <p><strong>I examine the literature on transfer learning in humans<!--, and find that-->.</strong></p>
 </blockquote>
@@ -45,6 +45,31 @@ and knowledge patterns from one learned domain in a new domain if
 appropriate (transfer learning), and make it easier to find further
 learning-accelerating techniques (meta-learning).</p>
 <h2 id="Summary_of_the_Results"><a class="hanchor" href="#Summary_of_the_Results">Summary of the Results</a></h2>
+<ol>
+<li>If you want to learn faster
+<ol>
+<li>Do <a href="https://www.gwern.net/Spaced-repetition">spaced repetition</a> when possible
+<ol>
+<li>In general, revisit basics of a field while you're learning</li>
+</ol></li>
+<li>Spend a lot of time on practice problems</li>
+<li>Explain why you're doing what you're doing, while you're doing it</li>
+</ol></li>
+<li>If you want to solve problems
+<ol>
+<li>If there are already experts at the problem you're trying to solve, <a href="https://commoncog.com/accelerated-expertise/">interview them in a systematic fashion</a> to <a href="https://commoncog.com/an-easier-method-for-extracting-tacit-knowledge/">extract</a> their <a href="https://commoncog.com/the-tacit-knowledge-series/">tacit knowledge</a>.
+<ol>
+<li>With enough institutional support this can be turned into a training program.</li>
+</ol></li>
+<li>If there are no experts in the domain where you're trying to solve a problem:
+<ol>
+<li>Search for related domains and extract existing tacit knowledge there, or learn those domains</li>
+<li>Apply the <a href="#P%C3%B3lya_Method">Pólya method</a></li>
+</ol></li>
+</ol></li>
+</ol>
+<p>If you think that these recommendations are kind of unsatisfying,
+<a href="#My_Impression_of_the_Literature">I agree with you</a>.</p>
 <h2 id="What_I_Am_Looking_For"><a class="hanchor" href="#What_I_Am_Looking_For">What I Am Looking For</a></h2>
 <p>Given a broad set of skills <code>$S$</code>, I was looking for an intervention/a
 set of interventions <code>$I$</code> which has the following properties:</p>
@@ -64,7 +89,7 @@ institutions such as the military and large corporations, de-emphasizing
 research done in universities and schools (I found this difficult because
 those places tend to have more incentive to publish their techniques,
 and also strive to quantify their benefits).</p>
-<h2 id="Candidates"><a class="hanchor" href="#Candidates">Candidates</a></h2>
+<h2 id="Candidate_Interventions"><a class="hanchor" href="#Candidate_Interventions">Candidate Interventions</a></h2>
 <h3 id="Straightforward_Stuff"><a class="hanchor" href="#Straightforward_Stuff">Straightforward Stuff</a></h3>
 <p>I found several studies from psychology, especially educational
 psychology.</p>
@@ -109,11 +134,30 @@ advantages over distributed practice testing seems
 moderate, but (p. 38): "interleaved practice helped
 students to discriminate between various kinds of
 problems and to learn the appropriate formula to apply
-for each one". Works better on mathematics.</li>
+for each one". Works better on mathematics<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>.</li>
 </ol></li>
 </ol>
 <h3 id="Far_Transfer"><a class="hanchor" href="#Far_Transfer">"Far Transfer"</a></h3>
+<p><strong>Summary</strong>: Far transfer occurs if one puts in a lot of effort,
+e.g. after doing semester- or year-long courses on decision-making and
+such. The effect sizes on general abilities tests are medium (d≈0.3).</p>
+<p>Far transfer is:</p>
+<blockquote>
+<p>improved performance at problems that are similar to but also
+substantially different from ones experienced during training (e.g.,
+fault diagnosis in process control to fault diagnosis in telecommunication
+networks).</p>
+</blockquote>
+<p><em>—Hoffman et al., “Accelerated Expertise”, 2014</em></p>
+<p>The relevant papers are:</p>
+<ul>
+<li><a href="https://www.researchgate.net/profile/Raymond-Nickerson/publication/232424806_Teaching_Thinking_Skills/links/564b3d0408ae3374e5dd841b/Teaching-Thinking-Skills.pdf">Herrnstein et al. 1986</a>: n=895 Venezuelan high-school students (mean age 13.22 years), controlled trial. Intervention was a year-long course on decision-making (four days a week), others received a control course (it's not clear what this control course was about). Effect sizes on various general intelligence tests are d=0.35 (General Abilities Test), d=0.43 (<a href="https://en.wikipedia.org/wiki/Otis-Lennon_School_Ability_Test">OLSAT</a>), d=0.11 (<a href="https://en.wikipedia.org/wiki/Cattell_Culture_Fair_Intelligence_Test">CATTELL</a>), all at statistical significance.</li>
+<li><a href="https://deepblue.lib.umich.edu/bitstream/handle/2027.42/26118/0000194.pdf;sequence=1">Fong et al. 1986</a>: n=347 adults and high-school students were instructed on the <a href="https://en.wikipedia.org/wiki/Law_Of_Large_Numbers">law of large numbers</a>, from just reading a description (control) to working through examples where the law was and was not applicable (intervention). They were then tested on the application of the law to new problems. Effect size was 1 logit (which corresponds to d≈0.55 <a href="https://en.wiktionary.org/wiki/IIUC">IIUC</a>).</li>
+</ul>
 <h3 id="Plya_Method"><a class="hanchor" href="#Plya_Method">Pólya Method</a></h3>
+<p><strong>Summary</strong>: Evidence is not great, but one paper looks suspiciously
+good. Worth investigating, especially since it's often recommended by
+research mathematicians.</p>
 <p>Another interesting-seeming strand of research were tests of the
 <a href="https://en.wikipedia.org/wiki/How_To_Solve_It">Pólya method</a>. The
 Pólya method is a four-step problem-solving method, with the <a href="https://math.berkeley.edu/~gmelvin/polya.pdf">four
@@ -135,17 +179,64 @@ a lessened time pressure allows forming a whole plan (not just a decision)
 and for reflection after carrying out the plan.</p>
 <p>For some weird reason, the only scientists who have investigated the
 Pólya method experimentally are Indonesian. I have no idea why.</p>
-<p>The relevant papers are:</p>
+<p>The relevant papers all test on learning basic
+mathematical problem solving skills in <a href="https://en.wikipedia.org/wiki/Plane_Geometry">plane
+geometry</a> and
+<a href="https://en.wikipedia.org/wiki/Fractions">fractions</a>:</p>
 <ol>
 <li><a href="https://jurnal.syekhnurjati.ac.id/index.php/eduma/article/viewFile/8700/3969">Nasir &amp; Syartina 2021</a>: n=32 Indonesian high-school students, non-RCT, only observational. Effect size d=0.71, but that's not super impressive given it's not an RCT.</li>
 <li><a href="http://edulearn.intelektual.org/index.php/EduLearn/article/viewFile/4526/5353">Widiana et al. 2018</a>: n=138 elementary school children, RCT. I'm not <em>entirely</em> sure about this, but based on their Table 1 and <a href="https://www.socscistatistics.com/effectsize/default3.aspx">this calculator</a> I get <strong>d=2.4</strong>, which I find really hard to believe. I think I'm making a mistake<code>$_{60\%}$</code> or the paper is fraudulent<code>$_{40\%}$</code>.</li>
 <li><a href="https://jestec.taylors.edu.my/Special%20Issue%20ICMScE2022/ICMScE2022_04.pdf">Hayati et al. 2022</a>: n=40 Indonesian high-school children. This paper is so confusingly written I can't extract any meaning from it.</li>
 </ol>
-<h3 id="Training_Spatial_Cognition"><a class="hanchor" href="#Training_Spatial_Cognition">Training Spatial Cognition</a></h3>
 <h3 id="Dual_NBack"><a class="hanchor" href="#Dual_NBack">Dual N-Back</a></h3>
-<h3 id="Increasing_Intelligence"><a class="hanchor" href="#Increasing_Intelligence">Increasing Intelligence</a></h3>
+<p><strong>Summary</strong>: Increases working memory, but probably not IQ.</p>
+<p>I re-read parts of <a href="https://gwern.net/dnb-faq">Gwern 2019</a> and <a href="https://gwern.net/dnb-meta-analysis">Gwern
+2018</a>, and come away with believing
+that if one is bottlenecked by working memory, n-back is worth it,
+but it doesn't work well for increasing intelligence.</p>
+<h3 id="Judgmental_Forecasting"><a class="hanchor" href="#Judgmental_Forecasting">Judgmental Forecasting</a></h3>
+<p><strong>Summary</strong>: I didn't find anything on whether learned forecasting
+ability transfers across domains. I now want to analyze some data to
+find out whether it does.</p>
+<p>The evidence from the judgmental forecasting research is confusing. On
+the one hand, it's widely known that domain-level experts are <a href="https://en.wikipedia.org/wiki/Expert_Political_Judgment">not
+very good</a>
+at making predictions about their own domain, and are outcompeted by
+<a href="https://en.wikipedia.org/wiki/Superforecasting">superforecasters</a>
+who are just generally good at predicting.</p>
+<p>On the other hand, the vibe given by forecasters and forecasting
+researchers is similar to the following statement:</p>
+<blockquote>
+<p>By the way, there are no shortcuts. Bridge players may develop
+well-calibrated judgment when it comes to bidding on tricks, but research
+shows that judgment calibrated in one context transfers poorly, if at
+all, to another. So if you were thinking of becoming a better political
+or business forecaster by playing bridge, forget it.</p>
+</blockquote>
+<p><em>—Philip E. Tetlock &amp; Dan Gardner, “Superforecasting” p. 179, 2015</em></p>
+<p>I tried to find the research this paragraph is talking about by asking
+in a couple of discord servers and messaging the <a href="https://forecastingresearch.org/">Forecasting Research
+Institute</a>, but I didn't get any
+responses that were satisfying to me.</p>
+<p>I now want to analyze my <a href="./iqisa.html">own judgmental forecasting
+datasets</a> to figure out how much forecasting ability
+generalizes across domains.</p>
+<h3 id="Training_Spatial_Cognition"><a class="hanchor" href="#Training_Spatial_Cognition">Training Spatial Cognition</a></h3>
+<h3 id="Accelerated_Expertise"><a class="hanchor" href="#Accelerated_Expertise">Accelerated Expertise</a></h3>
 <h2 id="Creating_SelfImproving_Institutions"><a class="hanchor" href="#Creating_SelfImproving_Institutions">Creating Self-Improving Institutions</a></h2>
 <p>Double-loop learning.</p>
+<h2 id="My_Impression_of_the_Literature"><a class="hanchor" href="#My_Impression_of_the_Literature">My Impression of the Literature</a></h2>
+<p>After spending a dozen hours researching this area, my current impression
+is that this is something that too many different fields are interested
+in; among them are business people, military psychologists, education
+researchers, neuroscientists, cognitive psychologists…</p>
+<p>This results in a wild outgrowth of terminology: "transfer of learning",
+"learning to learn", "deutero-learning", "double-loop learning", "design
+thinking", "adaptive learning" &amp;c. In my research I don't think I've
+encountered a paper being cited by two different papers, which suggests
+there's more than a thousand papers grasping at the same question of
+transfer learning.</p>
+<h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
 <div class="footnotes">
 <hr/>
 <ol>
@@ -154,6 +245,9 @@ Pólya method experimentally are Indonesian. I have no idea why.</p>
 </li>
 <li id="fn2">
 <p>Judging from <a href="https://www.wku.edu/senate/documents/improving_student_learning_dunlosky_2013.pdf">Dunlosky et al. 2017</a> the participants in the various studies were asked to verbally explain their reasoning. It's not said how writing the explanation instead of saying it compares. <a href="#fnref2" rev="footnote">↩</a></p>
+</li>
+<li id="fn3">
+<p>This is supported by the theory of <a href="https://en.wikipedia.org/wiki/Transfer-appropriate_processing">transfer-appropriate processing</a>, which puts an especially strong emphasis on the encoding and retrieval of learned information. As far as I understand, the recapitulation of basic knowledge in the context of more advanced knowledge allows for a more accurate re-encoding of the basic knowledge. This also tracks with my experience of learning mathematics: I've gotten more mileage out of understanding basic concepts deeply (e.g. how probabilities, logits and bits fit together), than understanding more advanced concepts shallowly. <a href="#fnref3" rev="footnote">↩</a></p>
 </li>
 </ol>
 </div>
