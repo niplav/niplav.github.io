@@ -1582,7 +1582,7 @@ rights are respected, but there is no financial assistance by governments
 or AGI corporations.</p>
 <p>How much wealth does one need to have to survive, ideally indefinitely?</p>
 <p><strong>Finding</strong>: If you lose your job at the start of the singularity, with
-monthly spending of $1k, you need ~$71k in total of capital. This
+monthly spending of \$1k, you need ~\$71k in total of capital. This
 number doesn't look very sensitive to losing one's job slightly later.</p>
 <p>At the moment, the world economy is growing at a pace that leads to
 doublings in <a href="https://en.wikipedia.org/wiki/Gross_World_Product">GWP</a>
@@ -1672,4 +1672,98 @@ I decided to collect a list of discord servers dedicated to textbooks.</p>
 <li><a href="https://discord.gg/Jy4HZtP9pt">Analysis I (Tao 2016)</a></li>
 <li><a href="https://discord.gg/sApjeGjdvx">Naive Set Theory (Halmos 1960)</a></li>
 </ul>
+<h2 id="Trying_to_Disambiguate_Different_Questions_about_Whether_Humans_are_Turing_Machines"><a class="hanchor" href="#Trying_to_Disambiguate_Different_Questions_about_Whether_Humans_are_Turing_Machines">Trying to Disambiguate Different Questions about Whether Humans are Turing Machines</a></h2>
+<p>I often hear the sentiment that humans are <a href="https://en.wikipedia.org/wiki/Turing_Machine">Turing
+machines</a>, and that this
+sets humans apart from other pieces of matter.<!--TODO: link twitter--></p>
+<p>I've always found those statements a bit strange and confusing, so it
+seems worth it to tease apart what they could mean.</p>
+<p>The question "is a human a Turing machine" is probably meant
+to convey "can a human mind execute arbitrary programs?",
+that is "are the languages the human brain emit <a href="https://en.wikipedia.org/wiki/Recursively_enumerable">recursively
+enumerable</a>?",
+as opposed to e.g.
+<a href="https://en.wikipedia.org/wiki/Context-free_grammar">context-free</a>
+languages.</p>
+<ol>
+<li> My first reaction is that humans are definitely not Turing
+machines, because we lack the infinite amount of memory the Turing
+machine has in form of an (idealized) tape. Indeed, in the <a href="https://en.wikipedia.org/wiki/Chomsky_Hierarchy">Chomsky
+hierarchy</a>
+human aren't even at the level of <a href="https://en.wikipedia.org/wiki/Push-down_automata">pushdown
+automata</a>,
+instead we are nothing more than <a href="https://en.wikipedia.org/wiki/Finite-state_automaton">finite state
+automata</a>. (I
+remember a professor pointing this out to us that all physical
+instantiations of computers are merely finite-state automata).
+<ol>
+<li> Depending on one's <a href="https://en.wikipedia.org/wiki/Interpretations_of_Quantum_Mechanics">interpretation of quantum
+mechanics</a>,
+one might instead argue that
+we're at least <a href="https://en.wikipedia.org/wiki/Nondeterministic_finite_automata">nondeterministic finite
+automata</a>
+or even <a href="https://en.wikipedia.org/wiki/Markov-Chain">Markov
+chains</a>. However,
+every nondeterministic finite automaton
+can be <a href="https://en.wikipedia.org/wiki/Nondeterministic_finite_automata#Equivalence_to_DFA">transformed into a deterministic finite
+automaton</a>,
+albeit at an exponential increase in the
+number of states, and Markov chains aren't more
+computationally powerful (e.g. they can't recognize <a href="https://en.wikipedia.org/wiki/Dyck_language">Dyck
+languages</a>, just
+as DFAs can't).</li>
+<li>It might be that <a href="https://en.wikipedia.org/wiki/Quantum_finite_automata">Quantum finite
+automata</a>
+are of interest, but I don't know enough about quantum physics
+to make a judgment call.</li>
+</ol></li>
+<li> The above argument only applies if we regard humans as closed systems
+with clearly defined inputs and outputs. When probed, many proponents
+of the statement "humans are Turing machines" indeed fall back to
+a <a href="https://en.wikipedia.org/wiki/Motte-and-Bailey">motte</a> that <em>in
+principle</em> a human could execute every algorithm, given enough <a href="https://xkcd.com/505/">time,
+pen and paper</a>.
+<ol>
+<li> This seems true to me, assuming that the matter in universe
+does not have a limited amount of computation it can perform.
+<ol>
+<li> In a <a href="https://arxiv.org/pdf/quant-ph/0110141.pdf">finite
+universe</a>
+we are <a href="https://www.lesswrong.com/posts/JWeA8PHnRNQYGWw6Q/aaboyles-s-shortform?commentId=P3NmzPzKHpBXFFZbm">logically
+isolated</a>
+from <a href="https://en.wikipedia.org/wiki/Almost_all">almost
+all</a> computable
+strings, which seems pretty relevant.</li>
+<li> Another constraint is from computational
+complexity; <a href="https://www.scottaaronson.com/papers/philos.pdf">should we treat things that
+are not polynomial-time computable as basically
+unknowable</a>?
+Humans certainly can't solve <a href="https://en.wikipedia.org/wiki/NP-complete">NP-complete
+problems</a>
+efficiently.</li>
+</ol></li>
+<li>I'm not sure this is a very useful notion.
+<ol>
+<li> On the one hand, I'd argue that, by orchestrating
+the exactly right circumstances, a tulip could
+receive specific stimuli to grow in the right
+directions, knock the correct things over, lift
+other things up with its roots, create offspring
+that perform subcomputations &amp;c to execute arbitrary
+programs. <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Undecidability">Conway's Game of Life certainly manages
+to</a>!.
+One might object that this is set up for the tulip
+to succeed, but we also put the human in a room with
+unlimited pens and papers.</li>
+<li> On the other hand, those circumstances would have to
+be <em>very exact</em>, much more so than with humans. But that
+again is a difference in degree, not in kind.</li>
+</ol></li>
+</ol></li>
+</ol>
+<p>After all, I'm coming down with the following summary: Humans are
+certainly <em>not Turing machines</em>, however there might be a (much weaker)
+notion of generality that humans fulfill and other physical systems don't
+(or don't as much). I don't know of any formulation of such a criterion
+of generality, but would be interested in seeing it fleshed out.</p>
 </body></html>

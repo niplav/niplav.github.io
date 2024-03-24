@@ -40,9 +40,11 @@ document.addEventListener('DOMContentLoaded', function () {
 <h1 id="Transfer_Learning_in_Humans"><a class="hanchor" href="#Transfer_Learning_in_Humans">Transfer Learning in Humans</a></h1>
 <p>When learning, one would like to progress faster, and learn things
 faster. So it makes sense to search for interventions that speed up
-learning, enable using knowledge and knowledge patterns from one learned
-domain in a new domain (if appropriate), and make it easier to find
-further learning-accelerating techniques.</p>
+learning (effective learning techniques), enable using knowledge
+and knowledge patterns from one learned domain in a new domain if
+appropriate (transfer learning), and make it easier to find further
+learning-accelerating techniques (meta-learning).</p>
+<h2 id="Summary_of_the_Results"><a class="hanchor" href="#Summary_of_the_Results">Summary of the Results</a></h2>
 <h2 id="What_I_Am_Looking_For"><a class="hanchor" href="#What_I_Am_Looking_For">What I Am Looking For</a></h2>
 <p>Given a broad set of skills <code>$S$</code>, I was looking for an intervention/a
 set of interventions <code>$I$</code> which has the following properties:</p>
@@ -52,6 +54,16 @@ set of interventions <code>$I$</code> which has the following properties:</p>
 <li>Optional: <code>$I$</code> is <em>relatively</em> easy to apply, that is it doesn't need a lot of institutional setup</li>
 <li>Optional: <code>$I$</code> can be applied to itself, and to find better interventions <code>$I'$</code> that have the same properties as <code>$I$</code></li>
 </ol>
+<p>The question about transfer learning in humans isn't clearly
+differentiated from the research into effective learning techniques.
+Transfer learning and meta-learning are more focused on crossing the
+theory-practice gap and making progress in domains where we don't yet
+have detailed knowledge.</p>
+<p>Therefore, I tried to find more information from well-performing
+institutions such as the military and large corporations, de-emphasizing
+research done in universities and schools (I found this difficult because
+those places tend to have more incentive to publish their techniques,
+and also strive to quantify their benefits).</p>
 <h2 id="Candidates"><a class="hanchor" href="#Candidates">Candidates</a></h2>
 <h3 id="Straightforward_Stuff"><a class="hanchor" href="#Straightforward_Stuff">Straightforward Stuff</a></h3>
 <p>I found several studies from psychology, especially educational
@@ -64,19 +76,85 @@ interventions as having moderate utility:</p>
 <ol>
 <li>High utility:
 <ol>
-<li>Practice testing: Testing oneself on the target domain in a low-stakes context, ideally repeatedly. Think <a href="https://www.gwern.net/Spaced-repetition">spaced repetition</a> with flashcards, or preparing for exams by doing exams from previous years. They mention that practice testing generalizes across formats (e.g. from simple recall to short answer inference tests).</li>
-<li>Distributed practice: Practice that happens spread out over a longer amount of time, instead of cramming. This gain is also captured via <a href="https://www.gwern.net/Spaced-repetition">spaced repetition</a>. They do not mention any transfer benefits here.</li>
+<li> <strong>Practice testing</strong>: Testing oneself on the target domain
+in a low-stakes context, ideally repeatedly. Think <a href="https://www.gwern.net/Spaced-repetition">spaced
+repetition</a> with
+flashcards, or preparing for exams by doing exams from previous
+years. They mention that practice testing generalizes across
+formats (e.g. from simple recall to short answer inference tests).
+Can generate <em>far transfer</em>.
+<ol>
+<li> p. 30: "practice testing a subset of information
+influences memory for related but untested information"</li>
+</ol></li>
+<li> <strong>Distributed practice</strong>: Practice that happens
+spread out over a longer amount of time, instead
+of cramming. This gain is also captured via <a href="https://www.gwern.net/Spaced-repetition">spaced
+repetition</a>. They do
+not mention any transfer benefits here.</li>
 </ol></li>
 <li>Moderate utility:
 <ol>
-<li>Elaborative interrogation</li>
-<li>Self-explanation</li>
-<li>Interleaved practice</li>
+<li> <strong>Elaborative interrogation</strong> and <strong>Self-explanation</strong><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>:
+Generating and saying<sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup> an explanation for why an
+explicitly stated fact or concept is true. This most helps
+learners who already know a lot about the target domain, and
+works best if it is done <em>during</em> the learning process.
+<ol>
+<li><img alt="" src="./img/transfer/practice_transfer.png"/></li>
+</ol></li>
+<li> <strong>Interleaved practice</strong>: When learning, repeat basic
+material while learning more advanced material. The
+advantages over distributed practice testing seems
+moderate, but (p. 38): "interleaved practice helped
+students to discriminate between various kinds of
+problems and to learn the appropriate formula to apply
+for each one". Works better on mathematics.</li>
 </ol></li>
 </ol>
+<h3 id="Far_Transfer"><a class="hanchor" href="#Far_Transfer">"Far Transfer"</a></h3>
 <h3 id="Plya_Method"><a class="hanchor" href="#Plya_Method">Pólya Method</a></h3>
+<p>Another interesting-seeming strand of research were tests of the
+<a href="https://en.wikipedia.org/wiki/How_To_Solve_It">Pólya method</a>. The
+Pólya method is a four-step problem-solving method, with the <a href="https://math.berkeley.edu/~gmelvin/polya.pdf">four
+steps being</a></p>
+<ol>
+<li>Understand the problem</li>
+<li>Devise a plan
+<ol>
+<li> The book "How to Solve It"
+also has a list of <a href="https://en.wikipedia.org/wiki/How_to_Solve_It#Second_principle:_Devise_a_plan">problem solving
+strategies</a></li>
+</ol></li>
+<li>Carry out the plan</li>
+<li>Look back</li>
+</ol>
+<p>This is a variant of the <a href="https://en.wikipedia.org/wiki/OODA_Loop">OODA
+loop</a>, with the difference that
+a lessened time pressure allows forming a whole plan (not just a decision)
+and for reflection after carrying out the plan.</p>
+<p>For some weird reason, the only scientists who have investigated the
+Pólya method experimentally are Indonesian. I have no idea why.</p>
+<p>The relevant papers are:</p>
+<ol>
+<li><a href="https://jurnal.syekhnurjati.ac.id/index.php/eduma/article/viewFile/8700/3969">Nasir &amp; Syartina 2021</a>: n=32 Indonesian high-school students, non-RCT, only observational. Effect size d=0.71, but that's not super impressive given it's not an RCT.</li>
+<li><a href="http://edulearn.intelektual.org/index.php/EduLearn/article/viewFile/4526/5353">Widiana et al. 2018</a>: n=138 elementary school children, RCT. I'm not <em>entirely</em> sure about this, but based on their Table 1 and <a href="https://www.socscistatistics.com/effectsize/default3.aspx">this calculator</a> I get <strong>d=2.4</strong>, which I find really hard to believe. I think I'm making a mistake<code>$_{60\%}$</code> or the paper is fraudulent<code>$_{40\%}$</code>.</li>
+<li><a href="https://jestec.taylors.edu.my/Special%20Issue%20ICMScE2022/ICMScE2022_04.pdf">Hayati et al. 2022</a>: n=40 Indonesian high-school children. This paper is so confusingly written I can't extract any meaning from it.</li>
+</ol>
 <h3 id="Training_Spatial_Cognition"><a class="hanchor" href="#Training_Spatial_Cognition">Training Spatial Cognition</a></h3>
 <h3 id="Dual_NBack"><a class="hanchor" href="#Dual_NBack">Dual N-Back</a></h3>
 <h3 id="Increasing_Intelligence"><a class="hanchor" href="#Increasing_Intelligence">Increasing Intelligence</a></h3>
 <h2 id="Creating_SelfImproving_Institutions"><a class="hanchor" href="#Creating_SelfImproving_Institutions">Creating Self-Improving Institutions</a></h2>
+<p>Double-loop learning.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn1">
+<p>These two techniques are treated separately in the paper, but as far as I can tell mostly for historical reasons. <a href="#fnref1" rev="footnote">↩</a></p>
+</li>
+<li id="fn2">
+<p>Judging from <a href="https://www.wku.edu/senate/documents/improving_student_learning_dunlosky_2013.pdf">Dunlosky et al. 2017</a> the participants in the various studies were asked to verbally explain their reasoning. It's not said how writing the explanation instead of saying it compares. <a href="#fnref2" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>
 </body></html>
