@@ -46,7 +46,7 @@ appropriate (transfer learning), and make it easier to find further
 learning-accelerating techniques (meta-learning).</p>
 <h2 id="Summary_of_the_Results"><a class="hanchor" href="#Summary_of_the_Results">Summary of the Results</a></h2>
 <ol>
-<li>If you want to learn faster
+<li>If you want to <a href="#Straightforward_Stuff">learn faster</a>
 <ol>
 <li>Do <a href="https://www.gwern.net/Spaced-repetition">spaced repetition</a> when possible
 <ol>
@@ -54,16 +54,21 @@ learning-accelerating techniques (meta-learning).</p>
 </ol></li>
 <li>Spend a lot of time on practice problems</li>
 <li>Explain why you're doing what you're doing, while you're doing it</li>
+<li>If errors are cheap and obvious, <a href="#Error_Management_Theory">make and seek out errors during learning/training</a></li>
 </ol></li>
 <li>If you want to solve problems
 <ol>
-<li>If there are already experts at the problem you're trying to solve, <a href="https://commoncog.com/accelerated-expertise/">interview them in a systematic fashion</a> to <a href="https://commoncog.com/an-easier-method-for-extracting-tacit-knowledge/">extract</a> their <a href="https://commoncog.com/the-tacit-knowledge-series/">tacit knowledge</a>.
+<li>Try to get feedback on both the process and the outcomes of what you're doing
 <ol>
-<li>With enough institutional support this can be turned into a training program.</li>
+<li>Explicitly <a href="#Inducing_Transfer">analyse errors after you've made them</a><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup></li>
+</ol></li>
+<li>If there are already experts at the problem you're trying to solve, <a href="https://commoncog.com/accelerated-expertise/">interview them in a systematic fashion</a> to <a href="https://commoncog.com/an-easier-method-for-extracting-tacit-knowledge/">extract</a> their <a href="https://commoncog.com/the-tacit-knowledge-series/">tacit knowledge</a>
+<ol>
+<li>With enough institutional support this can be turned into a training program</li>
 </ol></li>
 <li>If there are no experts in the domain where you're trying to solve a problem:
 <ol>
-<li>Search for related domains and extract existing tacit knowledge there, or learn those domains</li>
+<li>Search for related domains and extract existing tacit knowledge there, or learn those domains—the closer the better</li>
 <li>Apply the <a href="#P%C3%B3lya_Method">Pólya method</a></li>
 </ol></li>
 </ol></li>
@@ -120,8 +125,8 @@ not mention any transfer benefits here.</li>
 </ol></li>
 <li>Moderate utility:
 <ol>
-<li> <strong>Elaborative interrogation</strong> and <strong>Self-explanation</strong><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>:
-Generating and saying<sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup> an explanation for why an
+<li> <strong>Elaborative interrogation</strong> and <strong>Self-explanation</strong><sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup>:
+Generating and saying<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup> an explanation for why an
 explicitly stated fact or concept is true. This most helps
 learners who already know a lot about the target domain, and
 works best if it is done <em>during</em> the learning process.
@@ -134,7 +139,7 @@ advantages over distributed practice testing seems
 moderate, but (p. 38): "interleaved practice helped
 students to discriminate between various kinds of
 problems and to learn the appropriate formula to apply
-for each one". Works better on mathematics<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>.</li>
+for each one". Works better on mathematics<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup>.</li>
 </ol></li>
 </ol>
 <h3 id="Far_Transfer"><a class="hanchor" href="#Far_Transfer">"Far Transfer"</a></h3>
@@ -154,6 +159,35 @@ networks).</p>
 <li><a href="https://www.researchgate.net/profile/Raymond-Nickerson/publication/232424806_Teaching_Thinking_Skills/links/564b3d0408ae3374e5dd841b/Teaching-Thinking-Skills.pdf">Herrnstein et al. 1986</a>: n=895 Venezuelan high-school students (mean age 13.22 years), controlled trial. Intervention was a year-long course on decision-making (four days a week), others received a control course (it's not clear what this control course was about). Effect sizes on various general intelligence tests are d=0.35 (General Abilities Test), d=0.43 (<a href="https://en.wikipedia.org/wiki/Otis-Lennon_School_Ability_Test">OLSAT</a>), d=0.11 (<a href="https://en.wikipedia.org/wiki/Cattell_Culture_Fair_Intelligence_Test">CATTELL</a>), all at statistical significance.</li>
 <li><a href="https://deepblue.lib.umich.edu/bitstream/handle/2027.42/26118/0000194.pdf;sequence=1">Fong et al. 1986</a>: n=347 adults and high-school students were instructed on the <a href="https://en.wikipedia.org/wiki/Law_Of_Large_Numbers">law of large numbers</a>, from just reading a description (control) to working through examples where the law was and was not applicable (intervention). They were then tested on the application of the law to new problems. Effect size was 1 logit (which corresponds to d≈0.55 <a href="https://en.wiktionary.org/wiki/IIUC">IIUC</a>).</li>
 </ul>
+<h3 id="Error_Management_Theory"><a class="hanchor" href="#Error_Management_Theory">Error Management Theory</a></h3>
+<p><strong>Summary</strong>: Making errors during training, if it is obvious an error
+has occurred, and errors are affordable, transfers the learned knowledge
+pretty well (d=0.8).</p>
+<p><a href="https://en.wikipedia.org/wiki/Error_management_theory">Error Management
+Training</a> (EMT) is a
+type of training in which making errors during exploration while learning
+is actively encouraged. Trainers encourage learners during learning to
+make errors and reflect on those errors while learning, but don't give
+much guidance beyond that.</p>
+<p><a href="http://fox.leuphana.de/portal/files/607254/Keith_frese_Error_Manag_Train_Metacongition_Em_control_JAP05.pdf">Keith &amp; Frese
+2008</a>
+perform a meta-analysis analysing studies training participants to use
+software tools or learn programming languages (n=2183), comparing EMT
+to training that encourages error-avoidance, and find that EMT has a
+medium-sized advantage over error-avoiding training methods (d=0.44).</p>
+<p>EMT shows <em>larger</em> effect sizes over error-avoiding methods with more
+demanding transfer: d=0.56 for performance after training, and d=0.8 for
+transfer that requires modifying learned procedures to fit news contexts
+(adaptive transfer). However, Keith &amp; Frese also provide evidence that
+this advantage only occurs if there is clear feedback on whether an
+error has occurred or not.</p>
+<p>One is reminded of <a href="https://www.scottaaronson.com/blog/?p=40">Umeshisms</a>:
+If you never fail, you're underperforming. (Also, you're not going to
+be able to use it.)</p>
+<p>I don't know how to balance the rate of failing to succeeding tasks,
+when I tried tutoring someone in software engineering for fun, I tried
+to give the person assignments that they would only be able to solve 50%
+of the time.</p>
 <h3 id="Plya_Method"><a class="hanchor" href="#Plya_Method">Pólya Method</a></h3>
 <p><strong>Summary</strong>: Evidence is not great, but one paper looks suspiciously
 good. Worth investigating, especially since it's often recommended by
@@ -188,6 +222,54 @@ geometry</a> and
 <li><a href="http://edulearn.intelektual.org/index.php/EduLearn/article/viewFile/4526/5353">Widiana et al. 2018</a>: n=138 elementary school children, RCT. I'm not <em>entirely</em> sure about this, but based on their Table 1 and <a href="https://www.socscistatistics.com/effectsize/default3.aspx">this calculator</a> I get <strong>d=2.4</strong>, which I find really hard to believe. I think I'm making a mistake<code>$_{60\%}$</code> or the paper is fraudulent<code>$_{40\%}$</code>.</li>
 <li><a href="https://jestec.taylors.edu.my/Special%20Issue%20ICMScE2022/ICMScE2022_04.pdf">Hayati et al. 2022</a>: n=40 Indonesian high-school children. This paper is so confusingly written I can't extract any meaning from it.</li>
 </ol>
+<h3 id="Accelerated_Expertise"><a class="hanchor" href="#Accelerated_Expertise">Accelerated Expertise</a></h3>
+<p><strong>Summary</strong>: With a lot of institutional support, one can extract
+knowledge from experts and use it to create better training programs.
+This requires a large institution to be worth it.</p>
+<p>Accelerated Expertise (<a href="https://www.goodreads.com/book/show/17399473-accelerated-expertise">Hoffman et al.,
+2014</a>)
+was motivated by getting military recruits up to speed quickly before
+moving them to deployment.  It focuses on the case in which there are
+already experts for a given domain, and one aims to move the skills from
+domain experts into the mind of new recruits as quickly as possible. <a href="https://commoncog.com/accelerated-expertise/">Chin
+2024</a> summarizes the goals
+of the research project that lead to the book as attempting to speed
+up the time from being a beginner at a specific task or set of tasks to
+being proficient at that task (hence the name "Accelerated Expertise").</p>
+<p><img alt="" src="./img/transfer/accelerated.jpg"/></p>
+<p>They are skeptical that any training can make trainees dramatically
+better at the domain than experts with a lot of training.</p>
+<p>For this, Hoffman et al. have developed a series of multiple steps for
+creating training programs for new recruits.</p>
+<ol>
+<li>Identify domain experts</li>
+<li>Use <a href="https://commoncog.com/an-easier-method-for-extracting-tacit-knowledge/">Cognitive Task Analysis</a> to extract expert knowledge</li>
+<li>Build a case library of difficult cases</li>
+<li>Turn case library into a set of training simulations</li>
+<li>Optional: Include introspection &amp; reflection in the program</li>
+<li>Optional: Teach abstract/generalized principles</li>
+<li>Test the program</li>
+</ol>
+<p>The book contains a literature review on transfer in chapter 5, which I
+didn't manage to completely read, but which afaik is the best collected
+resource on transfer learning in humans. They summarize the chapter by
+remarking that not artificially "dumbing down" a domain when a beginner
+tries to learn it can delay learning in the beginning, but speed up
+learning in the long run because it prevents misunderstandings from
+becoming entrenched.</p>
+<h4 id="Inducing_Transfer"><a class="hanchor" href="#Inducing_Transfer">Inducing Transfer</a></h4>
+<p>They also summarize the methods for inducing transfer:</p>
+<blockquote>
+<p>Transferring a skill to new situations is often difficult but can
+be promoted by following a number of training principles: employing
+deliberate practice, increasing the variability of practice, adding
+sources of contextual interference, using a mixed practice schedule,
+distributing practice in time, and providing process and outcome feedback
+in an explicit analysis of errors.</p>
+</blockquote>
+<p><em>—Hoffman et al., <a href="https://www.goodreads.com/book/show/17399473-accelerated-expertise">“Accelerated Expertise”</a> p. 176, 2014</em></p>
+<p>I'd also have liked to dive deeper on extracting expert knowledge,
+which looks important especially in novel domains like AI alignment.</p>
 <h3 id="Dual_NBack"><a class="hanchor" href="#Dual_NBack">Dual N-Back</a></h3>
 <p><strong>Summary</strong>: Increases working memory, but probably not IQ.</p>
 <p>I re-read parts of <a href="https://gwern.net/dnb-faq">Gwern 2019</a> and <a href="https://gwern.net/dnb-meta-analysis">Gwern
@@ -222,7 +304,6 @@ responses that were satisfying to me.</p>
 datasets</a> to figure out how much forecasting ability
 generalizes across domains.</p>
 <h3 id="Training_Spatial_Cognition"><a class="hanchor" href="#Training_Spatial_Cognition">Training Spatial Cognition</a></h3>
-<h3 id="Accelerated_Expertise"><a class="hanchor" href="#Accelerated_Expertise">Accelerated Expertise</a></h3>
 <h2 id="Creating_SelfImproving_Institutions"><a class="hanchor" href="#Creating_SelfImproving_Institutions">Creating Self-Improving Institutions</a></h2>
 <p>Double-loop learning.</p>
 <h2 id="My_Impression_of_the_Literature"><a class="hanchor" href="#My_Impression_of_the_Literature">My Impression of the Literature</a></h2>
@@ -236,18 +317,27 @@ thinking", "adaptive learning" &amp;c. In my research I don't think I've
 encountered a paper being cited by two different papers, which suggests
 there's more than a thousand papers grasping at the same question of
 transfer learning.</p>
+<p>I've created an (incomplete)
+<a href="https://docs.google.com/spreadsheets/d/1-_EuaLf1Fau7hhH-9lvzec-hhiswmRM2rey2bfbp8mA/edit?usp=sharing">spreadsheet</a>
+with the relevant papers from the literature that I could find.</p>
 <h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
+<ul>
+<li><a href="https://nintil.com/bloom-sigma/#darpa-s-study">Ricón 2020</a> on a DARPA study with a digital tutor for a specific domain, showing <strong>d=2.81</strong> improvement</li>
+</ul>
 <div class="footnotes">
 <hr/>
 <ol>
 <li id="fn1">
-<p>These two techniques are treated separately in the paper, but as far as I can tell mostly for historical reasons. <a href="#fnref1" rev="footnote">↩</a></p>
+<p>Since everything is judgmental-forecasting-shaped, one could test this by letting forecasters elaborate on their forecasts and at resolution time analyse their elaborations. I've <a href="http://niplav.site/notes_on_predictions.html">tried doing this</a> but it fell off for other projects. <a href="#fnref1" rev="footnote">↩</a></p>
 </li>
 <li id="fn2">
-<p>Judging from <a href="https://www.wku.edu/senate/documents/improving_student_learning_dunlosky_2013.pdf">Dunlosky et al. 2017</a> the participants in the various studies were asked to verbally explain their reasoning. It's not said how writing the explanation instead of saying it compares. <a href="#fnref2" rev="footnote">↩</a></p>
+<p>These two techniques are treated separately in the paper, but as far as I can tell mostly for historical reasons. <a href="#fnref2" rev="footnote">↩</a></p>
 </li>
 <li id="fn3">
-<p>This is supported by the theory of <a href="https://en.wikipedia.org/wiki/Transfer-appropriate_processing">transfer-appropriate processing</a>, which puts an especially strong emphasis on the encoding and retrieval of learned information. As far as I understand, the recapitulation of basic knowledge in the context of more advanced knowledge allows for a more accurate re-encoding of the basic knowledge. This also tracks with my experience of learning mathematics: I've gotten more mileage out of understanding basic concepts deeply (e.g. how probabilities, logits and bits fit together), than understanding more advanced concepts shallowly. <a href="#fnref3" rev="footnote">↩</a></p>
+<p>Judging from <a href="https://www.wku.edu/senate/documents/improving_student_learning_dunlosky_2013.pdf">Dunlosky et al. 2017</a> the participants in the various studies were asked to verbally explain their reasoning. It's not said how writing the explanation instead of saying it compares. <a href="#fnref3" rev="footnote">↩</a></p>
+</li>
+<li id="fn4">
+<p>This is supported by the theory of <a href="https://en.wikipedia.org/wiki/Transfer-appropriate_processing">transfer-appropriate processing</a>, which puts an especially strong emphasis on the encoding and retrieval of learned information. As far as I understand, the recapitulation of basic knowledge in the context of more advanced knowledge allows for a more accurate re-encoding of the basic knowledge. This also tracks with my experience of learning mathematics: I've gotten more mileage out of understanding basic concepts deeply (e.g. how probabilities, logits and bits fit together), than understanding more advanced concepts shallowly. <a href="#fnref4" rev="footnote">↩</a></p>
 </li>
 </ol>
 </div>
