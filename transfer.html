@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <blockquote>
 <p><strong>I examine the literature on transfer learning in humans<!--, and find that-->.</strong></p>
 </blockquote>
+<!--TODO: section n negative transfer?-->
 <h1 id="Transfer_Learning_in_Humans"><a class="hanchor" href="#Transfer_Learning_in_Humans">Transfer Learning in Humans</a></h1>
 <p>When learning, one would like to progress faster, and learn things
 faster. So it makes sense to search for interventions that speed up
@@ -184,10 +185,10 @@ error has occurred or not.</p>
 <p>One is reminded of <a href="https://www.scottaaronson.com/blog/?p=40">Umeshisms</a>:
 If you never fail, you're underperforming. (Also, you're not going to
 be able to use it.)</p>
-<p>I don't know how to balance the rate of failing to succeeding tasks,
-when I tried tutoring someone in software engineering for fun, I tried
-to give the person assignments that they would only be able to solve 50%
-of the time.</p>
+<p>When I tried tutoring someone in programming for fun, I tried to give
+the person assignments that they would only be able to solve 50% of
+the time. I don't know whether this is optimal, but <em>mumble mumble</em>
+entropy <em>mumble</em> dense reward <em>mumble</em>.</p>
 <h3 id="Plya_Method"><a class="hanchor" href="#Plya_Method">Pólya Method</a></h3>
 <p><strong>Summary</strong>: Evidence is not great, but one paper looks suspiciously
 good. Worth investigating, especially since it's often recommended by
@@ -303,9 +304,66 @@ responses that were satisfying to me.</p>
 <p>I now want to analyze my <a href="./iqisa.html">own judgmental forecasting
 datasets</a> to figure out how much forecasting ability
 generalizes across domains.</p>
-<h3 id="Training_Spatial_Cognition"><a class="hanchor" href="#Training_Spatial_Cognition">Training Spatial Cognition</a></h3>
+<!--
+TODO:
+
+### Training Spatial Cognition
+-->
 <h2 id="Creating_SelfImproving_Institutions"><a class="hanchor" href="#Creating_SelfImproving_Institutions">Creating Self-Improving Institutions</a></h2>
-<p>Double-loop learning.</p>
+<p><strong>Summary</strong>: Organizations can become organizations that improve their
+governing variables. Inducing this is very tricky. Events that can
+induce double-loop learning in an organization include a change to
+leaders which value reflection and dialogue, and the introduction of
+software tools, such as systems which are used for prediction, which
+then provide feedback.</p>
+<p><em>Double-loop learning</em> is a method to improve learning of organizations,
+taking into account the learning process itself.</p>
+<p><a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/emre.12615">Auqui-Caceres &amp; Furlan
+2023</a> review
+the evidence on double-loop learning.</p>
+<p><img alt="" src="./img/transfer/double_loop.png"/></p>
+<p>They report on several interventions:</p>
+<ul>
+<li>Tested:
+<ul>
+<li><a href="https://ieeexplore.ieee.org/document/8345680">Integrative Double-Kaizen Loop</a> → implemented and saw improvements, but no controls</li>
+<li>Writing and iterating on simulation software ("simulation modeling"/machine learning models) → Induced double-loop learning in two different papers</li>
+</ul></li>
+<li>Tested, didn't work:
+<ul>
+<li>PIER (Problem-based learning, Interactive multimedia, Experiential learning, and Role-playing) → Allegedly failed because leadership didn't participate</li>
+<li>Briefing-debriefing sessions → Allegedly failed because the tested protocol didn't include communicating up the hierarchy</li>
+<li>Incident-reporting systems → No change observed</li>
+</ul></li>
+<li>Proposed but, as far as I understand, not tested:
+<ul>
+<li><a href="https://asq.org/quality-resources/dmaic">DMAIC</a></li>
+<li><a href="https://www.proquest.com/docview/197599398">"Circular organization"</a></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>[…] these studies maintain that the most prominent barrier to generate
+DLL is defensive reasoning and routines (Bochman &amp; Kroth, 2010; Clarke,
+2006; Kwon &amp; Nicolaides, 2017; Sisaye &amp; Birnberg, 2010; Stavropoulou et
+al., 2015; Sterman, 1994; Wong, 2005), which are produced by participants
+in DLL processes, whenever assumptions underlying taken-for-granted
+procedures, practices, or policies are challenged. Although people are
+aware that they should not use defensive reasoning to deal with daily work
+difficulties and challenges (Thornhill &amp; Amit, 2003), they still use them
+to avoid losing control and dealing with embarrassment (Mordaunt, 2006).</p>
+</blockquote>
+<p><em>—Auqui-Caceres &amp; Furlan, <a href="https://onlinelibrary.wiley.com/doi/pdf/10.1111/emre.12615">“Revitalizing double-loop learning in organizational contexts: A systematic review and research agenda”</a> p. 14, 2023</em></p>
+<h2 id="Questions"><a class="hanchor" href="#Questions">Questions</a></h2>
+<ol>
+<li>Is it better to perform elaborative interrogation verbally, or is it as good to write things down?</li>
+<li>What is the optimal amount of "going back to the basics" to deepen understanding over time?
+<ol>
+<li>Spaced repetition schedules are one suggestion, but they're only geared towards remembering, not deepening understanding.</li>
+</ol></li>
+<li>Do people generalize within judgmental forecasting, across question asking domains?</li>
+<li>Why do all papers I've found to gravitate to the "better learning techniques" bucket?</li>
+<li>Which techniques do really successful consultancies or investment firms use for problem-solving ability?</li>
+</ol>
 <h2 id="My_Impression_of_the_Literature"><a class="hanchor" href="#My_Impression_of_the_Literature">My Impression of the Literature</a></h2>
 <p>After spending a dozen hours researching this area, my current impression
 is that this is something that too many different fields are interested
