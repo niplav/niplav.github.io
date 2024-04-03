@@ -1767,8 +1767,8 @@ notion of generality that humans fulfill and other physical systems don't
 (or don't as much). I don't know of any formulation of such a criterion
 of generality, but would be interested in seeing it fleshed out.</p>
 <h2 id="How_Often_Does_Correlation__Causation"><a class="hanchor" href="#How_Often_Does_Correlation__Causation">How Often Does ¬Correlation ⇏ ¬Causation?</a></h2>
-<p>Current best guess: Half the
-time<sub><a href="https://fatebook.io/q/in-linear-sems-with-0-1-distributed--cluiez1bn0003lg08uqorjcke">40%</a></sub>.</p>
+<p>Current best guess: Nearly all the
+time<sub><a href="https://fatebook.io/q/in-linear-sems-with-0-1-distributed--clujl9idv0001lc0841gwx9te">55%</a></sub>.</p>
 <p>"Correlation ⇏ Causation" is trite by now. And we also know that
 <a href="https://www.spencergreenberg.com/2022/03/can-you-have-causation-without-correlation-surprisingly-yes/">the</a>
 <a href="https://stats.stackexchange.com/questions/221936/does-no-correlation-imply-no-causality">contrapositive</a>
@@ -1860,8 +1860,8 @@ end
 are ignored because when running the code, they never give me any causal
 non-correlations. (I'd be interested in seeing examples to the contrary.)</p>
 <pre><code>results = Dict{Int, Array{Int, 1}}()
-sem_samples=100
-inputs_samples=10000
+sem_samples=200
+inputs_samples=20000
 for i in 4:16
         results[i]=misclassified_absence_mc(i, sem_samples, inputs_samples)
 end
@@ -1874,9 +1874,15 @@ number</a>:</p>
 result_props=[mean(values)/((key^2+key)/2) for (key, values) in sort(results)]
 </code></pre>
 <p><img alt="" src="./img/cause/summaries.png"/></p>
-<p>So it <em>looks like</em> a growing proportion of causal relationships
-are not correlational, and I think the number will
-<a href="https://en.wikipedia.org/wiki/Asymptote">asymptote</a> at 50%.</p>
+<p>So it <em>looks like</em> a growing proportion of causal
+relationships are not correlational, and I think the number will
+<a href="https://en.wikipedia.org/wiki/Asymptote">asymptote</a> to include
+<a href="https://en.wikipedia.org/wiki/Almost_all">almost all</a> causal
+relations<sub><a href="https://fatebook.io/q/in-linear-sems-with-0-1-distributed--clujl9idv0001lc0841gwx9te">55%</a></sub>.</p>
+<p>It could also be that the proportion asymptotes
+to another percentage, but I don't think
+so<sub><a href="https://fatebook.io/q/in-linear-sems-with-0-1-distributed--clujlfm8b0001kx08z6geffu4">15%</a></sub>.</p>
+<h3 id="Is_the_Sample_Size_Too_Small"><a class="hanchor" href="#Is_the_Sample_Size_Too_Small">Is the Sample Size Too Small?</a></h3>
 <p>Is the issue with the number of inner samples, are we
 simply <em>not checking enough</em>? But 10k samples <a href="https://www.computerworld.com/article/2534312/the--640k--quote-won-t-go-away----but-did-gates-really-say-it-.html">ought to be enough for
 anybody</a>—if
@@ -1885,9 +1891,10 @@ that's not sufficient, I don't know what is.</p>
 <pre><code>more_samples=Dict{Int, Array{Int, 1}}()
 samples_test_size=12
 sem_samples=100
-for inputs_samples in 2 .^(6:16)
-        println(inputs_samples)
-        more_samples[inputs_samples]=misclassified_absence_mc(samples_test_size, sem_samples, inputs_samples)
+inputs_samples=2 .^(6:17)
+for inputs_sample in inputs_samples
+        println(inputs_sample)
+        more_samples[inputs_sample]=misclassified_absence_mc(samples_test_size, sem_samples, inputs_sample)
 end
 </code></pre>
 <p>Plotting the number of causal non-correlations reveals that 10k samples
@@ -1895,5 +1902,5 @@ end
 <p><img alt="" src="./img/cause/misclassifications_samples.png"/></p>
 <p>The densities fluctuate, sure, but not so much that I'll throw out the
 baby with the bathwater. If I was a better person, I'd make a statistical
-test, but alas, I am not.</p>
+test here, but alas, I am not.</p>
 </body></html>
