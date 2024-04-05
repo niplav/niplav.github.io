@@ -1,0 +1,180 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML>
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2022-02-04, modified: 2023-09-19, language: english, status: finished, importance: 4, confidence: possible</em></p>
+<blockquote>
+<p><strong>Absence of correlation almost never implies absence of
+causation<sub><a href="https://fatebook.io/q/in-linear-sems-with-0-1-distributed--clujl9idv0001lc0841gwx9te">55%</a></sub>.</strong></p>
+</blockquote>
+<h1 id="How_Often_Does_Correlation__Causation"><a class="hanchor" href="#How_Often_Does_Correlation__Causation">How Often Does ¬Correlation ⇏ ¬Causation?</a></h1>
+<p>"Correlation ⇏ Causation" is trite by now. And we also know that
+<a href="https://www.spencergreenberg.com/2022/03/can-you-have-causation-without-correlation-surprisingly-yes/">the</a>
+<a href="https://stats.stackexchange.com/questions/221936/does-no-correlation-imply-no-causality">contrapositive</a>
+<a href="https://core.ac.uk/download/pdf/82460997.pdf">is false</a> too:
+"¬Correlation ⇏ ¬Causation".</p>
+<p>Spencer Greenberg
+<a href="https://www.spencergreenberg.com/2022/03/can-you-have-causation-without-correlation-surprisingly-yes/">summarizes</a>:</p>
+<blockquote>
+<p>All of this being said, while causation does not NECESSARILY imply
+correlation, causation USUALLY DOES imply correlation. Some software
+that attempts to discover causation in observational data even goes so
+far as to make this assumption of causation implying correlation.</p>
+</blockquote>
+<p>I, however, have an inner computer scientist.</p>
+<p>And he demands answers.</p>
+<p>He will not rest until he knows <em>how often</em> ¬Correlation ⇒ ¬Causation,
+and how often it doesn't.</p>
+<p><img alt="" src="./img/cause/misclassifications.png"/></p>
+<p>This can be tested by creating a <a href="https://en.wikipedia.org/wiki/Monte-Carlo_simulation">Monte-Carlo
+simulation</a>
+over random linear <a href="https://en.wikipedia.org/wiki/Structural_equation_Models">structural equation
+models</a>
+with <code>$n$</code> variables, computing the correlations between the different
+variables for random inputs, and checking whether the correlations being
+zero implies that there is no causation.</p>
+<p>So we start by generating a random linear SEM with <code>$n$</code> variables (code
+in <a href="https://en.wikipedia.org/wiki/Julia_programming_language">Julia</a>). The
+parameters are <a href="https://en.wikipedia.org/wiki/Normal-distribution">normally
+distributed</a> with
+mean 0 and variance 1.</p>
+<pre><code>    function generate_random_linear_sem(n::Int)
+            g = DiGraph(n)
+            for i in 1:n
+                    for j in (i+1):n
+                            if rand() &lt; 0.5
+                                    add_edge!(g, i, j)
+                            end
+                    end
+            end
+            coefficients = Dict()
+            for edge in edges(g)
+                    coefficients[edge] = randn()
+            end
+            return g, coefficients
+    end
+</code></pre>
+<p>We can then run a bunch of inputs through that model, and compute their
+correlations:</p>
+<pre><code>    function correlation_in_sem(sem::DiGraph, coefficients::Dict, inner_samples::Int)
+            n = size(vertices(sem), 1)
+            input_nodes = [node for node in vertices(sem) if indegree(sem, node) == 0]
+            results = Matrix{Float64}(undef, inner_samples, n) # Preallocate results matrix
+            for i in 1:inner_samples
+                    input_values = Dict([node =&gt; randn() for node in input_nodes])
+                    sem_values=calculate_sem_values(sem, coefficients, input_values)
+                    sem_value_row = reshape(collect(values(sort(sem_values))), 1, :)
+                    results[i, :] = sem_value_row
+            end
+            correlations=cor(results)
+            for i in 1:size(correlations, 1)
+                    correlations[i, i] = 0
+            end
+            return abs.(correlations)
+    end
+</code></pre>
+<p>We can then check how many correlations are "incorrectly small".</p>
+<p>Let's take all the correlations between variables which don't have
+any causal relationship. The largest of those is the "largest uncaused
+correlation". Correlations between two variables which cause each other
+but are smaller than the largest uncaused correlation are "too small":
+There is a causation but it's not detected.</p>
+<p>We return the amount of those:</p>
+<pre><code>    function misclassifications(sem::DiGraph, coefficients::Dict, inner_samples::Int)
+            correlations=correlation_in_sem(sem, coefficients, inner_samples)
+            influence=Matrix(Bool.(transpose(adjacency_matrix(sem))))
+            not_influence=tril(.!(influence), -1)
+            non_causal_correlations=not_influence.*correlations
+            causal_correlations=influence.*correlations
+            return sum((causal_correlations .!= 0) .&amp; (causal_correlations .&lt; maximum(non_causal_correlations)))
+    end
+</code></pre>
+<p>And, in the outermost loop, we compute the number of misclassifications
+for a number of linear SEMs:</p>
+<pre><code>    function misclassified_absence_mc(n::Int, outer_samples::Int, inner_samples::Int)
+            return [misclassifications(generate_random_linear_sem(n)..., inner_samples) for i in 2:outer_samples]
+    end
+</code></pre>
+<p>So we collect a bunch of samples. SEMs with one, two and three variables
+are ignored because when running the code, they never give me any causal
+non-correlations. (I'd be interested in seeing examples to the contrary.)</p>
+<pre><code>    results = Dict{Int, Array{Int, 1}}()
+    sem_samples=200
+    inputs_samples=20000
+    for i in 4:16
+            results[i]=misclassified_absence_mc(i, sem_samples, inputs_samples)
+    end
+</code></pre>
+<p>We can now first calculate the mean number of mistaken
+correlations and the <em>proportion</em> of misclassified
+correlations, using the <a href="https://en.wikipedia.org/wiki/Triangular_Number#Formula">formula for the triangular
+number</a>:</p>
+<pre><code>    result_means=[mean(values) for (key, values) in sort(results)]
+    result_props=[mean(values)/((key^2+key)/2) for (key, values) in sort(results)]
+</code></pre>
+<p><img alt="" src="./img/cause/summaries.png"/></p>
+<p>So it <em>looks like</em> a growing proportion of causal
+relationships are not correlational, and I think the number will
+<a href="https://en.wikipedia.org/wiki/Asymptote">asymptote</a> to include
+<a href="https://en.wikipedia.org/wiki/Almost_all">almost all</a> causal
+relations<sub><a href="https://fatebook.io/q/in-linear-sems-with-0-1-distributed--clujl9idv0001lc0841gwx9te">55%</a></sub>.</p>
+<p>It could also be that the proportion asymptotes
+to another percentage, but I don't think
+so<sub><a href="https://fatebook.io/q/in-linear-sems-with-0-1-distributed--clujlfm8b0001kx08z6geffu4">15%</a></sub>.</p>
+<h3 id="Is_the_Sample_Size_Too_Small"><a class="hanchor" href="#Is_the_Sample_Size_Too_Small">Is the Sample Size Too Small?</a></h3>
+<p>Is the issue with the number of inner samples, are we
+simply <em>not checking enough</em>? But 10k samples <a href="https://www.computerworld.com/article/2534312/the--640k--quote-won-t-go-away----but-did-gates-really-say-it-.html">ought to be enough for
+anybody</a>—if
+that's not sufficient, I don't know what is.</p>
+<p>But let's better go and write some code to check:</p>
+<pre><code>    more_samples=Dict{Int, Array{Int, 1}}()
+    samples_test_size=12
+    sem_samples=100
+    inputs_samples=2 .^(6:17)
+    for inputs_sample in inputs_samples
+            println(inputs_sample)
+            more_samples[inputs_sample]=misclassified_absence_mc(samples_test_size, sem_samples, inputs_sample)
+    end
+</code></pre>
+<p>Plotting the number of causal non-correlations reveals that 10k samples
+<em>ought</em> to be enough, at least for small numbers of variables:</p>
+<p><img alt="" src="./img/cause/misclassifications_samples.png"/></p>
+<p>The densities fluctuate, sure, but not so much that I'll throw out the
+baby with the bathwater. If I was a better person, I'd make a statistical
+test here, but alas, I am not.</p>
+<h3 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h3>
+<ul>
+<li><a href="https://gwern.net/causality#what-a-tangled-net-we-weave-when-first-we-practice-to-believe">What a Tangled Net We Weave When First We Practice to Believe (Gwern, 2019)</a>: Where I probably got this from, subconsciously.</li>
+</ul>
+</body></html>

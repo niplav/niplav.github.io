@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-08-28, modified: 2023-01-04, language: english, status: in progress, importance: 7, confidence: certain</em></p>
+<p><em>author: niplav, created: 2023-01-04, modified: 2024-04-05, language: english, status: in progress, importance: 7, confidence: certain</em></p>
 <blockquote>
 <p><strong>There are too many possible quantified self experiments to run. Do
 hobbyist prediction platforms<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup> make priorisation easier? I test this by
@@ -169,15 +169,15 @@ other data</a> during that time that will also be analyzed.</p>
 </tr>
 <tr>
 <td><a href="https://manifold.markets/NiplavYushtun/by-how-much-does-intermittent-fasti"><strong>Intermittent Fasting</strong> vs. <strong>Normal Diet</strong> → <em>Happiness</em></a></td>
-<td>11</td>
-<td>M̶223</td>
-<td><strong>0.355</strong></td>
+<td>13</td>
+<td>M̶228</td>
+<td><strong>0.348</strong></td>
 </tr>
 <tr>
 <td><a href="https://manifold.markets/NiplavYushtun/by-how-much-does-the-pomodoro-metho"><strong>Pomodoro Method</strong> vs. <strong>Nothing</strong> → <em>Productivity</em></a></td>
-<td>7</td>
-<td>M̶107</td>
-<td><strong>0.397</strong></td>
+<td>8</td>
+<td>M̶297</td>
+<td><strong>0.407</strong></td>
 </tr>
 <tr>
 <td><a href="https://manifold.markets/NiplavYushtun/by-how-much-does-very-bright-light"><strong>Bright Light</strong> vs. <strong>Normal Light</strong> → <em>Happiness</em></a></td>
@@ -187,9 +187,9 @@ other data</a> during that time that will also be analyzed.</p>
 </tr>
 <tr>
 <td><a href="https://manifold.markets/NiplavYushtun/by-how-much-does-2-hours-of-meditat"><strong>Meditation</strong> vs. <strong>No Meditation</strong> → <em>Sleep duration</em></a></td>
-<td>12</td>
-<td>M̶375</td>
-<td><strong>0.237</strong></td>
+<td>13</td>
+<td>M̶380</td>
+<td><strong>0.241</strong></td>
 </tr>
 </tbody>
 </table>
@@ -252,11 +252,11 @@ the wider space of interventions.</p>
 <ol>
 <li><a href="https://manifold.markets/NiplavYushtun/by-how-much-does-intermittent-fasti"><strong>Intermittent Fasting</strong> vs. <strong>Normal Diet</strong> → <em>Happiness</em></a>: 50 samples, 25 intervention (eating only between 18:00 and midnight), 25 non-intervention (normal diet, which is usually 2 meals a day, spaced ~10 hours apart), chosen randomly via <code>echo -e "fast\ndon't fast" | shuf | tail -1</code>. Expected duration of the trial: ~2 months.
 <ol>
-<li>Expected effect size: <code>$0.03 \cdot 1+0.19 \cdot 0.8+0.36 \cdot 0.4+0.29 \cdot 0.1+0.13 \cdot 0=\mathbf{0.355}$</code></li>
+<li>Expected effect size: <code>$0.03 \cdot 1+0.18 \cdot 0.8+0.36 \cdot 0.4+0.3 \cdot 0.1+0.13 \cdot 0=\mathbf{0.348}$</code></li>
 </ol></li>
 <li><a href="https://manifold.markets/NiplavYushtun/by-how-much-does-the-pomodoro-metho"><strong>Pomodoro Method</strong> vs. <strong>Nothing</strong> → <em>Productivity</em></a>: 50 samples, 25 intervention (I try to follow the <a href="https://en.wikipedia.org/wiki/Pomodoro_technique">Pomodoro method</a> as best as I can, probably by installing a <a href="https://www.lesswrong.com/posts/wJutA2czyFg6HbYoW/what-are-trigger-action-plans-taps">TAP</a> of some sort), 25 non-intervention (I just try to do work as normally), chosen randomly via <code>echo -e "pomodoro\nno pomodoro" | shuf | tail -1</code>. Expected duration of trial: 2 months.
 <ol>
-<li>Expected effect size: <code>$0.06 \cdot 1+0.2 \cdot 0.8+0.38 \cdot 0.4+0.25 \cdot 0.1+0.11 \cdot 0=\mathbf{0.397}$</code></li>
+<li>Expected effect size: <code>$0.07 \cdot 1+0.19 \cdot 0.8+0.39 \cdot 0.4+0.29 \cdot 0.1+0.06 \cdot 0=\mathbf{0.397}$</code></li>
 </ol></li>
 <li><a href="https://manifold.markets/NiplavYushtun/by-how-much-does-very-bright-light"><strong>Bright Light</strong> vs. <strong>Normal Light</strong> → <em>Happiness</em></a>: 50 samples, 25 intervention (turning on my <a href="https://arbital.com/p/lumenators/">lumenator</a> of ~30k lumen in the morning), 25 non-intervention (turning on my normal desk lamp of ~1k lumen), selected via <code>echo -e "lamp\nno lamp" | shuf | tail -1</code>. Expected duration of trial: 4 months, as I often don't spend all my day at home.
 <ol>
@@ -264,7 +264,7 @@ the wider space of interventions.</p>
 </ol></li>
 <li><a href="https://manifold.markets/NiplavYushtun/by-how-much-does-2-hours-of-meditat"><strong>Meditation</strong> vs. <strong>No Meditation</strong> → <em>Sleep duration</em></a>: 50 samples, 25 intervention (2 consecutive days of ≥2h/day of meditation), 25 non-intervention (no meditation), selected via <code>echo -e "meditation\nno meditation" | shuf | tail -1</code>. Expected duration of trial: 5 months, as I might not always find a 2-day interval in which I'm sure I can meditative 2h/day.
 <ol>
-<li>Expected effect size: <code>$0.04 \cdot 1+0.08 \cdot 0.8+0.2 \cdot 0.4+0.53 \cdot 0.1+0.15 \cdot 0=\mathbf{0.237}$</code></li>
+<li>Expected effect size: <code>$0.04 \cdot 1+0.08 \cdot 0.8+0.21 \cdot 0.4+0.53 \cdot 0.1+0.15 \cdot 0=\mathbf{0.241}$</code></li>
 </ol></li>
 </ol>
 <h4 id="Further_Ideas"><a class="hanchor" href="#Further_Ideas">Further Ideas</a></h4>
@@ -361,6 +361,11 @@ explosion</a>.</p>
 <li><a href="https://www.gwern.net/Modafinil">Gwern 2018</a></li>
 </ul>
 <h3 id="None_3"><a class="hanchor" href="#None_3">Vitamin D vs. Sugar → <em>Meditative Absorption</em></a></h3>
+<p>Vitamin D seems just
+<a href="https://gwern.net/nootropic/nootropics#vitamin-d">generally</a>
+<a href="https://gwern.net/longevity#vitamin-d">great</a>, so it's not <em>super</em>
+far out to suspect that supplementing it after waking up could have
+positive effects on wakefulness.</p>
 <h3 id="None_4"><a class="hanchor" href="#None_4">Vitamin B12 vs. Sugar → <em>Meditative Absorption</em></a></h3>
 <h3 id="None_5"><a class="hanchor" href="#None_5">LSD Microdosing vs. Water → <em>Meditative Absorption</em></a></h3>
 <p>Inspired by <a href="https://www.gwern.net/LSD-microdosing">Gwern 2019</a>.</p>
