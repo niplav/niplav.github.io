@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2024-02-28, modified: 2024-04-15, language: english, status: in progress, importance: 6, confidence: certain</em></p>
+<p><em>author: niplav, created: 2024-02-28, modified: 2024-04-21, language: english, status: in progress, importance: 6, confidence: certain</em></p>
 <blockquote>
 <p><strong>I examine the literature on transfer learning in humans. <a href="#Far_Transfer">Far
 transfer</a> is difficult to achieve, best
@@ -70,15 +70,22 @@ by how relevant and effective I think they are):</p>
 <li><strong>OODA-loop-likes</strong>: Methods that structure the problem-solving process, such as the <a href="#Plya_Method">Pólya method</a> or <a href="https://en.wikipedia.org/wiki/DMAIC">DMAIC</a>. In most cases, these haven't been tested well or at all, but they are popular in the business context. Also they look all the same to me, but probably have the advantage of functioning as <a href="https://en.wikipedia.org/wiki/Checklist_Manifesto">checklists</a> when performing a task.</li>
 <li><strong>Transfer Within Domains</strong>: Methods that are supposed to help with getting knowledge about a particular domain <a href="#Accelerated_Expertise">from an expert to a trainee</a>, or from <a href="https://www.semanticscholar.org/paper/Training-Transfer%3A-An-Integrative-Literature-Review-Burke-Hutchins/b4432f65b76d9a8d44b8ff68fd01239134f9aec5">training to application on the job</a>. Those methods have a high fixed cost since experts have to be interviewed and whole curricula have to be created, but they work <em>very well</em> at the task they've been created for (where training sometimes is sped up by more than an order of magnitude).</li>
 </ol>
-<p>In general, the tension I was observing is that industry and the military
-are the ones who perform well/do non-fake things, but academia are the
-ones who actually measure and report those measures to the public.</p>
 <p>Additionally, most of the research is on subjects which are probably
 not intrinsically motivated to apply a technique well (i.e. high school
 students, military trainees, and university students), so there is a bunch
 of selection pressure on techniques which still work with demotivated
 subjects. I expect that many techniques work much better with already
 motivated subjects, especially ones that are easy to goodhart.</p>
+<p>In general, the tension I was observing is that industry and the military
+are the ones who perform well/do non-fake things, but academia are the
+ones who actually measure and report those measures to the public.</p>
+<p>From when I've talked with people from industry, they don't seem at
+all interested in tracking per-employee performance (e.g. Google isn't
+running RCTs on their engineers to increase their coding performance,
+and estimates for how long projects will take <a href="./eschews.html#Software_Development_Effort_Estimation">are not tracked
+&amp; scored</a>).
+I also haven't seen many studies quantifying the individual performance
+of employees, especially high-earning white collar knowledge-workers.</p>
 <h3 id="Recommendations"><a class="hanchor" href="#Recommendations">Recommendations</a></h3>
 <ol>
 <li>If you want to <a href="#Effective_Learning_Techniques">learn faster</a>:
@@ -461,6 +468,12 @@ intervention for increasing transfer would have.</p>
 <li>Could it be that negative transfer is more common than normally though?</li>
 </ol></li>
 </ol>
+<h2 id="Context"><a class="hanchor" href="#Context">Context</a></h2>
+<p>This review was written after
+<a href="https://www.lesswrong.com/users/raemon">Raemon</a>
+comissioned me to research transfer learning in humans,
+in the context of his new project on <a href="https://www.lesswrong.com/posts/pZrvkZzL2JnbRgEBC/feedbackloop-first-rationality">feedback-loop-first
+rationality</a>.</p>
 <h2 id="Appendix_A_My_Impression_of_the_Literature"><a class="hanchor" href="#Appendix_A_My_Impression_of_the_Literature">Appendix A: My Impression of the Literature</a></h2>
 <p>After spending a dozen hours researching this area, my current impression
 is that this is something that too many different fields are interested
@@ -477,6 +490,8 @@ seemingly obvious things-->
 <h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
 <ul>
 <li><a href="https://nintil.com/bloom-sigma/#darpa-s-study">Ricón 2020</a> on a DARPA study with a digital tutor for a specific domain, showing <strong>d=2.81</strong> improvement</li>
+<li><a href="https://lilianweng.github.io/posts/2018-11-30-meta-learning/">Meta-Learning: Learning to Learn Fast (Weng, 2018)</a></li>
+<li><a href="https://lilianweng.github.io/posts/2019-06-23-meta-rl/">Meta Reinforcement Learning (Weng, 2019)</a></li>
 </ul>
 <div class="footnotes">
 <hr/>
