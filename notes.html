@@ -1673,121 +1673,7 @@ I decided to collect a list of discord servers dedicated to textbooks.</p>
 <li><a href="https://discord.gg/sApjeGjdvx">Naive Set Theory (Halmos 1960)</a></li>
 </ul>
 <h2 id="Trying_to_Disambiguate_Different_Questions_about_Whether_Humans_are_Turing_Machines"><a class="hanchor" href="#Trying_to_Disambiguate_Different_Questions_about_Whether_Humans_are_Turing_Machines">Trying to Disambiguate Different Questions about Whether Humans are Turing Machines</a></h2>
-<p>I often hear the sentiment that humans are <a href="https://en.wikipedia.org/wiki/Turing_Machine">Turing
-machines</a>, and that this
-sets humans apart from other pieces of matter.<!--TODO: link twitter--></p>
-<p>Examples are <a href="https://twitter.com/tmdanis/status/1769471661001109979">this
-thread</a>
-and a short section in <a href="https://www.dwarkeshpatel.com/i/52511224/will-ais-be-smarter-than-humans">an interview with David
-Deutsch</a>:</p>
-<blockquote>
-<p>So all hardware limitations on us boil down to speed and memory capacity. And both of those can be augmented to the level of any other entity that is in the universe. Because if somebody builds a computer that can think faster than the brain, then we can use that very computer or that very technology to make our thinking go just as fast as that. So that's the hardware.<br/>
-[…]<br/>
-So if we take the hardware, we know that <strong>our brains are Turing-complete bits of hardware</strong>, and therefore can exhibit the functionality of running any computable program and function.</p>
-</blockquote>
-<p><a href="https://www.dwarkeshpatel.com/i/52511224/can-you-simulate-the-whole-universe">and</a>:</p>
-<blockquote>
-<p>So the more memory and time you give it, the more closely it could simulate the whole universe. But it couldn't ever simulate the whole universe or anything near the whole universe because it is hard for it to simulate itself. Also, the sheer size of the universe is large.</p>
-</blockquote>
-<p>I've always found those statements a bit strange and confusing, so it
-seems worth it to tease apart what they could mean.</p>
-<p>The question "is a human a Turing machine" is probably meant to
-convey "can a human mind execute arbitrary programs?", that is
-"are the languages the human brain emit at least <a href="https://en.wikipedia.org/wiki/Recursively_enumerable">recursively
-enumerable</a>?",
-as opposed to e.g.
-<a href="https://en.wikipedia.org/wiki/Context-free_grammar">context-free</a>
-languages.</p>
-<ol>
-<li> My first reaction is that humans are definitely not Turing
-machines, because we lack the infinite amount of memory the Turing
-machine has in form of an (idealized) tape. Indeed, in the <a href="https://en.wikipedia.org/wiki/Chomsky_Hierarchy">Chomsky
-hierarchy</a>
-human aren't even at the level of <a href="https://en.wikipedia.org/wiki/Push-down_automata">pushdown
-automata</a>,
-instead we are nothing more than <a href="https://en.wikipedia.org/wiki/Finite-state_automaton">finite state
-automata</a>. (I
-remember a professor pointing this out to us that all physical
-instantiations of computers are merely finite-state automata).
-<ol>
-<li> Depending on one's <a href="https://en.wikipedia.org/wiki/Interpretations_of_Quantum_Mechanics">interpretation of quantum
-mechanics</a>,
-one might instead argue that
-we're at least <a href="https://en.wikipedia.org/wiki/Nondeterministic_finite_automata">nondeterministic finite
-automata</a>
-or even <a href="https://en.wikipedia.org/wiki/Markov-Chain">Markov
-chains</a>. However,
-every nondeterministic finite automaton
-can be <a href="https://en.wikipedia.org/wiki/Nondeterministic_finite_automata#Equivalence_to_DFA">transformed into a deterministic finite
-automaton</a>,
-albeit at an exponential increase in the
-number of states, and Markov chains aren't more
-computationally powerful (e.g. they can't recognize <a href="https://en.wikipedia.org/wiki/Dyck_language">Dyck
-languages</a>, just
-as DFAs can't).</li>
-<li>It might be that <a href="https://en.wikipedia.org/wiki/Quantum_finite_automata">Quantum finite
-automata</a>
-are of interest, but I don't know enough about quantum physics
-to make a judgment call.</li>
-</ol></li>
-<li> The above argument only applies if we regard humans as closed systems
-with clearly defined inputs and outputs. When probed, many proponents
-of the statement "humans are Turing machines" indeed fall back to
-a <a href="https://en.wikipedia.org/wiki/Motte-and-Bailey">motte</a> that <em>in
-principle</em> a human could execute every algorithm, given enough <a href="https://xkcd.com/505/">time,
-pen and paper</a>.
-<ol>
-<li> This seems true to me, assuming that the matter in universe
-does not have a limited amount of computation it can perform.
-<ol>
-<li> In a <a href="https://arxiv.org/pdf/quant-ph/0110141.pdf">finite
-universe</a>
-we are <a href="https://www.lesswrong.com/posts/JWeA8PHnRNQYGWw6Q/aaboyles-s-shortform?commentId=P3NmzPzKHpBXFFZbm">logically
-isolated</a>
-from <a href="https://en.wikipedia.org/wiki/Almost_all">almost
-all</a> computable
-strings, which seems pretty relevant.</li>
-<li> Another constraint is from computational
-complexity; <a href="https://www.scottaaronson.com/papers/philos.pdf">should we treat things that
-are not polynomial-time computable as basically
-unknowable</a>?
-Humans certainly can't solve <a href="https://en.wikipedia.org/wiki/NP-complete">NP-complete
-problems</a>
-efficiently.</li>
-</ol></li>
-<li>I'm not sure this is a very useful notion.
-<ol>
-<li> On the one hand, I'd argue that, by orchestrating
-the exactly right circumstances, a tulip could
-receive specific stimuli to grow in the right
-directions, knock the correct things over, lift
-other things up with its roots, create offspring
-that perform subcomputations &amp;c to execute arbitrary
-programs. <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life#Undecidability">Conway's Game of Life certainly manages
-to</a>!
-One might object that this is set up for the tulip
-to succeed, but we also put the human in a room with
-unlimited pens and papers.</li>
-<li> On the other hand, those circumstances would have to
-be <em>very exact</em>, much more so than with humans. But that
-again is a difference in degree, not in kind.</li>
-</ol></li>
-</ol></li>
-</ol>
-<p>After all, I'm coming down with the following conclusion: Humans are
-certainly <em>not Turing machines</em>, however there might be a (much weaker)
-notion of generality that humans fulfill and other physical systems don't
-(or don't as much). But this notion of generality is purported to be
-stronger than the one of <em>life</em>:</p>
-<div>
-    $$\text{Turing-completeness} \Rightarrow \text{Context-sensitive} \Rightarrow \text{Context-free} \overset{?}{\Rightarrow} \text{Proposed-generality} \overset{?}{\Rightarrow} \text{Life} \overset{?}{\Rightarrow} \text{Finite-state automata}$$
-</div>
-<p>I don't know of any formulation of such a criterion of generality,
-but would be interested in seeing it fleshed out.</p>
-<h3 id="See_Also_1"><a class="hanchor" href="#See_Also_1">See Also</a></h3>
-<ul>
-<li><a href="https://tsvibt.blogspot.com/2022/11/are-there-cognitive-realms.html">Are there cognitive realms? (Tsvi Benson-Tilsen, 2022)</a></li>
-</ul>
+<p>Moved <a href="./general.html">here</a>.</p>
 <h2 id="How_Often_Does_Correlation__Causation"><a class="hanchor" href="#How_Often_Does_Correlation__Causation">How Often Does ¬Correlation ⇏ ¬Causation?</a></h2>
 <p>Moved to <a href="./cause.html">a separate post</a>.</p>
 <h2 id="AI_Safety_Via_Debate_Links"><a class="hanchor" href="#AI_Safety_Via_Debate_Links">AI Safety Via Debate Links</a></h2>
@@ -1875,19 +1761,19 @@ trying to implement the experiment detailed in <a href="https://arbital.com/p/en
 dilemma</a>,
 I cooperate because we're the same algorithm. If we modify the twin to
 have a slightly longer right index-finger-nail, I would still cooperate,
-even though they're a different algorithm, but little enough has been
-changed about the algorithm that the internal states that they're still
-similar enough.</p>
+even though we're different algorithms, but little enough has been
+changed about our algorithms that the internal states and the output
+are sufficiently similar.</p>
 <p>But it could be that I'm in a prisoner's dilemma with some program
 <code>$p^{\star}$</code> that, given some inputs, returns the same outputs as I do,
 but for completely different "reasons"—that is, the internal states
 are very different, and a slight change in input would cause the output
 to be radically different. Intuitively, my logical correlation with
-<code>$p^{\star}$</code> is pretty small, because, even though it gives the same
+<code>$p^{\star}$</code> is pretty small, because even though it gives the same
 output, it gives that output for very different reasons, so I don't have
 much control over its outputs by controlling my own computations.</p>
 <p>But we don't yet have a way of estimating the logical correlation between
-different decision algorithms.</p>
+different decision algorithms.<!--TODO: cite someone here--></p>
 <p>Thus: Consider proposing the most naïve formula for logical
 correlation<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>.</p>
 <p>Let a program <code>$p$</code> be a tuple of code for a Turing machine, intermediate
@@ -1914,16 +1800,17 @@ and ideally one would want to be able to compute the logical correlation
 without having to run the program.</p>
 <p>How does this relate to
 <a href="https://wiki.c2.com/?DataAndCodeAreTheSameThing">data=code</a>?</p>
-<h2 id="AreaSpecific_LowInformation_Priors"><a class="hanchor" href="#AreaSpecific_LowInformation_Priors">Area-Specific Low-Information Priors</a></h2>
+<!--TODO: check with brainfuck-->
+<h2 id="FieldSpecific_LowInformation_Priors"><a class="hanchor" href="#FieldSpecific_LowInformation_Priors">Field-Specific Low-Information Priors</a></h2>
 <ul>
-<li><a href="https://www.metaculus.com/questions/1490/which-percentage-of-metaculus-questions-resolving-in-q1-2019-will-resolve-positively/">~</a><a href="https://www.metaculus.com/questions/804/1000th-binary-question-resolution-is-positive/">4</a><a href="https://www.metaculus.com/questions/1475/which-percentage-of-metaculus-questions-resolving-from-october-1st-to-december-31st-2018-inclusive-will-resolve-positively/">0</a>[%](<a href="https://rethinkpriorities.org/publications/data-on-forecasting-accuracy-across-different-time-horizons">https://rethinkpriorities.org/publications/data-on-forecasting-accuracy-across-different-time-horizons</a>) of questions worth asking resolve as true</li>
-<li>One can expect a trait to, on average, have 50% heritability</li>
+<li><a href="https://www.metaculus.com/questions/1490/which-percentage-of-metaculus-questions-resolving-in-q1-2019-will-resolve-positively/">~</a><a href="https://www.metaculus.com/questions/804/1000th-binary-question-resolution-is-positive/">4</a><a href="https://www.metaculus.com/questions/1475/which-percentage-of-metaculus-questions-resolving-from-october-1st-to-december-31st-2018-inclusive-will-resolve-positively/">0</a><a href="https://rethinkpriorities.org/publications/data-on-forecasting-accuracy-across-different-time-horizons">​%</a> of questions worth asking resolve as true</li>
+<li>One can expect a trait to, on average, have 50% heritability<!--TODO: links?--></li>
 </ul>
 <div class="footnotes">
 <hr/>
 <ol>
 <li id="fn1">
-<p>Actually not explained in detail anywhere, as far as I can tell. I'm going to leave out all motivation here. <a href="#fnref1" rev="footnote">↩</a></p>
+<p>Actually not explained in detail anywhere, as far as I can tell. <a href="#fnref1" rev="footnote">↩</a></p>
 </li>
 <li id="fn2">
 <p>Suggested by GPT-4. Stands for <a href="https://en.wiktionary.org/wiki/%E5%90%88#Definitions">joining, combining, uniting</a>. Also "to suit; to fit", "to have sexual intercourse", "to fight, to have a confrontation with", or "to be equivalent to, to add up". <a href="#fnref2" rev="footnote">↩</a></p>

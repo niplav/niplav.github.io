@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-12-25, modified: 2023-03-28, language: english, status: in progress, importance: 4, confidence: remote</em></p>
+<p><em>author: niplav, created: 2019-12-25, modified: 2024-04-27, language: english, status: in progress, importance: 4, confidence: remote</em></p>
 <blockquote>
 <p><strong>Is daygame worth it, and if yes,
 how much? I first present a simple <a href="https://en.wikipedia.org/wiki/Point_estimation">point
@@ -170,41 +170,7 @@ approaches, an intermediate one out of fifty, and an advanced daygamer
 one lay out of thirty. He doesn't specify how much practice makes
 a beginner/intermediate/advanced daygamer.</p>
 <p>The numbers for the approach-to-lay ratios were 1 in 100 for beginners,
-1 in 50 for intermediate daygamers and 1 in 30 for experts. I will
-assume that this is comparatively over-optimistic, and assume that
-the date-to-lay ratio starts at 1 in 200, and then converges towards
-1 in 50 on the scale of thousands of approaches in the form of an
-<a href="https://www.lesswrong.com/posts/oaqKjHbgsoqEXBMZ2" title="S-Curves for Trend Forecasting">S-curve</a>:</p>
-<pre><code>ratiobegin::0.005
-ratioexp::0.02
-ratio::{ratiobegin+(ratioexp-ratiobegin)*(1-500%x+500)}
-</code></pre>
-<p>These numbers are of course heavily dependant on all kinds of factors:
-attractiveness, speed of learning, effort exerted in daygame, logistics
-and much much more.</p>
-<p>I will also assume that one in three series of dates with the same woman
-leads to a lay:</p>
-<pre><code>dateratio::{3*ratio(x)}
-</code></pre>
-<p>Visualizing this shows the following:</p>
-<pre><code>.l("./load.kg")
-
-.l("nplot")
-
-grid([0 10000 1000];[0 0.07 0.002])
-xtitle("Approaches")
-ytitle("Cumulative ratios")
-
-plot(ratio)
-text(250;60;"Approach-to-lay ratio")
-
-setrgb(0;0;1)
-plot(dateratio)
-text(200;250;"Approach-to-date ratio")
-
-draw()
-</code></pre>
-<p><img alt="The date &amp; lay ratios over thousands of approaches" src="./img/daygame_cost_benefit/ratio.png" title="The date &amp; lay ratios over thousands of approaches"/></p>
+1 in 50 for intermediate daygamers and 1 in 30 for experts.</p>
 <h3 id="Empirical_Data_for_Ratios"><a class="hanchor" href="#Empirical_Data_for_Ratios">Empirical Data for Ratios</a></h3>
 <p>Fortunately, some daygamers are often very diligent in keeping track
 records of their ratios and even publish them.</p>
@@ -386,7 +352,7 @@ a dense array of ratios over time.</p>
 <pre><code>wdate::[[445 11][593 12][700 14][783 15][858 19][925 23][1000 32][1086 32][1122 32][1174 35][1220 37][1267 37][1317 39][1322 39]]
 wdaterat::{(*x),%/|x}'wdate
 </code></pre>
-<!--TODO: these two
+<!--TODO: these three
 
 #### Runner
 
@@ -409,6 +375,10 @@ https://old.reddit.com/r/seduction/comments/9ock2a/my_daygame_experience_so_far_
 #### Clarky
 
 * [2023](https://scalingthemountain6.wordpress.com/2023/12/31/2023-my-first-year-in-game/)
+
+### D.J. Caird
+
+[Blog](https://djcaird.wordpress.com/).
 -->
 <h4 id="Visualizing_the_Data"><a class="hanchor" href="#Visualizing_the_Data">Visualizing the Data</a></h4>
 <ul>
@@ -420,101 +390,61 @@ https://old.reddit.com/r/seduction/comments/9ock2a/my_daygame_experience_so_far_
 <li>Orange: Mr. Wolfe</li>
 </ul>
 <p>The plotted data for lay ratios looks like this:</p>
+<p><img alt="Empirical data for the cumulative value of lay-ratios over time" src="./img/daygame_cost_benefit/layratio_data.png" title="Empirical data for the cumulative value of lay-ratios over time."/></p>
+<p>Similarly, the data for reported date ratios:</p>
+<p><img alt="Empirical data for the cumulative value of date-ratios over time" src="./img/daygame_cost_benefit/dateratio_data.png" title="Empirical data for the cumulative value of date-ratios over time."/></p>
+<h3 id="Estimating_Parameters"><a class="hanchor" href="#Estimating_Parameters">Estimating Parameters</a></h3>
+<p>I will assume that this is comparatively over-optimistic,
+and assume that the date-to-lay ratio converges towards 1 in
+30 on the scale of thousands of approaches in the form of an
+<a href="https://www.lesswrong.com/posts/oaqKjHbgsoqEXBMZ2" title="S-Curves
+for Trend Forecasting">S-curve</a>. The other parameters are estimated using
+<a href="./notes.html#None"><code>scipy.optimize.curve_fit</code></a> with data from Roy Walker,
+Mr. Wolfe and Thomas Crown.</p>
+<p>First we collect the relevant information in a processable form (removing
+the first datapoint from Mr. Wolfe because it confuses <code>curve_fit</code>):</p>
+<pre><code>import numpy as np
+import scipy.optimize as spo
+rwlay=np.array([[511, 5],[901, 10],[977, 10],[1060, 11],[1143, 13],[1216, 14],[1380, 16],[1448, 18],[1557, 19],[1990, 27],[2063, 27],[2130, 27],[2230, 27],[2373, 31],[2540, 35],[2876, 44],[3442, 62],[3567, 63],[3991, 83],[4092, 84]])
+tclay=np.array([[208, 2],[1638, 20],[2453, 34],[3036, 45]])
+wlay=np.array([[39, 1],[200, 2],[396, 3],[584, 4],[619, 5],[678, 6],[746, 7],[825, 8],[961, 9],[1086, 9],[1122, 9],[1174, 10],[1220, 11],[1267, 11],[1317, 12],[1322, 12]])
+def ratio_of(data):
+    return data.T[1]/data.T[0]
+ratios=np.concatenate([ratio_of(rwlay), ratio_of(tclay), ratio_of(wlay)])
+approaches=np.concatenate([rwlay.T[0], tclay.T[0], wlay.T[0]])
+</code></pre>
+<p>Now we can estimate the parameters:</p>
+<pre><code>def shrunk_logistic(x, slope, intercept, ceiling):
+    return ceiling*1/(1+np.exp(slope*x+intercept))
+ratio_fit=spo.curve_fit(shrunk_logistic, approaches, ratios, bounds=([-np.inf, 0, 0], [1, np.inf, 0.033]))
+</code></pre>
+<p>These numbers are of course heavily dependant on all kinds of factors:
+attractiveness, speed of learning, effort exerted in daygame, logistics
+and much much more.</p>
+<!--TODO: continue here with estimating the date ratios-->
+<p>I will also assume that one in three series of dates with the same woman
+leads to a lay:</p>
+<pre><code>dateratio::{3*ratio(x)}
+</code></pre>
+<p>Visualizing this shows the following:</p>
 <pre><code>.l("./load.kg")
-.l("./data.kg")
 
 .l("nplot")
 
-grid([0 10000 1000];[0 0.04 0.002])
+grid([0 10000 1000];[0 0.07 0.002])
 xtitle("Approaches")
 ytitle("Cumulative ratios")
 
 plot(ratio)
 text(250;60;"Approach-to-lay ratio")
 
-setdot(4)
-
-:"Data for Roy Walker ratios"
-
-fillrgb(0.109;0.847;0.588)
-scplot2(rwlayrat)
-
-:"Data for Mr. White ratios"
-
-fillrgb(0.4;0.4;1)
-scplot2(mwlayrat)
-
-:"Data for Thomas Crown ratios"
-
-fillrgb(0.7;0.2;0.7)
-scplot2(tclayrat)
-
-:"Data for Seven ratios"
-
-fillrgb(0.8;0.8;0.1)
-scplot2(slayrat)
-
-:"Data for Krauser ratios"
-
-fillrgb(1;0;0)
-scplot2(klayrat)
-
-:"Data for Mr. Wolfe ratios"
-
-fillrgb(1.0;0.6;0.1)
-scplot2(wlayrat)
-
-draw()
-</code></pre>
-<p><img alt="Empirical data for the cumulative value of lay-ratios over time" src="./img/daygame_cost_benefit/layratio_data.png" title="Empirical data for the cumulative value of lay-ratios over time."/></p>
-<p>Similarly, the data for reported date ratios:</p>
-<pre><code>.l("./load.kg")
-.l("./data.kg")
-
-.l("nplot")
-
-grid([0 10000 1000];[0 0.08 0.002])
-xtitle("Approaches")
-ytitle("Cumulative ratios")
-
+setrgb(0;0;1)
 plot(dateratio)
 text(200;250;"Approach-to-date ratio")
 
-setdot(4)
-
-:"Data for Roy Walker ratios"
-
-fillrgb(0.109;0.847;0.588)
-scplot2(rwdaterat)
-
-:"Data for Mr. White ratios"
-
-fillrgb(0.4;0.4;1)
-scplot2(mwdaterat)
-
-:"Data for Thomas Crown ratios"
-
-fillrgb(0.7;0.2;0.7)
-scplot2(tcdaterat)
-
-:"Data for Seven ratios"
-
-fillrgb(0.8;0.8;0.1)
-scplot2(sdaterat)
-
-:"Data for Krauser ratios"
-
-fillrgb(1;0;0)
-scplot2(kdaterat)
-
-:"Data for Mr. Wolfe ratios"
-
-fillrgb(1.0;0.6;0.1)
-scplot2(wdaterat)
-
 draw()
 </code></pre>
-<p><img alt="Empirical data for the cumulative value of date-ratios over time" src="./img/daygame_cost_benefit/dateratio_data.png" title="Empirical data for the cumulative value of date-ratios over time."/></p>
+<p><img alt="The date &amp; lay ratios over thousands of approaches" src="./img/daygame_cost_benefit/ratio.png" title="The date &amp; lay ratios over thousands of approaches"/></p>
 <h2 id="A_Simple_Model"><a class="hanchor" href="#A_Simple_Model">A Simple Model</a></h2>
 <h3 id="Cost"><a class="hanchor" href="#Cost">Cost</a></h3>
 <p>Daygame has several different obvious costs: <a href="https://en.wikipedia.org/wiki/Opportunity_cost">opportunity
