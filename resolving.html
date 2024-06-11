@@ -1,0 +1,2325 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML>
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2023-04-15, modified: 2024-06-10, language: english, status: notes, importance: 8, confidence: highly likely</em></p>
+<blockquote>
+<p><strong>We consider the problem of resolving preferences that are inconsistent
+under the von Neumann-Morgenstern axioms into consistent preferences. For
+preferences over deterministic options, we model inconsistent preferences
+as directed graphs, and the resolution as selecting acyclic tournaments
+with the same vertices and minimal graph-edit distance, or Hodge
+decomposition. For preferences over lotteries, we offer two different
+methods for modeling inconsistence and one method for resolving them:
+as edge-weighted weakly connected directed graphs (resolution via Hodge
+decomposition) and as arbitrary relations over lotteries. None of those
+two representations prove to be satisfactory. We apply the findings to
+propose an algorithm for changing a utility function as the underlying
+set of objects changes.</strong></p>
+</blockquote>
+<h1 id="Resolving_von_NeumannMorgenstern_Inconsistent_Preferences"><a class="hanchor" href="#Resolving_von_NeumannMorgenstern_Inconsistent_Preferences">Resolving von Neumann-Morgenstern Inconsistent Preferences</a></h1>
+<p>In economics, decision theory, game theory and parts of artificial
+intelligence the standard approach to modeling actors is to assume those
+actors have a fixed utility function they optimise
+[@peterson2017introduction ch. 6] [@tadelis2013game ch. 2]
+[@russell2010artificial ch. 16], following the foundations laid by von
+Neumann and Morgenstern [@von1947theory ch. 3]. This model is quite
+appealing: It assigns a real-numbered value to each possible outcome,
+several theorems establish that an agent with a utility function can't
+be money-pumped [@gustafsson2022money], and it is compatible with taking
+Pareto improvements [@wald1947essentially].</p>
+<p>However, this model has come under criticism as being non-descriptive of
+human preferences, which can be experimentally shown to violate one or
+more of the von Neumann-Morgenstern axioms [@allais1953comportement]
+[@el2013structural]. Furthermore, the AI systems humanity has
+constructed so far usually have no in-built utility functions and appear
+inconsistent, as they are often programs selected by gradient descent to
+perform well on a loss or reward function, and it is doubtful that they
+have internal goal representations that correspond to the their loss or
+reward function [@hubinger2019risks].</p>
+<p>This tension between the normative theory of rational agency and the
+observations we can make about intelligent systems in the real world
+provides a stark contrast and brings up the question of how one could
+modify the preferences of intelligent systems to be more consistent.</p>
+<h3 id="Motivation"><a class="hanchor" href="#Motivation">Motivation</a></h3>
+<p>We claim the project of finding procedures for modifying preferences to
+make them consistent is interesting and important for several different
+reasons:</p>
+<ul>
+<li> <strong>Learning the preferences of weaker incoherent
+systems</strong>[@dewey2011learning]: Assuming that one system <code>$S_1$</code> wants
+to learn the preferences of a less coherent system <code>$S_2$</code>, <code>$S_1$</code>
+might want to "correct" inconsistent preferences learned from <code>$S_2$</code>
+to avoid being exploitable via Dutch books. For example, an AI
+assistant trying to learn and then fulfill the preferences of a
+gambling-addicted human could notice that the human has a cyclic
+preference which results in them being predictably losing money at
+the casino, even though they otherwise care about money.</li>
+<li> <strong>Managing ontological crises</strong>: If a system defines its preferences
+using a world model, but this world model changes, those preferences
+might now be inconsistent. Such situations would benefit from a
+method for resolving inconsistent preferences [@de2011ontological].</li>
+<li> <strong>Creating AI systems with consistent preferences</strong>: Assuming that
+humans will build capable agentic AI systems, we might want to both
+describe how those agents might achieve coherence, and prescribe
+ways for them to reach coherence. There are three reasons why we
+might expect more capable agents to be more coherent:
+<ul>
+<li> <strong>Deliberate design</strong>: If e.g. humans create AI systems, they
+might construct such AI systems to have or develop consistent
+preferences as to avoid unpredictable behavior.</li>
+<li> <strong>Competitive pressure</strong>: An agent could modify their
+preferences in response to competitive pressures that exploit
+any incoherencies it displays, for example through other agents
+that are attempting to money-pump it [@gustafsson2022money].</li>
+<li> <strong>Self-modification</strong>: Agents might modify their own
+inconsistent preferences to adhere to the von
+Neumann-Morgenstern axioms, to avoid wasting resources and
+making it easier to reason about their own future behavior.</li>
+</ul></li>
+</ul>
+<h3 id="Structure_of_the_Text"><a class="hanchor" href="#Structure_of_the_Text">Structure of the Text</a></h3>
+<p>This text starts by explaining the von Neumann-Morgenstern axioms and
+various theorems relating the axioms to concepts such as Dutch books and
+Pareto improvements. There is a well-developed literature discussing the
+relevance of these axioms, and we conclude that these axioms are worth
+taking as a standard for rational agency. We also observe that humans do
+not satisfy those axioms.</p>
+<p>We then examine the literature on inconsistent preferences, finding
+investigations from economics on time-inconsistent preferences and some
+scattered attempts in the non-academic literature, but no satisfactory
+investigations into the topic that cover all possible violations of the
+von Neumann-Morgenstern axioms.</p>
+<p>We then proceed to analyse the problem of resolving inconsistent
+preferences in two cases:</p>
+<ul>
+<li><p>Deterministic case: We propose the set of all directed graphs as a
+mathematical structure that can represent inconsistent preferences
+over non-lottery options. We propose three algorithms for resolving
+inconsistent preferences of this type, prove two of the algorithms
+as being functionally equivalent, and analyse the algorithms in
+terms of computational complexity and five other criteria.</p></li>
+<li><p>Lottery case: We propose two different mathematical structures for
+representing potentially inconsistent preferences over lotteries:
+Edge-weighted weakly connected directed graphs and arbitrary
+relations over lotteries. We propose Hodge decomposition as an
+efficient method for resolving inconsistencies in the first case,
+but find that edge-weighted weakly connected directed graphs are
+insufficient for representing common inconsistencies found in
+reported human preferences. We then note that arbitrary relations
+over lotteries are able to represent those inconsistencies, but we
+are unable to find an algorithm for resolving inconsistencies in
+that format.</p></li>
+</ul>
+<p>We finally speculate about one application of the methods for resolving
+incoherence: Incorporating changes in the world model into preferences
+defined over that world model.</p>
+<h2 id="Related_Work"><a class="hanchor" href="#Related_Work">Related Work</a></h2>
+<p>As far as our literature review has revealed, the academic literature
+has no investigation into the specific question we are attempting to
+answer.</p>
+<h5 id="Modeling_Inconsistent_Preferences"><a class="hanchor" href="#Modeling_Inconsistent_Preferences">Modeling Inconsistent Preferences.</a></h5>
+<p>In the economic literature, preferences are usually more restricted than
+in the von Neumann-Morgenstern setting: It is usually assumed that there
+is a set of goods $B$ and a utility function $U: B \times \mathbb{R}
+\rightarrow \mathbb{R}$ that takes as argument a good and the amount of
+that good that has been consumed. Consumption can take place at
+different time steps: Let $c: B \times \mathbb{N}$ be a function that
+returns the consumption of a good at a specific timestep. With a single
+good $b$ and different quantities <code>$c(b, 1), c(b, 2), \dots, c(b, n)$</code>
+consumed at $n$ timesteps, the time-discounted utility (discount factor
+$\delta$) of this consumption is <code>$\sum_{i=1}^n \delta^i U(b, c(b, i))$</code>
+(which is equivalent to the use of discount rates in reinforcement
+learning [@sutton2020reinforcement ch. 3]).</p>
+<p>A common form of modeling human preferences that are not exponentially
+time-discounted in this way is hyperbolic discounting, in which the
+discounting factor is a hyperbolic function with a parameter $k$ instead
+of an exponential. Let <code>$U_h(b, i, k)=\frac{1}{1+ki}U(b, c(b, i))$</code> be the
+hyperbolically discounted utility of consuming $b$ at time step <code>$i$</code>.</p>
+<p>This kind of discounting leads to disproportionately preferring small
+rewards soon over large rewards later, and might lead to preference
+reversals: For two goods $b$ and $b'$, an agent can have the preference
+<code>$U_h(b, c(b, i))&gt;U_h(b', c(b, i+c))$</code> at a time step $i$ and a time step
+$i+c$, but reverse that preference if it lies at another timestep $j$:
+<code>$U_h(b, c(b, j))&lt;U_h(b', c(b, j+c))$</code>. [@ainslie1981preference]. Such
+hyperbolic discounting has been observed in humans [@green1994discounting]
+and pigeons [@ainslie1981preference]. This kind of preference reversal
+does not occur with exponential discounting.</p>
+<p>Hyperbolic preferences can be modeled in a a game-theoretic setup, in
+which subagents in aggregation execute a Pareto-dominated strategy, and
+via a single agent which follows an unchangeable plan
+[@caillaud2000modelling]. Caillaud and Jullien do not attempt to resolve
+these time-inconsistencies to make them time-consistent. Backus and Zin
+explore further alternatives to the time-discounted utility setup,
+though they still work with utility functions that are invariant under
+positive affine transformation [@backus2004exotic].</p>
+<h5 id="Resolving_Inconsistent_Preferences"><a class="hanchor" href="#Resolving_Inconsistent_Preferences">Resolving Inconsistent Preferences</a></h5>
+<p>In the context of taxonomical data, Sun et al. investigate the problem
+of recovering hierarchies from noisy data [@sun2017breaking]. They
+represent inconsistent taxonomies with directed acyclic graphs and
+consistent hierarchical taxonomies using directed graphs. They find
+that, when measuring the number of edges being removed, a voting
+ensemble of several different techniques such as TrueSkill
+[@herbrich2007trueskill] does well on removing as few edges as possible,
+and usually outperforms removing greedy approximations of the feedback
+arc set [@sun2017breaking].</p>
+<p>Outside of the academic literature, Aird and Shovelain represent
+inconsistent preferences as vector fields on a state space (for example
+states with more/less security and more/less wealth), where a vector
+$\mathbf{v}$ at a specific point $\mathit{p}$ in the vector field
+indicates a preference for a change in the direction of $\mathbf{v}$ at
+$\mathit{p}$ [@shovelain2020using]. However, as they note, such a vector
+field can have inconsistencies in the form of curl. They then discuss
+the restrictions on the vector field so that it conforms to the von
+Neumann-Morgenstern axioms, which they conclude to be potential vector
+fields, and outline how to use Helmholtz decomposition to decompose
+inconsistent preference vector fields with three dimensions. Their
+approach bears a strong resemblance to the Hodge decomposition we use
+with edge-weighted graphs.</p>
+<p>Taking a very different approach, Kirchner investigates how to infer
+utility functions from non-transitive preferences using a neural network
+[@kirchner2022inferring]. Kirchner relates inferring such preferences to
+sorting data in which comparisons sometimes are random, resulting in
+cycles during comparison. He finds that this approach is able to
+reconstruct orderings even when 10% of the results of comparisons are
+noise.</p>
+<h5 id="Learning_Inconsistent_Preferences"><a class="hanchor" href="#Learning_Inconsistent_Preferences">Learning Inconsistent Preferences</a></h5>
+<p>The problem of <em>inferring</em> the preferences of irrational agents has been
+formally posed [@armstrong2018occam]: It is in general impossible learn
+such preferences, as any action is equally compatible both with a
+preference for that action <em>and</em> a systematic bias causing the action.
+Nevertheless Evans et al. find a framework that is experimentally
+successful at inferring the preferences of an agent with
+time-inconsistent hyperbolic discounting and incorrect beliefs using
+Bayesian inference [@evans2016learning]. Their method for inferring
+preferences of inconsistent software agents gives similar results to
+estimates made by humans. Their framework does not cover all possible
+variants of inconsistent preferences, and makes no statement about how
+to resolve the time-inconsistencies. Evans et al. also give no
+theoretical guarantee about the performance of their method.</p>
+<h3 id="The_von_NeumannMorgenstern_Axioms"><a class="hanchor" href="#The_von_NeumannMorgenstern_Axioms">The von Neumann-Morgenstern Axioms</a></h3>
+<p>The von Neumann-Morgenstern (vNM) axioms and the framework of utility
+functions are widely regarded as the standard method of modeling
+preferences over world-states.</p>
+<p>There is an extensive philosophical debate about the reasonableness of
+the vNM axioms, and a number of proposed alternatives. We have
+explicitely decided not to contribute to this debate (though some of our
+findings on the difficulty of establishing vNM-coherence might be
+interesting to philosophers), and instead assume that preferences
+conforming to the vNM axioms are a goal to be achieved.</p>
+<p>Let $\Omega$ be a set of $n$ distinct outcomes, and let $\Delta(\Omega)$
+be the set of all probability distributions on $\Omega$, which in von
+Neumann and Morgenstern call "lotteries" [@von1947theory].</p>
+<p>For given <code>$\omega_1, \omega_2 \in \Omega$</code>, a lottery in which $\omega_1$
+has a probability <code>$p_1$</code> and <code>$\omega_2$</code> has a probability <code>$p_2$</code> is
+written as <code>$[p_1: \omega_1, p_2: \omega_2]$</code><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>.</p>
+<p><strong>Definition 1</strong>. Let <code>$l_1, l_2, l_3 \in \Delta(\Omega)$</code>. Let $\preceq$
+be a relation on all lotteries on $\Omega$, that is $\preceq \subseteq \Delta(\Omega) \times \Delta(\Omega)$.</p>
+<p>If <code>$l_1 \preceq l_2$</code> and <code>$l_2 \preceq l_1$</code>, then we write
+<code>$l_1 \sim l_2$i</code>.</p>
+<p>Then the relation $\preceq$ is a <strong>preference relation</strong> if and only if
+it fulfills the four von Neumann-Morgenstern axioms</p>
+<ol>
+<li> <strong>Completeness</strong>: For any lotteries <code>$l_1, l_2$</code>, it holds that
+<code>$l_1 \preceq l_2$</code> or <code>$l_2 \preceq l_1$</code>.</li>
+<li> <strong>Transitivity</strong>: For any lotteries <code>$l_1, l_2, l_3$</code>, if
+<code>$l_1 \preceq l_2$</code> and <code>$l_2 \preceq l_3$</code>, then it must also hold that
+<code>$l_1 \preceq l_3$</code>.</li>
+<li> <strong>Continuity</strong>: Given <code>$l_1, l_2, l_3$</code>, if it holds that
+<code>$l_1 \preceq l_2 \preceq l_3$</code>, then there must be a probability
+<code>$p \in [0,1]$</code> so that <code>$l_2 \sim [p: l_1, (1-p): l_3]$</code>.</li>
+<li> <strong>Independence</strong>: Given <code>$l_1, l_2, l_3$</code> it holds that
+<code>$l_1 \preceq l_2$</code> if and only if for any <code>$p \in [0;1]$</code> it holds that
+<code>$[p: l_1, (1-p): l_3] \preceq [p: l_2, (1-p): l_3]$</code>.</li>
+</ol>
+<p>The axiom of completeness implies reflexivity: For all lotteries $l$ it
+holds that $l \preceq l$.</p>
+<p>We denote the probability a lottery $l$ assigns to $\omega \in \Omega$
+as $p_l(\omega)$.</p>
+<p>Given a preference relation $\preceq$, one can create a function <code>$U\colon
+\Delta(\Omega) \rightarrow [0;1]$</code> for which it holds that <code>$U(l_1)
+\ge U(l_2)$</code> if and only if <code>$l_1 \preceq l_2$</code> [@von1947theory ch. 3.6].</p>
+<p><strong>Definition 2</strong>. This function is called a <strong>utility function</strong> for the
+preference relation $\preceq$.</p>
+<p>Let us as a shorthand write $\omega$ for the lottery that assigns
+probability 1 to $\omega$, and probability 0 to all other options (we
+call such a lottery a "deterministic option").</p>
+<p>$U$ has the property that for any lottery $l$ from $\Delta(\Omega)$, the
+value $U(l)$ is simply the <em>expected</em> value of $l$, that is the mean of
+the utilities weighted by the probabilities:</p>
+<div>
+    $$U(l)=\sum_{\omega \in \Omega} U(\omega) \cdot p_l(\omega)$$
+</div>
+<h4 id="Assuming_Asymmetry"><a class="hanchor" href="#Assuming_Asymmetry">Assuming Asymmetry</a></h4>
+<p><strong>Definition 3</strong>. A relation
+<code>$\prec \subseteq \Delta(\Omega) \times \Delta(\Omega)$</code> is a <strong>strict
+preference relation</strong> if and only if it fulfills the four von
+Neumann-Morgenstern axioms and also the additional criterion of
+<strong>antisymmetry</strong>: <code>$l_1 \prec l_2$</code> and <code>$l_2 \prec l_1$</code> if and only if <code>$l_1=l_2$</code>.</p>
+<p>The reason for this assumption is that one of the algorithms we
+investigate (namely <code>EGEDmin</code>) produces a total order over $\Omega$.</p>
+<p>This restriction does not change the fundamental structure of the vNM
+axioms; specifically, it does not affect the continuity axiom (as even
+with strict preferences over deterministic options, there can still be
+non-strict preferences over lotteries).</p>
+<h2 id="Inconsistent_Preferences_over_Deterministic_Options"><a class="hanchor" href="#Inconsistent_Preferences_over_Deterministic_Options">Inconsistent Preferences over Deterministic Options</a></h2>
+<p>A consistent preference over $\Omega$ that fulfills <strong>completeness</strong>,
+<strong>transitivity</strong> and <strong>antisymmetry</strong> can be represented by an acyclic
+tournament <code>$G$</code><sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup>, with <code>$E \subseteq \Omega \times \Omega$</code>.
+That is, <code>$G$</code> itself is <strong>complete</strong>, <strong>transitive</strong> and
+<strong>antisymmetric</strong>. We call such $G$ a <strong>consistent</strong> graph (or
+consistent directed graph, or acyclic tournament).</p>
+<p>The set of possible preferences over <code>$\Omega$</code> (including inconsistent
+preferences), <code>$\mathfrak{P}_{\Omega}$</code>, may be represented as the set of
+all directed graphs with vertices <code>$\Omega$</code>. We will use <code>$\mathfrak{P}_n$</code>
+to denote the set of all directed graphs with <code>$n$</code> vertices
+(<code>$n=|\Omega|$</code>), allowing for reflexive edges (that is edges of the form
+<code>$(\omega_1, \omega_1)$</code>). The set <code>$\mathfrak{P}_{\Omega}$</code> can be constructed by
+enumerating the set of adjacency matrices (elements of <code>$\{0,1\}^{n \times n}$</code>)
+and then, for each adjacency matrix, constructing the
+corresponding graph. There are <code>$2^{n^2}$</code> possible preferences in
+<code>$\mathfrak{P}_{\Omega}$</code>.</p>
+<p>For a directed graph <code>$G \in \mathfrak{P}_{\Omega}$</code>, one can interpret
+the presence of an edge <code>$(\omega_1, \omega_2) \in E_G$</code>, with <code>$\omega_1,
+\omega_2 \in \Omega$</code>, as "<code>$\omega_1$</code> is preferred over <code>$\omega_2$</code>",
+written <code>$\omega_1 \succ \omega_2$</code> or <code>$\omega_1 \rightarrow \omega_2$</code>.</p>
+<p>Let <code>$\mathfrak{C}_{\Omega}$</code> be the set of <strong>consistent graphs</strong> over
+<code>$\Omega$</code>, with <code>$\mathfrak{C}_{\Omega} \subset \mathfrak{P}_{\Omega}$</code>,
+can be constructed by enumerating the set of permutations of <code>$\Omega$</code>,
+constructing a strict total order out of each permutation, and taking
+the transitive closure of that strict total order. There are <code>$n!$</code>
+elements in <code>$\mathfrak{C}_{\Omega}$</code>.</p>
+<p>We take the set of <strong>inconsistent graphs</strong> <code>$\mathfrak{I}_{\Omega}
+\subset \mathfrak{P}_{\Omega}$</code> to be all graphs that are not consistent,
+that is <code>$\mathfrak{I}_{\Omega}=\mathfrak{P}_{\Omega} \backslash
+\mathfrak{C}_{\Omega}$</code>.</p>
+<p>Let <code>$\mathfrak{W}_{\Omega}$</code> be the set of <strong>weakly consistent</strong> graphs
+over <code>$\Omega$</code>, which may be represented as the set of all directed
+graphs that are equivalent to some weak ordering. It can be constructed
+by taking all weak orderings on <code>$\Omega$</code>, for each weak ordering
+<code>$\preceq$</code> creating an edge from <code>$\omega_1$</code> to <code>$\omega_2$</code> if and only if
+<code>$\omega_1 \preceq \omega_2$</code>, and then taking the transitive closure of that graph.
+The weak orderings are counted by the ordered Bell numbers.</p>
+<h3 id="Violating_the_von_NeumannMorgenstern_Axioms"><a class="hanchor" href="#Violating_the_von_NeumannMorgenstern_Axioms">Violating the von Neumann-Morgenstern Axioms</a></h3>
+<p>In the deterministic case there are only two vNM axioms that can be
+violated: completeness and transitivity, since continuity and
+independence rely on the underlying objects of the preference relation
+being lotteries.</p>
+<p>Directed graphs are well able to represent all violations of these vNM
+axioms.</p>
+<h5 id="Incompleteness"><a class="hanchor" href="#Incompleteness">Incompleteness</a></h5>
+<p>Incompleteness is distinct from indifference: indifference between
+<code>$\omega_1$</code> and <code>$\omega_2$</code> exists if both <code>$\omega_1 \preceq \omega_2$</code> and
+<code>$\omega_2 \preceq \omega_1$</code>, incompleteness (or incomparability) is the
+case if neither <code>$\omega_2 \preceq \omega_1$</code> nor <code>$\omega_1 \preceq \omega_2$</code>.</p>
+<p>The presence of an incomplete preference in an agent is difficult to
+operationalize, [@gustafsson2022money] treats incomparable options as
+interchangeable, but setups in which an agent takes a default choice or
+randomizes when presented with incomparable options are also possible
+(however, as Gustaffson notes, the randomization offers an adversary the
+option to (in expectation) perform money-pumps).</p>
+<p>In a graph-theoretic setting, incomparability between options <code>$\omega_1,
+\omega_2$</code> is represented by the absence of any edge between <code>$\omega_1$</code>
+and <code>$\omega_2$</code> in the graph <code>$G$</code> representing the preference.</p>
+<h5 id="Intransitivity"><a class="hanchor" href="#Intransitivity">Intransitivity.</a></h5>
+<p>Intransitivity is quite easy to represent in a graph <code>$G$</code>: If there is
+an edge <code>$\omega_1 \rightarrow \omega_2 \in E$</code> and an edge <code>$\omega_2
+\rightarrow \omega_3 \in E$</code>, but no edge <code>$\omega_1 \rightarrow \omega_3
+\in E$</code>, then one has represented an intransitive preference <code>$\omega_1
+\prec \omega_2, \omega_2 \prec \omega_3, \omega_1 \not \prec \omega_3$</code>.</p>
+<h5 id="Symmetry"><a class="hanchor" href="#Symmetry">Symmetry.</a></h5>
+<p>A symmetric (or indifferent) preference between <code>$\omega_1, \omega_2$</code>
+(written as <code>$\omega_1 \sim \omega_2$</code>) can also easily be represented
+by a directed graph by having the edges <code>$\omega_1 \rightarrow \omega_2,
+\omega_2 \rightarrow \omega_1 \in E$</code>.</p>
+<h3 id="Algorithms_for_Resolving_Inconsistencies"><a class="hanchor" href="#Algorithms_for_Resolving_Inconsistencies">Algorithms for Resolving Inconsistencies</a></h3>
+<p>Any method for resolving inconsistent graphs is a function $f:
+\mathfrak{P}<em>{\Omega} \rightarrow \mathcal{P}(\mathfrak{C}</em>{\Omega})$
+that maps any inconsistent graph to a set of consistent graphs which
+might contain more than one element since the inconsistent graph might
+not fully determine its consistent counterpart.</p>
+<h4 id="Finding_Consistent_Graphs_with_the_Smallest_GraphEdit_Distance"><a class="hanchor" href="#Finding_Consistent_Graphs_with_the_Smallest_GraphEdit_Distance">Finding Consistent Graphs with the Smallest Graph-Edit Distance</a></h4>
+<p>One potential class of such functions would be ones that minimize a
+"distance" $d: \mathfrak{G}<em>{\Omega} \times \mathfrak{C}</em>{\Omega}
+\rightarrow \mathbb{R}$ between the (possibly inconsistent) graph and
+its consistent counterparts.</p>
+<p>The function $f_m$ would then return</p>
+<p>$$f<em>d(G)=\underset{C \in C</em>{\Omega}}{\text{argmin }} d(C, G)$$</p>
+<p>We propose a candidate for $f<em>d$, which minimizes the edge-graph-edit
+distance between any $G \in \mathfrak{P}</em>{\Omega}$ and the set of
+consistent versions $\mathbf{C} \subseteq \mathfrak{C}_{\Omega}$ of $G$.</p>
+<p>Formally:</p>
+<p>$$f<em>{\text{EGED}}(G)=\underset{C \in C</em>{\Omega}}{\text{argmin }} \text{EGED}(C, G)$$</p>
+<p>where $\text{EGED}(X,Y)$ is the smallest number of edges that need to be
+added or removed from $X$ to create $Y$. The addition or removal of
+vertices is not allowed, since the elements of $\Omega$ can be
+distinguished from one another.</p>
+<p>This function is intuitively appealing: Let
+$G \in \mathfrak{P}<em>{\Omega}$ be a (possibly inconsistent) preference
+over $\Omega$. Then let $\omega</em>1, \omega<em>2 \in \Omega$ be two possible
+outcomes. the existence of an edge $(\omega</em>1, \omega<em>2) \in V</em>P$
+represents that $\omega<em>1$ is preferred over $\omega</em>2$.</p>
+<p>Then, given $G$, if one desired a consistent version of $G$, one would
+want to give up <em>as few as possible</em> of such rankings of two options.
+One must sometimes give up some of those rankings to achieve von
+Neumann-Morgenstern consistent preferences (for example to break
+cycles), but a high number of deletions or additions of rankings is
+undesirable.</p>
+<p>::: proposition
+<strong>Proposition 1</strong>. For two directed graphs on the same set of vertices,
+$G<em>1=(\Omega, E</em>1),
+G<em>2=(\Omega, E</em>2)$ the edge-graph-edit distance is the same as the size
+of the symmetrical difference of the sets of edges, that is
+$\text{EGED}(G<em>1,
+G</em>2)=|E<em>1 \Delta E</em>2|$.
+:::</p>
+<p>::: proof
+<em>Proof.</em> $\text{EGED}(G<em>1, G</em>2) \le |E<em>1 \Delta E</em>2|$: To generate $G<em>2$
+from $G</em>1$ it is necessary to remove edges from $G<em>1$ not in $G</em>2$, and
+then add edges from $G<em>2$ not in $G</em>1$. These comprise the set $(E<em>1
+\backslash E</em>2) \cup (E<em>2 \backslash E</em>1)$. So the graph-edit distance
+is upper-bounded by the size of the symmetric difference.</p>
+<p>$\text{EGED}(G<em>1, G</em>2) \ge |E<em>1 \Delta E</em>2|$: Assume that $|E<em>1 \Delta
+E</em>2|&lt;\text{EGED}(G<em>1, G</em>2)$. Removing $E^-=E<em>1 \backslash E</em>2$ from
+$G<em>1$ and adding the edges $E^+=E</em>2 \backslash E<em>1$ results in $G</em>2$.
+But then $E^- \uplus E^+$ is already a graph edit that creates $G<em>2$
+from $G</em>1$, so $\text{EGED}(G<em>1, G</em>2)$ can't be a minimal
+edge-graph-edit distance between $G<em>1$ and $G</em>2$. ◻
+:::</p>
+<p>::: algorithm
+::: algorithmic
+$m \gets \infty$, $R \gets \emptyset$ $L$ is a consistent graph with
+vertices $\Omega$ and edges $E<em>L$ $d \gets |E \Delta E</em>L|$
+$R \gets {L}$, $m \gets d$ $R \gets R \cup {L}$ $R$
+:::
+:::</p>
+<h4 id="Establishing_Consistency_Stepwise"><a class="hanchor" href="#Establishing_Consistency_Stepwise">Establishing Consistency Stepwise</a></h4>
+<p>An alternative approach to resolve a graph $G$ to a set $\mathbf{C}$ of
+consistent graphs is to proceed by establishing the desired properties
+stepwise. Our proposed algorithm (which we call "$\mathtt{stepwise}$")
+is to execute the following steps:</p>
+<ul>
+<li><p><strong>Remove minimum feedback arc sets</strong>. [@sun2017breaking] use a
+greedy approximation algorithm to find and remove the minimum
+feedback arc set from a "noisy hierarchy" and create a directed
+acyclic graph. <code>stepwise</code> takes a similar approach by computing all
+minimum feedback arc sets for $G$ and then removing them to ensure
+the graph is acyclic (so that later establishing transitivity does
+not violate asymmetry). The result is a set of directed acyclic
+graphs $\mathbf{A}$, one for each minimum feedback arc set removed
+from $G$. For this, one can use an algorithm for finding the minimum
+feedback arc set from [@baharev2021exact], called <code>mfas</code> in
+<strong>Algorithm</strong> <a href="#alg:stepwise">[alg:stepwise]</a>.</p></li>
+<li><p><strong>Generate all compatible topological sortings</strong>. The elements of
+$\mathbf{A}$ are now to be converted into acyclic tournaments. We
+achieve this by computing all topological sortings for each element
+$A \in \mathbf{A}$ with a recursive algorithm based on Kahn's
+algorithm [@kahn1962topological] that appends nodes with in-degree 0
+in front of a strict order $C$. The result is a set of acyclic
+tournaments $\mathbf{C}$ on $\Omega$.</p></li>
+</ul>
+<p>::: algorithm
+::: algorithmic
+${G}$ Remove reflexive edges from $G$ $\mathbf{A} \gets \emptyset$,
+$\mathbf{R} \gets \emptyset$
+$\mathbf{A} \gets \mathbf{A} \cup {G \backslash \text{fas}}$
+$\mathbf{R} \gets \mathbf{R}\ \cup$ $\mathbf{R}$ $G$
+$\mathbf{R} \gets \emptyset$ $M \gets G$ with $\omega$ removed
+$\mathbf{T} \gets$ $\mathbf{R} \gets \mathbf{R} \cup {T^<em>}$ $T^</em>$ is
+the transitive closure of $T$ $\mathbf{R}$
+:::
+:::</p>
+<p>We can now prove that <code>stepwise</code> has the same output as <code>EGEDmin</code>. First
+we prove that all outputs of <code>stepwise</code> have the same edge-graph-edit
+distance from $G$.</p>
+<p>::: {#lemma:stepwisesamedist .lemma}
+<strong>Lemma 1</strong>. For a given $G=(\Omega, E_G)$, all graphs returned by
+$\mathtt{stepwise}$ have the same edge-graph-edit distance from $G$.
+:::</p>
+<p>::: proof
+<em>Proof.</em> Let $\mathbf{S}=\mathtt{stepwise}(G)$, and $S=(\Omega, E<em>S) \in
+\mathbf{S}$. Since all $S$ are transitive, complete and reflexive, all
+$S$ have the same number of edges, namely the triangular number
+$|E</em>S|=\frac{|\Omega|(|\Omega|+1)}{2}$. We also know that
+$\text{EGED}(G, S)=|E<em>G \Delta E</em>S|$, and $E<em>G
+\Delta E</em>S=E<em>G \backslash E</em>S \cup E<em>S \backslash E</em>G$ (the edges we
+remove from $E<em>G$ and the edges we add to $E</em>S$). The edges removed from
+$E<em>G$ are the minimal feedback arc sets, so they all have the same size
+$m=|E</em>G \backslash E<em>S|$. It now suffices to show that
+$i=E</em>S \backslash E<em>G$, the size of the edges added, is constant. It
+holds that $|E</em>G|-m+i=|E<em>S|$, and then $i=|E</em>S|-|E_G|+m$, which must be
+constant. So $\text{EGED}(S, G)=m+i$ is also constant for a given
+$G, S \in \mathbf{S}$. ◻
+:::</p>
+<p>We then show that the edges removed by <code>EGEDmin</code> are always a minimum
+feedback arc set.</p>
+<p>::: {#mfasremove .lemma}
+<strong>Lemma 2</strong>. Given a directed graph $G$, let $T=(\Omega, E<em>T) \in
+\mathtt{EGEDmin}(G)$. Let $E^-</em>T=E \backslash E<em>T$ (the edges removed
+from $G$ to achieve $T$) and $E^+</em>T=E<em>T \backslash E$ (the edges added
+to $G$ to create $T$). Then $E^-</em>T$ is a minimum feedback arc set of
+$G$.
+:::</p>
+<p>::: proof
+<em>Proof.</em> $E^-<em>T$ is a feedback arc set: Assume for contradiction that
+$E^-</em>T$ was not a feedback arc set. Then $G$ would need to contain a
+cycle of directed edges
+$E<em>c=\omega</em>1 \rightarrow \omega<em>2 \rightarrow \dots
+\rightarrow \omega</em>{k-1} \rightarrow \omega<em>k \rightarrow \omega</em>1$ so
+that the cycle was still present after removing $E^-<em>T$, that is $E</em>c
+\subseteq E \backslash E^-<em>T$. We know that then $E</em>T=(E \backslash
+E^-<em>T) \cup E^+</em>T$, but adding edges can't remove a subset, so $E<em>c
+\subseteq E \backslash E^-</em>T \Rightarrow E<em>c \subseteq (E \backslash
+E^-</em>T) \cup E^+_T$.</p>
+<p>But then $T$ can't be transitive, asymmetric and complete: If it was
+transitive and complete, then there would need to be an edge $\omega<em>1
+\rightarrow \omega</em>3$ (created through $\omega<em>1 \rightarrow \omega</em>2
+\rightarrow \omega<em>3$), an edge $\omega</em>1 \rightarrow \omega<em>4$ (created
+through $\omega</em>1 \rightarrow \omega<em>3 \rightarrow \omega</em>4$), and so
+on. Then $E<em>T$ would also contain the edge $\omega</em>1 \rightarrow
+\omega<em>{k-1}$, and thereby also the edge $\omega</em>{k} \rightarrow
+\omega<em>{k-1}$ (through the transitivity of $\omega</em>k \rightarrow
+\omega<em>1 \rightarrow \omega</em>{k-1}$). But since both
+$\omega<em>k \rightarrow
+\omega</em>{k-1} \in E<em>T$ and $\omega</em>{k-1} \rightarrow \omega<em>k \in E</em>T$,
+it can't be asymmetric.</p>
+<p>$E^-<em>T$ is minimal: Assume $E^-</em>T$ was a feedback arc set, but not
+minimal. Then there would need to be another feedback arc set $E^{-'}<em>T$
+so that $|E^{-'}</em>T|&lt;|E^-<em>T|$. Then one can create $T'=(\Omega, E</em>T')$
+from $G$ by removing $E^{-'}_T$ from $E$ and then completing the
+resulting directed acyclic graph to a consistent graph.</p>
+<p>We know that $|E<em>T|=|E</em>T'|=\frac{|\Omega|(|\Omega|+1)}{2}$, since both
+$T$ and $T'$ are acyclic tournaments.</p>
+<p>Then it is the case that $\text{EGED}(G, T) &gt; \text{EGED}(G, T')$:</p>
+<p>$$\begin{aligned}
+&amp;\text{EGED}(G, T)&gt;\text{EGED}(G, T') \
+&amp;\Leftrightarrow |E \Delta E<em>T| &gt; |E \Delta E</em>T'| \
+&amp;\Leftrightarrow |E^-<em>T \uplus E^+</em>T| &gt; |E^{-'}<em>T \uplus E^{+'}</em>T| \
+&amp;\Leftrightarrow |E<sup>-<em>T|+|E</em>T|-(|E|-|E</sup>-<em>T|)&gt;|E^{-'}</em>T|+|E<em>T'|-(|E|-|E^{-'}</em>T|) \
+&amp;\Leftrightarrow |E<sup>-_T|-|E|+|E</sup>-<em>T|&gt;|E^{-'}</em>T|-|E|+|E^{-'}<em>T| \
+&amp;\Leftrightarrow 2 \cdot |E^-</em>T|&gt;2 \cdot |E^{-'}_T| \
+\end{aligned}$$</p>
+<p>So $E^-_T$ must be minimal, since otherwise it is not a set of edges
+removed by <code>EGEDmin</code>. ◻
+:::</p>
+<p>Using the fact that $E_T^-$ is a minimum feedback arc set, and that all
+outputs of stepwise have the same edge-edit distance from the input, we
+can prove that all outputs of <code>stepwise</code> are contained in <code>EGEDmin</code>.</p>
+<p>::: {#lemma:stepsubseteged .lemma}
+<strong>Lemma 3</strong>.
+$\forall G \in \mathfrak{P}: \mathtt{stepwise}(G) \subseteq \mathtt{EGEDmin}(G)$.
+:::</p>
+<p>::: proof
+<em>Proof.</em> Let $S=(\Omega, E<em>S) \in \mathtt{stepwise}(G)$ for any $G$, and
+let $T=(\Omega, E</em>T) \in \mathtt{EGEDmin}(G)$. Let
+$E^-<em>S=E \backslash E</em>S$ be the minimum feedback arc set we remove from
+$S$ to create $G$, and $E^+<em>S=E</em>S \backslash E$ the edges we add to make
+$G$ complete. We similarly define $E^-<em>T=E \backslash E</em>T$ and
+$E^+<em>T=E</em>T \backslash E_T$.</p>
+<p>We can now show that $\text{EGED}(S, G) \le \text{EGED}(T, G)$: Assume
+that $\text{EGED}(S, G) &gt; \text{EGED}(T, G)$. By <strong>Lemma</strong>
+<a href="#mfasremove">2</a> $E^-<em>T$ is
+a minimum feedback arc set, and so $|E^-</em>T|=|E^-<em>S|$. Furthermore,
+$|E</em>S|=|E_T|$, since they are both acyclic tournaments on $\Omega$.</p>
+<p>Then</p>
+<p>$$\begin{aligned}
+&amp;\text{EGED}(G, S) = |E \Delta E<em>S| \
+&amp;= |(E \backslash E^-</em>S) \uplus E^+<em>S| \
+&amp;= (|E|-|E^-</em>S|)+|E^+<em>S| \
+&amp;= (|E|-|E^-</em>S|)+|E<em>S|-(|E|-|E^-</em>S|) \
+&amp;= (|E|-|E<sup>-<em>T|)+|E</em>T|-(|E|-|E</sup>-<em>T|) \
+&amp;= (|E|-|E^-</em>T|)+|E^+<em>T| \
+&amp;= |(E \backslash E^-</em>T) \uplus E^+<em>T| \
+&amp;= |E \Delta E</em>T| = \text{EGED}(G, T)
+\end{aligned}$$</p>
+<p>So it can't be the case that $\text{EGED}(S, G) &gt; \text{EGED}(T, G)$.</p>
+<p>We can also show that $\text{EGED}(S, G) \ge \text{EGED}(T, G)$: Assume
+that $\text{EGED}(S, G) &lt; \text{EGED}(T, G)$. Since both $S,
+T \in \mathfrak{C}_{\Omega}$, this contradicts the assumption that the
+output of <code>EGEDmin</code> has minimal distance. ◻
+:::</p>
+<p>We now show that all outputs of <code>EGEDmin</code> are also outputs of
+<code>stepwise</code>.</p>
+<p>::: {#lemma:egedsubsetstep .lemma}
+<strong>Lemma 4</strong>.
+$\forall G \in \mathfrak{P}: \mathtt{EGEDmin}(G) \subseteq \mathtt{stepwise}(G)$.
+:::</p>
+<p>::: proof
+<em>Proof.</em> Assume there exists a $G \in \mathfrak{P}<em>{\Omega}$ so that
+there exists a $T=(\Omega, E</em>T) \in \mathtt{EGEDmin}(G)$ so that $T \not
+\in \mathtt{stepwise}(G)$.</p>
+<p>Then, by <strong>Lemma</strong> <a href="#mfasremove">2</a>, $E^-<em>T=E \backslash E</em>T$ is a minimum feedback
+arc set. Therefore, removing $E^-<em>T$ from $E$ results in a directed
+acyclic graph $G</em>A$ which is an element of the intermediate set
+$\mathbf{A}$ of directed acyclic graphs in <code>stepwise</code>.</p>
+<p>Let $E^+<em>T=E</em>T \backslash E$. Assume $E^+<em>T$ was not a set of edges
+added to $G</em>A$ in a topological sort.</p>
+<p>Then let $\omega \in \Omega$ be the node in $T$ that has no incoming
+edges. $\omega$ must also have had no incoming edges in $G<em>A$, since we
+only add edges to $G</em>A$ to achieve $T$, and therefore has in-degree 0 in
+$G_A$, which means that $\omega$ must have been added first to some
+topological sort in <strong>T</strong> by <code>topological_sorts</code>.</p>
+<p>One can now create $T'$ and $G<em>A'$ by removing $\omega$ and all edges
+from $\omega$ from $T$ and $G</em>A$. Let the node in $T'$ with no incoming
+edges be called $\omega'$. Then in $G<em>A$ the node $\omega'$ either had
+no incoming edges or one incoming edge from $\omega$, since one can
+create $T'$ from $G</em>A$ by adding $E^+<em>T$ and then (potentially) removing
+the edge $\omega \rightarrow \omega'$. So in the graph $G</em>A'$ with
+$\omega$ and all its outgoing edges removed from $G<em>A$, the node
+$\omega'$ has in-degree zero, and is therefore also selected as the
+first element in some topological sort of $G</em>A'$, to which $\omega$ is
+prepended after recursion. In the base case of a $T^{$}$ with one
+element $\omega^{$}$, this element $\omega^{$}$ is the only element of
+$G<em>A^{$}$ and also the only element of the topological sort of
+$G</em>A^{$}$.</p>
+<p>Therefore, by induction, given an acyclic tournament $T$ and a set of
+edges $E^+<em>T=E</em>T \backslash E$, this set $E^+<em>T$ must be the edges added
+by some topological sort of $G</em>A=(\Omega, E \backslash E^-_T)$. ◻
+:::</p>
+<p>This concludes the proof that both algorithms always have the same
+output.</p>
+<p>::: {#theorem:equivalence .theorem}
+<strong>Theorem 5</strong>.
+$\forall G \in \mathfrak{P}: \mathtt{stepwise}(G)=\mathtt{EGEDmin}(G)$.
+:::</p>
+<p>::: proof
+<em>Proof.</em> By <strong>Lemma</strong> <a href="#lemma:stepsubseteged">3</a> $\mathtt{stepwise}(G) \subseteq
+\mathtt{EGEDmin}(G)$ and by <strong>Lemma</strong>
+<a href="#lemma:egedsubsetstep">4</a>
+$\mathtt{stepwise}(G) \supseteq \mathtt{EGEDmin}(G)$, so the sets must
+be equal. ◻
+:::</p>
+<h4 id="None"><a class="hanchor" href="#None">Applying <code>HodgeRank</code></a></h4>
+<p>Another option to resolve inconsistent preferences over deterministic
+options into consistent preferences is to apply the <code>HodgeRank</code>
+algorithm by Jiang et al. to an unweighted graph $G$
+[@jiang2011statistical].</p>
+<p><code>HodgeRank</code> is described in further detail in section
+<a href="#sec:hodgerank">4.3.1</a>.</p>
+<p>To apply <code>HodgeRank</code> to unweighted graphs one simply sets both weights
+of each edge to 1 (for $e \in E$ it is then the case that $w(e)=1$,
+$l(e)=1$).</p>
+<p>Then, for a directed graph $G$, we can define an algorithm
+<code>HodgeResolve</code> that applies <code>HodgeRank</code> to $G$, and then converts the
+potential function $p$ on $\Omega$ into an acyclic tournament. Here
+$\omega<em>1 \rightarrow \omega</em>2$ if and only if
+$p<em>{\omega</em>1}&gt;p<em>{\omega</em>2}$.</p>
+<p>One issue with <code>HodgeRank</code> is that the potentials of two options are
+sometimes equal to each other, which violates the criterion of
+asymmetry. There are two ways of dealing with this symmetry:</p>
+<ol>
+<li><p>Keep the symmetric edges and accept that the output is a weak
+ordering, and modify the criteria to be applicable.</p></li>
+<li><p>Resolve ties in the ordering by returning all topological sorts as a
+result. This has the disadvantage of potentially returning a set of
+results that is factorial in the size of $\Omega$.</p></li>
+</ol>
+<p>We decide to take the first option, to preserve the polynomial runtime
+of <code>HodgeRank</code>.</p>
+<p>::: algorithm
+::: algorithmic
+For all $e \in E$, $w(e) \gets 1, l(e) \gets 1$
+$G<em>h \gets (\Omega, E, w, l)$ $p \gets$ $p</em>{\omega}$ is the potential
+that <code>HodgeRank</code> assigns to $\omega$ $E<em>r \gets \emptyset$
+$E</em>r \gets E<em>r \cup {(\omega</em>1, \omega<em>2)}$ $G</em>r \gets (\Omega, E<em>r)$
+$G</em>r$
+:::
+:::</p>
+<h3 id="Criteria"><a class="hanchor" href="#Criteria">Criteria</a></h3>
+<p>Given the algorithms outlined above, one might want to compare them
+according to different criteria, similar to the method of evaluating
+voting methods in social choice theory by some criteria
+[@banks2000positive ch. 2], such as the Condorcet criterion
+[@mclean1990borda] or manipulability [@gibbard1973manipulation]. For
+this purpose, we examine the algorithms with regards to the
+computational complexity, size of output, and two additional criteria.</p>
+<h4 id="Surjectivity_and_Identity"><a class="hanchor" href="#Surjectivity_and_Identity">Surjectivity and Identity</a></h4>
+<p>A fairly intuitive criterion is that for a given method of resolution
+$f$, and for every $C \in \mathfrak{C}<em>{\Omega}$, there should be a
+$G \in
+\mathfrak{P}</em>{\Omega}$ so that $C \in f(G)$ (<strong>Surjectivity</strong>). This
+condition is implied by the stronger condition of $f$ being the identity
+function for already consistent graphs: $\forall C \in
+\mathfrak{C}_{\Omega}: f(C)={C}$ (<strong>Identity</strong>).</p>
+<h4 id="Minimizing_GraphEdit_Distance"><a class="hanchor" href="#Minimizing_GraphEdit_Distance">Minimizing Graph-Edit Distance</a></h4>
+<p>$\mathtt{EGEDmin}$ fulfills both conditions: $C$ trivially has the
+smallest graph-edit distance to itself (namely zero), and is unique in
+that regard.</p>
+<h4 id="None_1"><a class="hanchor" href="#None_1">Applying <code>HodgeRank</code></a></h4>
+<p>[@jiang2011statistical] state that for complete graphs, computing the
+potential function of a graph $G$ via <code>HodgeRank</code> on the nodes is
+equivalent to minimizing the squared distance between the edge-weights
+of $G$ and the edge-weights induced by the potential function. If $G$
+already is consistent, the resulting potential function simply
+re-creates $G$, since their distance is 0. So <code>HodgeResolve</code> maps every
+#consistent graph to itself, and therefore fulfills <strong>Identity</strong> and
+therefore also <strong>Surjectivity</strong>.</p>
+<h4 id="Polynomial_Time_Complexity"><a class="hanchor" href="#Polynomial_Time_Complexity">Polynomial Time Complexity</a></h4>
+<p>Ideally, a method for resolving inconsistent graphs into consistent
+graphs would be efficiently computable.</p>
+<h5 id="Minimizing_GraphEdit_Distance_1"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_1">Minimizing Graph-Edit Distance</a></h5>
+<p>However, the method that attempts to find consistent graphs by
+minimizing edge-graph-edit distance fails this criterion.</p>
+<p>Finding all acyclic tournaments with the smallest edit-distance to a
+given directed graph is NP-hard. This can be shown by a reduction to
+Slater's problem. Slater's problem is the problem of, given any
+tournament $T$, finding a linear order $T<em>L$ (an acyclic tournament,
+also called a <em>Slater order</em>) that has the smallest distance to $T$,
+where the distance between two tournaments $T</em>1, T<em>2$ is the number of
+edges that have to be flipped in $T</em>1$ to create $T_2$. Slater's problem
+(and a number of related problems, such as finding <em>all</em> acyclic
+tournaments with the smallest distance to a given tournament) is known
+to be NP-hard [@hudry2010complexity].</p>
+<p>::: {#EGEDminnphard .theorem}
+<strong>Theorem 6</strong>. Finding the set of acyclic tournaments with smallest
+edge-graph-edit distance to a given graph $G$ is NP-hard.
+:::</p>
+<p>::: proof
+<em>Proof.</em> Reduction from finding all Slater orders with the smallest
+distance to a given tournament $T$.</p>
+<p>Assume we know an algorithm $\mathtt{A}$ to compute $f_{\text{EGED}}(G)$
+efficiently, that is, to compute the set of all acyclic tournaments with
+the minimal graph-edit distance to a given directed graph $G$ in
+polynomial time.</p>
+<p>Then one could solve Slater's problem in polynomial time: For any given
+tournament $T$, $\mathtt{A}$ would compute a set $\mathbf{C}<em>T$ of
+acyclic tournaments which have the same minimal graph-edit distance $2k$
+to $T$, the distance is divisible by two because by editing a tournament
+$T$ into a tournament $T'$. Edges can only be flipped, which engenders
+two edge operations (removing an edge and then adding a new one). Then
+that set would also be the set of Slater orders of $T$ (with distance
+$k$), a solution to ($P</em>3$) from [@hudry2010complexity], which is known
+to be NP-hard. ◻
+:::</p>
+<p>Similarly, finding only <em>one</em> element from $f<em>{\text{EGED}}(G)$ is also
+NP-hard, by reducing it to $P</em>2$ ("PROBLEM $P_2$. Given a tournament
+$T$, compute a Slater order $O^*(T)$ of $T$") [@hudry2010complexity].</p>
+<h5 id="None_2"><a class="hanchor" href="#None_2">Applying <code>HodgeRank</code></a></h5>
+<p>[@jiang2011statistical] state that computing the potential function of a
+graph $G$ is equivalent to solving a $n \times n$ least-squares problem
+($n=|\Omega|$), which requires $\mathcal{O}(n^3)$ time. <code>HodgeResolve</code>
+executes <code>HodgeRank</code> and then iterates through all possible edges of
+$G$, which takes at most $\mathcal{O}(n^2)$ time, so the time complexity
+of <code>HodgeResolve</code> is also $\mathcal{O}(n^3)$.</p>
+<h4 id="Uniqueness"><a class="hanchor" href="#Uniqueness">Uniqueness</a></h4>
+<p>It would be desirable if one could guarantee that the function $f$ that
+resolves inconsistent graphs returns a single consistent graph for each
+inconsistent graph, that is
+$\forall G \in \mathfrak{P}_{\Omega}: |f(G)|=1$.</p>
+<h5 id="Minimizing_GraphEdit_Distance_2"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_2">Minimizing Graph-Edit Distance</a></h5>
+<p>$\mathtt{EGEDmin}$ does not fulfill this criterion.</p>
+<p>::: {#omgedworstcase .theorem}
+<strong>Theorem 7</strong>. For a graph $G<em>e$ with no edges and $n$ vertices
+$\Omega$, every acyclic tournament with the same set of vertices has the
+same graph-edit distance to $G</em>e$. Therefore,
+$|\mathtt{EGEDmin}(G_e)|=n!$, which is not unique.
+:::</p>
+<p>::: proof
+<em>Proof.</em> Let $T$ be any acyclic tournament with vertices $\Omega$. Then
+$T$ has ${n \choose 2}$ edges. Since $G<em>e$ has no edges, one can edit
+$G</em>e$ to be $T$ simply by adding all edges of $T$ to $G<em>e$. This is
+sufficient and necessary for turning $G</em>e$ into $T$. Since this holds
+for any tournament $T$, the graph-edit distance from $G<em>e$ to any
+acyclic tournament is the same, namely ${n
+\choose 2}$. So $|\mathtt{EGEDmin}(G</em>e)|=|\mathfrak{C}_{\Omega}|=n!$. ◻
+:::</p>
+<h5 id="None_3"><a class="hanchor" href="#None_3">Applying <code>HodgeRank</code></a></h5>
+<p>If one allows for the output of <code>HodgeResolve</code> to be a weak ordering,
+then <code>HodgeResolve</code> has a unique output, since assigning each vertex a
+real-valued potential $p: \Omega \rightarrow \mathbb{R}$ and then
+ordering vertices by that potential creates a weak ordering $W$.</p>
+<p>However, if one demands that the output of <code>HodgeResolve</code> be a total
+order then the output is dependent on the method of achieving that total
+order. If one generates the total orders by generating all acyclic
+tournaments with vertices $\Omega$ that are subgraphs of $W$, the output
+is no longer unique: In the worst case $G=(\Omega, \emptyset)$, which
+results in <code>HodgeRank</code> assigning a potential of 0 to every node, and
+<code>HodgeResolve</code> putting every vertex in the same equivalence class in the
+weak ordering. As a graph this is the complete directed graph on
+$\Omega$, which contains all acyclic tournaments on $\Omega$ as
+subgraphs. Then there are $|\Omega|!$ acyclic tournaments generated from
+this weak ordering, since all acyclic tournaments are equally compatible
+with the weak ordering.</p>
+<h5 id="Further_Considerations"><a class="hanchor" href="#Further_Considerations">Further Considerations</a></h5>
+<p>Violating <strong>Uniqueness</strong> appears to have consequences for
+decision-making: If we want to use the output of $f$ for prioritising
+which actions to take to achieve high-ranking options, having more than
+one result leaves it unclear which options to prioritize (since there
+will be two $\omega<em>1, \omega</em>2 \in \Omega$ that are ranked differently
+by different elements of the set of results).</p>
+<p>However, results from two different fields apply to this case.</p>
+<ul>
+<li><p><strong>Social Choice Theory</strong>: Since all elements of $\mathbf{C}<em>G=f(G)$
+are complete, transitive, and asymmetric, one can apply the large
+toolbox of methods and results from social choice theory
+[@banks2000positive] to elements from $\mathbf{C}</em>G$ by treating
+them as individual preferences in a preference profile by applying a
+social welfare function in sense of Arrow to it [@gaertner2009primer
+ch.2]. Some impossibility results such as Arrow's theorem
+[@arrow1950difficulty] still apply, but at least results about
+tactical voting (such as the Gibbard-Satterthwaite theorem
+[@gibbard1973manipulation]) are irrelevant in this case, since the
+inconsistent preference does not "control" outputs of $f$, and there
+are no reasons for manipulation.</p></li>
+<li><p><strong>Moral Uncertainty</strong>: MacAskill et al. outline how to make
+decisions given multiple ethical theories and credences on those
+ethical theories, using the so-called Maximum Expected
+Choiceworthiness rule [@macaskill2020moral ch. 2]. In the case of
+ordinal preferences, they use the Borda count [@mclean1990borda] for
+establishing cardinal values for options.</p></li>
+</ul>
+<h4 id="Resolution_to_Polynomially_Many_Preferences"><a class="hanchor" href="#Resolution_to_Polynomially_Many_Preferences">Resolution to Polynomially Many Preferences</a></h4>
+<p>If <strong>uniqueness</strong> can't be fulfilled (perhaps because the given graph
+$G$ is under-determined), a weaker criterion is that the number of
+consistent graphs corresponding to $G$ is polynomial in the size of
+$\Omega$ ($\forall G \in \mathfrak{P}_{\Omega}: |f(G)| \le p(|\Omega|)$,
+where $p(n)$ is some polynomial in $n$).</p>
+<h5 id="Minimizing_GraphEdit_Distance_3"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_3">Minimizing Graph-Edit Distance</a></h5>
+<p>However, as proven in <strong>Theorem</strong>
+<a href="#omgedworstcase">7</a>
+above, this criterion is not fulfilled for $\mathtt{EGEDmin}$, instead
+in the worst case the number is factorial in the size of $\Omega$.</p>
+<p>We decided to also investigate the number of results for <code>EGEDmin</code> for
+small graphs. For this purpose, we generated all directed graphs with
+five nodes or less and computed $\mathtt{EGEDmin}(G)$.</p>
+<p>::: definition
+<strong>Definition 4</strong>. Let $G$ be any directed graph. Then the <strong>confusion</strong>
+of $G$ is the number of acyclic tournaments with the smallest
+edge-graph-edit distance to $G$, that is the confusion
+$c: \mathfrak{P} \rightarrow \mathbb{N}^+$ of $G$ is
+$c(G)=|\mathtt{EGEDmin}(G)|$. The set of graphs with $n$ vertices and
+confusion $c$ shall be denoted $\mathbf{G}_{n,c}$.
+:::</p>
+<p>The term "confusion" was chosen to emphasize that graphs with a lower
+such number have fewer consistent versions. An acyclic tournament has
+minimal confusion (namely 1, where the output of <code>EGEDmin</code> is simply
+itself). $G_e$ from <strong>Theorem</strong>
+<a href="#omgedworstcase">7</a>
+has maximal confusion, namely $n!$.</p>
+<p>A natural question to ask is whether, with bigger graphs, the average
+confusion converges to a certain value or diverges, or shows no clear
+behavior. We generated all directed graphs with up to 5 vertices and
+computed their confusion.</p>
+<p><img alt="Number of graphs by number of nodes and
+confusion." id="fig:nconfusions" src="./img/resolving/nconfusions.png"/></p>
+<p>$|\mathbf{G}<em>{n,1}|$ is the number of all graphs with $n$ vertices and
+confusion 1, and $|\mathbf{G}</em>{n,1}|/n!$ is the same number but up to
+isomorphism of the graphs. $|\mathbf{G}_{n, n!}|$ is the number of
+graphs with $n$ vertices and maximal confusion.</p>
+<p>For some given set of directed graphs $\mathfrak{P}_n$, not all numbers
+between $1$ and $n!$ can be confusions. There are, for example, no
+graphs of size 3 with confusion 4 (or 5).</p>
+<p>::: center
+  $n$   Samples    Average confusion   $|\mathbf{G}<em>{n,1}|$         $|\mathbf{G}</em>{n,1}|/n!$   $|\mathbf{G}_{n, n!}|$   </p>
+<hr/>
+<p>0     1          1                   100% (1)                     1                         $2^0$<br/>
+1     2          1                   100% (2)                     2                         $2^1$<br/>
+2     16         1.5                 50% (8)                      4                         $2^3$<br/>
+3     512        2.625               28.125% (144)                24                        $2^6$<br/>
+4     65536      $\approx$ 4.91      $\approx$ 16.4% (10752)      448                       $2^{10}$<br/>
+5     33554432   $\approx$ 9.43      $\approx$ 9.853% (3306240)   27552                     $2^{15}$<br/>
+6     90927      $\approx$ 18.138    $\approx$ 6.225% (5660)      ?<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>                     ?<br/>
+7     1580       $\approx$ 36.412    $\approx$ 3.608% (57)        ?                         ?<br/>
+:::</p>
+<p>Interestingly, neither $|\mathbf{G}<em>{n,1}|$ nor $|\mathbf{G}</em>{n,1}|/n!$
+are known integer sequences: a search on the OEIS and via SuperSeeker
+[@sloane2003line] yield no matching results.</p>
+<p>::: {#conj:avgconftoinf .conjecture}
+<strong>Conjecture 1</strong>. The average confusion of all directed graphs with size
+$n$ diverges to infinity:</p>
+<p>$$\underset{n \rightarrow \infty}{\lim} \frac{1}{2<sup>{n</sup>2}} \sum<em>{i=1}^{n!} |\mathbf{G}</em>{n,i}| \cdot i=\infty$$
+:::</p>
+<p>We attempted to prove this conjecture, but were unable to do so.</p>
+<p>::: {#conj:divisible .proposition}
+<strong>Proposition 2</strong>. $|\mathbf{G}_{n,1}|$ is always divisible by $2^n$.
+:::</p>
+<p>::: proof
+<em>Proof.</em> This is an artifact of including graphs with reflexive edges in
+the set of graphs tested. Let $G$ be a graph with confusion $k$ and no
+reflexive edges.</p>
+<p>Let now $\mathbf{G}^{\circ}$ be the set of all graphs that are variants
+of $G$ with reflexive edges added. This set include $G$ itself, and $G$
+with all reflexive edges, as well as each version of $G$ with only one
+reflexive edge. Every element in $\mathbf{G}^{\circ}$ also has confusion
+$k$: all reflexive edges must be removed to create a consistent
+preference, yielding $G$, and there are $k$ unique acyclic tournaments
+that has the smallest edge-graph-edit distance to $G$.</p>
+<p>Then it is the case $|\mathbf{G}<sup>{\circ}|=2</sup>n$: for each node, the
+presence of a reflexive edge on that node can be described by one bit of
+information, and since there are $n$ nodes, the size of
+$|\mathbf{G}^{\circ}|$ is the same as the length of an $n$ bit
+bitstring. ◻
+:::</p>
+<p>Dividing $\mathbf{G}_{n,1}$ by both $n!$ and $2^n$ yields the sequence
+$1, 1, 1, 3, 28, 861$, which also doesn't occur in the OEIS, and also
+can't be found using SuperSeeker.</p>
+<h5 id="None_4"><a class="hanchor" href="#None_4">Applying <code>HodgeRank</code></a></h5>
+<p>As seen in the case of <strong>Uniqueness</strong>, this depends on whether one
+demands the output of <code>HodgeResolve</code> to be a total order: If a weak
+ordering is allowed, the output of <code>HodgeResolve</code> is always a single
+graph, so the output size is polynomial, but if we demand a total order
+as an output the output size can be factorial in the number of nodes.</p>
+<h4 id="Preservation_of_Consistent_Subgraphs"><a class="hanchor" href="#Preservation_of_Consistent_Subgraphs">Preservation of Consistent Subgraphs</a></h4>
+<p>::: definition
+<strong>Definition 5</strong>. For a given $G =(\Omega, E<em>P)$, with $G \in
+\mathfrak{P}</em>{\Omega}$, a subgraph $\mathit{S}<em>G=(\Xi, E)$ of $G$ (with
+$\Xi \subseteq \Omega$, and the set of edges $E$ of $\mathit{S}</em>G$ being
+a subset of $E_P$) is an <strong>inclusion-maximal consistent subgraph</strong> of
+$G$ if and only if:</p>
+<ul>
+<li><p>$\mathit{S}_G$ is a consistent graph (equivalently an acyclic
+tournament)<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup>.</p></li>
+<li><p>$\mathit{S}<em>G$ inherits all available edges from $G$, that is if
+there are two $\xi</em>1, \xi<em>2 \in \Xi$ and $(\xi</em>1, \xi<em>2) \in E</em>P$
+then $(\xi<em>1, \xi</em>2) \in E$ as well.</p></li>
+<li><p>$\mathit{S}<em>G$ is inclusion-maximal, that is, there exists no
+$\omega \in \Omega \backslash \Xi$ so that adding $\omega$ and its
+edges adjacent to all $\xi \in \Xi$ to $\mathit{S}</em>G$ is still a
+consistent graph.
+:::</p></li>
+</ul>
+<p>::: definition
+<strong>Definition 6</strong>. Let $\mathcal{S}<em>G$ be the set of all
+inclusion-maximal consistent subgraphs of $G$ and let
+$f: \mathfrak{P} \rightarrow
+\mathcal{P}(\mathfrak{C})$ be a function that turns any $G$ into a set
+$\mathbf{C}</em>G=f(G)$ of consistent graphs. Then $f$ fulfills
+<strong>Preservation of Consistent Subgraphs</strong> if and only if every element of
+$\mathcal{S}<em>G$ is a subgraph of at least one $\mathbf{C}</em>G$, that is</p>
+<p>$$\forall \mathit{S} \in \mathcal{S}<em>G: \exists C \in \mathbf{C}</em>G: V<em>{\mathit{S}} \subseteq V</em>{C} \land E<em>{\mathit{S}} \subseteq E</em>{C}$$
+:::</p>
+<p>This criterion is quite strong, as we will show. Its intuitive appeal
+can be explained as follows: Assume one has overall inconsistent
+preferences, but there is some subset of objects one has consistent
+preferences over, e.g. an agent has consistent preferences over all
+fruit and consistent preferences over dairy products, but inconsistent
+preferences over food in general. Then a method for resolving those
+inconsistent preferences into consistent ones should "preserve" those
+consistent preferences over subsets of options a non-zero amount ---
+after becoming consistent the agent still has the same preferences over
+fruit and dairy product as before.</p>
+<p>Furthermore, one can show that there are graphs with an exponential
+number of inclusion-maximal consistent subgraphs in the number of nodes.</p>
+<p>::: lemma
+<strong>Lemma 8</strong>. Let $G \in \mathfrak{P}<em>n$ be an arbitrary directed graph
+with $n$ nodes, and let $\mathcal{S}</em>G$ be the set of inclusion-maximal
+consistent subgraphs of $G$. Then there exists no polynomial $p$ so so
+that $\forall
+G \in \mathfrak{P}<em>n: |\mathcal{S}</em>G| \le p(n)$.
+:::</p>
+<p>::: proof
+<em>Proof.</em> Moon and Moser describe how to construct an undirected graph
+$G<em>n=(V</em>G,E<em>G)$ with $n$ vertices and $3^{\frac{n}{3}}$
+inclusion-maximal cliques [@moon1965cliques]. Then one can construct a
+directed graph $P</em>n=(V<em>P,E</em>P)$ with $3^{\frac{n}{3}}\approx 1.4422^n$
+inclusion-maximal consistent subgraphs from $G<em>n$, which grows faster
+than any polynomial. First, $P</em>n$ receives the same vertices as $G<em>n$.
+Then, every $v \in V$ is assigned a unique number $j(v): V \rightarrow
+\mathbb{N}$, and for each ${u,v} \in E</em>G$, the set of edges $E<em>P$
+contains $(u,v)$ if and only if $j(u)&gt;j(v)$, and $(v,u)$ if and only if
+$j(v)&gt;j(u)$. Now, if a subgraph $\mathit{S}</em>G$ of $G<em>n$ with vertices
+$V</em>{\mathit{S}}$ is a maximal clique, then a subgraph $\mathit{S}<em>P$ of
+$P</em>n$ with vertices $V<em>{\mathit{S}}$ is an inclusion-maximal consistent
+subgraph in $P</em>n$:</p>
+<ol>
+<li><p>$\mathit{S}<em>P$ is complete, because for every ${u,v}$ in
+$\mathit{S}</em>G$, either $(u,v)$ or $(v,u)$ exists in $\mathit{S}_P$.</p></li>
+<li><p>$\mathit{S}<em>P$ is transitive. For any three vertices ${u,v,w}$ in
+$\mathit{S}</em>G$, $\mathit{S}<em>G$ contains the edges
+${{u,v},{v,w},{u,w}}$ (since it is a clique). Then, without
+loss of generality, assume that $j(u)&gt;j(v)&gt;j(w)$. Then
+$(u, w) \in E</em>P$. Therefore $\mathit{S}_P$ contains the edges
+${(u,v),(v,w),(u,w)}$.</p></li>
+<li><p>$\mathit{S}<em>P$ is asymmetric, because for any edge ${u,v}$ in
+$\mathit{S}</em>G$ it is the case that $j(u)&gt;j(v)$ and $j(v)&gt;j(u)$ can't
+be true at the same time (since $j$ assigns each vertex a unique
+natural number). So $\mathit{S}_P$ can only contain either $(u,v)$
+or $(v,u)$.</p></li>
+<li><p>$\mathit{S}<em>P$ is inclusion-maximal. If $\mathit{S}</em>P$ were not
+inclusion-maximal, there'd exist a vertex $u$ so that every vertex
+$v$ of $\mathit{S}<em>P$ had an edge with $u$. But since the procedure
+of constructing $P</em>n$ above did not add any edges, that would mean
+that $\mathit{S}_G$ was not a maximal clique.</p></li>
+</ol>
+<p> ◻
+:::</p>
+<h5 id="Minimizing_GraphEdit_Distance_4"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_4">Minimizing Graph-Edit Distance</a></h5>
+<p>$\mathtt{EGEDmin}$ violates this criterion, which can be easily shown by
+a counterexample in Figure <a href="#fig:example1">4</a>:</p>
+<p>::: example
+<strong>Example 1</strong>.</p>
+<figure id="fig:example1">
+<figure id="fig:counter1">
+<img src="./counter_example.png"/>
+<figcaption>Counterexample</figcaption>
+</figure>
+<figure id="fig:resolved">
+<img src="./resolved_example.png"/>
+<figcaption>Counterexample resolved versions</figcaption>
+</figure>
+<figcaption><span class="math inline"><em>G</em><sub><em>c</em></sub></span> on the left
+above is resolved into two acyclic tournaments, none of which contain
+the edge <span class="math inline"><em>d</em> → <em>c</em></span>.</figcaption>
+</figure>
+<p>The graph $G<em>c$ above contains a subgraph
+$\mathit{S}</em>{cd}=({c,d},{(c,d)})$ that is also an inclusion-maximal
+acyclic tournament in $G<em>c$. The two acyclic tournaments with the lowest
+graph-edit distance (namely 3: reversing the edge $d \rightarrow c$ (2
+operations) and adding an edge between $a$ and $b$) to $G</em>c$ are shown
+in Figure 2. Note that none of them contain $\mathit{S}_{cd}$ as a
+subgraph.
+:::</p>
+<p><img alt="image" src="./img/resolving/counter_example_3.png" style='width:"0.9\\linewidth";'/></p>
+<p>This counter-example can be generalized so that inclusion-maximal
+consistent subgraphs with an arbitrary number of nodes $n$ get reversed:
+Each edge $\omega<em>1 \rightarrow \omega</em>2$ of $G<em>c$ gets replaced by an
+acyclic tournament $\mathit{T}</em>i=(\Xi<em>i, E</em>i)$ with $n-2$ vertices, so
+that there is an edge from $\omega<em>1$ to every $\xi</em>i \in \Xi<em>i$ and an
+edge from every $\xi</em>i \in \Xi<em>i$ to $\omega</em>2$. The graph on the left
+has confusion 40, and the subgraph emphasized in red is preserved in
+none of the outputs of <code>EGEDmin</code>.</p>
+<p>We also investigated the number of inclusion-maximal consistent
+subgraphs preserved by <code>EGEDmin</code>. We again did this by analyzing the
+outputs of <code>EGEDmin</code> for all graphs with five nodes or less, and some
+graphs with six or seven nodes.</p>
+<p>::: definition
+<strong>Definition 7</strong>. Let
+$\text{IMCS}: \mathfrak{P}<em>n \rightarrow \mathfrak{P}</em>{1..n}$ be a
+function that returns the <strong>i</strong>nclusion-<strong>m</strong>aximal <strong>c</strong>onsistent
+<strong>s</strong>ubgraphs for a given graph.
+:::</p>
+<p>Given a directed graph $G$, let $\mathcal{S}$ be the set of
+inclusion-maximal consistent subgraphs of $G$. One can now ask: For a
+given inclusion-maximal consistent subgraph, how often did that subgraph
+occur in the set of outputs $\mathtt{EGEDmin}(G)$?</p>
+<p>::: definition
+<strong>Definition 8</strong>. Let $\text{RSP}(S, G)$ (with $S \in \mathcal{S}$) be
+the <strong>r</strong>atio of <strong>s</strong>ubgraph <strong>p</strong>reservation:</p>
+<p>$$\text{RSP}_{\mathtt{EGEDmin}}(S, G)=\frac{|{R \in \mathtt{EGEDmin}(G) | S \text{ subgraph of } R}|}{|\mathtt{EGEDmin}(G)|}$$
+:::</p>
+<p>As we saw above, there are graphs with inclusion-maximal consistent
+subgraphs $S$ so that $\text{RSP}(S)=0$.</p>
+<p>One can then use $\text{RSP}$ to define a metric that tells us, for a
+given graph, how often inclusion-maximal consistent subgraphs were
+preserved on average.</p>
+<p>::: definition
+<strong>Definition 9</strong>. Let $\text{AMSP}_{\mathtt{EGEDmin}}(G)$ be the
+average, for every inclusion-maximal consistent subgraph $\mathit{S}$,
+of the number of times $\mathit{S}$ appears in the output of <code>EGEDmin</code>
+(<strong>a</strong>verage <strong>m</strong>aximal <strong>s</strong>ubgraph <strong>p</strong>reservation):</p>
+<p>$$\text{AMSP}<em>{\mathtt{EGEDmin}}(G)=\frac{1}{|\text{IMCS}(G)|} \sum</em>{\mathit{S} \in \text{IMCS}(G)} \text{RSP}_{\mathtt{EGEDmin}}(\mathit{S})$$
+:::</p>
+<p>Both $\text{RSP}<em>{\mathtt{EGEDmin}}$ and
+$\text{AMSP}</em>{\mathtt{EGEDmin}}$ can be adapted to different methods for
+resolution, simply by swapping out the instances of <code>EGEDmin</code> for
+something else (e.g. <code>HodgeRank</code>). By default, I will use $\text{RSP}$
+and $\text{AMSP}$ for $\text{RSP}<em>{\mathtt{EGEDmin}}$ and
+$\text{AMSP}</em>{\mathtt{EGEDmin}}$.</p>
+<p>A higher number for AMSP is better: It means that more inclusion-maximal
+consistent subgraphs get preserved more often by the method for
+resolving inconsistent preferences.</p>
+<p>::: center
+  $n$   Samples    Avg $|\text{IMCS}(G)|$   Avg $\text{AMSP}(G)$   Min $\text{AMSP}(G)$   Graphs with $\text{AMSP}(G)=1$</p>
+<hr/>
+<p>0     1          1                        1                      1                      1 (100%)
+  1     2          1                        1                      1                      2 (100%)
+  2     16         1.125                    1                      1                      16 (100%)
+  3     512        $\approx$ 1.32           $\approx$ 0.995        2/3                    496 ($\approx$ 98.4%)
+  4     65536      $\approx$ 1.568          $\approx$ 0.984        0                      57728 ($\approx$ 94.4%)
+  5     33554432   $\approx$ 1.864          $\approx$ 0.969        0                      7803263 ($\approx$ 80.1%)
+  6     90927      $\approx$ 2.207          $\approx$ 0.95         0                      72209 ($\approx$ 79.4%)
+  7     1580       $\approx$ 2.618          $\approx$ 0.932        0                      1095 ($\approx$ 69.3%)
+:::</p>
+<p>One can see that the average number of inclusion-maximal consistent
+subgraphs increases, albeit initially slowly. The number of times that
+maximal consistent subgraphs are preserved (Avg $\text{AMSP}(G)$) starts
+dropping, though the shrinking behavior isn't clear from the limited
+amount of data. The number of graphs in which all inclusion-maximal
+consistent subgraphs are preserved by <code>EGEDmin</code> shrinks even more
+quickly, indicating that preserving all consistent subgraphs is a
+property that is difficult to fulfill.</p>
+<p>Only for small graphs (up to 3 vertices) it is guaranteed that at least
+one inclusion-maximal consistent subgraph occurs in the output of
+<code>EGEDmin</code>.</p>
+<p>So we can pose some conjectures indicated by the datapoints observed
+above:</p>
+<p>::: {#conj:egednosubpres .conjecture}
+<strong>Conjecture 2</strong>. In the limit of graph size, on average <code>EGEDmin</code>
+preserves almost none of the inclusion-maximal consistent subgraphs:</p>
+<p>$$\underset{n \rightarrow \infty}{\lim} \frac{1}{|\mathfrak{P}<em>n|} \sum</em>{G \in \mathfrak{P}_n} \text{AMSP}(G)=0$$
+:::</p>
+<p>::: conjecture
+<strong>Conjecture 3</strong>. For graphs with $&gt;7$ nodes it remains the case that
+there are graphs for which the smallest number of inclusion-maximal
+consistent subgraphs preserved by <code>EGEDmin</code> is zero:</p>
+<p>$$\underset{n \rightarrow \infty}{\lim} \min<em>{G \in \mathfrak{P}</em>n} \text{AMSP}(G)=0$$
+:::</p>
+<p>::: conjecture
+<strong>Conjecture 4</strong>. In the limit of number of nodes in a graph, for almost
+no graphs does <code>EGEDmin</code> preserve all inclusion-maximal consistent
+subgraphs.
+$$\underset{n \rightarrow \infty}{\lim} \frac{1}{|\mathfrak{P}<em>n|} |{G \in \mathfrak{P}</em>n | \text{AMSP}(G)=1}|=0$$
+:::</p>
+<h5 id="None_5"><a class="hanchor" href="#None_5">Applying <code>HodgeRank</code></a></h5>
+<p>If the output of <code>HodgeResolve</code> is allowed to be a weak ordering, then
+the original definition of <strong>Preservation of Consistent Subgraphs</strong> does
+not apply, as it presumes a mapping $f$ from $\mathfrak{P}$ to
+$\mathfrak{C}$. However, the definition can easily be transferred by
+defining $f$ as a function from directed graphs to weakly consistent
+graphs, that is $f: \mathfrak{P}<em>{\Omega} \rightarrow
+\mathfrak{W}</em>{\Omega}$. The definition of <strong>Preservation of Consistent
+Subgraphs</strong> stays otherwise unchanged<sup id="fnref5"><a href="#fn5" rel="footnote">5</a></sup>.</p>
+<p><code>HodgeResolve</code> does not fulfill <strong>Preservation of Consistent
+Subgraphs</strong>. Figure <a href="#fig:hodgeres_counter">7</a> shows two graphs (both on the left in
+their respective subfigures). For the graph in the left subfigure no
+inclusion-maximal consistent subgraphs are preserved, for the right one
+all but one inclusion-maximal consistent subgraphs are preserved.</p>
+<figure id="fig:hodgeres_counter">
+<figure id="fig:counter2">
+<img src="./hodge_no_preserve.png"/>
+<figcaption><span class="math inline">1 → 2</span> is the only
+consistent subgraph, but it gets reversed.</figcaption>
+</figure>
+<figure id="fig:resolved2">
+<img src="./hodge_some_preserve.png"/>
+<figcaption>Each edge is an inclusion-maximal consistent subgraph, and
+only the edge <span class="math inline">3 → 4</span> gets reversed. 1
+and 2 in the result have the same potential.</figcaption>
+</figure>
+<figcaption>On the left side a graph with 1 inclusion-maximal consistent
+subgraph and its resolution through <code>HodgeResolve</code>, and on
+the right side a graph with several inclusion-maximal consistent
+subgraphs and and its resolution through <code>HodgeResolve</code>. The
+labels at the edges are the gradients that <code>HodgeRank</code> has
+computed.</figcaption>
+</figure>
+<p>In the following table, $\text{AMSP}$ refers to
+$\text{AMSP}<em>{\mathtt{HodgeResolve}}$, and $\text{IMCS}$ refers to
+$\text{IMCS}</em>{\mathtt{HodgeResolve}}$.</p>
+<p>::: center
+  $n$   Samplesize   Avg $|\text{IMCS}(G)|$   Avg $\text{AMSP}(G)$   Min $\text{AMSP}(G)$   Graphs with $\text{AMSP}(G)=1$</p>
+<hr/>
+<p>0     1            1                        1                      1                      1 (100%)
+  1     2            1                        1                      1                      2 (100%)
+  2     16           1.125                    1                      1                      16 (100%)
+  3     512          $\approx$ 1.32           $\approx$ 1            1                      512 (100%)
+  4     65536        $\approx$ 1.568          $\approx$ 0.978        0                      63232 ($\approx$ 96.5%)
+  5     33554432     $\approx$ 1.864          $\approx$ 0.932        0                      29373632 ($\approx$ 87.5%)
+  6     65536        $\approx$ 2.209          $\approx$ 0.879        0                      49680 ($\approx$ 75.8%)
+  7     65536        $\approx$ 2.612          $\approx$ 0.831        0                      41926 ($\approx$ 63.9%)
+  8     65536        $\approx$ 3.064          $\approx$ 0.783        0                      34227 ($\approx$ 52.2%)
+  9     65536        $\approx$ 3.567          $\approx$ 0.738        0                      27138 ($\approx$ 41.4%)
+  10    65536        $\approx$ 4.13           $\approx$ 0.701        0                      21349 ($\approx$ 32.6%)
+:::</p>
+<p>With this data, Figure <a href="#fig:preservationcomp">8</a> plots how well <code>EGEDmin</code> and
+<code>HodgeResolve</code> perform at preserving inclusion-maximal consistent
+subgraphs.</p>
+<p><img alt="Comparing `EGEDmin` and `HodgeResolve` at how well they perform on
+various metrics of preserving inclusion-maximal consistent
+subgraphs." id="fig:preservationcomp" src="./img/resolving/preservations.png"/></p>
+<p>One can see that on average, <code>EGEDmin</code> preserves inclusion-maximal
+consistent subgraphs more often, and may also retain all
+inclusion-maximal consistent subgraphs more often (although the low
+sample sizes for graphs with six and seven nodes makes this difficult to
+conclude without doubt).</p>
+<h3 id="Preservation_of_Completely_Dominating_and_Dominated_Set"><a class="hanchor" href="#Preservation_of_Completely_Dominating_and_Dominated_Set">Preservation of Completely Dominating and Dominated Set</a></h3>
+<p>Inclusion-maximal consistent subgraphs are a way of formalizing what it
+means for a preference to be <em>locally</em> consistent: there is some subset
+of $\Omega$ so that the preferences are not "confused" about this
+subset. One can also try to find a corresponding condition that would
+make a statement about <em>global</em> consistency. Voting theory offers some
+#inspiration here: the <strong>minimal undominated set</strong> (also <strong>Condorcet
+set</strong>) [@miller1977graph] is defined for every tournament $T=(V<em>T, E</em>T)$
+as a set of vertices $V^<em>\subseteq V<em>T$ so that (1) there is no edge
+from $V</em>T \backslash V^</em>$ to $V^<em>$ and (2) there is no proper subset of
+$V^</em>$ that meets (1).</p>
+<p>One can create a related (but weaker) definition for directed graphs:</p>
+<p><img alt="image" src="./img/resolving/dominance.png" style='width:"0.6\\linewidth";'/></p>
+<p>For a given $G$, let $\Sigma<em>1, \Sigma</em>2$ be non-empty sets of vertices
+of $G$ such that $\Sigma<em>1 \uplus \Sigma</em>2=\Omega$. Then $\Sigma<em>1$ is a
+<strong>completely dominating set</strong> and $\Sigma</em>2$ is a <strong>completely dominated
+set</strong> if and only if $\forall \sigma<em>1
+\in \Sigma</em>1, \sigma<em>2 \in \Sigma</em>2: (\sigma<em>1, \sigma</em>2) \in E \land
+(\sigma<em>2, \sigma</em>1) \not \in E$.</p>
+<p>This means that all elements in a completely dominating set are strictly
+preferred to all elements in a completely dominated set---there is a
+subset of options that are clearly better than all other options.</p>
+<p>A change from the Condorcet set is that we don't demand the completely
+dominating set to be minimal (which would always make the empty set the
+completely dominating set). Additionally, the completely dominating set
+is not unique: In an acyclic tournament, for $1 \le i \le |\Omega|$ the
+$i$ greatest elements form a dominating set.</p>
+<p>A completely dominating set then represents a global consistency in the
+preference: within $\Sigma<em>1$ and $\Sigma</em>2$ we are unsure about our
+preference, but we know that any element of $\Sigma<em>1$ is better than
+any element of $\Sigma</em>2$.</p>
+<p>::: definition
+<strong>Definition 10</strong>. A function
+$f: \mathfrak{P} \rightarrow \mathcal{P}(\mathfrak{C})$ fulfills
+<strong>Preservation of Complete Domination</strong> if and only if for any directed
+graph $G$ with a completely dominating set $\Sigma<em>1$ and a completely
+dominated set $\Sigma</em>2$ it holds that $\forall C \in f(G)$ the set of
+nodes $\Sigma<em>1$ is a completely dominating set of $\Sigma</em>2$ in $C$.
+:::</p>
+<p>::: proposition
+<strong>Proposition 3</strong>. Let $f$ be a function that fulfills <strong>Preservation of
+Complete Domination</strong>. If for a graph $G$ there are $n$ sets of vertices
+$\Sigma<em>1,
+\dots, \Sigma</em>n$ so that $\biguplus<em>{i=1}^n \Sigma</em>i=\Omega$ and</p>
+<p>$$\forall c \in {1, \dots, n}: \bigcup<em>{i=1}^c \Sigma</em>i \text{ completely dominates } \bigcup<em>{j=c+1}^n \Sigma</em>j$$,</p>
+<p>then for any $C\in f(G)$ with $C=(\Omega, E<em>C)$ it holds that $\forall
+1&lt;j&lt;k&lt;n: \forall \sigma</em>j \in \Sigma<em>j, \sigma</em>k \in \Sigma<em>k: (\sigma</em>j,
+\sigma<em>k) \in E</em>C \land (\sigma<em>k, \sigma</em>j) \not \in E_C$ (or, less
+formally, every element from a subset of a completely dominating set is
+strictly preferred over any element from a subset of a completely
+dominated set in the output of the resolution function $f$).
+:::</p>
+<p>::: proof
+<em>Proof.</em> Fix $1&lt;j&lt;k&lt;n$. Let $\Sigma<em>l=\biguplus</em>{i=1}^{k-1} \Sigma<em>i$
+and $\Sigma</em>r=\biguplus<em>{i=k}^n \Sigma</em>i$. Then $\Sigma<em>l$ dominates
+$\Sigma</em>r$ in $G$, and by assumption also in $C \in f(G)$. Since
+$\Sigma<em>j \subsetneq \Sigma</em>l$ and $\Sigma<em>k \subsetneq \Sigma</em>r$, it
+holds that $\forall \sigma<em>j \in \Sigma</em>j, \sigma<em>k \in \Sigma</em>k:
+\sigma<em>j \rightarrow \sigma</em>k \in E<em>C \land \sigma</em>k \rightarrow \sigma<em>j
+\not \in E</em>C$. So $\Sigma<em>j$ now completely dominates $\Sigma</em>k$ in
+$C$. ◻
+:::</p>
+<p>::: remark
+<strong>Remark 1</strong>. Sets of such $\Sigma<em>1, \dots, \Sigma</em>n$ such that there
+is a relationship of complete domination between any two of them are
+quite similar to graph quotients, but is somewhat stricter (demanding
+that each $\sigma<em>i \in
+\Sigma</em>i$ be preferred to each other $\sigma<em>j \in \Sigma</em>j$).
+:::</p>
+<p>::: remark
+<strong>Remark 2</strong>. Preservation of complete domination implies some other
+criteria: If there is a consistent subgraph which is a completely
+dominating set, then it will comprise the "greatest" subgraph in the
+resolved preference, with the greatest element in $G$ also being the
+greatest element in $f(G)$. The same holds for the a completely
+dominated consistent subgraph, which stays at the bottom.
+:::</p>
+<h4 id="Minimizing_GraphEdit_Distance_5"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_5">Minimizing Graph-Edit Distance</a></h4>
+<p>::: theorem
+#<strong>Theorem 9</strong>. $\mathtt{EGEDmin}$ fulfills <strong>Preservation of Complete
+Domination</strong>.
+:::</p>
+<p>::: proof
+<em>Proof.</em> Let $C=(\Omega, E<em>C)$, with $C \in \mathtt{EGEDmin}(G)$ be a
+consistent graph for a directed graph $G$, where $G$ has a completely
+dominating set $\Sigma</em>1$ and a completely dominated set $\Sigma<em>2$.
+Assume $C$ does not have the completely dominating set $\Sigma</em>1$, and
+let $n=\mathtt{EGED}(G,C)$. Then there must be a "highest" or "largest"
+$\sigma<em>2 \in \Sigma</em>2$ in $C$ (one for which there is no other
+$\sigma<em>2' \in \Sigma</em>2$ so that $\sigma<em>2' \rightarrow \sigma</em>2$ is an
+edge in $C$). There must also be a "highest" or "largest"
+$\sigma<em>1^* \in \Sigma</em>1$ so that $\sigma<em>2
+\rightarrow \sigma</em>1^*$ is an edge in $C$.</p>
+<p>Let there be $m \ge 0$ elements of $\Sigma<em>1$ "between" $\sigma</em>2$ and
+$\sigma<em>1^*$, that is for $\Sigma</em>2<sup>*={\sigma_2</sup><em>| \sigma<em>2 \rightarrow
+\sigma</em>2^</em> \in E<em>C\ \land \sigma</em>2^* \rightarrow \sigma<em>1^* \in E</em>C}$
+it holds that $\Sigma_2^*=m$.</p>
+<p>One can now create a $C'$ from $C$ so that
+$\mathtt{EGED}(G, C')=n-2(m+1)$ by moving $\sigma<em>1^*$ into the position
+directly above $\sigma</em>2$ by reversing the edges
+$\sigma<em>2 \rightarrow \sigma</em>1^<em>$ and $\sigma_2^</em>
+\rightarrow \sigma<em>1^*$ for all $\sigma</em>2^* \in \Sigma<em>2^*$. The
+modified $C'$ now contains some edges from $G$ that need to be reversed
+to create $C$: $\sigma</em>1^* \rightarrow \sigma<em>2$ and
+${\sigma</em>1^* \rightarrow
+\sigma<em>2^* | \sigma</em>2^* \in \Sigma_2^*}$ are already edges in $G$, and
+because edge reversals have weight 2 (deleting and then adding one
+edge), this saves $2(m+1)$ edge operations.</p>
+<p>Furthermore all other edge operations to minimally achieve $C$ from $G$
+can be held constant to create $C'$, so that the graph-edit distance is
+not changed otherwise. $C'$ is now an acyclic tournament with a smaller
+edge-graph-edit distance from $G$ than $C$. Thus all other outputs
+$\mathbf{C}=\mathtt{EGEDmin}(G)$ must also have a smaller
+edge-graph-edit distance than $C$ has to $G$.</p>
+<p>If $C'$ does not have the same completely dominating set $\Sigma<em>1$ that
+$G$ has, one can create a new graph $C''$ by finding a new "highest"
+$\sigma</em>2$ and corresponding $\sigma_1^*$ and switching them. This $C''$
+again has shorter edge-graph-edit distance.</p>
+<p>This process can be repeated as long as $\Sigma_1$ is not a completely
+dominating set in the consistent graph, monotonically decreasing the
+edge-graph-edit distance, until no further such modifications can be
+found.</p>
+<p>The final consistent graph resulting from this process contains
+$\Sigma<em>1$ as a completely dominating set: Every $\sigma</em>1 \in \Sigma<em>1$
+has a one-directional edge to every $\sigma</em>2 \in \Sigma_2$. ◻
+:::</p>
+<h4 id="None_6"><a class="hanchor" href="#None_6">Applying <code>HodgeRank</code></a></h4>
+<p>::: {#conj:hodgedom .conjecture}
+#<strong>Conjecture 5</strong>. $\mathtt{HodgeResolve}(G)$ fulfills <strong>Preservation of
+Complete Domination</strong> for every $G \in \mathfrak{P}$.
+:::</p>
+<p>This conjecture holds for all directed graphs with 5 nodes or less, by
+computational experiment, and for random samples of graphs ($2^{16}$
+graphs generated for each number of nodes, using the Erdős-Rényi model
+[@erdHos1960evolution] with the probability $\frac{1}{2}$ of edge
+creation) with up to 13 nodes.</p>
+<h2 id="Summary"><a class="hanchor" href="#Summary">Summary</a></h2>
+<p>We can now summarize how well the two algorithms fulfill the different
+criteria:</p>
+<p>::: center
+  #<strong>Criterion</strong> <code>EGEDmin</code> <code>HodgeResolve</code></p>
+<hr/>
+<p>Surjectivity<br/>
+Identity<br/>
+Worst-case computational complexity    $NP$-hard   $\mathcal{O}(n^3)$
+  Uniqueness                                         $\sim$
+  Polynomial output size                             $\sim$
+  Preservation of consistent subgraphs<br/>
+Preservation of complete domination                ?
+:::</p>
+<h2 id="Impossibilities"><a class="hanchor" href="#Impossibilities">Impossibilities</a></h2>
+<p>Some of the criteria listed in Section 3.3 are incompatible with each
+other.</p>
+<h3 id="Resolution_to_Polynomially_Many_Preferences_and_Preservation_of_Consistent_Subgraphs_are_Incompatible"><a class="hanchor" href="#Resolution_to_Polynomially_Many_Preferences_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Resolution to Polynomially Many Preferences and Preservation of Consistent Subgraphs are Incompatible</a></h3>
+<p>It is not possible to have an algorithm that retains every maximal
+consistent subgraph at least once in the set of outputs and has only
+polynomially many outputs.</p>
+<p>::: {#theorem:impossibility1 .theorem}
+#<strong>Theorem 10</strong>. Let
+$f: \mathfrak{P} \rightarrow \mathcal{P}(\mathfrak{C})$ be a function
+for resolving inconsistent graphs that fulfills <strong>Preservation of
+Consistent Subgraphs</strong> for all graphs $\mathfrak{P}$. Then there exists
+no polynomial $p$ so that for all directed graphs $\mathfrak{P}<em>n$ of
+size $n$ it holds that
+$\forall P</em>n \in \mathfrak{P}<em>n: |f(P</em>n)| \le p(n)$.
+:::</p>
+<p><img alt="image" src="./img/resolving/en.png" style='width:"0.9\\linewidth";'/></p>
+<p>We show this with a graph that is a counterexample, i.e. for which such
+a polynomial can not exist.</p>
+<p>::: definition
+<strong>Definition 11</strong>. Let $\mathit{V}$ denote a directed graph with three
+vertices $\alpha, \beta, \gamma$ and three edges
+$\alpha \rightarrow \beta, \beta \rightarrow \gamma, \gamma \rightarrow \alpha$.
+Let now denote $E<em>n$ be a graph that is constructed out of $n$ copies of
+$\mathit{V}$, "stacked" on top of each other. More formally, let the
+vertices of $E</em>n$ be the set ${\alpha<em>1,
+\ldots, \alpha</em>n, \beta<em>1, \ldots, \beta</em>n, \gamma<em>1, \ldots, \gamma</em>n}$
+so that $\alpha<em>i, \beta</em>i, \gamma<em>i$ are the vertices of the graph
+$\mathit{V}</em>i$, and the edges of $E<em>n$ are the edges of each
+$\mathit{V}</em>i$ and the edges
+${(u<em>i, v</em>j) | i&gt;j \land u, v \in {\alpha,
+\beta, \gamma}}$.
+:::</p>
+<p>We first prove that each inclusion-maximal consistent subgraph of $E<em>n$
+only contains one edge from each $\mathit{V}</em>i$.</p>
+<p>::: lemma
+<strong>Lemma 11</strong>. Every inclusion-maximal consistent subgraph $V$ of $E<em>n$
+contains exactly one edge from each
+$\mathit{V}</em>i \in {\mathit{V}<em>1, \dots,
+\mathit{V}</em>n}$.
+:::</p>
+<p>::: proof
+<em>Proof.</em> Assume $S$ is a subgraph of $E<em>n$, and there exists (without
+loss of generality) a $\mathit{V}</em>i$ so that $S \cap \mathit{V}<em>i$ has
+two edges $\alpha</em>i
+\rightarrow \beta<em>i$ and $\beta</em>i \rightarrow \gamma<em>i$. Since $S$ is
+stipulated to be consistent, due to the transitivity requirement it must
+also contain the edge $\alpha</em>i \rightarrow \gamma<em>i$. But then $S$
+would no longer be a subgraph of $E</em>n$, since
+$\alpha<em>i \rightarrow \gamma</em>i$ is not an edge in $\mathit{V}<em>i$. If
+$S \cap \mathit{V}</em>i$ has three edges, $S$ must be inconsistent, since
+transivity or asymmetry are violated. Assume now there is a subgraph
+$\mathit{V}<em>i$ of $E</em>n$ so that $S \cap \mathit{V}<em>i$ has no edges. Then
+one can add any one edge from $\mathit{V}</em>i$ to $S$ while retaining
+consistency: If one adds (without loss of generality)
+$\alpha<em>i \rightarrow \beta</em>i$, this preserves consistency, since</p>
+<ul>
+<li><p><strong>Completeness</strong> is preserved ($\alpha<em>i, \beta</em>i$ are connected to
+all $\omega<em>h, \omega</em>j$ ($h &lt;i&lt;j$)).</p></li>
+<li><p><strong>Transitivity</strong> is preserved
+($\omega<em>h \rightarrow \alpha</em>i, \alpha<em>i \rightarrow \beta</em>i$ also
+means that $\omega<em>h \rightarrow \beta</em>i$ since $h&lt;i$, and similar
+for $\alpha<em>i \rightarrow \beta</em>i, \beta<em>i \rightarrow \omega</em>j$).</p></li>
+<li><p><strong>Asymmetry</strong> is preserved because we add no reversed edges where
+there were edges in $S$ before.</p></li>
+</ul>
+<p> ◻
+:::</p>
+<p>We then show that any consistent graph on the vertices of $E<em>n$ can not
+contain $2^n+1$ inclusion-maximal consistent subgraphs of $E</em>n$.</p>
+<p>::: {#lemma:ensubgraphs .lemma}
+<strong>Lemma 12</strong>. Let $\mathcal{S}$ be a set of inclusion-maximal consistent
+subgraphs of $E<em>n$, and $|\mathcal{S}|=2^n+1$. Then there exists no
+consistent graph $C$ on the vertices of $E</em>n$ so that
+$\forall S \in \mathcal{S}:
+S \text{ is a subgraph of } C$.
+:::</p>
+<p>::: proof
+<em>Proof.</em> We showed that each $S \in \mathcal{S}$ contains exactly one
+edge from each $\mathit{V}<em>i$. If two $S</em>1, S<em>2$ for a given
+$\mathit{V}</em>i$ share the same edge (i.e.
+$S<em>1 \cap \mathit{V}</em>i=S<em>2 \cap \mathit{V}</em>i$), $S<em>1$ and $S</em>2$ can be
+subgraphs of the same consistent graph $C$. If two $S<em>1,
+S</em>2 \in \mathcal{S}$, for a given $\mathit{V}<em>i$, <em>don't</em> share the same
+edge (that is $S</em>1 \cap \mathit{V}<em>i \not =S</em>2 \cap \mathit{V}_i$), they
+can be nevertheless still be subgraphs of the same consistent $C$:</p>
+<p>If (without loss of generality) $(S<em>1 \cap \mathit{V}</em>i)=\alpha<em>i
+\rightarrow \beta</em>i$ and $(S<em>2 \cap \mathit{V}</em>i) =\beta<em>i \rightarrow
+\gamma</em>i$, $C$ can contain those edges as well as $\alpha<em>i \rightarrow
+\gamma</em>i$.</p>
+<p>If, though, there are three $S<em>1, S</em>2, S<em>3 \in \mathcal{S}$ that each
+don't share an edge on a given $\mathit{V}</em>i$, they can't be subgraphs
+of any consistent $C$: Such a $C$ would need to contain ${\alpha<em>i
+\rightarrow \beta</em>i, \beta<em>i \rightarrow \gamma</em>i, \gamma<em>i \rightarrow
+\alpha</em>i}$, but this would violate either asymmetry (if one added
+$\alpha<em>i \rightarrow \gamma</em>i$ as well) or transitivity (through the
+absence of of $\alpha<em>i \rightarrow \gamma</em>i$).</p>
+<p>Therefore, for each $\mathit{V}<em>i$, only two edges from $\mathit{V}</em>i$
+can occur in in any element of $\mathcal{S}$. Then an
+$S \in \mathcal{S}$ can be uniquely identified by which edge from each
+$\mathit{V}<em>i$ it contains, since there are two edges for each
+$\mathit{V}</em>i$ and there are $n$ such "levels" $\mathit{V}<em>i$, and no
+two edges from different $\mathit{V}</em>i, \mathit{V}_j$ are mutually
+exclusive.</p>
+<p>Therefore, $|\mathcal{S}|\le 2^n$ if all elements of $\mathcal{S}$ are
+to be subgraphs of an acyclic tournament. But introducing an additional
+distinct $S<em>{2^n+1}$ to $\mathcal{S}$ must add a a third edge from at
+least one $\mathit{V}</em>i$, thus $2^n$ is the maximal size of
+$\mathcal{S}$. ◻
+:::</p>
+<p>We can now show that the set of consistent graphs that contain all
+inclusion-maximal consistent subgraphs of $E_n$ grows exponentially in
+$n$ (albeit with a small exponent).</p>
+<p>::: {#lemma:enresolvedbig .lemma}
+<strong>Lemma 13</strong>. The set of consistent graphs $\mathbf{C}$ on the vertices
+of $E<em>n$ that includes all inclusion-maximal consistent subgraphs of
+$E</em>n$ has size at least $(\frac{3}{2})^n$.
+:::</p>
+<p>::: proof
+<em>Proof.</em> Assume that one can partition the set $\mathbf{C}$ of
+inclusion-maximal consistent subgraphs of $E<em>n$ into a set $\mathbf{P}$
+of disjoint sets of size $\le 2^n$ (that is
+$\forall \mathcal{C}</em>i \in \mathbf{P}:
+|\mathcal{C}<em>i|=2^n|$) such that there exists a consistent graph $C$
+that contains all $\mathcal{C}</em>i$. Then the number of such partitions
+would be the number of consistent graphs required to "cover" all
+elements in $\mathbf{C}$, since by Lemma
+<a href="#lemma:ensubgraphs">12</a> the sets of compatible graphs have at
+most size $2^n$. Then the size of $\mathbf{P}$ would be at least
+$\frac{3<sup>n}{2</sup>n}=1.5^n$, which is exponential in $n$. ◻
+:::</p>
+<p>Therefore, Theorem <a href="#theorem:impossibility1">10</a> is true.</p>
+<p>::: corollary
+<strong>Corollary 1</strong>. There is no polynomial $p$ and function
+$f: \mathfrak{P} \rightarrow
+\mathcal{P}(\mathfrak{C})$ such that $|f(E<em>n)|\le p(n)$ and $f$ fulfills
+<strong>Preservation of Consistent Subgraphs</strong>, so <strong>Theorem</strong>
+<a href="#theorem:impossibility1">10</a> is true (with $E</em>n$ as a
+counterexample).
+:::</p>
+<p>::: {#rem:lowbound .remark}
+<strong>Remark 3</strong>. This bound is
+$(\frac{3}{2})<sup>{\frac{v}{3}}=\sqrt[3]{\frac{3}{2}}</sup>v \approx
+1.145^v$ for the number of vertices $v$ in $E_v$, which is exponential
+but can probably be improved upon.
+:::</p>
+<h3 id="Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible"><a class="hanchor" href="#Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Polynomial Time Complexity and Preservation of Consistent Subgraphs are Incompatible</a></h3>
+<p>Given that in the worst case, only a small proportion of consistent
+subgraphs can be preserved, it also is not possible to have an algorithm
+that returns, for each inclusion-maximal consistent subgraph
+$\mathit{S}$, at least one consistent graph that contains $\mathit{S}$,
+<em>and</em> computes its output in polynomial time.</p>
+<p>::: {#theorem:impossibility2 .theorem}
+#<strong>Theorem 14</strong>. Let $\mathtt{A}$ be an algorithm for resolving
+inconsistent graphs that implements an $f$ which fulfills <strong>Preservation
+of Consistent Subgraphs</strong> for all graphs $G \in \mathfrak{P}$. Then
+there exists no polynomial $p$ so that for all directed graphs
+$P<em>n \in \mathfrak{P}</em>n$ of size $n$ it holds that $\mathtt{A}(P_n)$
+computes its output in less than $p(n)$ steps.
+:::</p>
+<p>::: proof
+<em>Proof.</em> Let $\mathbf{C}=\mathtt{A}(E_n)$. <strong>Lemma</strong>
+<a href="#lemma:enresolvedbig">13</a> shows that $\mathbf{C}$ is exponential
+in the number of vertices (by <strong>remark</strong>
+<a href="#rem:lowbound">3</a>). Any
+$\mathtt{A}$ would at least need to enumerate all $C \in \mathbf{C}$,
+which would take exponential time. ◻
+:::</p>
+<p>::: remark
+<strong>Remark 4</strong>. The set of inclusion-maximal consistent subgraphs on $E<em>n$
+can be compactly represented as the Cartesian product of the
+inclusion-maximal consistent subgraphs of the "levels" $V</em>i$:</p>
+<p>$$\bigtimes<em>{i=1}^n {\alpha</em>i \rightarrow \beta<em>i, \beta</em>i \rightarrow \gamma<em>i, \gamma</em>i \rightarrow \alpha_i}$$</p>
+<p>This might also allow for a compact representation of the result of $f$
+which includes all inclusion-maximal consistent subgraphs. We suspect
+there are counter-examples that don't allow for this, but haven't been
+able to find any.
+:::</p>
+<h1 id="Inconsistent_Preferences_over_Lotteries"><a class="hanchor" href="#Inconsistent_Preferences_over_Lotteries">Inconsistent Preferences over Lotteries</a></h1>
+<p>Von Neumann and Morgenstern formulate their famous theorem by defining
+some restriction on relations over lotteries [@von1947theory], as
+explained in Section <a href="#sec:vnmintro">2.1</a>.</p>
+<p>Finding a mathematical structure which can encode all inconsistent
+preferences over lotteries <em>and</em> is still computationally tractable
+remains an open problem, but we propose two structures which can either
+tractably encode some subset of inconsistent preferences or are rich
+enough to encode all inconsistent preferences, but too complex to be
+compactly represented.</p>
+<h2 id="Violating_the_Axioms"><a class="hanchor" href="#Violating_the_Axioms">Violating the Axioms</a></h2>
+<p>Introducing lotteries allows for a large variety of violations of the
+von Neumann-Morgenstern axioms.</p>
+<h3 id="Discontinuity"><a class="hanchor" href="#Discontinuity">Discontinuity</a></h3>
+<p>Discontinuity in relations over lotteries can occur if we know that $l<em>1
+\preceq l</em>2 \preceq l<em>3$, but there is no $p$ so that $l</em>2 \sim [p: l<em>1,
+(1-p): l</em>3]$. A discontinuous preference that fulfills $l<em>1 \preceq
+l</em>2 \preceq l<em>3$ could then state that for every $p \in (0;1]$ it holds
+that $l</em>2 \succ [p: l<em>1, (1-p): l</em>3]$ but $l<em>2 \prec l</em>3$: the lottery
+$l<em>2$ is strictly preferred over any mixture of $l</em>1, l<em>3$, but $l</em>3$ is
+still strictly preferred to $l<em>2$. The equivalent can occur if $l</em>2$ is
+strictly dispreferred to any mixture of $l<em>1, l</em>3$, but strictly
+preferred over $l_1$.</p>
+<p>In humans, this can sometimes be observed as the certainty effect from
+prospect theory [@tversky1981framing], in which subjects systematically
+overrate the value of certain (deterministic) option, which leads to the
+Allais paradox [@allais1953comportement].</p>
+<p>A view under which discontinuities of this type make sense is if an
+agent has a specific aversion to lotteries, irrespective of the options
+they are comprised of (Von Neumann and Morgenstern call the continuity
+axiom "excluding a "utility of gambling"" [@von1947theory 3.7.1], and
+state that "concepts like a "specific utility of gambling" cannot be
+formulated free of contradiction on this level." [ibid.]).</p>
+<h3 id="Dependence"><a class="hanchor" href="#Dependence">Dependence</a></h3>
+<p>Violations of the independence axiom ("dependence") occur if for two
+lotteries $l<em>1, l</em>2$ (with $l<em>1 \preceq l</em>2$) there is an option $l<em>3$
+and a $p \in [0; 1]$ so that $[p: l</em>1, (1-p): l<em>3] \succ [p: l</em>2,
+(1-p): l<em>3]$: Mixing in $l</em>3$ in equal proportion to both $l<em>1, l</em>2$
+causes the preference to switch.</p>
+<p>Together with a strong preference for certainty it is observed in the
+Allais paradox [@allais1953comportement]: In experiments with humans,
+the lottery $A<em>1=[1: $1 \text{mio.}]$ is strictly preferred over the
+lottery $B</em>1=[0.89: $1 \text{mio.}, 0.01: $0, 0.1: $5
+\text{mio.}]$, but the lottery $B<em>2=[0.9: $0, 0.1: $5 \text{mio.}]$ is
+strictly preferred over $A</em>2=[0.89: $0, 0.11: $1 \text{mio.}]$.</p>
+<p>By using the independence axiom, these two preferences can be shown to
+be contradictory. This can be done by first "mixing out" 0.89 of $1mio.
+from $A<em>1$ and $B</em>1$, that is representing $[1: $1 \text{mio.}]$ as
+$[0.89: $1 \text{mio.}, 0.11: $1 \text{mio.}]$ and then (by
+independence) dropping $0.89: $1 \text{mio.}$ from $A<em>1$ and $B</em>1$, and
+then re-normalizing the probabilities so that they sum to 1. One can
+then "mix in" 0.89 of $0 into the two resulting distributions to create
+$A<em>2$ and $B</em>2$, so under the von Neumann-Morgenstern axioms $A<em>1
+\prec B</em>1$ and $B<em>2 \prec A</em>2$ contradict each other.</p>
+<p>$$\begin{aligned}
+&amp; A<em>1 \prec B</em>1 \
+\Leftrightarrow &amp; [1: $1 \text{mio.}] \prec [0.89: $1 \text{mio.}, 0.01: $0, 0.1: $5 \text{mio.}] \
+\Leftrightarrow &amp; [0.89: $1 \text{mio.}, 0.11: $1 \text{mio.}] \prec [0.89: $1 \text{mio.}, 0.01: $0, 0.1: $5 \text{mio.}] \
+\Leftrightarrow &amp; [1: $1 \text{mio.}] \prec [1/11: $0, 10/11: $5 \text{mio.}] \
+\Leftrightarrow &amp; [0.89: $0, 0.11: $1 \text{mio.}] \prec [0.9: $0, 0.1: $5 \text{mio.}] \
+\Leftrightarrow &amp; A<em>2 \prec B</em>2
+\end{aligned}$$</p>
+<h2 id="Representing_Inconsistencies"><a class="hanchor" href="#Representing_Inconsistencies">Representing Inconsistencies</a></h2>
+<p>It is more difficult to find a mathematical structure to represent
+arbitrary inconsistent preferences over lotteries over some set of
+options $\Omega$.</p>
+<h3 id="EdgeWeighted_Graphs"><a class="hanchor" href="#EdgeWeighted_Graphs">Edge-Weighted Graphs</a></h3>
+<p>Given $\Omega$, some inconsistent preferences on lotteries on $\Omega$
+can be represented by the set $\mathfrak{G}<em>{\Omega}$ of edge-weighted
+directed graphs on $\Omega$, where edge weights of a graph $G$ can be
+expressed as the values of a function $w</em>G: \Omega \times \Omega
+\rightarrow \mathbb{R}$.</p>
+<p>::: definition
+#<strong>Definition 12</strong>. The subset
+$\mathfrak{S}<em>{\Omega} \subset \mathfrak{G}</em>{\Omega}$ of consistent
+preferences on $\Omega$ is the set of all edge-weighted directed graphs
+that is <strong>complete</strong>, <strong>transitive</strong>, <strong>irreflexive</strong> and
+<strong>weight-transitive</strong>, where a graph is weight-transitive if for all
+edges $e \in E$ it holds that $w<em>G(\alpha
+\rightarrow \beta)=c</em>1 \land w<em>G(\beta \rightarrow \omega</em>3)=c<em>2
+\Rightarrow w</em>G(\alpha \rightarrow \omega<em>3)=c</em>1+c_2$.
+:::</p>
+<p>An element from $\mathfrak{S}_{\Omega}$ assigns each element from
+$\Omega$ a cardinal value, equivalent to a utility function on $\Omega$.</p>
+<p>Edge-weighted directed graphs on $\Omega$ are not expressive enough to
+represent all relevant inconsistent preferences, though. As a trivial
+example, let $l<em>1=[0.25: \alpha, 0.75: \beta]$ and $l</em>2=[0.75: \alpha,
+0.25: \beta]$ with $l<em>1 \prec l</em>2$, but $l<em>3=[0.3: \alpha, 0.7: \beta],
+l</em>4=[0.7: \alpha, 0.3: \beta]$ with $l<em>3 \succ l</em>4$. The first
+preference implies a positive weight for the edge
+$\alpha \rightarrow \beta$, but the second preference implies a negative
+weight for $\alpha \rightarrow
+\beta$.</p>
+<p>Introducing two positively weighted edges between $\alpha, \beta$
+(creating a two-cycle) is able to represent that such a preference
+between lotteries <em>is</em> present, but it doesn't allow reconstruction of
+which lotteries are preferred over which others: Given a preference of
+$\alpha$ over $\beta$ by $w<em>l$, and of $\beta$ over $\alpha$ by $w</em>r$
+doesn't enable reconstruction of whether $l<em>1 \prec l</em>2$ or
+$l<em>1 \succ l</em>2$.</p>
+<h3 id="Arbitrary_Relations_over_the_Lotteries"><a class="hanchor" href="#Arbitrary_Relations_over_the_Lotteries">Arbitrary Relations over the Lotteries</a></h3>
+<p>As [@von1947theory] uses lotteries on $\Omega$ as the set of options
+over which agents can have preferences, a natural instinct is to use
+arbitrary relations over lotteries on $\Omega$ as the mathematical
+object to represent preferences.</p>
+<p>However, if $\Omega$ has at least one element, such a relation can be
+uncountably large and without compact representation, making it
+impossible to be handled computationally.</p>
+<p>::: example
+#<strong>Example 2</strong>. A pathological example would be a relation
+$\mathcal{R} \in \Delta(\Omega)
+\times \Delta(\Omega)$ on probability distributions of $\Omega={\alpha,
+\beta}$ in which $[p: \alpha, (1-p): \beta] \prec [q: \alpha, (1-q):
+\beta]$ if and only if $p \in [0;1]$ is an uncomputable real number and
+$q \in [0;1]$ is a computable real number.
+:::</p>
+<p>We were also unable to find a method for resolving such inconsistent
+preferences into their consistent versions.</p>
+<h2 id="Algorithms"><a class="hanchor" href="#Algorithms">Algorithms</a></h2>
+<p>After some search, we were able to identify <code>HodgeRank</code> from
+[@jiang2011statistical] as a candidate algorithm for resolving an
+edge-weighted inconsistent graph into an edge-weighted consistent graph.</p>
+<p>Some other possible candidates for methods for resolving inconsistent
+preferences over edge-weighted graphs were considered, and finally
+rejected.</p>
+<p>One option was the <code>PageRank</code> algorithm [@bianchini2005inside], also
+mentioned in Sun et al. [@sun2017breaking]. We rejected PageRank for the
+same reason as Sun et al. [@sun2017breaking] did: In a directed acyclic
+graph, a unique greatest element does not necessarily receive the
+highest ranking. This problem extends to using other centrality measures
+for graphs such as degree centrality and betweenness centrality
+[@zhang2017degree]: In graphs that are already consistent, the greatest
+element usually receives a low centrality score, and elements closer to
+the center receive larger scores, which is counter to our criteria.</p>
+<h3 id="HodgeRank"><a class="hanchor" href="#HodgeRank"><code>HodgeRank</code></a></h3>
+<p><code>HodgeRank</code>, introduced in Jiang et al. [@jiang2011statistical], is an
+algorithm based on Hodge theory from algebraic geometry for decomposing
+a doubly edge-weighted, potentially not fully connected graph
+$G=(\Omega, E, w: E \rightarrow
+\mathbb{R} \cup {\mathtt{nan}}, l: E \rightarrow \mathbb{N}})$ into
+the sum of three different edge weighted graphs:</p>
+<ul>
+<li><p>A gradient graph $G<em>g=(\Omega, E, w</em>g: E \rightarrow \mathbb{R})$,
+in which $w<em>g$ is derived from a potential function that assigns
+consistent values to vertices $\omega \in \Omega$: the potential
+$p: \Omega \rightarrow \mathbb{R}$ of a node has a value so that
+$g(e=(\omega</em>i, \omega<em>j))=p(\omega</em>j)-p(\omega_i)$.</p></li>
+<li><p>A curl graph $G<em>c=(\Omega, E, w</em>c: E \rightarrow \mathbb{R})$, where
+a function $c$ assigns every 3-cycle in the graph a specific value,
+and the value $w_c(e)$ for an edge is the sum of the values $c$
+assigns to all the 3-cycles $e$ is in.</p></li>
+<li><p>A harmonic graph $G<em>h=(\Omega, E, w</em>h: E \rightarrow \mathbb{R})$.</p></li>
+</ul>
+<p>Then $w(e)=w<em>g(e)+R(e)=w</em>g(e)+w<em>c(e)+w</em>h(e)$, where $R$ is a residual.</p>
+<p>[@jiang2011statistical] develop <code>HodgeRank</code> from a social-choice
+theoretic perspective: Given a set of incomplete cardinal ratings
+$\mathcal{C}$ of the type
+$(\mathbb{R} \cup {\mathtt{nan}})^{n \times m}$ by a set
+$V={1, \dots, m}$ of voters on $A={1, \dots, n}$ alternatives, one
+can construct an edge-weighted graph $G<em>{\mathcal{C}}=(\Omega, E, w, l)$
+where the nodes are the options $A$ and each edge weight is some
+combination of the cardinal votes on the options $\omega</em>1, \omega_2$
+that comprise the edge.</p>
+<p>An edge weight can be for example the arithmetic mean</p>
+<p>$$w<em>{\mathcal{C}}(\omega</em>1 \rightarrow \omega<em>2)=\frac{\sum</em>{i=1}^n \mathcal{C}<em>{i, \omega</em>2}-\mathcal{C}<em>{i, \omega</em>1}}{|{n|\mathcal{C}<em>{n, \omega</em>1}, \mathcal{C}<em>{n, \omega</em>2} \text{ both } \not=\mathtt{nan}}|}$$</p>
+<p>though [@jiang2011statistical] also discuss using other methods such as
+the geometric mean or the ratio of preference to dispreference.</p>
+<p>If every voter assigns <code>nan</code> to both $\omega<em>1$ and $\omega</em>2$, there is
+no edge between the two options.</p>
+<p>The function $l: E \rightarrow \mathbb{R}$ denotes the number of voters
+which have a non-<code>nan</code> rating for both nodes in the edge. In the case
+where we do not take the social choice view, we can assume that
+$\forall e \in E: l(e)=1$, which does not change the process of
+computing the output of <code>HodgeRank</code>.</p>
+<p>::: algorithm
+::: algorithmic
+Revert all $e \in E$ with $w(e)&lt;0$ so that they now have positive
+weight. $f \gets (w(e<em>1), \dots, w(e</em>k))$
+$L \gets \text{diag}(l(e<em>1), \dots, l(e</em>k))$ $\text{diag}$ is the
+diagonal matrix of a vector $O \gets \mathbf{0}^{|E| \times |\Omega|}$
+The zero matrix of size $|E| \times |\Omega|$. $O<em>{eu} \gets -1$,
+$O</em>{ev} \gets 1$ $s \gets -(O<sup>{\top}LO)</sup>+O^{\top}Lf$ $A^+$ is the
+Penrose-Moore pseudo-inverse of $A$ $s$
+:::
+:::</p>
+<p>::: remark
+#<strong>Remark 5</strong>. One might ask, under the social choice view, whether it
+makes sense for some voter $v \in V$ to lie about their preferences over
+$A$ in order to change the output of <code>HodgeRank</code> to correspond to their
+own ranking ordinally. In fact this is the case and therefore
+<code>HodgeRank</code> is not strategy-free.</p>
+<p>It is easy to find an example for this: Assume there are three options
+$A={a,b,c}$, and three voters $V={1,2,3}$, and let the cardinal
+values assigned to the options be $u<em>1(a)=4, u</em>1(b)=3, u<em>2(b)=4,
+u</em>2(c)=3, u<em>3(c)=4, u</em>3(a)=3$, with the rest of the values assigned to
+the options being <code>nan</code>. Then the values <code>HodgeRank</code> assigns to the
+options are $h(a)=h(b)=h(c)=0$. But voter 1 can change their reported
+assignments to be $u<em>1'(a)=5, u</em>1'(b)=3, u_1'(c)=1$, changing the
+outputs of <code>HodgeRank</code> to $h'(a)=1, h'(b)=0$ and $h'(c)=-1$, which is
+more compatible with their preferences.</p>
+<p>It would be interesting to investigate the computational complexity of
+finding manipulations of existing preference of one voter to ordinally
+change the output of <code>HodgeRank</code> to more strongly conform to that
+voters' preferences.
+:::</p>
+<p>Besides the disadvantage of allowing for strategic manipulation, the
+decomposition returned by <code>HodgeRank</code> appears to display many desirable
+properties as a method for resolving inconsistent preferences over
+edge-weighted graphs:</p>
+<ul>
+<li><p><strong>Existence</strong>: It always exists.</p></li>
+<li><p><strong>Uniqueness</strong>: This decomposition is unique up to an additive
+constant.</p></li>
+<li><p><strong>Polynomial time computability</strong>: Finding $w<em>g$ is equivalent to
+solving an $|V| \times |V|$ least-squares problem, which can be
+solved in $\mathcal{O}(n^3)$ time, for example by computing the
+Penrose-Moore inverse of a specific matrix. Finding $w</em>h$ and $w_c$
+from $R$ is more computationally intensive, but still polynomial:
+they are equivalent to solving a least-squares problem of size
+${|V| \over 3} \approx \mathcal{O}(n^3)$, and can therefore be found
+in $\mathcal{O}(n^9)$.</p></li>
+<li><p><strong>Robustness to incomplete and cyclic data</strong>: <code>HodgeRank</code> still
+returns a result, even if edges are missing or there are
+positive-valued cycles in the data.</p></li>
+<li><p><strong>Relation to known solution concepts from social choice theory</strong>:
+If $G$ has no missing edges and $w$ is defined for every edge,
+<code>HodgeRank</code> returns an affine transformation of the result that the
+Borda count would return.</p></li>
+</ul>
+<p>In the context of inconsistent preferences, <code>HodgeRank</code> can be
+interpreted as taking the observed preferences of an agent as an
+edge-weighted directed graph, and decomposing it so that the potential
+function $p$ determines how much the agent values different elements in
+$V$. Here $p$ can act as a utility function. The social-choice theoretic
+perspective offers an intriguing possibility of modeling agents as being
+comprised of subagents [@demski2019embedded], [@minsky1988society],
+which we will not pursue further here.</p>
+<h1 id="Applications"><a class="hanchor" href="#Applications">Applications</a></h1>
+<p>Equipped with a notion of how to represent inconsistent preferences and
+how to resolve them, one can examine problems that have come up in other
+contexts and apply the knowledge gained to them. I will examine one of
+those: The problem of changing a preference as the underlying set of
+options changes.</p>
+<h2 id="Ontology_Identification_Ontological_Shifts_and_Ontological_Crises"><a class="hanchor" href="#Ontology_Identification_Ontological_Shifts_and_Ontological_Crises">Ontology Identification, Ontological Shifts and Ontological Crises</a></h2>
+<p>The term "ontological crisis" was introduced in de Blanc and intuitively
+refers to a scenario in which an agent has preferences, defined over
+some world model, and then the world model changes without corresponding
+changes in the values [@de2011ontological].</p>
+<p>An example of this can be observed in human values before and after
+exposure to philosophy: A human might have a value they would formulate
+as "I value the continuation of my life". However, after reading
+[@parfit1984reasons pt. 3], the view of personal identity that justifies
+a notion of "continuation" might seem much less defensible, as thought
+experiments around teleportation, the fusion and fission of persons,
+gradual replacement of the body or atom-by-atom recreation of the body
+all undermine the concept of a single fixed personal identity.</p>
+<p>However, this person would likely not just give up their value of their
+continued existence, but instead attempt to "port it" to the new world
+model.</p>
+<p>Soares and Fallenstein motivate the problem of ontological crises in the
+#context of a problem they call <strong>Ontology Identification</strong>: Given a
+Turing machine using the atomic model of physics, they ask how one can
+identify which parts of the program and the tape represent atoms or
+macroscopic objects, and repeat the question for a Turing machine using
+a quantum-mechanical model of the world [@soares2017agent]. The problem
+is further elaborated on outside of the academic literature in Yuksowky
+et al. [@yudkowsky2016rescuing], [@yudkowsky2016ontology].</p>
+<p>It seems useful to disambiguate some terms that appear in the
+literature, to create clarity about what they mean:</p>
+<ul>
+<li><p><strong>Ontology Identification</strong>: "Given goals specified in some ontology
+and a world model, how can the ontology of the goals be identified
+in the world model? What types of world models are amenable to
+ontology identification?" [@soares2017agent]</p></li>
+<li><p><strong>Ontological Shift</strong>: Given some goals specified in some ontology
+and a world model in which those goals have already been identified,
+an ontological shift occurs if the world model changes but the
+ontology of the goals does not.</p></li>
+<li><p><strong>Ontological Crisis</strong>: An ontological crisis is the <em>result</em> of an
+ontological shift, and the behavior of an agent after an ontological
+crisis could be undefined.</p></li>
+</ul>
+<p>The word "ontology" here is a place-holder for a more rigorously defined
+model, such as Markov Decision Processes (MDPs) or Partially Observable
+Markov Decision Processes (POMDPS).</p>
+<h4 id="Existing_Approaches"><a class="hanchor" href="#Existing_Approaches">Existing Approaches</a></h4>
+<p>De Blanc approaches the problem of ontological crises formally in the
+context of what they call "finite state models" (they neglect to give a
+full definition) [@de2011ontological], and one can refine their problem
+statement and their approach to a solution by stating it in terms of
+Markov decision processes [@russell2010artificial ch. 17.1].</p>
+<p>::: definition
+<strong>Definition 13</strong>. A finite <strong>Markov decision process</strong> (MDP)
+$\mathcal{M}=(S,
+A, P, R, I)$ is a tuple of five elements, where $S$ is a set of states
+(in this case finite, with $n=|S|$), the set $A$ is a set of actions
+(also finite, with $m=|A|$) and
+$P(s, a, s'): S \times A \times S \rightarrow
+[0,1]$ is a function that returns the probability of transitioning from
+$s$ to $s'$ via the action $a$, that is
+$P(s, a, s')=\Pr(s<em>{t+1}=s'|s</em>t=s,
+a_t=a)$. The function $R: S \rightarrow \mathbb{R}$ is a reward function
+that returns a real-numbered value for reaching a certain state<sup id="fnref6"><a href="#fn6" rel="footnote">6</a></sup>, and
+$I: S \rightarrow [0,1]$ is a probability distribution for the states
+that the agent is initially in.
+:::</p>
+<p>Given some ordering of the states $s<em>1, \dots, s</em>n$, the transition
+function $P$ from $\mathcal{M}$ can also be represented as a family of
+right-stochastic matrices $\mathbf{T}(a)$ (the transition matrices), $R$
+can be encoded as a real-numbered vector with size $n$, and $I$ can be
+described as real-numbered vector of size $n$ in which the elements sum
+to 1.</p>
+<p>$$\mathbf{T}(a)=\begin{pmatrix}
+P(s<em>0 | a, s</em>0) &amp; \cdots &amp; P(s<em>0 | a, s</em>n) \cr
+\vdots &amp; \ddots &amp; \vdots \cr
+P(s<em>n | a, s</em>0) &amp; \cdots &amp; P(s<em>n | a, s</em>n) \cr
+\end{pmatrix} \in [0,1]^{n \times n}$$</p>
+<p>$$\mathbf{R}=\begin{pmatrix}
+R(s<em>0) \cr
+\vdots \cr
+R(s</em>n) \cr
+\end{pmatrix} \in \mathbb{R}^n$$</p>
+<p>$$\mathbf{I}=\begin{pmatrix}
+I(s<em>0) \cr
+\vdots \cr
+I(s</em>n) \cr
+\end{pmatrix} \in \mathbb{R}^n$$</p>
+<p>Consider two MDPs $\mathcal{M}<em>1=(S</em>1, A, P<em>1, R</em>1, I<em>1)$ and
+$\mathcal{M}</em>2=(S<em>2, A, P</em>2, R<em>2, I</em>2)$, but with $R<em>2$ being unknown.
+An agent who starts with $\mathcal{M}</em>1$, but who discovers that a
+better model $\mathcal{M}<em>2$ of the environment has a different set of
+states and transition probabilities (however, the set of actions stays
+the same) and thereby now wants to operate in $\mathcal{M}</em>2$ has the
+problem of defining $R_2$.</p>
+<p>::: definition
+<strong>Definition 14</strong>. The method de Blanc uses to find $R<em>2$ is to find two
+linear maps $\phi
+\in \mathbb{R}^{n</em>1 \times n<em>2}$ and $\psi \in \mathbb{R}^{n</em>2 \times
+n<em>1}$ (with sizes $n</em>1=|S<em>1|, n</em>2=|S<em>2$) such that $\phi$ and $\psi$ can
+be used to "translate" between $\mathcal{M}</em>1$ and $\mathcal{M}<em>2$
+[@de2011ontological]. Then, for any $a \in A$, $\phi$ and $\psi$ should
+be selected so that for any $a \in A$, it holds that that $\psi
+\mathbf{T}</em>1(a) \phi$ is approximately equal to $\mathbf{T}<em>2(a)$ (from
+here on out written as $\psi \mathbf{T}</em>1(a) \phi \approx
+\mathbf{T}<em>2(a)$). It should also hold that $\phi \mathbf{T}</em>2(a) \psi
+\approx \mathbf{T}_1(a)$.</p>
+<p>De Blanc doesn't name $\phi, \psi$, but we will call such $\phi, \psi$
+for MDPs a <strong>de Blanc bisimulation</strong>.
+:::</p>
+<p>::: definition
+<strong>Definition 15</strong>. Let
+$\textbf{BisimulationDifference}(\mathcal{M}<em>1, \mathcal{M}</em>2,
+\phi, \psi)$ for two MDPs $\mathcal{M}<em>1, \mathcal{M}</em>2$ and a de Blanc
+bisimulation $\phi, \psi$ be</p>
+<p>$$\begin{aligned}
+\text{BisimulationDifference}(\mathcal{M}<em>1, \mathcal{M}</em>2, \phi, \psi)= &amp;\sum<em>{a \in A} \sum</em>{i=1}^{n<em>1} D</em>{KL}((\mathbf{T}(a)<em>2)</em>{i, *}||(\psi \mathbf{T}(a)<em>1 \phi)</em>{i, *}) + \
+&amp;\sum<em>{a \in A} \sum</em>{j=1}^{n<em>2} D</em>{KL}((\mathbf{T}(a)<em>1)</em>{j, *}||(\phi \mathbf{T}(a)<em>2 \psi)</em>{j, *}) + \
+&amp;D<em>{KL}(I</em>2 || I<em>1^{\top} \phi) + D</em>{KL}(I<em>1 || I</em>2^{\top} \psi)
+\end{aligned}$$
+:::</p>
+<p>$D<em>{KL}((\mathbf{T}(a)</em>2)<em>{i, *}||(\psi \mathbf{T}(a)</em>1 \phi)<em>{i, *})$
+is difference between the $i$th row of the state transition matrix of
+$\mathcal{M}</em>2$ for action $a$ and the $i$th row of the state transition
+matrix of $\mathcal{M}<em>1$ transformed to $\mathcal{M}</em>1$ via $\phi$ and
+$\psi$ into $\mathcal{M}_1$. We compute the Kullback-Leibler divergence
+row-wise because each row is a probability distribution. These
+differences are summed up across all rows and actions.</p>
+<p>We also add the sums over all actions and rows for
+$D<em>{KL}((\mathbf{T}(a)</em>1)<em>{j, *}||(\phi \mathbf{T} (a)</em>2 \psi)_{j, *})$,
+because the Kullback-Leibler divergence is asymmetric.</p>
+<p>Finally, we add the Kullback-Leibler divergences between the initial
+state distributions, again symmetrically.</p>
+<p>::: definition
+<strong>Definition 16</strong>. We call a function that returns a de Blanc
+bisimulation for two MDPs by minimizing the Kullback-Leibler divergence
+between the MDPs <strong>BisimulateShift</strong>.</p>
+<p>$$\begin{aligned}
+\text{BisimulateShift}(\mathcal{M}<em>1, \mathcal{M}</em>2)=\underset{\phi, \psi}{\text{argmin }} \text{BisimulationDifference}(\mathcal{M}<em>1, \mathcal{M}</em>2)
+\end{aligned}$$
+:::</p>
+<p>The matrices $\phi$ and $\psi$ can be found by minising<br/>
+$\text{BisimulationDifference}(\mathcal{M}<em>1, \mathcal{M}</em>2, \phi, \psi)$
+with a hill-climbing algorithm from random initial values, or by
+gradient descent with BisimulationDifference as a loss function.</p>
+<p>De Blanc notes that both products of the matrices $\phi, \psi$ are be
+close to equal to the identity matrix after computing
+BisimulateShift$(\mathcal{M}<em>1, \mathcal{M}</em>2)$, that is $\phi \psi
+\approx \mathbf{1}<em>{n</em>1}$ and $\psi \phi \approx \mathbf{1}<em>{n</em>2}$,
+which implies that mapping from $\mathcal{M}<em>1$ to $\mathcal{M}</em>2$ and
+back loses little information and the state transition probabilities can
+be mapped to each other.</p>
+<p>Given $\phi$ and $\psi$, it is possible to infer $\mathbf{R}<em>2$ using
+$\phi$: It is $\mathbf{R}</em>2=\mathbf{R}_1^{\top} \phi$.</p>
+<h5 id="Advantages"><a class="hanchor" href="#Advantages">Advantages</a></h5>
+<p>There are some advantages to taking this approach for resolving
+ontological crises. One is that it does not presuppose a known mapping
+between $S<em>1$ and $S</em>2$, and can infer the mapping solely from the
+transition behavior of $\mathcal{M}<em>1$ and $\mathcal{M}</em>2$.</p>
+<p>Another advantage is that for an exact solution found by BisumlateShift,
+the expected reward of repeating any action in $\mathcal{M}<em>2$ only
+depends on the expected reward of executing the same action in
+$\mathcal{M}</em>2$ with a linear transformation of the initial state
+distribution.</p>
+<p>::: proposition
+<strong>Proposition 4</strong>. Let $\mathcal{M}<em>1, \mathcal{M}</em>2$ be two MDPs, and
+let $\phi, \psi$ be two matrices found by BisimulateShift, so that
+$\phi \psi=\mathbf{1}<em>{n</em>1}, \psi \phi=\mathbf{1}<em>{n</em>2}$ and $\psi
+\mathbf{T}<em>1(a) \phi=\mathbf{T}</em>2(a)$. For an action $a \in A$, let
+$r<em>2(a, k, \mathbf{i}</em>2)$ be the expected average reward of executing an
+action $a$ for $k \in \mathbb{N}$ times in the MDP $\mathcal{M}<em>2$ with
+an initial state distribution $\mathbf{i}</em>2 \in \mathbb{R}^{n<em>2}$, and
+$r</em>1(a, k, \mathbf{i}<em>1)$ the equivalent for $\mathcal{M}</em>1$ (where
+$\mathbf{i}<em>1 \in \mathbb{R}^{n</em>1}$. In matrix notation the expected
+average reward of executing $a$ for $k$ times in the two MDPs is</p>
+<p>$$r<em>1(a, k, \mathbf{i}</em>1)=\frac{1}{k} \sum<em>{i=1}^{k} \mathbf{R}</em>1^\top \times (\mathbf{T}<em>1(a))^i \times \mathbf{i}</em>1$$</p>
+<p>and</p>
+<p>$$r<em>2(a, k, \mathbf{i}</em>2)=\frac{1}{k} \sum<em>{i=1}^{k} (\mathbf{R}</em>1^{\top} \phi) \times \mathbf{T}<em>2(a)^i \times \mathbf{i}</em>2$$</p>
+<p>Then $r<em>2(a, k, \mathbf{i}</em>2)=r<em>1(a, k, \mathbf{M} \mathbf{i}</em>2)$, where
+$\mathbf{M} \in \mathbb{R}^{n<em>1 \times n</em>1}$ and therefore $\mathbf{M}
+\mathbf{i}_1$ is a linear transformation of the distribution over
+initial states.
+:::</p>
+<p>::: proof
+<em>Proof.</em> $r<em>2(a, k, \mathbf{i}</em>2)$ can be expanded and simplified to</p>
+<p>$$\begin{aligned}
+&amp;r<em>2(a, k, \mathbf{i}</em>2)= \
+&amp;\frac{1}{k} \sum<em>{i=1}^{k} (\mathbf{R}</em>1^{\top} \phi) \times \mathbf{T
+}<em>2(a)^i \times \mathbf{i}</em>2= \
+&amp;\frac{1}{k} \sum<em>{i=1}^{k} (\mathbf{R}</em>1^{\top} \phi) \times (\psi \mathbf{T}<em>1(a) \phi)^i \times (\mathbf{i}</em>2^{\top} \phi)^{\top}= \
+&amp;\frac{1}{k} \sum<em>{i=1}^{k} \mathbf{R}</em>1^{\top} \times \mathbf{T}<em>1(a)^i \phi \times \phi^{\top} \mathbf{i}</em>1= \
+&amp;\frac{1}{k} \sum<em>{i=1}^{k} \mathbf{R}</em>1^{\top} \times \mathbf{T}<em>1(a)^i \times \phi \phi^{\top} \times \mathbf{i}</em>2= \
+&amp; r<em>1(a, k, \phi \phi^{\top} \mathbf{i}</em>2)
+&amp;\frac{1}{k} \sum<em>{i=1}^{k} \mathbf{R}</em>1^{\top} \times \mathbf{T}<em>1(a)^i \times (\mathbf{i}</em>1^{\top} \times \phi \phi<sup>{\top})</sup>{\top} \
+\end{aligned}$$ ◻
+:::</p>
+<p>::: conjecture
+<strong>Conjecture 6</strong>. There exists a linear function $f(x)=ax+b$ so that for
+any $a \in A$, $k \in \mathbb{N}$, it holds that
+$r<em>2(a, k, \mathbf{i}</em>2)=f(r<em>1(a, k, \mathbf{i}</em>1))$.
+:::</p>
+<h5 id="Disadvantages"><a class="hanchor" href="#Disadvantages">Disadvantages</a></h5>
+<p>The approach de Blanc outlines has some limitations. As they remark,
+their setting of what they call "finite state models" is a fairly
+restrictive class of computational models of the environment. Similarly,
+MDPs are also not able to represent some environments, especially ones
+in which observations of states carry uncertainty.</p>
+<p>They also remark that BisimulateShift "is not computationally tractable
+for large ontologies", and their lack of clarity on the exact algorithm
+used (as well as the absence of any formal analysis of their method)
+makes it difficult to judge the computational complexity of the problem.
+It might be fruitful to study the convergence behavior of using
+different optimization procedures for finding $\phi$ and $\psi$ to make
+further statements about the computational complexity of
+BisimulateShift.</p>
+<p>Finally, the setting of a "finite state model" or an MDP can't encode
+certain types of consistent preferences. Let $\mathcal{M}=(S={s, s'},
+A={a<em>1, a</em>2}, I, P, R)$, where $P(s, a<em>1, s')=P(s', a</em>1, s)=P(s, a<em>2,
+s)=P(s', a</em>2, s')=1$ (that is $a<em>1$ causes the agent to switch states,
+and $a</em>2$ is the action where the agent stays in the same state).</p>
+<p>Let now $t<em>1, t</em>2 \in (S \times A)^k \times S$ be two trajectories in
+$\mathcal{M}$, namely $t<em>1=(s, a</em>1, s', a<em>1, s, a</em>2, s)$ and
+$t<em>2=(s, a</em>2, s, a<em>1, s', a</em>1, s)$. Then the cumulative reward of both
+trajectories is the same, no matter the reward function: $R(t<em>1)=R(s,
+a</em>1, s')+R(s', a<em>1, s)+R(s, a</em>2, s)=R(s, a<em>2, s)+R(s, a</em>1, s')+R(s', a<em>1,
+s)=R(t</em>2)$. However, intuitively there should way a way to differently
+value these two trajectories: It should be possible to value be in $s'$
+earlier rather than later.</p>
+<h4 id="Using_Inconsistent_Preferences_to_Represent_Ontological_Crises"><a class="hanchor" href="#Using_Inconsistent_Preferences_to_Represent_Ontological_Crises">Using Inconsistent Preferences to Represent Ontological Crises</a></h4>
+<p>The framework of representing preferences as edge-weighted directed
+graphs on a set $\Omega$ of vertices, and consistent preferences as the
+set of edge-weighted acyclic tournaments on a set of deterministic
+options $\Omega$, can be used to represent ontological shifts.</p>
+<p>::: definition
+<strong>Definition 17</strong>. Given a consistent edge-weighted graph
+$G=(\Omega, E_G, w)$, a <strong>graph-based ontological shift</strong> is a function
+from $\Omega$ to subsets of a new set of options $\Xi$, together with
+coefficients: $s: \Omega \rightarrow \mathcal{P}(\Xi \times [0,1])$,
+where $(\xi, c)
+\in s(\omega)$ means that $\omega \in \Omega$ in the old set of options
+turned out to be $\xi \in \Xi$ to the degree $c$. The larger $c$, the
+more $\omega$ is $\xi$.
+:::</p>
+<p>In this text, I will assume that $\forall \omega \in \Omega: 0 \le
+\sum_{(\xi, c) \in s(\omega)} c \le 1$.</p>
+<p>If the coefficients of the image of $\omega$ sum to 1, that means that
+$\omega$ has been completely "ported over" to $\Xi$. If they sum to less
+than 1, that means that $\omega$ was a (partially) confused concept, if
+the coefficients in the image sum to 0 (or $s(\omega)=\emptyset$), that
+means that $\omega$ was a wholly confused concept and does not actually
+exist. If the sum of the coefficients are $&gt;1$, that means that $\omega$
+turned out to be "more real" than in the old set of options (which we
+exclude as an option here).</p>
+<p>::: definition
+<strong>Definition 18</strong>. Given $G$, the result
+$G^{\star}=(\Xi, E^{\star}, w^{\star}: \Xi \times \Xi \rightarrow \mathbb{R})$
+after a graph-based ontological shift $s$ is an edge-weighted graph.</p>
+<p>The output of the function $t$ is a combination of the weights $w$ of
+$G$ and the coefficients of $s$ (for all $\omega<em>1, \omega</em>2$):</p>
+<p>$$t(\xi<em>1, \xi</em>2, G, s)=\sum<em>{(\omega</em>1, \omega<em>2) \in E} \sum</em>{(\xi<em>1, c</em>1) \in s(\omega<em>1), (\xi</em>2, c<em>2) \in s(\omega</em>2)} c<em>1 \cdot c</em>2 \cdot w(\omega<em>1, \omega</em>2)$$</p>
+<p>Then for all $\xi<em>1, \xi</em>2$ the value of
+$w^{\star}(\xi<em>1, \xi</em>2)=t(\xi<em>1,
+\xi</em>2, G, s)$.
+:::</p>
+<p>::: example
+<strong>Example 3</strong>. Let
+$\Omega={L \text{ (Land animals)}, A \text{ (Air animals)}, W
+\text{ (Water animals)}}$, and the current preference prefer land
+animals over air animals over water animals, that is $E_G={L
+\overset{1}{\rightarrow} A, L \overset{1}{\rightarrow} W, A
+\overset{2}{\rightarrow} W}$.</p>
+<p>Let now $\Xi={M \text{ (Mammals)}, B \text{ (Birds)}, F \text{ (Fish)},
+I \text{ (Insects)}}$ be a set that better represents the available
+options, and let $s$ be</p>
+<p>$$\begin{aligned}
+&amp;s(L)={(M, 0.5), (I, 0.5)} \
+&amp;s(A)={(B, 0.45), (I, 0.45), (M, 0.1)}) \
+&amp;s(W)={(F, 0.9), (M, 0.1)}
+\end{aligned}$$</p>
+<p>That is, land animals turn out to be half mammals, half insects, air
+animals are mostly birds and insects, and few mammals, and water animals
+are mostly fishes, and few mammals.</p>
+<p>(Ignoring, for the sake of simplicity of the example, <em>exocoetidae</em><sup id="fnref7"><a href="#fn7" rel="footnote">7</a></sup>
+and aquatic insects).</p>
+<figure id="fig:animals_example">
+<figure id="fig:animals_1">
+<img src="./img/resolving/animals_1.png"/>
+<figcaption>The initial preference <span class="math inline"><em>G</em></span>, as an edge-weighted
+graph.</figcaption>
+</figure>
+<figure id="fig:animals_2">
+<img src="./img/resolving/animals_2.png"/>
+<figcaption><span class="math inline"><em>G</em><sup>⋆</sup></span>,
+after applying the ontological shift <span class="math inline"><em>s</em></span> and determining the edge weights
+using <span class="math inline"><em>t</em></span>. Positive 3-cycle in
+red.</figcaption>
+</figure>
+<figure id="fig:animals_3">
+<img src="./img/resolving/animals_3.png"/>
+<figcaption><span class="math inline"><em>G</em>′</span> after applying
+a procedure for resolving the inconsistent preference <span class="math inline"><em>G</em><sup>⋆</sup></span>, in this case using
+<code>HodgeRank</code>.</figcaption>
+</figure>
+<figcaption>Undergoing an ontological shift <span class="math inline"><em>s</em></span> and then resolving the ontological
+crisis using <code>HodgeRank</code>. In the right image transitive
+correctly weighted edges are ommitted for readability.</figcaption>
+</figure>
+:::
+
+The procedure for resolving ontological crises by representing them as
+inconsistent preferences can be written as **algorithm**
+[\[alg:graphontocrisis\]](#alg:graphontocrisis){reference-type="ref"
+reference="alg:graphontocrisis"}. The algorithm takes a consistent
+edge-weighted graph $G$, a graph-based ontological shift $s$ mapping
+elements from $\Omega$ to a new set $\Xi$, together with coefficients,
+and a method for resolving inconsistent preferences on edge-weighted
+graphs.
+
+It then creates a new graph $G^{\star}$, mapping all nodes using $s$ and
+creating new edges using the existing weights and coefficients with the
+function $t$ explained above. Finally, $G^{\star}$ is resolved into a
+consistent preference with the method `Resolve` (which may be specified
+externally, e.g. by using `HodgeRank` or dropping the weights and using
+`EGEDmin`).
+
+::: algorithm
+::: algorithmic
+$E^{\star} \gets \emptyset, w^{\star} \gets 0$ $w^{\star}$ is set to 0
+for all possible inputs.
+$w^{\star}(\xi_1, \xi_2) \gets w^{\star}(\xi_1, \xi_2)+c_1 \cdot c_2 \cdot w(\omega_1, \omega_2)$
+$E^{\star} \gets E^{\star} \cup \{(\xi_1, \xi_2)\}$
+$G' \gets \mathtt{Resolve}(G^{\star})$ $G^{\star}$ is the tuple
+$(\Xi, E^{\star}, w^{\star})$. $G'$
+:::
+:::
+
+##### Advantages
+
+An advantage of `ResolveShift` over BisimulateShift is the set of
+preferences that can be represented by $G$ and $G'$. If $\Omega$ is the
+set of all finite sequences of state-action pairs $((S \times A)^k
+\times S)_{k \ge 0}$ then $t_1=(s, a_1, s', a_1, s, a_2, s)$ and
+$t_2=(s,
+a_2, s, a_1, s', a_1, s)$ are two different elements in $\Omega$, and a
+preference of $t_1$ over $t_2$ can be represented e.g. with an edge
+$t_1 \rightarrow t_2$ in $E$.
+
+A further advantage of `ResolveShift` is that it has a polynomial
+runtime complexity of $\mathcal{O}(|E| \cdot m^2)$, which is a subset of
+the functions in $\mathcal{O}(n^2 \cdot m^2)$ (with $n=|\Omega|$, and
+$m=|\Xi|$), unlike BisimulateShift, which offers no such guarantees.
+
+##### Disadvantages
+
+If the dynamics (e.g. the transition function) of the elements of $\Xi$
+are known, then BisimulateShift is able to use this information to
+construct $R_2$. Additionally, if no mapping $s$ from $\Omega$ to $\Xi$
+exists (that is, only $\Omega$ and $\Xi$ are known, but their relations
+are not), then `ResolveShift` is not applicable.
+
+::: definition
+**Definition 19**. Let $f: \mathfrak{G} \rightarrow \mathfrak{S}$ be a
+method for resolving inconsistent preferences represented by
+edge-weighted graphs, and let $s_1, s_2, \dots, s_n$ (with
+$s_i: \Omega_i \rightarrow
+\mathcal{P}(\Omega_{i+1}) \times [0,1]$) be a family of functions
+describing ontological shifts.
+
+Let $g_1, g_2, \dots, g_n$ be a family of functions that return the
+result of `ResolveShift` using the shift function $s_i$ for $g_i$, but
+without executing a resolution procedure:
+$g_i(G_i)=\mathtt{ResolveShift}(G_i, s_i, \text{id})$, where $\text{id}:
+\mathfrak{P}_{\Omega_{i+1}} \rightarrow \mathfrak{P}_{\Omega_{i+1}}$ is
+the identity function.
+
+Let $G_1=(\Omega_1, E_1, w_1)$ be any arbitrary consistent preference on
+$\Omega_1$.
+
+Then $f$ is **distributive over ontological shifts** if and only if
+
+$$(f \circ g_n \circ \dots \circ g_2 \circ g_1)(G_1)=(f\circ g_n \circ f \circ \dots \circ f \circ g_2 \circ f \circ g_1)(G_1)$$
+:::
+
+Intuitively, this condition says that it shouldn't matter whether an
+agent changes their mind on which things exist to have preferences over
+multiple times, and then resolves the resulting preferences into
+consistent ones, *or* resolve their preferences after each time they
+undergo an ontological shift $s_i$.
+
+::: proposition
+**Proposition 5**. `HodgeRank` is not **distributive over ontological
+shifts**.
+:::
+
+::: proof
+*Proof.* It is easy to find examples where `HodgeRank` is not
+**distributive over ontological shifts**.
+
+Let $G_1=(\Omega=\{a, b\}, E=\{(a \overset{1}{\rightarrow} b)\})$. Let
+$s_1(a)=\{(d, 0.28)\}$, $s_1(b)=\{(c, 0.57), (e, 0.43)\}$. And let
+$s_2(c)=\{(f, 0.014)\}$, $s_2(d)=\{\}$, and $s_2(e)=\{(f, 0.34),
+(g, 0.66)\}$.
+
+Then **Figure** [17](#fig:nores_dist_example){reference-type="ref"
+reference="fig:nores_dist_example"} shows applying the two ontological
+shifts $s_1, s_2$, and resolving in the end using `HodgeRank`, and
+**Figure** [21](#fig:res_dist_example){reference-type="ref"
+reference="fig:res_dist_example"} shows applying `HodgeRank` after $s_1$
+and then again after $s_2$. The final graphs have different weights.
+
+<figure id="fig:nores_dist_example">
+<figure id="fig:distr_1">
+<img src="./img/resolving/distr_example_1.png"/>
+<figcaption aria-hidden="true"></figcaption>
+</figure>
+<figure id="fig:distr_2">
+<img src="./img/resolving/distr_example_2.png"/>
+<figcaption aria-hidden="true"></figcaption>
+</figure>
+<figure id="fig:distr_3">
+<img src="./img/resolving/distr_example_3.png"/>
+<figcaption aria-hidden="true"></figcaption>
+</figure>
+<figure id="fig:distr_3">
+<img src="./img/resolving/distr_example_final.png"/>
+<figcaption aria-hidden="true"></figcaption>
+</figure>
+<figcaption>In (a) we have the initial preference <span class="math inline"><em>G</em><sub>1</sub></span>, as an edge-weighted
+graph. (b) shows the unresolved preference <span class="math inline"><em>g</em><sub>1</sub>(<em>G</em><sub>1</sub>)</span>,
+and (c) shows <span class="math inline"><em>g</em><sub>2</sub>(<em>g</em><sub>1</sub>(<em>G</em><sub>1</sub>))</span>,
+which has no edges. As a result, finally resolving <span class="math inline"><em>g</em><sub>2</sub>(<em>g</em><sub>1</sub>(<em>G</em>))</span>
+using <code>HodgeRank</code> results in a graph in which there is
+indifference between the vertices <span class="math inline"><em>f</em></span> and <span class="math inline"><em>g</em></span>.</figcaption>
+</figure>
+<figure id="fig:res_dist_example">
+<figure id="fig:res_distr_1">
+<img src="./img/resolving/distr_example_1.png"/>
+<figcaption aria-hidden="true"></figcaption>
+</figure>
+<figure id="fig:res_distr_2">
+<img src="./img/resolving/distr_example_res_2.png"/>
+<figcaption aria-hidden="true"></figcaption>
+</figure>
+<figure id="fig:res_distr_3">
+<img src="./img/resolving/distr_example_res_3.png"/>
+<figcaption aria-hidden="true"></figcaption>
+</figure>
+<figcaption>(a) again shows the initial preference <span class="math inline"><em>G</em><sub>1</sub></span>. (b) is <span class="math inline"><code>H</code><code>o</code><code>d</code><code>g</code><code>e</code><code>R</code><code>a</code><code>n</code><code>k</code>(<em>g</em><sub>1</sub>(<em>G</em><sub>1</sub>))</span>,
+which has an edge between <span class="math inline"><em>e</em></span>
+and <span class="math inline"><em>c</em></span>, unlike the result of
+just <span class="math inline"><em>g</em><sub>1</sub>(<em>G</em><sub>1</sub>)</span>.
+The final preference shown in (c), <span class="math inline">(<code>H</code><code>o</code><code>d</code><code>g</code><code>e</code><code>R</code><code>a</code><code>n</code><code>k</code>∘<em>g</em><sub>2</sub>∘<code>H</code><code>o</code><code>d</code><code>g</code><code>e</code><code>R</code><code>a</code><code>n</code><code>k</code>∘<em>g</em><sub>1</sub>)(<em>G</em><sub>1</sub>)</span>
+is <em>not</em> indifferent between <span class="math inline"><em>f</em></span> and <span class="math inline"><em>g</em></span>, and slightly prefers <span class="math inline"><em>f</em></span>.</figcaption>
+</figure>
+<p> ◻
+:::</p>
+<p>This example works because $d$ gets "deleted" from the set of options,
+so having all preferences depend on $d$ without resolving the
+incomparability between $c$ and $e$ results in there being no
+preference, while resolving retains a slight preference of $e$ over $c$,
+which remains with $f$ and $g$.</p>
+<p>::: conjecture
+<strong>Conjecture 7</strong>. There is a resolution function $f$ for edge-weighted
+graphs that is <strong>distributive over ontological shifts</strong> in this
+framework.
+:::</p>
+<h2 id="Conclusion"><a class="hanchor" href="#Conclusion">Conclusion</a></h2>
+<p>In this investigation, we have identified the problem of resolving
+preferences that are inconsistent under the von Neumann-Morgenstern
+framework.</p>
+<p>We first examined the restricted case of preferences over deterministic
+options, using directed graphs as an underlying mathematical structure
+to represent inconsistent preferences. We proposed two algorithms:
+<code>EGEDmin</code> and <code>HodgeResolve</code> (based on the <code>HodgeRank</code> algorithm). We
+analyzed both algorithms on several different criteria, with no clear
+winner.</p>
+<p>We also proved that the criteria <strong>Resolution to Polynomially Many
+Preferences</strong> and <strong>Preservation of Consistent Subgraphs</strong> are
+incompatible, as well as <strong>Resolution to Polynomially Many Preferences</strong>
+and <strong>Polynomial Time Complexity</strong>.</p>
+<p>For inconsistent preferences over lotteries, we examined a
+representation using edge-weighted directed graphs. This representation
+is inadequate, as it can not encode all possible inconsistent
+preferences, most notably the violation of independence observed in
+[@allais1953comportement].</p>
+<p>We nevertheless reviewed the <code>HodgeRank</code> algorithm that allows for
+resolving inconsistent edge-weighted directed graphs into utility
+functions, and observe that <code>HodgeRank</code> has several desirable
+properties, and that it also fails to conform to the (hard to fulfill)
+criterion of strategy-freeness from social choice theory.</p>
+<p>We then connected inconsistent preferences to the little-explored issue
+of ontological crises, and offered a new perspective on what to do after
+a change with a set of objects that a preference was defined over,
+opening up many questions we didn't have the time to solve.</p>
+<h3 id="Further_Research"><a class="hanchor" href="#Further_Research">Further Research</a></h3>
+<p>We believe that the topics discussed in this text offer some fruitful
+lines of inquiry into the mathematical structure of wanting.</p>
+<p>On a concrete level we stated several conjectures and questions we were
+not able to prove, but might be relatively easy to answer. Of these,
+<strong>conjecture</strong> <a href="#conj:hodgedom">5</a> on whether <code>HodgeResolve</code> fulfills
+<strong>Preservation of Complete Domination</strong> is most relevant, but
+<strong>conjecture</strong> <a href="#conj:avgconftoinf">1</a> and <strong>conjecture</strong>
+<a href="#conj:egednosubpres">2</a> might also be interesting from
+graph-theoretic perspective.</p>
+<p>Additionally, we only analysed two methods of mapping from directed
+graphs to acyclic tournaments, but are convinced that there are many
+other methods that could be investigated, specifically methods that use
+different methods of evaluating graph similarity or ones that result in
+weak orderings, or methods that are selected to preserve as many
+inclusion-maximal consistent subgraphs as possible.</p>
+<p>Resolving inconsistent graphs could also be approached from a different
+perspective using random walks on the graph, breaking cycles and
+completing edges as they are encountered. An extension of this setup
+could involve two agents: One trying to resolve its preferences through
+a process of breaking cycles as it traverses the graph representing its
+preferences, and an adversary attempting to money-pump the agent. This
+setup also is amenable for an analysis of money-pumping under the light
+of computational complexity: which violations of the von
+Neumann-Morgenstern axioms are computationally easy or hard to find, and
+what is the attack/defense balance between finding and exploiting such
+violations?</p>
+<p>In the context of preferences over lotteries, we are left with no
+satisfactory mathematical structure that we can use: edge-weighted
+graphs are not expressive enough, and arbitrary relations over all
+lotteries too unwieldy. Finding such a structure or finding a method for
+resolving arbitrary relations over lotteries would be helpful for
+further progress. Inspiration could be found in models of human decision
+making from mathematical psychology, such as the Priority Heuristic and
+the Random Utility Model from Gamal [@el2013structural] and the BEAST
+model [@erev2017anomalies], as well as alternatives to the utility
+framework from decision theory, such as risk-weighted utility
+maximization or the Jeffrey-Bolker axioms [@buchak2013risk],
+[@jeffrey2004subjective].</p>
+<p>The problem of ontological crises appears under-researched. As a first
+step, BisimulateShift could be extended to POMDPs, but finding out how
+real-world systems change their internal representations during learning
+could be valuable, with Nandal et al. being a fascinating analysis of
+the toy case of modular addition in neural networks
+[@nanda2023progress]. This question could also be interesting for social
+scientists (discovering how humans manage ontological crises in
+practice) and philosophers.</p>
+<p>We would also like to see further exploration of value-learning
+[@dewey2011learning] of inconsistent preferences, perhaps extending
+Evans et al. to allow for a larger diversity of inconsistent preferences
+[@evans2016learning].</p>
+<h2 id="Acknowledgements"><a class="hanchor" href="#Acknowledgements">Acknowledgements</a></h2>
+<p>This text has been long in the making, and has benefitted from much advice
+and input. I thank Holger Dell for his help and suggestions. I'd also
+like to thank the Crystal Healing Group for their inputs, especially
+Kaarel Hänni for the gentle introduction to Hodge decomposition, and
+Alexander Gietelink-Oldenziel for the hours of talking about decomposing
+irrational preferences into rational ones. I also want to thank Felix
+Harder for help with the impossibility result, and Filip Sondej for his
+surprising ideas in the lottery case.</p>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn1">
+<p>The notation for lotteries is common in social choice theory
+[@gaertner2009primer ch. 8.2]. Some sources would instead write this
+as $p<em>1 \cdot \omega</em>1 + p<em>2 \cdot
+\omega</em>2$ [@von1947theory], but I have decided against it, since no
+addition is actually taking place. <a href="#fnref1" rev="footnote">↩</a></p>
+</li>
+<li id="fn2">
+<p>Unless further specified, in this text it will always be the case
+that the nodes of $G$ are called $\Omega$ and its edges are called
+$E$. <a href="#fnref2" rev="footnote">↩</a></p>
+</li>
+<li id="fn3">
+<p>Sample size too small. <a href="#fnref3" rev="footnote">↩</a></p>
+</li>
+<li id="fn4">
+<p>Without reflexive edges $(\xi, \xi) \in E$. <a href="#fnref4" rev="footnote">↩</a></p>
+</li>
+<li id="fn5">
+<p>This definition allows for there to be graph $G$, a consistent
+subgraph $\mathit{S}<em>G$ of $G$ and resolved weakly consistent graph
+$W=(\Omega,
+E</em>W) \in f(G)$ such that there exist nodes
+$\omega<em>1, \omega</em>2 \in \Omega$ in $\mathit{S}<em>G$ which are not
+<em>strictly</em> ordered in $W$, that is both
+$\omega</em>1 \rightarrow \omega<em>2 \in E</em>W$ and $\omega<em>2 \rightarrow
+\omega</em>1 \in E<em>W$. It is possible to define a stronger criterion,
+<strong>Strict Preservation of Consistent Subgraphs</strong>, which requires that
+for such $\omega</em>1, \omega<em>2$ <em>only</em> the edge $\omega</em>1
+\rightarrow \omega<em>2$ being present in $E</em>W$, but we will not work
+with that definition here. <a href="#fnref5" rev="footnote">↩</a></p>
+</li>
+<li id="fn6">
+<p>Russell and Norvig note that sometimes $R$ takes actions into
+account as well: $R: S \times A \times S \rightarrow \mathbb{R}$
+(with different rewards for transitioning to a state with different
+actions), but also notes that this merely simplifies the description
+of some environments, but doesn't change which environments can be
+described [@russell2010artificial ch. 17]. <a href="#fnref6" rev="footnote">↩</a></p>
+</li>
+<li id="fn7">
+<p>Also known as flying fish. <a href="#fnref7" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>
+</body></html>
