@@ -154,6 +154,11 @@ somewhat unlikely.</p>
 psychologically and physiologically to a degree that they do not desire
 to reproduce, or if people have a strong desire to leave their children
 unmodified (this seems quite likely).</p>
+<h3 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h3>
+<ul>
+<li><a href="https://www.lesswrong.com/posts/5a9Xz3mhYF6c2Zwgn/procrastination-paradoxes-the-good-the-bad-and-the-ugly">Procrastination Paradoxes: the Good, the Bad, and the Ugly (scasper, 2020)</a></li>
+<li><a href="./doc/cs/ai/alignment/agent_foundations/the_procrastination_paradox_yudkowsky_2013.pdf">The Procrastination Paradox (Brief technical note) (Eliezer Yudkowsky, 2013)</a></li>
+</ul>
 <h2 id="Better_Names_for_Things"><a class="hanchor" href="#Better_Names_for_Things">Better Names for Things</a></h2>
 <p>Moved <a href="./language.html#Better_Names_for_Things">here</a>.</p>
 <h2 id="Considerations_on_Cryonics"><a class="hanchor" href="#Considerations_on_Cryonics">Considerations on Cryonics</a></h2>
@@ -714,7 +719,7 @@ I've found spaced repetition to be very useful).</p>
 <li>Action: I put my keys in my pocket</li>
 </ul></li>
 </ol>
-<h3 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h3>
+<h3 id="See_Also_1"><a class="hanchor" href="#See_Also_1">See Also</a></h3>
 <ul>
 <li><a href="https://www.lesswrong.com/users/mathieuroy">Mati Roy</a> asking about <a href="https://www.lesswrong.com/posts/fNr8rZuQM2efqmLSG/what-social-trigger-action-plans-did-you-implement">social</a>, <a href="https://www.lesswrong.com/posts/cejcJT6td43bbAcTk/what-physical-trigger-action-plans-did-you-implement">physical</a> and <a href="https://www.lesswrong.com/posts/NnuXDCfnL9FLvNpuQ/what-cognitive-trigger-action-plans-did-you-implement">cognitive</a> trigger-action plans</li>
 <li><a href="https://web.archive.org/web/20210511005303/https://nunosempere.github.io/rat/list-of-taps.html">Nuño Sempere's list of trigger-action plans</a><!--TODO: write him a mail that he should put it on his current site--></li>
@@ -1757,7 +1762,7 @@ trying to implement the experiment detailed in <a href="https://arbital.com/p/en
 <p><img alt="" src="./img/suspicious/2.jpg"/></p>
 <p><img alt="" src="./img/suspicious/3.jpg"/></p>
 <p><img alt="" src="./img/suspicious/4.jpg"/></p>
-<h3 id="See_Also_1"><a class="hanchor" href="#See_Also_1">See Also</a></h3>
+<h3 id="See_Also_2"><a class="hanchor" href="#See_Also_2">See Also</a></h3>
 <blockquote>
 <p>There could also be a sequence of such steps. As a caricature, imagine
 that first Alex interacts with 3rd graders while being evaluated for
@@ -1816,9 +1821,71 @@ without having to run the program.</p>
 <!--TODO: check with brainfuck-->
 <!--TODO: prove or disprove that this is a metric-->
 <h2 id="FieldSpecific_LowInformation_Priors"><a class="hanchor" href="#FieldSpecific_LowInformation_Priors">Field-Specific Low-Information Priors</a></h2>
-<ul>
+<ol>
 <li><a href="https://www.metaculus.com/questions/1490/which-percentage-of-metaculus-questions-resolving-in-q1-2019-will-resolve-positively/">~</a><a href="https://www.metaculus.com/questions/804/1000th-binary-question-resolution-is-positive/">4</a><a href="https://www.metaculus.com/questions/1475/which-percentage-of-metaculus-questions-resolving-from-october-1st-to-december-31st-2018-inclusive-will-resolve-positively/">0</a><a href="https://rethinkpriorities.org/publications/data-on-forecasting-accuracy-across-different-time-horizons">​%</a> of questions worth asking resolve as true</li>
 <li>One can expect a trait to, on average, have 50% heritability<!--TODO: links?--></li>
+<li>The top 2.5% of global health and policy interventions <a href="https://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/#patterns-in-the-data-overall">are 8-20 times more effective than the mean intervention, and 20-200 times more effective than the median intervention</a>.</li>
+</ol>
+<h2 id="Fat_Tails_Discourage_Compromise"><a class="hanchor" href="#Fat_Tails_Discourage_Compromise">Fat Tails Discourage Compromise</a></h2>
+<p>Say that we have a set of options, such as (for example) <a href="https://en.wikipedia.org/wiki/Wild_animal_welfare">wild animal
+welfare</a> interventions.</p>
+<p>Say also that you have two axes along which you can score those
+interventions: <em>popularity</em> (how much people will like your intervention)
+and <em>effectiveness</em> (how much the intervention actually helps wild
+animals).</p>
+<p>Assume that we (for some reason) can't convert between and compare those
+two properties.</p>
+<p>Should you then pick an intervention that is a compromise on the two
+axes—that is, it scores decently well on both—or should you max out
+on a particular axis?</p>
+<p>One thing you might consider is the distribution of options
+along those two axes: the distribution of interventions can
+<a href="https://en.wikipedia.org/wiki/Normal-distribution">normal</a> on for both
+popularity and effectiveness, or the underlying distribution could be
+<a href="https://en.wikipedia.org/wiki/Lognormal_Distribution">lognormal</a>
+for both axes, or they could be mixed (e.g. normal for popularity,
+and lognormal for effectiveness).</p>
+<p>Intuitively, the distributions seem like they affect the kinds of
+tradeoffs we can make, how could we possibly figure out how?</p>
+<p>…</p>
+<p>…</p>
+<p>…</p>
+<p><img alt="" src="./img/fat_tails/monte_carlo.jpg" title="Text: “you can't use Monte Carlo simulations for everything”. Image of sketch man with sunglasses making finger guns, with the text “that's where you're wrong kiddo” next to him"/></p>
+<p>It turns out that if both properties are normally
+distributed, one gets a fairly large Pareto frontier, with a
+<a href="https://en.wikipedia.org/wiki/Convexity">convex</a> set of options,
+while if the two properties are lognormally distributed, one gets a
+<a href="https://en.wikipedia.org/wiki/Concavity">concave</a> set of options.</p>
+<p><img alt="" src="./img/fat_tails/tails.png"/></p>
+<p>(Code <a href="./code/fat_tails/fat_tails.jl">here</a>.)</p>
+<p>So if we believe that the interventions are normally distributed
+around popularity and effectiveness, we would be justified
+in opting for an intervention that gets us the best of both
+worlds, such as sterilising stray dogs or finding less painful
+<a href="https://en.wikipedia.org/wiki/Rodenticides">rodenticides</a>.</p>
+<p>If we, however, believe that popularity and effectiveness are lognormally
+distributed, we instead want to go in hard on only one of those,
+such as <a href="https://reducing-suffering.org/how-rainforest-beef-production-affects-wild-animal-suffering/">buying brazilian beef that leads to Amazonian rainforest being
+destroyed</a>,
+or writing a book of poetic short stories that detail the harsh life of
+wild animals.</p>
+<p>What if popularity of interventions is normally distributed, but
+effectiveness is lognormally distributed?</p>
+<p><img alt="" src="./img/fat_tails/different.png"/></p>
+<p>In that case you get a pretty large Pareto frontier which almost looks
+linear to me, and it's not clear anymore that one can't get a good
+trade-off between the two options.</p>
+<p>So if you believe that <a href="https://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/">heavy tails dominate with the things you care
+about</a>,
+on multiple dimensions, you might consider taking a <a href="https://en.wikipedia.org/wiki/Barbell_strategy">barbell
+strategy</a> and taking
+one or multiple options that each max out on a particular axis.</p>
+<p>If you have thin tails, however, taking a <a href="https://vitalik.eth.limo/general/2020/11/08/concave.html">concave
+disposition</a>
+towards your available options can give you most of the value you want.</p>
+<h3 id="See_Also_3"><a class="hanchor" href="#See_Also_3">See Also</a></h3>
+<ul>
+<li><a href="https://www.lesswrong.com/posts/XvN2QQpKTuEzgkZHY/being-the-pareto-best-in-the-world">Being the (Pareto) Best in the World (johnswentworth, 2019)</a></li>
 </ul>
 <div class="footnotes">
 <hr/>
