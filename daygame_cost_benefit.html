@@ -426,7 +426,18 @@ approached:</p>
 date_slope, date_intercept, date_ceiling=date_ratio_fit[0]
 </code></pre>
 <p>The Klong code describing the date- and lay- ratios is then as follows:</p>
-<!--TODO-->
+<pre><code>layceil::0.032999999999999995
+layslope::-0.00032469342601662376
+layintercept::1.0921062524727312
+
+layratio::{layceil*1%(1+exp(layintercept+layslope*x))}
+
+dateceil::0.06999999999999999
+dateslope::-0.00032682619283946467
+dateintercept::0.4249112313623176
+
+dateratio::{dateceil*1%(1+exp(dateintercept+dateslope*x))}
+</code></pre>
 <h4 id="Visualizing_the_Data"><a class="hanchor" href="#Visualizing_the_Data">Visualizing the Data</a></h4>
 <ul>
 <li>Green: Roy Walker</li>
@@ -472,34 +483,37 @@ each session, meaning 30-50 per week.</p>
 with 15 minutes for one approach.</p>
 <p>The opportunity cost of daygame is unclear—what would one be doing
 instead? One could dream of daygamers instead cultivating friendships,
-learning languages or instruments and meditating, and while that could
+learning languages or making music or meditating, and while that could
 certainly sometimes be the case, a lot of that time would also be spent
 on mindlessly browsing the internet, watching netflix or doing other
 things that aren't terribly fulfilling or valuable. Economists often
 assume that the opportunity cost of an activity to be the money one
-could have earned with a minimum wage job during that time<!--TODO:
-[citation needed]-->, but that seems to go too far: an additional hour
-spent working might be net negative, even with taking wage into account
-(working hours have diminishing and at some point negative <a href="https://en.wikipedia.org/wiki/Marginal_utility">marginal
-utility</a> because of
-exhaustion).</p>
-<!--TODO: minimum wage in different western countries
-https://en.wikipedia.org/wiki/Minimum_wage-->
-<p>Furthermore, the physical activity while doing daygame is broadly
-good: most people probably don't spend enough time outside walking
-around (reducing <a href="https://en.wikipedia.org/wiki/Vitamin-D">Vitamin D</a>
-deficiency), and interacting with other people.</p>
-<p>On the other hand, it may be that daygame only replaces "productive
-personal time", that the energy exerted in daygame misses in other
-productive activities, while the amount spent on downtime &amp; unfulfilling
-stuff stays constant.</p>
+could have earned during that time, so I'll just go with that.</p>
 <p>The <a href="https://programs.clearerthinking.org/what_is_your_time_really_worth_to_you.html">Clearer Thinking
 tool</a>
-for the value of my time returns 15€/hour:</p>
-<pre><code>oppcost::15
+for the value of my time returns 20€/hour:</p>
+<pre><code>oppcost::20
 </code></pre>
 <p>Daygamers who could earn more with their day job might want to adjust
 this number upwards.</p>
+<h5 id="Skepticism"><a class="hanchor" href="#Skepticism">Skepticism</a></h5>
+<p>I am skeptical that the opportunity cost should be ones wage: an
+additional hour spent working might be net negative, even with taking wage
+into account (working hours have diminishing and at some point negative
+<a href="https://en.wikipedia.org/wiki/Marginal_utility">marginal utility</a>
+because of exhaustion).</p>
+<p>It may be that daygame only replaces <em>productive</em> personal time, that
+the energy exerted in daygame misses in other productive activities,
+while the amount spent on downtime &amp; unfulfilling stuff stays constant.</p>
+<p>But such things are difficult to quantify, so I'll stick with the
+opportunity cost.</p>
+<!--
+TODO: move to "other benefits"
+Furthermore, the physical activity while doing daygame is broadly
+good: most people probably don't spend enough time outside walking
+around (reducing [Vitamin D](https://en.wikipedia.org/wiki/Vitamin-D)
+deficiency), and interacting with other people.
+-->
 <h4 id="Costs_from_Dates"><a class="hanchor" href="#Costs_from_Dates">Costs from Dates</a></h4>
 <p>Dates cost money: both as an opportunity cost and for paying for drinks.</p>
 <h5 id="Opportunity_Cost"><a class="hanchor" href="#Opportunity_Cost">Opportunity Cost</a></h5>
@@ -622,11 +636,12 @@ daygamer sleeps with the same woman 4 times (some women become regulars
 or long-term partners, even if the overwhelming majority is only a
 one-night stand).</p>
 <p>I will also assume that the dimimishing returns on sex with different
-partners are linear. My intuition for this comes from a handwavey
+partners are <a href="https://en.wikipedia.org/wiki/Square-root">radical</a>.</p>
+<p>My intuition is that it should be linear, which stems from the handwavey
 evolutionary argument that men should value additional offspring with
-randomly selected women with a constant marginal return, since
-more diverse offspring from a basically infinite population of mating
-partners result (in expectation) in linearly more grandchildren.</p>
+randomly selected women with a constant marginal return, since more
+diverse offspring from a basically infinite population of mating partners
+result (in expectation) in linearly more grandchildren.</p>
 <!--
 TODO: Function that is first linear and then becomes logarithmic?
 -->
@@ -636,12 +651,14 @@ the same woman carries little <em>evolutionary</em> advantage except perhaps for
 competition with other mens sperm.</p>
 <!--TODO: this is not true? Finding a good match, linear as one drives
 down the probability of not having fathered children, etc-->
-<p>These numbers are only preliminary, informed by reading daygame blogs.</p>
-<p>So we can calculate that the value of seducing one woman is</p>
+<p>So we can calculate that the value of sleeping with one woman is</p>
 <pre><code>    .l("math")
     300*ln(4*e)
 715.888308335967204
 </code></pre>
+<!--TODO: what if we tried to maximize the utility from sleeping with a
+woman some number of times? Especially since sleeping with more beautiful
+women is a higher initial return-->
 <h4 id="A_Sense_of_Pride_and_Accomplishment"><a class="hanchor" href="#A_Sense_of_Pride_and_Accomplishment">A Sense of Pride and Accomplishment</a></h4>
 <p>I will assume that the sense of pride and accomplishment is ~\$400 for
 the first lay. I am making this number up, since I'm lacking any data
@@ -663,7 +680,8 @@ much disappears over time. I'll assume it's logarithmic.</p>
 pride and accomplishment and the expected value from having sex. Note
 that this number is cumulative, as it considers the benefit of all lays
 up for <code>x</code> approaches:</p>
-<pre><code>layvals::{prideval*ln(e*(x+1))*ratio(x)+prostcost*laynum*ratio(x)*x}
+<pre><code>pridevals::{prideval*ln(e*(x+1))*layratio(x)*x}
+layvals::{prostcost*ln(e*laynum)*layratio(x)*x}
 </code></pre>
 <p>This looks like this for up to 10000 approaches:</p>
 <pre><code>.l("./load.kg")
@@ -678,19 +696,20 @@ draw()
 </code></pre>
 <p><img alt="Value of lays for a given number of approaches, cumulatively" src="./img/daygame_cost_benefit/layvals.png" title="Value of lays for a given number of approaches, cumulatively. It is a graph growing approximately by the square root of approaches."/></p>
 <p>The benefit of approaching is then simply the value of the sex:</p>
-<pre><code>benefit::{layvals(x)}
+<pre><code>benefit::{pridevals(x)+layvals(x)}
+benefit::{layvals(x)}
 </code></pre>
 <h3 id="Value"><a class="hanchor" href="#Value">Value</a></h3>
 <p>To now calculate the optimal amount of daygame, one simply calculates
 the difference between cumulative benefit and cumulative cost for all
 possible number of approaches up to the maximum possible number (in this
-case 10000, more than that seems very difficult) and chooses the maximum:</p>
-<pre><code>    maxappr::10000
+case 5000, which is a common number for expert daygamers) and chooses the maximum:</p>
+<pre><code>    maxappr::5000
     vals::{benefit(x)-cost(x)}'!maxappr
     optim::*&gt;vals
-484
+4999
     optimben::vals@*&gt;vals
-969.13165157833204
+435138.941060850614
 </code></pre>
 <p>So one can conclude that 484 approaches are optimal under these
 assumptions, with a value of \$969.13.</p>
@@ -719,9 +738,6 @@ bar(optim;15000+optimben;10000)
 draw()
 </code></pre>
 <p><img alt="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum" src="img/daygame_cost_benefit/complete.png" title="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum"/></p>
-<!--
-### Solving Symbolically
--->
 <h2 id="A_Slightly_More_Complex_Model"><a class="hanchor" href="#A_Slightly_More_Complex_Model">A Slightly More Complex Model</a></h2>
 <p>Of course one might answer that the simple model fails to capture much
 of the subtlety of the situation: Proponents of daygame might mention
@@ -979,4 +995,5 @@ it'd be good to make a Monte-Carlo version of the model using the website
 <h2 id="Appendix_B_A_Slightly_More_Complex_Guesstimate_Model_of_the_Value"><a class="hanchor" href="#Appendix_B_A_Slightly_More_Complex_Guesstimate_Model_of_the_Value">Appendix B: A Slightly More Complex Guesstimate Model of the Value</a></h2>
 <h3 id="Inputs_1"><a class="hanchor" href="#Inputs_1">Inputs</a></h3>
 <h2 id="Appendix_C_Empirically_Checking_the_Assumptions"><a class="hanchor" href="#Appendix_C_Empirically_Checking_the_Assumptions">Appendix C: Empirically Checking the Assumptions</a></h2>
+<h2 id="Appendix_D_Some_Questions_About_the_Value_of_Offspring"><a class="hanchor" href="#Appendix_D_Some_Questions_About_the_Value_of_Offspring">Appendix D: Some Questions About the Value of Offspring</a></h2>
 </body></html>
