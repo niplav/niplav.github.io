@@ -52,16 +52,9 @@ and in the complex case _.</strong></p>
 </blockquote>
 <!--
 Second one: fix costs & other stuff
-Approximate ratio per:
-
-1:200 for the first 500 approaches
-1:100 for 500-1000
-1:50 for 1000-2000
-1:30 for everything afterwards
 
 TODO:
 
-increase opportunity cost
 distinguish opportunity cost and incidental benefits from sunlight,
 light exercise and improvement of social skills
 -->
@@ -205,7 +198,7 @@ still seems to be coherent.</p>
 <li><a href="https://roywalkerdaygame.wordpress.com/2017/10/09/game-over/">July-September</a></li>
 </ul></li>
 <li><a href="https://roywalkerdaygame.wordpress.com/2019/01/09/2018-a-year-of-change/">2018</a></li>
-<li><a href="https://nitter.net/RoyWalkerPUA/status/1183757732551282690">4000 sets</a></li>
+<li><a href="http://nitter.poast.org/RoyWalkerPUA/status/1183757732551282690">4000 sets</a></li>
 <li><a href="https://roywalkerdaygame.wordpress.com/2020/01/07/2019-the-year-of-meh/">2019</a>
 <ul>
 <li><a href="https://roywalkerdaygame.wordpress.com/2019/02/19/ketchup-in-glass-bottles/">January</a></li>
@@ -410,7 +403,6 @@ ratio_fit=spo.curve_fit(shrunk_logistic, approaches, ratios, bounds=([-np.inf, 0
 attractiveness, speed of learning, effort exerted in daygame, logistics
 and much much more.</p>
 <h4 id="Dates"><a class="hanchor" href="#Dates">Dates</a></h4>
-<!--TODO: continue here with estimating the date ratios-->
 <p>I then repeat the same procedure for dates, collecting the date ratio
 data for Walker, Wolfe &amp; Crown:</p>
 <pre><code>rwdate=np.array([[511, 19,], [901, 38,], [977, 38,], [1060, 40,], [1143, 46,], [1216, 48,], [1380, 58,], [1448, 63,], [1557, 64,], [1990, 81,], [2063, 81,], [2130, 84,], [2230, 85,], [2373, 91,], [2540, 97,], [2876, 126,], [3442, 165,], [3567, 170,], [3991, 200,], [4092, 202]])
@@ -608,29 +600,10 @@ of the escort, with prices in the thousands of dollars for particularly
 beautiful women—but realistically I don't expect to data on the beauty
 of women that men sleep with through daygame compared to the beauty
 of escorts.</p>
-<h5 id="Some_Questions"><a class="hanchor" href="#Some_Questions">Some Questions</a></h5>
-<p>A cost-benefit analysis of daygame contains some questions that are not
-obvious to answer:</p>
-<ol>
-<li>If one has sex as the result of daygame, how long does one have sex?</li>
-<li>How often do daygamers sleep with the women they have seduced?</li>
-<li>How strong are the diminishing returns to sex with different partners?
-<ol>
-<li>Or, in more general terms:</li>
-<li>For a male animal, what is the function that describes the marginal value of mating once with a female randomly selected from the fertile population? I have the feeling that I would be able to answer this if I new more population genetics.</li>
-<li>For example, a male animal should be willing to die for the expectation of &gt;2 offspring with a randomly selected female. But the chance of fathering a child with a random woman depends on the time of the woman's period, her age &amp;c.</li>
-<li>One could then take ones life-time discounted estimated earning potential, calculate the expected value over the <a href="https://en.wikipedia.org/wiki/Pregnancy_rate#Pregnancy_rate_for_sexual_intercourse">pregnancy rate for sexual intercourse</a> given the age of the woman and the man, and multiply these together.</li>
-<li>It's unclear to me whether there should be any effect of diminishing returns at all in the number of partners slept with, except perhaps through the fact that the population is not infinitely big and therefore the number of offspring with different partners' genes declines. But given that the world population is in the billions, we might just as well treat it as infinite.</li>
-</ol></li>
-<li>And how strong are the diminishing returns to sex with the same partner?
-<ol>
-<li>This could be investigated in the same way as the question above.</li>
-</ol></li>
-</ol>
-<!--TODO: Is this something?-->
-<hr/>
-<p>I have not found any people discussing this, and there is probably a
-high variance in these numbers depending on the daygamer.</p>
+<p>I have not found any people discussing this and <a href="#Appendix_D_Some_Questions_About_the_Value_of_Offspring">othes
+questions</a>,
+and there is probably a high variance in these numbers depending on
+the daygamer.</p>
 <p>I will assume that one sex session lasts one hour and that the average
 daygamer sleeps with the same woman 4 times (some women become regulars
 or long-term partners, even if the overwhelming majority is only a
@@ -996,4 +969,23 @@ it'd be good to make a Monte-Carlo version of the model using the website
 <h3 id="Inputs_1"><a class="hanchor" href="#Inputs_1">Inputs</a></h3>
 <h2 id="Appendix_C_Empirically_Checking_the_Assumptions"><a class="hanchor" href="#Appendix_C_Empirically_Checking_the_Assumptions">Appendix C: Empirically Checking the Assumptions</a></h2>
 <h2 id="Appendix_D_Some_Questions_About_the_Value_of_Offspring"><a class="hanchor" href="#Appendix_D_Some_Questions_About_the_Value_of_Offspring">Appendix D: Some Questions About the Value of Offspring</a></h2>
+<p>A cost-benefit analysis of daygame contains some questions that are not
+obvious to answer:</p>
+<ol>
+<li>If one has sex as the result of daygame, how long does one have sex?</li>
+<li>How often do daygamers sleep with the women they have seduced?</li>
+<li>How strong are the diminishing returns to sex with different partners?
+<ol>
+<li>Or, in more general terms:</li>
+<li>For a male animal, what is the function that describes the marginal value of mating once with a female randomly selected from the fertile population? I have the feeling that I would be able to answer this if I new more population genetics.</li>
+<li>For example, a male animal should be willing to die for the expectation of &gt;2 offspring with a randomly selected female. But the chance of fathering a child with a random woman depends on the time of the woman's period, her age &amp;c.</li>
+<li>One could then take ones life-time discounted estimated earning potential, calculate the expected value over the <a href="https://en.wikipedia.org/wiki/Pregnancy_rate#Pregnancy_rate_for_sexual_intercourse">pregnancy rate for sexual intercourse</a> given the age of the woman and the man, and multiply these together.</li>
+<li>It's unclear to me whether there should be any effect of diminishing returns at all in the number of partners slept with, except perhaps through the fact that the population is not infinitely big and therefore the number of offspring with different partners' genes declines. But given that the world population is in the billions, we might just as well treat it as infinite.</li>
+</ol></li>
+<li>And how strong are the diminishing returns to sex with the same partner?
+<ol>
+<li>This could be investigated in the same way as the question above.</li>
+</ol></li>
+</ol>
+<!--TODO: Is this something?-->
 </body></html>

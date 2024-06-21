@@ -364,32 +364,36 @@ an edge <code>$\omega_1 \rightarrow \omega_2 \in E$</code> and an edge <code>$\o
 by a directed graph by having the edges <code>$\omega_1 \rightarrow \omega_2,
 \omega_2 \rightarrow \omega_1 \in E$</code>.</p>
 <h3 id="Algorithms_for_Resolving_Inconsistencies"><a class="hanchor" href="#Algorithms_for_Resolving_Inconsistencies">Algorithms for Resolving Inconsistencies</a></h3>
-<p>Any method for resolving inconsistent graphs is a function $f:
-\mathfrak{P}<em>{\Omega} \rightarrow \mathcal{P}(\mathfrak{C}</em>{\Omega})$
+<p>Any method for resolving inconsistent graphs is a function <code>$f:
+\mathfrak{P}_{\Omega} \rightarrow \mathcal{P}(\mathfrak{C}_{\Omega})$</code>
 that maps any inconsistent graph to a set of consistent graphs which
 might contain more than one element since the inconsistent graph might
 not fully determine its consistent counterpart.</p>
 <h4 id="Finding_Consistent_Graphs_with_the_Smallest_GraphEdit_Distance"><a class="hanchor" href="#Finding_Consistent_Graphs_with_the_Smallest_GraphEdit_Distance">Finding Consistent Graphs with the Smallest Graph-Edit Distance</a></h4>
 <p>One potential class of such functions would be ones that minimize a
-"distance" $d: \mathfrak{G}<em>{\Omega} \times \mathfrak{C}</em>{\Omega}
-\rightarrow \mathbb{R}$ between the (possibly inconsistent) graph and
+"distance" <code>$d: \mathfrak{G}_{\Omega} \times \mathfrak{C}_{\Omega}
+\rightarrow \mathbb{R}$</code> between the (possibly inconsistent) graph and
 its consistent counterparts.</p>
-<p>The function $f_m$ would then return</p>
-<p>$$f<em>d(G)=\underset{C \in C</em>{\Omega}}{\text{argmin }} d(C, G)$$</p>
-<p>We propose a candidate for $f<em>d$, which minimizes the edge-graph-edit
-distance between any $G \in \mathfrak{P}</em>{\Omega}$ and the set of
-consistent versions $\mathbf{C} \subseteq \mathfrak{C}_{\Omega}$ of $G$.</p>
+<p>The function <code>$f_m$</code> would then return</p>
+<div>
+    $$f_d(G)=\underset{C \in C_{\Omega}}{\text{argmin }} d(C, G)$$
+</div>
+<p>We propose a candidate for <code>$f_d$</code>, which minimizes the edge-graph-edit
+distance between any <code>$G \in \mathfrak{P}_{\Omega}$</code> and the set of
+consistent versions <code>$\mathbf{C} \subseteq \mathfrak{C}_{\Omega}$</code> of <code>$G$</code>.</p>
 <p>Formally:</p>
-<p>$$f<em>{\text{EGED}}(G)=\underset{C \in C</em>{\Omega}}{\text{argmin }} \text{EGED}(C, G)$$</p>
+<div>
+    $$f_{\text{EGED}}(G)=\underset{C \in C_{\Omega}}{\text{argmin }} \text{EGED}(C, G)$$
+</div>
 <p>where $\text{EGED}(X,Y)$ is the smallest number of edges that need to be
 added or removed from $X$ to create $Y$. The addition or removal of
 vertices is not allowed, since the elements of $\Omega$ can be
 distinguished from one another.</p>
 <p>This function is intuitively appealing: Let
-$G \in \mathfrak{P}<em>{\Omega}$ be a (possibly inconsistent) preference
-over $\Omega$. Then let $\omega</em>1, \omega<em>2 \in \Omega$ be two possible
-outcomes. the existence of an edge $(\omega</em>1, \omega<em>2) \in V</em>P$
-represents that $\omega<em>1$ is preferred over $\omega</em>2$.</p>
+<code>$G \in \mathfrak{P}_{\Omega}$</code> be a (possibly inconsistent) preference
+over <code>$\Omega$</code>. Then let <code>$\omega_1, \omega_2 \in \Omega$</code> be two possible
+outcomes. the existence of an edge <code>$(\omega_1, \omega_2) \in V_P$</code>
+represents that <code>$\omega_1$</code> is preferred over <code>$\omega_2$</code>.</p>
 <p>Then, given $G$, if one desired a consistent version of $G$, one would
 want to give up <em>as few as possible</em> of such rankings of two options.
 One must sometimes give up some of those rankings to achieve von
