@@ -35,11 +35,15 @@ document.addEventListener('DOMContentLoaded', function () {
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2023-04-15, modified: 2024-06-10, language: english, status: notes, importance: 8, confidence: highly likely</em></p>
 <blockquote>
-<p><strong>We consider the problem of resolving preferences that are inconsistent
-under the von Neumann-Morgenstern axioms into consistent preferences. For
-preferences over deterministic options, we model inconsistent preferences
-as directed graphs, and the resolution as selecting acyclic tournaments
-with the same vertices and minimal graph-edit distance, or Hodge
+<p><strong>We consider the problem of resolving preferences
+that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
+axioms</a>
+into consistent preferences. For preferences over
+deterministic options, we model inconsistent preferences
+as directed graphs, and the resolution as selecting acyclic
+<a href="https://en.wikipedia.org/wiki/Tournament_(graph_theory)">tournaments</a>
+with the same vertices and minimal <a href="https://en.wikipedia.org/wiki/Graph_edit_distance">graph-edit
+distance</a>, or Hodge
 decomposition. For preferences over lotteries, we offer two different
 methods for modeling inconsistence and one method for resolving them:
 as edge-weighted weakly connected directed graphs (resolution via Hodge
@@ -400,27 +404,15 @@ One must sometimes give up some of those rankings to achieve von
 Neumann-Morgenstern consistent preferences (for example to break
 cycles), but a high number of deletions or additions of rankings is
 undesirable.</p>
-<p>::: proposition
-<strong>Proposition 1</strong>. For two directed graphs on the same set of vertices,
-$G<em>1=(\Omega, E</em>1),
-G<em>2=(\Omega, E</em>2)$ the edge-graph-edit distance is the same as the size
+<p><strong>Proposition 1</strong>. For two directed graphs on the same set of vertices,
+<code>$G_1=(\Omega, E_1), G_2=(\Omega, E_2)$</code> the edge-graph-edit distance is the same as the size
 of the symmetrical difference of the sets of edges, that is
-$\text{EGED}(G<em>1,
-G</em>2)=|E<em>1 \Delta E</em>2|$.
-:::</p>
-<p>::: proof
-<em>Proof.</em> $\text{EGED}(G<em>1, G</em>2) \le |E<em>1 \Delta E</em>2|$: To generate $G<em>2$
-from $G</em>1$ it is necessary to remove edges from $G<em>1$ not in $G</em>2$, and
-then add edges from $G<em>2$ not in $G</em>1$. These comprise the set $(E<em>1
-\backslash E</em>2) \cup (E<em>2 \backslash E</em>1)$. So the graph-edit distance
-is upper-bounded by the size of the symmetric difference.</p>
-<p>$\text{EGED}(G<em>1, G</em>2) \ge |E<em>1 \Delta E</em>2|$: Assume that $|E<em>1 \Delta
-E</em>2|&lt;\text{EGED}(G<em>1, G</em>2)$. Removing $E^-=E<em>1 \backslash E</em>2$ from
-$G<em>1$ and adding the edges $E^+=E</em>2 \backslash E<em>1$ results in $G</em>2$.
-But then $E^- \uplus E^+$ is already a graph edit that creates $G<em>2$
-from $G</em>1$, so $\text{EGED}(G<em>1, G</em>2)$ can't be a minimal
-edge-graph-edit distance between $G<em>1$ and $G</em>2$. ◻
-:::</p>
+<code>$\text{EGED}(G_1, G_2)=|E_1 \Delta E_2|$</code>.</p>
+<p><em>Proof.</em></p>
+<ol>
+<li><code>$\text{EGED}(G_1, G_2) \le |E_1 \Delta E_2|$</code>: To generate <code>$G_2$</code> from <code>$G_1$</code> it is necessary to remove edges from <code>$G_1$</code> not in <code>$G_2$</code>, and then add edges from <code>$G_2$</code> not in <code>$G_1$</code>. These comprise the set <code>$(E_1 \backslash E_2) \cup (E_2 \backslash E_1)$</code>. So the graph-edit distance is upper-bounded by the size of the symmetric difference.</li>
+<li><code>$\text{EGED}(G_1, G_2) \ge |E_1 \Delta E_2|$</code>: Assume that <code>$|E_1 \Delta E_2|&lt;\text{EGED}(G_1, G_2)$</code>. Removing <code>$E^-=E_1 \backslash E_2$</code> from <code>$G_1$</code> and adding the edges <code>$E^+=E_2 \backslash E_1$</code> results in <code>$G_2$</code>. But then <code>$E^- \uplus E^+$</code> is already a graph edit that creates <code>$G_2$</code> from <code>$G_1$</code>, so <code>$\text{EGED}(G_1, G_2)$</code> can't be a minimal edge-graph-edit distance between <code>$G_1$</code> and <code>$G_2$</code>. ◻</li>
+</ol>
 <p>::: algorithm
 ::: algorithmic
 $m \gets \infty$, $R \gets \emptyset$ $L$ is a consistent graph with
@@ -844,18 +836,84 @@ graphs with $n$ vertices and maximal confusion.</p>
 <p>For some given set of directed graphs $\mathfrak{P}_n$, not all numbers
 between $1$ and $n!$ can be confusions. There are, for example, no
 graphs of size 3 with confusion 4 (or 5).</p>
-<p>::: center
-  $n$   Samples    Average confusion   $|\mathbf{G}<em>{n,1}|$         $|\mathbf{G}</em>{n,1}|/n!$   $|\mathbf{G}_{n, n!}|$   </p>
-<hr/>
-<p>0     1          1                   100% (1)                     1                         $2^0$<br/>
-1     2          1                   100% (2)                     2                         $2^1$<br/>
-2     16         1.5                 50% (8)                      4                         $2^3$<br/>
-3     512        2.625               28.125% (144)                24                        $2^6$<br/>
-4     65536      $\approx$ 4.91      $\approx$ 16.4% (10752)      448                       $2^{10}$<br/>
-5     33554432   $\approx$ 9.43      $\approx$ 9.853% (3306240)   27552                     $2^{15}$<br/>
-6     90927      $\approx$ 18.138    $\approx$ 6.225% (5660)      ?<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>                     ?<br/>
-7     1580       $\approx$ 36.412    $\approx$ 3.608% (57)        ?                         ?<br/>
-:::</p>
+<table>
+<thead>
+<tr>
+<th><code>$n$</code></th>
+<th>Samples</th>
+<th>Average confusion</th>
+<th>$|\mathbf{G}_{n,1}|$</th>
+<th>$|\mathbf{G}_{n,1}|/n!$</th>
+<th>$|\mathbf{G}_{n, n!}|$</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>100% (1)</td>
+<td>1</td>
+<td>$2^0$</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>100% (2)</td>
+<td>2</td>
+<td>$2^1$</td>
+</tr>
+<tr>
+<td>2</td>
+<td>16</td>
+<td>1.5</td>
+<td>50% (8)</td>
+<td>4</td>
+<td>$2^3$</td>
+</tr>
+<tr>
+<td>3</td>
+<td>512</td>
+<td>2.625</td>
+<td>28.125% (144)</td>
+<td>24</td>
+<td>$2^6$</td>
+</tr>
+<tr>
+<td>4</td>
+<td>65536</td>
+<td>$\approx$ 4.91</td>
+<td>$\approx$ 16.4% (10752)</td>
+<td>448</td>
+<td>$2^{10}$</td>
+</tr>
+<tr>
+<td>5</td>
+<td>33554432</td>
+<td>$\approx$ 9.43</td>
+<td>$\approx$ 9.853% (3306240)</td>
+<td>27552</td>
+<td>$2^{15}$</td>
+</tr>
+<tr>
+<td>6</td>
+<td>90927</td>
+<td>$\approx$ 18.138</td>
+<td>$\approx$ 6.225% (5660)</td>
+<td>?<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup></td>
+<td>?</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1580</td>
+<td>$\approx$ 36.412</td>
+<td>$\approx$ 3.608% (57)</td>
+<td>?</td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
 <p>Interestingly, neither $|\mathbf{G}<em>{n,1}|$ nor $|\mathbf{G}</em>{n,1}|/n!$
 are known integer sequences: a search on the OEIS and via SuperSeeker
 [@sloane2003line] yield no matching results.</p>
@@ -1111,12 +1169,12 @@ inclusion-maximal consistent subgraphs are preserved, for the right one
 all but one inclusion-maximal consistent subgraphs are preserved.</p>
 <figure id="fig:hodgeres_counter">
 <figure id="fig:counter2">
-<img src="./hodge_no_preserve.png"/>
+<img src="./img/resolving/hodge_no_preserve.png"/>
 <figcaption><span class="math inline">1 → 2</span> is the only
 consistent subgraph, but it gets reversed.</figcaption>
 </figure>
 <figure id="fig:resolved2">
-<img src="./hodge_some_preserve.png"/>
+<img src="./img/resolving/hodge_some_preserve.png"/>
 <figcaption>Each edge is an inclusion-maximal consistent subgraph, and
 only the edge <span class="math inline">3 → 4</span> gets reversed. 1
 and 2 in the result have the same potential.</figcaption>
@@ -1296,17 +1354,52 @@ creation) with up to 13 nodes.</p>
 <h2 id="Summary"><a class="hanchor" href="#Summary">Summary</a></h2>
 <p>We can now summarize how well the two algorithms fulfill the different
 criteria:</p>
-<p>::: center
-  #<strong>Criterion</strong> <code>EGEDmin</code> <code>HodgeResolve</code></p>
-<hr/>
-<p>Surjectivity<br/>
-Identity<br/>
-Worst-case computational complexity    $NP$-hard   $\mathcal{O}(n^3)$
-  Uniqueness                                         $\sim$
-  Polynomial output size                             $\sim$
-  Preservation of consistent subgraphs<br/>
-Preservation of complete domination                ?
-:::</p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th><code>EGEDmin</code></th>
+<th><code>HodgeResolve</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Surjectivity</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Identity</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Worst-case computational complexity</td>
+<td>$NP$-hard</td>
+<td>$\mathcal{O}(n^3)$</td>
+</tr>
+<tr>
+<td>Uniqueness</td>
+<td></td>
+<td>$\sim$</td>
+</tr>
+<tr>
+<td>Polynomial output size</td>
+<td></td>
+<td>$\sim$</td>
+</tr>
+<tr>
+<td>Preservation of consistent subgraphs</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Preservation of complete domination</td>
+<td></td>
+<td>?</td>
+</tr>
+</tbody>
+</table>
 <h2 id="Impossibilities"><a class="hanchor" href="#Impossibilities">Impossibilities</a></h2>
 <p>Some of the criteria listed in Section 3.3 are incompatible with each
 other.</p>
