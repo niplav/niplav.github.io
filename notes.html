@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-05-22, modified: 2024-05-17, language: english, status: in progress, importance: 3, confidence: other</em></p>
+<p><em>author: niplav, created: 2019-05-22, modified: 2024-06-24, language: english, status: in progress, importance: 3, confidence: other</em></p>
 <blockquote>
 <p><strong>Short texts on different topics.</strong></p>
 </blockquote>
@@ -1887,6 +1887,86 @@ towards your available options can give you most of the value you want.</p>
 <ul>
 <li><a href="https://www.lesswrong.com/posts/XvN2QQpKTuEzgkZHY/being-the-pareto-best-in-the-world">Being the (Pareto) Best in the World (johnswentworth, 2019)</a></li>
 </ul>
+<h2 id="China_Getting_TAI_First_Would_Not_be_Infinitely_Bad"><a class="hanchor" href="#China_Getting_TAI_First_Would_Not_be_Infinitely_Bad">China Getting TAI First Would Not be Infinitely Bad</a></h2>
+<p>A common way for a conversation about pausing transformative AI<!--TODO-->
+goes like this:</p>
+<blockquote>
+<p><strong>Abdullah</strong>: "I think we should pause the development of TAI,
+because if we don't it seems plausible that humanity <a href="https://www.lesswrong.com/posts/pRkFkzwKZ2zfa3R6H/without-specific-countermeasures-the-easiest-path-to">will be disempowered
+by</a>
+by advanced AI systems."<br/>
+<strong>Benjamin</strong>: "Ah, if you use “we” to refer to the United States
+(and other closely allied countries, which probably don't stand a
+chance), then the current geopolitical rival of the US, namely the
+<a href="https://en.wikipedia.org/wiki/People's_Republic_Of_China">PRC</a>, will
+achieve TAI first. That would be bad."<br/>
+<strong>Abdullah</strong>: "I don't see how the US getting TAI <em>first</em> changes anything
+about the fact that we don't know how to align superintelligent AI
+systems—I'd rather not race to be the <em>first</em> person to kill everyone."<br/>
+<strong>Benjamin</strong>: "Ah, so <em>now</em> you're retreating back into your cozy little
+<a href="https://en.wikipedia.org/wiki/Motte-and-bailey_argument">motte</a>: Earlier
+you said that “it seems plausible that humanity will be disempowered“,
+now you're acting like doom and gloom is certain. You don't seem to be
+able to make up your mind about how risky you think the whole enterprise
+is, and I have very concrete geopolitical enemies at my (<a href="https://en.wikipedia.org/wiki/TSMC">semiconductor
+manufacturer's</a>) doorstep that I have to worry about. Come back with
+better arguments."</p>
+</blockquote>
+<p>This dynamic is a bit frustrating. Here's how I'd like Abdullah to respond:</p>
+<blockquote>
+<p><strong>Abdullah</strong>: "You're right. I was insufficiently precise in my statements,
+and I apologize for that. Instead, let us manifest the dream of <a href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">the great
+philosopher</a>:
+<em>Calculemus!</em><br/>
+At a basic level, we want to estimate <em>how much</em> <strong>worse</strong> (or, perhaps,
+<strong>better</strong>) it would be for the United States to completely cede the
+race for TAI to the PRC. I will exclude other countries as contenders
+in the scramble for TAI, since I want to keep this analysis simple, but
+that doesn't mean that I don't think they matter. (Although, honestly,
+the list of serious contenders is pretty short.)
+For this, we have to estimate multiple quantities:</p>
+<ol>
+<li>In worlds in which the US and PRC race for TAI:
+<ol>
+<li>The time until the US/PRC builds TAI.</li>
+<li>The probability of extinction due to TAI, if the US is in the lead.</li>
+<li>The probability of extinction due to TAI, if the PRC is in the lead.</li>
+<li>The value of the worlds in which the US builds aligned TAI first.</li>
+<li>The value of the worlds in which the PRC builds aligned TAI first.</li>
+</ol></li>
+<li>In worlds where the US tries to convince other countries (including the PRC) to not build TAI, potentially including force, and still tries to prevent TAI-induced disempowerment by doing alignment-research and sharing alignment-favoring research results:
+<ol>
+<li>The time until the PRC builds TAI.</li>
+<li>The probability of extinction caused by TAI.</li>
+<li>The value of worlds in which the PRC builds aligned TAI.</li>
+</ol></li>
+<li>The value of worlds where extinction occurs (which I'll fix at 0).</li>
+<li>As a reference point the value of hypothetical worlds in which the US builds TAI first, without any time pressure, for which I'll fix the mean value at 1.</li>
+</ol>
+<p>To properly quantify uncertainty, I'll use the
+<a href="https://en.wikipedia.org/wiki/Monte-Carlo_methods">Monte-Carlo</a>
+<a href="https://forum.effectivealtruism.org/posts/t6FA9kGsJsEQMDExt/what-is-estim%0Aational-programming-squiggle-in-context">estimation</a> library
+<a href="https://github.com/rethinkpriorities/squigglepy">squigglepy</a> (no relation
+to any office supplies or internals of neural networks).<br/>
+We start, as so often, with housekeeping:</p>
+</blockquote>
+<pre><code>import numpy as np
+import squigglepy as sq
+import matplotlib.pyplot as plt
+</code></pre>
+<blockquote>
+<p>As already said, we fix the value of extinction at 0, and the
+value of US-government-hegemon-led TAI at 1. (That is not to say
+that the US-government-hegemon-led TAI future is the <a href="./cs/ai/alignment/cev/coherent_extrapolated_volition_yudkowsky_2004.pdf">best possible TAI
+future</a>,
+or even a good or acceptable one. Technically the only assumption I'm
+making is that these kinds of futures are better than extinction—which
+I'm anxiously uncertain about. But the whole thing is symmetric under
+multiplication with -1, so…)</p>
+</blockquote>
+<pre><code>extinction_val=0
+patient_us_val=1
+</code></pre>
 <div class="footnotes">
 <hr/>
 <ol>
