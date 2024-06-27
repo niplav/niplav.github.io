@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-07-15, modified: 2023-04-14, language: english, status: finished, importance: 6, confidence: certain</em></p>
+<p><em>author: niplav, created: 2022-07-15, modified: 2026-06-27, language: english, status: finished, importance: 6, confidence: certain</em></p>
 <blockquote>
 <p><strong>Iqisa is <a href="https://github.com/niplav/iqisa">a library</a> for handling and comparing forecasting datasets from different platforms.</strong></p>
 </blockquote>
@@ -116,16 +116,14 @@ as polished as it should be. Sorry :-/</p>
 <ul>
 <li>Issues with the time fields
 <ul>
-<li>The native pandas datetime format is too restricted for some time ranges in these datasets, those values might be set to <code>NaT</code>.</li>
 <li>Not all time-related fields have timezone information attached to them.</li>
 </ul></li>
 <li>Some predictions in the dataset have occurred after question resolution. There should be a way to filter those out programmatically.</li>
 <li>The columns of the datasets are not sorted the same way for question DataFrames and forecast DataFrames.</li>
-<li>I fear that despite my best efforts, not all data frome the GJP data has been transferred.</li>
+<li>I fear that despite my best efforts, not all data frome the GJP data has been transferred<sub>20%</sub>.</li>
 <li>The default fields in the Metaculus &amp; PredictionBook data should be <code>NA</code> more often than they are right now.</li>
 <li>The documentation is still <em>slightly</em> spotty, and tests are mostly nonexistent.</li>
 <li>Some variables shouldn't be exposed, but are.</li>
-<li>The code hasn't been updated for the new <a href="https://www.metaculus.com/api2/schema/redoc/">Metaculus API</a></li>
 </ul>
 <h2 id="Feature_Wishlist"><a class="hanchor" href="#Feature_Wishlist">Feature Wishlist</a></h2>
 <ul>

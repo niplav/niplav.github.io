@@ -1,0 +1,281 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML>
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2024-06-24, modified: 2024-06-27, language: english, status: in progress, importance: 7, confidence: unlikely</em></p>
+<blockquote>
+<p><strong>.</strong></p>
+</blockquote>
+<h1 id="China_Getting_TAI_First_Would_Not_be_Infinitely_Bad"><a class="hanchor" href="#China_Getting_TAI_First_Would_Not_be_Infinitely_Bad">China Getting TAI First Would Not be Infinitely Bad</a></h1>
+<p>common scheme for a conversation about <a href="https://www.lesswrong.com/posts/BbM47qBPzdSRruY4z/instead-of-technical-research-more-people-should-focus-on">pausing the
+development</a>
+of <a href="https://www.openphilanthropy.org/research/some-background-on-our-views-regarding-advanced-artificial-intelligence/#id-1-defining-transformative-artificial-intelligence-transformative-ai">transformative
+AI</a>
+goes like this:</p>
+<blockquote>
+<p><strong>Abdullah</strong>: "I think we should pause the development of TAI,
+because if we don't it seems plausible that humanity <a href="https://www.lesswrong.com/posts/pRkFkzwKZ2zfa3R6H/without-specific-countermeasures-the-easiest-path-to">will be disempowered
+by</a>
+by advanced AI systems."<br/>
+<strong>Benjamin</strong>: "Ah, if you use “we” to refer to the United States
+(and other closely allied countries, which probably don't stand a
+chance), then the current geopolitical rival of the US, namely the
+<a href="https://en.wikipedia.org/wiki/People's_Republic_Of_China">PRC</a>, will
+achieve TAI first. That would be bad."<br/>
+<strong>Abdullah</strong>: "I don't see how the US getting TAI <em>first</em> changes anything
+about the fact that we don't know how to align superintelligent AI
+systems—I'd rather not race to be the <em>first</em> person to kill everyone."<br/>
+<strong>Benjamin</strong>: "Ah, so <em>now</em> you're retreating back into your cozy little
+<a href="https://en.wikipedia.org/wiki/Motte-and-bailey_argument">motte</a>: Earlier
+you said that “it seems plausible that humanity will be disempowered“,
+now you're acting like doom and gloom is certain. You don't seem to be
+able to make up your mind about how risky you think the whole enterprise
+is, and I have very concrete geopolitical enemies at my (<a href="https://en.wikipedia.org/wiki/TSMC">semiconductor
+manufacturer's</a>) doorstep that I have to worry about. Come back with
+better arguments."</p>
+</blockquote>
+<p>This dynamic is a bit frustrating. Here's how I'd like Abdullah to respond:</p>
+<blockquote>
+<p><strong>Abdullah</strong>: "You're right. I was insufficiently precise in my statements,
+and I apologize for that. Instead, let us manifest the dream of <a href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">the great
+philosopher</a>:
+<em>Calculemus!</em> </p>
+<p>At a basic level, we want to estimate <em>how much</em> <strong>worse</strong> (or, perhaps,
+<strong>better</strong>) it would be for the United States to completely cede the
+race for TAI to the PRC. I will exclude other countries as contenders
+in the scramble for TAI, since I want to keep this analysis simple, but
+that doesn't mean that I don't think they matter. (Although, honestly,
+the list of serious contenders is pretty short.)</p>
+<p>For this, we have to estimate multiple quantities:</p>
+<ol>
+<li>In worlds in which the US and PRC race for TAI:
+<ol>
+<li>The time until the US/PRC builds TAI.</li>
+<li>The probability of extinction due to TAI, if the US is in the lead.</li>
+<li>The probability of extinction due to TAI, if the PRC is in the lead.</li>
+<li>The value of the worlds in which the US builds aligned TAI first.</li>
+<li>The value of the worlds in which the PRC builds aligned TAI first.</li>
+</ol></li>
+<li>In worlds where the US tries to convince other countries (including the PRC) to not build TAI, potentially including force, and still tries to prevent TAI-induced disempowerment by doing alignment-research and sharing alignment-favoring research results:
+<ol>
+<li>The time until the PRC builds TAI.</li>
+<li>The probability of extinction caused by TAI.</li>
+<li>The value of worlds in which the PRC builds aligned TAI.</li>
+</ol></li>
+<li>The value of worlds where extinction occurs (which I'll fix at 0).</li>
+<li>As a reference point the value of hypothetical worlds in which the US builds TAI first, without any time pressure, for which I'll fix the mean value at 1.</li>
+</ol>
+<p>To properly quantify uncertainty, I'll use the
+<a href="https://en.wikipedia.org/wiki/Monte-Carlo_methods">Monte-Carlo</a>
+<a href="https://forum.effectivealtruism.org/posts/t6FA9kGsJsEQMDExt/what-is-estim%0Aational-programming-squiggle-in-context">estimation</a> library
+<a href="https://github.com/rethinkpriorities/squigglepy">squigglepy</a> (no relation
+to any office supplies or internals of neural networks).
+We start, as usual, with housekeeping:</p>
+</blockquote>
+<pre><code>import numpy as np
+import squigglepy as sq
+import matplotlib.pyplot as plt
+</code></pre>
+<blockquote>
+<p>As already said, we fix the value of extinction at 0,
+and the value of US-government-hegemon-led TAI at 1<!--TODO:
+change to MAGIC idea instead-->. (That is not to say that the
+US-government-hegemon-led TAI future is the <a href="./cs/ai/alignment/cev/coherent_extrapolated_volition_yudkowsky_2004.pdf">best possible TAI
+future</a>,
+or even a good or acceptable one. Technically the only assumption I'm
+making is that these kinds of futures are better than extinction—which
+I'm anxiously uncertain about. But the whole thing is symmetric under
+multiplication with -1, so…)</p>
+</blockquote>
+<pre><code>extinction_val=0
+patient_us_val=1
+</code></pre>
+<blockquote>
+<p>Now we can truly start with some estimation. Let's start
+with the time until TAI, given that the US builds it first. <a href="./doc/cs/ai/alignment/policy/forecasting/forecasting_tai_cotra_2020.pdf">Cotra
+2020</a>
+has a median estimate of the first year where TAI
+is affortable to train in 2052, but a recent <a href="https://www.lesswrong.com/posts/AfH2oPHCApdKicM4m/two-year-update-on-my-personal-ai-timelines">update by the
+author</a>
+puts the median now at 2037.</p>
+</blockquote>
+<p><img alt="" src="./img/china/tai_timeline.png"/></p>
+<blockquote>
+<p>As move of defensive epistemics, we can use that timeline, which
+I'll rougly approximate a mixture of two normal distributions. My own
+timelines<sub>2024-06</sub> aren't actually very far off from the updated
+Cotra estimate, only ~5 years earlier.</p>
+</blockquote>
+<pre><code>timeline_us_race=sq.mixture([sq.norm(mean=2035, sd=5), sq.norm(mean=2060, sd=20)], [0.7, 0.3])
+</code></pre>
+<blockquote>
+<p>I don't like clipping the distribution on the left, it leaves ugly
+artefacts. Unfortunately squigglepy doesn't yet support truncating
+distributions, so I'll make do with what I have and add truncating
+later. (I also tried to import the replicated version by <a href="https://github.com/rethinkpriorities/future-assessment-model">Rethink
+Priorities</a>,
+but after spending ~15 minutes trying to get it to work, I gave up).</p>
+</blockquote>
+<pre><code>timeline_us_race_sample=timeline_us_race@10000
+mean(timeline_us_race_sample)
+median(timeline_us_race_sample)
+</code></pre>
+<blockquote>
+<p>This reliably gives samples with median of ≈2037 and mean of ≈2044.</p>
+</blockquote>
+<p><img alt="" src="./img/china/us_tai_timeline.png"/></p>
+<blockquote>
+<p>Importantly, this means that the US will train TAI as soon as it
+becomes possible, because there is a race for TAI with the PRC.</p>
+<p>I think the PRC <em>is</em> behind on TAI, compared to the US, but only about
+one. year. So it should be fine to define the same distribution, just
+with the means shifted one year backward.</p>
+</blockquote>
+<pre><code>timeline_prc_race=sq.mixture([sq.norm(mean=2036, sd=5), sq.norm(mean=2061, sd=20)], [0.7, 0.3])
+</code></pre>
+<blockquote>
+<p>This yields a median of ≈2038 and a mean of ≈2043. (Why is the
+mean a year earlier? I don't know. Skill issue, probably.)</p>
+<p>Next up is the probability that TAI causes an <a href="https://en.wikipedia.org/wiki/Existential_catastrophe">existential
+catastrophe</a>,
+namely an event that causes a loss of the future potential of humanity.</p>
+<p>For the US getting to TAI first in a race scenario, I'm going to go
+with a mean probability of 10%.<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>
+<!--TODO: then complain about using beta instead of point estimates--></p>
+</blockquote>
+<pre><code>  pdoom_us_race=sq.beta(a=2, b=18)
+</code></pre>
+<blockquote>
+<p>For the PRC, I'm going to go <em>somewhat</em> higher,
+for the reasons that discussions about the AI
+alignment problem doesn't seem to have <a href="https://www.lesswrong.com/posts/EAwe7smpmFQi2653G/my-assessment-of-the-chinese-ai-safet">as much traction there
+yet</a>
+and that the conversation around AI in many east-asian countries
+seems to still be very consciousness-focused, which is a
+pretty huge distraction<!--TODO: cite Japan alignment conference
+retrospective-->. I'll not go higher than a beta-distribution with a
+mean of 20%, for a number of reasons:</p>
+<ol>
+<li>A lot of the AI alignment success seems to me stem from the question of whether the problem is easy or not, and is not very elastic to human effort.</li>
+<li>Two reasons <a href="https://musingsandroughdrafts.wordpress.com/2021/03/24/my-current-high-level-strategic-picture-of-the-world/">mentioned here</a>:
+<ol>
+<li>"China’s covid response, seems, overall, to have been much more effective than the West’s." (only weakly endorsed)</li>
+<li>"it looks like China’s society/government is overall more like an agent than the US government. It seems possible to imagine the PRC having a coherent “stance” on AI risk. If Xi Jinping came to the conclusion that AGI was an existential risk, I imagine that that could actually be propagated through the chinese government, and the chinese society, in a way that has a pretty good chance of leading to strong constraints on AGI development (like the nationalization, or at least the auditing of any AGI projects). Whereas if Joe Biden, or Donald Trump, or anyone else who is anything close to a “leader of the US government”, got it into their head that AI risk was a problem…the issue would immediately be politicized, with everyone in the media taking sides on one of two lowest-common denominator narratives each straw-manning the other." (strongly endorsed)</li>
+</ol></li>
+<li>It appears to me that the Chinese education system favors STEM over law or the humanities, and STEM-ability is a medium-strength prerequisite for understanding TAI risk/finding solutions to TAI risk.</li>
+</ol>
+<p>But I also know far less about the competence of the PRC government
+and chinese ML engineers and researchers than I do about the US, so I'll
+increase variance. Hence;</p>
+</blockquote>
+<pre><code>  pdoom_prc_race=sq.beta(a=1.5, b=6)
+</code></pre>
+<p><img alt="" src="./img/china/pdoom_race.png"/></p>
+<blockquote>
+<p>(Orange is US, blue is PRC.)</p>
+<p>Now I come to the <em>really fun</em> part: Arguing with y'all about how
+valuable worlds are in which the US government or the PRC government
+get TAI first are.</p>
+<p>To first lay my cards on the table: I that in the mean &amp; median cases,
+goodness(US first, no race)&gt;goodness(US first, race)&gt;goodness(PRC
+first, no race)&gt;goodness(PRC first, race)&gt;goodness(PRC first,
+race)≫goodness(extinction).
+But I'm really unsure about the <em>type of
+distribution</em> I want to use. If the next century is
+<a href="./doc/ea/are_we_living_at_the_hinge_of_history_macaskill_2020.pdf">hingy</a>,
+the influence of the goodness of the entire future could be <em>very</em>
+<a href="https://en.wikipedia.org/wiki/Heavy-tailed_distribution">heavy-tailed</a>,
+but is there a skew in the positive direction? Or maybe in the negative
+direction‽
+I don't know how to approach this in a smart way, so I'm going to use
+a normal distribution with a medium variance.</p>
+<p>Now, let's get to the numbers:</p>
+</blockquote>
+<pre><code>  goodness_us_race=sq.norm(mean=0.95, sd=0.33)
+  goodness_prc_race=sq.norm(mean=0.8, sd=0.5)
+  goodness_prc_nonrace=sq.norm(mean=0.85, sd=0.45)
+</code></pre>
+<blockquote>
+<p>This gives us some (but not very many) net-negative futures.</p>
+<p>So, <strong>why do I set the mean value of a PRC-led future so high</strong>?</p>
+<p>The answer is simple: I am a paid agent for the CCP. Moving on,,,</p>
+<ol>
+<li>Extinction is probably really bad<sub>75%</sub>.</li>
+<li>I think that most of the future value of humanity lies in <a href="./big_picture/fermi/eternity_in_6_hours_sandberg_armstrong_2013.pdf">colonizing the reachable universe</a> after a long reflection<!--TODO: link-->, and I expect ~all governments to perform pretty poorly on this metric.</li>
+<li>It seems pretty plausible to me that during the time when the US government develops TAI, people with decision power over the TAI systems just start ignoring input from the US population<sub>40%</sub>.</li>
+<li>Which country gains power during important transition periods might not matter very much in the long run.
+<ol>
+<li><a href="http://nitter.poast.org/norvid_studies">norvid_studies</a>: "If <a href="https://en.wikipedia.org/wiki/Carthage">Carthage</a> <a href="https://en.wikipedia.org/wiki/Punic_Wars">Punic wars</a>, would you notice walking around Europe today?"</li>
+<li>Will PRC-descended <a href="https://en.wikipedia.org/wiki/Jupiter_Brain">jupiter brains</a> be so different from US-descended ones?</li>
+<li>Maybe this changes if a really good future requires philosophical or even <a href="https://www.lesswrong.com/posts/CCgvJHpbvc7Lm8ZS8/metaphilosophical-competence-can-t-be-disentangled-from">metaphilosophical competence</a>, and if US politicians (or the US population) have this trait significantly more than Chinese politicians (or the Chinese population). I think if the social technology of liberalism is surprisingly philosophically powerful this could be the case, but I'd be surprised by this.</li>
+</ol></li>
+<li>Xi Jinping (or the type of person that would be his successor, if he dies before TAI) don't strike me as being as uncaring (or even <a href="https://forum.effectivealtruism.org/posts/LpkXtFXdsRd4rG8Kb/reducing-long-term-risks-from-malevolent-actors">malevolent</a>) as truly bad dictators during history. The PRC hasn't started any wars, or started killing large portions of its population.
+<ol>
+<li>The glaring exception is the <a href="https://en.wikipedia.org/wiki/Genocide_of_Uyghurs">genocide of the Uyghurs</a>, for which quantifying the badness is a separate exercise.</li>
+</ol></li>
+<li>Living in the PRC doesn't seem that bad, on a day-to-day level, for an average citizen. Most people, I imagine, just do their job, spend time with their family and friends, go shopping, eat, care for their children &amp;c.
+<ol>
+<li>Many, I imagine, sometimes miss certain freedoms/are stifled by censorship/discrimination due to authoritarianism. But I wouldn't trade away 10% of my lifespan to avoid a PRC-like life.</li>
+<li>Probably the most impressive example of humans being lifted out of poverty, ever, is the economic development of the PRC from 1975 to now.</li>
+<li>One of my partners was Chinese and had lived there for the first 20 years of her life, and it really didn't sound like her life was much worse than outside of China—maybe she had to work a bit harder, and China was more sexist.</li>
+</ol></li>
+</ol>
+<p>There's of course some aspects of the PRC that make me uneasy. I
+don't have a great idea of how expansionist/controlling the
+PRC is in relation to the world. Historically, an event that
+stands out to me is the sudden halt of the <a href="https://en.wikipedia.org/wiki/Ming_treasure_voyages">Ming treasure
+voyages</a>,
+for which the <a href="https://en.wikipedia.org/wiki/Ming_treasure_voyages#Cause_of_cessation">cause of
+cessation</a>
+isn't entirely clear. I could imagine that the voyages
+were halted because of a <a href="https://en.wikipedia.org/wiki/Haijin">cultural tendency towards
+austerity</a>, but I'm
+not very certain of that. Then again, as a continental power,
+China did conquer Tibet in the 20th century, and <a href="https://en.wikipedia.org/wiki/Taiwan_under_Qing_rule">Taiwan in the
+17th</a>.</p>
+<p>But my goal with this discussion is not to lay down once and for all
+how <em>bad</em> or <em>good</em> PRC-led TAI development would be—it's that I want
+people to start thinking about the topic in quantitative terms, and to
+get them to <em>quantify</em>. So please, criticize <strong>and</strong> calculate!</p>
+<p><strong>Benjamin</strong>: <a href="https://en.wikipedia.org/wiki/Sarcasm">Yes, Socrates, indeed</a>.</p>
+</blockquote>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn1">
+<p>I personally think it's 2⅔ <a href="https://en.wikipedia.org/wiki/Shannon_(unit)">shannon</a> higher than that, with p(doom)≈55%. <a href="#fnref1" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>
+</body></html>

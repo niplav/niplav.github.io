@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-02-08, modified: 2019-11-19, language: english, status: maintenance, importance: 4, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2019-02-08, modified: 2024-06-27, language: english, status: maintenance, importance: 4, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>Imagine getting up every morning and throwing a coin so often that
 heads and tails have come up an equal amount of times. How often
@@ -45,12 +45,12 @@ Code in <a href="http://t3x.org/klong/index.html">Klong</a>.</strong></p>
 <a href="https://en.wikipedia.org/wiki/Expected_value">expected value</a>
 calculation in a countably infinite case:</p>
 <div>
-    $$\mathbb{E}=\sum_{i=1}^{\infty} p_{i}*x_{i}$$
+    $$\mathbb{E}=\sum_{i=1}^{\infty} p_{i} \cdot x_{i}$$
 </div>
 <h2 id="None"><a class="hanchor" href="#None">Finding <code>$x_{i}$</code></a></h2>
-<p>We know that flipping the coin definitely ends when for 2*n coin flips,
+<p>We know that flipping the coin definitely ends when for <code>$2 \cdot n$</code> coin flips,
 we have gotten heads n times and tails n times as well. This gives us
-<code>$x_{i}=2*i$</code>.</p>
+<code>$x_{i}=2 \cdot i$</code>.</p>
 <h2 id="None_1"><a class="hanchor" href="#None_1">Finding <code>$p_{i}$</code></a></h2>
 <p>Finding out <code>$p_{i}$</code> is a bit harder. In order to find it, it is best to look
 at the first iterations of the process.</p>
@@ -113,10 +113,10 @@ finish, so given six coin flips, the chance of finishing is
 <p>Writing down the next step gets messy, but we have already observed
 enough iterations to find a pattern in the sequences.</p>
 <h3 id="Considerations_on_Coin_Flips"><a class="hanchor" href="#Considerations_on_Coin_Flips">Considerations on Coin Flips</a></h3>
-<p>First of all, the number of finishing sequences given 2*n coin flips
+<p>First of all, the number of finishing sequences given <code>$2 \cdot n$</code> coin flips
 is the <a href="https://en.wikipedia.org/wiki/Catalan_number">Catalan number</a>
 Cₙ. In this case, it describes the number of <a href="https://en.wikipedia.org/wiki/Dyck_word">Dyck
-words</a> of the length 2*n. To
+words</a> of the length <code>$2 \cdot n$</code>. To
 quote Wikipedia:</p>
 <blockquote>
 <p>A Dyck word is a string consisting of n X's and n Y's such that no
@@ -125,7 +125,7 @@ initial segment of the string has more Y's than X's.</p>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Wikipedia">Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Dyck_word">“Dyck word”</a>, 2019</em></p>
 <p>This applies exactly to the given problem. A finishing sequence has
 equally many heads and tails, but doesn't begin with a sequence of
-equally many heads and tails. Cₙ is defined as <code>$\frac{1}{n+1}*{2*n \choose n}$</code>.</p>
+equally many heads and tails. Cₙ is defined as <code>$\frac{1}{n+1} \cdot {2 \cdot n \choose n}$</code>.</p>
 <p>Catalan numbers can be easily implemented using the <a href="https://en.wikipedia.org/wiki/Binomial_coefficient">binomial
 coefficient</a>:</p>
 <pre><code>fact::{:[0=x;1;*/1+!x]}
@@ -133,46 +133,46 @@ bincoeff::{[n k];n::x;k::y;fact(n)%(fact(k)*fact(n-k))}
 catalan::{bincoeff(2*x;x)%x+1}
 f::{2*catalan(x)}
 </code></pre>
-<p>We call the number of finishing steps given 2*n coin flips fₙ.</p>
+<p>We call the number of finishing steps given <code>$2\cdot n$</code> coin flips fₙ.</p>
 <p>One can also see that the total number of possible sequences of coin flips
-oₙ after 2*n coin flips is <code>$4*(o_{n-1}-f_{n-1})$</code>, because
+oₙ after <code>$2 \cdot n$</code> coin flips is <code>$4 \cdot (o_{n-1}-f_{n-1})$</code>, because
 one appends <code>H;H</code> or <code>H;T</code> or <code>T;H</code> or <code>T;T</code> to the remaining number of
 sequences. So let oₙ be</p>
 <div>
     $$o_{1}=4\\
-    o_{n}=4*(o_{n-1}-f_{n-1})$$
+    o_{n}=4 \cdot (o_{n-1}-f_{n-1})$$
 </div>
 <p>One can implement <code>$o_{n}$</code> simply:</p>
 <pre><code>o::{:[x=1;4;4*o(x-1)-f(x-1)]}
 </code></pre>
 <p>When one executes <code>o</code> and <code>f</code>, one notices something peculiar: it seems
-that <code>$o_{n}=2*n*f_{n}$</code>.</p>
-<h4 id="None_2"><a class="hanchor" href="#None_2">Proof that <code>$o_{n}=2*n*f_{n}$</code></a></h4>
+that <code>$o_{n}=2 \cdot n \cdot f_{n}$</code>.</p>
+<h4 id="None_2"><a class="hanchor" href="#None_2">Proof that <code>$o_{n}=2 \cdot n \cdot f_{n}$</code></a></h4>
 <p>Induction basis:</p>
 <div>
-    $$o_{1}=2*1*f_{1}\\
-    4=2*1*2$$
+    $$o_{1}=2 \cdot 1 \cdot f_{1}\\
+    4=2 \cdot 1 \cdot 2$$
 </div>
 <p>Induction assumption:</p>
 <div>
-    $$o_{n}=2*n*f_{n}$$
+    $$o_{n}=2 \cdot n \cdot f_{n}$$
 </div>
 <p>Induction step:</p>
 <div>
-    $$o_{n+1}=2*(n+1)*f_{n+1}\\
-    2*(o_{n}-f_{n})=(n+1)*f_{n+1}\\
-    2*(2*n*f_{n}-f_{n})=(n+1)*f_{n+1}\\
-    8*n*C_{n}-4*C_{n}=(n+1)*2*C_{n+1}\\
-    C_{n}*\frac{4*n-2}{n+1}=C_{n+1}$$
+    $$o_{n+1}=2 \cdot (n+1) \cdot f_{n+1}\\
+    2 \cdot (o_{n}-f_{n})=(n+1) \cdot f_{n+1}\\
+    2 \cdot (2 \cdot n \cdot f_{n}-f_{n})=(n+1) \cdot f_{n+1}\\
+    8 \cdot n \cdot C_{n}-4 \cdot C_{n}=(n+1) \cdot 2 \cdot C_{n+1}\\
+    C_{n} \cdot \frac{4 \cdot n-2}{n+1}=C_{n+1}$$
 </div>
 <p>This is equivalent to <a href="https://oeis.org/A000108">a recursive definition</a>
 of the Catalan numbers in the OEIS (sixth formula).</p>
 <!--TODO: This seems a tiny bit fishy: There is probably an offset here
 (first value of the catalan numbers is not used, so the whole sequence
 is shifted). Look at this.-->
-<h3 id="None_3"><a class="hanchor" href="#None_3">Probability of Finishing at <code>$2*n$</code> Steps</a></h3>
+<h3 id="None_3"><a class="hanchor" href="#None_3">Probability of Finishing at <code>$2 \cdot n$</code> Steps</a></h3>
 <p>So, what's the probability of finishing given <code>2*n</code> steps now? Simple:
-it's <code>$\frac{f_{n}}{o_{n}}=\frac{f_n}{2*n*f_{n}}=\frac{1}{2*n}$</code>.</p>
+it's <code>$\frac{f_{n}}{o_{n}}=\frac{f_n}{2 \cdot n \cdot f_{n}}=\frac{1}{2 \cdot n}$</code>.</p>
 <pre><code>pgn::{1%2*x}
 </code></pre>
 <p>Note that this probability is different from finishing at <code>2*n</code> steps:
@@ -185,13 +185,13 @@ happened if we arrived at the last step and did not finish there. We
 define <code>$r_{n}$</code> recursively:</p>
 <div>
     $$r_{0}=1\\
-    r_{n}=r_{n-1}-\frac{1}{2*(n-1)}*r_{n-1}$$
+    r_{n}=r_{n-1}-\frac{1}{2 \cdot (n-1)} \cdot r_{n-1}$$
 </div>
-<p>Now, defining <code>$p_{n}$</code> is simple: <code>$p_{n}=\frac{1}{2*n}*r_{n}$</code>.</p>
+<p>Now, defining <code>$p_{n}$</code> is simple: <code>$p_{n}=\frac{1}{2 \cdot n} \cdot r_{n}$</code>.</p>
 <h2 id="Final_Formula_and_Final_Code"><a class="hanchor" href="#Final_Formula_and_Final_Code">Final Formula and Final Code</a></h2>
 <p>Our final formula for the expected value is thus</p>
 <div>
-    $$\mathbb{E}=\sum_{i=1}^{\infty} \frac{1}{2*i}*r_{i}*2*i$$
+    $$\mathbb{E}=\sum_{i=1}^{\infty} \frac{1}{2 \cdot i} \cdot r_{i} \cdot 2 \cdot i$$
 </div>
 <p>We could implement <code>$r_{n}$</code> very easily:</p>
 <pre><code>r::{r(x-1)-pgn(x-1)*r(x-1)}
@@ -228,7 +228,7 @@ suspicion that the expected value diverges to infinity.</p>
 <p>To prove this, let the <code>$\mathbb{E}_n$</code> for <code>$n \in \mathbb{N}$</code> be the
 expected value if we finish throwing the coin after <code>2*n</code> steps:</p>
 <div>
-    $$\mathbb{E}_n=\sum_{i=1}^{n} \frac{1}{2*i}*r_{i}*2*i$$
+    $$\mathbb{E}_n=\sum_{i=1}^{n} \frac{1}{2 \cdot i} \cdot r_{i} \cdot 2 \cdot i$$
 </div>
 <p>We now want to show that</p>
 <div>
@@ -241,7 +241,7 @@ diverges, we can make a
 and show that <code>$\sum_{i=1}^{n} r_{i}$</code> diverges as well.</p>
 <p>Let <code>$r_{n}$</code> be</p>
 <p><code>$r_{0}=1$</code><br/>
-<code>$r_{n}=r_{n-1}-\frac{1}{2*(n-1)}*r_{n-1}$</code></p>
+<code>$r_{n}=r_{n-1}-\frac{1}{2 \cdot (n-1)} \cdot r_{n-1}$</code></p>
 <h4 id="None_4"><a class="hanchor" href="#None_4">Proof that <code>$r_n \ge \frac{1}{n}$</code></a></h4>
 <p>Proof by induction.</p>
 <p>Induction Basis:</p>
@@ -255,16 +255,16 @@ and show that <code>$\sum_{i=1}^{n} r_{i}$</code> diverges as well.</p>
 <p>Induction Step:</p>
 <div>
     $$r_{n+1} \ge \frac{1}{n+1}\\
-    r_{n}-\frac{1}{2*n}*r_{n} \ge \frac{1}{n+1}\\
-    r_{n}*(1-\frac{1}{2*n}) \ge \frac{1}{n+1}\\
-    r_{n} \ge \frac{1}{(n+1)*(1-\frac{1}{2*n})}\\
-    r_{n} \ge \frac{1}{n+\frac{1}{2}-\frac{1}{2*n}}$$
+    r_{n}-\frac{1}{2 \cdot n} \cdot r_{n} \ge \frac{1}{n+1}\\
+    r_{n} \cdot (1-\frac{1}{2 \cdot n}) \ge \frac{1}{n+1}\\
+    r_{n} \ge \frac{1}{(n+1) \cdot (1-\frac{1}{2 \cdot n})}\\
+    r_{n} \ge \frac{1}{n+\frac{1}{2}-\frac{1}{2 \cdot n}}$$
 </div>
 <p>Inserting the assumption:</p>
 <div>
-    $$r_{n} \ge \frac{1}{n} \ge \frac{1}{n+\frac{1}{2}-\frac{1}{2*n}}\\
-    n+\frac{1}{2}-\frac{1}{2*n} \ge n\\
-    \frac{1}{2} \ge \frac{1}{2*n}\\
+    $$r_{n} \ge \frac{1}{n} \ge \frac{1}{n+\frac{1}{2}-\frac{1}{2 \cdot n}}\\
+    n+\frac{1}{2}-\frac{1}{2 \cdot n} \ge n\\
+    \frac{1}{2} \ge \frac{1}{2 \cdot n}\\
     n \ge 1$$
 </div>
 <p>Since <code>$n \in \mathbb{N}$</code>, we have therefore proven that</p>

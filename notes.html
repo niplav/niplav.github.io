@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-05-22, modified: 2024-06-24, language: english, status: in progress, importance: 3, confidence: other</em></p>
+<p><em>author: niplav, created: 2019-05-22, modified: 2024-06-27, language: english, status: in progress, importance: 3, confidence: other</em></p>
 <blockquote>
 <p><strong>Short texts on different topics.</strong></p>
 </blockquote>
@@ -330,7 +330,7 @@ late life years (considering disability), rising life expectancies,
 suffering inflicted on relatives by the death of many people, and many
 other considerations.</p>
 <h2 id="Some_Thoughts_about_the_Qualia_Research_Institute"><a class="hanchor" href="#Some_Thoughts_about_the_Qualia_Research_Institute">Some Thoughts about the Qualia Research Institute</a></h2>
-<p><em>Epistemic Status</em>: This is almost pure speculation. Do not assign much
+<p><em>Epistemic status</em>: This is almost pure speculation. Do not assign much
 value to it.</p>
 <h3 id="QRI_and_AGI"><a class="hanchor" href="#QRI_and_AGI">QRI and AGI</a></h3>
 <p>Most of the value that QRI creates is going to
@@ -914,9 +914,10 @@ since <code>b</code> is the second argument, I call
 which says that <code>curve_fit</code> should not make the second argument smaller
 than zero, but otherwise can do whatever it wants.</p>
 <p>So far, I've already used this function
-<a href="./range_and_forecasting_accuracy.html#Fitting_a_Logistic_Function">two</a>
-<a href="./range_and_forecasting_accuracy.html#Fitting_an_Exponential_Function">times</a>,
-and I've only known about it for a week! A must for every wannabe
+<a href="./range_and_forecasting_accuracy.html#Fitting_a_Logistic_Function">three</a>
+<a href="./range_and_forecasting_accuracy.html#Fitting_an_Exponential_Function">times</a>
+<a href="./daygame_cost_benefit.html#Estimating_Parameters">already</a>, and
+I've only known about it for a short time! A must for every wannabe
 data-scientist.</p>
 <p>For more information about this amazing function, consult its
 <a href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.optimize.curve_fit.html">documentation</a>.</p>
@@ -1007,8 +1008,8 @@ odds is the geometric mean of odds?</p>
 <ul>
 <li>Examples include snap, DogeCoin, julia</li>
 </ul></li>
-<li>Sinks are weirdly badly designed: Why is the end of the faucet so close to the back end of the sink? Why is it so close to the bottom of the sink? I don't see a good reason why the water shouldn't be directed to the middle of the sink, and the faucet be high up (for ample space for hands).<!--TODO: maybe images here--></li>
-<li>Microwaves and refridgerators have a great deal of controls that I believe ~all people don't use (the only control I use on a microwave is setting the duration, but I could see a reason for the energy dial; refridgerators need at most one dial (for setting the temperature). Why do they persist? Do consumers really (and erroneously) factor the presence of many dials into their purchase decision? Are companies simply falling prey to <a href="https://en.wikipedia.org/wiki/Feature_creep">feature creep</a>, and the cost of those features isn't large enough to make a difference?</li>
+<li>Many sinks are weirdly badly designed: Why is the end of the faucet so close to the back end of the sink? Why is it so close to the bottom of the sink? I don't see a good reason why the water shouldn't be directed to the middle of the sink, and the faucet be high up (for ample space for hands).<!--TODO: maybe images here--></li>
+<li>Microwaves and refrigerators have a great deal of controls that I believe ~nobody uses (the only control I use on a microwave is setting the duration, but I could see a reason for the energy dial; refrigerators need at most one dial (for setting the temperature). Why do they persist? Do consumers really (and erroneously) factor the presence of many dials into their purchase decision? Are companies simply falling prey to <a href="https://en.wikipedia.org/wiki/Feature_creep">feature creep</a>, and the cost of those features isn't large enough to make a difference?</li>
 <li>Some websites mandate specific ways of doing two-factor authentication—sometimes via SMS, sometimes with a custom app, sometimes with Google authenticator… I'd like a unified interface around this where I can just use my Ubikey.
 <ul>
 <li>No longer a pet peeve: Until recently, it was basically impossible to backup Google authenticator.</li>
@@ -1611,8 +1612,8 @@ function generate_growth_rate_array(months::Int)
     current_growth_rate = initial_growth_rate
 
     for i in 1:years
-        growth_rate_array[i] = current_growth_rate
-        current_growth_rate += growth_rate_step
+    growth_rate_array[i] = current_growth_rate
+    current_growth_rate += growth_rate_step
     end
 
     return growth_rate_array
@@ -1647,15 +1648,15 @@ times are 15 years:</p>
 initial_growth_rate=2^(1/(initial_doubling_time*12))
 years=12*ceil(Int, 10+5+2.5+1.25+final_doubling_time)
 economic_growth_rate = generate_growth_rate_array(years)
-    economic_growth_rate=cat(economic_growth_rate, repeat([final_growth_rate], 60*12-size(economic_growth_rate)[1]), dims=1)
+economic_growth_rate=cat(economic_growth_rate, repeat([final_growth_rate], 60*12-size(economic_growth_rate)[1]), dims=1)
 
 capital=collect(1:250000)
-    monthly_spending=1000 # if we really tighten our belts
+monthly_spending=1000 # if we really tighten our belts
 
-    for growth_rate in economic_growth_rate
-            capital=capital.*growth_rate
-            capital=capital.-monthly_spending
-    end
+for growth_rate in economic_growth_rate
+    capital=capital.*growth_rate
+    capital=capital.-monthly_spending
+end
 </code></pre>
 <p>The amount of initially required capital doesn't change by that much:</p>
 <pre><code>julia&gt; findmin(abs.(capital))
@@ -1775,23 +1776,27 @@ learn to “play it safe” by always being honest.</p>
 </blockquote>
 <p><em>—Ajeya Cotra, <a href="https://www.lesswrong.com/posts/pRkFkzwKZ2zfa3R6H/without-specific-countermeasures-the-easiest-path-to">“Without specific countermeasures, the easiest path to transformative AI likely leads to AI takeove”</a>, 2022</em></p>
 <h2 id="Logical_Correlation"><a class="hanchor" href="#Logical_Correlation">Logical Correlation</a></h2>
-<p>In the <a href="https://www.lesswrong.com/tag/psychological-twin-prisoner-s-dilemma">twin prisoners
-dilemma</a>,
+<!--TODO: wentworth post about eding programs as causal diagrams->
+
+In the [twin prisoners
+dilemma](https://www.lesswrong.com/tag/psychological-twin-prisoner-s-dilemma),
 I cooperate because we're the same algorithm. If we modify the twin to
 have a slightly longer right index-finger-nail, I would still cooperate,
 even though we're different algorithms, but little enough has been
 changed about our algorithms that the internal states and the output
-are sufficiently similar.</p>
-<p>But it could be that I'm in a prisoner's dilemma with some program
-<code>$p^{\star}$</code> that, given some inputs, returns the same outputs as I do,
+are sufficiently similar.
+
+But it could be that I'm in a prisoner's dilemma with some program
+`$p^{\star}$` that, given some inputs, returns the same outputs as I do,
 but for completely different "reasons"—that is, the internal states
 are very different, and a slight change in input would cause the output
 to be radically different. Intuitively, my logical correlation with
-<code>$p^{\star}$</code> is pretty small, because even though it gives the same
+`$p^{\star}$` is pretty small, because even though it gives the same
 output, it gives that output for very different reasons, so I don't have
-much control over its outputs by controlling my own computations.</p>
-<p>But we don't yet have a way of estimating the logical correlation between
-different decision algorithms.<!--TODO: cite someone here--></p>
+much control over its outputs by controlling my own computations.
+
+But we don't yet have a way of estimating the logical correlation between
+different decision algorithms.<!--TODO: cite someone here-->
 <p>Thus: Consider proposing the most naïve formula for logical
 correlation<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>.</p>
 <p>Let a program <code>$p$</code> be a tuple of code for a Turing machine, intermediate
@@ -1822,8 +1827,8 @@ without having to run the program.</p>
 <!--TODO: prove or disprove that this is a metric-->
 <h2 id="FieldSpecific_LowInformation_Priors"><a class="hanchor" href="#FieldSpecific_LowInformation_Priors">Field-Specific Low-Information Priors</a></h2>
 <ol>
-<li><a href="https://www.metaculus.com/questions/1490/which-percentage-of-metaculus-questions-resolving-in-q1-2019-will-resolve-positively/">~</a><a href="https://www.metaculus.com/questions/804/1000th-binary-question-resolution-is-positive/">4</a><a href="https://www.metaculus.com/questions/1475/which-percentage-of-metaculus-questions-resolving-from-october-1st-to-december-31st-2018-inclusive-will-resolve-positively/">0</a><a href="https://rethinkpriorities.org/publications/data-on-forecasting-accuracy-across-different-time-horizons">​%</a> of questions worth asking resolve as true</li>
-<li>One can expect a trait to, on average, have 50% heritability<!--TODO: links?--></li>
+<li><a href="https://www.metaculus.com/questions/1490/which-percentage-of-metaculus-questions-resolving-in-q1-2019-will-resolve-positively/">~</a><a href="https://www.metaculus.com/questions/804/1000th-binary-question-resolution-is-positive/">4</a><a href="https://www.metaculus.com/questions/1475/which-percentage-of-metaculus-questions-resolving-from-october-1st-to-december-31st-2018-inclusive-will-resolve-positively/">0</a><a href="https://rethinkpriorities.org/publications/data-on-forecasting-accuracy-across-different-time-horizons">​%</a> of questions worth asking resolve as true.</li>
+<li>Human psychology traits have, on average, 50% heritability<!--TODO: links?-->.</li>
 <li>The top 2.5% of global health and policy interventions <a href="https://80000hours.org/2023/02/how-much-do-solutions-differ-in-effectiveness/#patterns-in-the-data-overall">are 8-20 times more effective than the mean intervention, and 20-200 times more effective than the median intervention</a>.</li>
 </ol>
 <h2 id="Fat_Tails_Discourage_Compromise"><a class="hanchor" href="#Fat_Tails_Discourage_Compromise">Fat Tails Discourage Compromise</a></h2>
@@ -1888,85 +1893,50 @@ towards your available options can give you most of the value you want.</p>
 <li><a href="https://www.lesswrong.com/posts/XvN2QQpKTuEzgkZHY/being-the-pareto-best-in-the-world">Being the (Pareto) Best in the World (johnswentworth, 2019)</a></li>
 </ul>
 <h2 id="China_Getting_TAI_First_Would_Not_be_Infinitely_Bad"><a class="hanchor" href="#China_Getting_TAI_First_Would_Not_be_Infinitely_Bad">China Getting TAI First Would Not be Infinitely Bad</a></h2>
-<p>A common way for a conversation about pausing transformative AI<!--TODO-->
-goes like this:</p>
-<blockquote>
-<p><strong>Abdullah</strong>: "I think we should pause the development of TAI,
-because if we don't it seems plausible that humanity <a href="https://www.lesswrong.com/posts/pRkFkzwKZ2zfa3R6H/without-specific-countermeasures-the-easiest-path-to">will be disempowered
-by</a>
-by advanced AI systems."<br/>
-<strong>Benjamin</strong>: "Ah, if you use “we” to refer to the United States
-(and other closely allied countries, which probably don't stand a
-chance), then the current geopolitical rival of the US, namely the
-<a href="https://en.wikipedia.org/wiki/People's_Republic_Of_China">PRC</a>, will
-achieve TAI first. That would be bad."<br/>
-<strong>Abdullah</strong>: "I don't see how the US getting TAI <em>first</em> changes anything
-about the fact that we don't know how to align superintelligent AI
-systems—I'd rather not race to be the <em>first</em> person to kill everyone."<br/>
-<strong>Benjamin</strong>: "Ah, so <em>now</em> you're retreating back into your cozy little
-<a href="https://en.wikipedia.org/wiki/Motte-and-bailey_argument">motte</a>: Earlier
-you said that “it seems plausible that humanity will be disempowered“,
-now you're acting like doom and gloom is certain. You don't seem to be
-able to make up your mind about how risky you think the whole enterprise
-is, and I have very concrete geopolitical enemies at my (<a href="https://en.wikipedia.org/wiki/TSMC">semiconductor
-manufacturer's</a>) doorstep that I have to worry about. Come back with
-better arguments."</p>
-</blockquote>
-<p>This dynamic is a bit frustrating. Here's how I'd like Abdullah to respond:</p>
-<blockquote>
-<p><strong>Abdullah</strong>: "You're right. I was insufficiently precise in my statements,
-and I apologize for that. Instead, let us manifest the dream of <a href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">the great
-philosopher</a>:
-<em>Calculemus!</em><br/>
-At a basic level, we want to estimate <em>how much</em> <strong>worse</strong> (or, perhaps,
-<strong>better</strong>) it would be for the United States to completely cede the
-race for TAI to the PRC. I will exclude other countries as contenders
-in the scramble for TAI, since I want to keep this analysis simple, but
-that doesn't mean that I don't think they matter. (Although, honestly,
-the list of serious contenders is pretty short.)
-For this, we have to estimate multiple quantities:</p>
-<ol>
-<li>In worlds in which the US and PRC race for TAI:
-<ol>
-<li>The time until the US/PRC builds TAI.</li>
-<li>The probability of extinction due to TAI, if the US is in the lead.</li>
-<li>The probability of extinction due to TAI, if the PRC is in the lead.</li>
-<li>The value of the worlds in which the US builds aligned TAI first.</li>
-<li>The value of the worlds in which the PRC builds aligned TAI first.</li>
-</ol></li>
-<li>In worlds where the US tries to convince other countries (including the PRC) to not build TAI, potentially including force, and still tries to prevent TAI-induced disempowerment by doing alignment-research and sharing alignment-favoring research results:
-<ol>
-<li>The time until the PRC builds TAI.</li>
-<li>The probability of extinction caused by TAI.</li>
-<li>The value of worlds in which the PRC builds aligned TAI.</li>
-</ol></li>
-<li>The value of worlds where extinction occurs (which I'll fix at 0).</li>
-<li>As a reference point the value of hypothetical worlds in which the US builds TAI first, without any time pressure, for which I'll fix the mean value at 1.</li>
-</ol>
-<p>To properly quantify uncertainty, I'll use the
-<a href="https://en.wikipedia.org/wiki/Monte-Carlo_methods">Monte-Carlo</a>
-<a href="https://forum.effectivealtruism.org/posts/t6FA9kGsJsEQMDExt/what-is-estim%0Aational-programming-squiggle-in-context">estimation</a> library
-<a href="https://github.com/rethinkpriorities/squigglepy">squigglepy</a> (no relation
-to any office supplies or internals of neural networks).<br/>
-We start, as so often, with housekeeping:</p>
-</blockquote>
-<pre><code>import numpy as np
-import squigglepy as sq
-import matplotlib.pyplot as plt
+<p>Moved <a href="./china.html">here</a>.</p>
+<h2 id="tSNE_and_UMAP_Dont_Produce_Clusters_on_Random_Data"><a class="hanchor" href="#tSNE_and_UMAP_Dont_Produce_Clusters_on_Random_Data">t-SNE and UMAP Don't Produce Clusters on Random Data</a></h2>
+<p>Every once in a while, my corner of 𝕏
+erupts in discussion about <a href="https://en.wikipedia.org/wiki/Dimensionality_reduction_algorithm">dimensionality reduction
+techniques</a>,
+usually in the context of some paper which visualizes high-dimensional
+data and clearly shows clusters in the visualization. (Often, this has
+to do with discussions about race or gender 🙄)</p>
+<p>A common claim is that dimensionality reduction
+techniques like <a href="https://distill.pub/2016/misread-tsne/">t-SNE</a> or
+<a href="https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction#Uniform_manifold_approximation_and_projection">UMAP</a>
+tend to find clusters in random data, even if they're not <em>really
+present</em>.</p>
+<p>I think this is wrong in the strict
+sense. I'll generate 10k 2k-dimensional <a href="https://en.wikipedia.org/wiki/Normal-distribution">normally
+distributed</a>
+samples, reduce them down to 2 dimensions, and plot the result (code in
+<a href="https://en.wikipedia.org/wiki/Julia_programming_language">julia</a>):</p>
+<pre><code>using TSne, UMAP, Plots
+
+data=rand(10000, 2000)
+
+reduced=tsne(data)
+reduced_umap=umap(transpose(data))
+
+gui(scatter(reduced[:,1],reduced[:,2]))
 </code></pre>
-<blockquote>
-<p>As already said, we fix the value of extinction at 0, and the
-value of US-government-hegemon-led TAI at 1. (That is not to say
-that the US-government-hegemon-led TAI future is the <a href="./cs/ai/alignment/cev/coherent_extrapolated_volition_yudkowsky_2004.pdf">best possible TAI
-future</a>,
-or even a good or acceptable one. Technically the only assumption I'm
-making is that these kinds of futures are better than extinction—which
-I'm anxiously uncertain about. But the whole thing is symmetric under
-multiplication with -1, so…)</p>
-</blockquote>
-<pre><code>extinction_val=0
-patient_us_val=1
+<p><img alt="" src="./img/dimension/tsne_plot.png"/></p>
+<pre><code>gui(scatter(reduced_umap[1,:],reduced_umap[2,:], color=:red))
 </code></pre>
+<p><img alt="" src="./img/dimension/umap_plot.png"/></p>
+<p>Changing the perplexity to 5 doesn't change the clustering produced
+by t-SNE:</p>
+<pre><code>reduced_5=tsne(data, 2, 0, 1000, 5.0)
+gui(scatter(reduced_5[:,1],reduced_5[:,2], color=:green))
+</code></pre>
+<p><img alt="" src="./img/dimension/tsne_5_plot.png"/></p>
+<p>A <a href="https://en.wikipedia.org/wiki/Steelmanning">steelmanned</a> critique
+could be that sometimes people use dimensionality reduction techniques for
+clustering, instead of separating visualization and clustering (such as
+via good ol' <a href="https://en.wikipedia.org/wiki/K-means_Clustering">k-means</a>),
+but t-SNE is <a href="https://en.wikipedia.org/wiki/Clustering_high-dimensional_data#Projection-based_clustering">sometimes used even for
+clustering</a>,
+all my charity is being exhausted at this point.</p>
 <div class="footnotes">
 <hr/>
 <ol>
