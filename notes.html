@@ -1930,6 +1930,12 @@ by t-SNE:</p>
 gui(scatter(reduced_5[:,1],reduced_5[:,2], color=:green))
 </code></pre>
 <p><img alt="" src="./img/dimension/tsne_5_plot.png"/></p>
+<p>But—what if we have <em>more</em> dimensions than datapoints? Surely it
+hallucinates structure in that case‼</p>
+<pre><code>reduced_moredims=tsne(transpose(data)) # 2k 10k-dimensional datapoints
+gui(scatter(reduced_moredims[:,1],reduced_moredims[:,2]))
+</code></pre>
+<p><img alt="" src="./img/dimension/tsne_moredims.png"/></p>
 <p>A <a href="https://en.wikipedia.org/wiki/Steelmanning">steelmanned</a> critique
 could be that sometimes people use dimensionality reduction techniques for
 clustering, instead of separating visualization and clustering (such as
