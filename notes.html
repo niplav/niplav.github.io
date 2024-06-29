@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-05-22, modified: 2024-06-27, language: english, status: in progress, importance: 3, confidence: other</em></p>
+<p><em>author: niplav, created: 2019-05-22, modified: 2024-06-28, language: english, status: in progress, importance: 3, confidence: other</em></p>
 <blockquote>
 <p><strong>Short texts on different topics.</strong></p>
 </blockquote>
@@ -1901,7 +1901,7 @@ techniques</a>,
 usually in the context of some paper which visualizes high-dimensional
 data and clearly shows clusters in the visualization. (Often, this has
 to do with discussions about race or gender 🙄)</p>
-<p>A common claim is that dimensionality reduction
+<p>A common claim in those discussions is that dimensionality reduction
 techniques like <a href="https://distill.pub/2016/misread-tsne/">t-SNE</a> or
 <a href="https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction#Uniform_manifold_approximation_and_projection">UMAP</a>
 tend to find clusters in random data, even if they're not <em>really
@@ -1936,6 +1936,8 @@ hallucinates structure in that case‼</p>
 gui(scatter(reduced_moredims[:,1],reduced_moredims[:,2]))
 </code></pre>
 <p><img alt="" src="./img/dimension/tsne_moredims.png"/></p>
+<p>And the same for UMAP:</p>
+<p><img alt="" src="./img/dimension/umap_moredims.png"/></p>
 <p>A <a href="https://en.wikipedia.org/wiki/Steelmanning">steelmanned</a> critique
 could be that sometimes people use dimensionality reduction techniques for
 clustering, instead of separating visualization and clustering (such as
