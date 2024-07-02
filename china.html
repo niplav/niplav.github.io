@@ -33,12 +33,17 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2024-06-24, modified: 2024-06-27, language: english, status: in progress, importance: 7, confidence: unlikely</em></p>
+<p><em>author: niplav, created: 2024-06-24, modified: 2024-06-27, language: english, status: finished, importance: 9, confidence: unlikely</em></p>
 <blockquote>
-<p><strong>.</strong></p>
+<p><strong>Frustrated by all your bad takes, I write a Monte-Carlo analysis
+of whether a transformative-AI-race between the PRC and the USA
+would be good. To my surprise, I find that it is <em>better</em> than not
+racing. Advocating for an international project to build TAI instead of
+racing turns out to be good if the probability of such advocacy succeeding
+is non-negligible.</strong></p>
 </blockquote>
 <h1 id="A_TAI_Race_With_China_Can_Be_Better_Than_Not_Racing"><a class="hanchor" href="#A_TAI_Race_With_China_Can_Be_Better_Than_Not_Racing">A TAI Race With China Can Be Better Than Not Racing</a></h1>
-<p>common scheme for a conversation about <a href="https://www.lesswrong.com/posts/BbM47qBPzdSRruY4z/instead-of-technical-research-more-people-should-focus-on">pausing the
+<p>A common scheme for a conversation about <a href="https://www.lesswrong.com/posts/BbM47qBPzdSRruY4z/instead-of-technical-research-more-people-should-focus-on">pausing the
 development</a>
 of <a href="https://www.openphilanthropy.org/research/some-background-on-our-views-regarding-advanced-artificial-intelligence/#id-1-defining-transformative-artificial-intelligence-transformative-ai">transformative
 AI</a>
@@ -48,18 +53,18 @@ goes like this:</p>
 because if we don't it seems plausible that humanity <a href="https://www.lesswrong.com/posts/pRkFkzwKZ2zfa3R6H/without-specific-countermeasures-the-easiest-path-to">will be disempowered
 by</a>
 by advanced AI systems."<br/>
-<strong>Benjamin</strong>: "Ah, if you use “we” to refer to the United States
-(and other closely allied countries, which probably don't stand a
-chance), then the current geopolitical rival of the US, namely the
-<a href="https://en.wikipedia.org/wiki/People's_Republic_Of_China">PRC</a>, will
-achieve TAI first. That would be bad."<br/>
+<strong>Benjamin</strong>: "Ah, if by “we” you refer to the United States
+(and and its allies, which probably don't stand a chance on their own
+to develop TAI), then the current geopolitical rival of the US, namely
+the <a href="https://en.wikipedia.org/wiki/People's_Republic_Of_China">PRC</a>,
+will achieve TAI first. That would be bad."<br/>
 <strong>Abdullah</strong>: "I don't see how the US getting TAI <em>first</em> changes anything
 about the fact that we don't know how to align superintelligent AI
 systems—I'd rather not race to be the <em>first</em> person to kill everyone."<br/>
 <strong>Benjamin</strong>: "Ah, so <em>now</em> you're retreating back into your cozy little
 <a href="https://en.wikipedia.org/wiki/Motte-and-bailey_argument">motte</a>: Earlier
 you said that “it seems plausible that humanity will be disempowered“,
-now you're acting like doom and gloom is certain. You don't seem to be
+now you're acting like doom and gloom is <em>certain</em>. You don't seem to be
 able to make up your mind about how risky you think the whole enterprise
 is, and I have very concrete geopolitical enemies at my (<a href="https://en.wikipedia.org/wiki/TSMC">semiconductor
 manufacturer's</a>) doorstep that I have to worry about. Come back with
@@ -67,8 +72,9 @@ better arguments."</p>
 </blockquote>
 <p>This dynamic is a bit frustrating. Here's how I'd like Abdullah to respond:</p>
 <blockquote>
-<p><strong>Abdullah</strong>: "You're right. I was insufficiently precise in my statements,
-and I apologize for that. Instead, let us manifest the dream of <a href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">the great
+<p><strong>Abdullah</strong>: "You're right, you're right. I was
+insufficiently precise in my statements, and I apologize
+for that. Instead, let us manifest the dream of <a href="https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz">the great
 philosopher</a>:
 <em>Calculemus!</em> </p>
 <p>At a basic level, we want to estimate <em>how much</em> <strong>worse</strong> (or, perhaps,
@@ -98,9 +104,9 @@ the list of serious contenders is pretty short.)</p>
 </ol>
 <p>To properly quantify uncertainty, I'll use the
 <a href="https://en.wikipedia.org/wiki/Monte-Carlo_methods">Monte-Carlo</a>
-<a href="https://forum.effectivealtruism.org/posts/t6FA9kGsJsEQMDExt/what-is-estim%0Aational-programming-squiggle-in-context">estimation</a> library
-<a href="https://github.com/rethinkpriorities/squigglepy">squigglepy</a> (no relation
-to any office supplies or internals of neural networks).
+<a href="https://forum.effectivealtruism.org/posts/t6FA9kGsJsEQMDExt/what-is-estimational-programming-squiggle-in-context">estimation</a>
+library <a href="https://github.com/rethinkpriorities/squigglepy">squigglepy</a>
+(no relation to any office supplies or internals of neural networks).
 We start, as usual, with housekeeping:</p>
 </blockquote>
 <pre><code>import numpy as np
@@ -108,18 +114,19 @@ import squigglepy as sq
 import matplotlib.pyplot as plt
 </code></pre>
 <blockquote>
-<p>As already said, we fix the value of extinction at 0,
-and the value of US-government-hegemon-led TAI at 1<!--TODO:
-change to MAGIC idea instead-->. (That is not to say that the
-US-government-hegemon-led TAI future is the <a href="./cs/ai/alignment/cev/coherent_extrapolated_volition_yudkowsky_2004.pdf">best possible TAI
+<p>As already said, we fix the value of
+extinction at 0, and the value of a <a href="./doc/cs/ai/alignment/policy/multinational_agi_consortium_hausenloy_2023.pdf">multinational AGI
+consortium</a>-led
+TAI at 1 (I'll just call the consortium "MAGIC", from here on). That
+is not to say that the MAGIC-led TAI future is the <a href="./cs/ai/alignment/cev/coherent_extrapolated_volition_yudkowsky_2004.pdf">best possible TAI
 future</a>,
 or even a good or acceptable one. Technically the only assumption I'm
 making is that these kinds of futures are better than extinction—which
 I'm anxiously uncertain about. But the whole thing is symmetric under
-multiplication with -1, so…)</p>
+multiplication with -1, so…</p>
 </blockquote>
 <pre><code>extinction_val=0
-magic_val=1
+magic_val=sq.norm(mean=1, sd=0.1)
 </code></pre>
 <blockquote>
 <p>Now we can truly start with some estimation. Let's start
@@ -135,27 +142,23 @@ puts the median now at 2037.</p>
 <p>As move of defensive epistemics, we can use that timeline, which
 I'll rougly approximate a mixture of two normal distributions. My own
 timelines<sub>2024-06</sub> aren't actually very far off from the updated
-Cotra estimate, only ~5 years earlier.</p>
+Cotra estimate, only ~5 years shorter.</p>
 </blockquote>
 <pre><code>timeline_us_race=sq.mixture([sq.norm(mean=2035, sd=5), sq.norm(mean=2060, sd=20)], [0.7, 0.3])
 </code></pre>
 <blockquote>
-<p>I don't like clipping the distribution on the left, it leaves ugly
-artefacts. Unfortunately squigglepy doesn't yet support truncating
-distributions, so I'll make do with what I have and add truncating
-later. (I also tried to import the replicated version by <a href="https://github.com/rethinkpriorities/future-assessment-model">Rethink
+<p>I don't like clipping the distribution on the left, it
+leaves ugly artefacts. Unfortunately squigglepy doesn't
+yet support truncating distributions, so I'll make do
+with what I have and add truncating later. (I also tried
+to import the replicated TAI-timeline distribution by <a href="https://github.com/rethinkpriorities/future-assessment-model">Rethink
 Priorities</a>,
 but after spending ~15 minutes trying to get it to work, I gave up).</p>
 </blockquote>
-<pre><code>timeline_us_race_sample=timeline_us_race@10000
-mean(timeline_us_race_sample)
-median(timeline_us_race_sample)
+<pre><code>timeline_us_race_sample=timeline_us_race@1000000
 </code></pre>
 <blockquote>
 <p>This reliably gives samples with median of ≈2037 and mean of ≈2044.</p>
-</blockquote>
-<p><img alt="" src="./img/china/us_tai_timeline.png"/></p>
-<blockquote>
 <p>Importantly, this means that the US will train TAI as soon as it
 becomes possible, because there is a race for TAI with the PRC.</p>
 <p>I think the PRC <em>is</em> behind on TAI, compared to the US, but only about
@@ -167,6 +170,9 @@ with the means shifted one year backward.</p>
 <blockquote>
 <p>This yields a median of ≈2038 and a mean of ≈2043. (Why is the
 mean a year earlier? I don't know. Skill issue, probably.)</p>
+</blockquote>
+<p><img alt="" src="./img/china/timelines.png"/></p>
+<blockquote>
 <p>Next up is the probability that TAI causes an <a href="https://en.wikipedia.org/wiki/Existential_catastrophe">existential
 catastrophe</a>,
 namely an event that causes a loss of the future potential of humanity.</p>
@@ -177,13 +183,13 @@ with a mean probability of 10%.<sup id="fnref1"><a href="#fn1" rel="footnote">1<
 <pre><code>  pdoom_us_race=sq.beta(a=2, b=18)
 </code></pre>
 <blockquote>
-<p>For the PRC, I'm going to go <em>somewhat</em> higher,
-for the reasons that discussions about the AI
-alignment problem doesn't seem to have <a href="https://www.lesswrong.com/posts/EAwe7smpmFQi2653G/my-assessment-of-the-chinese-ai-safet">as much traction there
-yet</a>
-and that the conversation around AI in many east-asian countries
-seems to still be very consciousness-focused, which is a
-pretty huge distraction<!--TODO: cite Japan alignment conference
+<p>For the PRC, I'm going to go <em>somewhat</em> higher on the
+probability of doom, for the reasons that discussions about
+the AI alignment problem doesn't seem to have <a href="https://www.lesswrong.com/posts/EAwe7smpmFQi2653G/my-assessment-of-the-chinese-ai-safet">as much traction there
+yet</a>.
+Also, in many east-Asian countries the conversation around AI
+seems to still be very consciousness-focused which, from an x-risk
+perspective, is a distraction<!--TODO: cite Japan alignment conference
 retrospective-->. I'll not go higher than a beta-distribution with a
 mean of 20%, for a number of reasons:</p>
 <ol>
@@ -204,30 +210,37 @@ increase variance. Hence;</p>
 </blockquote>
 <pre><code>  pdoom_prc_race=sq.beta(a=1.5, b=6)
 </code></pre>
-<p><img alt="" src="./img/china/pdoom_race.png"/></p>
 <blockquote>
-<p>(Orange is US, blue is PRC.)</p>
+<p>As said earlier, the value of MAGIC worlds is fixed at 1, but even such
+worlds still have a small probability of doom—the whole TAI enterprise
+is rather risky. Let's say that it's at 2%, which sets the expected value
+of convincing the whole world to join MAGIC at 0.98.</p>
+</blockquote>
+<pre><code>pdoom_magic=sq.beta(a=2, b=96)
+</code></pre>
+<p><img alt="" src="./img/china/pdooms.png"/></p>
+<blockquote>
 <p>Now I come to the <em>really fun</em> part: Arguing with y'all about how
 valuable worlds are in which the US government or the PRC government
 get TAI first are.</p>
 <p>To first lay my cards on the table: I that in the mean &amp; median cases,
-goodness(<a href="./doc/cs/ai/alignment/policy/multinational_agi_consortium_hausenloy_2023.pdf">MAGIC</a>)&gt;goodness(US
-first, no race)&gt;goodness(US first, race)&gt;goodness(PRC first,
-no race)&gt;goodness(PRC first, race)&gt;goodness(PRC first,
-race)≫goodness(extinction).
+value(<a href="./doc/cs/ai/alignment/policy/multinational_agi_consortium_hausenloy_2023.pdf">MAGIC</a>)&gt;value(US
+first, no race)&gt;value(US first, race)&gt;value(PRC first,
+no race)&gt;value(PRC first, race)&gt;value(PRC first,
+race)≫value(extinction).
 But I'm really unsure about the <em>type of
 distribution</em> I want to use. If the next century is
 <a href="./doc/ea/are_we_living_at_the_hinge_of_history_macaskill_2020.pdf">hingy</a>,
-the influence of the goodness of the entire future could be <em>very</em>
+the influence of the value of the entire future could be <em>very</em>
 <a href="https://en.wikipedia.org/wiki/Heavy-tailed_distribution">heavy-tailed</a>,
 but is there a skew in the positive direction? Or maybe in the negative
 direction‽
 I don't know how to approach this in a smart way, so I'm going to use
-a normal distribution with a medium variance.</p>
+a normal distribution.</p>
 <p>Now, let's get to the numbers:</p>
 </blockquote>
-<pre><code>  goodness_us_race=sq.norm(mean=0.95, sd=0.33)
-  goodness_prc_race=sq.norm(mean=0.8, sd=0.5)
+<pre><code>  us_race_val=sq.norm(mean=0.95, sd=0.33)
+  prc_race_val=sq.norm(mean=0.8, sd=0.5)
 </code></pre>
 <blockquote>
 <p>This gives us some (but not very many) net-negative futures.</p>
@@ -236,12 +249,12 @@ a normal distribution with a medium variance.</p>
 <ol>
 <li>Extinction is probably really bad<sub>75%</sub>.</li>
 <li>I think that most of the future value of humanity lies in <a href="./big_picture/fermi/eternity_in_6_hours_sandberg_armstrong_2013.pdf">colonizing the reachable universe</a> after a long reflection<!--TODO: link-->, and I expect ~all governments to perform pretty poorly on this metric.</li>
-<li>It seems pretty plausible to me that during the time when the US government develops TAI, people with decision power over the TAI systems just start ignoring input from the US population<sub>40%</sub>.</li>
+<li>It seems pretty plausible to me that during the time when the US government develops TAI, people with decision power over the TAI systems just start ignoring input from the US population<sub>35%</sub> and grab all power to themselves.</li>
 <li>Which country gains power during important transition periods might not matter very much in the long run.
 <ol>
 <li><a href="http://nitter.poast.org/norvid_studies">norvid_studies</a>: "If <a href="https://en.wikipedia.org/wiki/Carthage">Carthage</a> had won the <a href="https://en.wikipedia.org/wiki/Punic_Wars">Punic wars</a>, would you notice walking around Europe today?"</li>
 <li>Will PRC-descended <a href="https://en.wikipedia.org/wiki/Jupiter_Brain">jupiter brains</a> be so different from US-descended ones?</li>
-<li>Maybe this changes if a really good future requires philosophical or even <a href="https://www.lesswrong.com/posts/CCgvJHpbvc7Lm8ZS8/metaphilosophical-competence-can-t-be-disentangled-from">metaphilosophical competence</a>, and if US politicians (or the US population) have this trait significantly more than Chinese politicians (or the Chinese population). I think if the social technology of liberalism is surprisingly philosophically powerful this could be the case, but I'd be surprised by this.</li>
+<li>Maybe this changes if a really good future requires philosophical or even <a href="https://www.lesswrong.com/posts/CCgvJHpbvc7Lm8ZS8/metaphilosophical-competence-can-t-be-disentangled-from">metaphilosophical competence</a>, and if US politicians (or the US population) have this trait significantly more than Chinese politicians (or the Chinese population). I think that <em>if</em> the social technology of liberalism is surprisingly philosophically powerful, then this could be the case. But I'd be pretty surprised.</li>
 </ol></li>
 <li>Xi Jinping (or the type of person that would be his successor, if he dies before TAI) don't strike me as being as uncaring (or even <a href="https://forum.effectivealtruism.org/posts/LpkXtFXdsRd4rG8Kb/reducing-long-term-risks-from-malevolent-actors">malevolent</a>) as truly bad dictators during history. The PRC hasn't started any wars, or started killing large portions of its population.
 <ol>
@@ -251,7 +264,7 @@ a normal distribution with a medium variance.</p>
 <ol>
 <li>Many, I imagine, sometimes miss certain freedoms/are stifled by censorship/discrimination due to authoritarianism. But I wouldn't trade away 10% of my lifespan to avoid a PRC-like life.</li>
 <li>Probably the most impressive example of humans being lifted out of poverty, ever, is the economic development of the PRC from 1975 to now.</li>
-<li>One of my partners was Chinese and had lived there for the first 20 years of her life, and it really didn't sound like her life was much worse than outside of China—maybe she had to work a bit harder, and China was more sexist.</li>
+<li>One of my ex-partners was Chinese and had lived there for the first 20 years of her life, and it really didn't sound like her life was much worse than outside of China—maybe she had to work a bit harder, and China was more sexist.</li>
 </ol></li>
 </ol>
 <p>There's of course some aspects of the PRC that make me uneasy. I
@@ -276,6 +289,9 @@ people to start thinking about the topic in quantitative terms, and to
 get them to <em>quantify</em>. So please, criticize <strong>and</strong> calculate!</p>
 <p><strong>Benjamin</strong>: <a href="https://en.wikipedia.org/wiki/Sarcasm">Yes, Socrates. Indeed</a>.</p>
 <p><strong>Abdullah</strong>: Wonderful.</p>
+</blockquote>
+<p><img alt="" src="./img/china/values.png"/></p>
+<blockquote>
 <p>Now we can get to estimating these parameters in worlds where the US
 refuses to join the race.<br/>
 In this case I'll assume that the PRC is less reckless than they would
@@ -291,10 +307,10 @@ with a mean of 15%:</p>
 <p>I also think that not being in a race situation would allow for more
 moral reflection, possibilities for consulting the chinese population for
 their preferences, options for reversing attempts at grabs for power etc.<br/>
-So I'll set the goodness at mean 85% of the MAGIC scenario, with lower
+So I'll set the value at mean 85% of the MAGIC scenario, with lower
 variance than in worlds with a race.</p>
 </blockquote>
-<pre><code>goodness_prc_nonrace=sq.norm(mean=0.85, sd=0.45)
+<pre><code>prc_nonrace_val=sq.norm(mean=0.85, sd=0.45)
 </code></pre>
 <blockquote>
 <p>The PRC would then presumably take more time to build TAI, I think 4
@@ -313,13 +329,13 @@ worlds are, and how often the US in fact wins the race:</p>
 prc_timelines_race=timeline_prc_race@100000
 
 us_wins_race=1*(us_timelines_race&lt;prc_timelines_race)
-ev_us_wins_race=(1-pdoom_us_race@100000)*(goodness_us_race@100000)
+ev_us_race=(1-pdoom_us_race@100000)*(val_us_race_val@100000)
 </code></pre>
 <blockquote>
 <p>And the same for the PRC:</p>
 </blockquote>
 <pre><code>prc_wins_race=1*(us_timelines_race&gt;prc_timelines_race)
-ev_prc_wins_race=(1-pdoom_prc_race@100000)*(goodness_prc_race@100000)
+ev_prc_wins_race=(1-pdoom_prc_race@100000)*(val_prc_race_val@100000)
 </code></pre>
 <blockquote>
 <p>It's not <em>quite</em> correct to just check where the US timeline is
@@ -331,31 +347,36 @@ is smaller, we assume "fungibility" between those two worlds. So the
 difference between TAI-achievement ends up larger than the lead in a race
 would be. I haven't found an easy way to write this down in the model,
 but it might affect the outcome slightly.</p>
-<p>The expected goodness of a race world then is</p>
+<p>The expected value of a race world then is</p>
 </blockquote>
-<pre><code>&gt;&gt;&gt; goodness_race=us_wins_race*ev_us_wins_race+prc_wins_race*ev_prc_wins_race
-&gt;&gt;&gt; np.mean(goodness_race)
-0.755284436663701
-&gt;&gt;&gt; np.median(goodness_race)
-0.8141808579180554
-&gt;&gt;&gt; np.var(goodness_race)
-0.10073986788804666
+<pre><code>race_val=us_wins_race*ev_us_wins_race+prc_wins_race*ev_prc_wins_race
+&gt;&gt;&gt; np.mean(non_race_val)
+0.7543640906126139
+&gt;&gt;&gt; np.median(non_race_val)
+0.7772837900955506
+&gt;&gt;&gt; np.var(non_race_val)
+0.12330641850356698
 </code></pre>
 <p><img alt="" src="./img/china/goodness_race.png"/></p>
+<blockquote>
 <p>As for the non-race situation in which the US decides not to scramble
 for TAI, the calculation is even simpler:</p>
-<pre><code>goodness_non_race=(goodness_prc_nonrace@100000)*(1-pdoom_prc_nonrace@100000)
+</blockquote>
+<pre><code>non_race_val=(val_prc_nonrace_val@100000)*(1-pdoom_prc_nonrace@100000)
 </code></pre>
+<blockquote>
 <p>Summary stats:</p>
-<pre><code>&gt;&gt;&gt; np.mean(goodness_non_race)
-0.723211242397307
-&gt;&gt;&gt; np.median(goodness_non_race)
-0.7084175401996939
-&gt;&gt;&gt; np.var(goodness_non_race)
-0.1614949090769059
+</blockquote>
+<pre><code>&gt;&gt;&gt; np.mean(non_race_val)
+0.7217417036642355
+&gt;&gt;&gt; np.median(non_race_val)
+0.7079529247343247
+&gt;&gt;&gt; np.var(non_race_val)
+0.1610011984251525
 </code></pre>
-<p>Comparing the two (with the blue plot being the values non-race worlds,
-and the orange plot being the value of the race worlds):</p>
+<blockquote>
+<p>Comparing the two:</p>
+</blockquote>
 <p><img alt="" src="./img/china/goodnesses.png"/></p>
 <blockquote>
 <p><strong>Abdullah</strong>: …huh. I didn't expect this.<br/>
@@ -370,16 +391,15 @@ towards thinking that a race can be beneficial, Benjamin!</p>
 <p><strong>Benjamin</strong>: <img alt="" src="./img/china/man_of_culture.jpg"/></p>
 <p><strong>Abdullah</strong>: I'm not done yet, though.</p>
 <p>The first additional consideration is that in a non-race world,
-humanity has the additional benefit of living a few years longer before
-TAI happens and we either live in a drastically changed world<!--TODO:
+humanity is in the situation of living a few years longer before TAI
+happens and we either live in a drastically changed world<!--TODO:
 link Katja Grace post here?--> or we go extinct.</p>
-<p>(Again, red is in the race, blue is non-race)</p>
 </blockquote>
 <pre><code>curyear=time.localtime().tm_year
 years_left_nonrace=(timeline_prc_nonrace-curyear)@100000
 years_left_race=np.hstack((us_timelines_race[us_timelines_race&lt;prc_timelines_race], prc_timelines_race[us_timelines_race&gt;prc_timelines_race]))-curyear
 </code></pre>
-<p><img alt="" src="./img/china/years_left.png"/></p>
+<p><img alt="" src="./img/china/yearsleft.png"/></p>
 <blockquote>
 <p>Whether these distributions are <em>good</em> or <em>bad</em> depends very much
 on the relative value of pre-TAI and post-TAI lives. (Except for the
@@ -390,7 +410,80 @@ certain: I could imagine a situation like the <a href="https://en.wikipedia.org/
 revolution</a>, which
 <a href="https://en.wikipedia.org/wiki/Neolithic_Revolution#Social_change">arguably</a>
 was net-bad for the humans living through it.</p>
+<p><em>leans back</em></p>
+<p>But the <em>other</em> thing I want to point out is that we've been assuming
+that the US just sits back and does nothing while the PRC develops TAI.<br/>
+What if, instead, we assume that the US tries to convince its allies and
+the PRC to instead join a MAGIC consortium, for example by demonstrating
+"model organisms"<!--TODO: link here--> of alignment failures.</p>
+<p>A central question now is: How high would the probability of success
+of this course of action need to be to be <em>as good</em> or even <em>better</em>
+than entering a race?</p>
+<p>I'll also guess that MAGIC takes a whole while longer to get to TAI,
+about 20 years more than the US in a race. (If anyone has suggestions
+about how this affects the <em>shape</em> of the distribution, let me know.)</p>
 </blockquote>
+<pre><code>timeline_magic=sq.mixture([sq.norm(mean=2055, sd=5, lclip=2024), sq.norm(mean=2080, sd=20, lclip=2024)], [0.7, 0.3])
+</code></pre>
+<blockquote>
+<p>If we assume that the US has a 10% shot at convincing the PRC to join
+MAGIC, how does this shift our expected value?</p>
+</blockquote>
+<pre><code>little_magic_val=sq.mixture([(prc_nonrace_val*(1-pdoom_prc_nonrace)), (magic_val*(1-pdoom_magic))], [0.9, 0.1])
+some_magic_val=little_magic_val@1000000
+</code></pre>
+<blockquote>
+<p>Unfortunately, it's not enough:</p>
+</blockquote>
+<pre><code>&gt;&gt;&gt; np.mean(some_magic_val)
+0.7478374812339188
+&gt;&gt;&gt; np.mean(race_val)
+0.7543372422248729
+&gt;&gt;&gt; np.median(some_magic_val)
+0.7625907656231915
+&gt;&gt;&gt; np.median(race_val)
+0.7768634378292709
+</code></pre>
+<p><img alt="" src="./img/china/goodnesses_with_a_little_magic.png"/></p>
+<blockquote>
+<p>What if we are a <em>little</em> bit more likely to be successful in our
+advocacy, with 20% chance of the MAGIC proposal happening?</p>
+</blockquote>
+<p><img alt="" src="./img/china/goodnesses_with_a_little_more_magic.png"/></p>
+<p>That beats the worlds in which we race, fair and square:</p>
+<pre><code>&gt;&gt;&gt; np.mean(more_magic_val)
+0.7740403582341773
+&gt;&gt;&gt; np.median(more_magic_val)
+0.8228921409188543
+</code></pre>
+<blockquote>
+<p>But worlds in which the US advocates for MAGIC at 20% success probability
+still have more variance:</p>
+</blockquote>
+<pre><code>&gt;&gt;&gt; np.var(more_magic_val)
+0.14129776984186218
+&gt;&gt;&gt; np.var(race_val)
+0.12373193215918225
+</code></pre>
+<blockquote>
+<p><strong>Benjamin</strong>: Hm. I think I'm a bit torn here. 10% success probability for
+MAGIC doesn't sound <em>crazy</em>, but I find 20% too high to be believable.</p>
+<p>Maybe I'll take a look at your <a href="./code/china/cede.py">code</a> and play around with
+it to see where my intuitions match and where they don't—I especially think your choice
+of using normal distributions for the value of the future, conditioning on who
+wins, is <em>questionable at best</em>. I think lognormals are far better.<br/>
+But I'm happy you came to your senses, started <em>actually arguing your
+position</em>, and then changed your mind.<br/>
+(<em>checks watch</em>)<br/>
+Oh shoot, I've gotta go! Supermarket's nearly closed!<br/>
+See you around, I guess!</p>
+<p><strong>Abdullah</strong>: See you around! And tell the wife and kids I said hi!</p>
+</blockquote>
+<hr/>
+<p>I hope this gives some clarity on how I'd like those conversations to go,
+and that people put in a bit more effort.</p>
+<p>And <strong>please</strong>, don't make me write something like this again. I have
+enough to do to respond to all your bad takes with something like this.</p>
 <div class="footnotes">
 <hr/>
 <ol>
