@@ -33,14 +33,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2024-06-24, modified: 2024-06-27, language: english, status: finished, importance: 9, confidence: unlikely</em></p>
+<p><em>author: niplav, created: 2024-06-24, modified: 2024-07-02, language: english, status: finished, importance: 9, confidence: unlikely</em></p>
 <blockquote>
 <p><strong>Frustrated by all your bad takes, I write a Monte-Carlo analysis
 of whether a transformative-AI-race between the PRC and the USA
 would be good. To my surprise, I find that it is <em>better</em> than not
 racing. Advocating for an international project to build TAI instead of
 racing turns out to be good if the probability of such advocacy succeeding
-is non-negligible.</strong></p>
+is ≥20%.</strong></p>
 </blockquote>
 <h1 id="A_TAI_Race_With_China_Can_Be_Better_Than_Not_Racing"><a class="hanchor" href="#A_TAI_Race_With_China_Can_Be_Better_Than_Not_Racing">A TAI Race With China Can Be Better Than Not Racing</a></h1>
 <p>A common scheme for a conversation about <a href="https://www.lesswrong.com/posts/BbM47qBPzdSRruY4z/instead-of-technical-research-more-people-should-focus-on">pausing the
@@ -239,7 +239,7 @@ I don't know how to approach this in a smart way, so I'm going to use
 a normal distribution.</p>
 <p>Now, let's get to the numbers:</p>
 </blockquote>
-<pre><code>  us_race_val=sq.norm(mean=0.95, sd=0.33)
+<pre><code>  us_race_val=sq.norm(mean=0.95, sd=0.25)
   prc_race_val=sq.norm(mean=0.8, sd=0.5)
 </code></pre>
 <blockquote>
@@ -406,7 +406,7 @@ on the relative value of pre-TAI and post-TAI lives. (Except for the
 possibility of extinction, which is already accounted for.)<br/>
 I think that TAI-lives will probably be far better
 than pre-TAI lives, on average, but I'm not at all
-certain: I could imagine a situation like the <a href="https://en.wikipedia.org/wiki/Neolithic_Revolution">Neolothic
+certain: I could imagine a situation like the <a href="https://en.wikipedia.org/wiki/Neolithic_Revolution">Neolithic
 revolution</a>, which
 <a href="https://en.wikipedia.org/wiki/Neolithic_Revolution#Social_change">arguably</a>
 was net-bad for the humans living through it.</p>

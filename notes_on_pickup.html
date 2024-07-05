@@ -331,37 +331,5 @@ with their smartphones).</p>
 <p>Overall, for me the effects of removing one weasel strongly outweigh
 the downsides, but your mileage may vary.</p>
 <h2 id="Using_MultiArmed_Bandits_to_Select_Daygame_Locations"><a class="hanchor" href="#Using_MultiArmed_Bandits_to_Select_Daygame_Locations">Using Multi-Armed Bandits to Select Daygame Locations</a></h2>
-<p>Given the <a href="./data.html#Daygame">data of my daygame approaches</a>, I've
-wondered for quite a while how I could use that data to make improve
-my game. I don't think I've found anything solid yet, so instead I'm
-going to try to use that data to estimate where I should do my next
-daygame session.</p>
-<p>For this, I trick ChatGPT into writing code for a <a href="https://en.wikipedia.org/wiki/Multi-armed_bandit">multi-armed
-bandit</a> using
-<a href="https://en.wikipedia.org/wiki/Thompson_sampling">Thompson sampling</a> in
-<a href="https://en.wikipedia.org/wiki/Julia_(programming_language)">Julia</a>,
-with getting a contact information as a reward of 1 and not getting any
-contact information as a reward of 0.</p>
-<p>(I know that this is a super impoverished view on what makes a good
-daygame approach, but this is an exploratory exercise. I might add more &amp;
-different factors later.)</p>
-<p>Of course, I can't tell ChatGPT that I am doing pickup, so I instead
-say that I'm looking to optimize the quality of icecream I'm eating by
-selecting different icecream shops. (Title of conversation: "Bayesian
-Icecream Bandit").</p>
-<p>The resulting code is <a href="./code/location/location.jl">here</a>, but I haven't
-tested it in the field yet.</p>
-<p>Additional variables I could take into account would be my enjoyment
-of the approach, the attractiveness of the woman I'm speaking to, the
-amount of time I'm spending between approaches, …</p>
-<p>And if I want to be really fancy, I could use a 2-dimensional
-<a href="https://en.wikipedia.org/wiki/Gaussian_Process">Gaussian process</a>, in
-<a href="https://en.wikipedia.org/wiki/Kriging">kriging</a> fashion, to interpolate
-geographical data and find the best daygame locations that way. <em>Probably</em>
-overkill.</p>
-<h3 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h3>
-<ul>
-<li><a href="https://lilianweng.github.io/posts/2018-01-23-multi-armed-bandit/">The Multi-Armed Bandit Problem and Its Solutions (Lilian Weng, 2018)</a></li>
-<li><a href="https://sebastiancallh.github.io/post/multi-armed-bandits-and-penguins/">A penguin fish-recommender systems using multi-armed bandits pt. 1 (Sebastian Callh, 2020)</a></li>
-</ul>
+<p>Moved <a href="./bandit.html">here</a>.</p>
 </body></html>

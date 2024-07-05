@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-12-25, modified: 2024-06-11, language: english, status: in progress, importance: 4, confidence: possible</em></p>
+<p><em>author: niplav, created: 2019-12-25, modified: 2024-07-05, language: english, status: in progress, importance: 3, confidence: possible</em></p>
 <blockquote>
 <p><strong>Is daygame worth it, and if yes,
 how much? I first present a simple <a href="https://en.wikipedia.org/wiki/Point_estimation">point
@@ -51,21 +51,12 @@ the simple case the value of daygame ranges from -\$3297 to \$3200
 and in the complex case _.</strong></p>
 </blockquote>
 <!--
-Second one: fix costs & other stuff
-
 TODO:
 
 distinguish opportunity cost and incidental benefits from sunlight,
 light exercise and improvement of social skills
 -->
 <h1 id="Daygame_CostBenefit_Analysis"><a class="hanchor" href="#Daygame_CostBenefit_Analysis">Daygame Cost-Benefit Analysis</a></h1>
-<h2 id="Preliminary_Note"><a class="hanchor" href="#Preliminary_Note">Preliminary Note</a></h2>
-<p>I now believe this cost-benefit analysis to be flawed, mostly because
-I assume an <a href="#Approaching_Opportunity_Cost">opportunity cost</a> that is
-too low, and various smaller issues.</p>
-<p>I am currently revisiting this text, but for now proceed with caution
-and skepticism towards the numbers.</p>
-<hr/>
 <blockquote>
 <p>These things should be left to the frigid and impersonal
 investigator, for they offer two equally tragic alternatives to
@@ -153,8 +144,8 @@ quite high.</p>
 2018</a>
 proclaims
 16.9% numbers/approaches, 22.4% dates/numbers and 37.1% lays/dates
-(that would be <code>$0.169*0.224=0.0378$</code> dates per approach, and
-<code>$0.169*0.224*0.371=0.0140$</code> lays per approach).</p>
+(that would be <code>$0.169 \cdot 0.224=0.0378$</code> dates per approach, and
+<code>$0.169 \cdot 0.224*0.371=0.0140$</code> lays per approach).</p>
 <p>Tom Torero presents his experiences with daygame ratios in
 <a href="https://www.youtube.com/watch?v=7WzKWHvDOOQ">this video</a>
 <a href="./vid/daygame_cost_benefit/realistic_daygame_expectations.webm">(a)</a>.
@@ -349,6 +340,8 @@ wdaterat::{(*x),%/|x}'wdate
 
 #### Runner
 
+(Seems offline :-/, and I haven't downloaded the site)
+
 [Runner](http://daygamenyc.com):
 
 * [First 2000 approaches](http://daygamenyc.com/2019/05/31/approaching-2000-approaches/)
@@ -377,8 +370,8 @@ https://old.reddit.com/r/seduction/comments/9ock2a/my_daygame_experience_so_far_
 <p>I will assume that this is comparatively over-optimistic,
 and assume that the date-to-lay ratio converges towards 1 in
 30 on the scale of thousands of approaches in the form of an
-<a href="https://www.lesswrong.com/posts/oaqKjHbgsoqEXBMZ2" title="S-Curves
-for Trend Forecasting">S-curve</a>. The other parameters are estimated using
+<a href="https://www.lesswrong.com/posts/oaqKjHbgsoqEXBMZ2" title="S-Curves for Trend Forecasting">S-curve</a>.
+The other parameters are estimated using
 <a href="./notes.html#None"><code>scipy.optimize.curve_fit</code></a> with data from Roy Walker,
 Mr. Wolfe and Thomas Crown, since we have information from the start.</p>
 <h4 id="Lays"><a class="hanchor" href="#Lays">Lays</a></h4>
@@ -450,6 +443,8 @@ I notice that date ratios grow faster than lay ratios. Not sure what is
 up with that.</p>
 <p><img alt="The date &amp; lay ratios over thousands of approaches" src="./img/daygame_cost_benefit/ratio_data.png" title="The date &amp; lay ratios over thousands of approaches"/></p>
 <h2 id="A_Simple_Model"><a class="hanchor" href="#A_Simple_Model">A Simple Model</a></h2>
+<p>One can separately estimate the costs and the benefits from doing daygame,
+and then subtract the costs from the benefits to calculate the value.</p>
 <h3 id="Cost"><a class="hanchor" href="#Cost">Cost</a></h3>
 <p>Daygame has several different obvious costs: <a href="https://en.wikipedia.org/wiki/Opportunity_cost">opportunity
 costs</a> from the time
@@ -469,10 +464,9 @@ session to no more than 2 hours).</p>
 each session, meaning 30-50 per week.</p>
 </blockquote>
 <p><em>— <a href="https://tomtorero.com/">Tom Torero</a>, <a href="./doc/game/beginners_guide_to_daygame_torero_2018.pdf">“Beginner's Guide to Daygame”</a> p. 13, 2018</em></p>
-<!--TODO: fix this!-->
 <p>I will assume that most daygamers will do around 4 approaches an hour
-(the ones I have met are more choosy, so they have a lower volume),
-with 15 minutes for one approach.</p>
+(less in the beginning, with approach anxiety, but more later), with 15
+minutes for one approach.</p>
 <p>The opportunity cost of daygame is unclear—what would one be doing
 instead? One could dream of daygamers instead cultivating friendships,
 learning languages or making music or meditating, and while that could
@@ -532,7 +526,8 @@ went on per first date was
 <code>$\frac{5\cdot 4+(11-5)\cdot 3+(27-11)\cdot 2+(76-27)}{76} \approx 1.566$</code>
 – quite lower than the 3 assumed by <a href="https://freenortherner.wordpress.com/2012/06/12/economic-analysis-of-casual-sex-prostitution-vs-game/" title="Economic Analysis of Casual Sex – Prostitution vs Game">Free Northerner
 2012</a>!</p>
-<p>For <a href="https://sevendaygame.wordpress.com/">Seven</a>, the numbers can be found here:</p>
+<p>For <a href="https://sevendaygame.wordpress.com/">Seven</a>, the numbers can be
+found here<!--TODO: did he update with 2020 numbers?-->:</p>
 <ul>
 <li><a href="https://sevendaygame.wordpress.com/2017/01/21/dec-2016-report-2016-review-and-kicking-off-2017/">2016</a></li>
 <li><a href="https://sevendaygame.wordpress.com/2018/01/15/2017-review-a-year-in-st-petersburg/">2017</a></li>
@@ -594,30 +589,16 @@ on the city.</p>
 </blockquote>
 <p><em>— <a href="https://freenortherner.com/">Free Northerner</a>, <a href="http://freenortherner.com/2012/06/12/economic-analysis-of-casual-sex-prostitution-vs-game/">“Economic Analysis of Casual Sex – Prostitution vs Game”</a>, 2012</em></p>
 <!--TODO: find own sources-->
-<p>This leaves us with ~\$300 per hour of prostitution, but I want to flag
+<p>This leaves us with ~\$400 per hour of prostitution, but I want to flag
 that the cost of prostitution is highly dependent on the attractiveness
 of the escort, with prices in the thousands of dollars for particularly
-beautiful women—but realistically I don't expect to data on the beauty
-of women that men sleep with through daygame compared to the beauty
-of escorts.</p>
-<p>I have not found any people discussing this and <a href="#Appendix_D_Some_Questions_About_the_Value_of_Offspring">othes
-questions</a>,
-and there is probably a high variance in these numbers depending on
-the daygamer.</p>
+beautiful women—but realistically I don't expect to find data on the
+beauty of women that men sleep with through daygame compared to the
+beauty of escorts.</p>
 <p>I will assume that one sex session lasts one hour and that the average
 daygamer sleeps with the same woman 4 times (some women become regulars
 or long-term partners, even if the overwhelming majority is only a
 one-night stand).</p>
-<p>I will also assume that the dimimishing returns on sex with different
-partners are <a href="https://en.wikipedia.org/wiki/Square-root">radical</a>.</p>
-<p>My intuition is that it should be linear, which stems from the handwavey
-evolutionary argument that men should value additional offspring with
-randomly selected women with a constant marginal return, since more
-diverse offspring from a basically infinite population of mating partners
-result (in expectation) in linearly more grandchildren.</p>
-<!--
-TODO: Function that is first linear and then becomes logarithmic?
--->
 <p>And I will assume that the diminishing returns on sex with the same
 partner <em>is</em> logarithmic, because for men, having sex multiple times with
 the same woman carries little <em>evolutionary</em> advantage except perhaps for
@@ -626,12 +607,42 @@ competition with other mens sperm.</p>
 down the probability of not having fathered children, etc-->
 <p>So we can calculate that the value of sleeping with one woman is</p>
 <pre><code>    .l("math")
-    300*ln(4*e)
-715.888308335967204
+    350*log(2;4)
+700.0
 </code></pre>
 <!--TODO: what if we tried to maximize the utility from sleeping with a
 woman some number of times? Especially since sleeping with more beautiful
 women is a higher initial return-->
+<h5 id="Diminishing_Returns_on_Sex_Partners"><a class="hanchor" href="#Diminishing_Returns_on_Sex_Partners">Diminishing Returns on Sex Partners</a></h5>
+<p>I will also assume that the dimimishing returns on sex with different
+partners are <a href="https://en.wikipedia.org/wiki/Square-root">radical</a>,
+with an exponent of <code>$\frac{199}{200}$</code>.</p>
+<p>I have not found any people discussing this and <a href="#Appendix_D_Some_Questions_About_the_Value_of_Offspring">other
+questions</a>,
+and there is probably a high variance in these numbers depending on
+the daygamer.</p>
+<p>My intuition is that it should be linear, which stems from the handwavey
+evolutionary argument that men should value additional offspring with
+randomly selected women with a constant marginal return, since more
+diverse offspring from a basically infinite population of mating partners
+result (in expectation) in linearly more grandchildren.</p>
+<p><em>If</em> I assume it's linear, then the model just straight up gives
+astronomical values for doing daygame. Like, it's no question <em>at all</em>
+whether one should do daygame, and one should basically never stop
+doing it.</p>
+<p>If you believe that there are linear returns to the number of sex
+partners, then you want to do daygame, unless you value sex very little.
+<!--TODO: maybe have *another* version of the model?--></p>
+<p>But, in practice, many men doing pick-up lose the motivation after some
+number of lays, their notch hyena<!--TODO: link--> satisfied, so there
+must be <em>some</em> diminishing returns here. But logarithmic returns are
+quite punishing, and don't seem to capture the underlying dynamic very
+well—hence the compromise with radical diminishing returns with a
+"large" (i.e. very slowly diminishing) exponent. That way, it's not
+as crazy as non-diminishing returns, but still captures some of the
+real-world dynamics and theoretical intuitions.</p>
+<pre><code>partnerexp::199%200
+</code></pre>
 <h4 id="A_Sense_of_Pride_and_Accomplishment"><a class="hanchor" href="#A_Sense_of_Pride_and_Accomplishment">A Sense of Pride and Accomplishment</a></h4>
 <p>I will assume that the sense of pride and accomplishment is ~\$400 for
 the first lay. I am making this number up, since I'm lacking any data
@@ -639,38 +650,45 @@ on this. (If one believes this to be too much, I'll remind the reader
 that men sometimes pay thousands of dollars for pick-up coaching and
 bootcamps, which very far from guarantee any sex.)</p>
 <p>To wrap it up, one can conclude that the value of the first lay is</p>
-<pre><code>    prostcost::300
+<pre><code>    prostcost::350
     prideval::400
     laynum::4
-    firstlayval::prideval+prostcost*ln(e*laynum)
-907.944154167983596
+    firstlayval::prideval+prostcost*log(2;laynum)
+1000.0
 </code></pre>
 <p>As said, I assume that the marginal returns on additional sex partners are
-constant—except for the sense of pride and accomplishment, which very
+radical—except for the sense of pride and accomplishment, which very
 much disappears over time. I'll assume it's logarithmic.</p>
 <h4 id="Calculating_the_Benefit"><a class="hanchor" href="#Calculating_the_Benefit">Calculating the Benefit</a></h4>
 <p>The benefit from sex can be calculated by summing the expected sense of
 pride and accomplishment and the expected value from having sex. Note
 that this number is cumulative, as it considers the benefit of all lays
 up for <code>x</code> approaches:</p>
-<pre><code>pridevals::{prideval*ln(e*(x+1))*layratio(x)*x}
-layvals::{prostcost*ln(e*laynum)*layratio(x)*x}
+<pre><code>firstlayat::118
+
+pridevals::{prideval*log(2;x+1)*layratio(x)*x}
+pridemult::prideval%log(2;pridevals(firstlayat)) :"For normalization, so that the first lay is actually worth as much"
+discpridevals::{pridemult*log(2;pridevals(x))}
+
+layvals::{prostcost*log(2;laynum)*layratio(x)*x}
+laymult::prostcost%layvals(firstlayat)^partnerexp :"same here"
+disclayvals::{(laymult*layvals(x))^partnerexp}
 </code></pre>
-<p>This looks like this for up to 10000 approaches:</p>
+<p>This looks like this for up to 5000 approaches:</p>
 <pre><code>.l("./load.kg")
 
 .l("nplot")
 
-grid([0],maxappr,[1000];[0 12000 500])
+grid([0],maxappr,[1000];[0 50000 2000])
 xtitle("Approaches")
 ytitle("Cumulative dollar value of lays")
 plot(layvals)
 draw()
 </code></pre>
-<p><img alt="Value of lays for a given number of approaches, cumulatively" src="./img/daygame_cost_benefit/layvals.png" title="Value of lays for a given number of approaches, cumulatively. It is a graph growing approximately by the square root of approaches."/></p>
-<p>The benefit of approaching is then simply the value of the sex:</p>
-<pre><code>benefit::{pridevals(x)+layvals(x)}
-benefit::{layvals(x)}
+<p><img alt="Value of lays for a given number of approaches, cumulatively" src="./img/daygame_cost_benefit/layvals.png" title="Value of lays for a given number of approaches, cumulatively. It is a graph growing approximately by the number of approaches to the power of 199/200."/></p>
+<p>Then the total benefit is the discounted pride values and the discounted
+value of sex:</p>
+<pre><code>benefit::{discpridevals(x)+disclayvals(x)}
 </code></pre>
 <h3 id="Value"><a class="hanchor" href="#Value">Value</a></h3>
 <p>To now calculate the optimal amount of daygame, one simply calculates
@@ -678,14 +696,14 @@ the difference between cumulative benefit and cumulative cost for all
 possible number of approaches up to the maximum possible number (in this
 case 5000, which is a common number for expert daygamers) and chooses the maximum:</p>
 <pre><code>    maxappr::5000
-    vals::{benefit(x)-cost(x)}'!maxappr
+    vals::{benefit(x)-cost(x)}'1+!maxappr
     optim::*&gt;vals
 4999
     optimben::vals@*&gt;vals
-435138.941060850614
+10190.4271226371274
 </code></pre>
-<p>So one can conclude that 484 approaches are optimal under these
-assumptions, with a value of \$969.13.</p>
+<p>So one can conclude that 5000 approaches (i.e., as many as possible)
+are optimal under these assumptions, with a value of \$10k.</p>
 <p>This can be visualized as well:</p>
 <pre><code>.l("nplot")
 
@@ -719,7 +737,7 @@ and resilience to rejection. Opponents of daygame could point at direct
 financial expenditures (such as possibly having to buy new clothes,
 renting an apartment that is closer to good places for daygame),
 and also possible social and psychological costs (scars from constant
-rejection and mockery from being found out to be a pick up "artist"),
+rejection and mockery from being found out to be a pick-up "artist"),
 if they ever stopped moaning about how they disapprove of daygame.</p>
 <p>These influences are of course much harder to quantify, and the numbers
 presented here are mostly guesswork. As I get to know more daygamers
