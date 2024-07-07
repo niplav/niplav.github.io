@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-05-22, modified: 2024-07-05, language: english, status: in progress, importance: 3, confidence: other</em></p>
+<p><em>author: niplav, created: 2019-05-22, modified: 2024-07-07, language: english, status: in progress, importance: 3, confidence: other</em></p>
 <blockquote>
 <p><strong>Short texts on different topics.</strong></p>
 </blockquote>
@@ -76,8 +76,11 @@ discarded. Lists can also be ignored. (This is basically applying
 <a href="https://en.wikipedia.org/wiki/Depth-first_search">depth-first search</a>,
 though without a success condition).</p>
 <p>This method results in a corpus of considerable size.<!--(TODO: how
-much text?)--> For a shorter approach, you could also just read all
-<a href="https://en.wikipedia.org/wiki/Wikipedia:Vital_articles">vital articles</a>.</p>
+much text?)--></p>
+<p>For a shorter approach, one could also just read all <a href="https://en.wikipedia.org/wiki/Wikipedia:Vital_articles">Level 3 vital
+articles</a>—a
+strategy I am currently pursuing. (I have read three out of the 1000
+articles so far.)</p>
 <h2 id="Approach_Anxiety"><a class="hanchor" href="#Approach_Anxiety">Approach Anxiety</a></h2>
 <p>Moved to <a href="./notes_on_pickup.html#Approach_Anxiety">Notes on Pickup</a>.</p>
 <h2 id="Converging_Preference_Utilitarianism"><a class="hanchor" href="#Converging_Preference_Utilitarianism">Converging Preference Utilitarianism</a></h2>
@@ -1777,52 +1780,7 @@ learn to “play it safe” by always being honest.</p>
 </blockquote>
 <p><em>—Ajeya Cotra, <a href="https://www.lesswrong.com/posts/pRkFkzwKZ2zfa3R6H/without-specific-countermeasures-the-easiest-path-to">“Without specific countermeasures, the easiest path to transformative AI likely leads to AI takeove”</a>, 2022</em></p>
 <h2 id="Logical_Correlation"><a class="hanchor" href="#Logical_Correlation">Logical Correlation</a></h2>
-<!--TODO: wentworth post about eding programs as causal diagrams-->
-<p>In the <a href="https://www.lesswrong.com/tag/psychological-twin-prisoner-s-dilemma">twin prisoners
-dilemma</a>,
-I cooperate because we're the same algorithm. If we modify the twin to
-have a slightly longer right index-finger-nail, I would still cooperate,
-even though we're different algorithms, but little enough has been
-changed about our algorithms that the internal states and the output
-are sufficiently similar.</p>
-<p>But it could be that I'm in a prisoner's dilemma with some program
-<code>$p^{\star}$</code> that, given some inputs, returns the same outputs as I do,
-but for completely different "reasons"—that is, the internal states
-are very different, and a slight change in input would cause the output
-to be radically different. Intuitively, my logical correlation with
-<code>$p^{\star}$</code> is pretty small, because even though it gives the same
-output, it gives that output for very different reasons, so I don't have
-much control over its outputs by controlling my own computations.</p>
-<p>But we don't yet have a way of estimating the logical correlation between
-different decision algorithms.<!--TODO: cite someone here--></p>
-<p>Thus: Consider proposing the most naïve formula for logical
-correlation<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>.</p>
-<p>Let a program <code>$p$</code> be a tuple of code for a Turing machine, intermediate
-tape states after each command execution, and output. All in binary.</p>
-<p>That is <code>$p=(c, t, o)$</code>, with <code>$c \in \{0, 1\}^+, t \in (\{0, 1\}^+)^+$</code> and <code>$o \in \{0, 1\}^+$</code>.</p>
-<p>Let <code>$l=|t|$</code> be the number of steps that <code>$p$</code> takes to halt.</p>
-<p>Then a formula for the logical correlation <code>$合$</code><sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup> of two halting
-programs <code>$p_1=(c_1, t_1, o_1), p_2=(c_2, t_2, o_2)$</code>, a tape-state
-discount factor <code>$γ$</code><sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>, and a <a href="https://en.wikipedia.org/wiki/String_similarity_metric">string-distance metric</a>
-<code>$d: \{0, 1\}^+ \times \{0, 1\}^+ \rightarrow ℕ$</code> could be</p>
-<div>
-    $$合(p_1, p_2, γ)=d(o_1, o_2)-\frac{1}{2+\sum_{k=0}^{\min(l_1, l_2)} γ^k \cdot d(t_1(l_1-k), t_2(l_2-k))}$$
-</div>
-<p>The lower <code>$合$</code>, the higher the logical correlation between <code>$p_1$</code>
-and <code>$p_2$</code>. The minimal value is <code>$-0.5$</code>.</p>
-<p>If <code>$d(o_1, o_2)&lt;d(o_1, o_3)$</code>, then it's also the case that <code>$合(p_1, p_2, γ)&lt;合(p_1, p_3, γ)$</code>.</p>
-<p>One might also want to be able to deal with the fact that programs have
-different trace lengths, and penalize that, e.g. amending the formula:</p>
-<div>
-    $$合'(p_1, p_2, γ)=合(p_1, p_2, γ)+2^{|l_1-l_2|}$$
-</div>
-<p>I'm a bit unhappy that the code doesn't factor in the logical correlation,
-and ideally one would want to be able to compute the logical correlation
-without having to run the program.</p>
-<p>How does this relate to
-<a href="https://wiki.c2.com/?DataAndCodeAreTheSameThing">data=code</a>?</p>
-<!--TODO: check with brainfuck-->
-<!--TODO: prove or disprove that this is a metric-->
+<p>Moved <a href="./logical.html">here</a>.</p>
 <h2 id="FieldSpecific_LowInformation_Priors"><a class="hanchor" href="#FieldSpecific_LowInformation_Priors">Field-Specific Low-Information Priors</a></h2>
 <ol>
 <li><a href="https://www.metaculus.com/questions/1490/which-percentage-of-metaculus-questions-resolving-in-q1-2019-will-resolve-positively/">~</a><a href="https://www.metaculus.com/questions/804/1000th-binary-question-resolution-is-positive/">4</a><a href="https://www.metaculus.com/questions/1475/which-percentage-of-metaculus-questions-resolving-from-october-1st-to-december-31st-2018-inclusive-will-resolve-positively/">0</a><a href="https://rethinkpriorities.org/publications/data-on-forecasting-accuracy-across-different-time-horizons">​%</a> of questions worth asking resolve as true.</li>
@@ -1943,18 +1901,4 @@ via good ol' <a href="https://en.wikipedia.org/wiki/K-means_Clustering">k-means<
 but t-SNE is <a href="https://en.wikipedia.org/wiki/Clustering_high-dimensional_data#Projection-based_clustering">sometimes used even for
 clustering</a>,
 all my charity is being exhausted at this point.</p>
-<div class="footnotes">
-<hr/>
-<ol>
-<li id="fn1">
-<p>Actually not explained in detail anywhere, as far as I can tell. <a href="#fnref1" rev="footnote">↩</a></p>
-</li>
-<li id="fn2">
-<p>Suggested by GPT-4. Stands for <a href="https://en.wiktionary.org/wiki/%E5%90%88#Definitions">joining, combining, uniting</a>. Also "to suit; to fit", "to have sexual intercourse", "to fight, to have a confrontation with", or "to be equivalent to, to add up". <a href="#fnref2" rev="footnote">↩</a></p>
-</li>
-<li id="fn3">
-<p>Which is needed because tape states close to the output are more important than tape states early on. <a href="#fnref3" rev="footnote">↩</a></p>
-</li>
-</ol>
-</div>
 </body></html>

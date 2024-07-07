@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-04-15, modified: 2024-06-10, language: english, status: notes, importance: 8, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2023-04-15, modified: 2024-07-07, language: english, status: notes, importance: 8, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>We consider the problem of resolving preferences
 that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
@@ -414,13 +414,17 @@ of the symmetrical difference of the sets of edges, that is
 <li><code>$\text{EGED}(G_1, G_2) \le |E_1 \Delta E_2|$</code>: To generate <code>$G_2$</code> from <code>$G_1$</code> it is necessary to remove edges from <code>$G_1$</code> not in <code>$G_2$</code>, and then add edges from <code>$G_2$</code> not in <code>$G_1$</code>. These comprise the set <code>$(E_1 \backslash E_2) \cup (E_2 \backslash E_1)$</code>. So the graph-edit distance is upper-bounded by the size of the symmetric difference.</li>
 <li><code>$\text{EGED}(G_1, G_2) \ge |E_1 \Delta E_2|$</code>: Assume that <code>$|E_1 \Delta E_2|&lt;\text{EGED}(G_1, G_2)$</code>. Removing <code>$E^-=E_1 \backslash E_2$</code> from <code>$G_1$</code> and adding the edges <code>$E^+=E_2 \backslash E_1$</code> results in <code>$G_2$</code>. But then <code>$E^- \uplus E^+$</code> is already a graph edit that creates <code>$G_2$</code> from <code>$G_1$</code>, so <code>$\text{EGED}(G_1, G_2)$</code> can't be a minimal edge-graph-edit distance between <code>$G_1$</code> and <code>$G_2$</code>. ◻</li>
 </ol>
-<p>::: algorithm
-::: algorithmic
-$m \gets \infty$, $R \gets \emptyset$ $L$ is a consistent graph with
-vertices $\Omega$ and edges $E<em>L$ $d \gets |E \Delta E</em>L|$
-$R \gets {L}$, $m \gets d$ $R \gets R \cup {L}$ $R$
-:::
-:::</p>
+<p><em><strong>Algorithm 1</strong>: A naive algorithm for computing <code>EGEDmin</code></em></p>
+<pre><code>function EGEDmin(G)
+    m=∞,R=∅
+    for L∈ℭ_Ω: # L is a consistent graph with vertices Ω and edges E_L
+        d=|EΔE_L|
+        if d&lt;m:
+            R={L}, m=d
+        else if d==m:
+            R=R∪{L}
+    return R
+</code></pre>
 <h4 id="Establishing_Consistency_Stepwise"><a class="hanchor" href="#Establishing_Consistency_Stepwise">Establishing Consistency Stepwise</a></h4>
 <p>An alternative approach to resolve a graph $G$ to a set $\mathbf{C}$ of
 consistent graphs is to proceed by establishing the desired properties
@@ -446,90 +450,94 @@ algorithm [@kahn1962topological] that appends nodes with in-degree 0
 in front of a strict order $C$. The result is a set of acyclic
 tournaments $\mathbf{C}$ on $\Omega$.</p></li>
 </ul>
-<p>::: algorithm
-::: algorithmic
-${G}$ Remove reflexive edges from $G$ $\mathbf{A} \gets \emptyset$,
-$\mathbf{R} \gets \emptyset$
-$\mathbf{A} \gets \mathbf{A} \cup {G \backslash \text{fas}}$
-$\mathbf{R} \gets \mathbf{R}\ \cup$ $\mathbf{R}$ $G$
-$\mathbf{R} \gets \emptyset$ $M \gets G$ with $\omega$ removed
-$\mathbf{T} \gets$ $\mathbf{R} \gets \mathbf{R} \cup {T^<em>}$ $T^</em>$ is
-the transitive closure of $T$ $\mathbf{R}$
-:::
-:::</p>
+<p><em><strong>Algorithm 2</strong>: Computing <code>stepwise</code></em></p>
+<pre><code>function stepwise(G)
+    if G is consistent
+        return {G}
+    Remove reflexive edges from G
+    A=∅, R=∅
+    for fas∈mfas(G):
+        A=A∪{G\fas}
+    for a∈A
+        R=R∪topological_sorts(a)
+    return R
+
+function topological_sorts(G)
+    if |Ω|=0:
+        return G
+    R=∅
+    for ω∈Ω so that ω has in-degree 0 in G:
+        M=G with ω removed
+        T=topological_sorts(M)
+        for t∈T:
+            R=R∪{t*} # t* is the transitive closure of t
+    return R
+</code></pre>
 <p>We can now prove that <code>stepwise</code> has the same output as <code>EGEDmin</code>. First
 we prove that all outputs of <code>stepwise</code> have the same edge-graph-edit
 distance from $G$.</p>
-<p>::: {#lemma:stepwisesamedist .lemma}
-<strong>Lemma 1</strong>. For a given $G=(\Omega, E_G)$, all graphs returned by
-$\mathtt{stepwise}$ have the same edge-graph-edit distance from $G$.
-:::</p>
-<p>::: proof
-<em>Proof.</em> Let $\mathbf{S}=\mathtt{stepwise}(G)$, and $S=(\Omega, E<em>S) \in
-\mathbf{S}$. Since all $S$ are transitive, complete and reflexive, all
-$S$ have the same number of edges, namely the triangular number
-$|E</em>S|=\frac{|\Omega|(|\Omega|+1)}{2}$. We also know that
-$\text{EGED}(G, S)=|E<em>G \Delta E</em>S|$, and $E<em>G
-\Delta E</em>S=E<em>G \backslash E</em>S \cup E<em>S \backslash E</em>G$ (the edges we
-remove from $E<em>G$ and the edges we add to $E</em>S$). The edges removed from
-$E<em>G$ are the minimal feedback arc sets, so they all have the same size
-$m=|E</em>G \backslash E<em>S|$. It now suffices to show that
-$i=E</em>S \backslash E<em>G$, the size of the edges added, is constant. It
-holds that $|E</em>G|-m+i=|E<em>S|$, and then $i=|E</em>S|-|E_G|+m$, which must be
-constant. So $\text{EGED}(S, G)=m+i$ is also constant for a given
-$G, S \in \mathbf{S}$. ◻
-:::</p>
+<p><strong>Lemma 1</strong>. For a given $G=(\Omega, E_G)$, all graphs returned by
+$\mathtt{stepwise}$ have the same edge-graph-edit distance from $G$.</p>
+<p><em>Proof.</em> Let <code>$\mathbf{S}=\mathtt{stepwise}(G)$</code>, and <code>$S=(\Omega,
+E_S) \in \mathbf{S}$</code>. Since all <code>$S$</code> are transitive, complete and
+reflexive, all $S$ have the same number of edges, namely the triangular
+number <code>$|E_S|=\frac{|\Omega|(|\Omega|+1)}{2}$</code>. We also know that
+<code>$\text{EGED}(G, S)=|E_G \Delta E_S|$</code>, and <code>$E_G \Delta E_S=E_G
+\backslash E_S \cup E_S \backslash E_G$</code> (the edges we remove from
+<code>$E_G$</code> and the edges we add to <code>$E_S$</code>). The edges removed from
+<code>$E_G$</code> are the minimal feedback arc sets, so they all have the same
+size <code>$m=|E_G \backslash E_S|$</code>. It now suffices to show that <code>$i=E_S
+\backslash E_G$</code>, the size of the edges added, is constant. It holds
+that <code>$|E_G|-m+i=|E_S|$</code>, and then <code>$i=|E_S|-|E_G|+m$</code>, which must be
+constant. So <code>$\text{EGED}(S, G)=m+i$</code> is also constant for a given <code>$G,
+S \in \mathbf{S}$</code>. ◻</p>
 <p>We then show that the edges removed by <code>EGEDmin</code> are always a minimum
 feedback arc set.</p>
-<p>::: {#mfasremove .lemma}
-<strong>Lemma 2</strong>. Given a directed graph $G$, let $T=(\Omega, E<em>T) \in
-\mathtt{EGEDmin}(G)$. Let $E^-</em>T=E \backslash E<em>T$ (the edges removed
-from $G$ to achieve $T$) and $E^+</em>T=E<em>T \backslash E$ (the edges added
-to $G$ to create $T$). Then $E^-</em>T$ is a minimum feedback arc set of
-$G$.
-:::</p>
-<p>::: proof
-<em>Proof.</em> $E^-<em>T$ is a feedback arc set: Assume for contradiction that
-$E^-</em>T$ was not a feedback arc set. Then $G$ would need to contain a
-cycle of directed edges
-$E<em>c=\omega</em>1 \rightarrow \omega<em>2 \rightarrow \dots
-\rightarrow \omega</em>{k-1} \rightarrow \omega<em>k \rightarrow \omega</em>1$ so
-that the cycle was still present after removing $E^-<em>T$, that is $E</em>c
-\subseteq E \backslash E^-<em>T$. We know that then $E</em>T=(E \backslash
-E^-<em>T) \cup E^+</em>T$, but adding edges can't remove a subset, so $E<em>c
-\subseteq E \backslash E^-</em>T \Rightarrow E<em>c \subseteq (E \backslash
-E^-</em>T) \cup E^+_T$.</p>
-<p>But then $T$ can't be transitive, asymmetric and complete: If it was
-transitive and complete, then there would need to be an edge $\omega<em>1
-\rightarrow \omega</em>3$ (created through $\omega<em>1 \rightarrow \omega</em>2
-\rightarrow \omega<em>3$), an edge $\omega</em>1 \rightarrow \omega<em>4$ (created
-through $\omega</em>1 \rightarrow \omega<em>3 \rightarrow \omega</em>4$), and so
-on. Then $E<em>T$ would also contain the edge $\omega</em>1 \rightarrow
-\omega<em>{k-1}$, and thereby also the edge $\omega</em>{k} \rightarrow
-\omega<em>{k-1}$ (through the transitivity of $\omega</em>k \rightarrow
-\omega<em>1 \rightarrow \omega</em>{k-1}$). But since both
-$\omega<em>k \rightarrow
-\omega</em>{k-1} \in E<em>T$ and $\omega</em>{k-1} \rightarrow \omega<em>k \in E</em>T$,
-it can't be asymmetric.</p>
-<p>$E^-<em>T$ is minimal: Assume $E^-</em>T$ was a feedback arc set, but not
-minimal. Then there would need to be another feedback arc set $E^{-'}<em>T$
-so that $|E^{-'}</em>T|&lt;|E^-<em>T|$. Then one can create $T'=(\Omega, E</em>T')$
-from $G$ by removing $E^{-'}_T$ from $E$ and then completing the
+<p><strong>Lemma 2</strong>. Given a directed graph <code>$G$</code>, let <code>$T=(\Omega, E_T)
+\in \mathtt{EGEDmin}(G)$</code>. Let <code>$E^-_T=E \backslash E_T$</code> (the edges
+removed from <code>$G$</code> to achieve <code>$T$</code>) and <code>$E^+_T=E_T \backslash E$</code>
+(the edges added to <code>$G$</code> to create <code>$T$</code>). Then <code>$E^-_T$</code> is a minimum
+feedback arc set of <code>$G$</code>.</p>
+<p><em>Proof.</em> <code>$E^-_T$</code> is a feedback arc set: Assume for contradiction that
+<code>$E^-_T$</code> was not a feedback arc set. Then $G$ would need to contain a
+cycle of directed edges <code>$E_c=\omega_1 \rightarrow \omega_2 \rightarrow
+\dots \rightarrow \omega_{k-1} \rightarrow \omega_k \rightarrow \omega_1$</code>
+so that the cycle was still present after removing <code>$E^-_T$</code>, that
+is <code>$E_c \subseteq E \backslash E^-_T$</code>. We know that then <code>$E_T=(E
+\backslash E^-_T) \cup E^+_T$</code>, but adding edges can't remove a subset,
+so <code>$E_c \subseteq E \backslash E^-_T \Rightarrow E_c \subseteq (E
+\backslash E^-_T) \cup E^+_T$</code>.</p>
+<p>But then <code>$T$</code> can't be transitive, asymmetric and complete: If it was
+transitive and complete, then there would need to be an edge <code>$\omega_1
+\rightarrow \omega_3$</code> (created through <code>$\omega_1 \rightarrow \omega_2
+\rightarrow \omega_3$</code>), an edge <code>$\omega_1 \rightarrow \omega_4$</code>
+(created through <code>$\omega_1 \rightarrow \omega_3 \rightarrow
+\omega_4$</code>), and so on. Then <code>$E_T$</code> would also contain the edge
+<code>$\omega_1 \rightarrow \omega_{k-1}$</code>, and thereby also the edge
+<code>$\omega_{k} \rightarrow \omega_{k-1}$</code> (through the transitivity of
+<code>$\omega_k \rightarrow \omega_1 \rightarrow \omega_{k-1}$</code>). But since
+both <code>$\omega_k \rightarrow \omega_{k-1} \in E_T$</code> and <code>$\omega_{k-1}
+\rightarrow \omega_k \in E_T$</code>, it can't be asymmetric.</p>
+<p><code>$E^-_T$</code> is minimal: Assume <code>$E^-_T$</code> was a feedback arc set, but not
+minimal. Then there would need to be another feedback arc set <code>$E^{-'}_T$</code>
+so that <code>$|E^{-'}_T|&lt;|E^-_T|$</code>. Then one can create <code>$T'=(\Omega, E_T')$</code>
+from <code>$G$</code> by removing <code>$E^{-'}_T$</code> from <code>$E$</code> and then completing the
 resulting directed acyclic graph to a consistent graph.</p>
-<p>We know that $|E<em>T|=|E</em>T'|=\frac{|\Omega|(|\Omega|+1)}{2}$, since both
-$T$ and $T'$ are acyclic tournaments.</p>
-<p>Then it is the case that $\text{EGED}(G, T) &gt; \text{EGED}(G, T')$:</p>
-<p>$$\begin{aligned}
-&amp;\text{EGED}(G, T)&gt;\text{EGED}(G, T') \
-&amp;\Leftrightarrow |E \Delta E<em>T| &gt; |E \Delta E</em>T'| \
-&amp;\Leftrightarrow |E^-<em>T \uplus E^+</em>T| &gt; |E^{-'}<em>T \uplus E^{+'}</em>T| \
-&amp;\Leftrightarrow |E<sup>-<em>T|+|E</em>T|-(|E|-|E</sup>-<em>T|)&gt;|E^{-'}</em>T|+|E<em>T'|-(|E|-|E^{-'}</em>T|) \
-&amp;\Leftrightarrow |E<sup>-_T|-|E|+|E</sup>-<em>T|&gt;|E^{-'}</em>T|-|E|+|E^{-'}<em>T| \
-&amp;\Leftrightarrow 2 \cdot |E^-</em>T|&gt;2 \cdot |E^{-'}_T| \
-\end{aligned}$$</p>
-<p>So $E^-_T$ must be minimal, since otherwise it is not a set of edges
-removed by <code>EGEDmin</code>. ◻
-:::</p>
+<p>We know that <code>$|E_T|=|E_T'|=\frac{|\Omega|(|\Omega|+1)}{2}$</code>, since both
+<code>$T$</code> and <code>$T'$</code> are acyclic tournaments.</p>
+<p>Then it is the case that <code>$\text{EGED}(G, T) &gt; \text{EGED}(G, T')$</code>:</p>
+<div>
+    $$\begin{aligned}
+    &amp;\text{EGED}(G, T)&gt;\text{EGED}(G, T') \\
+    &amp;\Leftrightarrow |E \Delta E_T| &gt; |E \Delta E_T'| \\
+    &amp;\Leftrightarrow |E^-_T \uplus E^+_T| &gt; |E^{-'}_T \uplus E^{+'}_T| \\
+    &amp;\Leftrightarrow |E^-_T|+|E_T|-(|E|-|E^-_T|)&gt;|E^{-'}_T|+|E_T'|-(|E|-|E^{-'}_T|) \\
+    &amp;\Leftrightarrow |E^-_T|-|E|+|E^-_T|&gt;|E^{-'}_T|-|E|+|E^{-'}_T| \\
+    &amp;\Leftrightarrow 2 \cdot |E^-_T|&gt;2 \cdot |E^{-'}_T| \\
+    \end{aligned}$$
+</div>
+<p>So <code>$E^-_T$</code> must be minimal, since otherwise it is not a set of edges
+removed by <code>EGEDmin</code>. ◻</p>
 <p>Using the fact that $E_T^-$ is a minimum feedback arc set, and that all
 outputs of stepwise have the same edge-edit distance from the input, we
 can prove that all outputs of <code>stepwise</code> are contained in <code>EGEDmin</code>.</p>
@@ -702,23 +710,21 @@ to be NP-hard [@hudry2010complexity].</p>
 <strong>Theorem 6</strong>. Finding the set of acyclic tournaments with smallest
 edge-graph-edit distance to a given graph $G$ is NP-hard.
 :::</p>
-<p>::: proof
-<em>Proof.</em> Reduction from finding all Slater orders with the smallest
-distance to a given tournament $T$.</p>
+<p><em>Proof.</em> Reduction from finding all Slater orders with the smallest
+distance to a given tournament <code>$T$</code>.</p>
 <p>Assume we know an algorithm $\mathtt{A}$ to compute $f_{\text{EGED}}(G)$
 efficiently, that is, to compute the set of all acyclic tournaments with
 the minimal graph-edit distance to a given directed graph $G$ in
 polynomial time.</p>
 <p>Then one could solve Slater's problem in polynomial time: For any given
-tournament $T$, $\mathtt{A}$ would compute a set $\mathbf{C}<em>T$ of
-acyclic tournaments which have the same minimal graph-edit distance $2k$
-to $T$, the distance is divisible by two because by editing a tournament
-$T$ into a tournament $T'$. Edges can only be flipped, which engenders
+tournament <code>$T$</code>, <code>$\mathtt{A}$</code> would compute a set <code>$\mathbf{C}_T$</code> of
+acyclic tournaments which have the same minimal graph-edit distance <code>$2k$</code>
+to <code>$T$</code>, the distance is divisible by two because by editing a tournament
+<code>$T$</code> into a tournament <code>$T'$</code>. Edges can only be flipped, which engenders
 two edge operations (removing an edge and then adding a new one). Then
-that set would also be the set of Slater orders of $T$ (with distance
-$k$), a solution to ($P</em>3$) from [@hudry2010complexity], which is known
-to be NP-hard. ◻
-:::</p>
+that set would also be the set of Slater orders of <code>$T$</code> (with distance
+<code>$k$</code>), a solution to ($P_3$) from [@hudry2010complexity], which is known
+to be NP-hard. ◻</p>
 <p>Similarly, finding only <em>one</em> element from $f<em>{\text{EGED}}(G)$ is also
 NP-hard, by reducing it to $P</em>2$ ("PROBLEM $P_2$. Given a tournament
 $T$, compute a Slater order $O^*(T)$ of $T$") [@hudry2010complexity].</p>
@@ -777,10 +783,10 @@ will be two $\omega<em>1, \omega</em>2 \in \Omega$ that are ranked differently
 by different elements of the set of results).</p>
 <p>However, results from two different fields apply to this case.</p>
 <ul>
-<li><p><strong>Social Choice Theory</strong>: Since all elements of $\mathbf{C}<em>G=f(G)$
+<li><p><strong>Social Choice Theory</strong>: Since all elements of <code>$\mathbf{C}_G=f(G)$</code>
 are complete, transitive, and asymmetric, one can apply the large
 toolbox of methods and results from social choice theory
-[@banks2000positive] to elements from $\mathbf{C}</em>G$ by treating
+[@banks2000positive] to elements from <code>$\mathbf{C}_G$</code> by treating
 them as individual preferences in a preference profile by applying a
 social welfare function in sense of Arrow to it [@gaertner2009primer
 ch.2]. Some impossibility results such as Arrow's theorem
@@ -1044,11 +1050,11 @@ a counterexample in Figure <a href="#fig:example1">4</a>:</p>
 <strong>Example 1</strong>.</p>
 <figure id="fig:example1">
 <figure id="fig:counter1">
-<img src="./counter_example.png"/>
+<img src="./img/resolving/counter_example.png"/>
 <figcaption>Counterexample</figcaption>
 </figure>
 <figure id="fig:resolved">
-<img src="./resolved_example.png"/>
+<img src="./img/resolving/resolved_example.png"/>
 <figcaption>Counterexample resolved versions</figcaption>
 </figure>
 <figcaption><span class="math inline"><em>G</em><sub><em>c</em></sub></span> on the left
@@ -1255,36 +1261,32 @@ graph $G$ with a completely dominating set $\Sigma<em>1$ and a completely
 dominated set $\Sigma</em>2$ it holds that $\forall C \in f(G)$ the set of
 nodes $\Sigma<em>1$ is a completely dominating set of $\Sigma</em>2$ in $C$.
 :::</p>
-<p>::: proposition
-<strong>Proposition 3</strong>. Let $f$ be a function that fulfills <strong>Preservation of
+<p><strong>Proposition 3</strong>. Let $f$ be a function that fulfills <strong>Preservation of
 Complete Domination</strong>. If for a graph $G$ there are $n$ sets of vertices
 $\Sigma<em>1,
 \dots, \Sigma</em>n$ so that $\biguplus<em>{i=1}^n \Sigma</em>i=\Omega$ and</p>
-<p>$$\forall c \in {1, \dots, n}: \bigcup<em>{i=1}^c \Sigma</em>i \text{ completely dominates } \bigcup<em>{j=c+1}^n \Sigma</em>j$$,</p>
-<p>then for any $C\in f(G)$ with $C=(\Omega, E<em>C)$ it holds that $\forall
-1&lt;j&lt;k&lt;n: \forall \sigma</em>j \in \Sigma<em>j, \sigma</em>k \in \Sigma<em>k: (\sigma</em>j,
-\sigma<em>k) \in E</em>C \land (\sigma<em>k, \sigma</em>j) \not \in E_C$ (or, less
+<div>
+    $$\forall c \in \{1, \dots, n\}: \bigcup_{i=1}^c \Sigma_i \text{ completely dominates } \bigcup_{j=c+1}^n \Sigma_j$$,
+</div>
+<p>then for any <code>$C\in f(G)$</code> with <code>$C=(\Omega, E_C)$</code> it holds that <code>$\forall
+1&lt;j&lt;k&lt;n: \forall \sigma_j \in \Sigma_j, \sigma_k \in \Sigma_k: (\sigma_j,
+\sigma_k) \in E_C \land (\sigma_k, \sigma_j) \not \in E_C$</code> (or, less
 formally, every element from a subset of a completely dominating set is
 strictly preferred over any element from a subset of a completely
-dominated set in the output of the resolution function $f$).
-:::</p>
-<p>::: proof
-<em>Proof.</em> Fix $1&lt;j&lt;k&lt;n$. Let $\Sigma<em>l=\biguplus</em>{i=1}^{k-1} \Sigma<em>i$
-and $\Sigma</em>r=\biguplus<em>{i=k}^n \Sigma</em>i$. Then $\Sigma<em>l$ dominates
-$\Sigma</em>r$ in $G$, and by assumption also in $C \in f(G)$. Since
-$\Sigma<em>j \subsetneq \Sigma</em>l$ and $\Sigma<em>k \subsetneq \Sigma</em>r$, it
-holds that $\forall \sigma<em>j \in \Sigma</em>j, \sigma<em>k \in \Sigma</em>k:
-\sigma<em>j \rightarrow \sigma</em>k \in E<em>C \land \sigma</em>k \rightarrow \sigma<em>j
-\not \in E</em>C$. So $\Sigma<em>j$ now completely dominates $\Sigma</em>k$ in
-$C$. ◻
-:::</p>
-<p>::: remark
-<strong>Remark 1</strong>. Sets of such $\Sigma<em>1, \dots, \Sigma</em>n$ such that there
+dominated set in the output of the resolution function <code>$f$</code>).</p>
+<p><em>Proof.</em> Fix <code>$1&lt;j&lt;k&lt;n$</code>. Let <code>$\Sigma_l=\biguplus_{i=1}^{k-1} \Sigma_i$</code>
+and <code>$\Sigma_r=\biguplus_{i=k}^n \Sigma_i$</code>. Then <code>$\Sigma_l$</code> dominates
+<code>$\Sigma_r$</code> in <code>$G$</code>, and by assumption also in <code>$C \in f(G)$</code>. Since
+<code>$\Sigma_j \subsetneq \Sigma_l$</code> and <code>$\Sigma_k \subsetneq \Sigma_r$</code>, it
+holds that <code>$\forall \sigma_j \in \Sigma_j, \sigma_k \in \Sigma_k:
+\sigma_j \rightarrow \sigma_k \in E_C \land \sigma_k \rightarrow \sigma_j
+\not \in E_C$</code>. So <code>$\Sigma_j$</code> now completely dominates <code>$\Sigma_k$</code> in
+$C$. ◻</p>
+<p><strong>Remark 1</strong>. Sets of such <code>$\Sigma_1, \dots, \Sigma_n$</code> such that there
 is a relationship of complete domination between any two of them are
 quite similar to graph quotients, but is somewhat stricter (demanding
-that each $\sigma<em>i \in
-\Sigma</em>i$ be preferred to each other $\sigma<em>j \in \Sigma</em>j$).
-:::</p>
+that each <code>$\sigma_i \in
+\Sigma_i$</code> be preferred to each other <code>$\sigma_j \in \Sigma_j$</code>).</p>
 <p>::: remark
 <strong>Remark 2</strong>. Preservation of complete domination implies some other
 criteria: If there is a consistent subgraph which is a completely
@@ -1906,13 +1908,13 @@ I(s<em>0) \cr
 \vdots \cr
 I(s</em>n) \cr
 \end{pmatrix} \in \mathbb{R}^n$$</p>
-<p>Consider two MDPs $\mathcal{M}<em>1=(S</em>1, A, P<em>1, R</em>1, I<em>1)$ and
-$\mathcal{M}</em>2=(S<em>2, A, P</em>2, R<em>2, I</em>2)$, but with $R<em>2$ being unknown.
-An agent who starts with $\mathcal{M}</em>1$, but who discovers that a
-better model $\mathcal{M}<em>2$ of the environment has a different set of
+<p>Consider two MDPs <code>$\mathcal{M}_1=(S_1, A, P_1, R_1, I_1)$</code> and
+<code>$\mathcal{M}_2=(S_2, A, P_2, R_2, I_2)$</code>, but with <code>$R_2$</code> being unknown.
+An agent who starts with <code>$\mathcal{M}_1$</code>, but who discovers that a
+better model <code>$\mathcal{M}_2$</code> of the environment has a different set of
 states and transition probabilities (however, the set of actions stays
-the same) and thereby now wants to operate in $\mathcal{M}</em>2$ has the
-problem of defining $R_2$.</p>
+the same) and thereby now wants to operate in <code>$\mathcal{M}_2$</code> has the
+problem of defining <code>$R_2$</code>.</p>
 <p>::: definition
 <strong>Definition 14</strong>. The method de Blanc uses to find $R<em>2$ is to find two
 linear maps $\phi
