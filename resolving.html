@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-04-15, modified: 2024-07-07, language: english, status: notes, importance: 8, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2023-04-15, modified: 2024-07-10, language: english, status: notes, importance: 8, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>We consider the problem of resolving preferences
 that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
@@ -541,39 +541,36 @@ removed by <code>EGEDmin</code>. ◻</p>
 <p>Using the fact that $E_T^-$ is a minimum feedback arc set, and that all
 outputs of stepwise have the same edge-edit distance from the input, we
 can prove that all outputs of <code>stepwise</code> are contained in <code>EGEDmin</code>.</p>
-<p>::: {#lemma:stepsubseteged .lemma}
-<strong>Lemma 3</strong>.
-$\forall G \in \mathfrak{P}: \mathtt{stepwise}(G) \subseteq \mathtt{EGEDmin}(G)$.
-:::</p>
-<p>::: proof
-<em>Proof.</em> Let $S=(\Omega, E<em>S) \in \mathtt{stepwise}(G)$ for any $G$, and
-let $T=(\Omega, E</em>T) \in \mathtt{EGEDmin}(G)$. Let
-$E^-<em>S=E \backslash E</em>S$ be the minimum feedback arc set we remove from
-$S$ to create $G$, and $E^+<em>S=E</em>S \backslash E$ the edges we add to make
-$G$ complete. We similarly define $E^-<em>T=E \backslash E</em>T$ and
-$E^+<em>T=E</em>T \backslash E_T$.</p>
-<p>We can now show that $\text{EGED}(S, G) \le \text{EGED}(T, G)$: Assume
-that $\text{EGED}(S, G) &gt; \text{EGED}(T, G)$. By <strong>Lemma</strong>
-<a href="#mfasremove">2</a> $E^-<em>T$ is
-a minimum feedback arc set, and so $|E^-</em>T|=|E^-<em>S|$. Furthermore,
-$|E</em>S|=|E_T|$, since they are both acyclic tournaments on $\Omega$.</p>
+<p><strong>Lemma 3</strong>.
+<code>$\forall G \in \mathfrak{P}: \mathtt{stepwise}(G) \subseteq \mathtt{EGEDmin}(G)$</code>.</p>
+<p><em>Proof.</em> Let <code>$S=(\Omega, E_S) \in \mathtt{stepwise}(G)$</code> for any <code>$G$</code>, and
+let <code>$T=(\Omega, E_T) \in \mathtt{EGEDmin}(G)$</code>. Let
+<code>$E^-_S=E \backslash E_S$</code> be the minimum feedback arc set we remove from
+<code>$S$</code> to create <code>$G$</code>, and <code>$E^+_S=E_S \backslash E$</code> the edges we add to make
+<code>$G$</code> complete. We similarly define <code>$E^-_T=E \backslash E_T$</code> and
+<code>$E^+_T=E_T \backslash E_T$</code>.</p>
+<p>We can now show that <code>$\text{EGED}(S, G) \le \text{EGED}(T, G)$</code>: Assume
+that <code>$\text{EGED}(S, G) &gt; \text{EGED}(T, G)$</code>. By <strong>Lemma</strong> 2 <code>$E^-_T$</code>
+is a minimum feedback arc set, and so <code>$|E^-_T|=|E^-_S|$</code>. Furthermore,
+<code>$|E_S|=|E_T|$</code>, since they are both acyclic tournaments on <code>$\Omega$</code>.</p>
 <p>Then</p>
-<p>$$\begin{aligned}
-&amp;\text{EGED}(G, S) = |E \Delta E<em>S| \
-&amp;= |(E \backslash E^-</em>S) \uplus E^+<em>S| \
-&amp;= (|E|-|E^-</em>S|)+|E^+<em>S| \
-&amp;= (|E|-|E^-</em>S|)+|E<em>S|-(|E|-|E^-</em>S|) \
-&amp;= (|E|-|E<sup>-<em>T|)+|E</em>T|-(|E|-|E</sup>-<em>T|) \
-&amp;= (|E|-|E^-</em>T|)+|E^+<em>T| \
-&amp;= |(E \backslash E^-</em>T) \uplus E^+<em>T| \
-&amp;= |E \Delta E</em>T| = \text{EGED}(G, T)
-\end{aligned}$$</p>
-<p>So it can't be the case that $\text{EGED}(S, G) &gt; \text{EGED}(T, G)$.</p>
-<p>We can also show that $\text{EGED}(S, G) \ge \text{EGED}(T, G)$: Assume
-that $\text{EGED}(S, G) &lt; \text{EGED}(T, G)$. Since both $S,
-T \in \mathfrak{C}_{\Omega}$, this contradicts the assumption that the
-output of <code>EGEDmin</code> has minimal distance. ◻
-:::</p>
+<div>
+    $$\begin{aligned}
+    &amp;\text{EGED}(G, S) = |E \Delta E_S| \\
+    &amp;= |(E \backslash E^-_S) \uplus E^+_S| \\
+    &amp;= (|E|-|E^-_S|)+|E^+_S| \\
+    &amp;= (|E|-|E^-_S|)+|E_S|-(|E|-|E^-_S|) \\
+    &amp;= (|E|-|E^-_T|)+|E_T|-(|E|-|E^-_T|) \\
+    &amp;= (|E|-|E^-_T|)+|E^+_T| \\
+    &amp;= |(E \backslash E^-_T) \uplus E^+_T| \\
+    &amp;= |E \Delta E_T| = \text{EGED}(G, T)
+    \end{aligned}$$
+</div>
+<p>So it can't be the case that <code>$\text{EGED}(S, G) &gt; \text{EGED}(T, G)$</code>.</p>
+<p>We can also show that <code>$\text{EGED}(S, G) \ge \text{EGED}(T, G)$</code>: Assume
+that <code>$\text{EGED}(S, G) &lt; \text{EGED}(T, G)$</code>. Since both <code>$S,
+T \in \mathfrak{C}_{\Omega}$</code>, this contradicts the assumption that the
+output of <code>EGEDmin</code> has minimal distance. ◻</p>
 <p>We now show that all outputs of <code>EGEDmin</code> are also outputs of
 <code>stepwise</code>.</p>
 <p>::: {#lemma:egedsubsetstep .lemma}

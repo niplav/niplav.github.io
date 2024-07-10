@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-07-07, modified: 2024-07-02, language: english, status: maintenance, importance: 2, confidence: log</em></p>
+<p><em>author: niplav, created: 2022-07-07, modified: 2024-07-08, language: english, status: maintenance, importance: 2, confidence: log</em></p>
 <blockquote>
 <p><strong>Notes for myself on the data I track, how to transform it into a
 usable shape, data quality and other random assortments.</strong></p>
@@ -96,9 +96,11 @@ all of your data in a usable format.</p>
 <p>I use spaced repetition, and plan to take it as a proxy for cognitive
 performance in QS experiments.</p>
 <p>The data can be found in the helpfully named <code>collection.anki2</code>, which
-is actually an sqlite database in disguise.</p>
-<p>The <a href="">Anki manual</a> helpfully informs that the most important table is
-<code>revlog</code>, one can then export the data to CSV with the following command:</p>
+is actually an <a href="https://en.wikipedia.org/wiki/SQLITE">sqlite</a> database
+in disguise.</p>
+<p>The <a href="https://docs.ankiweb.net/stats.html#manual-analysis">Anki manual</a>
+helpfully informs that the most important table is <code>revlog</code>, one can
+then export the data to CSV with the following command:</p>
 <pre><code>echo -e '.headers on \n select * from revlog;' |
 sqlite3 anki_2022-07-04T08:43:00.db |
 tr '|' ',' &gt;anki_2022-07-04T08:43:00.csv
@@ -173,19 +175,16 @@ impressions directly after meditation, where "mindfulness" describes the
 degree of sensory clarity, and "concentration" (better called "absorption"
 or "rest") describes my ability to rest on a specific sensory object.</p>
 <h2 id="Daygame"><a class="hanchor" href="#Daygame">Daygame</a></h2>
-<p>Sanitizing the sessions file:</p>
-<p>Converting f***ed up Google sheets date format (why does <strong>nobody</strong>
-use the perfect <a href="https://en.wikipedia.org/wiki/ISO-8601">ISO-8601</a> when
-it's right there‽), then removing stray spaces after semicolons,
-then removing the <code>^M</code> from the end of each line, using
-<a href="./doc/cs/structural_regular_expressions_pike_1990.pdf" title="Structural Regular Expressions">structural regular
-expressions</a>:</p>
+<p>Sanitizing the sessions file by converting the datetime to
+<a href="https://en.wikipedia.org/wiki/ISO-8601">ISO-8601</a> using <a href="./doc/cs/structural_regular_expressions_pike_1990.pdf" title="Structural Regular Expressions">structural
+regular
+expressions</a>,
+and some other minor fixes:</p>
 <pre><code>,x/([0-9]+)\/([0-9]+)\/([0-9]+) /c/\3-\1-\2T/
 ,x/; /c/;/
 ,x/(T[0-9]+:[0-9]+),/c/\1:00,/
 ,x/-([0-9])-/c/-0\1-/
 </code></pre>
-<p>and some other minor fixes.</p>
 <p>Formatting the approaches file:</p>
 <pre><code>,x/ ,/c/,/
 </code></pre>
@@ -201,13 +200,11 @@ just to check consistency).</p>
     {
         loc[$2]=100000*rand();
         gsub(/\./, "", loc[$2]);
-        print $2, loc[$2]&gt;&gt;/dev/stderr
     }
     if(name[$8]=="" &amp;&amp; $8!="Name")
     {
         name[$8]=100000*rand();
         gsub(/\./, "", name[$8])
-        print $8,name[$8]&gt;&gt;/dev/stderr
     }
     if($2!="Location") { $2=loc[$2]; }
     if($8!="Name") { $8=name[$8]; }
@@ -251,6 +248,7 @@ allow for data exporting, mostly to track my sleep, but maybe I'll also
 get mileage out of the heart rate, step, glucose and temperature tracking.</p>
 <p>Sleep data <a href="./data/sleep.json">here</a>.</p>
 <h2 id="Others"><a class="hanchor" href="#Others">Others</a></h2>
+<!--TODO: light.csv, islight.csv, ispomodoro.csv, pomodoros.csv-->
 <p>Other metrics I track don't deserve as much elaboration.</p>
 <h3 id="Masturbation"><a class="hanchor" href="#Masturbation">Masturbation</a></h3>
 <p>I track when I masturbate &amp; how good it feels &amp; the type of
@@ -282,8 +280,6 @@ uniq &gt;newmood.csv
 </code></pre>
 <p>Finally I rename the mood columns simply to "happy", "content", "relaxed",
 and "horny".</p>
-<p>The file contains (because of a slight screwup) some duplicated
-entries.<!--TODO: remove these (by hand or otherwise?)--></p>
 <p>CSV <a href="./data/mood.csv">here</a>, the data quality is mediocre (long stretches
 of not responding to questions, giving more conservative (closer to
 50) answers over time, starting to use activities around July 2022
@@ -311,6 +307,11 @@ day on 2023-08-21.</p>
 file</a>. Data quality is horrible: probably prone
 to multiple biases from my side, from different locations, no tracking
 of location or datetime…maybe I should just delete this one.</p>
+<h3 id="Phone_Data"><a class="hanchor" href="#Phone_Data">Phone Data</a></h3>
+<p>Via <a href="https://play.google.com/store/apps/details?id=com.kelvin.sensorapp&amp;hl=en_US">Sensor
+Logger</a>,
+I use my phone as an easy way to collect large amounts of data. I don't want to
+make the files public, as they contain information that could de-pseudonymise me.</p>
 <h3 id="Forecasting_Performance"><a class="hanchor" href="#Forecasting_Performance">Forecasting Performance</a></h3>
 <p>In principle it should be possible for me to track my forecasting
 performance on Manifold, Fatebook/PredictionBook and Metaculus,
