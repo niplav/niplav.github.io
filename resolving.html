@@ -190,27 +190,28 @@ though they still work with utility functions that are invariant under
 positive affine transformation [@backus2004exotic].</p>
 <h5 id="Resolving_Inconsistent_Preferences"><a class="hanchor" href="#Resolving_Inconsistent_Preferences">Resolving Inconsistent Preferences</a></h5>
 <p>In the context of taxonomical data, Sun et al. investigate the problem
-of recovering hierarchies from noisy data [@sun2017breaking]. They
+of recovering hierarchies from noisy data (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>). They
 represent inconsistent taxonomies with directed acyclic graphs and
 consistent hierarchical taxonomies using directed graphs. They find
 that, when measuring the number of edges being removed, a voting
 ensemble of several different techniques such as TrueSkill
 [@herbrich2007trueskill] does well on removing as few edges as possible,
 and usually outperforms removing greedy approximations of the feedback
-arc set [@sun2017breaking].</p>
+arc set (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>).</p>
 <p>Outside of the academic literature, Aird and Shovelain represent
-inconsistent preferences as vector fields on a state space (for example
-states with more/less security and more/less wealth), where a vector
-$\mathbf{v}$ at a specific point $\mathit{p}$ in the vector field
-indicates a preference for a change in the direction of $\mathbf{v}$ at
-$\mathit{p}$ [@shovelain2020using]. However, as they note, such a vector
-field can have inconsistencies in the form of curl. They then discuss
-the restrictions on the vector field so that it conforms to the von
-Neumann-Morgenstern axioms, which they conclude to be potential vector
-fields, and outline how to use Helmholtz decomposition to decompose
-inconsistent preference vector fields with three dimensions. Their
-approach bears a strong resemblance to the Hodge decomposition we use
-with edge-weighted graphs.</p>
+inconsistent preferences as vector fields on a state space
+(for example states with more/less security and more/less
+wealth), where a vector $\mathbf{v}$ at a specific point
+$\mathit{p}$ in the vector field indicates a preference for a
+change in the direction of $\mathbf{v}$ at $\mathit{p}$ (<a href="https://www.lesswrong.com/posts/ky988ePJvCRhmCwGo/using-vector-fields-to-visualise-preferences-and-make-them" title="Using vector fields to visualise preferences and make them consistent">Aird &amp; Shovelain
+2020)</a>).
+However, as they note, such a vector field can have inconsistencies in
+the form of curl. They then discuss the restrictions on the vector field
+so that it conforms to the von Neumann-Morgenstern axioms, which they
+conclude to be potential vector fields, and outline how to use Helmholtz
+decomposition to decompose inconsistent preference vector fields with
+three dimensions. Their approach bears a strong resemblance to the Hodge
+decomposition we use with edge-weighted graphs.</p>
 <p>Taking a very different approach, Kirchner investigates how to infer
 utility functions from non-transitive preferences using a neural network
 [@kirchner2022inferring]. Kirchner relates inferring such preferences to
@@ -219,19 +220,20 @@ cycles during comparison. He finds that this approach is able to
 reconstruct orderings even when 10% of the results of comparisons are
 noise.</p>
 <h5 id="Learning_Inconsistent_Preferences"><a class="hanchor" href="#Learning_Inconsistent_Preferences">Learning Inconsistent Preferences</a></h5>
-<p>The problem of <em>inferring</em> the preferences of irrational agents has been
-formally posed [@armstrong2018occam]: It is in general impossible learn
-such preferences, as any action is equally compatible both with a
-preference for that action <em>and</em> a systematic bias causing the action.
-Nevertheless Evans et al. find a framework that is experimentally
-successful at inferring the preferences of an agent with
+<p>The problem of <em>inferring</em> the preferences of irrational agents has
+been formally posed [@armstrong2018occam]: It is in general impossible
+learn such preferences, as any action is equally compatible both
+with a preference for that action <em>and</em> a systematic bias causing
+the action.  Nevertheless Evans et al. find a framework that is
+experimentally successful at inferring the preferences of an agent with
 time-inconsistent hyperbolic discounting and incorrect beliefs using
-Bayesian inference [@evans2016learning]. Their method for inferring
-preferences of inconsistent software agents gives similar results to
-estimates made by humans. Their framework does not cover all possible
-variants of inconsistent preferences, and makes no statement about how
-to resolve the time-inconsistencies. Evans et al. also give no
-theoretical guarantee about the performance of their method.</p>
+<a href="https://en.wikipedia.org/wiki/Bayesian_Inference">Bayesian inference</a>
+[@evans2016learning]. Their method for inferring preferences of
+inconsistent software agents gives similar results to estimates made
+by humans. Their framework does not cover all possible variants of
+inconsistent preferences, and makes no statement about how to resolve
+the time-inconsistencies. Evans et al. also give no theoretical guarantee
+about the performance of their method.</p>
 <h3 id="The_von_NeumannMorgenstern_Axioms"><a class="hanchor" href="#The_von_NeumannMorgenstern_Axioms">The von Neumann-Morgenstern Axioms</a></h3>
 <p>The von Neumann-Morgenstern (vNM) axioms and the framework of utility
 functions are widely regarded as the standard method of modeling
@@ -431,7 +433,7 @@ consistent graphs is to proceed by establishing the desired properties
 stepwise. Our proposed algorithm (which we call "$\mathtt{stepwise}$")
 is to execute the following steps:</p>
 <ul>
-<li><p><strong>Remove minimum feedback arc sets</strong>. [@sun2017breaking] use a
+<li><p><strong>Remove minimum feedback arc sets</strong>. (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>) use a
 greedy approximation algorithm to find and remove the minimum
 feedback arc set from a "noisy hierarchy" and create a directed
 acyclic graph. <code>stepwise</code> takes a similar approach by computing all
@@ -573,55 +575,46 @@ T \in \mathfrak{C}_{\Omega}$</code>, this contradicts the assumption that the
 output of <code>EGEDmin</code> has minimal distance. ◻</p>
 <p>We now show that all outputs of <code>EGEDmin</code> are also outputs of
 <code>stepwise</code>.</p>
-<p>::: {#lemma:egedsubsetstep .lemma}
-<strong>Lemma 4</strong>.
-$\forall G \in \mathfrak{P}: \mathtt{EGEDmin}(G) \subseteq \mathtt{stepwise}(G)$.
-:::</p>
-<p>::: proof
-<em>Proof.</em> Assume there exists a $G \in \mathfrak{P}<em>{\Omega}$ so that
-there exists a $T=(\Omega, E</em>T) \in \mathtt{EGEDmin}(G)$ so that $T \not
-\in \mathtt{stepwise}(G)$.</p>
-<p>Then, by <strong>Lemma</strong> <a href="#mfasremove">2</a>, $E^-<em>T=E \backslash E</em>T$ is a minimum feedback
-arc set. Therefore, removing $E^-<em>T$ from $E$ results in a directed
-acyclic graph $G</em>A$ which is an element of the intermediate set
-$\mathbf{A}$ of directed acyclic graphs in <code>stepwise</code>.</p>
-<p>Let $E^+<em>T=E</em>T \backslash E$. Assume $E^+<em>T$ was not a set of edges
-added to $G</em>A$ in a topological sort.</p>
-<p>Then let $\omega \in \Omega$ be the node in $T$ that has no incoming
-edges. $\omega$ must also have had no incoming edges in $G<em>A$, since we
-only add edges to $G</em>A$ to achieve $T$, and therefore has in-degree 0 in
-$G_A$, which means that $\omega$ must have been added first to some
-topological sort in <strong>T</strong> by <code>topological_sorts</code>.</p>
-<p>One can now create $T'$ and $G<em>A'$ by removing $\omega$ and all edges
-from $\omega$ from $T$ and $G</em>A$. Let the node in $T'$ with no incoming
-edges be called $\omega'$. Then in $G<em>A$ the node $\omega'$ either had
-no incoming edges or one incoming edge from $\omega$, since one can
-create $T'$ from $G</em>A$ by adding $E^+<em>T$ and then (potentially) removing
-the edge $\omega \rightarrow \omega'$. So in the graph $G</em>A'$ with
-$\omega$ and all its outgoing edges removed from $G<em>A$, the node
-$\omega'$ has in-degree zero, and is therefore also selected as the
-first element in some topological sort of $G</em>A'$, to which $\omega$ is
-prepended after recursion. In the base case of a $T^{$}$ with one
-element $\omega^{$}$, this element $\omega^{$}$ is the only element of
-$G<em>A^{$}$ and also the only element of the topological sort of
-$G</em>A^{$}$.</p>
-<p>Therefore, by induction, given an acyclic tournament $T$ and a set of
-edges $E^+<em>T=E</em>T \backslash E$, this set $E^+<em>T$ must be the edges added
-by some topological sort of $G</em>A=(\Omega, E \backslash E^-_T)$. ◻
-:::</p>
+<p><strong>Lemma 4</strong>.
+<code>$\forall G \in \mathfrak{P}: \mathtt{EGEDmin}(G) \subseteq \mathtt{stepwise}(G)$</code>.</p>
+<p><em>Proof.</em> Assume there exists a <code>$G \in \mathfrak{P}_{\Omega}$</code> so that
+there exists a <code>$T=(\Omega, E_T) \in \mathtt{EGEDmin}(G)$</code> so that <code>$T \not
+\in \mathtt{stepwise}(G)$</code>.</p>
+<p>Then, by <strong>Lemma</strong> 2, <code>$E^-_T=E \backslash E_T$</code> is a minimum feedback
+arc set. Therefore, removing <code>$E^-_T$</code> from <code>$E$</code> results in a directed
+acyclic graph <code>$G_A$</code> which is an element of the intermediate set
+<code>$\mathbf{A}$</code> of directed acyclic graphs in <code>stepwise</code>.</p>
+<p>Let <code>$E^+_T=E_T \backslash E$</code>. Assume <code>$E^+_T$</code> was not a set of edges
+added to <code>$G_A$</code> in a topological sort.</p>
+<p>Then let <code>$\omega \in \Omega$</code> be the node in <code>$T$</code> that has no incoming
+edges. <code>$\omega$</code> must also have had no incoming edges in <code>$G_A$</code>,
+since we only add edges to <code>$G_A$</code> to achieve <code>$T$</code>, and therefore has
+in-degree 0 in <code>$G_A$</code>, which means that <code>$\omega$</code> must have been added
+first to some topological sort in <strong>T</strong> by <code>topological_sorts</code>.</p>
+<p>One can now create <code>$T'$</code> and <code>$G_A'$</code> by removing <code>$\omega$</code> and
+all edges from <code>$\omega$</code> from <code>$T$</code> and <code>$G_A$</code>. Let the node in
+<code>$T'$</code> with no incoming edges be called <code>$\omega'$</code>. Then in <code>$G_A$</code>
+the node <code>$\omega'$</code> either had no incoming edges or one incoming edge
+from <code>$\omega$</code>, since one can create <code>$T'$</code> from <code>$G_A$</code> by adding
+<code>$E^+_T$</code> and then (potentially) removing the edge <code>$\omega \rightarrow
+\omega'$</code>. So in the graph <code>$G_A'$</code> with <code>$\omega$</code> and all its outgoing
+edges removed from <code>$G_A$</code>, the node <code>$\omega'$</code> has in-degree zero,
+and is therefore also selected as the first element in some topological
+sort of <code>$G_A'$</code>, to which <code>$\omega$</code> is prepended after recursion. In
+the base case of a <code>$T^{\$}$</code> with one element <code>$\omega^{\$}$</code>, this
+element <code>$\omega^{\$}$</code> is the only element of <code>$G_A^{\$}$</code> and also
+the only element of the topological sort of <code>$G_A^{\$}$</code>.</p>
+<p>Therefore, by induction, given an acyclic tournament <code>$T$</code> and a set of
+edges <code>$E^+_T=E_T \backslash E$</code>, this set <code>$E^+_T$</code> must be the edges added
+by some topological sort of <code>$G_A=(\Omega, E \backslash E^-_T)$</code>. ◻</p>
 <p>This concludes the proof that both algorithms always have the same
 output.</p>
-<p>::: {#theorem:equivalence .theorem}
-<strong>Theorem 5</strong>.
-$\forall G \in \mathfrak{P}: \mathtt{stepwise}(G)=\mathtt{EGEDmin}(G)$.
-:::</p>
-<p>::: proof
-<em>Proof.</em> By <strong>Lemma</strong> <a href="#lemma:stepsubseteged">3</a> $\mathtt{stepwise}(G) \subseteq
-\mathtt{EGEDmin}(G)$ and by <strong>Lemma</strong>
-<a href="#lemma:egedsubsetstep">4</a>
-$\mathtt{stepwise}(G) \supseteq \mathtt{EGEDmin}(G)$, so the sets must
-be equal. ◻
-:::</p>
+<p><strong>Theorem 5</strong>.
+<code>$\forall G \in \mathfrak{P}: \mathtt{stepwise}(G)=\mathtt{EGEDmin}(G)$</code>.</p>
+<p><em>Proof.</em> By <strong>Lemma</strong> 3 it holds that <code>$\mathtt{stepwise}(G)
+\subseteq \mathtt{EGEDmin}(G)$</code> and by <strong>Lemma</strong> 4 it holds that
+<code>$\mathtt{stepwise}(G) \supseteq \mathtt{EGEDmin}(G)$</code>, so the sets must
+be equal. ◻</p>
 <h4 id="None"><a class="hanchor" href="#None">Applying <code>HodgeRank</code></a></h4>
 <p>Another option to resolve inconsistent preferences over deterministic
 options into consistent preferences is to apply the <code>HodgeRank</code>
@@ -1704,8 +1697,8 @@ edge-weighted inconsistent graph into an edge-weighted consistent graph.</p>
 preferences over edge-weighted graphs were considered, and finally
 rejected.</p>
 <p>One option was the <code>PageRank</code> algorithm [@bianchini2005inside], also
-mentioned in Sun et al. [@sun2017breaking]. We rejected PageRank for the
-same reason as Sun et al. [@sun2017breaking] did: In a directed acyclic
+mentioned in Sun et al. (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>). We rejected PageRank for the
+same reason as Sun et al. (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>) did: In a directed acyclic
 graph, a unique greatest element does not necessarily receive the
 highest ranking. This problem extends to using other centrality measures
 for graphs such as degree centrality and betweenness centrality
@@ -1884,27 +1877,34 @@ that returns a real-numbered value for reaching a certain state<sup id="fnref6">
 $I: S \rightarrow [0,1]$ is a probability distribution for the states
 that the agent is initially in.
 :::</p>
-<p>Given some ordering of the states $s<em>1, \dots, s</em>n$, the transition
-function $P$ from $\mathcal{M}$ can also be represented as a family of
-right-stochastic matrices $\mathbf{T}(a)$ (the transition matrices), $R$
-can be encoded as a real-numbered vector with size $n$, and $I$ can be
-described as real-numbered vector of size $n$ in which the elements sum
-to 1.</p>
-<p>$$\mathbf{T}(a)=\begin{pmatrix}
-P(s<em>0 | a, s</em>0) &amp; \cdots &amp; P(s<em>0 | a, s</em>n) \cr
+<p>Given some ordering of the states <code>$s_1, \dots, s_n$</code>,
+the transition function <code>$P$</code> from <code>$\mathcal{M}$</code>
+can also be represented as a family of <a href="https://en.wikipedia.org/wiki/Right_stochastic_matrix">right-stochastic
+matrices</a>
+<code>$\mathbf{T}(a)$</code> (the transition matrices), <code>$R$</code> can be encoded as
+a real-numbered vector with size <code>$n$</code>, and <code>$I$</code> can be described as
+real-numbered vector of size $n$ in which the elements sum to 1.</p>
+<div>
+$$\mathbf{T}(a)=\begin{pmatrix}
+P(s_0 | a, s_0) &amp; \cdots &amp; P(s_0 | a, s_n) \cr
 \vdots &amp; \ddots &amp; \vdots \cr
-P(s<em>n | a, s</em>0) &amp; \cdots &amp; P(s<em>n | a, s</em>n) \cr
-\end{pmatrix} \in [0,1]^{n \times n}$$</p>
-<p>$$\mathbf{R}=\begin{pmatrix}
-R(s<em>0) \cr
+P(s_n | a, s_0) &amp; \cdots &amp; P(s_n | a, s_n) \cr
+\end{pmatrix} \in [0,1]^{n \times n}$$
+</div>
+<div>
+$$\mathbf{R}=\begin{pmatrix}
+R(s_0) \cr
 \vdots \cr
-R(s</em>n) \cr
-\end{pmatrix} \in \mathbb{R}^n$$</p>
-<p>$$\mathbf{I}=\begin{pmatrix}
-I(s<em>0) \cr
+R(s_n) \cr
+\end{pmatrix} \in \mathbb{R}^n$$
+</div>
+<div>
+$$\mathbf{I}=\begin{pmatrix}
+I(s_0) \cr
 \vdots \cr
-I(s</em>n) \cr
-\end{pmatrix} \in \mathbb{R}^n$$</p>
+I(s_n) \cr
+\end{pmatrix} \in \mathbb{R}^n$$
+</div>
 <p>Consider two MDPs <code>$\mathcal{M}_1=(S_1, A, P_1, R_1, I_1)$</code> and
 <code>$\mathcal{M}_2=(S_2, A, P_2, R_2, I_2)$</code>, but with <code>$R_2$</code> being unknown.
 An agent who starts with <code>$\mathcal{M}_1$</code>, but who discovers that a
@@ -1927,17 +1927,17 @@ here on out written as $\psi \mathbf{T}</em>1(a) \phi \approx
 <p>De Blanc doesn't name $\phi, \psi$, but we will call such $\phi, \psi$
 for MDPs a <strong>de Blanc bisimulation</strong>.
 :::</p>
-<p>::: definition
-<strong>Definition 15</strong>. Let
-$\textbf{BisimulationDifference}(\mathcal{M}<em>1, \mathcal{M}</em>2,
-\phi, \psi)$ for two MDPs $\mathcal{M}<em>1, \mathcal{M}</em>2$ and a de Blanc
-bisimulation $\phi, \psi$ be</p>
-<p>$$\begin{aligned}
-\text{BisimulationDifference}(\mathcal{M}<em>1, \mathcal{M}</em>2, \phi, \psi)= &amp;\sum<em>{a \in A} \sum</em>{i=1}^{n<em>1} D</em>{KL}((\mathbf{T}(a)<em>2)</em>{i, *}||(\psi \mathbf{T}(a)<em>1 \phi)</em>{i, *}) + \
-&amp;\sum<em>{a \in A} \sum</em>{j=1}^{n<em>2} D</em>{KL}((\mathbf{T}(a)<em>1)</em>{j, *}||(\phi \mathbf{T}(a)<em>2 \psi)</em>{j, *}) + \
-&amp;D<em>{KL}(I</em>2 || I<em>1^{\top} \phi) + D</em>{KL}(I<em>1 || I</em>2^{\top} \psi)
+<p><strong>Definition 15</strong>. Let
+<code>$\textbf{BisimulationDifference}(\mathcal{M}_1, \mathcal{M}_2,
+\phi, \psi)$</code> for two MDPs <code>$\mathcal{M}_1, \mathcal{M}_2$</code> and a de Blanc
+bisimulation <code>$\phi, \psi$</code> be</p>
+<div>
+$$\begin{aligned}
+\text{BisimulationDifference}(\mathcal{M}_1, \mathcal{M}_2, \phi, \psi)= &amp;\sum_{a \in A} \sum_{i=1}^{n_1} D_{KL}((\mathbf{T}(a)_2)_{i, *}||(\psi \mathbf{T}(a)_1 \phi)_{i, *}) + \\
+&amp;\sum_{a \in A} \sum_{j=1}^{n_2} D_{KL}((\mathbf{T}(a)_1)_{j, *}||(\phi \mathbf{T}(a)_2 \psi)_{j, *}) + \\
+&amp;D_{KL}(I_2 || I_1^{\top} \phi) + D_{KL}(I_1 || I_2^{\top} \psi)
 \end{aligned}$$
-:::</p>
+</div>
 <p>$D<em>{KL}((\mathbf{T}(a)</em>2)<em>{i, *}||(\psi \mathbf{T}(a)</em>1 \phi)<em>{i, *})$
 is difference between the $i$th row of the state transition matrix of
 $\mathcal{M}</em>2$ for action $a$ and the $i$th row of the state transition
@@ -1954,19 +1954,20 @@ state distributions, again symmetrically.</p>
 <strong>Definition 16</strong>. We call a function that returns a de Blanc
 bisimulation for two MDPs by minimizing the Kullback-Leibler divergence
 between the MDPs <strong>BisimulateShift</strong>.</p>
-<p>$$\begin{aligned}
-\text{BisimulateShift}(\mathcal{M}<em>1, \mathcal{M}</em>2)=\underset{\phi, \psi}{\text{argmin }} \text{BisimulationDifference}(\mathcal{M}<em>1, \mathcal{M}</em>2)
+<div>
+$$\begin{aligned}
+\text{BisimulateShift}(\mathcal{M}_1, \mathcal{M}_2)=\underset{\phi, \psi}{\text{argmin }} \text{BisimulationDifference}(\mathcal{M}_1, \mathcal{M}_2)
 \end{aligned}$$
-:::</p>
-<p>The matrices $\phi$ and $\psi$ can be found by minising<br/>
-$\text{BisimulationDifference}(\mathcal{M}<em>1, \mathcal{M}</em>2, \phi, \psi)$
-with a hill-climbing algorithm from random initial values, or by
-gradient descent with BisimulationDifference as a loss function.</p>
-<p>De Blanc notes that both products of the matrices $\phi, \psi$ are be
+</div>
+<p>The matrices $\phi$ and $\psi$ can be found by minising
+<code>$\text{BisimulationDifference}(\mathcal{M}_1, \mathcal{M}_2, \phi,
+\psi)$</code> with a hill-climbing algorithm from random initial values,
+or by gradient descent with BisimulationDifference as a loss function.</p>
+<p>De Blanc notes that both products of the matrices <code>$\phi, \psi$</code> are be
 close to equal to the identity matrix after computing
-BisimulateShift$(\mathcal{M}<em>1, \mathcal{M}</em>2)$, that is $\phi \psi
-\approx \mathbf{1}<em>{n</em>1}$ and $\psi \phi \approx \mathbf{1}<em>{n</em>2}$,
-which implies that mapping from $\mathcal{M}<em>1$ to $\mathcal{M}</em>2$ and
+<code>$\text{BisimulateShift}(\mathcal{M}_1, \mathcal{M}_2)$</code>, that is <code>$\phi \psi
+\approx \mathbf{1}_{n_1}$</code> and <code>$\psi \phi \approx \mathbf{1}_{n_2}$</code>,
+which implies that mapping from <code>$\mathcal{M}_1$</code> to <code>$\mathcal{M}_2$</code> and
 back loses little information and the state transition probabilities can
 be mapped to each other.</p>
 <p>Given $\phi$ and $\psi$, it is possible to infer $\mathbf{R}<em>2$ using
@@ -1981,8 +1982,7 @@ the expected reward of repeating any action in $\mathcal{M}<em>2$ only
 depends on the expected reward of executing the same action in
 $\mathcal{M}</em>2$ with a linear transformation of the initial state
 distribution.</p>
-<p>::: proposition
-<strong>Proposition 4</strong>. Let $\mathcal{M}<em>1, \mathcal{M}</em>2$ be two MDPs, and
+<p><strong>Proposition 4</strong>. Let $\mathcal{M}<em>1, \mathcal{M}</em>2$ be two MDPs, and
 let $\phi, \psi$ be two matrices found by BisimulateShift, so that
 $\phi \psi=\mathbf{1}<em>{n</em>1}, \psi \phi=\mathbf{1}<em>{n</em>2}$ and $\psi
 \mathbf{T}<em>1(a) \phi=\mathbf{T}</em>2(a)$. For an action $a \in A$, let
@@ -1992,32 +1992,33 @@ an initial state distribution $\mathbf{i}</em>2 \in \mathbb{R}^{n<em>2}$, and
 $r</em>1(a, k, \mathbf{i}<em>1)$ the equivalent for $\mathcal{M}</em>1$ (where
 $\mathbf{i}<em>1 \in \mathbb{R}^{n</em>1}$. In matrix notation the expected
 average reward of executing $a$ for $k$ times in the two MDPs is</p>
-<p>$$r<em>1(a, k, \mathbf{i}</em>1)=\frac{1}{k} \sum<em>{i=1}^{k} \mathbf{R}</em>1^\top \times (\mathbf{T}<em>1(a))^i \times \mathbf{i}</em>1$$</p>
+<div>
+    $$r_1(a, k, \mathbf{i}_1)=\frac{1}{k} \sum_{i=1}^{k} \mathbf{R}_1^\top \times (\mathbf{T}_1(a))^i \times \mathbf{i}_1$$
+</div>
 <p>and</p>
-<p>$$r<em>2(a, k, \mathbf{i}</em>2)=\frac{1}{k} \sum<em>{i=1}^{k} (\mathbf{R}</em>1^{\top} \phi) \times \mathbf{T}<em>2(a)^i \times \mathbf{i}</em>2$$</p>
+<div>
+    $$r_2(a, k, \mathbf{i}_2)=\frac{1}{k} \sum_{i=1}^{k} (\mathbf{R}_1^{\top} \phi) \times \mathbf{T}_2(a)^i \times \mathbf{i}_2$$
+</div>
 <p>Then $r<em>2(a, k, \mathbf{i}</em>2)=r<em>1(a, k, \mathbf{M} \mathbf{i}</em>2)$, where
 $\mathbf{M} \in \mathbb{R}^{n<em>1 \times n</em>1}$ and therefore $\mathbf{M}
 \mathbf{i}_1$ is a linear transformation of the distribution over
-initial states.
-:::</p>
-<p>::: proof
-<em>Proof.</em> $r<em>2(a, k, \mathbf{i}</em>2)$ can be expanded and simplified to</p>
-<p>$$\begin{aligned}
-&amp;r<em>2(a, k, \mathbf{i}</em>2)= \
-&amp;\frac{1}{k} \sum<em>{i=1}^{k} (\mathbf{R}</em>1^{\top} \phi) \times \mathbf{T
-}<em>2(a)^i \times \mathbf{i}</em>2= \
-&amp;\frac{1}{k} \sum<em>{i=1}^{k} (\mathbf{R}</em>1^{\top} \phi) \times (\psi \mathbf{T}<em>1(a) \phi)^i \times (\mathbf{i}</em>2^{\top} \phi)^{\top}= \
-&amp;\frac{1}{k} \sum<em>{i=1}^{k} \mathbf{R}</em>1^{\top} \times \mathbf{T}<em>1(a)^i \phi \times \phi^{\top} \mathbf{i}</em>1= \
-&amp;\frac{1}{k} \sum<em>{i=1}^{k} \mathbf{R}</em>1^{\top} \times \mathbf{T}<em>1(a)^i \times \phi \phi^{\top} \times \mathbf{i}</em>2= \
-&amp; r<em>1(a, k, \phi \phi^{\top} \mathbf{i}</em>2)
-&amp;\frac{1}{k} \sum<em>{i=1}^{k} \mathbf{R}</em>1^{\top} \times \mathbf{T}<em>1(a)^i \times (\mathbf{i}</em>1^{\top} \times \phi \phi<sup>{\top})</sup>{\top} \
-\end{aligned}$$ ◻
-:::</p>
-<p>::: conjecture
-<strong>Conjecture 6</strong>. There exists a linear function $f(x)=ax+b$ so that for
-any $a \in A$, $k \in \mathbb{N}$, it holds that
-$r<em>2(a, k, \mathbf{i}</em>2)=f(r<em>1(a, k, \mathbf{i}</em>1))$.
-:::</p>
+initial states.</p>
+<p><em>Proof.</em> $r<em>2(a, k, \mathbf{i}</em>2)$ can be expanded and simplified to</p>
+<div>
+    $$\begin{aligned}
+    &amp;r_2(a, k, \mathbf{i}_2)= \\
+    &amp;\frac{1}{k} \sum_{i=1}^{k} (\mathbf{R}_1^{\top} \phi) \times \mathbf{T
+    }_2(a)^i \times \mathbf{i}_2= \\
+    &amp;\frac{1}{k} \sum_{i=1}^{k} (\mathbf{R}_1^{\top} \phi) \times (\psi \mathbf{T}_1(a) \phi)^i \times (\mathbf{i}_2^{\top} \phi)^{\top}= \\
+    &amp;\frac{1}{k} \sum_{i=1}^{k} \mathbf{R}_1^{\top} \times \mathbf{T}_1(a)^i \phi \times \phi^{\top} \mathbf{i}_1= \\
+    &amp;\frac{1}{k} \sum_{i=1}^{k} \mathbf{R}_1^{\top} \times \mathbf{T}_1(a)^i \times \phi \phi^{\top} \times \mathbf{i}_2= \\
+    &amp; r_1(a, k, \phi \phi^{\top} \mathbf{i}_2)
+    \end{aligned}$$
+</div>
+<p>◻</p>
+<p><strong>Conjecture 6</strong>. There exists a linear function <code>$f(x)=ax+b$</code> so that for
+any <code>$a \in A$</code>, <code>$k \in \mathbb{N}$</code>, it holds that
+<code>$r_2(a, k, \mathbf{i}_2)=f(r_1(a, k, \mathbf{i}_1))$</code>.</p>
 <h5 id="Disadvantages"><a class="hanchor" href="#Disadvantages">Disadvantages</a></h5>
 <p>The approach de Blanc outlines has some limitations. As they remark,
 their setting of what they call "finite state models" is a fairly
@@ -2076,7 +2077,9 @@ $G^{\star}=(\Xi, E^{\star}, w^{\star}: \Xi \times \Xi \rightarrow \mathbb{R})$
 after a graph-based ontological shift $s$ is an edge-weighted graph.</p>
 <p>The output of the function $t$ is a combination of the weights $w$ of
 $G$ and the coefficients of $s$ (for all $\omega<em>1, \omega</em>2$):</p>
-<p>$$t(\xi<em>1, \xi</em>2, G, s)=\sum<em>{(\omega</em>1, \omega<em>2) \in E} \sum</em>{(\xi<em>1, c</em>1) \in s(\omega<em>1), (\xi</em>2, c<em>2) \in s(\omega</em>2)} c<em>1 \cdot c</em>2 \cdot w(\omega<em>1, \omega</em>2)$$</p>
+<div>
+    $$t(\xi_1, \xi_2, G, s)=\sum_{(\omega_1, \omega_2) \in E} \sum_{(\xi_1, c_1) \in s(\omega_1), (\xi_2, c_2) \in s(\omega_2)} c_1 \cdot c_2 \cdot w(\omega_1, \omega_2)$$
+</div>
 <p>Then for all $\xi<em>1, \xi</em>2$ the value of
 $w^{\star}(\xi<em>1, \xi</em>2)=t(\xi<em>1,
 \xi</em>2, G, s)$.
@@ -2091,11 +2094,13 @@ animals over air animals over water animals, that is $E_G={L
 <p>Let now $\Xi={M \text{ (Mammals)}, B \text{ (Birds)}, F \text{ (Fish)},
 I \text{ (Insects)}}$ be a set that better represents the available
 options, and let $s$ be</p>
-<p>$$\begin{aligned}
-&amp;s(L)={(M, 0.5), (I, 0.5)} \
-&amp;s(A)={(B, 0.45), (I, 0.45), (M, 0.1)}) \
-&amp;s(W)={(F, 0.9), (M, 0.1)}
-\end{aligned}$$</p>
+<div>
+    $$\begin{aligned}
+    &amp;s(L)=\{(M, 0.5), (I, 0.5)\} \\
+    &amp;s(A)=\{(B, 0.45), (I, 0.45), (M, 0.1)\}) \\
+    &amp;s(W)=\{(F, 0.9), (M, 0.1)\}
+    \end{aligned}$$
+</div>
 <p>That is, land animals turn out to be half mammals, half insects, air
 animals are mostly birds and insects, and few mammals, and water animals
 are mostly fishes, and few mammals.</p>
