@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-04-15, modified: 2024-07-10, language: english, status: notes, importance: 8, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2023-04-15, modified: 2024-07-14, language: english, status: notes, importance: 8, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>We consider the problem of resolving preferences
 that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
@@ -63,6 +63,7 @@ appealing: It assigns a real-numbered value to each possible outcome,
 several theorems establish that an agent with a utility function can't
 be money-pumped [@gustafsson2022money], and it is compatible with taking
 Pareto improvements [@wald1947essentially].</p>
+<p><img alt="" src="./img/resolving/dutch.jpg"/></p>
 <p>However, this model has come under criticism as being non-descriptive of
 human preferences, which can be experimentally shown to violate one or
 more of the von Neumann-Morgenstern axioms [@allais1953comportement]
@@ -1612,27 +1613,29 @@ and a $p \in [0; 1]$ so that $[p: l</em>1, (1-p): l<em>3] \succ [p: l</em>2,
 causes the preference to switch.</p>
 <p>Together with a strong preference for certainty it is observed in the
 Allais paradox [@allais1953comportement]: In experiments with humans,
-the lottery $A<em>1=[1: $1 \text{mio.}]$ is strictly preferred over the
-lottery $B</em>1=[0.89: $1 \text{mio.}, 0.01: $0, 0.1: $5
-\text{mio.}]$, but the lottery $B<em>2=[0.9: $0, 0.1: $5 \text{mio.}]$ is
-strictly preferred over $A</em>2=[0.89: $0, 0.11: $1 \text{mio.}]$.</p>
+the lottery <code>$A_1=[1: \$1 \text{mio.}]$</code> is strictly preferred over the
+lottery <code>$B_1=[0.89: \$1 \text{mio.}, 0.01: \$0, 0.1: \$5
+\text{mio.}]$</code>, but the lottery <code>$B_2=[0.9: \$0, 0.1: \$5 \text{mio.}]$</code> is
+strictly preferred over <code>$A_2=[0.89: \$0, 0.11: \$1 \text{mio.}]$</code>.</p>
 <p>By using the independence axiom, these two preferences can be shown to
 be contradictory. This can be done by first "mixing out" 0.89 of $1mio.
-from $A<em>1$ and $B</em>1$, that is representing $[1: $1 \text{mio.}]$ as
-$[0.89: $1 \text{mio.}, 0.11: $1 \text{mio.}]$ and then (by
-independence) dropping $0.89: $1 \text{mio.}$ from $A<em>1$ and $B</em>1$, and
+from <code>$A_1$</code> and <code>$B_1$</code>, that is representing <code>$[1: \$1 \text{mio.}]$</code> as
+<code>$[0.89: \$1 \text{mio.}, 0.11: \$1 \text{mio.}]$</code> and then (by
+independence) dropping <code>$0.89: \$1 \text{mio.}$</code> from <code>$A_1$</code> and <code>$B_1$</code>, and
 then re-normalizing the probabilities so that they sum to 1. One can
 then "mix in" 0.89 of $0 into the two resulting distributions to create
-$A<em>2$ and $B</em>2$, so under the von Neumann-Morgenstern axioms $A<em>1
-\prec B</em>1$ and $B<em>2 \prec A</em>2$ contradict each other.</p>
-<p>$$\begin{aligned}
-&amp; A<em>1 \prec B</em>1 \
-\Leftrightarrow &amp; [1: $1 \text{mio.}] \prec [0.89: $1 \text{mio.}, 0.01: $0, 0.1: $5 \text{mio.}] \
-\Leftrightarrow &amp; [0.89: $1 \text{mio.}, 0.11: $1 \text{mio.}] \prec [0.89: $1 \text{mio.}, 0.01: $0, 0.1: $5 \text{mio.}] \
-\Leftrightarrow &amp; [1: $1 \text{mio.}] \prec [1/11: $0, 10/11: $5 \text{mio.}] \
-\Leftrightarrow &amp; [0.89: $0, 0.11: $1 \text{mio.}] \prec [0.9: $0, 0.1: $5 \text{mio.}] \
-\Leftrightarrow &amp; A<em>2 \prec B</em>2
-\end{aligned}$$</p>
+<code>$A_2$</code> and <code>$B_2$</code>, so under the von Neumann-Morgenstern axioms <code>$A_1
+\prec B_1$</code> and <code>$B_2 \prec A_2$</code> contradict each other.</p>
+<div>
+    $$\begin{aligned}
+    &amp; A_1 \prec B_1 \\
+    \Leftrightarrow &amp; [1: \$1 \text{mio.}] \prec [0.89: \$1 \text{mio.}, 0.01: \$0, 0.1: \$5 \text{mio.}] \\
+    \Leftrightarrow &amp; [0.89: \$1 \text{mio.}, 0.11: \$1 \text{mio.}] \prec [0.89: \$1 \text{mio.}, 0.01: \$0, 0.1: \$5 \text{mio.}] \\
+    \Leftrightarrow &amp; [1: \$1 \text{mio.}] \prec [1/11: \$0, 10/11: \$5 \text{mio.}] \\
+    \Leftrightarrow &amp; [0.89: \$0, 0.11: \$1 \text{mio.}] \prec [0.9: \$0, 0.1: \$5 \text{mio.}] \\
+    \Leftrightarrow &amp; A_2 \prec B_2
+    \end{aligned}$$
+</div>
 <h2 id="Representing_Inconsistencies"><a class="hanchor" href="#Representing_Inconsistencies">Representing Inconsistencies</a></h2>
 <p>It is more difficult to find a mathematical structure to represent
 arbitrary inconsistent preferences over lotteries over some set of
