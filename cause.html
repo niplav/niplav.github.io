@@ -35,15 +35,24 @@ document.addEventListener('DOMContentLoaded', function () {
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-02-04, modified: 2024-04-15, language: english, status: in progress, importance: 4, confidence: unlikely</em></p>
 <blockquote>
-<p><strong>Absence of correlation almost never implies absence of
-causation<sub><a href="https://fatebook.io/q/in-linear-sems-with-0-1-distributed--clujl9idv0001lc0841gwx9te">55%</a></sub>
-in linear structural equation models.</strong></p>
+<p><strong>Absence of correlation implies causation ≥95% of the time in
+sparse-ish linear causal networks, but not <em>always</em>. The number of causal
+non-correlations first grows and then shrinks with the number of nodes
+in the causal network, with the maximum at ≈30. I can't explain why.</strong></p>
 </blockquote>
+<!--
+Absence of correlation almost never implies absence of
+causation<sub>[55%](https://fatebook.io/q/in-linear-sems-with-0-1-distributed--clujl9idv0001lc0841gwx9te)</sub>
+in linear structural equation models.
+-->
+<!--TODO: 2×2 of correlation/causation and their absences-->
 <h1 id="How_Often_Does_Correlation__Causation"><a class="hanchor" href="#How_Often_Does_Correlation__Causation">How Often Does ¬Correlation ⇏ ¬Causation?</a></h1>
-<p>"Correlation ⇏ Causation" is trite by now. And we also know that
+<p><a href="https://en.wikipedia.org/wiki/Correlation_does_not_imply_causation">"Correlation ⇏
+Causation"</a>
+is trite by now. And we know that
 <a href="https://www.spencergreenberg.com/2022/03/can-you-have-causation-without-correlation-surprisingly-yes/">the</a>
 <a href="https://stats.stackexchange.com/questions/221936/does-no-correlation-imply-no-causality">contrapositive</a>
-<a href="https://core.ac.uk/download/pdf/82460997.pdf">is false</a> too:
+<a href="https://core.ac.uk/download/pdf/82460997.pdf">is also false</a>:
 "¬Correlation ⇏ ¬Causation".</p>
 <p>Spencer Greenberg
 <a href="https://www.spencergreenberg.com/2022/03/can-you-have-causation-without-correlation-surprisingly-yes/">summarizes</a>:</p>
@@ -64,12 +73,12 @@ over random linear <a href="https://en.wikipedia.org/wiki/Structural_equation_Mo
 models</a>
 with <code>$n$</code> variables, computing the correlations between the different
 variables for random inputs, and checking whether the correlations being
-zero implies that there is no causation.</p>
+very small implies that there is no causation.</p>
 <p>So we start by generating a random linear SEM with <code>$n$</code> variables (code
 in <a href="https://en.wikipedia.org/wiki/Julia_programming_language">Julia</a>). The
 parameters are <a href="https://en.wikipedia.org/wiki/Normal-distribution">normally
 distributed</a> with
-mean 0 and variance 1.</p>
+mean 0 and variance 1, but for now we'll assume there is no noise.</p>
 <pre><code>struct LinearSEM
     g::SimpleDiGraph{Int64}
     coefficients::Dict
@@ -77,7 +86,7 @@ end
 </code></pre>
 <p>We can decide how dense/sparse we want the SEM to be via the <code>threshold</code>
 parameter, the probability that two different nodes have an edge
-between them.</p>
+between them. The higher the threshold, the more edges in the SEM.</p>
 <pre><code>function random_linear_sem(n::Int, threshold=0.5)
     g=DiGraph(n)
     for i in 1:n
@@ -118,30 +127,47 @@ any causal relationship. The largest of those is the "largest uncaused
 correlation". Correlations between two variables which cause each other
 but are smaller than the largest uncaused correlation are "too small":
 There is a causation but it's not detected.</p>
+<p>We can now take the correlations and separate them into correlations
+between pairs of variables with causal relationship (i.e., a directed
+graph through the DAG representing the SEM), and pairs of variables
+without causal relationships.</p>
 <pre><code>    correlation=correlations(sem, inner_samples)
     influence=Matrix(Bool.(transpose(adjacency_matrix(transitiveclosure(sem.g)))))
     not_influence=tril(.!(influence), -1)
     non_causal_cors=not_influence.*correlation
     causal_cors=influence.*correlation
 </code></pre>
-<p>This gives us two distributions, the distribution of
-<code>non_causal_correlations</code> and the distribution of <code>causal_correlations</code>,
-e.g.:</p>
+<p>This gives us two distributions, the distribution of <code>non_causal_cors</code>
+and the distribution of <code>causal_cors</code>, e.g. for SEMs with 48 variables:</p>
 <p><img alt="" src="./img/cause/correlations.png"/></p>
 <p>One may notice that some variables that are not causing each other still
 have high correlations with each other, this is because they have a
 common cause. So we have to decide <em>what it means</em> for a correlation
 to be too small to be relevant.</p>
-<!--TODO: we filter here after the *mean* of noncausal correlations,
-previsouly after the maximum. What's the right way? Technically,
-there's two distributions of correlation values, so we gotta find a
-cutoff point
-Example of 1⇒3 and 2⇒3 edges, 1 & 2 have strong non-causal
-correlation-->
-<pre><code>function misclassifications(sem::LinearSEM, inner_samples::Int)
-    return sum((causal_correlations .!= 0) .&amp; (causal_correlations .&lt; mean(non_causal_correlations)))
-end
-</code></pre>
+<p>I can see three different salient options to decide whether a correlation
+is small:</p>
+<ol>
+<li>A causal correlation is "small" iff it is smaller than the largest non-causal correlation.
+<ol>
+<li>I used this criterion in an earlier version of this essay, but I now think that it's too lax, since due to common causes a pair of variables without direct causation can have a very high correlation.</li>
+</ol></li>
+<li>A causal correlation is "small" iff it is smaller than the average/median non-causal correlation.
+<ol>
+<li>This is stronger than the previous condition, and I vibe with it, but I don't have specific good reasons <em>why</em> I choose it. If you think this is stupid for reasons, I'd be interested in hearing the reasons (or even suggestions for improvement).</li>
+</ol></li>
+<li>A causal correlation is "small" iff it falls under a certain constant value.
+<ol>
+<li> Wikipedia
+<a href="https://en.wikipedia.org/wiki/Effect_size#Pearson_r_or_correlation_coefficient">states</a>
+that a correlation of 0.1 is small. I think it's basically
+just an arbitrary cutoff, so I don't use it.</li>
+</ol></li>
+</ol>
+<div>
+    function misclassifications(sem::LinearSEM, inner_samples::Int)
+        return sum((causal_correlations .!= 0) .&amp; (causal_correlations .&lt; mean(non_causal_correlations)))
+    end
+</div>
 <p>And, in the outermost loop, we compute the number of misclassifications
 for a number of linear SEMs (with a threshold of 0.25, since 0.5 usually
 produces SEMs which are too dense):</p>
@@ -152,32 +178,41 @@ end
 <p>So we collect a bunch of samples. SEMs with one, two and three variables
 are ignored because when running the code, they never give me any
 causal non-correlations. (I'd be interested in seeing examples to the
-contrary.)<!--TODO: try to actually find some--></p>
+contrary).<!--TODO: try to actually find some--></p>
 <pre><code>results = Dict{Int, Array{Int, 1}}()
-sem_samples=500
+sem_samples=400
 inputs_samples=10000
-upperlim=48
+upperlim=52
 stepsize=4
 Threads.@threads for i in 4:stepsize:upperlim
     results[i]=misclassified_absence_mc(i, sem_samples, inputs_samples)
 end
 </code></pre>
-<p>We can now first calculate the mean number of mistaken
-correlations and the <em>proportion</em> of misclassified
-correlations, using the <a href="https://en.wikipedia.org/wiki/Triangular_Number#Formula">formula for the triangular
+<p>We can now first calculate the mean number of small
+causal correlations and the <em>proportion</em> of of small causal
+correlations correlations, using the <a href="https://en.wikipedia.org/wiki/Triangular_Number#Formula">formula for the triangular
 number</a>:</p>
 <pre><code>result_means=[mean(values) for (key, values) in sort(results)]
 result_props=[mean(values)/((key^2+key)/2) for (key, values) in sort(results)]
 </code></pre>
 <p><img alt="" src="./img/cause/summaries.png"/></p>
-<p>So it <em>looks like</em> a growing proportion of causal
-relationships are not correlational, and I think the number will
-<a href="https://en.wikipedia.org/wiki/Asymptote">asymptote</a> to include
-<a href="https://en.wikipedia.org/wiki/Almost_all">almost all</a> causal
-relations<sub><a href="https://fatebook.io/q/in-linear-sems-with-0-1-distributed--clujl9idv0001lc0841gwx9te">55%</a></sub>.</p>
-<p>It could also be that the proportion asymptotes
+<p>So it <em>looks like</em> at most 5% of causal relationships have a correlation
+that is "too small", which happens if the SEM has ≈30 variables,
+and that number shrinks with a larger SEM.</p>
+<p>I find this <em>very surprising</em>: Is there a specific mathematical
+reason why SEMs with 30 variables have the highest number of causal
+non-correlations? The mean number of causal relationships with small
+correlations seems to grow quite steadily, so I'm not sure what's going
+on here.</p>
+<!--the number will
+[asymptote](https://en.wikipedia.org/wiki/Asymptote) to include
+[almost all](https://en.wikipedia.org/wiki/Almost_all) causal
+relations<sub>[55%](https://fatebook.io/q/in-linear-sems-with-0-1-distributed--clujl9idv0001lc0841gwx9te)</sub>.-->
+<!--
+It could also be that the proportion asymptotes
 to another percentage, but I don't think
-so<sub><a href="https://fatebook.io/q/in-linear-sems-with-0-1-distributed--clujlfm8b0001kx08z6geffu4">15%</a></sub>.</p>
+so<sub>[15%](https://fatebook.io/q/in-linear-sems-with-0-1-distributed--clujlfm8b0001kx08z6geffu4)</sub>.
+-->
 <h3 id="Is_the_Sample_Size_Too_Small"><a class="hanchor" href="#Is_the_Sample_Size_Too_Small">Is the Sample Size Too Small?</a></h3>
 <p>Is the issue with the number of inner samples, are we
 simply <em>not checking enough</em>? But 10k samples <a href="https://www.computerworld.com/article/2534312/the--640k--quote-won-t-go-away----but-did-gates-really-say-it-.html">ought to be enough for
@@ -186,7 +221,7 @@ that's not sufficient, I don't know what is.</p>
 <p>But let's better go and write some code to check:</p>
 <pre><code>more_samples=Dict{Int, Array{Int, 1}}()
 samples_test_size=20
-sem_samples=500
+sem_samples=400
 inputs_samples=2 .^(6:16)
 for inputs_sample in inputs_samples
     println(inputs_sample)
@@ -199,6 +234,9 @@ end
 <p>The densities fluctuate, sure, but not so much that I'll throw out the
 baby with the bathwater. If I was a better person, I'd make a statistical
 test here, but alas, I am not.</p>
+<h2 id="But_Why"><a class="hanchor" href="#But_Why">But… Why?</a></h2>
+<p>I don't know why causal non-correlations are so common, especially in linear SEMs.
+<!--TODO: speculate here!--></p>
 <h3 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h3>
 <ul>
 <li><a href="https://gwern.net/causality#what-a-tangled-net-we-weave-when-first-we-practice-to-believe">What a Tangled Net We Weave When First We Practice to Believe (Gwern, 2019)</a>: Where I probably got this from, subconsciously.</li>

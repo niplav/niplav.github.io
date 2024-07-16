@@ -151,6 +151,8 @@ that format.</p></li>
 incoherence: Incorporating changes in the world model into preferences
 defined over that world model.</p>
 <h2 id="Related_Work"><a class="hanchor" href="#Related_Work">Related Work</a></h2>
+<!--TODO: Add Ammann value change sequences, Bob Jacobs post, Richard
+Ngo post-->
 <p>As far as our literature review has revealed, the academic literature
 has no investigation into the specific question we are attempting to
 answer.</p>
@@ -191,14 +193,14 @@ though they still work with utility functions that are invariant under
 positive affine transformation [@backus2004exotic].</p>
 <h5 id="Resolving_Inconsistent_Preferences"><a class="hanchor" href="#Resolving_Inconsistent_Preferences">Resolving Inconsistent Preferences</a></h5>
 <p>In the context of taxonomical data, Sun et al. investigate the problem
-of recovering hierarchies from noisy data (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>). They
-represent inconsistent taxonomies with directed acyclic graphs and
-consistent hierarchical taxonomies using directed graphs. They find
-that, when measuring the number of edges being removed, a voting
-ensemble of several different techniques such as TrueSkill
-[@herbrich2007trueskill] does well on removing as few edges as possible,
-and usually outperforms removing greedy approximations of the feedback
-arc set (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>).</p>
+of recovering hierarchies from noisy data (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>).
+They represent inconsistent taxonomies with directed acyclic graphs and
+consistent hierarchical taxonomies using directed graphs. They find that,
+when measuring the number of edges being removed, a voting ensemble of
+several different techniques such as TrueSkill [@herbrich2007trueskill]
+does well on removing as few edges as possible, and usually outperforms
+removing greedy approximations of the feedback arc set (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
+2017</a>).</p>
 <p>Outside of the academic literature, Aird and Shovelain represent
 inconsistent preferences as vector fields on a state space
 (for example states with more/less security and more/less
@@ -619,39 +621,36 @@ be equal. ◻</p>
 <h4 id="None"><a class="hanchor" href="#None">Applying <code>HodgeRank</code></a></h4>
 <p>Another option to resolve inconsistent preferences over deterministic
 options into consistent preferences is to apply the <code>HodgeRank</code>
-algorithm by Jiang et al. to an unweighted graph $G$
+algorithm by Jiang et al. to an unweighted graph <code>$G$</code>
 [@jiang2011statistical].</p>
 <p><code>HodgeRank</code> is described in further detail in section
 <a href="#sec:hodgerank">4.3.1</a>.</p>
 <p>To apply <code>HodgeRank</code> to unweighted graphs one simply sets both weights
-of each edge to 1 (for $e \in E$ it is then the case that $w(e)=1$,
-$l(e)=1$).</p>
-<p>Then, for a directed graph $G$, we can define an algorithm
-<code>HodgeResolve</code> that applies <code>HodgeRank</code> to $G$, and then converts the
-potential function $p$ on $\Omega$ into an acyclic tournament. Here
-$\omega<em>1 \rightarrow \omega</em>2$ if and only if
-$p<em>{\omega</em>1}&gt;p<em>{\omega</em>2}$.</p>
+of each edge to 1 (for <code>$e \in E$</code> it is then the case that <code>$w(e)=1$</code>,
+<code>$l(e)=1$</code>).</p>
+<p>Then, for a directed graph <code>$G$</code>, we can define an algorithm
+<code>HodgeResolve</code> that applies <code>HodgeRank</code> to <code>$G$</code>, and then converts the
+potential function <code>$p$</code> on <code>$\Omega$</code> into an acyclic tournament. Here
+<code>$\omega_1 \rightarrow \omega_2$</code> if and only if
+<code>$p_{\omega_1}&gt;p_{\omega_2}$</code>.</p>
 <p>One issue with <code>HodgeRank</code> is that the potentials of two options are
 sometimes equal to each other, which violates the criterion of
 asymmetry. There are two ways of dealing with this symmetry:</p>
 <ol>
-<li><p>Keep the symmetric edges and accept that the output is a weak
-ordering, and modify the criteria to be applicable.</p></li>
-<li><p>Resolve ties in the ordering by returning all topological sorts as a
+<li> Keep the symmetric edges and accept that the output is a weak
+ordering, and modify the criteria to be applicable.</li>
+<li> Resolve ties in the ordering by returning all topological sorts as a
 result. This has the disadvantage of potentially returning a set of
-results that is factorial in the size of $\Omega$.</p></li>
+results that is factorial in the size of $\Omega$.</li>
 </ol>
 <p>We decide to take the first option, to preserve the polynomial runtime
 of <code>HodgeRank</code>.</p>
-<p>::: algorithm
-::: algorithmic
-For all $e \in E$, $w(e) \gets 1, l(e) \gets 1$
-$G<em>h \gets (\Omega, E, w, l)$ $p \gets$ $p</em>{\omega}$ is the potential
-that <code>HodgeRank</code> assigns to $\omega$ $E<em>r \gets \emptyset$
-$E</em>r \gets E<em>r \cup {(\omega</em>1, \omega<em>2)}$ $G</em>r \gets (\Omega, E<em>r)$
-$G</em>r$
-:::
-:::</p>
+<pre><code>For all $e \in E$, $w(e) \gets 1, l(e) \gets 1$
+$G_h \gets (\Omega, E, w, l)$ $p \gets$ $p_{\omega}$ is the potential
+that `HodgeRank` assigns to $\omega$ $E_r \gets \emptyset$
+$E_r \gets E_r \cup \{(\omega_1, \omega_2)\}$ $G_r \gets (\Omega, E_r)$
+$G_r$
+</code></pre>
 <h3 id="Criteria"><a class="hanchor" href="#Criteria">Criteria</a></h3>
 <p>Given the algorithms outlined above, one might want to compare them
 according to different criteria, similar to the method of evaluating

@@ -86,11 +86,11 @@ tape states after each command execution, and output. All in binary.</p>
 Let <code>$l=|t|$</code> be the number of steps that <code>$p$</code> takes to halt.</p>
 <h3 id="Possible_Desiderata"><a class="hanchor" href="#Possible_Desiderata">Possible Desiderata</a></h3>
 <ol>
-<li>If possible, we would want our formula for logical correlation to be a <a href="https://en.wikipedia.org/wiki/Metric_space">metric</a> on the space of programs:
+<li>If possible, we would want our formula for logical correlation to be a <a href="https://en.wikipedia.org/wiki/Metric_space">metric</a> or a <a href="https://en.wikipedia.org/wiki/Pseudometric_space">pseudometric</a> on the space of programs:
 <ol>
 <li><code>$合(p, p)=0$</code>.</li>
 <li><a href="https://en.wikipedia.org/wiki/Symmetric_function">Symmetry</a>: <code>$合(p_1, p_2)=合(p_2, p_1)$</code>.</li>
-<li>If <code>$p_1 \not=p_2$</code>, then <code>$合(p_1, p_2)&gt;0$</code>.</li>
+<li>If <code>$p_1 \not=p_2$</code>, then <code>$合(p_1, p_2)&gt;0$</code>. This condition is dropped if we're fine with <code>$合$</code> being a pseudometric.</li>
 <li>The <a href="https://en.wikipedia.org/wiki/Triangle_Inequality">triangle inequality</a>: <code>$合(p_1, p_3) \le 合(p_1, p_2)+合(p_2, p_3)$</code>.</li>
 </ol></li>
 <li>If <code>$p_1$</code> and <code>$p_2$</code> have very similar outputs, and <code>$p_3$</code> has a very different output, then <code>$合(p_1, p_2)&lt;合(p_1, p_3)$</code> (and <code>$合(p_1, p_2)&lt;合(p_2, p_3)$</code>).
@@ -127,7 +127,9 @@ string distance <code>$d$</code> is a metric, in the mathematical sense.</p>
 <li><code>$合(p, p)=0$</code>. (The minimal logical correlation is 0.)</li>
 </ol>
 <!--TODO: check with brainfuck-->
-<!--TODO: prove or disprove that this is a metric-->
+<!--TODO: prove or disprove that this is a metric (or maybe a
+pseudometric?—seems like there could the different programs with the
+exactly same tape states…)-->
 <div class="footnotes">
 <hr/>
 <ol>
