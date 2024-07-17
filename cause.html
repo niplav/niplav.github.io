@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', function () {
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-02-04, modified: 2024-04-15, language: english, status: in progress, importance: 4, confidence: unlikely</em></p>
 <blockquote>
-<p><strong>Absence of correlation implies causation ≥95% of the time in
-sparse-ish linear causal networks, but not <em>always</em>. The number of causal
+<p><strong>Absence of correlation implies causation ≤5% of the time in
+sparse-ish linear causal networks, but not <em>never</em>. The number of causal
 non-correlations first grows and then shrinks with the number of nodes
 in the causal network, with the maximum at ≈30. I can't explain why.</strong></p>
 </blockquote>
@@ -74,8 +74,9 @@ models</a>
 with <code>$n$</code> variables, computing the correlations between the different
 variables for random inputs, and checking whether the correlations being
 very small implies that there is no causation.</p>
-<p>So we start by generating a random linear SEM with <code>$n$</code> variables (code
-in <a href="https://en.wikipedia.org/wiki/Julia_programming_language">Julia</a>). The
+<p>So we start by generating a random linear SEM with
+<code>$n$</code> variables (<a href="./code/cause/experiment.jl">code</a> in
+<a href="https://en.wikipedia.org/wiki/Julia_programming_language">Julia</a>). The
 parameters are <a href="https://en.wikipedia.org/wiki/Normal-distribution">normally
 distributed</a> with
 mean 0 and variance 1, but for now we'll assume there is no noise.</p>
@@ -164,6 +165,7 @@ just an arbitrary cutoff, so I don't use it.</li>
 </ol></li>
 </ol>
 <div>
+
     function misclassifications(sem::LinearSEM, inner_samples::Int)
         return sum((causal_correlations .!= 0) .&amp; (causal_correlations .&lt; mean(non_causal_correlations)))
     end
