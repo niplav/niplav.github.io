@@ -165,7 +165,6 @@ just an arbitrary cutoff, so I don't use it.</li>
 </ol></li>
 </ol>
 <div>
-
     function misclassifications(sem::LinearSEM, inner_samples::Int)
         return sum((causal_correlations .!= 0) .&amp; (causal_correlations .&lt; mean(non_causal_correlations)))
     end
