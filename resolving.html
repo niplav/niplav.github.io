@@ -153,8 +153,6 @@ that format.</p></li>
 incoherence: Incorporating changes in the world model into preferences
 defined over that world model.</p>
 <h2 id="Related_Work"><a class="hanchor" href="#Related_Work">Related Work</a></h2>
-<!--TODO: Add Ammann value change sequences, Bob Jacobs post, Richard
-Ngo post-->
 <p>As far as our literature review has revealed, the academic literature
 has no investigation into the specific question we are attempting to
 answer.</p>
@@ -227,6 +225,12 @@ Kirchner relates inferring such preferences to sorting data in
 which comparisons sometimes are random, resulting in cycles during
 comparison. He finds that this approach is able to reconstruct orderings
 even when 10% of the results of comparisons are noise.</p>
+<ul>
+<li><a href="https://www.lesswrong.com/posts/kmpNkeqEGvFue7AvA/value-formation-an-overarching-model">Value Formation: An Overarching Model (Thane Ruthenis, 2022)</a></li>
+<li><a href="https://bobjacobs.substack.com/p/a-logic-to-deal-with-inconsistent">A logic to deal with inconsistent preferences (Bob Jacobs, 2023)</a></li>
+<li><a href="https://www.lesswrong.com/posts/J2kpxLjEyqh6x3oA4/value-systematization-how-values-become-coherent-and">Value systematization: how values become coherent (and misaligned) (Richard Ngo, 2023)</a></li>
+<li><a href="https://www.lesswrong.com/s/3QXNgNKXoLrdXJwWE">The Value Change Problem (Nora Amann, 2023)</a></li>
+</ul>
 <h5 id="Learning_Inconsistent_Preferences"><a class="hanchor" href="#Learning_Inconsistent_Preferences">Learning Inconsistent Preferences</a></h5>
 <p>The problem of <em>inferring</em> the preferences of irrational agents has
 been formally posed [@armstrong2018occam]: It is in general impossible
@@ -666,14 +670,13 @@ this purpose, we examine the algorithms with regards to the
 computational complexity, size of output, and two additional criteria.</p>
 <h4 id="Surjectivity_and_Identity"><a class="hanchor" href="#Surjectivity_and_Identity">Surjectivity and Identity</a></h4>
 <p>A fairly intuitive criterion is that for a given method of resolution
-$f$, and for every $C \in \mathfrak{C}<em>{\Omega}$, there should be a
-$G \in
-\mathfrak{P}</em>{\Omega}$ so that $C \in f(G)$ (<strong>Surjectivity</strong>). This
-condition is implied by the stronger condition of $f$ being the identity
-function for already consistent graphs: $\forall C \in
-\mathfrak{C}_{\Omega}: f(C)={C}$ (<strong>Identity</strong>).</p>
+<code>$f$</code>, and for every <code>$C \in \mathfrak{C}_{\Omega}$</code>, there
+should be a <code>$G \in \mathfrak{P}_{\Omega}$</code> so that <code>$C \in f(G)$</code>
+(<strong>Surjectivity</strong>). This condition is implied by the stronger condition
+of <code>$f$</code> being the identity function for already consistent graphs:
+<code>$\forall C \in \mathfrak{C}_{\Omega}: f(C)=\{C\}$</code> (<strong>Identity</strong>).</p>
 <h4 id="Minimizing_GraphEdit_Distance"><a class="hanchor" href="#Minimizing_GraphEdit_Distance">Minimizing Graph-Edit Distance</a></h4>
-<p>$\mathtt{EGEDmin}$ fulfills both conditions: $C$ trivially has the
+<p><code>EGEDmin</code> fulfills both conditions: <code>$C$</code> trivially has the
 smallest graph-edit distance to itself (namely zero), and is unique in
 that regard.</p>
 <h4 id="None_1"><a class="hanchor" href="#None_1">Applying <code>HodgeRank</code></a></h4>
@@ -683,7 +686,7 @@ equivalent to minimizing the squared distance between the edge-weights
 of $G$ and the edge-weights induced by the potential function. If $G$
 already is consistent, the resulting potential function simply
 re-creates $G$, since their distance is 0. So <code>HodgeResolve</code> maps every
-#consistent graph to itself, and therefore fulfills <strong>Identity</strong> and
+consistent graph to itself, and therefore fulfills <strong>Identity</strong> and
 therefore also <strong>Surjectivity</strong>.</p>
 <h4 id="Polynomial_Time_Complexity"><a class="hanchor" href="#Polynomial_Time_Complexity">Polynomial Time Complexity</a></h4>
 <p>Ideally, a method for resolving inconsistent graphs into consistent
@@ -691,28 +694,26 @@ graphs would be efficiently computable.</p>
 <h5 id="Minimizing_GraphEdit_Distance_1"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_1">Minimizing Graph-Edit Distance</a></h5>
 <p>However, the method that attempts to find consistent graphs by
 minimizing edge-graph-edit distance fails this criterion.</p>
-<p>Finding all acyclic tournaments with the smallest edit-distance to a
-given directed graph is NP-hard. This can be shown by a reduction to
-Slater's problem. Slater's problem is the problem of, given any
-tournament $T$, finding a linear order $T<em>L$ (an acyclic tournament,
-also called a <em>Slater order</em>) that has the smallest distance to $T$,
-where the distance between two tournaments $T</em>1, T<em>2$ is the number of
-edges that have to be flipped in $T</em>1$ to create $T_2$. Slater's problem
-(and a number of related problems, such as finding <em>all</em> acyclic
-tournaments with the smallest distance to a given tournament) is known
-to be NP-hard <a href="./doc/cs/preference/on_the_complexity_of_slaters_problems_hudry_2010.pdf">Hudry 2010</a>.</p>
-<p>::: {#EGEDminnphard .theorem}
-<strong>Theorem 6</strong>. Finding the set of acyclic tournaments with smallest
-edge-graph-edit distance to a given graph $G$ is NP-hard.
-:::</p>
+<p>Finding all acyclic tournaments with the smallest edit-distance to a given
+directed graph is NP-hard. This can be shown by a reduction to Slater's
+problem. Slater's problem is the problem of, given any tournament <code>$T$</code>,
+finding a linear order <code>$T_L$</code> (an acyclic tournament, also called
+a <em>Slater order</em>) that has the smallest distance to <code>$T$</code>, where the
+distance between two tournaments <code>$T_1, T_2$</code> is the number of edges that
+have to be flipped in <code>$T_1$</code> to create <code>$T_2$</code>. Slater's problem (and a
+number of related problems, such as finding <em>all</em> acyclic tournaments with
+the smallest distance to a given tournament) is known to be NP-hard <a href="./doc/cs/preference/on_the_complexity_of_slaters_problems_hudry_2010.pdf">Hudry
+2010</a>.</p>
+<p><strong>Theorem 6</strong>. Finding the set of acyclic tournaments with smallest
+edge-graph-edit distance to a given graph $G$ is NP-hard.</p>
 <p><em>Proof.</em> Reduction from finding all Slater orders with the smallest
 distance to a given tournament <code>$T$</code>.</p>
-<p>Assume we know an algorithm $\mathtt{A}$ to compute $f_{\text{EGED}}(G)$
+<p>Assume we know an algorithm <code>A</code> to compute <code>$f_{\text{EGED}}(G)$</code>
 efficiently, that is, to compute the set of all acyclic tournaments with
 the minimal graph-edit distance to a given directed graph $G$ in
 polynomial time.</p>
 <p>Then one could solve Slater's problem in polynomial time: For any given
-tournament <code>$T$</code>, <code>$\mathtt{A}$</code> would compute a set <code>$\mathbf{C}_T$</code> of
+tournament <code>$T$</code>, <code>A</code> would compute a set <code>$\mathbf{C}_T$</code> of
 acyclic tournaments which have the same minimal graph-edit distance <code>$2k$</code>
 to <code>$T$</code>, the distance is divisible by two because by editing a tournament
 <code>$T$</code> into a tournament <code>$T'$</code>. Edges can only be flipped, which engenders
@@ -720,40 +721,38 @@ two edge operations (removing an edge and then adding a new one). Then
 that set would also be the set of Slater orders of <code>$T$</code> (with distance
 <code>$k$</code>), a solution to ($P_3$) from <a href="./doc/cs/preference/on_the_complexity_of_slaters_problems_hudry_2010.pdf">Hudry 2010</a>, which is known
 to be NP-hard. ◻</p>
-<p>Similarly, finding only <em>one</em> element from $f<em>{\text{EGED}}(G)$ is also
-NP-hard, by reducing it to $P</em>2$ ("PROBLEM $P_2$. Given a tournament
-$T$, compute a Slater order $O^*(T)$ of $T$") <a href="./doc/cs/preference/on_the_complexity_of_slaters_problems_hudry_2010.pdf">Hudry 2010</a>.</p>
+<p>Similarly, finding only <em>one</em> element from <code>$f_{\text{EGED}}(G)$</code>
+is also NP-hard, by reducing it to <code>$P_2$</code> ("PROBLEM <code>$P_2$</code>. Given a
+tournament <code>$T$</code>, compute a Slater order <code>$O^*(T)$</code> of <code>$T$</code>") <a href="./doc/cs/preference/on_the_complexity_of_slaters_problems_hudry_2010.pdf">Hudry
+2010</a>.</p>
 <h5 id="None_2"><a class="hanchor" href="#None_2">Applying <code>HodgeRank</code></a></h5>
 <p><a href="./doc/preference/statistical_ranking_and_combinatorial_hodge_theory_jiang_et_al_2011.pdf">Jiang et al.
 2011</a>
-state that computing the potential function of a graph $G$ is equivalent
-to solving a $n \times n$ least-squares problem ($n=|\Omega|$), which
-requires $\mathcal{O}(n^3)$ time. <code>HodgeResolve</code> executes <code>HodgeRank</code>
-and then iterates through all possible edges of $G$, which takes at
-most $\mathcal{O}(n^2)$ time, so the time complexity of <code>HodgeResolve</code>
-is also $\mathcal{O}(n^3)$.</p>
+state that computing the potential function of a graph <code>$G$</code> is equivalent
+to solving a <code>$n \times n$</code> least-squares problem (<code>$n=|\Omega|$</code>), which
+requires <code>$\mathcal{O}(n^3)$</code> time. <code>HodgeResolve</code> executes <code>HodgeRank</code>
+and then iterates through all possible edges of <code>$G$</code>, which takes at
+most <code>$\mathcal{O}(n^2)$</code> time, so the time complexity of <code>HodgeResolve</code>
+is also <code>$\mathcal{O}(n^3)$</code>.</p>
 <h4 id="Uniqueness"><a class="hanchor" href="#Uniqueness">Uniqueness</a></h4>
-<p>It would be desirable if one could guarantee that the function $f$ that
-resolves inconsistent graphs returns a single consistent graph for each
-inconsistent graph, that is
-$\forall G \in \mathfrak{P}_{\Omega}: |f(G)|=1$.</p>
+<p>It would be desirable if one could guarantee that the function <code>$f$</code>
+that resolves inconsistent graphs returns a single consistent graph for
+each inconsistent graph, that is <code>$\forall G \in \mathfrak{P}_{\Omega}:
+|f(G)|=1$</code>.</p>
 <h5 id="Minimizing_GraphEdit_Distance_2"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_2">Minimizing Graph-Edit Distance</a></h5>
-<p>$\mathtt{EGEDmin}$ does not fulfill this criterion.</p>
-<p>::: {#omgedworstcase .theorem}
-<strong>Theorem 7</strong>. For a graph $G<em>e$ with no edges and $n$ vertices
-$\Omega$, every acyclic tournament with the same set of vertices has the
-same graph-edit distance to $G</em>e$. Therefore,
-$|\mathtt{EGEDmin}(G_e)|=n!$, which is not unique.
-:::</p>
-<p>::: proof
-<em>Proof.</em> Let $T$ be any acyclic tournament with vertices $\Omega$. Then
-$T$ has ${n \choose 2}$ edges. Since $G<em>e$ has no edges, one can edit
-$G</em>e$ to be $T$ simply by adding all edges of $T$ to $G<em>e$. This is
-sufficient and necessary for turning $G</em>e$ into $T$. Since this holds
-for any tournament $T$, the graph-edit distance from $G<em>e$ to any
-acyclic tournament is the same, namely ${n
-\choose 2}$. So $|\mathtt{EGEDmin}(G</em>e)|=|\mathfrak{C}_{\Omega}|=n!$. ◻
-:::</p>
+<p><code>EGEDmin</code> does not fulfill this criterion.</p>
+<p><strong>Theorem 7</strong>. For a graph <code>$G_e$</code> with no edges and <code>$n$</code>
+vertices <code>$\Omega$</code>, every acyclic tournament with the same set of
+vertices has the same graph-edit distance to <code>$G_e$</code>. Therefore,
+<code>$|\mathtt{EGEDmin}(G_e)|=n!$</code>, which is not unique.</p>
+<p><em>Proof.</em> Let <code>$T$</code> be any acyclic tournament with vertices
+<code>$\Omega$</code>. Then <code>$T$</code> has <code>${n \choose 2}$</code> edges. Since
+<code>$G_e$</code> has no edges, one can edit <code>$G_e$</code> to be <code>$T$</code> simply
+by adding all edges of <code>$T$</code> to <code>$G_e$</code>. This is sufficient and
+necessary for turning <code>$G_e$</code> into <code>$T$</code>. Since this holds for
+any tournament <code>$T$</code>, the graph-edit distance from <code>$G_e$</code> to
+any acyclic tournament is the same, namely <code>${n \choose 2}$</code>. So
+<code>$|\mathtt{EGEDmin}(G_e)|=|\mathfrak{C}_{\Omega}|=n!$</code>. ◻</p>
 <h5 id="None_3"><a class="hanchor" href="#None_3">Applying <code>HodgeRank</code></a></h5>
 <p>If one allows for the output of <code>HodgeResolve</code> to be a weak ordering,
 then <code>HodgeResolve</code> has a unique output, since assigning each vertex a
@@ -1793,14 +1792,14 @@ edge-weighted graphs:</p>
 <li><p><strong>Existence</strong>: It always exists.</p></li>
 <li><p><strong>Uniqueness</strong>: This decomposition is unique up to an additive
 constant.</p></li>
-<li><p><strong>Polynomial time computability</strong>: Finding $w<em>g$ is equivalent to
-solving an $|V| \times |V|$ least-squares problem, which can be
-solved in $\mathcal{O}(n^3)$ time, for example by computing the
-Penrose-Moore inverse of a specific matrix. Finding $w</em>h$ and $w_c$
-from $R$ is more computationally intensive, but still polynomial:
+<li><p><strong>Polynomial time computability</strong>: Finding <code>$w_g$</code> is equivalent to
+solving an <code>$|V| \times |V|$</code> least-squares problem, which can be
+solved in <code>$\mathcal{O}(n^3)$</code> time, for example by computing the
+Penrose-Moore inverse of a specific matrix. Finding <code>$w_h$</code> and <code>$w_c$</code>
+from <code>$R$</code> is more computationally intensive, but still polynomial:
 they are equivalent to solving a least-squares problem of size
-${|V| \over 3} \approx \mathcal{O}(n^3)$, and can therefore be found
-in $\mathcal{O}(n^9)$.</p></li>
+<code>${|V| \over 3} \approx \mathcal{O}(n^3)$</code>, and can therefore be found
+in <code>$\mathcal{O}(n^9)$</code>.</p></li>
 <li><p><strong>Robustness to incomplete and cyclic data</strong>: <code>HodgeRank</code> still
 returns a result, even if edges are missing or there are
 positive-valued cycles in the data.</p></li>
@@ -1809,14 +1808,15 @@ If $G$ has no missing edges and $w$ is defined for every edge,
 <code>HodgeRank</code> returns an affine transformation of the result that the
 Borda count would return.</p></li>
 </ul>
-<p>In the context of inconsistent preferences, <code>HodgeRank</code> can be
-interpreted as taking the observed preferences of an agent as an
-edge-weighted directed graph, and decomposing it so that the potential
-function $p$ determines how much the agent values different elements in
-$V$. Here $p$ can act as a utility function. The social-choice theoretic
-perspective offers an intriguing possibility of modeling agents as being
-comprised of subagents [@demski2019embedded], [@minsky1988society],
-which we will not pursue further here.</p>
+<p>In the context of inconsistent preferences, <code>HodgeRank</code> can
+be interpreted as taking the observed preferences of an agent
+as an edge-weighted directed graph, and decomposing it so that
+the potential function $p$ determines how much the agent values
+different elements in $V$. Here $p$ can act as a utility function. The
+social-choice theoretic perspective offers an intriguing possibility
+of modeling agents as being comprised of subagents <a href="./doc/cs/ai/alignment/agent_foundations/embedded_agency_demski_garrabrant_2020.pdf">Demski &amp; Garrabrant
+2019</a>,
+[@minsky1988society], which we will not pursue further here.</p>
 <h1 id="Applications"><a class="hanchor" href="#Applications">Applications</a></h1>
 <p>Equipped with a notion of how to represent inconsistent preferences and
 how to resolve them, one can examine problems that have come up in other
@@ -2359,18 +2359,20 @@ model [@erev2017anomalies], as well as alternatives to the utility
 framework from decision theory, such as risk-weighted utility
 maximization or the Jeffrey-Bolker axioms [@buchak2013risk],
 [@jeffrey2004subjective].</p>
-<p>The problem of ontological crises appears under-researched. As a first
-step, BisimulateShift could be extended to POMDPs, but finding out how
-real-world systems change their internal representations during learning
-could be valuable, with Nandal et al. being a fascinating analysis of
-the toy case of modular addition in neural networks
-[@nanda2023progress]. This question could also be interesting for social
-scientists (discovering how humans manage ontological crises in
-practice) and philosophers.</p>
-<p>We would also like to see further exploration of value-learning
-[@dewey2011learning] of inconsistent preferences, perhaps extending
-Evans et al. to allow for a larger diversity of inconsistent preferences
-[@evans2016learning].</p>
+<p>The problem of ontological crises appears under-researched. As
+a first step, BisimulateShift could be extended to
+<a href="https://en.wikipedia.org/wiki/Partially-observable_Markov_decision_process">POMDPs</a>,
+but finding out how real-world systems change their internal
+representations during learning could be valuable, with Nandal et
+al. being a fascinating analysis of the toy case of modular addition
+in neural networks [@nanda2023progress]. This question could also
+be interesting for social scientists (discovering how humans manage
+ontological crises in practice) and philosophers.</p>
+<p>We would also like to see further exploration of
+value-learning [@dewey2011learning] of inconsistent
+preferences, perhaps extending Evans et al. to allow for a
+larger diversity of inconsistent preferences <a href="./doc/cs/ai/alignment/value_learning/learning_the_preferences_of_ignorant_inconsistent_agents_evans_et_al_2016.pdf">Evans et al.
+2016</a>.</p>
 <h2 id="Acknowledgements"><a class="hanchor" href="#Acknowledgements">Acknowledgements</a></h2>
 <p>This text has been long in the making, and has benefitted from much advice
 and input. I thank Holger Dell for his help and suggestions. I'd also
