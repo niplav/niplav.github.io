@@ -771,12 +771,12 @@ subgraphs. Then there are $|\Omega|!$ acyclic tournaments generated from
 this weak ordering, since all acyclic tournaments are equally compatible
 with the weak ordering.</p>
 <h5 id="Further_Considerations"><a class="hanchor" href="#Further_Considerations">Further Considerations</a></h5>
-<p>Violating <strong>Uniqueness</strong> appears to have consequences for
-decision-making: If we want to use the output of $f$ for prioritising
-which actions to take to achieve high-ranking options, having more than
-one result leaves it unclear which options to prioritize (since there
-will be two $\omega<em>1, \omega</em>2 \in \Omega$ that are ranked differently
-by different elements of the set of results).</p>
+<p>Violating <strong>Uniqueness</strong> appears to have consequences for decision-making:
+If we want to use the output of <code>$f$</code> for prioritising which actions
+to take to achieve high-ranking options, having more than one result
+leaves it unclear which options to prioritize (since there will be two
+<code>$\omega_1, \omega_2 \in \Omega$</code> that are ranked differently by different
+elements of the set of results).</p>
 <p>However, results from two different fields apply to this case.</p>
 <ul>
 <li><p><strong>Social Choice Theory</strong>: Since all elements of <code>$\mathbf{C}_G=f(G)$</code>
@@ -794,16 +794,16 @@ are no reasons for manipulation.</p></li>
 <li><p><strong>Moral Uncertainty</strong>: MacAskill et al. outline how to make
 decisions given multiple ethical theories and credences on those
 ethical theories, using the so-called Maximum Expected
-Choiceworthiness rule [@macaskill2020moral ch. 2]. In the case of
+Choiceworthiness rule <a href="./doc/philosophy/ethics/moral_uncertainty_macaskill_et_al_2020.pdf" title="Moral Uncertainty">MacAskill et al. 2020, ch. 2</a>. In the case of
 ordinal preferences, they use the Borda count [@mclean1990borda] for
 establishing cardinal values for options.</p></li>
 </ul>
 <h4 id="Resolution_to_Polynomially_Many_Preferences"><a class="hanchor" href="#Resolution_to_Polynomially_Many_Preferences">Resolution to Polynomially Many Preferences</a></h4>
-<p>If <strong>uniqueness</strong> can't be fulfilled (perhaps because the given graph
-$G$ is under-determined), a weaker criterion is that the number of
-consistent graphs corresponding to $G$ is polynomial in the size of
-$\Omega$ ($\forall G \in \mathfrak{P}_{\Omega}: |f(G)| \le p(|\Omega|)$,
-where $p(n)$ is some polynomial in $n$).</p>
+<p>If <strong>uniqueness</strong> can't be fulfilled (perhaps because the given graph $G$
+is under-determined), a weaker criterion is that the number of consistent
+graphs corresponding to $G$ is polynomial in the size of <code>$\Omega$</code>
+(<code>$\forall G \in \mathfrak{P}_{\Omega}: |f(G)| \le p(|\Omega|)$</code>, where
+<code>$p(n)$</code> is some polynomial in <code>$n$</code>).</p>
 <h5 id="Minimizing_GraphEdit_Distance_3"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_3">Minimizing Graph-Edit Distance</a></h5>
 <p>However, as proven in <strong>Theorem</strong>
 <a href="#omgedworstcase">7</a>
@@ -812,33 +812,27 @@ in the worst case the number is factorial in the size of $\Omega$.</p>
 <p>We decided to also investigate the number of results for <code>EGEDmin</code> for
 small graphs. For this purpose, we generated all directed graphs with
 five nodes or less and computed $\mathtt{EGEDmin}(G)$.</p>
-<p>::: definition
-<strong>Definition 4</strong>. Let $G$ be any directed graph. Then the <strong>confusion</strong>
-of $G$ is the number of acyclic tournaments with the smallest
-edge-graph-edit distance to $G$, that is the confusion
-$c: \mathfrak{P} \rightarrow \mathbb{N}^+$ of $G$ is
-$c(G)=|\mathtt{EGEDmin}(G)|$. The set of graphs with $n$ vertices and
-confusion $c$ shall be denoted $\mathbf{G}_{n,c}$.
-:::</p>
+<p><strong>Definition 4</strong>. Let $G$ be any directed graph. Then the <strong>confusion</strong> of
+$G$ is the number of acyclic tournaments with the smallest edge-graph-edit
+distance to $G$, that is the confusion $c: \mathfrak{P} \rightarrow
+\mathbb{N}^+$ of $G$ is $c(G)=|\mathtt{EGEDmin}(G)|$. The set of graphs
+with $n$ vertices and confusion $c$ shall be denoted $\mathbf{G}_{n,c}$.</p>
 <p>The term "confusion" was chosen to emphasize that graphs with a lower
 such number have fewer consistent versions. An acyclic tournament has
 minimal confusion (namely 1, where the output of <code>EGEDmin</code> is simply
-itself). $G_e$ from <strong>Theorem</strong>
-<a href="#omgedworstcase">7</a>
-has maximal confusion, namely $n!$.</p>
+itself). $G_e$ from <strong>Theorem</strong> 7 has maximal confusion, namely $n!$.</p>
 <p>A natural question to ask is whether, with bigger graphs, the average
 confusion converges to a certain value or diverges, or shows no clear
 behavior. We generated all directed graphs with up to 5 vertices and
 computed their confusion.</p>
-<p><img alt="Number of graphs by number of nodes and
-confusion." id="fig:nconfusions" src="./img/resolving/nconfusions.png"/></p>
-<p>$|\mathbf{G}<em>{n,1}|$ is the number of all graphs with $n$ vertices and
-confusion 1, and $|\mathbf{G}</em>{n,1}|/n!$ is the same number but up to
-isomorphism of the graphs. $|\mathbf{G}_{n, n!}|$ is the number of
-graphs with $n$ vertices and maximal confusion.</p>
-<p>For some given set of directed graphs $\mathfrak{P}_n$, not all numbers
-between $1$ and $n!$ can be confusions. There are, for example, no
-graphs of size 3 with confusion 4 (or 5).</p>
+<p><img alt="Number of graphs by number of nodes and confusion." src="./img/resolving/nconfusions.png" title="Number of graphs by number of nodes and confusion."/></p>
+<p><code>$|\mathbf{G}_{n,1}|$</code> is the number of all graphs with <code>$n$</code> vertices and
+confusion 1, and <code>$|\mathbf{G}_{n,1}|/n!$</code> is the same number but up to
+isomorphism of the graphs. <code>$|\mathbf{G}_{n, n!}|$</code> is the number of
+graphs with <code>$n$</code> vertices and maximal confusion.</p>
+<p>For some given set of directed graphs <code>$\mathfrak{P}_n$</code>, not all numbers
+between <code>$1$</code> and <code>$n!$</code> can be confusions. There are, for example,
+no graphs of size 3 with confusion 4 (or 5).</p>
 <table>
 <thead>
 <tr>

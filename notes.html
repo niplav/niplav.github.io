@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-05-22, modified: 2024-07-07, language: english, status: in progress, importance: 3, confidence: other</em></p>
+<p><em>author: niplav, created: 2019-05-22, modified: 2024-07-21, language: english, status: in progress, importance: 3, confidence: other</em></p>
 <blockquote>
 <p><strong>Short texts on different topics.</strong></p>
 </blockquote>
@@ -1889,7 +1889,13 @@ clustering, instead of separating visualization and clustering (such as
 via good ol' <a href="https://en.wikipedia.org/wiki/K-means_Clustering">k-means</a>),
 but t-SNE is <a href="https://en.wikipedia.org/wiki/Clustering_high-dimensional_data#Projection-based_clustering">sometimes used even for
 clustering</a>,
-all my charity is being exhausted at this point.</p>
+all my charity is being exhausted at this point. But beware:</p>
+<blockquote>
+<p>Cluster sizes in a t-SNE plot mean nothing […]<br/>
+The basic message is that distances between well-separated clusters in
+a t-SNE plot may mean nothing.</p>
+</blockquote>
+<p><em>—Fernanda Viegas/Ian Johnson/Martin Wattenberg, <a href="https://distill.pub/2016/misread-tsne/">“How to Use t-SNE Effectively”</a>, 2016</em></p>
 <h2 id="The_VarietyUninterested_Can_Buy_SchellingProducts"><a class="hanchor" href="#The_VarietyUninterested_Can_Buy_SchellingProducts">The Variety-Uninterested Can Buy Schelling-Products</a></h2>
 <p>Having many different products in the same category, such as many
 different kinds of clothes or cars or houses, <a href="https://www.overcomingbias.com/p/what-cost-varietyhtml">is probably very
