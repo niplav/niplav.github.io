@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-04-15, modified: 2024-07-14, language: english, status: notes, importance: 8, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2023-04-15, modified: 2024-07-14, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>We consider the problem of resolving preferences
 that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
@@ -911,20 +911,17 @@ no graphs of size 3 with confusion 4 (or 5).</p>
 </tr>
 </tbody>
 </table>
-<p>Interestingly, neither $|\mathbf{G}<em>{n,1}|$ nor $|\mathbf{G}</em>{n,1}|/n!$
-are known integer sequences: a search on the OEIS and via SuperSeeker
-[@sloane2003line] yield no matching results.</p>
-<p>::: {#conj:avgconftoinf .conjecture}
-<strong>Conjecture 1</strong>. The average confusion of all directed graphs with size
-$n$ diverges to infinity:</p>
-<p>$$\underset{n \rightarrow \infty}{\lim} \frac{1}{2<sup>{n</sup>2}} \sum<em>{i=1}^{n!} |\mathbf{G}</em>{n,i}| \cdot i=\infty$$
-:::</p>
+<p>Interestingly, neither <code>$|\mathbf{G}_{n,1}|$</code> nor
+<code>$|\mathbf{G}_{n,1}|/n!$</code> are known integer sequences: a search on the
+OEIS and via SuperSeeker [@sloane2003line] yield no matching results.</p>
+<p><strong>Conjecture 1</strong>. The average confusion of all directed graphs with size
+<code>$n$</code> diverges to infinity:</p>
+<div>
+    $$\underset{n \rightarrow \infty}{\lim} \frac{1}{2^{n^2}} \sum_{i=1}^{n!} |\mathbf{G}_{n,i}| \cdot i=\infty$$
+</div>
 <p>We attempted to prove this conjecture, but were unable to do so.</p>
-<p>::: {#conj:divisible .proposition}
-<strong>Proposition 2</strong>. $|\mathbf{G}_{n,1}|$ is always divisible by $2^n$.
-:::</p>
-<p>::: proof
-<em>Proof.</em> This is an artifact of including graphs with reflexive edges in
+<p><strong>Proposition 2</strong>. <code>$|\mathbf{G}_{n,1}|$</code> is always divisible by <code>$2^n$</code>.</p>
+<p><em>Proof.</em> This is an artifact of including graphs with reflexive edges in
 the set of graphs tested. Let $G$ be a graph with confusion $k$ and no
 reflexive edges.</p>
 <p>Let now $\mathbf{G}^{\circ}$ be the set of all graphs that are variants
@@ -934,15 +931,14 @@ reflexive edge. Every element in $\mathbf{G}^{\circ}$ also has confusion
 $k$: all reflexive edges must be removed to create a consistent
 preference, yielding $G$, and there are $k$ unique acyclic tournaments
 that has the smallest edge-graph-edit distance to $G$.</p>
-<p>Then it is the case $|\mathbf{G}<sup>{\circ}|=2</sup>n$: for each node, the
-presence of a reflexive edge on that node can be described by one bit of
-information, and since there are $n$ nodes, the size of
-$|\mathbf{G}^{\circ}|$ is the same as the length of an $n$ bit
-bitstring. ◻
-:::</p>
-<p>Dividing $\mathbf{G}_{n,1}$ by both $n!$ and $2^n$ yields the sequence
-$1, 1, 1, 3, 28, 861$, which also doesn't occur in the OEIS, and also
-can't be found using SuperSeeker.</p>
+<p>Then it is the case <code>$|\mathbf{G}^{\circ}|=2^n$</code>: for each node,
+the presence of a reflexive edge on that node can be described by
+one bit of information, and since there are <code>$n$</code> nodes, the size of
+<code>$|\mathbf{G}^{\circ}|$</code> is the same as the length of an <code>$n$</code> bit
+bitstring. ◻</p>
+<p>Dividing <code>$\mathbf{G}_{n,1}$</code> by both <code>$n!$</code> and <code>$2^n$</code> yields the
+sequence <code>$1, 1, 1, 3, 28, 861$</code>, which also doesn't occur in the OEIS,
+and also can't be found using SuperSeeker.</p>
 <h5 id="None_4"><a class="hanchor" href="#None_4">Applying <code>HodgeRank</code></a></h5>
 <p>As seen in the case of <strong>Uniqueness</strong>, this depends on whether one
 demands the output of <code>HodgeResolve</code> to be a total order: If a weak
