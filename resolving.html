@@ -38,19 +38,23 @@ document.addEventListener('DOMContentLoaded', function () {
 <p><strong>We consider the problem of resolving preferences
 that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
 axioms</a>
-into consistent preferences. For preferences over
-deterministic options, we model inconsistent preferences
-as directed graphs, and the resolution as selecting acyclic
+into consistent preferences. For preferences over deterministic
+options, we model inconsistent preferences as <a href="https://en.wikipedia.org/wiki/Directed_Graph">directed
+graphs</a>,
+and the resolution as selecting acyclic
 <a href="https://en.wikipedia.org/wiki/Tournament_(graph_theory)">tournaments</a>
 with the same vertices and minimal <a href="https://en.wikipedia.org/wiki/Graph_edit_distance">graph-edit
-distance</a>, or Hodge
-decomposition. For preferences over lotteries, we offer two different
-methods for modeling inconsistence and one method for resolving them:
-as edge-weighted weakly connected directed graphs (resolution via Hodge
-decomposition) and as arbitrary relations over lotteries. None of those
-two representations prove to be satisfactory. We apply the findings to
-propose an algorithm for changing a utility function as the underlying
-set of objects changes.</strong></p>
+distance</a>,
+or Hodge decomposition. For preferences over lotteries, we offer
+two different methods for modeling inconsistence and one method
+for resolving them: as edge-weighted <a href="https://en.wikipedia.org/wiki/Weakly-connected_digraph">weakly connected directed
+graphs</a>
+(resolution via Hodge decomposition) and as arbitrary
+<a href="https://en.wikipedia.org/wiki/Relation_(mathematics)">relations</a> over
+lotteries. None of those two representations prove to be satisfactory. We
+apply the findings to propose an algorithm for changing a <a href="https://en.wikipedia.org/wiki/Utility#Utility_function">utility
+function</a> as
+the underlying set of objects changes.</strong></p>
 </blockquote>
 <h1 id="Resolving_von_NeumannMorgenstern_Inconsistent_Preferences"><a class="hanchor" href="#Resolving_von_NeumannMorgenstern_Inconsistent_Preferences">Resolving von Neumann-Morgenstern Inconsistent Preferences</a></h1>
 <p>In economics, decision theory, game theory and parts of artificial
@@ -194,28 +198,33 @@ explore further alternatives to the time-discounted utility setup,
 though they still work with utility functions that are invariant under
 positive affine transformation [@backus2004exotic].</p>
 <h5 id="Resolving_Inconsistent_Preferences"><a class="hanchor" href="#Resolving_Inconsistent_Preferences">Resolving Inconsistent Preferences</a></h5>
-<p>In the context of taxonomical data, Sun et al. investigate the problem
-of recovering hierarchies from noisy data (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>).
-They represent inconsistent taxonomies with directed acyclic graphs and
-consistent hierarchical taxonomies using directed graphs. They find that,
-when measuring the number of edges being removed, a voting ensemble of
-several different techniques such as TrueSkill [@herbrich2007trueskill]
-does well on removing as few edges as possible, and usually outperforms
-removing greedy approximations of the feedback arc set (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
+<p>In the context of taxonomical data, Sun et al. investigate the
+problem of recovering hierarchies from noisy data (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
+2017</a>).  They represent inconsistent
+taxonomies with directed acyclic graphs and consistent hierarchical
+taxonomies using directed graphs. They find that, when measuring
+the number of edges being removed, a voting ensemble of several
+different techniques such as TrueSkill [@herbrich2007trueskill]
+does well on removing as few edges as possible, and usually
+outperforms removing greedy approximations of the <a href="https://en.wikipedia.org/wiki/Feedback_arc_set">feedback arc
+set</a> (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
 2017</a>).</p>
-<p>Outside of the academic literature, Aird and Shovelain represent
-inconsistent preferences as vector fields on a state space
-(for example states with more/less security and more/less
-wealth), where a vector $\mathbf{v}$ at a specific point
-$\mathit{p}$ in the vector field indicates a preference for a
-change in the direction of $\mathbf{v}$ at $\mathit{p}$ (<a href="https://www.lesswrong.com/posts/ky988ePJvCRhmCwGo/using-vector-fields-to-visualise-preferences-and-make-them" title="Using vector fields to visualise preferences and make them consistent">Aird &amp; Shovelain
+<p>Outside of the academic literature, Aird and
+Shovelain represent inconsistent preferences as <a href="https://en.wikipedia.org/wiki/Vector_Field">vector
+fields</a> on a state space
+(for example states with more/less security and more/less wealth),
+where a vector $\mathbf{v}$ at a specific point $\mathit{p}$ in the
+vector field indicates a preference for a change in the direction of
+$\mathbf{v}$ at $\mathit{p}$ (<a href="https://www.lesswrong.com/posts/ky988ePJvCRhmCwGo/using-vector-fields-to-visualise-preferences-and-make-them" title="Using vector fields to visualise preferences and make them consistent">Aird &amp; Shovelain
 2020)</a>).
-However, as they note, such a vector field can have inconsistencies in
-the form of curl. They then discuss the restrictions on the vector field
-so that it conforms to the von Neumann-Morgenstern axioms, which they
-conclude to be potential vector fields, and outline how to use Helmholtz
-decomposition to decompose inconsistent preference vector fields with
-three dimensions. Their approach bears a strong resemblance to the Hodge
+However, as they note, such a vector field can have inconsistencies in the
+form of <a href="https://en.wikipedia.org/wiki/Curl_(mathematics)">curl</a>. They
+then discuss the restrictions on the vector field so that it
+conforms to the von Neumann-Morgenstern axioms, which they conclude
+to be potential vector fields, and outline how to use <a href="https://en.wikipedia.org/wiki/Helmholtz_decomposition">Helmholtz
+decomposition</a>
+to decompose inconsistent preference vector fields with three
+dimensions. Their approach bears a strong resemblance to the Hodge
 decomposition we use with edge-weighted graphs.</p>
 <p>Taking a very different approach, Kirchner
 investigates how to infer utility functions from
@@ -477,7 +486,7 @@ tournaments $\mathbf{C}$ on $\Omega$.</p></li>
     return R
 
 function topological_sorts(G)
-    if |Ω|=0:
+    if |Ω|==0:
         return G
     R=∅
     for ω∈Ω so that ω has in-degree 0 in G:
@@ -654,11 +663,17 @@ results that is factorial in the size of $\Omega$.</li>
 </ol>
 <p>We decide to take the first option, to preserve the polynomial runtime
 of <code>HodgeRank</code>.</p>
-<pre><code>For all $e \in E$, $w(e) \gets 1, l(e) \gets 1$
-$G_h \gets (\Omega, E, w, l)$ $p \gets$ $p_{\omega}$ is the potential
-that `HodgeRank` assigns to $\omega$ $E_r \gets \emptyset$
-$E_r \gets E_r \cup \{(\omega_1, \omega_2)\}$ $G_r \gets (\Omega, E_r)$
-$G_r$
+<pre><code>function HodgeResolve(G)
+    for all e∈E:
+        w(e)=1, l(e)=1
+    Gh=(Ω, E, w, l)
+    p=HodgeRank(Gh) # pω is the potential that HodgeRank assigns to ω
+    Er=∅
+    for ω1, ω2∈Ω×Ω:
+        if pω1≥pω2:
+            Er=Er ∪ {(ω1, ω2)}
+    Gr=(Ω, Er)
+    return Gr
 </code></pre>
 <h3 id="Criteria"><a class="hanchor" href="#Criteria">Criteria</a></h3>
 <p>Given the algorithms outlined above, one might want to compare them
@@ -794,9 +809,11 @@ are no reasons for manipulation.</p></li>
 <li><p><strong>Moral Uncertainty</strong>: MacAskill et al. outline how to make
 decisions given multiple ethical theories and credences on those
 ethical theories, using the so-called Maximum Expected
-Choiceworthiness rule <a href="./doc/philosophy/ethics/moral_uncertainty_macaskill_et_al_2020.pdf" title="Moral Uncertainty">MacAskill et al. 2020, ch. 2</a>. In the case of
-ordinal preferences, they use the Borda count [@mclean1990borda] for
-establishing cardinal values for options.</p></li>
+Choiceworthiness rule <a href="./doc/philosophy/ethics/moral_uncertainty_macaskill_et_al_2020.pdf" title="Moral Uncertainty">MacAskill et al. 2020, ch.
+2</a>.
+In the case of ordinal preferences, they use the <a href="https://en.wikipedia.org/wiki/Borda_Count">Borda
+count</a> for establishing
+cardinal values for options.</p></li>
 </ul>
 <h4 id="Resolution_to_Polynomially_Many_Preferences"><a class="hanchor" href="#Resolution_to_Polynomially_Many_Preferences">Resolution to Polynomially Many Preferences</a></h4>
 <p>If <strong>uniqueness</strong> can't be fulfilled (perhaps because the given graph $G$
@@ -807,7 +824,7 @@ graphs corresponding to $G$ is polynomial in the size of <code>$\Omega$</code>
 <h5 id="Minimizing_GraphEdit_Distance_3"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_3">Minimizing Graph-Edit Distance</a></h5>
 <p>However, as proven in <strong>Theorem</strong>
 <a href="#omgedworstcase">7</a>
-above, this criterion is not fulfilled for $\mathtt{EGEDmin}$, instead
+above, this criterion is not fulfilled for <code>EGEDmin</code>, instead
 in the worst case the number is factorial in the size of $\Omega$.</p>
 <p>We decided to also investigate the number of results for <code>EGEDmin</code> for
 small graphs. For this purpose, we generated all directed graphs with
@@ -946,34 +963,31 @@ ordering is allowed, the output of <code>HodgeResolve</code> is always a single
 graph, so the output size is polynomial, but if we demand a total order
 as an output the output size can be factorial in the number of nodes.</p>
 <h4 id="Preservation_of_Consistent_Subgraphs"><a class="hanchor" href="#Preservation_of_Consistent_Subgraphs">Preservation of Consistent Subgraphs</a></h4>
-<p>::: definition
-<strong>Definition 5</strong>. For a given $G =(\Omega, E<em>P)$, with $G \in
-\mathfrak{P}</em>{\Omega}$, a subgraph $\mathit{S}<em>G=(\Xi, E)$ of $G$ (with
-$\Xi \subseteq \Omega$, and the set of edges $E$ of $\mathit{S}</em>G$ being
-a subset of $E_P$) is an <strong>inclusion-maximal consistent subgraph</strong> of
-$G$ if and only if:</p>
+<p><strong>Definition 5</strong>. For a given <code>$G =(\Omega, E_P)$, with $G \in
+\mathfrak{P}_{\Omega}$</code>, a subgraph <code>$\mathit{S}_G=(\Xi, E)$</code> of
+<code>$G$</code> (with <code>$\Xi \subseteq \Omega$</code>, and the set of edges <code>$E$</code> of
+<code>$\mathit{S}_G$</code> being a subset of <code>$E_P$</code>) is an <strong>inclusion-maximal
+consistent subgraph</strong> of <code>$G$</code> if and only if:</p>
 <ul>
 <li><p>$\mathit{S}_G$ is a consistent graph (equivalently an acyclic
 tournament)<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup>.</p></li>
-<li><p>$\mathit{S}<em>G$ inherits all available edges from $G$, that is if
-there are two $\xi</em>1, \xi<em>2 \in \Xi$ and $(\xi</em>1, \xi<em>2) \in E</em>P$
-then $(\xi<em>1, \xi</em>2) \in E$ as well.</p></li>
-<li><p>$\mathit{S}<em>G$ is inclusion-maximal, that is, there exists no
-$\omega \in \Omega \backslash \Xi$ so that adding $\omega$ and its
-edges adjacent to all $\xi \in \Xi$ to $\mathit{S}</em>G$ is still a
-consistent graph.
-:::</p></li>
+<li><p><code>$\mathit{S}_G$</code> inherits all available edges from <code>$G$</code>, that is if
+there are two <code>$\xi_1, \xi_2 \in \Xi$</code> and <code>$(\xi_1, \xi_2) \in E_P$</code>
+then <code>$(\xi_1, \xi_2) \in E$</code> as well.</p></li>
+<li><p><code>$\mathit{S}_G$</code> is inclusion-maximal, that is, there exists no
+<code>$\omega \in \Omega \backslash \Xi$</code> so that adding <code>$\omega$</code> and its
+edges adjacent to all <code>$\xi \in \Xi$ to $\mathit{S}_G$</code> is still a
+consistent graph.</p></li>
 </ul>
-<p>::: definition
-<strong>Definition 6</strong>. Let $\mathcal{S}<em>G$ be the set of all
-inclusion-maximal consistent subgraphs of $G$ and let
-$f: \mathfrak{P} \rightarrow
-\mathcal{P}(\mathfrak{C})$ be a function that turns any $G$ into a set
-$\mathbf{C}</em>G=f(G)$ of consistent graphs. Then $f$ fulfills
+<p><strong>Definition 6</strong>. Let <code>$\mathcal{S}_G$</code> be the set of all
+inclusion-maximal consistent subgraphs of <code>$G$</code> and let <code>$f: \mathfrak{P}
+\rightarrow \mathcal{P}(\mathfrak{C})$</code> be a function that turns any $G$
+into a set <code>$\mathbf{C}_G=f(G)$</code> of consistent graphs. Then <code>$f$</code> fulfills
 <strong>Preservation of Consistent Subgraphs</strong> if and only if every element of
-$\mathcal{S}<em>G$ is a subgraph of at least one $\mathbf{C}</em>G$, that is</p>
-<p>$$\forall \mathit{S} \in \mathcal{S}<em>G: \exists C \in \mathbf{C}</em>G: V<em>{\mathit{S}} \subseteq V</em>{C} \land E<em>{\mathit{S}} \subseteq E</em>{C}$$
-:::</p>
+<code>$\mathcal{S}_G$</code> is a subgraph of at least one <code>$\mathbf{C}_G$</code>, that is</p>
+<div>
+    $$\forall \mathit{S} \in \mathcal{S}_G: \exists C \in \mathbf{C}_G: V_{\mathit{S}} \subseteq V_{C} \land E_{\mathit{S}} \subseteq E_{C}$$
+</div>
 <p>This criterion is quite strong, as we will show. Its intuitive appeal
 can be explained as follows: Assume one has overall inconsistent
 preferences, but there is some subset of objects one has consistent
@@ -986,136 +1000,187 @@ after becoming consistent the agent still has the same preferences over
 fruit and dairy product as before.</p>
 <p>Furthermore, one can show that there are graphs with an exponential
 number of inclusion-maximal consistent subgraphs in the number of nodes.</p>
-<p>::: lemma
-<strong>Lemma 8</strong>. Let $G \in \mathfrak{P}<em>n$ be an arbitrary directed graph
-with $n$ nodes, and let $\mathcal{S}</em>G$ be the set of inclusion-maximal
-consistent subgraphs of $G$. Then there exists no polynomial $p$ so so
-that $\forall
-G \in \mathfrak{P}<em>n: |\mathcal{S}</em>G| \le p(n)$.
-:::</p>
-<p>::: proof
-<em>Proof.</em> Moon and Moser describe how to construct an undirected graph
-$G<em>n=(V</em>G,E<em>G)$ with $n$ vertices and $3^{\frac{n}{3}}$
-inclusion-maximal cliques [@moon1965cliques]. Then one can construct a
-directed graph $P</em>n=(V<em>P,E</em>P)$ with $3^{\frac{n}{3}}\approx 1.4422^n$
-inclusion-maximal consistent subgraphs from $G<em>n$, which grows faster
-than any polynomial. First, $P</em>n$ receives the same vertices as $G<em>n$.
-Then, every $v \in V$ is assigned a unique number $j(v): V \rightarrow
-\mathbb{N}$, and for each ${u,v} \in E</em>G$, the set of edges $E<em>P$
-contains $(u,v)$ if and only if $j(u)&gt;j(v)$, and $(v,u)$ if and only if
-$j(v)&gt;j(u)$. Now, if a subgraph $\mathit{S}</em>G$ of $G<em>n$ with vertices
-$V</em>{\mathit{S}}$ is a maximal clique, then a subgraph $\mathit{S}<em>P$ of
-$P</em>n$ with vertices $V<em>{\mathit{S}}$ is an inclusion-maximal consistent
-subgraph in $P</em>n$:</p>
+<p><strong>Lemma 8</strong>. Let <code>$G \in \mathfrak{P}_n$</code> be an arbitrary directed graph
+with <code>$n$</code> nodes, and let <code>$\mathcal{S}_G$</code> be the set of inclusion-maximal
+consistent subgraphs of <code>$G$</code>. Then there exists no polynomial <code>$p$</code> so so
+that <code>$\forall G \in \mathfrak{P}_n: |\mathcal{S}_G| \le p(n)$</code>.</p>
+<p><em>Proof.</em> Moon and Moser describe how to construct an
+undirected graph <code>$G_n=(V_G,E_G)$</code> with <code>$n$</code> vertices and
+<code>$3^{\frac{n}{3}}$</code> inclusion-maximal cliques <a href="./doc/math/on_cliques_in_graphs_moon_moser_1965.pdf">Moon &amp; Moser
+1965</a>. Then one can
+construct a directed graph <code>$P_n=(V_P,E_P)$</code> with <code>$3^{\frac{n}{3}}\approx
+1.4422^n$</code> inclusion-maximal consistent subgraphs from <code>$G_n$</code>, which
+grows faster than any polynomial. First, <code>$P_n$</code> receives the same
+vertices as <code>$G_n$</code>.  Then, every <code>$v \in V$</code> is assigned a unique
+number <code>$j(v): V \rightarrow \mathbb{N}$</code>, and for each <code>$\{u,v\}
+\in E_G$</code>, the set of edges <code>$E_P$</code> contains <code>$(u,v)$</code> if and only if
+<code>$j(u)&gt;j(v)$</code>, and <code>$(v,u)$</code> if and only if <code>$j(v)&gt;j(u)$</code>. Now, if a
+subgraph <code>$\mathit{S}_G$</code> of <code>$G_n$</code> with vertices <code>$V_{\mathit{S}}$</code> is a
+maximal clique, then a subgraph <code>$\mathit{S}_P$</code> of <code>$P_n$</code> with vertices
+<code>$V_{\mathit{S}}$</code> is an inclusion-maximal consistent subgraph in <code>$P_n$</code>:</p>
 <ol>
-<li><p>$\mathit{S}<em>P$ is complete, because for every ${u,v}$ in
-$\mathit{S}</em>G$, either $(u,v)$ or $(v,u)$ exists in $\mathit{S}_P$.</p></li>
-<li><p>$\mathit{S}<em>P$ is transitive. For any three vertices ${u,v,w}$ in
-$\mathit{S}</em>G$, $\mathit{S}<em>G$ contains the edges
-${{u,v},{v,w},{u,w}}$ (since it is a clique). Then, without
-loss of generality, assume that $j(u)&gt;j(v)&gt;j(w)$. Then
-$(u, w) \in E</em>P$. Therefore $\mathit{S}_P$ contains the edges
-${(u,v),(v,w),(u,w)}$.</p></li>
-<li><p>$\mathit{S}<em>P$ is asymmetric, because for any edge ${u,v}$ in
-$\mathit{S}</em>G$ it is the case that $j(u)&gt;j(v)$ and $j(v)&gt;j(u)$ can't
+<li><p><code>$\mathit{S}_P$</code> is complete, because for every <code>$\{u,v\}$</code> in
+<code>$\mathit{S}_G$</code>, either <code>$(u,v)$</code> or <code>$(v,u)$</code> exists in <code>$\mathit{S}_P$</code>.</p></li>
+<li><p><code>$\mathit{S}_P$</code> is transitive. For any three vertices <code>$\{u,v,w\}$</code> in
+<code>$\mathit{S}_G$</code>, <code>$\mathit{S}_G$</code> contains the edges
+<code>$\{\{u,v\},\{v,w\},\{u,w\}\}$</code> (since it is a clique). Then, without
+loss of generality, assume that <code>$j(u)&gt;j(v)&gt;j(w)$</code>. Then
+<code>$(u, w) \in E_P$</code>. Therefore <code>$\mathit{S}_P$</code> contains the edges
+<code>$\{(u,v),(v,w),(u,w)\}$</code>.</p></li>
+<li><p><code>$\mathit{S}_P$</code> is asymmetric, because for any edge <code>$\{u,v\}$</code> in
+<code>$\mathit{S}_G$</code> it is the case that <code>$j(u)&gt;j(v)$</code> and <code>$j(v)&gt;j(u)$</code> can't
 be true at the same time (since $j$ assigns each vertex a unique
-natural number). So $\mathit{S}_P$ can only contain either $(u,v)$
-or $(v,u)$.</p></li>
-<li><p>$\mathit{S}<em>P$ is inclusion-maximal. If $\mathit{S}</em>P$ were not
-inclusion-maximal, there'd exist a vertex $u$ so that every vertex
-$v$ of $\mathit{S}<em>P$ had an edge with $u$. But since the procedure
-of constructing $P</em>n$ above did not add any edges, that would mean
-that $\mathit{S}_G$ was not a maximal clique.</p></li>
+natural number). So <code>$\mathit{S}_P$</code> can only contain either <code>$(u,v)$</code>
+or <code>$(v,u)$</code>.</p></li>
+<li><p><code>$\mathit{S}_P$</code> is inclusion-maximal. If <code>$\mathit{S}_P$</code> were not
+inclusion-maximal, there'd exist a vertex <code>$u$</code> so that every vertex
+<code>$v$</code> of <code>$\mathit{S}_P$</code> had an edge with <code>$u$</code>. But since the procedure
+of constructing <code>$P_n$</code> above did not add any edges, that would mean
+that <code>$\mathit{S}_G$</code> was not a maximal clique.</p></li>
 </ol>
-<p> ◻
-:::</p>
+<p> ◻</p>
 <h5 id="Minimizing_GraphEdit_Distance_4"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_4">Minimizing Graph-Edit Distance</a></h5>
-<p>$\mathtt{EGEDmin}$ violates this criterion, which can be easily shown by
-a counterexample in Figure <a href="#fig:example1">4</a>:</p>
-<p>::: example
-<strong>Example 1</strong>.</p>
-<figure id="fig:example1">
-<figure id="fig:counter1">
-<img src="./img/resolving/counter_example.png"/>
-<figcaption>Counterexample</figcaption>
-</figure>
-<figure id="fig:resolved">
-<img src="./img/resolving/resolved_example.png"/>
-<figcaption>Counterexample resolved versions</figcaption>
-</figure>
-<figcaption><span class="math inline"><em>G</em><sub><em>c</em></sub></span> on the left
-above is resolved into two acyclic tournaments, none of which contain
-the edge <span class="math inline"><em>d</em> → <em>c</em></span>.</figcaption>
-</figure>
-<p>The graph $G<em>c$ above contains a subgraph
-$\mathit{S}</em>{cd}=({c,d},{(c,d)})$ that is also an inclusion-maximal
-acyclic tournament in $G<em>c$. The two acyclic tournaments with the lowest
-graph-edit distance (namely 3: reversing the edge $d \rightarrow c$ (2
-operations) and adding an edge between $a$ and $b$) to $G</em>c$ are shown
-in Figure 2. Note that none of them contain $\mathit{S}_{cd}$ as a
-subgraph.
-:::</p>
-<p><img alt="image" src="./img/resolving/counter_example_3.png" style='width:"0.9\\linewidth";'/></p>
+<p><code>EGEDmin</code> violates this criterion, which can be easily demonstrated:</p>
+<p><strong>Example 1</strong>.</p>
+<p><img alt="" src="./img/resolving/counter_example.png"/></p>
+<p><em>Counterexample</em></p>
+<p><img alt="" src="./img/resolving/resolved_example.png"/></p>
+<p><em>Counterexample resolved versions</em></p>
+<p><code>$G_c$</code> above is resolved into two acyclic tournaments, none of which
+contain the edge <code>$d \rightarrow c$</code>.</p>
+<p>The graph <code>$G_c$</code> above contains a subgraph
+<code>$\mathit{S}_{cd}=(\{c,d\},\{(c,d)\})$</code> that is also an inclusion-maximal
+acyclic tournament in <code>$G_c$</code>. The two acyclic tournaments with the lowest
+graph-edit distance (namely 3: reversing the edge <code>$d \rightarrow c$</code>
+(2 operations) and adding an edge between <code>$a$</code> and <code>$b$</code>) to <code>$G_c$</code>
+are shown in in the resolved graph. Note that none of them contain
+<code>$\mathit{S}_{cd}$</code> as a subgraph.</p>
+<p><img alt="" src="./img/resolving/counter_example_3.png"/></p>
 <p>This counter-example can be generalized so that inclusion-maximal
-consistent subgraphs with an arbitrary number of nodes $n$ get reversed:
-Each edge $\omega<em>1 \rightarrow \omega</em>2$ of $G<em>c$ gets replaced by an
-acyclic tournament $\mathit{T}</em>i=(\Xi<em>i, E</em>i)$ with $n-2$ vertices, so
-that there is an edge from $\omega<em>1$ to every $\xi</em>i \in \Xi<em>i$ and an
-edge from every $\xi</em>i \in \Xi<em>i$ to $\omega</em>2$. The graph on the left
-has confusion 40, and the subgraph emphasized in red is preserved in
-none of the outputs of <code>EGEDmin</code>.</p>
+consistent subgraphs with an arbitrary number of nodes <code>$n$</code> get reversed:
+Each edge <code>$\omega_1 \rightarrow \omega_2$</code> of <code>$G_c$</code> gets replaced by an
+acyclic tournament <code>$\mathit{T}_i=(\Xi_i, E_i)$</code> with <code>$n-2$</code> vertices,
+so that there is an edge from <code>$\omega_1$</code> to every <code>$\xi_i \in \Xi_i$</code>
+and an edge from every <code>$\xi_i \in \Xi_i$</code> to <code>$\omega_2$</code>. The graph
+on the left has confusion 40, and the subgraph emphasized in red is
+preserved in none of the outputs of <code>EGEDmin</code>.</p>
 <p>We also investigated the number of inclusion-maximal consistent
 subgraphs preserved by <code>EGEDmin</code>. We again did this by analyzing the
 outputs of <code>EGEDmin</code> for all graphs with five nodes or less, and some
 graphs with six or seven nodes.</p>
-<p>::: definition
-<strong>Definition 7</strong>. Let
-$\text{IMCS}: \mathfrak{P}<em>n \rightarrow \mathfrak{P}</em>{1..n}$ be a
-function that returns the <strong>i</strong>nclusion-<strong>m</strong>aximal <strong>c</strong>onsistent
-<strong>s</strong>ubgraphs for a given graph.
-:::</p>
+<p><strong>Definition 7</strong>. Let <code>$\text{IMCS}: \mathfrak{P}_n \rightarrow
+\mathfrak{P}_{1..n}$</code> be a function that returns the
+<strong>i</strong>nclusion-<strong>m</strong>aximal <strong>c</strong>onsistent <strong>s</strong>ubgraphs for a given graph.</p>
 <p>Given a directed graph $G$, let $\mathcal{S}$ be the set of
 inclusion-maximal consistent subgraphs of $G$. One can now ask: For a
 given inclusion-maximal consistent subgraph, how often did that subgraph
 occur in the set of outputs $\mathtt{EGEDmin}(G)$?</p>
-<p>::: definition
-<strong>Definition 8</strong>. Let $\text{RSP}(S, G)$ (with $S \in \mathcal{S}$) be
-the <strong>r</strong>atio of <strong>s</strong>ubgraph <strong>p</strong>reservation:</p>
-<p>$$\text{RSP}_{\mathtt{EGEDmin}}(S, G)=\frac{|{R \in \mathtt{EGEDmin}(G) | S \text{ subgraph of } R}|}{|\mathtt{EGEDmin}(G)|}$$
-:::</p>
+<p><strong>Definition 8</strong>. Let <code>$\text{RSP}(S, G)$</code> (with <code>$S \in \mathcal{S}$</code>)
+be the <strong>r</strong>atio of <strong>s</strong>ubgraph <strong>p</strong>reservation:</p>
+<div>
+    $$\text{RSP}_{\mathtt{EGEDmin}}(S, G)=\frac{|\{R \in \mathtt{EGEDmin}(G) | S \text{ subgraph of } R\}|}{|\mathtt{EGEDmin}(G)|}$$
+</div>
+<p>(No relation to <a href="https://www.lesswrong.com/posts/jyM7MSTvy8Qs6aZcz/what-s-up-with-responsible-scaling-policies">responsible scaling
+policies</a>.)</p>
 <p>As we saw above, there are graphs with inclusion-maximal consistent
-subgraphs $S$ so that $\text{RSP}(S)=0$.</p>
+subgraphs <code>$S$</code> so that <code>$\text{RSP}(S)=0$</code>.</p>
 <p>One can then use $\text{RSP}$ to define a metric that tells us, for a
 given graph, how often inclusion-maximal consistent subgraphs were
 preserved on average.</p>
-<p>::: definition
-<strong>Definition 9</strong>. Let $\text{AMSP}_{\mathtt{EGEDmin}}(G)$ be the
+<p><strong>Definition 9</strong>. Let $\text{AMSP}_{\mathtt{EGEDmin}}(G)$ be the
 average, for every inclusion-maximal consistent subgraph $\mathit{S}$,
 of the number of times $\mathit{S}$ appears in the output of <code>EGEDmin</code>
 (<strong>a</strong>verage <strong>m</strong>aximal <strong>s</strong>ubgraph <strong>p</strong>reservation):</p>
-<p>$$\text{AMSP}<em>{\mathtt{EGEDmin}}(G)=\frac{1}{|\text{IMCS}(G)|} \sum</em>{\mathit{S} \in \text{IMCS}(G)} \text{RSP}_{\mathtt{EGEDmin}}(\mathit{S})$$
-:::</p>
-<p>Both $\text{RSP}<em>{\mathtt{EGEDmin}}$ and
-$\text{AMSP}</em>{\mathtt{EGEDmin}}$ can be adapted to different methods for
-resolution, simply by swapping out the instances of <code>EGEDmin</code> for
-something else (e.g. <code>HodgeRank</code>). By default, I will use $\text{RSP}$
-and $\text{AMSP}$ for $\text{RSP}<em>{\mathtt{EGEDmin}}$ and
-$\text{AMSP}</em>{\mathtt{EGEDmin}}$.</p>
+<div>
+    $$\text{AMSP}_{\mathtt{EGEDmin}}(G)=\frac{1}{|\text{IMCS}(G)|} \sum_{\mathit{S} \in \text{IMCS}(G)} \text{RSP}_{\mathtt{EGEDmin}}(\mathit{S})$$
+</div>
+<p>Both <code>$\text{RSP}_{\mathtt{EGEDmin}}$</code> and
+<code>$\text{AMSP}_{\mathtt{EGEDmin}}$</code> can be adapted to different
+methods for resolution, simply by swapping out the instances of
+<code>EGEDmin</code> for something else (e.g. <code>HodgeRank</code>). By default, I will use
+<code>$\text{RSP}$</code> and <code>$\text{AMSP}$</code> for <code>$\text{RSP}_{\mathtt{EGEDmin}}$</code>
+and <code>$\text{AMSP}_{\mathtt{EGEDmin}}$</code>.</p>
 <p>A higher number for AMSP is better: It means that more inclusion-maximal
 consistent subgraphs get preserved more often by the method for
 resolving inconsistent preferences.</p>
-<p>::: center
-  $n$   Samples    Avg $|\text{IMCS}(G)|$   Avg $\text{AMSP}(G)$   Min $\text{AMSP}(G)$   Graphs with $\text{AMSP}(G)=1$</p>
-<hr/>
-<p>0     1          1                        1                      1                      1 (100%)
-  1     2          1                        1                      1                      2 (100%)
-  2     16         1.125                    1                      1                      16 (100%)
-  3     512        $\approx$ 1.32           $\approx$ 0.995        2/3                    496 ($\approx$ 98.4%)
-  4     65536      $\approx$ 1.568          $\approx$ 0.984        0                      57728 ($\approx$ 94.4%)
-  5     33554432   $\approx$ 1.864          $\approx$ 0.969        0                      7803263 ($\approx$ 80.1%)
-  6     90927      $\approx$ 2.207          $\approx$ 0.95         0                      72209 ($\approx$ 79.4%)
-  7     1580       $\approx$ 2.618          $\approx$ 0.932        0                      1095 ($\approx$ 69.3%)
-:::</p>
+<table>
+<thead>
+<tr>
+<th><code>$n$</code></th>
+<th>Samples</th>
+<th>Avg <code>$\#(\text{IMCS}(G))$</code></th>
+<th>Avg <code>$\text{AMSP}(G)$</code></th>
+<th>Min <code>$\text{AMSP}(G)$</code></th>
+<th>Graphs with <code>$\text{AMSP}(G)=1$</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1 (100%)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>2 (100%)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>16</td>
+<td>1.125</td>
+<td>1</td>
+<td>1</td>
+<td>16 (100%)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>512</td>
+<td><code>$\approx$</code> 1.32</td>
+<td><code>$\approx$</code> 0.995</td>
+<td>2/3</td>
+<td>496 (<code>$\approx$</code> 98.4%)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>65536</td>
+<td><code>$\approx$</code> 1.568</td>
+<td><code>$\approx$</code> 0.984</td>
+<td>0</td>
+<td>57728 (<code>$\approx$</code> 94.4%)</td>
+</tr>
+<tr>
+<td>5</td>
+<td>33554432</td>
+<td><code>$\approx$</code> 1.864</td>
+<td><code>$\approx$</code> 0.969</td>
+<td>0</td>
+<td>7803263 (<code>$\approx$</code> 80.1%)</td>
+</tr>
+<tr>
+<td>6</td>
+<td>90927</td>
+<td><code>$\approx$</code> 2.207</td>
+<td><code>$\approx$</code> 0.95</td>
+<td>0</td>
+<td>72209 (<code>$\approx$</code> 79.4%)</td>
+</tr>
+<tr>
+<td>7</td>
+<td>1580</td>
+<td><code>$\approx$</code> 2.618</td>
+<td><code>$\approx$</code> 0.932</td>
+<td>0</td>
+<td>1095 (<code>$\approx$</code> 69.3%)</td>
+</tr>
+</tbody>
+</table>
 <p>One can see that the average number of inclusion-maximal consistent
 subgraphs increases, albeit initially slowly. The number of times that
 maximal consistent subgraphs are preserved (Avg $\text{AMSP}(G)$) starts
@@ -1129,23 +1194,23 @@ one inclusion-maximal consistent subgraph occurs in the output of
 <code>EGEDmin</code>.</p>
 <p>So we can pose some conjectures indicated by the datapoints observed
 above:</p>
-<p>::: {#conj:egednosubpres .conjecture}
-<strong>Conjecture 2</strong>. In the limit of graph size, on average <code>EGEDmin</code>
+<p><strong>Conjecture 2</strong>. In the limit of graph size, on average <code>EGEDmin</code>
 preserves almost none of the inclusion-maximal consistent subgraphs:</p>
-<p>$$\underset{n \rightarrow \infty}{\lim} \frac{1}{|\mathfrak{P}<em>n|} \sum</em>{G \in \mathfrak{P}_n} \text{AMSP}(G)=0$$
-:::</p>
-<p>::: conjecture
-<strong>Conjecture 3</strong>. For graphs with $&gt;7$ nodes it remains the case that
+<div>
+    $$\underset{n \rightarrow \infty}{\lim} \frac{1}{|\mathfrak{P}_n|} \sum_{G \in \mathfrak{P}_n} \text{AMSP}(G)=0$$
+</div>
+<p><strong>Conjecture 3</strong>. For graphs with $&gt;7$ nodes it remains the case that
 there are graphs for which the smallest number of inclusion-maximal
 consistent subgraphs preserved by <code>EGEDmin</code> is zero:</p>
-<p>$$\underset{n \rightarrow \infty}{\lim} \min<em>{G \in \mathfrak{P}</em>n} \text{AMSP}(G)=0$$
-:::</p>
-<p>::: conjecture
-<strong>Conjecture 4</strong>. In the limit of number of nodes in a graph, for almost
+<div>
+    $$\underset{n \rightarrow \infty}{\lim} \min_{G \in \mathfrak{P}_n} \text{AMSP}(G)=0$$
+</div>
+<p><strong>Conjecture 4</strong>. In the limit of number of nodes in a graph, for almost
 no graphs does <code>EGEDmin</code> preserve all inclusion-maximal consistent
-subgraphs.
-$$\underset{n \rightarrow \infty}{\lim} \frac{1}{|\mathfrak{P}<em>n|} |{G \in \mathfrak{P}</em>n | \text{AMSP}(G)=1}|=0$$
-:::</p>
+subgraphs.</p>
+<div>
+    $$\underset{n \rightarrow \infty}{\lim} \frac{1}{|\mathfrak{P}_n|} |\{G \in \mathfrak{P}_n | \text{AMSP}(G)=1\}|=0$$
+</div>
 <h5 id="None_5"><a class="hanchor" href="#None_5">Applying <code>HodgeRank</code></a></h5>
 <p>If the output of <code>HodgeResolve</code> is allowed to be a weak ordering, then
 the original definition of <strong>Preservation of Consistent Subgraphs</strong> does
@@ -1283,7 +1348,7 @@ dominated consistent subgraph, which stays at the bottom.
 :::</p>
 <h4 id="Minimizing_GraphEdit_Distance_5"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_5">Minimizing Graph-Edit Distance</a></h4>
 <p>::: theorem
-#<strong>Theorem 9</strong>. $\mathtt{EGEDmin}$ fulfills <strong>Preservation of Complete
+#<strong>Theorem 9</strong>. <code>EGEDmin</code> fulfills <strong>Preservation of Complete
 Domination</strong>.
 :::</p>
 <p>::: proof

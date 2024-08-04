@@ -38,10 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
 <p><strong>I implement an obscure mathematical construct in an obscure
 programming language. Edge cases are encountered.</strong></p>
 </blockquote>
-<h1 id="Implementing_Commutative_Hyperoperators"><a class="hanchor" href="#Implementing_Commutative_Hyperoperators">Implementing Commutative Hyperoperators</a></h1>
+<h1 id="Implementing_Commutative_Hyperoperations"><a class="hanchor" href="#Implementing_Commutative_Hyperoperations">Implementing Commutative Hyperoperations</a></h1>
 <p><a href="https://observablehq.com/@ishi/arithmetic" title="Hyperlogarithmic Arithmetic">Ghalimi 2019</a>
 presents and discusses a novel construction of a class of
-<a href="https://en.wikipedia.org/wiki/Hyperoperator">hyperoperators</a>, here I
+<a href="https://en.wikipedia.org/wiki/Hyperoperation">hyperoperations</a>, here I
 implement these in <a href="http://t3x.org/klong/index.html">Klong</a>.</p>
 <p>I choose to implement these operators on base <code>$e$</code>, just as the author
 recommends.</p>
@@ -92,7 +92,7 @@ here, but the python math library gives <code>math.atan2(1,0)=π/2</code> (pytho
 gives <code>0</code> for <code>math.atan2(0,1)</code> and Klong's <code>atan2</code> gives <code>π/2</code> for
 <code>atan2(0;1)</code>).</p>
 <!--TODO: fix local atan2-->
-<p>With this, one can implement the commutative hyperoperator:</p>
+<p>With this, one can implement the commutative hyperoperation:</p>
 <pre><code>    comhyp::{:[z=0;cln(cadd(cexp(x);cexp(y))):|
             z=1;cadd(x;y):|
             z=2;cmul(x;y):|
@@ -118,7 +118,7 @@ gives <code>0</code> for <code>math.atan2(0,1)</code> and Klong's <code>atan2</c
             z=3;cexp(cpow(cln(x);cln(y)));
             cexp(tranhyp(cln(x);cln(y);z-1))]}
 </code></pre>
-<p>And thereby we have implemented the entire class of hyperoperators.</p>
+<p>And thereby we have implemented the entire class of hyperoperations.</p>
 <!--When you're less tired, check over this again:
 2^x^y=b^{1^log_b(x)^{log_b(y)}}=b^{log_b(x)*b^log_b(y)}=x^{b^_log_b(y)}=x^y
 I think this checks out-->
