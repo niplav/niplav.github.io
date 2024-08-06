@@ -119,12 +119,20 @@ correlation, and ideally one would want to be able to compute the logical
 correlation without having to run the program.</p>
 <p>How does this relate to
 <a href="https://wiki.c2.com/?DataAndCodeAreTheSameThing">data=code</a>?</p>
-<h4 id="Desiderata_Fulfilled"><a class="hanchor" href="#Desiderata_Fulfilled">Desiderata Fulfilled?</a></h4>
+<h3 id="Desiderata_Fulfilled"><a class="hanchor" href="#Desiderata_Fulfilled">Desiderata Fulfilled?</a></h3>
 <p>Does this fulfill our desiderata from earlier? I'll assume that the
 string distance <code>$d$</code> is a metric, in the mathematical sense.</p>
-<ol>
-<li><code>$合(p, p)=0$</code>. (The minimal logical correlation is 0.)</li>
-</ol>
+<h4 id="None"><a class="hanchor" href="#None">Proving <code>$合(p, p)=0$</code></a></h4>
+<p>Proof:</p>
+<div>
+    $$d(o, o)+0.5-\frac{1}{2+\sum_{k=0}^{\min(l, l)} γ^k \cdot d(t(l-k), t(l-k))}= \\
+    0+0.5+\frac{1}{2+\sum_{k=0}^l y^k \cdot 0}= \\
+    0.5+\frac{1}{2+0}= \\
+    0$$
+</div>
+<p>Since <code>$d$</code> is a metric, <code>$d(o, o)=0$</code>.</p>
+<h4 id="Proving_Positivity"><a class="hanchor" href="#Proving_Positivity">Proving Positivity</a></h4>
+<p>(The minimal logical correlation is 0.)</p>
 <h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
 <ul>
 <li><a href="https://www.lesswrong.com/posts/Xd9FLs4geRAWxkQPE/writing-causal-models-like-we-write-programs">Writing Causal Models Like We Write Programs (johnswentworth, 2020)</a></li>
