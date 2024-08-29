@@ -1486,13 +1486,13 @@ criteria:</p>
 <tbody>
 <tr>
 <td>Surjectivity</td>
-<td></td>
-<td></td>
+<td>✓</td>
+<td>✓</td>
 </tr>
 <tr>
 <td>Identity</td>
-<td></td>
-<td></td>
+<td>✓</td>
+<td>✓</td>
 </tr>
 <tr>
 <td>Worst-case computational complexity</td>
@@ -1501,22 +1501,22 @@ criteria:</p>
 </tr>
 <tr>
 <td>Uniqueness</td>
-<td></td>
-<td>$\sim$</td>
+<td>✗</td>
+<td>~<sup id="fnref6"><a href="#fn6" rel="footnote">6</a></sup></td>
 </tr>
 <tr>
 <td>Polynomial output size</td>
-<td></td>
-<td>$\sim$</td>
+<td>✗</td>
+<td>~</td>
 </tr>
 <tr>
 <td>Preservation of consistent subgraphs</td>
-<td></td>
-<td></td>
+<td>✗</td>
+<td>✗</td>
 </tr>
 <tr>
 <td>Preservation of complete domination</td>
-<td></td>
+<td>✓</td>
 <td>?</td>
 </tr>
 </tbody>
@@ -1528,55 +1528,45 @@ other.</p>
 <p>It is not possible to have an algorithm that retains every maximal
 consistent subgraph at least once in the set of outputs and has only
 polynomially many outputs.</p>
-<p>::: {#theorem:impossibility1 .theorem}
-#<strong>Theorem 10</strong>. Let
-$f: \mathfrak{P} \rightarrow \mathcal{P}(\mathfrak{C})$ be a function
+<p><strong>Theorem 10</strong>. Let <code>$f: \mathfrak{P} \rightarrow \mathcal{P}(\mathfrak{C})$</code> be a function
 for resolving inconsistent graphs that fulfills <strong>Preservation of
-Consistent Subgraphs</strong> for all graphs $\mathfrak{P}$. Then there exists
-no polynomial $p$ so that for all directed graphs $\mathfrak{P}<em>n$ of
-size $n$ it holds that
-$\forall P</em>n \in \mathfrak{P}<em>n: |f(P</em>n)| \le p(n)$.
-:::</p>
-<p><img alt="image" src="./img/resolving/en.png" style='width:"0.9\\linewidth";'/></p>
+Consistent Subgraphs</strong> for all graphs <code>$\mathfrak{P}$</code>. Then there exists
+no polynomial <code>$p$</code> so that for all directed graphs <code>$\mathfrak{P}_n$</code> of
+size <code>$n$</code> it holds that
+<code>$\forall P_n \in \mathfrak{P}_n: |f(P_n)| \le p(n)$</code>.</p>
+<p><img alt="image" src="./img/resolving/en.png"/></p>
 <p>We show this with a graph that is a counterexample, i.e. for which such
 a polynomial can not exist.</p>
-<p>::: definition
-<strong>Definition 11</strong>. Let $\mathit{V}$ denote a directed graph with three
-vertices $\alpha, \beta, \gamma$ and three edges
-$\alpha \rightarrow \beta, \beta \rightarrow \gamma, \gamma \rightarrow \alpha$.
-Let now denote $E<em>n$ be a graph that is constructed out of $n$ copies of
-$\mathit{V}$, "stacked" on top of each other. More formally, let the
-vertices of $E</em>n$ be the set ${\alpha<em>1,
-\ldots, \alpha</em>n, \beta<em>1, \ldots, \beta</em>n, \gamma<em>1, \ldots, \gamma</em>n}$
-so that $\alpha<em>i, \beta</em>i, \gamma<em>i$ are the vertices of the graph
-$\mathit{V}</em>i$, and the edges of $E<em>n$ are the edges of each
-$\mathit{V}</em>i$ and the edges
-${(u<em>i, v</em>j) | i&gt;j \land u, v \in {\alpha,
-\beta, \gamma}}$.
-:::</p>
-<p>We first prove that each inclusion-maximal consistent subgraph of $E<em>n$
-only contains one edge from each $\mathit{V}</em>i$.</p>
-<p>::: lemma
-<strong>Lemma 11</strong>. Every inclusion-maximal consistent subgraph $V$ of $E<em>n$
+<p><strong>Definition 11</strong>. Let <code>$\mathit{V}$</code> denote a directed graph with three
+vertices <code>$\alpha, \beta, \gamma$</code> and three edges
+<code>$\alpha \rightarrow \beta, \beta \rightarrow \gamma, \gamma \rightarrow \alpha$</code>.
+Let now denote <code>$E_n$</code> be a graph that is constructed out of <code>$n$</code> copies of
+<code>$\mathit{V}$</code>, "stacked" on top of each other. More formally, let the
+vertices of <code>$E_n$</code> be the set <code>$\{\alpha_1,
+\ldots, \alpha_n, \beta_1, \ldots, \beta_n, \gamma_1, \ldots, \gamma_n\}$</code>
+so that <code>$\alpha_i, \beta_i, \gamma_i$</code> are the vertices of the graph
+<code>$\mathit{V}_i$</code>, and the edges of <code>$E_n$</code> are the edges of each
+<code>$\mathit{V}_i$</code> and the edges
+<code>$\{(u_i, v_j) | i&gt;j \land u, v \in \{\alpha, \beta, \gamma\}\}$</code>.</p>
+<p>We first prove that each inclusion-maximal consistent subgraph of <code>$E_n$</code>
+only contains one edge from each <code>$\mathit{V}_i$</code>.</p>
+<p><strong>Lemma 11</strong>. Every inclusion-maximal consistent subgraph <code>$V$</code> of <code>$E_n$</code>
 contains exactly one edge from each
-$\mathit{V}</em>i \in {\mathit{V}<em>1, \dots,
-\mathit{V}</em>n}$.
-:::</p>
-<p>::: proof
-<em>Proof.</em> Assume $S$ is a subgraph of $E<em>n$, and there exists (without
-loss of generality) a $\mathit{V}</em>i$ so that $S \cap \mathit{V}<em>i$ has
-two edges $\alpha</em>i
-\rightarrow \beta<em>i$ and $\beta</em>i \rightarrow \gamma<em>i$. Since $S$ is
+<code>$\mathit{V}_i \in \{\mathit{V}_1, \dots, \mathit{V}_n\}$</code>.</p>
+<p><em>Proof.</em> Assume <code>$S$</code> is a subgraph of <code>$E_n$</code>, and there exists (without
+loss of generality) a <code>$\mathit{V}_i$</code> so that <code>$S \cap \mathit{V}_i$</code> has
+two edges <code>$\alpha_i
+\rightarrow \beta_i$</code> and <code>$\beta_i \rightarrow \gamma_i$</code>. Since <code>$S$</code> is
 stipulated to be consistent, due to the transitivity requirement it must
-also contain the edge $\alpha</em>i \rightarrow \gamma<em>i$. But then $S$
-would no longer be a subgraph of $E</em>n$, since
-$\alpha<em>i \rightarrow \gamma</em>i$ is not an edge in $\mathit{V}<em>i$. If
-$S \cap \mathit{V}</em>i$ has three edges, $S$ must be inconsistent, since
+also contain the edge <code>$\alpha_i \rightarrow \gamma_i$</code>. But then <code>$S$</code>
+would no longer be a subgraph of <code>$E_n$</code>, since
+<code>$\alpha_i \rightarrow \gamma_i$</code> is not an edge in <code>$\mathit{V}_i$</code>. If
+<code>$S \cap \mathit{V}_i$</code> has three edges, <code>$S$</code> must be inconsistent, since
 transivity or asymmetry are violated. Assume now there is a subgraph
-$\mathit{V}<em>i$ of $E</em>n$ so that $S \cap \mathit{V}<em>i$ has no edges. Then
-one can add any one edge from $\mathit{V}</em>i$ to $S$ while retaining
+<code>$\mathit{V}_i$</code> of <code>$E_n$</code> so that <code>$S \cap \mathit{V}_i$</code> has no edges. Then
+one can add any one edge from <code>$\mathit{V}_i$</code> to <code>$S$</code> while retaining
 consistency: If one adds (without loss of generality)
-$\alpha<em>i \rightarrow \beta</em>i$, this preserves consistency, since</p>
+<code>$\alpha_i \rightarrow \beta_i$</code>, this preserves consistency, since</p>
 <ul>
 <li><p><strong>Completeness</strong> is preserved ($\alpha<em>i, \beta</em>i$ are connected to
 all $\omega<em>h, \omega</em>j$ ($h &lt;i&lt;j$)).</p></li>
@@ -1587,8 +1577,7 @@ for $\alpha<em>i \rightarrow \beta</em>i, \beta<em>i \rightarrow \omega</em>j$).
 <li><p><strong>Asymmetry</strong> is preserved because we add no reversed edges where
 there were edges in $S$ before.</p></li>
 </ul>
-<p> ◻
-:::</p>
+<p> ◻</p>
 <p>We then show that any consistent graph on the vertices of $E<em>n$ can not
 contain $2^n+1$ inclusion-maximal consistent subgraphs of $E</em>n$.</p>
 <p>::: {#lemma:ensubgraphs .lemma}
@@ -2007,7 +1996,7 @@ A, P, R, I)$</code> is a tuple of five elements, where <code>$S$</code> is a set
 <code>$s$</code> to <code>$s'$</code> via the action <code>$a$</code>, that is
 <code>$P(s, a, s')=\Pr(s_{t+1}=s'|s_t=s,
 a_t=a)$</code>. The function <code>$R: S \rightarrow \mathbb{R}$</code> is a reward function
-that returns a real-numbered value for reaching a certain state<sup id="fnref6"><a href="#fn6" rel="footnote">6</a></sup>, and
+that returns a real-numbered value for reaching a certain state<sup id="fnref7"><a href="#fn7" rel="footnote">7</a></sup>, and
 <code>$I: S \rightarrow [0,1]$</code> is a probability distribution for the states
 that the agent is initially in.</p>
 <p>Given some ordering of the states <code>$s_1, \dots, s_n$</code>,
@@ -2228,7 +2217,7 @@ options, and let $s$ be</p>
 <p>That is, land animals turn out to be half mammals, half insects, air
 animals are mostly birds and insects, and few mammals, and water animals
 are mostly fishes, and few mammals.</p>
-<p>(Ignoring, for the sake of simplicity of the example, <em>exocoetidae</em><sup id="fnref7"><a href="#fn7" rel="footnote">7</a></sup>
+<p>(Ignoring, for the sake of simplicity of the example, <em>exocoetidae</em><sup id="fnref8"><a href="#fn8" rel="footnote">8</a></sup>
 and aquatic insects).</p>
 <figure id="fig:animals_example">
 <figure id="fig:animals_1">
@@ -2515,15 +2504,18 @@ for such $\omega</em>1, \omega<em>2$ <em>only</em> the edge $\omega</em>1
 with that definition here. <a href="#fnref5" rev="footnote">↩</a></p>
 </li>
 <li id="fn6">
+<p>Only if the output is allowed to be a weak ordering. <a href="#fnref6" rev="footnote">↩</a></p>
+</li>
+<li id="fn7">
 <p>Russell and Norvig note that sometimes $R$ takes actions into
 account as well: $R: S \times A \times S \rightarrow \mathbb{R}$
 (with different rewards for transitioning to a state with different
 actions), but also notes that this merely simplifies the description
 of some environments, but doesn't change which environments can be
-described [@russell2010artificial ch. 17]. <a href="#fnref6" rev="footnote">↩</a></p>
+described [@russell2010artificial ch. 17]. <a href="#fnref7" rev="footnote">↩</a></p>
 </li>
-<li id="fn7">
-<p>Also known as flying fish. <a href="#fnref7" rev="footnote">↩</a></p>
+<li id="fn8">
+<p>Also known as flying fish. <a href="#fnref8" rev="footnote">↩</a></p>
 </li>
 </ol>
 </div>

@@ -39,9 +39,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <a href="#Examples_for_the_Claim">frequently claim</a> that abstinence from
 masturbation causally increases male attractiveness.</strong><br/>
 <strong>I present a method to test this claim (albeit imperfectly) by
-approaching 100 women in the street after &gt;90 days of abstinence
+approaching 50 women in the street after &gt;90 days of abstinence
 from masturbation and after a short conversation asking them for
-their contact information, and 100 again after a week of daily
+their contact information, and 50 again after a week of daily
 masturbation. The results are analyzed using a <a href="https://en.wikipedia.org/wiki/Mann-Whitney_U_test">Mann-Whitney
 U-test</a>
 and various <a href="https://en.wikipedia.org/wiki/Descriptive_statistics">descriptive statistical
@@ -100,7 +100,7 @@ from masturbation (which is also the period <a href="https://nofap.com/rebooting
 NoFap community</a>: "NoFap’s gold
 standard of success is our 90-day reboot.").</p>
 <p>From _ to _, I went on the streets of a major european city
-and approached 100 people I read as women, usually via a <a href="https://thomascrownpua.com/2023/04/21/qa-what-do-you-think-of-the-yad-stop/">Yad
+and approached 50 people I read as women, usually via a <a href="https://thomascrownpua.com/2023/04/21/qa-what-do-you-think-of-the-yad-stop/">Yad
 stop</a>.
 The women who were approached were chosen by how attractive I found them.</p>
 <p>I then ran a standard daygame opener on the woman, with the goal of
@@ -108,7 +108,7 @@ asking her for her number and later taking her on a date.</p>
 <p>In the week following the last approach, I masturbated once every day
 with the aid of pornography<!--TODO: link the pornography consumed during
 that time-->.</p>
-<p>Afterwards, I repeated the procedure of approaching 100 women in the
+<p>Afterwards, I repeated the procedure of approaching 50 women in the
 same manner from _ to _.</p>
 <p>Data that was logged included date and time of day (in
 <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a>), whether the approach
@@ -162,7 +162,7 @@ weekly masturbation.</p>
 <pre><code>.l("nplot")
 .l("./load.kg")
 
-cgrid(["ignored" "stopped" "name" "rejection" "flake" "fizzle" "date" "sex"];[0 100 10])
+cgrid(["ignored" "stopped" "name" "rejection" "flake" "fizzle" "date" "sex"];[0 50 5])
 
 text(20;400;"white: during abstinence, before masturbation, black: after masturbation")
 
@@ -378,7 +378,7 @@ masturbation &amp; pornography for 7 days, then approaches.</li>
 been very low, since I assigned a very low credence to the validity
 of the central claim altogether.</li>
 </ul>
-<h3 id="Learning_Effect_During_First_100_Half"><a class="hanchor" href="#Learning_Effect_During_First_100_Half">Learning Effect During First 100 Half</a></h3>
+<h3 id="Learning_Effect_During_First_50_Half"><a class="hanchor" href="#Learning_Effect_During_First_50_Half">Learning Effect During First 50 Half</a></h3>
 <h2 id="Conclusion"><a class="hanchor" href="#Conclusion">Conclusion</a></h2>
 <p>This experiment shows that _. So we can conclude that _.</p>
 <h2 id="Appendix_A_Preregistration"><a class="hanchor" href="#Appendix_A_Preregistration">Appendix A: Preregistration</a></h2>
@@ -443,7 +443,7 @@ data (in order to facilitate pre-registration), I needed some dummy
 data to test my code and figures against. I decided to generate the
 data programatically, since that would make testing and experimenting
 much easier. I used the following code to generate the dummy data:</p>
-<pre><code>probes::100
+<pre><code>probes::50
 
 dur::[0.1 0.2 0.25 0.3 0.75 0.9 0.98]
 aft::[0.1 0.2 0.25 0.3 0.75 0.9 0.98]
@@ -469,7 +469,7 @@ d::({:[
 .p({x,"
 ",y}/d)
 </code></pre>
-<p><code>probes</code> is the number of samples generated for each scenario (100 each
+<p><code>probes</code> is the number of samples generated for each scenario (50 each
 for men &amp; for women, each for during &amp; after abstinence). <code>fdur</code>, <code>mdur</code>,
 <code>faft</code> and <code>maft</code> give the probability of progressing after a certain
 probability in the funnel. <code>d</code> is then filled with <code>probes</code> datapoints
@@ -496,7 +496,7 @@ Test summary:
     two-sided p-value:           0.2680
 
 Details:
-    number of observations in each group: [100, 100]
+    number of observations in each group: [50, 50]
     Mann-Whitney-U statistic:             4571.5
     rank sums:                            [9621.5, 10478.5]
     adjustment for ties:                  868776.0
@@ -525,7 +525,7 @@ Test summary:
     two-sided p-value:           0.0184
 
 Details:
-    number of observations in each group: [100, 100]
+    number of observations in each group: [50, 50]
     Mann-Whitney-U statistic:             4070.5
     rank sums:                            [9120.5, 10979.5]
     adjustment for ties:                  585144.0

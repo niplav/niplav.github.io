@@ -534,7 +534,7 @@ rndpermu::s25
 <p>It is probably slower than a more naïve
 <a href="https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle">Fischer-Yates shuffle</a>
 like equivalent <code>s25::{(#x){p::_.rn()*#x;(x@p),s20(x;p+1)}:*x}</code>, since
-Grade-Up <code>&lt;</code> sorts the list, which results in a <code>$\cal{O}(n*log(n))$</code> time
+Grade-Up <code>&lt;</code> sorts the list, which results in a <code>$\cal{O}(n \cdot log(n))$</code> time
 complexity, while Fischer-Yates is just <code>$\cal{O}(n)$</code>.</p>
 <p>One can then measure the runtimes of these two functions and generate
 a graph of the runtimes using Klong's nplot and time libraries:</p>
@@ -621,12 +621,12 @@ all subsets with length 3 are generated with <code>s26</code>, and the result is
 concatenated with the sets from the first call of <code>s26</code>. The results
 are then passed, and the same procedure is repeated for subsets of size 4.</p>
 <p><code>a1</code> is not a very efficient implementation of set difference (it seems
-to have a quadratic run-time of <code>$\cal{O}(n*m)$</code>). But it is short and easy to
+to have a quadratic run-time of <code>$\cal{O}(n \cdot m)$</code>). But it is short and easy to
 implement: it filters out all elements out of <code>x</code> that can be found in
 <code>y</code>. The quadratic run-time can thus be explained easily: For each
 element in x; that element has to be searched in <code>y</code>, resulting in
 <a href="https://en.wikipedia.org/wiki/Big_O_notation#Product">a runtime</a> of
-<code>$\cal{O}(n)*\cal{O}(m)=\cal{O}(n*m)$</code>, where <code>$n$</code> is the size of <code>x</code> and <code>$m$</code> is the
+<code>$\cal{O}(n) \cdot \cal{O}(m)=\cal{O}(n \cdot m)$</code>, where <code>$n$</code> is the size of <code>x</code> and <code>$m$</code> is the
 size of <code>y</code>.</p>
 <p><code>s27</code> is basically a recursive version of <code>group3</code>, producing just the
 result of <code>s26</code> for the base case and applying the same set-difference
@@ -1781,8 +1781,8 @@ around 100000 trees:</p>
 108675
 </code></pre>
 <p>If Range takes around 2.1 seconds for 1000 elements, one can predict that
-it would take roughly <code>$2.1s*2^{100} \approx 2.662*10^{30}s$</code>, which would be
-<code>$2.662*10^{30}s*\frac{1y}{3600s*24*365} \approx 8.44*10^{22}y$</code>. This is
+it would take roughly <code>$2.1s \cdot 2^{100} \approx 2.662 \cdot 10^{30}s$</code>, which would be
+<code>$2.662 \cdot 10^{30}s \cdot \frac{1y}{3600s \cdot 24 \cdot 365} \approx 8.44*10^{22}y$</code>. This is
 of course only a rough estimate, and may turn out to be entirely wrong
 if Group and Range don't have an exponential time complexity after all.</p>
 <!--TODO: more closely examine the code in the Klong implementation
