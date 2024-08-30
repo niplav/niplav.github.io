@@ -135,13 +135,13 @@ von Neumann-Morgenstern axioms.</p>
 <p>We then proceed to analyse the problem of resolving inconsistent
 preferences in two cases:</p>
 <ul>
-<li><p>Deterministic case: We propose the set of all directed graphs as a
+<li>  Deterministic case: We propose the set of all directed graphs as a
 mathematical structure that can represent inconsistent preferences
 over non-lottery options. We propose three algorithms for resolving
 inconsistent preferences of this type, prove two of the algorithms
 as being functionally equivalent, and analyse the algorithms in
-terms of computational complexity and five other criteria.</p></li>
-<li><p>Lottery case: We propose two different mathematical structures for
+terms of computational complexity and five other criteria.</li>
+<li>  Lottery case: We propose two different mathematical structures for
 representing potentially inconsistent preferences over lotteries:
 Edge-weighted weakly connected directed graphs and arbitrary
 relations over lotteries. We propose Hodge decomposition as an
@@ -151,7 +151,7 @@ insufficient for representing common inconsistencies found in
 reported human preferences. We then note that arbitrary relations
 over lotteries are able to represent those inconsistencies, but we
 are unable to find an algorithm for resolving inconsistencies in
-that format.</p></li>
+that format.</li>
 </ul>
 <p>We finally speculate about one application of the methods for resolving
 incoherence: Incorporating changes in the world model into preferences
@@ -215,8 +215,8 @@ fields</a> on a state space
 (for example states with more/less security and more/less wealth),
 where a vector $\mathbf{v}$ at a specific point $\mathit{p}$ in the
 vector field indicates a preference for a change in the direction of
-$\mathbf{v}$ at $\mathit{p}$ (<a href="https://www.lesswrong.com/posts/ky988ePJvCRhmCwGo/using-vector-fields-to-visualise-preferences-and-make-them" title="Using vector fields to visualise preferences and make them consistent">Aird &amp; Shovelain
-2020)</a>).
+$\mathbf{v}$ at $\mathit{p}$ <a href="https://www.lesswrong.com/posts/ky988ePJvCRhmCwGo/using-vector-fields-to-visualise-preferences-and-make-them" title="Using vector fields to visualise preferences and make them consistent">Aird &amp; Shovelain
+2020)</a>.
 However, as they note, such a vector field can have inconsistencies in the
 form of <a href="https://en.wikipedia.org/wiki/Curl_(mathematics)">curl</a>. They
 then discuss the restrictions on the vector field so that it
@@ -454,7 +454,7 @@ consistent graphs is to proceed by establishing the desired properties
 stepwise. Our proposed algorithm (which we call "$\mathtt{stepwise}$")
 is to execute the following steps:</p>
 <ul>
-<li><p><strong>Remove minimum feedback arc sets</strong>. (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>) use a
+<li> <strong>Remove minimum feedback arc sets</strong>. (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>) use a
 greedy approximation algorithm to find and remove the minimum
 feedback arc set from a "noisy hierarchy" and create a directed
 acyclic graph. <code>stepwise</code> takes a similar approach by computing all
@@ -464,14 +464,14 @@ not violate asymmetry). The result is a set of directed acyclic
 graphs $\mathbf{A}$, one for each minimum feedback arc set removed
 from $G$. For this, one can use an algorithm for finding the minimum
 feedback arc set from [@baharev2021exact], called <code>mfas</code> in
-<strong>Algorithm</strong> <a href="#alg:stepwise">[alg:stepwise]</a>.</p></li>
-<li><p><strong>Generate all compatible topological sortings</strong>. The elements of
+<strong>Algorithm</strong> <a href="#alg:stepwise">[alg:stepwise]</a>.</li>
+<li> <strong>Generate all compatible topological sortings</strong>. The elements of
 $\mathbf{A}$ are now to be converted into acyclic tournaments. We
 achieve this by computing all topological sortings for each element
 $A \in \mathbf{A}$ with a recursive algorithm based on Kahn's
 algorithm [@kahn1962topological] that appends nodes with in-degree 0
 in front of a strict order $C$. The result is a set of acyclic
-tournaments $\mathbf{C}$ on $\Omega$.</p></li>
+tournaments $\mathbf{C}$ on $\Omega$.</li>
 </ul>
 <p><em><strong>Algorithm 2</strong>: Computing <code>stepwise</code></em></p>
 <pre><code>function stepwise(G)
@@ -709,14 +709,15 @@ graphs would be efficiently computable.</p>
 <p>However, the method that attempts to find consistent graphs by
 minimizing edge-graph-edit distance fails this criterion.</p>
 <p>Finding all acyclic tournaments with the smallest edit-distance to a given
-directed graph is NP-hard. This can be shown by a reduction to Slater's
-problem. Slater's problem is the problem of, given any tournament <code>$T$</code>,
-finding a linear order <code>$T_L$</code> (an acyclic tournament, also called
-a <em>Slater order</em>) that has the smallest distance to <code>$T$</code>, where the
-distance between two tournaments <code>$T_1, T_2$</code> is the number of edges that
-have to be flipped in <code>$T_1$</code> to create <code>$T_2$</code>. Slater's problem (and a
-number of related problems, such as finding <em>all</em> acyclic tournaments with
-the smallest distance to a given tournament) is known to be NP-hard <a href="./doc/cs/preference/on_the_complexity_of_slaters_problems_hudry_2010.pdf">Hudry
+directed graph is <a href="https://en.wikipedia.org/wiki/Np-hard">NP-hard</a>. This
+can be shown by a reduction to Slater's problem. Slater's problem
+is the problem of, given any tournament <code>$T$</code>, finding a linear
+order <code>$T_L$</code> (an acyclic tournament, also called a <em>Slater order</em>)
+that has the smallest distance to <code>$T$</code>, where the distance between
+two tournaments <code>$T_1, T_2$</code> is the number of edges that have to be
+flipped in <code>$T_1$</code> to create <code>$T_2$</code>. Slater's problem (and a number
+of related problems, such as finding <em>all</em> acyclic tournaments with the
+smallest distance to a given tournament) is known to be NP-hard <a href="./doc/cs/preference/on_the_complexity_of_slaters_problems_hudry_2010.pdf">Hudry
 2010</a>.</p>
 <p><strong>Theorem 6</strong>. Finding the set of acyclic tournaments with smallest
 edge-graph-edit distance to a given graph $G$ is NP-hard.</p>
@@ -793,7 +794,7 @@ leaves it unclear which options to prioritize (since there will be two
 elements of the set of results).</p>
 <p>However, results from two different fields apply to this case.</p>
 <ul>
-<li><p><strong>Social Choice Theory</strong>: Since all elements of <code>$\mathbf{C}_G=f(G)$</code>
+<li> <strong>Social Choice Theory</strong>: Since all elements of <code>$\mathbf{C}_G=f(G)$</code>
 are complete, transitive, and asymmetric, one can apply the large
 toolbox of methods and results from social choice theory
 [@banks2000positive] to elements from <code>$\mathbf{C}_G$</code> by treating
@@ -806,14 +807,14 @@ tactical voting (such as the <a href="https://en.wikipedia.org/wiki/Gibbard-Satt
 theorem</a>
 are irrelevant in this case, since the inconsistent preference
 does not "control" outputs of <code>$f$</code>, and there are no reasons for
-manipulation.</p></li>
-<li><p><strong>Moral Uncertainty</strong>: MacAskill et al. outline how to make
+manipulation.</li>
+<li> <strong>Moral Uncertainty</strong>: MacAskill et al. outline how to make
 decisions given multiple ethical theories and
 credences on those ethical theories, using the so-called
 Maximum Expected Choiceworthiness rule <a href="./doc/philosophy/ethics/moral_uncertainty_macaskill_et_al_2020.pdf#%5B%7B%22num%22%3A435%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22Fit%22%7D%5D" title="Moral Uncertainty">MacAskill et al. 2020, ch.
 2</a>.  In the case of ordinal preferences, they
 use the <a href="https://en.wikipedia.org/wiki/Borda_Count">Borda count</a>
-for establishing cardinal values for options.</p></li>
+for establishing cardinal values for options.</li>
 </ul>
 <h4 id="Resolution_to_Polynomially_Many_Preferences"><a class="hanchor" href="#Resolution_to_Polynomially_Many_Preferences">Resolution to Polynomially Many Preferences</a></h4>
 <p>If <strong>uniqueness</strong> can't be fulfilled (perhaps because the given graph $G$
@@ -969,15 +970,15 @@ as an output the output size can be factorial in the number of nodes.</p>
 <code>$\mathit{S}_G$</code> being a subset of <code>$E_P$</code>) is an <strong>inclusion-maximal
 consistent subgraph</strong> of <code>$G$</code> if and only if:</p>
 <ul>
-<li><p>$\mathit{S}_G$ is a consistent graph (equivalently an acyclic
-tournament)<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup>.</p></li>
-<li><p><code>$\mathit{S}_G$</code> inherits all available edges from <code>$G$</code>, that is if
+<li>  $\mathit{S}_G$ is a consistent graph (equivalently an acyclic
+tournament)<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup>.</li>
+<li> <code>$\mathit{S}_G$</code> inherits all available edges from <code>$G$</code>, that is if
 there are two <code>$\xi_1, \xi_2 \in \Xi$</code> and <code>$(\xi_1, \xi_2) \in E_P$</code>
-then <code>$(\xi_1, \xi_2) \in E$</code> as well.</p></li>
-<li><p><code>$\mathit{S}_G$</code> is inclusion-maximal, that is, there exists no
+then <code>$(\xi_1, \xi_2) \in E$</code> as well.</li>
+<li> <code>$\mathit{S}_G$</code> is inclusion-maximal, that is, there exists no
 <code>$\omega \in \Omega \backslash \Xi$</code> so that adding <code>$\omega$</code> and its
 edges adjacent to all <code>$\xi \in \Xi$ to $\mathit{S}_G$</code> is still a
-consistent graph.</p></li>
+consistent graph.</li>
 </ul>
 <p><strong>Definition 6</strong>. Let <code>$\mathcal{S}_G$</code> be the set of all
 inclusion-maximal consistent subgraphs of <code>$G$</code> and let <code>$f: \mathfrak{P}
@@ -1379,9 +1380,9 @@ completely dominating set). Additionally, the completely dominating set
 is not unique: In an acyclic tournament, for <code>$1 \le i \le |\Omega|$</code>
 the <code>$i$</code> greatest elements form a dominating set.</p>
 <p>A completely dominating set then represents a global consistency in the
-preference: within $\Sigma<em>1$ and <code>$\Sigma_2$</code> we are unsure about our
+preference: within <code>$\Sigma_1$</code> and <code>$\Sigma_2$</code> we are unsure about our
 preference, but we know that any element of <code>$\Sigma_1$</code> is better than
-any element of $\Sigma</em>2$.</p>
+any element of <code>$\Sigma_2$</code>.</p>
 <p><strong>Definition 10</strong>. A function <code>$f: \mathfrak{P} \rightarrow
 \mathcal{P}(\mathfrak{C})$</code> fulfills <strong>Preservation of Complete
 Domination</strong> if and only if for any directed graph <code>$G$</code> with a completely
@@ -1568,68 +1569,60 @@ one can add any one edge from <code>$\mathit{V}_i$</code> to <code>$S$</code> wh
 consistency: If one adds (without loss of generality)
 <code>$\alpha_i \rightarrow \beta_i$</code>, this preserves consistency, since</p>
 <ul>
-<li><p><strong>Completeness</strong> is preserved ($\alpha<em>i, \beta</em>i$ are connected to
-all $\omega<em>h, \omega</em>j$ ($h &lt;i&lt;j$)).</p></li>
-<li><p><strong>Transitivity</strong> is preserved
-($\omega<em>h \rightarrow \alpha</em>i, \alpha<em>i \rightarrow \beta</em>i$ also
-means that $\omega<em>h \rightarrow \beta</em>i$ since $h&lt;i$, and similar
-for $\alpha<em>i \rightarrow \beta</em>i, \beta<em>i \rightarrow \omega</em>j$).</p></li>
-<li><p><strong>Asymmetry</strong> is preserved because we add no reversed edges where
-there were edges in $S$ before.</p></li>
+<li> <strong>Completeness</strong> is preserved (<code>$\alpha_i, \beta_i$</code> are connected to
+all <code>$\omega_h, \omega_j$</code> (<code>$h &lt;i&lt;j$</code>)).</li>
+<li> <strong>Transitivity</strong> is preserved
+(<code>$\omega_h \rightarrow \alpha_i, \alpha_i \rightarrow \beta_i$</code> also
+means that <code>$\omega_h \rightarrow \beta_i$</code> since <code>$h&lt;i$</code>, and similar
+for <code>$\alpha_i \rightarrow \beta_i, \beta_i \rightarrow \omega_j$</code>).</li>
+<li> <strong>Asymmetry</strong> is preserved because we add no reversed edges where
+there were edges in <code>$S$</code> before.</li>
 </ul>
 <p> ◻</p>
-<p>We then show that any consistent graph on the vertices of $E<em>n$ can not
-contain $2^n+1$ inclusion-maximal consistent subgraphs of $E</em>n$.</p>
-<p>::: {#lemma:ensubgraphs .lemma}
-<strong>Lemma 12</strong>. Let $\mathcal{S}$ be a set of inclusion-maximal consistent
-subgraphs of $E<em>n$, and $|\mathcal{S}|=2^n+1$. Then there exists no
-consistent graph $C$ on the vertices of $E</em>n$ so that
-$\forall S \in \mathcal{S}:
-S \text{ is a subgraph of } C$.
-:::</p>
-<p>::: proof
-<em>Proof.</em> We showed that each $S \in \mathcal{S}$ contains exactly one
-edge from each $\mathit{V}<em>i$. If two $S</em>1, S<em>2$ for a given
-$\mathit{V}</em>i$ share the same edge (i.e.
-$S<em>1 \cap \mathit{V}</em>i=S<em>2 \cap \mathit{V}</em>i$), $S<em>1$ and $S</em>2$ can be
-subgraphs of the same consistent graph $C$. If two $S<em>1,
-S</em>2 \in \mathcal{S}$, for a given $\mathit{V}<em>i$, <em>don't</em> share the same
-edge (that is $S</em>1 \cap \mathit{V}<em>i \not =S</em>2 \cap \mathit{V}_i$), they
-can be nevertheless still be subgraphs of the same consistent $C$:</p>
-<p>If (without loss of generality) $(S<em>1 \cap \mathit{V}</em>i)=\alpha<em>i
-\rightarrow \beta</em>i$ and $(S<em>2 \cap \mathit{V}</em>i) =\beta<em>i \rightarrow
-\gamma</em>i$, $C$ can contain those edges as well as $\alpha<em>i \rightarrow
-\gamma</em>i$.</p>
-<p>If, though, there are three $S<em>1, S</em>2, S<em>3 \in \mathcal{S}$ that each
-don't share an edge on a given $\mathit{V}</em>i$, they can't be subgraphs
-of any consistent $C$: Such a $C$ would need to contain ${\alpha<em>i
-\rightarrow \beta</em>i, \beta<em>i \rightarrow \gamma</em>i, \gamma<em>i \rightarrow
-\alpha</em>i}$, but this would violate either asymmetry (if one added
-$\alpha<em>i \rightarrow \gamma</em>i$ as well) or transitivity (through the
-absence of of $\alpha<em>i \rightarrow \gamma</em>i$).</p>
-<p>Therefore, for each $\mathit{V}<em>i$, only two edges from $\mathit{V}</em>i$
-can occur in in any element of $\mathcal{S}$. Then an
-$S \in \mathcal{S}$ can be uniquely identified by which edge from each
-$\mathit{V}<em>i$ it contains, since there are two edges for each
-$\mathit{V}</em>i$ and there are $n$ such "levels" $\mathit{V}<em>i$, and no
-two edges from different $\mathit{V}</em>i, \mathit{V}_j$ are mutually
-exclusive.</p>
-<p>Therefore, $|\mathcal{S}|\le 2^n$ if all elements of $\mathcal{S}$ are
+<p>We then show that any consistent graph on the vertices of <code>$E_n$</code> can not
+contain <code>$2^n+1$</code> inclusion-maximal consistent subgraphs of <code>$E_n$</code>.</p>
+<p><strong>Lemma 12</strong>. Let <code>$\mathcal{S}$</code> be a set of inclusion-maximal consistent
+subgraphs of <code>$E_n$</code>, and <code>$|\mathcal{S}|=2^n+1$</code>. Then there exists no
+consistent graph <code>$C$</code> on the vertices of <code>$E_n$</code> so that <code>$\forall S
+\in \mathcal{S}: S \text{ is a subgraph of } C$</code>.</p>
+<p><em>Proof.</em> We showed that each <code>$S \in \mathcal{S}$</code> contains exactly one
+edge from each <code>$\mathit{V}_i$</code>. If two <code>$S_1, S_2$</code> for a given
+<code>$\mathit{V}_i$</code> share the same edge (i.e.
+<code>$S_1 \cap \mathit{V}_i=S_2 \cap \mathit{V}_i$</code>), <code>$S_1$</code> and <code>$S_2$</code> can be
+subgraphs of the same consistent graph <code>$C$</code>. If two <code>$S_1,
+S_2 \in \mathcal{S}$</code>, for a given <code>$\mathit{V}_i$</code>, <em>don't</em> share the same
+edge (that is <code>$S_1 \cap \mathit{V}_i \not =S_2 \cap \mathit{V}_i$</code>), they
+can be nevertheless still be subgraphs of the same consistent <code>$C$</code>:</p>
+<p>If (without loss of generality) <code>$(S_1 \cap \mathit{V}_i)=\alpha_i
+\rightarrow \beta_i$</code> and <code>$(S_2 \cap \mathit{V}_i) =\beta_i \rightarrow
+\gamma_i$</code>, <code>$C$</code> can contain those edges as well as <code>$\alpha_i \rightarrow
+\gamma_i$</code>.</p>
+<p>If, though, there are three <code>$S_1, S_2, S_3 \in \mathcal{S}$</code> that each
+don't share an edge on a given <code>$\mathit{V}_i$</code>, they can't be subgraphs
+of any consistent <code>$C$</code>: Such a <code>$C$</code> would need to contain <code>$\{\alpha_i
+\rightarrow \beta_i, \beta_i \rightarrow \gamma_i, \gamma_i \rightarrow
+\alpha_i\}$</code>, but this would violate either asymmetry (if one added
+<code>$\alpha_i \rightarrow \gamma_i$</code> as well) or transitivity (through the
+absence of of <code>$\alpha_i \rightarrow \gamma_i$</code>).</p>
+<p>Therefore, for each <code>$\mathit{V}_i$</code>, only two edges from <code>$\mathit{V}_i$</code>
+can occur in in any element of <code>$\mathcal{S}$</code>. Then an <code>$S \in
+\mathcal{S}$</code> can be uniquely identified by which edge from each
+<code>$\mathit{V}_i$</code> it contains, since there are two edges for each
+<code>$\mathit{V}_i$</code> and there are <code>$n$</code> such "levels" <code>$\mathit{V}_i$</code>,
+and no two edges from different <code>$\mathit{V}_i, \mathit{V}_j$</code> are
+mutually exclusive.</p>
+<p>Therefore, <code>$|\mathcal{S}|\le 2^n$</code> if all elements of <code>$\mathcal{S}$</code> are
 to be subgraphs of an acyclic tournament. But introducing an additional
-distinct $S<em>{2^n+1}$ to $\mathcal{S}$ must add a a third edge from at
-least one $\mathit{V}</em>i$, thus $2^n$ is the maximal size of
-$\mathcal{S}$. ◻
-:::</p>
+distinct <code>$S_{2^n+1}$</code> to <code>$\mathcal{S}$</code> must add a a third edge from
+at least one <code>$\mathit{V}_i$</code>, thus <code>$2^n$</code> is the maximal size of
+<code>$\mathcal{S}$</code>. ◻</p>
 <p>We can now show that the set of consistent graphs that contain all
-inclusion-maximal consistent subgraphs of $E_n$ grows exponentially in
-$n$ (albeit with a small exponent).</p>
-<p>::: {#lemma:enresolvedbig .lemma}
-<strong>Lemma 13</strong>. The set of consistent graphs $\mathbf{C}$ on the vertices
-of $E<em>n$ that includes all inclusion-maximal consistent subgraphs of
-$E</em>n$ has size at least $(\frac{3}{2})^n$.
-:::</p>
-<p>::: proof
-<em>Proof.</em> Assume that one can partition the set $\mathbf{C}$ of
+inclusion-maximal consistent subgraphs of <code>$E_n$</code> grows exponentially in
+<code>$n$</code> (albeit with a small exponent).</p>
+<p><strong>Lemma 13</strong>. The set of consistent graphs <code>$\mathbf{C}$</code> on the vertices
+of <code>$E_n$</code> that includes all inclusion-maximal consistent subgraphs of
+<code>$E_n$</code> has size at least <code>$(\frac{3}{2})^n$</code>.</p>
+<p><em>Proof.</em> Assume that one can partition the set $\mathbf{C}$ of
 inclusion-maximal consistent subgraphs of $E<em>n$ into a set $\mathbf{P}$
 of disjoint sets of size $\le 2^n$ (that is
 $\forall \mathcal{C}</em>i \in \mathbf{P}:
@@ -1639,8 +1632,7 @@ would be the number of consistent graphs required to "cover" all
 elements in $\mathbf{C}$, since by Lemma
 <a href="#lemma:ensubgraphs">12</a> the sets of compatible graphs have at
 most size $2^n$. Then the size of $\mathbf{P}$ would be at least
-$\frac{3<sup>n}{2</sup>n}=1.5^n$, which is exponential in $n$. ◻
-:::</p>
+$\frac{3<sup>n}{2</sup>n}=1.5^n$, which is exponential in $n$. ◻</p>
 <p>Therefore, Theorem <a href="#theorem:impossibility1">10</a> is true.</p>
 <p>::: corollary
 <strong>Corollary 1</strong>. There is no polynomial $p$ and function
@@ -1809,15 +1801,16 @@ $q \in [0;1]$ is a computable real number.
 <p>We were also unable to find a method for resolving such inconsistent
 preferences into their consistent versions.</p>
 <h2 id="Algorithms"><a class="hanchor" href="#Algorithms">Algorithms</a></h2>
-<p>After some search, we were able to identify <code>HodgeRank</code> from
-[@jiang2011statistical] as a candidate algorithm for resolving an
-edge-weighted inconsistent graph into an edge-weighted consistent graph.</p>
+<p>After some search, we were able to identify <code>HodgeRank</code> from <a href="./doc/preference/statistical_ranking_and_combinatorial_hodge_theory_jiang_et_al_2011.pdf">Jiang et al.
+2011</a>
+as a candidate algorithm for resolving an edge-weighted inconsistent
+graph into an edge-weighted consistent graph.</p>
 <p>Some other possible candidates for methods for resolving inconsistent
 preferences over edge-weighted graphs were considered, and finally
 rejected.</p>
 <p>One option was the <code>PageRank</code> algorithm [@bianchini2005inside], also
-mentioned in Sun et al. (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>). We rejected PageRank for the
-same reason as Sun et al. (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>) did: In a directed acyclic
+mentioned in Sun et al. <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>. We rejected PageRank for the
+same reason as Sun et al. <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a> did: In a directed acyclic
 graph, a unique greatest element does not necessarily receive the
 highest ranking. This problem extends to using other centrality measures
 for graphs such as degree centrality and betweenness centrality
@@ -1825,26 +1818,26 @@ for graphs such as degree centrality and betweenness centrality
 element usually receives a low centrality score, and elements closer to
 the center receive larger scores, which is counter to our criteria.</p>
 <h3 id="HodgeRank"><a class="hanchor" href="#HodgeRank"><code>HodgeRank</code></a></h3>
-<p><code>HodgeRank</code>, introduced in Jiang et al. [@jiang2011statistical], is an
+<p><code>HodgeRank</code>, introduced in <a href="./doc/preference/statistical_ranking_and_combinatorial_hodge_theory_jiang_et_al_2011.pdf">Jiang et al. 2011</a>, is an
 algorithm based on Hodge theory from algebraic geometry for decomposing
 a doubly edge-weighted, potentially not fully connected graph
 $G=(\Omega, E, w: E \rightarrow
 \mathbb{R} \cup {\mathtt{nan}}, l: E \rightarrow \mathbb{N}})$ into
 the sum of three different edge weighted graphs:</p>
 <ul>
-<li><p>A gradient graph $G<em>g=(\Omega, E, w</em>g: E \rightarrow \mathbb{R})$,
+<li>  A gradient graph $G<em>g=(\Omega, E, w</em>g: E \rightarrow \mathbb{R})$,
 in which $w<em>g$ is derived from a potential function that assigns
 consistent values to vertices $\omega \in \Omega$: the potential
 $p: \Omega \rightarrow \mathbb{R}$ of a node has a value so that
-$g(e=(\omega</em>i, \omega<em>j))=p(\omega</em>j)-p(\omega_i)$.</p></li>
-<li><p>A curl graph $G<em>c=(\Omega, E, w</em>c: E \rightarrow \mathbb{R})$, where
+$g(e=(\omega</em>i, \omega<em>j))=p(\omega</em>j)-p(\omega_i)$.</li>
+<li>  A curl graph $G<em>c=(\Omega, E, w</em>c: E \rightarrow \mathbb{R})$, where
 a function $c$ assigns every 3-cycle in the graph a specific value,
 and the value $w_c(e)$ for an edge is the sum of the values $c$
-assigns to all the 3-cycles $e$ is in.</p></li>
-<li><p>A harmonic graph $G<em>h=(\Omega, E, w</em>h: E \rightarrow \mathbb{R})$.</p></li>
+assigns to all the 3-cycles $e$ is in.</li>
+<li>  A harmonic graph $G<em>h=(\Omega, E, w</em>h: E \rightarrow \mathbb{R})$.</li>
 </ul>
 <p>Then $w(e)=w<em>g(e)+R(e)=w</em>g(e)+w<em>c(e)+w</em>h(e)$, where $R$ is a residual.</p>
-<p>[@jiang2011statistical] develop <code>HodgeRank</code> from a social-choice
+<p><a href="./doc/preference/statistical_ranking_and_combinatorial_hodge_theory_jiang_et_al_2011.pdf">Jiang et al. 2011</a> develop <code>HodgeRank</code> from a social-choice
 theoretic perspective: Given a set of incomplete cardinal ratings
 $\mathcal{C}$ of the type
 $(\mathbb{R} \cup {\mathtt{nan}})^{n \times m}$ by a set
@@ -1904,24 +1897,23 @@ decomposition returned by <code>HodgeRank</code> appears to display many desirab
 properties as a method for resolving inconsistent preferences over
 edge-weighted graphs:</p>
 <ul>
-<li><p><strong>Existence</strong>: It always exists.</p></li>
-<li><p><strong>Uniqueness</strong>: This decomposition is unique up to an additive
-constant.</p></li>
-<li><p><strong>Polynomial time computability</strong>: Finding <code>$w_g$</code> is equivalent to
+<li> <strong>Existence</strong>: It always exists.</li>
+<li> <strong>Uniqueness</strong>: This decomposition is unique up to an additive constant.</li>
+<li> <strong>Polynomial time computability</strong>: Finding <code>$w_g$</code> is equivalent to
 solving an <code>$|V| \times |V|$</code> least-squares problem, which can be
 solved in <code>$\mathcal{O}(n^3)$</code> time, for example by computing the
 Penrose-Moore inverse of a specific matrix. Finding <code>$w_h$</code> and <code>$w_c$</code>
 from <code>$R$</code> is more computationally intensive, but still polynomial:
 they are equivalent to solving a least-squares problem of size
 <code>${|V| \over 3} \approx \mathcal{O}(n^3)$</code>, and can therefore be found
-in <code>$\mathcal{O}(n^9)$</code>.</p></li>
-<li><p><strong>Robustness to incomplete and cyclic data</strong>: <code>HodgeRank</code> still
+in <code>$\mathcal{O}(n^9)$</code>.</li>
+<li> <strong>Robustness to incomplete and cyclic data</strong>: <code>HodgeRank</code> still
 returns a result, even if edges are missing or there are
-positive-valued cycles in the data.</p></li>
-<li><p><strong>Relation to known solution concepts from social choice theory</strong>:
+positive-valued cycles in the data.</li>
+<li> <strong>Relation to known solution concepts from social choice theory</strong>:
 If $G$ has no missing edges and $w$ is defined for every edge,
 <code>HodgeRank</code> returns an affine transformation of the result that the
-Borda count would return.</p></li>
+Borda count would return.</li>
 </ul>
 <p>In the context of inconsistent preferences, <code>HodgeRank</code> can
 be interpreted as taking the observed preferences of an agent
@@ -1942,7 +1934,7 @@ options changes.</p>
 <p>The term "ontological crisis" was introduced in de Blanc and intuitively
 refers to a scenario in which an agent has preferences, defined over
 some world model, and then the world model changes without corresponding
-changes in the values [@de2011ontological].</p>
+changes in the values <a href="./doc/cs/ai/alignment/ontological_crises/ontological_crises_in_artificial_agents_value_systems_de_blanc_2011.pdf">de Blanc 2011</a>.</p>
 <p>An example of this can be observed in human values before and after
 exposure to philosophy: A human might have a value they would formulate
 as "I value the continuation of my life". However, after reading
@@ -1954,36 +1946,43 @@ all undermine the concept of a single fixed personal identity.</p>
 <p>However, this person would likely not just give up their value of their
 continued existence, but instead attempt to "port it" to the new world
 model.</p>
-<p>Soares and Fallenstein motivate the problem of ontological crises in the
-#context of a problem they call <strong>Ontology Identification</strong>: Given a
-Turing machine using the atomic model of physics, they ask how one can
-identify which parts of the program and the tape represent atoms or
-macroscopic objects, and repeat the question for a Turing machine using
-a quantum-mechanical model of the world [@soares2017agent]. The problem
-is further elaborated on outside of the academic literature in Yuksowky
-et al. [@yudkowsky2016rescuing], [@yudkowsky2016ontology].</p>
+<p>Soares and Fallenstein motivate the problem of ontological crises in
+the context of a problem they call <strong>Ontology Identification</strong>: Given
+a Turing machine using the atomic model of physics, they ask how one
+can identify which parts of the program and the tape represent atoms
+or macroscopic objects, and repeat the question for a Turing machine
+using a quantum-mechanical model of the world <a href="./doc/cs/ai/alignment/agent_foundations/agent_foundations_for_aligning_machine_intelligence_soares_fallenstein_2017.pdf">Soares &amp; Fallenstein
+2017</a>.
+The problem is further elaborated on outside
+of the academic literature in <a href="https://arbital.com/p/rescue_utility/">Yudkowsky et
+al. 2016</a> and <a href="https://arbital.com/p/ontology_identification/?l=6b">Andreev &amp; Yudkowsky
+2016</a>.</p>
 <p>It seems useful to disambiguate some terms that appear in the
 literature, to create clarity about what they mean:</p>
 <ul>
-<li><p><strong>Ontology Identification</strong>: "Given goals specified in some ontology
-and a world model, how can the ontology of the goals be identified
-in the world model? What types of world models are amenable to
-ontology identification?" [@soares2017agent]</p></li>
-<li><p><strong>Ontological Shift</strong>: Given some goals specified in some ontology
+<li> <strong>Ontology Identification</strong>: "Given goals specified in some
+ontology and a world model, how can the ontology of the goals
+be identified in the world model? What types of world models
+are amenable to ontology identification?" <a href="./doc/cs/ai/alignment/agent_foundations/agent_foundations_for_aligning_machine_intelligence_soares_fallenstein_2017.pdf">Soares &amp; Fallenstein
+2017</a>.</li>
+<li> <strong>Ontological Shift</strong>: Given some goals specified in some ontology
 and a world model in which those goals have already been identified,
 an ontological shift occurs if the world model changes but the
-ontology of the goals does not.</p></li>
-<li><p><strong>Ontological Crisis</strong>: An ontological crisis is the <em>result</em> of an
+ontology of the goals does not.</li>
+<li> <strong>Ontological Crisis</strong>: An ontological crisis is the <em>result</em> of an
 ontological shift, and the behavior of an agent after an ontological
-crisis could be undefined.</p></li>
+crisis could be undefined.</li>
 </ul>
-<p>The word "ontology" here is a place-holder for a more rigorously defined
-model, such as Markov Decision Processes (MDPs) or Partially Observable
-Markov Decision Processes (POMDPS).</p>
+<p>The word "ontology" here is a place-holder for a
+more rigorously defined model, such as <a href="https://en.wikipedia.org/wiki/Markov_Decision_Process">Markov Decision
+Processes</a>
+(MDPs) or <a href="https://en.wikipedia.org/wiki/Partially-observable_Markov_decision_process">Partially Observable Markov Decision
+Processes</a>
+(POMDPs).</p>
 <h4 id="Existing_Approaches"><a class="hanchor" href="#Existing_Approaches">Existing Approaches</a></h4>
 <p>De Blanc approaches the problem of ontological crises formally in the
 context of what they call "finite state models" (they neglect to give a
-full definition) [@de2011ontological], and one can refine their problem
+full definition) <a href="./doc/cs/ai/alignment/ontological_crises/ontological_crises_in_artificial_agents_value_systems_de_blanc_2011.pdf">de Blanc 2011</a>., and one can refine their problem
 statement and their approach to a solution by stating it in terms of
 Markov decision processes [@russell2010artificial ch. 17.1].</p>
 <p><strong>Definition 13</strong>. A finite <strong>Markov decision process</strong> (MDP)
@@ -2034,14 +2033,15 @@ better model <code>$\mathcal{M}_2$</code> of the environment has a different set
 states and transition probabilities (however, the set of actions stays
 the same) and thereby now wants to operate in <code>$\mathcal{M}_2$</code> has the
 problem of defining <code>$R_2$</code>.</p>
-<p><strong>Definition 14</strong>. The method de Blanc uses to find <code>$R_2$</code> is to find
-two linear maps <code>$\phi \in \mathbb{R}^{n_1 \times n_2}$</code> and <code>$\psi
-\in \mathbb{R}^{n_2 \times n_1}$</code> (with sizes <code>$n_1=|S_1|, n_2=|S_2$</code>)
-such that <code>$\phi$</code> and <code>$\psi$</code> can be used to "translate" between
-<code>$\mathcal{M}_1$</code> and <code>$\mathcal{M}_2$</code> [@de2011ontological]. Then,
-for any <code>$a \in A$</code>, <code>$\phi$</code> and <code>$\psi$</code> should be selected so that
-for any <code>$a \in A$</code>, it holds that that <code>$\psi \mathbf{T}_1(a) \phi$</code> is
-approximately equal to <code>$\mathbf{T}_2(a)$</code> (from here on out written as
+<p><strong>Definition 14</strong>. The method de Blanc uses to find <code>$R_2$</code>
+is to find two linear maps <code>$\phi \in \mathbb{R}^{n_1 \times
+n_2}$</code> and <code>$\psi \in \mathbb{R}^{n_2 \times n_1}$</code> (with sizes
+<code>$n_1=|S_1|, n_2=|S_2$</code>) such that <code>$\phi$</code> and <code>$\psi$</code> can be used
+to "translate" between <code>$\mathcal{M}_1$</code> and <code>$\mathcal{M}_2$</code> <a href="./doc/cs/ai/alignment/ontological_crises/ontological_crises_in_artificial_agents_value_systems_de_blanc_2011.pdf">de Blanc
+2011</a>.
+Then, for any <code>$a \in A$</code>, <code>$\phi$</code> and <code>$\psi$</code> should be selected so
+that for any <code>$a \in A$</code>, it holds that that <code>$\psi \mathbf{T}_1(a) \phi$</code>
+is approximately equal to <code>$\mathbf{T}_2(a)$</code> (from here on out written as
 <code>$\psi \mathbf{T}_1(a) \phi \approx \mathbf{T}_2(a)$</code>). It should also
 hold that <code>$\phi \mathbf{T}_2(a) \psi \approx \mathbf{T}_1(a)$</code>.</p>
 <p>De Blanc doesn't name <code>$\phi, \psi$</code>, but we will call such <code>$\phi, \psi$</code>
@@ -2057,20 +2057,21 @@ $$\begin{aligned}
 &amp;D_{KL}(I_2 || I_1^{\top} \phi) + D_{KL}(I_1 || I_2^{\top} \psi)
 \end{aligned}$$
 </div>
-<p>$D<em>{KL}((\mathbf{T}(a)</em>2)<em>{i, *}||(\psi \mathbf{T}(a)</em>1 \phi)<em>{i, *})$
-is difference between the $i$th row of the state transition matrix of
-$\mathcal{M}</em>2$ for action $a$ and the $i$th row of the state transition
-matrix of $\mathcal{M}<em>1$ transformed to $\mathcal{M}</em>1$ via $\phi$ and
-$\psi$ into $\mathcal{M}_1$. We compute the Kullback-Leibler divergence
-row-wise because each row is a probability distribution. These
-differences are summed up across all rows and actions.</p>
+<p><code>$D_{KL}((\mathbf{T}(a)_2)_{i, *}||(\psi \mathbf{T}(a)_1
+\phi)_{i, *})$</code> is difference between the <code>$i$</code>th row of
+the state transition matrix of <code>$\mathcal{M}_2$</code> for action
+<code>$a$</code> and the <code>$i$</code>th row of the state transition matrix of
+<code>$\mathcal{M}_1$</code> transformed to <code>$\mathcal{M}_1$</code> via <code>$\phi$</code> and
+<code>$\psi$</code> into <code>$\mathcal{M}_1$</code>. We compute the <a href="https://en.wikipedia.org/wiki/Kullback-leibler_divergence">Kullback-Leibler
+divergence</a>
+row-wise because each row is a probability distribution. These differences
+are summed up across all rows and actions.</p>
 <p>We also add the sums over all actions and rows for
-$D<em>{KL}((\mathbf{T}(a)</em>1)<em>{j, *}||(\phi \mathbf{T} (a)</em>2 \psi)_{j, *})$,
-because the Kullback-Leibler divergence is asymmetric.</p>
+<code>$D_{KL}((\mathbf{T}(a)_1)_{j, *}||(\phi \mathbf{T} (a)_2 \psi)_{j,
+*})$</code>, because the Kullback-Leibler divergence is asymmetric.</p>
 <p>Finally, we add the Kullback-Leibler divergences between the initial
 state distributions, again symmetrically.</p>
-<p>::: definition
-<strong>Definition 16</strong>. We call a function that returns a de Blanc
+<p><strong>Definition 16</strong>. We call a function that returns a de Blanc
 bisimulation for two MDPs by minimizing the Kullback-Leibler divergence
 between the MDPs <strong>BisimulateShift</strong>.</p>
 <div>
@@ -2089,8 +2090,8 @@ close to equal to the identity matrix after computing
 which implies that mapping from <code>$\mathcal{M}_1$</code> to <code>$\mathcal{M}_2$</code> and
 back loses little information and the state transition probabilities can
 be mapped to each other.</p>
-<p>Given $\phi$ and $\psi$, it is possible to infer $\mathbf{R}<em>2$ using
-$\phi$: It is $\mathbf{R}</em>2=\mathbf{R}_1^{\top} \phi$.</p>
+<p>Given <code>$\phi$</code> and <code>$\psi$</code>, it is possible to infer <code>$\mathbf{R}_2$</code>
+using <code>$\phi$</code>: It is <code>$\mathbf{R}_2=\mathbf{R}_1^{\top} \phi$</code>.</p>
 <h5 id="Advantages"><a class="hanchor" href="#Advantages">Advantages</a></h5>
 <p>There are some advantages to taking this approach for resolving
 ontological crises. One is that it does not presuppose a known mapping
@@ -2435,15 +2436,16 @@ what is the attack/defense balance between finding and exploiting such
 violations?</p>
 <p>In the context of preferences over lotteries, we are left with no
 satisfactory mathematical structure that we can use: edge-weighted
-graphs are not expressive enough, and arbitrary relations over all
-lotteries too unwieldy. Finding such a structure or finding a method for
-resolving arbitrary relations over lotteries would be helpful for
-further progress. Inspiration could be found in models of human decision
-making from mathematical psychology, such as the Priority Heuristic and
-the Random Utility Model from Gamal [@el2013structural] and the BEAST
-model [@erev2017anomalies], as well as alternatives to the utility
-framework from decision theory, such as risk-weighted utility
-maximization or the Jeffrey-Bolker axioms [@buchak2013risk],
+graphs are not expressive enough, and arbitrary relations over
+all lotteries too unwieldy. Finding such a structure or finding
+a method for resolving arbitrary relations over lotteries would
+be helpful for further progress. Inspiration could be found
+in models of human decision making from mathematical psychology,
+such as the Priority Heuristic and the Random Utility Model from <a href="./doc/psychology/on_the_structural_consistency_of_preferences_el_gamal_2013.pdf">Gamal
+2013</a>
+and the BEAST model [@erev2017anomalies], as well as alternatives
+to the utility framework from decision theory, such as risk-weighted
+utility maximization or the Jeffrey-Bolker axioms [@buchak2013risk],
 [@jeffrey2004subjective].</p>
 <p>The problem of ontological crises appears under-researched. As
 a first step, BisimulateShift could be extended to
@@ -2454,10 +2456,10 @@ al. being a fascinating analysis of the toy case of modular addition
 in neural networks [@nanda2023progress]. This question could also
 be interesting for social scientists (discovering how humans manage
 ontological crises in practice) and philosophers.</p>
-<p>We would also like to see further exploration of
-value-learning [@dewey2011learning] of inconsistent
-preferences, perhaps extending Evans et al. to allow for a
-larger diversity of inconsistent preferences <a href="./doc/cs/ai/alignment/value_learning/learning_the_preferences_of_ignorant_inconsistent_agents_evans_et_al_2016.pdf">Evans et al.
+<p>We would also like to see further exploration of value-learning <a href="./doc/cs/ai/alignment/value_learning/learning_what_to_value_dewey_2010.pdf">Dewey
+2011</a>
+of inconsistent preferences, perhaps extending Evans et al. to allow
+for a larger diversity of inconsistent preferences <a href="./doc/cs/ai/alignment/value_learning/learning_the_preferences_of_ignorant_inconsistent_agents_evans_et_al_2016.pdf">Evans et al.
 2016</a>.</p>
 <h2 id="Acknowledgements"><a class="hanchor" href="#Acknowledgements">Acknowledgements</a></h2>
 <p>This text has been long in the making, and has benefitted from much advice
