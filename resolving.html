@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-04-15, modified: 2024-07-14, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2023-04-15, modified: 2024-09-01, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>We consider the problem of resolving preferences
 that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
@@ -209,15 +209,14 @@ does well on removing as few edges as possible, and usually
 outperforms removing greedy approximations of the <a href="https://en.wikipedia.org/wiki/Feedback_arc_set">feedback arc
 set</a> (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
 2017</a>).</p>
-<p>Outside of the academic literature, Aird and
-Shovelain represent inconsistent preferences as <a href="https://en.wikipedia.org/wiki/Vector_Field">vector
+<p>Outside of the academic literature, <a href="https://www.lesswrong.com/posts/ky988ePJvCRhmCwGo/using-vector-fields-to-visualise-preferences-and-make-them" title="Using vector fields to visualise preferences and make them consistent">Aird &amp;
+Shovelain 2020</a> represent inconsistent preferences as <a href="https://en.wikipedia.org/wiki/Vector_Field">vector
 fields</a> on a state space
 (for example states with more/less security and more/less wealth),
 where a vector $\mathbf{v}$ at a specific point $\mathit{p}$ in the
 vector field indicates a preference for a change in the direction of
-$\mathbf{v}$ at $\mathit{p}$ <a href="https://www.lesswrong.com/posts/ky988ePJvCRhmCwGo/using-vector-fields-to-visualise-preferences-and-make-them" title="Using vector fields to visualise preferences and make them consistent">Aird &amp; Shovelain
-2020)</a>.
-However, as they note, such a vector field can have inconsistencies in the
+$\mathbf{v}$ at $\mathit{p}$.</p>
+<p>However, as they note, such a vector field can have inconsistencies in the
 form of <a href="https://en.wikipedia.org/wiki/Curl_(mathematics)">curl</a>. They
 then discuss the restrictions on the vector field so that it
 conforms to the von Neumann-Morgenstern axioms, which they conclude
@@ -226,20 +225,21 @@ decomposition</a>
 to decompose inconsistent preference vector fields with three
 dimensions. Their approach bears a strong resemblance to the Hodge
 decomposition we use with edge-weighted graphs.</p>
-<p>Taking a very different approach, Kirchner
-investigates how to infer utility functions from
-non-transitive preferences using a neural network <a href="https://www.lesswrong.com/posts/QZiGEDiobFz8ropA5/inferring-utility-functions-from-locally-non-transitive">Kirchner
-2022</a>.
-Kirchner relates inferring such preferences to sorting data in
-which comparisons sometimes are random, resulting in cycles during
-comparison. He finds that this approach is able to reconstruct orderings
-even when 10% of the results of comparisons are noise.</p>
+<p>Taking a very different approach, <a href="https://www.lesswrong.com/posts/QZiGEDiobFz8ropA5/inferring-utility-functions-from-locally-non-transitive">Kirchner
+2022</a>
+investigates how to infer utility functions from non-transitive
+preferences using a neural network.  Kirchner relates inferring such
+preferences to sorting data in which comparisons sometimes are random,
+resulting in cycles during comparison. He finds that this approach is
+able to reconstruct orderings even when 10% of the results of comparisons
+are noise.</p>
 <ul>
 <li><a href="https://www.lesswrong.com/posts/kmpNkeqEGvFue7AvA/value-formation-an-overarching-model">Value Formation: An Overarching Model (Thane Ruthenis, 2022)</a></li>
 <li><a href="https://bobjacobs.substack.com/p/a-logic-to-deal-with-inconsistent">A logic to deal with inconsistent preferences (Bob Jacobs, 2023)</a></li>
 <li><a href="https://www.lesswrong.com/posts/J2kpxLjEyqh6x3oA4/value-systematization-how-values-become-coherent-and">Value systematization: how values become coherent (and misaligned) (Richard Ngo, 2023)</a></li>
 <li><a href="https://www.lesswrong.com/s/3QXNgNKXoLrdXJwWE">The Value Change Problem (Nora Amann, 2023)</a></li>
 </ul>
+<!--TODO: Other posts in the LW sequence draft-->
 <h5 id="Learning_Inconsistent_Preferences"><a class="hanchor" href="#Learning_Inconsistent_Preferences">Learning Inconsistent Preferences</a></h5>
 <p>The problem of <em>inferring</em> the preferences of irrational agents has
 been formally posed [@armstrong2018occam]: It is in general impossible
@@ -1622,32 +1622,26 @@ inclusion-maximal consistent subgraphs of <code>$E_n$</code> grows exponentially
 <p><strong>Lemma 13</strong>. The set of consistent graphs <code>$\mathbf{C}$</code> on the vertices
 of <code>$E_n$</code> that includes all inclusion-maximal consistent subgraphs of
 <code>$E_n$</code> has size at least <code>$(\frac{3}{2})^n$</code>.</p>
-<p><em>Proof.</em> Assume that one can partition the set $\mathbf{C}$ of
-inclusion-maximal consistent subgraphs of $E<em>n$ into a set $\mathbf{P}$
-of disjoint sets of size $\le 2^n$ (that is
-$\forall \mathcal{C}</em>i \in \mathbf{P}:
-|\mathcal{C}<em>i|=2^n|$) such that there exists a consistent graph $C$
-that contains all $\mathcal{C}</em>i$. Then the number of such partitions
+<p><em>Proof.</em> Assume that one can partition the set <code>$\mathbf{C}$</code> of
+inclusion-maximal consistent subgraphs of $E_n$ into a set <code>$\mathbf{P}$</code>
+of disjoint sets of size <code>$\le 2^n$</code> (that is
+<code>$\forall \mathcal{C}_i \in \mathbf{P}:
+|\mathcal{C}_i|=2^n|$</code>) such that there exists a consistent graph <code>$C$</code>
+that contains all <code>$\mathcal{C}_i$</code>. Then the number of such partitions
 would be the number of consistent graphs required to "cover" all
-elements in $\mathbf{C}$, since by Lemma
-<a href="#lemma:ensubgraphs">12</a> the sets of compatible graphs have at
-most size $2^n$. Then the size of $\mathbf{P}$ would be at least
-$\frac{3<sup>n}{2</sup>n}=1.5^n$, which is exponential in $n$. ◻</p>
-<p>Therefore, Theorem <a href="#theorem:impossibility1">10</a> is true.</p>
-<p>::: corollary
-<strong>Corollary 1</strong>. There is no polynomial $p$ and function
-$f: \mathfrak{P} \rightarrow
-\mathcal{P}(\mathfrak{C})$ such that $|f(E<em>n)|\le p(n)$ and $f$ fulfills
-<strong>Preservation of Consistent Subgraphs</strong>, so <strong>Theorem</strong>
-<a href="#theorem:impossibility1">10</a> is true (with $E</em>n$ as a
-counterexample).
-:::</p>
-<p>::: {#rem:lowbound .remark}
-<strong>Remark 3</strong>. This bound is
-$(\frac{3}{2})<sup>{\frac{v}{3}}=\sqrt[3]{\frac{3}{2}}</sup>v \approx
-1.145^v$ for the number of vertices $v$ in $E_v$, which is exponential
-but can probably be improved upon.
-:::</p>
+elements in <code>$\mathbf{C}$</code>, since by Lemma
+12 the sets of compatible graphs have at
+most size <code>$2^n$</code>. Then the size of $\mathbf{P}$ would be at least
+<code>$\frac{3^n}{2^n}=1.5^n$</code>, which is exponential in <code>$n$</code>. ◻</p>
+<p>Therefore, Theorem 10 is true.</p>
+<p><strong>Corollary 1</strong>. There is no polynomial $p$ and function <code>$f: \mathfrak{P}
+\rightarrow \mathcal{P}(\mathfrak{C})$</code> such that <code>$|f(E_n)|\le p(n)$</code> and
+<code>$f$</code> fulfills <strong>Preservation of Consistent Subgraphs</strong>, so <strong>Theorem</strong>
+10 is true (with <code>$E_n$</code> as a counterexample).</p>
+<p><strong>Remark 3</strong>. This bound is
+<code>$(\frac{3}{2})^{\frac{v}{3}}=\sqrt[3]{\frac{3}{2}}^v \approx 1.145^v$</code>
+for the number of vertices <code>$v$</code> in <code>$E_v$</code>, which is exponential but
+can probably be improved upon.</p>
 <h3 id="Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible"><a class="hanchor" href="#Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Polynomial Time Complexity and Preservation of Consistent Subgraphs are Incompatible</a></h3>
 <p>Given that in the worst case, only a small proportion of consistent
 subgraphs can be preserved, it also is not possible to have an algorithm
