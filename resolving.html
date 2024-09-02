@@ -160,7 +160,7 @@ defined over that world model.</p>
 <p>As far as our literature review has revealed, the academic literature
 has no investigation into the specific question we are attempting to
 answer.</p>
-<h5 id="Modeling_Inconsistent_Preferences"><a class="hanchor" href="#Modeling_Inconsistent_Preferences">Modeling Inconsistent Preferences.</a></h5>
+<h5 id="Modeling_Inconsistent_Preferences"><a class="hanchor" href="#Modeling_Inconsistent_Preferences">Modeling Inconsistent Preferences</a></h5>
 <p>In the economic literature, preferences are usually more restricted than
 in the von Neumann-Morgenstern setting: It is usually assumed that there
 is a set of goods $B$ and a utility function $U: B \times \mathbb{R}
@@ -198,17 +198,17 @@ explore further alternatives to the time-discounted utility setup,
 though they still work with utility functions that are invariant under
 positive affine transformation [@backus2004exotic].</p>
 <h5 id="Resolving_Inconsistent_Preferences"><a class="hanchor" href="#Resolving_Inconsistent_Preferences">Resolving Inconsistent Preferences</a></h5>
-<p>In the context of taxonomical data, Sun et al. investigate the
-problem of recovering hierarchies from noisy data (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
-2017</a>).  They represent inconsistent
-taxonomies with directed acyclic graphs and consistent hierarchical
-taxonomies using directed graphs. They find that, when measuring
-the number of edges being removed, a voting ensemble of several
-different techniques such as TrueSkill [@herbrich2007trueskill]
-does well on removing as few edges as possible, and usually
-outperforms removing greedy approximations of the <a href="https://en.wikipedia.org/wiki/Feedback_arc_set">feedback arc
-set</a> (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
-2017</a>).</p>
+<p>In the context of taxonomical data, <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
+2017</a>
+investigate the problem of recovering hierarchies from noisy data.
+They represent inconsistent taxonomies with directed acyclic graphs
+and consistent hierarchical taxonomies using directed graphs. They
+find that, when measuring the number of edges being removed, a
+voting ensemble of several different techniques such as TrueSkill
+[@herbrich2007trueskill] does well on removing as few edges as possible,
+and usually outperforms removing greedy approximations of the <a href="https://en.wikipedia.org/wiki/Feedback_arc_set">feedback
+arc set</a> <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
+2017</a>.</p>
 <p>Outside of the academic literature, <a href="https://www.lesswrong.com/posts/ky988ePJvCRhmCwGo/using-vector-fields-to-visualise-preferences-and-make-them" title="Using vector fields to visualise preferences and make them consistent">Aird &amp;
 Shovelain 2020</a> represent inconsistent preferences as <a href="https://en.wikipedia.org/wiki/Vector_Field">vector
 fields</a> on a state space
@@ -245,14 +245,15 @@ are noise.</p>
 been formally posed [@armstrong2018occam]: It is in general impossible
 learn such preferences, as any action is equally compatible both with a
 preference for that action <em>and</em> a systematic bias causing the action.
-Nevertheless Evans et al. find a framework that is experimentally
-successful at inferring the preferences of an agent with time-inconsistent
+Nevertheless <a href="./doc/cs/ai/alignment/value_learning/learning_the_preferences_of_ignorant_inconsistent_agents_evans_et_al_2016.pdf" title="Learning the Preferences of Ignorant, Inconsistent Agents">Evans et al.
+2016</a>
+find a framework that is experimentally successful at
+inferring the preferences of an agent with time-inconsistent
 hyperbolic discounting and incorrect beliefs using <a href="https://en.wikipedia.org/wiki/Bayesian_Inference">Bayesian
-inference</a> <a href="./doc/cs/ai/alignment/value_learning/learning_the_preferences_of_ignorant_inconsistent_agents_evans_et_al_2016.pdf">Evans et al.
-2016</a>.
-Their method for inferring preferences of inconsistent software agents
-gives similar results to estimates made by humans. Their framework does
-not cover all possible variants of inconsistent preferences, and makes no
+inference</a>.  Their
+method for inferring preferences of inconsistent software agents gives
+similar results to estimates made by humans. Their framework does not
+cover all possible variants of inconsistent preferences, and makes no
 statement about how to resolve the time-inconsistencies. Evans et al. also
 give no theoretical guarantee about the performance of their method.</p>
 <h3 id="The_von_NeumannMorgenstern_Axioms"><a class="hanchor" href="#The_von_NeumannMorgenstern_Axioms">The von Neumann-Morgenstern Axioms</a></h3>
@@ -274,7 +275,7 @@ written as <code>$[p_1: \omega_1, p_2: \omega_2]$</code><sup id="fnref1"><a href
 <p><strong>Definition 1</strong>. Let <code>$l_1, l_2, l_3 \in \Delta(\Omega)$</code>. Let $\preceq$
 be a relation on all lotteries on $\Omega$, that is $\preceq \subseteq \Delta(\Omega) \times \Delta(\Omega)$.</p>
 <p>If <code>$l_1 \preceq l_2$</code> and <code>$l_2 \preceq l_1$</code>, then we write
-<code>$l_1 \sim l_2$i</code>.</p>
+<code>$l_1 \sim l_2$</code>.</p>
 <p>Then the relation $\preceq$ is a <strong>preference relation</strong> if and only if
 it fulfills the four von Neumann-Morgenstern axioms</p>
 <ol>
@@ -366,7 +367,7 @@ independence rely on the underlying objects of the preference relation
 being lotteries.</p>
 <p>Directed graphs are well able to represent all violations of these vNM
 axioms.</p>
-<h5 id="Incompleteness"><a class="hanchor" href="#Incompleteness">Incompleteness</a></h5>
+<h5 id="Incompleteness"><a class="hanchor" href="#Incompleteness">Incompleteness.</a></h5>
 <p>Incompleteness is distinct from indifference: indifference between
 <code>$\omega_1$</code> and <code>$\omega_2$</code> exists if both <code>$\omega_1 \preceq \omega_2$</code> and
 <code>$\omega_2 \preceq \omega_1$</code>, incompleteness (or incomparability) is the
@@ -641,7 +642,7 @@ be equal. ◻</p>
 options into consistent preferences is to apply the <code>HodgeRank</code>
 algorithm by Jiang et al. to an unweighted graph <code>$G$</code> <a href="./doc/preference/statistical_ranking_and_combinatorial_hodge_theory_jiang_et_al_2011.pdf">Jiang et al.
 2009</a>.</p>
-<p><code>HodgeRank</code> is described in further detail in section <a href="#HodgeRank">4.3.1</a>.</p>
+<p><code>HodgeRank</code> is described in further detail in <a href="#HodgeRank">this section</a>.</p>
 <p>To apply <code>HodgeRank</code> to unweighted graphs one simply sets both weights
 of each edge to 1 (for <code>$e \in E$</code> it is then the case that <code>$w(e)=1$</code>,
 <code>$l(e)=1$</code>).</p>
@@ -808,11 +809,10 @@ theorem</a>
 are irrelevant in this case, since the inconsistent preference
 does not "control" outputs of <code>$f$</code>, and there are no reasons for
 manipulation.</li>
-<li> <strong>Moral Uncertainty</strong>: MacAskill et al. outline how to make
-decisions given multiple ethical theories and
-credences on those ethical theories, using the so-called
-Maximum Expected Choiceworthiness rule <a href="./doc/philosophy/ethics/moral_uncertainty_macaskill_et_al_2020.pdf#%5B%7B%22num%22%3A435%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22Fit%22%7D%5D" title="Moral Uncertainty">MacAskill et al. 2020, ch.
-2</a>.  In the case of ordinal preferences, they
+<li> <strong>Moral Uncertainty</strong>: <a href="./doc/philosophy/ethics/moral_uncertainty_macaskill_et_al_2020.pdf#%5B%7B%22num%22%3A435%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22Fit%22%7D%5D" title="Moral Uncertainty">MacAskill et al. 2020, ch. 2</a> outline how to make
+decisions given multiple ethical theories and credences on
+those ethical theories, using the so-called Maximum Expected
+Choiceworthiness rule.  In the case of ordinal preferences, they
 use the <a href="https://en.wikipedia.org/wiki/Borda_Count">Borda count</a>
 for establishing cardinal values for options.</li>
 </ul>
@@ -996,7 +996,7 @@ preferences over, e.g. an agent has consistent preferences over all
 fruit and consistent preferences over dairy products, but inconsistent
 preferences over food in general. Then a method for resolving those
 inconsistent preferences into consistent ones should "preserve" those
-consistent preferences over subsets of options a non-zero amount ---
+consistent preferences over subsets of options a non-zero amount —
 after becoming consistent the agent still has the same preferences over
 fruit and dairy product as before.</p>
 <p>Furthermore, one can show that there are graphs with an exponential
@@ -1005,20 +1005,20 @@ number of inclusion-maximal consistent subgraphs in the number of nodes.</p>
 with <code>$n$</code> nodes, and let <code>$\mathcal{S}_G$</code> be the set of inclusion-maximal
 consistent subgraphs of <code>$G$</code>. Then there exists no polynomial <code>$p$</code> so so
 that <code>$\forall G \in \mathfrak{P}_n: |\mathcal{S}_G| \le p(n)$</code>.</p>
-<p><em>Proof.</em> Moon and Moser describe how to construct an
-undirected graph <code>$G_n=(V_G,E_G)$</code> with <code>$n$</code> vertices and
-<code>$3^{\frac{n}{3}}$</code> inclusion-maximal cliques <a href="./doc/math/on_cliques_in_graphs_moon_moser_1965.pdf">Moon &amp; Moser
-1965</a>. Then one can
-construct a directed graph <code>$P_n=(V_P,E_P)$</code> with <code>$3^{\frac{n}{3}}\approx
-1.4422^n$</code> inclusion-maximal consistent subgraphs from <code>$G_n$</code>, which
-grows faster than any polynomial. First, <code>$P_n$</code> receives the same
-vertices as <code>$G_n$</code>.  Then, every <code>$v \in V$</code> is assigned a unique
-number <code>$j(v): V \rightarrow \mathbb{N}$</code>, and for each <code>$\{u,v\}
-\in E_G$</code>, the set of edges <code>$E_P$</code> contains <code>$(u,v)$</code> if and only if
-<code>$j(u)&gt;j(v)$</code>, and <code>$(v,u)$</code> if and only if <code>$j(v)&gt;j(u)$</code>. Now, if a
-subgraph <code>$\mathit{S}_G$</code> of <code>$G_n$</code> with vertices <code>$V_{\mathit{S}}$</code> is a
-maximal clique, then a subgraph <code>$\mathit{S}_P$</code> of <code>$P_n$</code> with vertices
-<code>$V_{\mathit{S}}$</code> is an inclusion-maximal consistent subgraph in <code>$P_n$</code>:</p>
+<p><em>Proof.</em> <a href="./doc/math/on_cliques_in_graphs_moon_moser_1965.pdf">Moon &amp; Moser
+1965</a> describe how to
+construct an undirected graph <code>$G_n=(V_G,E_G)$</code> with <code>$n$</code> vertices and
+<code>$3^{\frac{n}{3}}$</code> inclusion-maximal cliques. Then one can construct a
+directed graph <code>$P_n=(V_P,E_P)$</code> with <code>$3^{\frac{n}{3}}\approx 1.4422^n$</code>
+inclusion-maximal consistent subgraphs from <code>$G_n$</code>, which grows faster
+than any polynomial. First, <code>$P_n$</code> receives the same vertices as <code>$G_n$</code>.
+Then, every <code>$v \in V$</code> is assigned a unique number <code>$j(v): V \rightarrow
+\mathbb{N}$</code>, and for each <code>$\{u,v\} \in E_G$</code>, the set of edges <code>$E_P$</code>
+contains <code>$(u,v)$</code> if and only if <code>$j(u)&gt;j(v)$</code>, and <code>$(v,u)$</code> if and
+only if <code>$j(v)&gt;j(u)$</code>. Now, if a subgraph <code>$\mathit{S}_G$</code> of <code>$G_n$</code>
+with vertices <code>$V_{\mathit{S}}$</code> is a maximal clique, then a subgraph
+<code>$\mathit{S}_P$</code> of <code>$P_n$</code> with vertices <code>$V_{\mathit{S}}$</code> is an
+inclusion-maximal consistent subgraph in <code>$P_n$</code>:</p>
 <ol>
 <li><p><code>$\mathit{S}_P$</code> is complete, because for every <code>$\{u,v\}$</code> in
 <code>$\mathit{S}_G$</code>, either <code>$(u,v)$</code> or <code>$(v,u)$</code> exists in <code>$\mathit{S}_P$</code>.</p></li>
@@ -1648,36 +1648,30 @@ subgraphs can be preserved, it also is not possible to have an algorithm
 that returns, for each inclusion-maximal consistent subgraph
 $\mathit{S}$, at least one consistent graph that contains $\mathit{S}$,
 <em>and</em> computes its output in polynomial time.</p>
-<p>::: {#theorem:impossibility2 .theorem}
-#<strong>Theorem 14</strong>. Let $\mathtt{A}$ be an algorithm for resolving
-inconsistent graphs that implements an $f$ which fulfills <strong>Preservation
-of Consistent Subgraphs</strong> for all graphs $G \in \mathfrak{P}$. Then
-there exists no polynomial $p$ so that for all directed graphs
-$P<em>n \in \mathfrak{P}</em>n$ of size $n$ it holds that $\mathtt{A}(P_n)$
-computes its output in less than $p(n)$ steps.
-:::</p>
-<p>::: proof
-<em>Proof.</em> Let $\mathbf{C}=\mathtt{A}(E_n)$. <strong>Lemma</strong>
-<a href="#lemma:enresolvedbig">13</a> shows that $\mathbf{C}$ is exponential
-in the number of vertices (by <strong>remark</strong>
-<a href="#rem:lowbound">3</a>). Any
-$\mathtt{A}$ would at least need to enumerate all $C \in \mathbf{C}$,
-which would take exponential time. ◻
-:::</p>
-<p>::: remark
-<strong>Remark 4</strong>. The set of inclusion-maximal consistent subgraphs on $E<em>n$
-can be compactly represented as the Cartesian product of the
-inclusion-maximal consistent subgraphs of the "levels" $V</em>i$:</p>
-<p>$$\bigtimes<em>{i=1}^n {\alpha</em>i \rightarrow \beta<em>i, \beta</em>i \rightarrow \gamma<em>i, \gamma</em>i \rightarrow \alpha_i}$$</p>
+<p><strong>Theorem 14</strong>. Let <code>$\mathtt{A}$</code> be an algorithm for resolving
+inconsistent graphs that implements an <code>$f$</code> which fulfills <strong>Preservation
+of Consistent Subgraphs</strong> for all graphs <code>$G \in \mathfrak{P}$</code>. Then
+there exists no polynomial <code>$p$</code> so that for all directed graphs
+<code>$P_n \in \mathfrak{P}_n$</code> of size <code>$n$</code> it holds that <code>$\mathtt{A}(P_n)$</code>
+computes its output in less than <code>$p(n)$</code> steps.</p>
+<p><em>Proof.</em> Let <code>$\mathbf{C}=\mathtt{A}(E_n)$</code>. <strong>Lemma</strong> 13 shows that
+<code>$\mathbf{C}$</code> is exponential in the number of vertices (by <strong>remark</strong>
+3. Any <code>$\mathtt{A}$</code> would at least need to enumerate all <code>$C \in
+\mathbf{C}$</code>, which would take exponential time. ◻</p>
+<p><strong>Remark 4</strong>. The set of inclusion-maximal consistent subgraphs on
+<code>$E_n$</code> can be compactly represented as the Cartesian product of the
+inclusion-maximal consistent subgraphs of the "levels" <code>$V_i$</code>:</p>
+<div>
+    $$\newcommand{\bigtimes}{\mathop{\Large\times\normalsize}} \bigtimes_{i=1}^n \{\alpha_i \rightarrow \beta_i, \beta_i \rightarrow \gamma_i, \gamma_i \rightarrow \alpha_i\}$$
+</div>
 <p>This might also allow for a compact representation of the result of $f$
 which includes all inclusion-maximal consistent subgraphs. We suspect
 there are counter-examples that don't allow for this, but haven't been
-able to find any.
-:::</p>
+able to find any.</p>
 <h1 id="Inconsistent_Preferences_over_Lotteries"><a class="hanchor" href="#Inconsistent_Preferences_over_Lotteries">Inconsistent Preferences over Lotteries</a></h1>
 <p>Von Neumann and Morgenstern formulate their famous theorem by defining
 some restriction on relations over lotteries [@von1947theory], as
-explained in Section <a href="#sec:vnmintro">2.1</a>.</p>
+explained in <a href="#The_von_NeumannMorgenstern_Axioms">this section</a>.</p>
 <p>Finding a mathematical structure which can encode all inconsistent
 preferences over lotteries <em>and</em> is still computationally tractable
 remains an open problem, but we propose two structures which can either
@@ -1688,37 +1682,40 @@ compactly represented.</p>
 <p>Introducing lotteries allows for a large variety of violations of the
 von Neumann-Morgenstern axioms.</p>
 <h3 id="Discontinuity"><a class="hanchor" href="#Discontinuity">Discontinuity</a></h3>
-<p>Discontinuity in relations over lotteries can occur if we know that $l<em>1
-\preceq l</em>2 \preceq l<em>3$, but there is no $p$ so that $l</em>2 \sim [p: l<em>1,
-(1-p): l</em>3]$. A discontinuous preference that fulfills $l<em>1 \preceq
-l</em>2 \preceq l<em>3$ could then state that for every $p \in (0;1]$ it holds
-that $l</em>2 \succ [p: l<em>1, (1-p): l</em>3]$ but $l<em>2 \prec l</em>3$: the lottery
-$l<em>2$ is strictly preferred over any mixture of $l</em>1, l<em>3$, but $l</em>3$ is
-still strictly preferred to $l<em>2$. The equivalent can occur if $l</em>2$ is
-strictly dispreferred to any mixture of $l<em>1, l</em>3$, but strictly
-preferred over $l_1$.</p>
-<p>In humans, this can sometimes be observed as the certainty effect from
-prospect theory [@tversky1981framing], in which subjects systematically
-overrate the value of certain (deterministic) option, which leads to the
-Allais paradox [@allais1953comportement].</p>
-<p>A view under which discontinuities of this type make sense is if an
-agent has a specific aversion to lotteries, irrespective of the options
-they are comprised of (Von Neumann and Morgenstern call the continuity
-axiom "excluding a "utility of gambling"" [@von1947theory 3.7.1], and
-state that "concepts like a "specific utility of gambling" cannot be
-formulated free of contradiction on this level." [ibid.]).</p>
+<p>Discontinuity in relations over lotteries can occur if we know that
+<code>$l_1 \preceq l_2 \preceq l_3$</code>, but there is no <code>$p$</code> so that <code>$l_2 \sim
+[p: l_1, (1-p): l_3]$</code>. A discontinuous preference that fulfills <code>$l_1
+\preceq l_2 \preceq l_3$</code> could then state that for every <code>$p \in (0;1]$</code>
+it holds that <code>$l_2 \succ [p: l_1, (1-p): l_3]$</code> but <code>$l_2 \prec l_3$</code>:
+the lottery <code>$l_2$</code> is strictly preferred over any mixture of <code>$l_1,
+l_3$</code>, but <code>$l_3$</code> is still strictly preferred to <code>$l_2$</code>. The equivalent
+can occur if <code>$l_2$</code> is strictly dispreferred to any mixture of <code>$l_1,
+l_3$</code>, but strictly preferred over <code>$l_1$</code>.</p>
+<p>In humans, this can sometimes be observed as the <a href="https://en.wikipedia.org/wiki/Certainty_effect">certainty
+effect</a> from
+<a href="https://en.wikipedia.org/wiki/Prospect_Theory">prospect theory</a>,
+in which subjects systematically overrate the value of
+certain (deterministic) option, which leads to the <a href="https://en.wikipedia.org/wiki/Allais_Paradox">Allais
+paradox</a>.</p>
+<p>A view under which discontinuities of this type make sense is if an agent
+has a specific aversion to lotteries, irrespective of the options they
+are comprised of (Von Neumann and Morgenstern call the continuity axiom
+"excluding a "utility of gambling"" [@von1947theory 3.7.1], and state
+that "concepts like a "specific utility of gambling" cannot be formulated
+free of contradiction on this level." [ibid.]).</p>
 <h3 id="Dependence"><a class="hanchor" href="#Dependence">Dependence</a></h3>
 <p>Violations of the independence axiom ("dependence") occur if for two
-lotteries $l<em>1, l</em>2$ (with $l<em>1 \preceq l</em>2$) there is an option $l<em>3$
-and a $p \in [0; 1]$ so that $[p: l</em>1, (1-p): l<em>3] \succ [p: l</em>2,
-(1-p): l<em>3]$: Mixing in $l</em>3$ in equal proportion to both $l<em>1, l</em>2$
-causes the preference to switch.</p>
-<p>Together with a strong preference for certainty it is observed in the
-Allais paradox [@allais1953comportement]: In experiments with humans,
-the lottery <code>$A_1=[1: \$1 \text{mio.}]$</code> is strictly preferred over the
-lottery <code>$B_1=[0.89: \$1 \text{mio.}, 0.01: \$0, 0.1: \$5
-\text{mio.}]$</code>, but the lottery <code>$B_2=[0.9: \$0, 0.1: \$5 \text{mio.}]$</code> is
-strictly preferred over <code>$A_2=[0.89: \$0, 0.11: \$1 \text{mio.}]$</code>.</p>
+lotteries <code>$l_1, l_2$</code> (with <code>$l_1 \preceq l_2$</code>) there is an option
+<code>$l_3$</code> and a <code>$p \in [0; 1]$</code> so that <code>$[p: l_1, (1-p): l_3] \succ [p:
+l_2, (1-p): l_3]$</code>: Mixing in $l_3$ in equal proportion to both <code>$l_1,
+l_2$</code> causes the preference to switch.</p>
+<p>Together with a strong preference for certainty it is observed in
+the <a href="https://en.wikipedia.org/wiki/Allais_Paradox">Allais paradox</a>:
+In experiments with humans, the lottery <code>$A_1=[1: \$1 \text{mio.}]$</code>
+is strictly preferred over the lottery <code>$B_1=[0.89: \$1 \text{mio.},
+0.01: \$0, 0.1: \$5 \text{mio.}]$</code>, but the lottery <code>$B_2=[0.9: \$0,
+0.1: \$5 \text{mio.}]$</code> is strictly preferred over <code>$A_2=[0.89: \$0,
+0.11: \$1 \text{mio.}]$</code>.</p>
 <p>By using the independence axiom, these two preferences can be shown to
 be contradictory. This can be done by first "mixing out" 0.89 of $1mio.
 from <code>$A_1$</code> and <code>$B_1$</code>, that is representing <code>$[1: \$1 \text{mio.}]$</code> as
@@ -1784,14 +1781,12 @@ object to represent preferences.</p>
 <p>However, if $\Omega$ has at least one element, such a relation can be
 uncountably large and without compact representation, making it
 impossible to be handled computationally.</p>
-<p>::: example
-#<strong>Example 2</strong>. A pathological example would be a relation
+<p><strong>Example 2</strong>. A pathological example would be a relation
 $\mathcal{R} \in \Delta(\Omega)
 \times \Delta(\Omega)$ on probability distributions of $\Omega={\alpha,
 \beta}$ in which $[p: \alpha, (1-p): \beta] \prec [q: \alpha, (1-q):
 \beta]$ if and only if $p \in [0;1]$ is an uncomputable real number and
-$q \in [0;1]$ is a computable real number.
-:::</p>
+$q \in [0;1]$ is a computable real number.</p>
 <p>We were also unable to find a method for resolving such inconsistent
 preferences into their consistent versions.</p>
 <h2 id="Algorithms"><a class="hanchor" href="#Algorithms">Algorithms</a></h2>
@@ -1803,8 +1798,8 @@ graph into an edge-weighted consistent graph.</p>
 preferences over edge-weighted graphs were considered, and finally
 rejected.</p>
 <p>One option was the <code>PageRank</code> algorithm [@bianchini2005inside], also
-mentioned in Sun et al. <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>. We rejected PageRank for the
-same reason as Sun et al. <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a> did: In a directed acyclic
+mentioned in <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>. We rejected PageRank for the
+same reason as <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a> did: In a directed acyclic
 graph, a unique greatest element does not necessarily receive the
 highest ranking. This problem extends to using other centrality measures
 for graphs such as degree centrality and betweenness centrality
@@ -1866,8 +1861,7 @@ $O</em>{ev} \gets 1$ $s \gets -(O<sup>{\top}LO)</sup>+O^{\top}Lf$ $A^+$ is the
 Penrose-Moore pseudo-inverse of $A$ $s$
 :::
 :::</p>
-<p>::: remark
-#<strong>Remark 5</strong>. One might ask, under the social choice view, whether it
+<p>#<strong>Remark 5</strong>. One might ask, under the social choice view, whether it
 makes sense for some voter $v \in V$ to lie about their preferences over
 $A$ in order to change the output of <code>HodgeRank</code> to correspond to their
 own ranking ordinally. In fact this is the case and therefore
@@ -1884,8 +1878,7 @@ more compatible with their preferences.</p>
 <p>It would be interesting to investigate the computational complexity of
 finding manipulations of existing preference of one voter to ordinally
 change the output of <code>HodgeRank</code> to more strongly conform to that
-voters' preferences.
-:::</p>
+voters' preferences.</p>
 <p>Besides the disadvantage of allowing for strategic manipulation, the
 decomposition returned by <code>HodgeRank</code> appears to display many desirable
 properties as a method for resolving inconsistent preferences over
@@ -2389,11 +2382,11 @@ winner.</p>
 Preferences</strong> and <strong>Preservation of Consistent Subgraphs</strong> are
 incompatible, as well as <strong>Resolution to Polynomially Many Preferences</strong>
 and <strong>Polynomial Time Complexity</strong>.</p>
-<p>For inconsistent preferences over lotteries, we examined a
-representation using edge-weighted directed graphs. This representation
-is inadequate, as it can not encode all possible inconsistent
-preferences, most notably the violation of independence observed in
-[@allais1953comportement].</p>
+<p>For inconsistent preferences over lotteries, we examined a representation
+using edge-weighted directed graphs. This representation is inadequate,
+as it can not encode all possible inconsistent preferences, most
+notably the violation of independence observed in the <a href="https://en.wikipedia.org/wiki/Allais_Paradox">Allais
+paradox</a>.</p>
 <p>We nevertheless reviewed the <code>HodgeRank</code> algorithm that allows for
 resolving inconsistent edge-weighted directed graphs into utility
 functions, and observe that <code>HodgeRank</code> has several desirable
