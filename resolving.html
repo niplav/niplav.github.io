@@ -1738,55 +1738,51 @@ then "mix in" 0.89 of $0 into the two resulting distributions to create
 <h2 id="Representing_Inconsistencies"><a class="hanchor" href="#Representing_Inconsistencies">Representing Inconsistencies</a></h2>
 <p>It is more difficult to find a mathematical structure to represent
 arbitrary inconsistent preferences over lotteries over some set of
-options $\Omega$.</p>
+options <code>$\Omega$</code>.</p>
 <h3 id="EdgeWeighted_Graphs"><a class="hanchor" href="#EdgeWeighted_Graphs">Edge-Weighted Graphs</a></h3>
-<p>Given $\Omega$, some inconsistent preferences on lotteries on $\Omega$
-can be represented by the set $\mathfrak{G}<em>{\Omega}$ of edge-weighted
-directed graphs on $\Omega$, where edge weights of a graph $G$ can be
-expressed as the values of a function $w</em>G: \Omega \times \Omega
-\rightarrow \mathbb{R}$.</p>
-<p>::: definition
-#<strong>Definition 12</strong>. The subset
-$\mathfrak{S}<em>{\Omega} \subset \mathfrak{G}</em>{\Omega}$ of consistent
-preferences on $\Omega$ is the set of all edge-weighted directed graphs
-that is <strong>complete</strong>, <strong>transitive</strong>, <strong>irreflexive</strong> and
-<strong>weight-transitive</strong>, where a graph is weight-transitive if for all
-edges $e \in E$ it holds that $w<em>G(\alpha
-\rightarrow \beta)=c</em>1 \land w<em>G(\beta \rightarrow \omega</em>3)=c<em>2
-\Rightarrow w</em>G(\alpha \rightarrow \omega<em>3)=c</em>1+c_2$.
-:::</p>
-<p>An element from $\mathfrak{S}_{\Omega}$ assigns each element from
-$\Omega$ a cardinal value, equivalent to a utility function on $\Omega$.</p>
-<p>Edge-weighted directed graphs on $\Omega$ are not expressive enough to
+<p>Given <code>$\Omega$</code>, some inconsistent preferences on lotteries on <code>$\Omega$</code>
+can be represented by the set <code>$\mathfrak{G}_{\Omega}$</code> of edge-weighted
+directed graphs on <code>$\Omega$</code>, where edge weights of a graph <code>$G$</code> can
+be expressed as the values of a function <code>$w_G: \Omega \times \Omega
+\rightarrow \mathbb{R}$</code>.</p>
+<p>#<strong>Definition 12</strong>. The subset <code>$\mathfrak{S}_{\Omega} \subset
+\mathfrak{G}_{\Omega}$</code> of consistent preferences on <code>$\Omega$</code> is
+the set of all edge-weighted directed graphs that is <strong>complete</strong>,
+<strong>transitive</strong>, <strong>irreflexive</strong> and <strong>weight-transitive</strong>, where
+a graph is weight-transitive if for all edges <code>$e \in E$</code> it holds
+that <code>$w_G(\alpha \rightarrow \beta)=c_1 \land w_G(\beta \rightarrow
+\omega_3)=c_2 \Rightarrow w_G(\alpha \rightarrow \omega_3)=c_1+c_2$</code>.</p>
+<p>An element from <code>$\mathfrak{S}_{\Omega}$</code> assigns each element from
+<code>$\Omega$</code> a cardinal value, equivalent to a utility function on
+<code>$\Omega$</code>.</p>
+<p>Edge-weighted directed graphs on <code>$\Omega$</code> are not expressive enough to
 represent all relevant inconsistent preferences, though. As a trivial
-example, let $l<em>1=[0.25: \alpha, 0.75: \beta]$ and $l</em>2=[0.75: \alpha,
-0.25: \beta]$ with $l<em>1 \prec l</em>2$, but $l<em>3=[0.3: \alpha, 0.7: \beta],
-l</em>4=[0.7: \alpha, 0.3: \beta]$ with $l<em>3 \succ l</em>4$. The first
+example, let <code>$l_1=[0.25: \alpha, 0.75: \beta]$ and $l_2=[0.75: \alpha,
+0.25: \beta]$ with $l_1 \prec l_2$, but $l_3=[0.3: \alpha, 0.7: \beta],
+l_4=[0.7: \alpha, 0.3: \beta]$ with $l_3 \succ l_4$</code>. The first
 preference implies a positive weight for the edge
-$\alpha \rightarrow \beta$, but the second preference implies a negative
-weight for $\alpha \rightarrow
-\beta$.</p>
-<p>Introducing two positively weighted edges between $\alpha, \beta$
+<code>$\alpha \rightarrow \beta$</code>, but the second preference implies a negative
+weight for <code>$\alpha \rightarrow \beta$</code>.</p>
+<p>Introducing two positively weighted edges between <code>$\alpha, \beta$</code>
 (creating a two-cycle) is able to represent that such a preference
 between lotteries <em>is</em> present, but it doesn't allow reconstruction of
 which lotteries are preferred over which others: Given a preference of
-$\alpha$ over $\beta$ by $w<em>l$, and of $\beta$ over $\alpha$ by $w</em>r$
-doesn't enable reconstruction of whether $l<em>1 \prec l</em>2$ or
-$l<em>1 \succ l</em>2$.</p>
+<code>$\alpha$ over $\beta$</code> by <code>$w_l$</code>, and of <code>$\beta$ over $\alpha$</code> by
+<code>$w_r$</code> doesn't enable reconstruction of whether <code>$l_1 \prec l_2$</code> or
+<code>$l_1 \succ l_2$</code>.</p>
 <h3 id="Arbitrary_Relations_over_the_Lotteries"><a class="hanchor" href="#Arbitrary_Relations_over_the_Lotteries">Arbitrary Relations over the Lotteries</a></h3>
-<p>As [@von1947theory] uses lotteries on $\Omega$ as the set of options
+<p>As [@von1947theory] uses lotteries on <code>$\Omega$</code> as the set of options
 over which agents can have preferences, a natural instinct is to use
-arbitrary relations over lotteries on $\Omega$ as the mathematical
+arbitrary relations over lotteries on <code>$\Omega$</code> as the mathematical
 object to represent preferences.</p>
-<p>However, if $\Omega$ has at least one element, such a relation can be
+<p>However, if <code>$\Omega$</code> has at least one element, such a relation can be
 uncountably large and without compact representation, making it
 impossible to be handled computationally.</p>
-<p><strong>Example 2</strong>. A pathological example would be a relation
-$\mathcal{R} \in \Delta(\Omega)
-\times \Delta(\Omega)$ on probability distributions of $\Omega={\alpha,
-\beta}$ in which $[p: \alpha, (1-p): \beta] \prec [q: \alpha, (1-q):
-\beta]$ if and only if $p \in [0;1]$ is an uncomputable real number and
-$q \in [0;1]$ is a computable real number.</p>
+<p><strong>Example 2</strong>. A pathological example would be a relation <code>$\mathcal{R}
+\in \Delta(\Omega) \times \Delta(\Omega)$</code> on probability distributions
+of <code>$\Omega=\{\alpha, \beta\}$</code> in which <code>$[p: \alpha, (1-p): \beta]
+\prec [q: \alpha, (1-q): \beta]$</code> if and only if <code>$p \in [0;1]$</code> is an
+uncomputable real number and <code>$q \in [0;1]$</code> is a computable real number.</p>
 <p>We were also unable to find a method for resolving such inconsistent
 preferences into their consistent versions.</p>
 <h2 id="Algorithms"><a class="hanchor" href="#Algorithms">Algorithms</a></h2>
@@ -1810,30 +1806,30 @@ the center receive larger scores, which is counter to our criteria.</p>
 <p><code>HodgeRank</code>, introduced in <a href="./doc/preference/statistical_ranking_and_combinatorial_hodge_theory_jiang_et_al_2011.pdf">Jiang et al. 2011</a>, is an
 algorithm based on Hodge theory from algebraic geometry for decomposing
 a doubly edge-weighted, potentially not fully connected graph
-$G=(\Omega, E, w: E \rightarrow
-\mathbb{R} \cup {\mathtt{nan}}, l: E \rightarrow \mathbb{N}})$ into
+<code>$G=(\Omega, E, w: E \rightarrow
+\mathbb{R} \cup \{\mathtt{nan}\}, l: E \rightarrow \mathbb{N}\})$</code> into
 the sum of three different edge weighted graphs:</p>
 <ul>
-<li>  A gradient graph $G<em>g=(\Omega, E, w</em>g: E \rightarrow \mathbb{R})$,
-in which $w<em>g$ is derived from a potential function that assigns
-consistent values to vertices $\omega \in \Omega$: the potential
-$p: \Omega \rightarrow \mathbb{R}$ of a node has a value so that
-$g(e=(\omega</em>i, \omega<em>j))=p(\omega</em>j)-p(\omega_i)$.</li>
-<li>  A curl graph $G<em>c=(\Omega, E, w</em>c: E \rightarrow \mathbb{R})$, where
-a function $c$ assigns every 3-cycle in the graph a specific value,
-and the value $w_c(e)$ for an edge is the sum of the values $c$
-assigns to all the 3-cycles $e$ is in.</li>
-<li>  A harmonic graph $G<em>h=(\Omega, E, w</em>h: E \rightarrow \mathbb{R})$.</li>
+<li>  A gradient graph <code>$G_g=(\Omega, E, w_g: E \rightarrow \mathbb{R})$</code>,
+in which <code>$w_g$</code> is derived from a potential function that assigns
+consistent values to vertices <code>$\omega \in \Omega$</code>: the potential
+<code>$p: \Omega \rightarrow \mathbb{R}$</code> of a node has a value so that
+<code>$g(e=(\omega_i, \omega_j))=p(\omega_j)-p(\omega_i)$</code>.</li>
+<li>  A curl graph <code>$G_c=(\Omega, E, w_c: E \rightarrow \mathbb{R})$</code>, where
+a function <code>$c$</code> assigns every 3-cycle in the graph a specific value,
+and the value <code>$w_c(e)$</code> for an edge is the sum of the values <code>$c$</code>
+assigns to all the 3-cycles <code>$e$</code> is in.</li>
+<li>  A harmonic graph <code>$G_h=(\Omega, E, w_h: E \rightarrow \mathbb{R})$</code>.</li>
 </ul>
-<p>Then $w(e)=w<em>g(e)+R(e)=w</em>g(e)+w<em>c(e)+w</em>h(e)$, where $R$ is a residual.</p>
+<p>Then <code>$w(e)=w_g(e)+R(e)=w_g(e)+w_c(e)+w_h(e)$</code>, where <code>$R$</code> is a residual.</p>
 <p><a href="./doc/preference/statistical_ranking_and_combinatorial_hodge_theory_jiang_et_al_2011.pdf">Jiang et al. 2011</a> develop <code>HodgeRank</code> from a social-choice
 theoretic perspective: Given a set of incomplete cardinal ratings
-$\mathcal{C}$ of the type
-$(\mathbb{R} \cup {\mathtt{nan}})^{n \times m}$ by a set
-$V={1, \dots, m}$ of voters on $A={1, \dots, n}$ alternatives, one
-can construct an edge-weighted graph $G<em>{\mathcal{C}}=(\Omega, E, w, l)$
-where the nodes are the options $A$ and each edge weight is some
-combination of the cardinal votes on the options $\omega</em>1, \omega_2$
+<code>$\mathcal{C}$</code> of the type
+<code>$(\mathbb{R} \cup \{\mathtt{nan}\})^{n \times m}$</code> by a set
+<code>$V=\{1, \dots, m\}$</code> of voters on <code>$A=\{1, \dots, n\}$</code> alternatives, one
+can construct an edge-weighted graph <code>$G_{\mathcal{C}}=(\Omega, E, w, l)$</code>
+where the nodes are the options <code>$A$</code> and each edge weight is some
+combination of the cardinal votes on the options <code>$\omega_1, \omega_2$</code>
 that comprise the edge.</p>
 <p>An edge weight can be for example the arithmetic mean</p>
 <div>

@@ -1447,12 +1447,12 @@ commitment for them—taking an option away, but still improving
 their situation by forcing the other player to swerve first,
 and guaranteeing the swerve (after all, it's a <a href="https://en.wikipedia.org/wiki/Dominant_Strategy">strictly dominant
 strategy</a>).</p>
-<p>In a less artificial context, one could see minimum wage laws
-as an example of this. Disregarding potential effects from
-increased unemployment, having higher minimum wage removes
-the temptation of workers to accept lower wages. <a href="https://en.wikipedia.org/wiki/Braess_Paradox">Braess'
-paradox</a> is another
-instantiation of this problem.</p>
+<p>In a less artificial context, one could see <a href="https://en.wikipedia.org/wiki/Minimum_wage_law">minimum wage
+laws</a> as an example of
+this. Disregarding potential effects from increased unemployment, having
+higher minimum wage removes the temptation of workers to accept lower
+wages. <a href="https://en.wikipedia.org/wiki/Braess_Paradox">Braess' paradox</a>
+is another instantiation of this problem.</p>
 <p>One can imagine a paternalist government as more of a <a href="https://en.wikipedia.org/wiki/Mechanism_Design">mechanism
 designer</a>, then.</p>
 <h2 id="Scientific_and_Other_Classifications"><a class="hanchor" href="#Scientific_and_Other_Classifications">Scientific and Other Classifications</a></h2>
@@ -1929,4 +1929,18 @@ V_1 \times V_2$</code>) is sequence of graphs <code>$(G_1, \dots, G_{n+1})$</cod
 that <code>$(v, w) \in E_{k+1}$</code> if and only if <code>$(v_i, w_i) \in E_i$</code> and
 <code>$v \in f_i(v_i), w \in f_i(w_i)$</code>.</p>
 <!--TODO: weighted graph sevolution-->
+<h2 id="How_Often_Does_Taking_Away_Options_Help"><a class="hanchor" href="#How_Often_Does_Taking_Away_Options_Help">How Often Does Taking Away Options Help?</a></h2>
+<p>In some game-theoretic setups, <a href="./notes.html#Paternalism_May_Be_About_Mechanism_Design">taking
+options away from a player improves their
+situation</a>. I
+perform a <a href="https://en.wikipedia.org/wiki/Monte-Carlo_simulation">Monte-Carlo
+simulation</a> to
+figure out how often that is the case, generating random <a href="https://en.wikipedia.org/wiki/Normal-form_game">normal form
+games</a> with payoffs in
+<code>$[0,1]$</code>, removing one option from the first player, and comparing
+the equilibria.</p>
+<p><img alt="" src="./img/options/player_A.png"/></p>
+<p><img alt="" src="./img/options/player_B.png"/></p>
+<p>Code <a href="./code/options/options.py">here</a>, largely written by <a href="https://www.anthropic.com/news/claude-3-5-sonnet">Claude 3.5
+Sonnet</a>.</p>
 </body></html>
