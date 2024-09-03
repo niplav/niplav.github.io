@@ -1933,12 +1933,25 @@ that <code>$(v, w) \in E_{k+1}$</code> if and only if <code>$(v_i, w_i) \in E_i$
 <p>In some game-theoretic setups, <a href="./notes.html#Paternalism_May_Be_About_Mechanism_Design">taking
 options away from a player improves their
 situation</a>. I
-perform a <a href="https://en.wikipedia.org/wiki/Monte-Carlo_simulation">Monte-Carlo
+ran a <a href="https://en.wikipedia.org/wiki/Monte-Carlo_simulation">Monte-Carlo
 simulation</a> to
 figure out how often that is the case, generating random <a href="https://en.wikipedia.org/wiki/Normal-form_game">normal form
 games</a> with payoffs in
-<code>$[0,1]$</code>, removing one option from the first player, and comparing
-the equilibria.</p>
+<code>$[0,1]$</code>, removing a random option from the first player, and comparing
+the <a href="https://en.wikipedia.org/wiki/Nash_Equilibrium">Nash equilibria</a>
+found via <a href="https://en.wikipedia.org/wiki/Vertex_enumeration_problem">vertex
+enumeration</a>
+of the <a href="https://en.wikipedia.org/wiki/Best_response">best response</a>
+<a href="https://en.wikipedia.org/wiki/Polytope">polytope</a> (using
+<a href="https://www.theoj.org/joss-papers/joss.00904/10.21105.joss.00904.pdf">nashpy</a>)—the
+<a href="https://en.wikipedia.org/wiki/Lemke-Howson_algorithm">Lemke-Howson
+algorithm</a> was
+giving me duplicate results.</p>
+<p>The removal of an option for player A is considered an improvement for
+some player if the mean payoff across all equilibria in the game
+with removed option is strictly greater than the mean payoff across all
+equilibria in the full game. I.e., I assume that we are just as
+likely to land in one equilibrium as compared to any other.</p>
 <p><img alt="" src="./img/options/player_A.png"/></p>
 <p><img alt="" src="./img/options/player_B.png"/></p>
 <p>Code <a href="./code/options/options.py">here</a>, largely written by <a href="https://www.anthropic.com/news/claude-3-5-sonnet">Claude 3.5

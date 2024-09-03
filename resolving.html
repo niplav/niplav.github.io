@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-04-15, modified: 2024-09-01, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2023-04-15, modified: 2024-09-04, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>We consider the problem of resolving preferences
 that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
@@ -201,13 +201,14 @@ positive affine transformation [@backus2004exotic].</p>
 <p>In the context of taxonomical data, <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
 2017</a>
 investigate the problem of recovering hierarchies from noisy data.
-They represent inconsistent taxonomies with directed acyclic graphs
-and consistent hierarchical taxonomies using directed graphs. They
-find that, when measuring the number of edges being removed, a
-voting ensemble of several different techniques such as TrueSkill
-[@herbrich2007trueskill] does well on removing as few edges as possible,
-and usually outperforms removing greedy approximations of the <a href="https://en.wikipedia.org/wiki/Feedback_arc_set">feedback
-arc set</a> <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
+They represent inconsistent taxonomies with directed acyclic
+graphs and consistent hierarchical taxonomies using directed
+graphs. They find that, when measuring the number of edges being
+removed, a voting ensemble of several different techniques
+such as <a href="https://en.wikipedia.org/wiki/TrueSkill">TrueSkill</a>
+does well on removing as few edges as possible, and usually
+outperforms removing greedy approximations of the <a href="https://en.wikipedia.org/wiki/Feedback_arc_set">feedback arc
+set</a> <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
 2017</a>.</p>
 <p>Outside of the academic literature, <a href="https://www.lesswrong.com/posts/ky988ePJvCRhmCwGo/using-vector-fields-to-visualise-preferences-and-make-them" title="Using vector fields to visualise preferences and make them consistent">Aird &amp;
 Shovelain 2020</a> represent inconsistent preferences as <a href="https://en.wikipedia.org/wiki/Vector_Field">vector
@@ -455,7 +456,7 @@ consistent graphs is to proceed by establishing the desired properties
 stepwise. Our proposed algorithm (which we call "$\mathtt{stepwise}$")
 is to execute the following steps:</p>
 <ul>
-<li> <strong>Remove minimum feedback arc sets</strong>. (<a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>) use a
+<li> <strong>Remove minimum feedback arc sets</strong>. <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a> use a
 greedy approximation algorithm to find and remove the minimum
 feedback arc set from a "noisy hierarchy" and create a directed
 acyclic graph. <code>stepwise</code> takes a similar approach by computing all
@@ -469,10 +470,10 @@ feedback arc set from [@baharev2021exact], called <code>mfas</code> in
 <li> <strong>Generate all compatible topological sortings</strong>. The elements of
 $\mathbf{A}$ are now to be converted into acyclic tournaments. We
 achieve this by computing all topological sortings for each element
-$A \in \mathbf{A}$ with a recursive algorithm based on Kahn's
-algorithm [@kahn1962topological] that appends nodes with in-degree 0
-in front of a strict order $C$. The result is a set of acyclic
-tournaments $\mathbf{C}$ on $\Omega$.</li>
+$A \in \mathbf{A}$ with a recursive algorithm based on <a href="https://en.wikipedia.org/wiki/Kahn's_algorithm">Kahn's
+algorithm</a> that
+appends nodes with in-degree 0 in front of a strict order $C$. The
+result is a set of acyclic tournaments $\mathbf{C}$ on $\Omega$.</li>
 </ul>
 <p><em><strong>Algorithm 2</strong>: Computing <code>stepwise</code></em></p>
 <pre><code>function stepwise(G)
@@ -676,13 +677,14 @@ of <code>HodgeRank</code>.</p>
     return Gr
 </code></pre>
 <h3 id="Criteria"><a class="hanchor" href="#Criteria">Criteria</a></h3>
-<p>Given the algorithms outlined above, one might want to compare them
-according to different criteria, similar to the method of evaluating
-voting methods in social choice theory by some criteria
-[@banks2000positive ch. 2], such as the Condorcet criterion
-[@mclean1990borda] or manipulability [@gibbard1973manipulation]. For
-this purpose, we examine the algorithms with regards to the
-computational complexity, size of output, and two additional criteria.</p>
+<p>Given the algorithms outlined above, one might want to compare
+them according to different criteria, similar to the method
+of evaluating voting methods in social choice theory by some
+criteria [@banks2000positive ch. 2], such as the <a href="https://en.wikipedia.org/wiki/Condorcet_Criterion">Condorcet
+criterion</a> or
+<a href="https://en.wikipedia.org/wiki/Strategic_Voting">manipulability</a>. For
+this purpose, we examine the algorithms with regards to the computational
+complexity, size of output, and two additional criteria.</p>
 <h4 id="Surjectivity_and_Identity"><a class="hanchor" href="#Surjectivity_and_Identity">Surjectivity and Identity</a></h4>
 <p>A fairly intuitive criterion is that for a given method of resolution
 <code>$f$</code>, and for every <code>$C \in \mathfrak{C}_{\Omega}$</code>, there
@@ -796,11 +798,12 @@ elements of the set of results).</p>
 <p>However, results from two different fields apply to this case.</p>
 <ul>
 <li> <strong>Social Choice Theory</strong>: Since all elements of <code>$\mathbf{C}_G=f(G)$</code>
-are complete, transitive, and asymmetric, one can apply the large
-toolbox of methods and results from social choice theory
-[@banks2000positive] to elements from <code>$\mathbf{C}_G$</code> by treating
-them as individual preferences in a preference profile by applying a
-social welfare function in sense of Arrow to it [@gaertner2009primer
+are complete, transitive, and asymmetric, one can apply
+the large toolbox of methods and results from <a href="https://en.wikipedia.org/wiki/Social_choice_theory">social choice
+theory</a> to
+elements from <code>$\mathbf{C}_G$</code> by treating them as individual
+preferences in a preference profile by applying a social
+welfare function in sense of Arrow to it [@gaertner2009primer
 ch.2]. Some impossibility results such as <a href="https://en.wikipedia.org/wiki/Arrow's_Impossibility_Theorem">Arrow's impossibility
 theorem</a>
 still apply, but at least results about
@@ -931,7 +934,8 @@ no graphs of size 3 with confusion 4 (or 5).</p>
 </table>
 <p>Interestingly, neither <code>$|\mathbf{G}_{n,1}|$</code> nor
 <code>$|\mathbf{G}_{n,1}|/n!$</code> are known integer sequences: a search on the
-OEIS and via SuperSeeker [@sloane2003line] yield no matching results.</p>
+<a href="https://en.wikipedia.org/wiki/On-line_Encyclopedia_of_Integer_Sequences">OEIS</a>
+and via SuperSeeker [@sloane2003line] yield no matching results.</p>
 <p><strong>Conjecture 1</strong>. The average confusion of all directed graphs with size
 <code>$n$</code> diverges to infinity:</p>
 <div>
@@ -1006,19 +1010,21 @@ with <code>$n$</code> nodes, and let <code>$\mathcal{S}_G$</code> be the set of 
 consistent subgraphs of <code>$G$</code>. Then there exists no polynomial <code>$p$</code> so so
 that <code>$\forall G \in \mathfrak{P}_n: |\mathcal{S}_G| \le p(n)$</code>.</p>
 <p><em>Proof.</em> <a href="./doc/math/on_cliques_in_graphs_moon_moser_1965.pdf">Moon &amp; Moser
-1965</a> describe how to
-construct an undirected graph <code>$G_n=(V_G,E_G)$</code> with <code>$n$</code> vertices and
-<code>$3^{\frac{n}{3}}$</code> inclusion-maximal cliques. Then one can construct a
-directed graph <code>$P_n=(V_P,E_P)$</code> with <code>$3^{\frac{n}{3}}\approx 1.4422^n$</code>
-inclusion-maximal consistent subgraphs from <code>$G_n$</code>, which grows faster
-than any polynomial. First, <code>$P_n$</code> receives the same vertices as <code>$G_n$</code>.
-Then, every <code>$v \in V$</code> is assigned a unique number <code>$j(v): V \rightarrow
-\mathbb{N}$</code>, and for each <code>$\{u,v\} \in E_G$</code>, the set of edges <code>$E_P$</code>
-contains <code>$(u,v)$</code> if and only if <code>$j(u)&gt;j(v)$</code>, and <code>$(v,u)$</code> if and
-only if <code>$j(v)&gt;j(u)$</code>. Now, if a subgraph <code>$\mathit{S}_G$</code> of <code>$G_n$</code>
-with vertices <code>$V_{\mathit{S}}$</code> is a maximal clique, then a subgraph
-<code>$\mathit{S}_P$</code> of <code>$P_n$</code> with vertices <code>$V_{\mathit{S}}$</code> is an
-inclusion-maximal consistent subgraph in <code>$P_n$</code>:</p>
+1965</a>
+describe how to construct an undirected graph <code>$G_n=(V_G,E_G)$</code>
+with <code>$n$</code> vertices and <code>$3^{\frac{n}{3}}$</code> inclusion-maximal
+<a href="https://en.wikipedia.org/wiki/Clique_(graph_theory)">cliques</a>. Then
+one can construct a directed graph <code>$P_n=(V_P,E_P)$</code> with
+<code>$3^{\frac{n}{3}}\approx 1.4422^n$</code> inclusion-maximal consistent
+subgraphs from <code>$G_n$</code>, which grows faster than any polynomial. First,
+<code>$P_n$</code> receives the same vertices as <code>$G_n$</code>.  Then, every <code>$v \in V$</code> is
+assigned a unique number <code>$j(v): V \rightarrow \mathbb{N}$</code>, and for each
+<code>$\{u,v\} \in E_G$</code>, the set of edges <code>$E_P$</code> contains <code>$(u,v)$</code> if and
+only if <code>$j(u)&gt;j(v)$</code>, and <code>$(v,u)$</code> if and only if <code>$j(v)&gt;j(u)$</code>. Now,
+if a subgraph <code>$\mathit{S}_G$</code> of <code>$G_n$</code> with vertices <code>$V_{\mathit{S}}$</code>
+is a maximal clique, then a subgraph <code>$\mathit{S}_P$</code> of <code>$P_n$</code> with
+vertices <code>$V_{\mathit{S}}$</code> is an inclusion-maximal consistent subgraph in
+<code>$P_n$</code>:</p>
 <ol>
 <li><p><code>$\mathit{S}_P$</code> is complete, because for every <code>$\{u,v\}$</code> in
 <code>$\mathit{S}_G$</code>, either <code>$(u,v)$</code> or <code>$(v,u)$</code> exists in <code>$\mathit{S}_P$</code>.</p></li>
@@ -1745,7 +1751,7 @@ can be represented by the set <code>$\mathfrak{G}_{\Omega}$</code> of edge-weigh
 directed graphs on <code>$\Omega$</code>, where edge weights of a graph <code>$G$</code> can
 be expressed as the values of a function <code>$w_G: \Omega \times \Omega
 \rightarrow \mathbb{R}$</code>.</p>
-<p>#<strong>Definition 12</strong>. The subset <code>$\mathfrak{S}_{\Omega} \subset
+<p><strong>Definition 12</strong>. The subset <code>$\mathfrak{S}_{\Omega} \subset
 \mathfrak{G}_{\Omega}$</code> of consistent preferences on <code>$\Omega$</code> is
 the set of all edge-weighted directed graphs that is <strong>complete</strong>,
 <strong>transitive</strong>, <strong>irreflexive</strong> and <strong>weight-transitive</strong>, where
@@ -1793,15 +1799,20 @@ graph into an edge-weighted consistent graph.</p>
 <p>Some other possible candidates for methods for resolving inconsistent
 preferences over edge-weighted graphs were considered, and finally
 rejected.</p>
-<p>One option was the <code>PageRank</code> algorithm [@bianchini2005inside], also
-mentioned in <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a>. We rejected PageRank for the
-same reason as <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a> did: In a directed acyclic
-graph, a unique greatest element does not necessarily receive the
-highest ranking. This problem extends to using other centrality measures
-for graphs such as degree centrality and betweenness centrality
-[@zhang2017degree]: In graphs that are already consistent, the greatest
-element usually receives a low centrality score, and elements closer to
-the center receive larger scores, which is counter to our criteria.</p>
+<p>One option was the <a href="https://en.wikipedia.org/wiki/PageRank"><code>PageRank</code></a>
+algorithm, also mentioned in <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
+2017</a>.
+We rejected PageRank for the same reason as <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
+2017</a>
+did: In a directed acyclic graph, a unique greatest element does
+not necessarily receive the highest ranking. This problem extends
+to using other centrality measures for graphs such as <a href="https://en.wikipedia.org/wiki/Degree_centrality">degree
+centrality</a>
+and <a href="https://en.wikipedia.org/wiki/Betweenness_centrality">betweenness
+centrality</a>: In
+graphs that are already consistent, the greatest element usually receives
+a low centrality score, and elements closer to the center receive larger
+scores, which is counter to our criteria.</p>
 <h3 id="HodgeRank"><a class="hanchor" href="#HodgeRank"><code>HodgeRank</code></a></h3>
 <p><code>HodgeRank</code>, introduced in <a href="./doc/preference/statistical_ranking_and_combinatorial_hodge_theory_jiang_et_al_2011.pdf">Jiang et al. 2011</a>, is an
 algorithm based on Hodge theory from algebraic geometry for decomposing
@@ -1846,30 +1857,27 @@ which have a non-<code>nan</code> rating for both nodes in the edge. In the case
 where we do not take the social choice view, we can assume that
 $\forall e \in E: l(e)=1$, which does not change the process of
 computing the output of <code>HodgeRank</code>.</p>
-<p>::: algorithm
-::: algorithmic
-Revert all $e \in E$ with $w(e)&lt;0$ so that they now have positive
+<!--TODO: fix this-->
+<p>Revert all $e \in E$ with $w(e)&lt;0$ so that they now have positive
 weight. $f \gets (w(e<em>1), \dots, w(e</em>k))$
 $L \gets \text{diag}(l(e<em>1), \dots, l(e</em>k))$ $\text{diag}$ is the
 diagonal matrix of a vector $O \gets \mathbf{0}^{|E| \times |\Omega|}$
 The zero matrix of size $|E| \times |\Omega|$. $O<em>{eu} \gets -1$,
 $O</em>{ev} \gets 1$ $s \gets -(O<sup>{\top}LO)</sup>+O^{\top}Lf$ $A^+$ is the
-Penrose-Moore pseudo-inverse of $A$ $s$
-:::
-:::</p>
-<p>#<strong>Remark 5</strong>. One might ask, under the social choice view, whether it
-makes sense for some voter $v \in V$ to lie about their preferences over
-$A$ in order to change the output of <code>HodgeRank</code> to correspond to their
-own ranking ordinally. In fact this is the case and therefore
+Penrose-Moore pseudo-inverse of $A$ $s$</p>
+<p><strong>Remark 5</strong>. One might ask, under the social choice view, whether it
+makes sense for some voter <code>$v \in V$</code> to lie about their preferences
+over <code>$A$</code> in order to change the output of <code>HodgeRank</code> to correspond
+to their own ranking ordinally. In fact this is the case and therefore
 <code>HodgeRank</code> is not strategy-free.</p>
 <p>It is easy to find an example for this: Assume there are three options
-$A={a,b,c}$, and three voters $V={1,2,3}$, and let the cardinal
-values assigned to the options be $u<em>1(a)=4, u</em>1(b)=3, u<em>2(b)=4,
-u</em>2(c)=3, u<em>3(c)=4, u</em>3(a)=3$, with the rest of the values assigned to
+<code>$A=\{a,b,c\}$</code>, and three voters <code>$V=\{1,2,3\}$</code>, and let the cardinal
+values assigned to the options be <code>$u_1(a)=4, u_1(b)=3, u_2(b)=4,
+u_2(c)=3, u_3(c)=4, u_3(a)=3$</code>, with the rest of the values assigned to
 the options being <code>nan</code>. Then the values <code>HodgeRank</code> assigns to the
-options are $h(a)=h(b)=h(c)=0$. But voter 1 can change their reported
-assignments to be $u<em>1'(a)=5, u</em>1'(b)=3, u_1'(c)=1$, changing the
-outputs of <code>HodgeRank</code> to $h'(a)=1, h'(b)=0$ and $h'(c)=-1$, which is
+options are <code>$h(a)=h(b)=h(c)=0$</code>. But voter 1 can change their reported
+assignments to be <code>$u_1'(a)=5, u_1'(b)=3, u_1'(c)=1$</code>, changing the
+outputs of <code>HodgeRank</code> to <code>$h'(a)=1, h'(b)=0$</code> and <code>$h'(c)=-1$</code>, which is
 more compatible with their preferences.</p>
 <p>It would be interesting to investigate the computational complexity of
 finding manipulations of existing preference of one voter to ordinally
@@ -1894,15 +1902,15 @@ in <code>$\mathcal{O}(n^9)$</code>.</li>
 returns a result, even if edges are missing or there are
 positive-valued cycles in the data.</li>
 <li> <strong>Relation to known solution concepts from social choice theory</strong>:
-If $G$ has no missing edges and $w$ is defined for every edge,
+If <code>$G$</code> has no missing edges and <code>$w$</code> is defined for every edge,
 <code>HodgeRank</code> returns an affine transformation of the result that the
 Borda count would return.</li>
 </ul>
 <p>In the context of inconsistent preferences, <code>HodgeRank</code> can
 be interpreted as taking the observed preferences of an agent
 as an edge-weighted directed graph, and decomposing it so that
-the potential function $p$ determines how much the agent values
-different elements in $V$. Here $p$ can act as a utility function. The
+the potential function <code>$p$</code> determines how much the agent values
+different elements in <code>$V$</code>. Here <code>$p$</code> can act as a utility function. The
 social-choice theoretic perspective offers an intriguing possibility
 of modeling agents as being comprised of subagents <a href="./doc/cs/ai/alignment/agent_foundations/embedded_agency_demski_garrabrant_2020.pdf">Demski &amp; Garrabrant
 2019</a>,
@@ -1919,13 +1927,14 @@ refers to a scenario in which an agent has preferences, defined over
 some world model, and then the world model changes without corresponding
 changes in the values <a href="./doc/cs/ai/alignment/ontological_crises/ontological_crises_in_artificial_agents_value_systems_de_blanc_2011.pdf">de Blanc 2011</a>.</p>
 <p>An example of this can be observed in human values before and after
-exposure to philosophy: A human might have a value they would formulate
-as "I value the continuation of my life". However, after reading
-[@parfit1984reasons pt. 3], the view of personal identity that justifies
-a notion of "continuation" might seem much less defensible, as thought
-experiments around teleportation, the fusion and fission of persons,
-gradual replacement of the body or atom-by-atom recreation of the body
-all undermine the concept of a single fixed personal identity.</p>
+exposure to philosophy: A human might have a value they would formulate as
+"I value the continuation of my life". However, after reading <a href="https://en.wikipedia.org/wiki/Reasons_and_Persons">Reasons
+and Persons</a>, the
+view of personal identity that justifies a notion of "continuation" might
+seem much less defensible, as thought experiments around teleportation,
+the fusion and fission of persons, gradual replacement of the body or
+atom-by-atom recreation of the body all undermine the concept of a single
+fixed personal identity.</p>
 <p>However, this person would likely not just give up their value of their
 continued existence, but instead attempt to "port it" to the new world
 model.</p>
@@ -1989,7 +1998,7 @@ can also be represented as a family of <a href="https://en.wikipedia.org/wiki/Ri
 matrices</a>
 <code>$\mathbf{T}(a)$</code> (the transition matrices), <code>$R$</code> can be encoded as
 a real-numbered vector with size <code>$n$</code>, and <code>$I$</code> can be described as
-real-numbered vector of size $n$ in which the elements sum to 1.</p>
+real-numbered vector of size <code>$n$</code> in which the elements sum to 1.</p>
 <div>
 $$\mathbf{T}(a)=\begin{pmatrix}
 P(s_0 | a, s_0) &amp; \cdots &amp; P(s_0 | a, s_n) \cr
@@ -2064,7 +2073,7 @@ $$\begin{aligned}
 \text{BisimulateShift}(\mathcal{M}_1, \mathcal{M}_2)=\underset{\phi, \psi}{\text{argmin }} \text{BisimulationDifference}(\mathcal{M}_1, \mathcal{M}_2)
 \end{aligned}$$
 </div>
-<p>The matrices $\phi$ and $\psi$ can be found by minising
+<p>The matrices <code>$\phi$</code> and <code>$\psi$</code> can be found by minising
 <code>$\text{BisimulationDifference}(\mathcal{M}_1, \mathcal{M}_2, \phi,
 \psi)$</code> with a hill-climbing algorithm from random initial values,
 or by gradient descent with BisimulationDifference as a loss function.</p>
@@ -2080,23 +2089,23 @@ using <code>$\phi$</code>: It is <code>$\mathbf{R}_2=\mathbf{R}_1^{\top} \phi$</
 <h5 id="Advantages"><a class="hanchor" href="#Advantages">Advantages</a></h5>
 <p>There are some advantages to taking this approach for resolving
 ontological crises. One is that it does not presuppose a known mapping
-between $S<em>1$ and $S</em>2$, and can infer the mapping solely from the
-transition behavior of $\mathcal{M}<em>1$ and $\mathcal{M}</em>2$.</p>
+between <code>$S_1$</code> and <code>$S_2$</code>, and can infer the mapping solely from the
+transition behavior of <code>$\mathcal{M}_1$</code> and <code>$\mathcal{M}_2$</code>.</p>
 <p>Another advantage is that for an exact solution found by BisumlateShift,
-the expected reward of repeating any action in $\mathcal{M}<em>2$ only
+the expected reward of repeating any action in <code>$\mathcal{M}_2$</code> only
 depends on the expected reward of executing the same action in
-$\mathcal{M}</em>2$ with a linear transformation of the initial state
+<code>$\mathcal{M}_2$</code> with a linear transformation of the initial state
 distribution.</p>
-<p><strong>Proposition 4</strong>. Let $\mathcal{M}<em>1, \mathcal{M}</em>2$ be two MDPs, and
-let $\phi, \psi$ be two matrices found by BisimulateShift, so that
-$\phi \psi=\mathbf{1}<em>{n</em>1}, \psi \phi=\mathbf{1}<em>{n</em>2}$ and $\psi
-\mathbf{T}<em>1(a) \phi=\mathbf{T}</em>2(a)$. For an action $a \in A$, let
-$r<em>2(a, k, \mathbf{i}</em>2)$ be the expected average reward of executing an
-action $a$ for $k \in \mathbb{N}$ times in the MDP $\mathcal{M}<em>2$ with
-an initial state distribution $\mathbf{i}</em>2 \in \mathbb{R}^{n<em>2}$, and
-$r</em>1(a, k, \mathbf{i}<em>1)$ the equivalent for $\mathcal{M}</em>1$ (where
-$\mathbf{i}<em>1 \in \mathbb{R}^{n</em>1}$. In matrix notation the expected
-average reward of executing $a$ for $k$ times in the two MDPs is</p>
+<p><strong>Proposition 4</strong>. Let <code>$\mathcal{M}_1, \mathcal{M}_2$</code> be two MDPs, and
+let <code>$\phi, \psi$</code> be two matrices found by BisimulateShift, so that
+<code>$\phi \psi=\mathbf{1}_{n_1}, \psi \phi=\mathbf{1}_{n_2}$</code> and <code>$\psi
+\mathbf{T}_1(a) \phi=\mathbf{T}_2(a)$</code>. For an action <code>$a \in A$</code>, let
+<code>$r_2(a, k, \mathbf{i}_2)$</code> be the expected average reward of executing an
+action <code>$a$</code> for <code>$k \in \mathbb{N}$</code> times in the MDP <code>$\mathcal{M}_2$</code> with
+an initial state distribution <code>$\mathbf{i}_2 \in \mathbb{R}^{n_2}$</code>, and
+<code>$r_1(a, k, \mathbf{i}_1)$</code> the equivalent for <code>$\mathcal{M}_1$</code> (where
+<code>$\mathbf{i}_1 \in \mathbb{R}^{n_1}$</code>. In matrix notation the expected
+average reward of executing <code>$a$</code> for <code>$k$</code> times in the two MDPs is</p>
 <div>
     $$r_1(a, k, \mathbf{i}_1)=\frac{1}{k} \sum_{i=1}^{k} \mathbf{R}_1^\top \times (\mathbf{T}_1(a))^i \times \mathbf{i}_1$$
 </div>
@@ -2104,11 +2113,11 @@ average reward of executing $a$ for $k$ times in the two MDPs is</p>
 <div>
     $$r_2(a, k, \mathbf{i}_2)=\frac{1}{k} \sum_{i=1}^{k} (\mathbf{R}_1^{\top} \phi) \times \mathbf{T}_2(a)^i \times \mathbf{i}_2$$
 </div>
-<p>Then $r<em>2(a, k, \mathbf{i}</em>2)=r<em>1(a, k, \mathbf{M} \mathbf{i}</em>2)$, where
-$\mathbf{M} \in \mathbb{R}^{n<em>1 \times n</em>1}$ and therefore $\mathbf{M}
-\mathbf{i}_1$ is a linear transformation of the distribution over
+<p>Then <code>$r_2(a, k, \mathbf{i}_2)=r_1(a, k, \mathbf{M} \mathbf{i}_2)$</code>, where
+<code>$\mathbf{M} \in \mathbb{R}^{n_1 \times n_1}$</code> and therefore <code>$\mathbf{M}
+\mathbf{i}_1$</code> is a linear transformation of the distribution over
 initial states.</p>
-<p><em>Proof.</em> $r<em>2(a, k, \mathbf{i}</em>2)$ can be expanded and simplified to</p>
+<p><em>Proof.</em> <code>$r_2(a, k, \mathbf{i}_2)</code>$ can be expanded and simplified to</p>
 <div>
     $$\begin{aligned}
     &amp;r_2(a, k, \mathbf{i}_2)= \\
@@ -2135,48 +2144,48 @@ for large ontologies", and their lack of clarity on the exact algorithm
 used (as well as the absence of any formal analysis of their method)
 makes it difficult to judge the computational complexity of the problem.
 It might be fruitful to study the convergence behavior of using
-different optimization procedures for finding $\phi$ and $\psi$ to make
+different optimization procedures for finding <code>$\phi$</code> and <code>$\psi$</code> to make
 further statements about the computational complexity of
 BisimulateShift.</p>
 <p>Finally, the setting of a "finite state model" or an MDP can't encode
-certain types of consistent preferences. Let $\mathcal{M}=(S={s, s'},
-A={a<em>1, a</em>2}, I, P, R)$, where $P(s, a<em>1, s')=P(s', a</em>1, s)=P(s, a<em>2,
-s)=P(s', a</em>2, s')=1$ (that is $a<em>1$ causes the agent to switch states,
-and $a</em>2$ is the action where the agent stays in the same state).</p>
-<p>Let now $t<em>1, t</em>2 \in (S \times A)^k \times S$ be two trajectories in
-$\mathcal{M}$, namely $t<em>1=(s, a</em>1, s', a<em>1, s, a</em>2, s)$ and
-$t<em>2=(s, a</em>2, s, a<em>1, s', a</em>1, s)$. Then the cumulative reward of both
-trajectories is the same, no matter the reward function: $R(t<em>1)=R(s,
-a</em>1, s')+R(s', a<em>1, s)+R(s, a</em>2, s)=R(s, a<em>2, s)+R(s, a</em>1, s')+R(s', a<em>1,
-s)=R(t</em>2)$. However, intuitively there should way a way to differently
-value these two trajectories: It should be possible to value be in $s'$
+certain types of consistent preferences. Let <code>$\mathcal{M}=(S=\{s, s'\},
+A=\{a_1, a_2\}, I, P, R)$</code>, where <code>$P(s, a_1, s')=P(s', a_1, s)=P(s, a_2,
+s)=P(s', a_2, s')=1$</code> (that is <code>$a_1$</code> causes the agent to switch states,
+and <code>$a_2$</code> is the action where the agent stays in the same state).</p>
+<p>Let now <code>$t_1, t_2 \in (S \times A)^k \times S$</code> be two trajectories in
+<code>$\mathcal{M}$</code>, namely <code>$t_1=(s, a_1, s', a_1, s, a_2, s)$</code> and
+<code>$t_2=(s, a_2, s, a_1, s', a_1, s)$</code>. Then the cumulative reward of both
+trajectories is the same, no matter the reward function: <code>$R(t_1)=R(s,
+a_1, s')+R(s', a_1, s)+R(s, a_2, s)=R(s, a_2, s)+R(s, a_1, s')+R(s', a_1,
+s)=R(t_2)$</code>. However, intuitively there should way a way to differently
+value these two trajectories: It should be possible to value be in <code>$s'$</code>
 earlier rather than later.</p>
 <h4 id="Using_Inconsistent_Preferences_to_Represent_Ontological_Crises"><a class="hanchor" href="#Using_Inconsistent_Preferences_to_Represent_Ontological_Crises">Using Inconsistent Preferences to Represent Ontological Crises</a></h4>
 <p>The framework of representing preferences as edge-weighted directed
-graphs on a set $\Omega$ of vertices, and consistent preferences as the
+graphs on a set <code>$\Omega$</code> of vertices, and consistent preferences as the
 set of edge-weighted acyclic tournaments on a set of deterministic
-options $\Omega$, can be used to represent ontological shifts.</p>
+options <code>$\Omega$</code>, can be used to represent ontological shifts.</p>
 <p><strong>Definition 17</strong>. Given a consistent edge-weighted graph
-$G=(\Omega, E_G, w)$, a <strong>graph-based ontological shift</strong> is a function
-from $\Omega$ to subsets of a new set of options $\Xi$, together with
-coefficients: $s: \Omega \rightarrow \mathcal{P}(\Xi \times [0,1])$,
-where $(\xi, c)
-\in s(\omega)$ means that $\omega \in \Omega$ in the old set of options
-turned out to be $\xi \in \Xi$ to the degree $c$. The larger $c$, the
-more $\omega$ is $\xi$.</p>
-<p>In this text, I will assume that $\forall \omega \in \Omega: 0 \le
-\sum_{(\xi, c) \in s(\omega)} c \le 1$.</p>
-<p>If the coefficients of the image of $\omega$ sum to 1, that means that
-$\omega$ has been completely "ported over" to $\Xi$. If they sum to less
-than 1, that means that $\omega$ was a (partially) confused concept, if
-the coefficients in the image sum to 0 (or $s(\omega)=\emptyset$), that
-means that $\omega$ was a wholly confused concept and does not actually
-exist. If the sum of the coefficients are $&gt;1$, that means that $\omega$
+<code>$G=(\Omega, E_G, w)$</code>, a <strong>graph-based ontological shift</strong> is a function
+from <code>$\Omega$</code> to subsets of a new set of options <code>$\Xi$</code>, together with
+coefficients: <code>$s: \Omega \rightarrow \mathcal{P}(\Xi \times [0,1])$</code>,
+where <code>$(\xi, c)
+\in s(\omega)$</code> means that <code>$\omega \in \Omega$</code> in the old set of options
+turned out to be <code>$\xi \in \Xi$</code> to the degree <code>$c$</code>. The larger <code>$c$</code>, the
+more <code>$\omega$</code> is <code>$\xi$</code>.</p>
+<p>In this text, I will assume that <code>$\forall \omega \in \Omega: 0 \le
+\sum_{(\xi, c) \in s(\omega)} c \le 1$</code>.</p>
+<p>If the coefficients of the image of <code>$\omega$</code> sum to 1, that means that
+<code>$\omega$</code> has been completely "ported over" to <code>$\Xi$</code>. If they sum to less
+than 1, that means that <code>$\omega$</code> was a (partially) confused concept, if
+the coefficients in the image sum to 0 (or <code>$s(\omega)=\emptyset$</code>), that
+means that <code>$\omega$</code> was a wholly confused concept and does not actually
+exist. If the sum of the coefficients are <code>$&gt;1$</code>, that means that <code>$\omega$</code>
 turned out to be "more real" than in the old set of options (which we
 exclude as an option here).</p>
-<p><strong>Definition 18</strong>. Given $G$, the result
-$G^{\star}=(\Xi, E^{\star}, w^{\star}: \Xi \times \Xi \rightarrow \mathbb{R})$
-after a graph-based ontological shift $s$ is an edge-weighted graph.</p>
+<p><strong>Definition 18</strong>. Given <code>$G$</code>, the result
+<code>$G^{\star}=(\Xi, E^{\star}, w^{\star}: \Xi \times \Xi \rightarrow \mathbb{R})$</code>
+after a graph-based ontological shift <code>$s$</code> is an edge-weighted graph.</p>
 <p>The output of the function <code>$t$</code> is a combination of the weights <code>$w$</code> of
 <code>$G$</code> and the coefficients of <code>$s$</code> (for all <code>$\omega_1, \omega_2$</code>):</p>
 <div>
@@ -2185,14 +2194,14 @@ after a graph-based ontological shift $s$ is an edge-weighted graph.</p>
 <p>Then for all <code>$\xi_1, \xi_2$</code> the value of <code>$w^{\star}(\xi_1, \xi_2)=t(\xi_1,
 \xi_2, G, s)$</code>.</p>
 <p><strong>Example 3</strong>. Let
-$\Omega={L \text{ (Land animals)}, A \text{ (Air animals)}, W
-\text{ (Water animals)}}$, and the current preference prefer land
-animals over air animals over water animals, that is $E_G={L
+<code>$\Omega=\{L \text{ (Land animals)}, A \text{ (Air animals)}, W
+\text{ (Water animals)}\}$</code>, and the current preference prefer land
+animals over air animals over water animals, that is <code>$E_G=\{L
 \overset{1}{\rightarrow} A, L \overset{1}{\rightarrow} W, A
-\overset{2}{\rightarrow} W}$.</p>
-<p>Let now $\Xi={M \text{ (Mammals)}, B \text{ (Birds)}, F \text{ (Fish)},
-I \text{ (Insects)}}$ be a set that better represents the available
-options, and let $s$ be</p>
+\overset{2}{\rightarrow} W\}$</code>.</p>
+<p>Let now <code>$\Xi=\{M \text{ (Mammals)}, B \text{ (Birds)}, F \text{ (Fish)},
+I \text{ (Insects)}\}$</code> be a set that better represents the available
+options, and let <code>$s$</code> be</p>
 <div>
     $$\begin{aligned}
     &amp;s(L)=\{(M, 0.5), (I, 0.5)\} \\
@@ -2231,13 +2240,13 @@ correctly weighted edges are ommitted for readability.</figcaption>
 <p>The procedure for resolving ontological crises by representing them as
 inconsistent preferences can be written as <strong>algorithm</strong>
 <a href="#alg:graphontocrisis">[alg:graphontocrisis]</a>. The algorithm takes a consistent
-edge-weighted graph $G$, a graph-based ontological shift $s$ mapping
-elements from $\Omega$ to a new set $\Xi$, together with coefficients,
+edge-weighted graph <code>$G$</code>, a graph-based ontological shift <code>$s$</code> mapping
+elements from <code>$\Omega$</code> to a new set <code>$\Xi$</code>, together with coefficients,
 and a method for resolving inconsistent preferences on edge-weighted
 graphs.</p>
-<p>It then creates a new graph $G^{\star}$, mapping all nodes using $s$ and
+<p>It then creates a new graph <code>$G^{\star}$</code>, mapping all nodes using <code>$s$</code> and
 creating new edges using the existing weights and coefficients with the
-function $t$ explained above. Finally, $G^{\star}$ is resolved into a
+function <code>$t$</code> explained above. Finally, <code>$G^{\star}$</code> is resolved into a
 consistent preference with the method <code>Resolve</code> (which may be specified
 externally, e.g. by using <code>HodgeRank</code> or dropping the weights and using
 <code>EGEDmin</code>).</p>
@@ -2253,57 +2262,53 @@ $(\Xi, E^{\star}, w^{\star})$. $G'$
 :::</p>
 <h5 id="Advantages_1"><a class="hanchor" href="#Advantages_1">Advantages</a></h5>
 <p>An advantage of <code>ResolveShift</code> over BisimulateShift is the set of
-preferences that can be represented by $G$ and $G'$. If $\Omega$ is the
-set of all finite sequences of state-action pairs $((S \times A)^k
-\times S)<em>{k \ge 0}$ then $t</em>1=(s, a<em>1, s', a</em>1, s, a<em>2, s)$ and
-$t</em>2=(s,
-a<em>2, s, a</em>1, s', a<em>1, s)$ are two different elements in $\Omega$, and a
-preference of $t</em>1$ over $t<em>2$ can be represented e.g. with an edge
-$t</em>1 \rightarrow t_2$ in $E$.</p>
+preferences that can be represented by <code>$G$</code> and <code>$G'$</code>. If <code>$\Omega$</code> is the
+set of all finite sequences of state-action pairs <code>$((S \times A)^k
+\times S)_{k \ge 0}$</code> then <code>$t_1=(s, a_1, s', a_1, s, a_2, s)$</code> and
+<code>$t_2=(s,
+a_2, s, a_1, s', a_1, s)$</code> are two different elements in <code>$\Omega$</code>, and a
+preference of <code>$t_1$</code> over <code>$t_2$</code> can be represented e.g. with an edge
+<code>$t_1 \rightarrow t_2$</code> in <code>$E$</code>.</p>
 <p>A further advantage of <code>ResolveShift</code> is that it has a polynomial
-runtime complexity of $\mathcal{O}(|E| \cdot m^2)$, which is a subset of
-the functions in $\mathcal{O}(n^2 \cdot m^2)$ (with $n=|\Omega|$, and
-$m=|\Xi|$), unlike BisimulateShift, which offers no such guarantees.</p>
+runtime complexity of <code>$\mathcal{O}(|E| \cdot m^2)$</code>, which is a subset of
+the functions in <code>$\mathcal{O}(n^2 \cdot m^2)$</code> (with <code>$n=|\Omega|$</code>, and
+<code>$m=|\Xi|$</code>), unlike BisimulateShift, which offers no such guarantees.</p>
 <h5 id="Disadvantages_1"><a class="hanchor" href="#Disadvantages_1">Disadvantages</a></h5>
-<p>If the dynamics (e.g. the transition function) of the elements of $\Xi$
-are known, then BisimulateShift is able to use this information to
-construct $R_2$. Additionally, if no mapping $s$ from $\Omega$ to $\Xi$
-exists (that is, only $\Omega$ and $\Xi$ are known, but their relations
-are not), then <code>ResolveShift</code> is not applicable.</p>
-<p>::: definition
-<strong>Definition 19</strong>. Let $f: \mathfrak{G} \rightarrow \mathfrak{S}$ be a
-method for resolving inconsistent preferences represented by
-edge-weighted graphs, and let $s<em>1, s</em>2, \dots, s<em>n$ (with
-$s</em>i: \Omega<em>i \rightarrow
-\mathcal{P}(\Omega</em>{i+1}) \times [0,1]$) be a family of functions
-describing ontological shifts.</p>
-<p>Let $g<em>1, g</em>2, \dots, g<em>n$ be a family of functions that return the
-result of <code>ResolveShift</code> using the shift function $s</em>i$ for $g<em>i$, but
-without executing a resolution procedure:
-$g</em>i(G<em>i)=\mathtt{ResolveShift}(G</em>i, s<em>i, \text{id})$, where $\text{id}:
-\mathfrak{P}</em>{\Omega<em>{i+1}} \rightarrow \mathfrak{P}</em>{\Omega_{i+1}}$ is
-the identity function.</p>
-<p>Let $G<em>1=(\Omega</em>1, E<em>1, w</em>1)$ be any arbitrary consistent preference on
-$\Omega_1$.</p>
-<p>Then $f$ is <strong>distributive over ontological shifts</strong> if and only if</p>
-<p>$$(f \circ g<em>n \circ \dots \circ g</em>2 \circ g<em>1)(G</em>1)=(f\circ g<em>n \circ f \circ \dots \circ f \circ g</em>2 \circ f \circ g<em>1)(G</em>1)$$
-:::</p>
+<p>If the dynamics (e.g. the transition function) of the elements of
+<code>$\Xi$</code> are known, then BisimulateShift is able to use this information
+to construct <code>$R_2$</code>. Additionally, if no mapping <code>$s$</code> from <code>$\Omega$</code>
+to <code>$\Xi$</code> exists (that is, only <code>$\Omega$</code> and <code>$\Xi$</code> are known,
+but their relations are not), then <code>ResolveShift</code> is not applicable.</p>
+<p><strong>Definition 19</strong>. Let <code>$f: \mathfrak{G} \rightarrow \mathfrak{S}$</code>
+be a method for resolving inconsistent preferences represented by
+edge-weighted graphs, and let <code>$s_1, s_2, \dots, s_n$</code> (with <code>$s_i:
+\Omega_i \rightarrow \mathcal{P}(\Omega_{i+1}) \times [0,1]$</code>) be a
+family of functions describing ontological shifts.</p>
+<p>Let <code>$g_1, g_2, \dots, g_n$</code> be a family of functions that return
+the result of <code>ResolveShift</code> using the shift function <code>$s_i$</code>
+for <code>$g_i$</code>, but without executing a resolution procedure:
+<code>$g_i(G_i)=\mathtt{ResolveShift}(G_i, s_i, \text{id})$</code>,
+where <code>$\text{id}: \mathfrak{P}_{\Omega_{i+1}} \rightarrow
+\mathfrak{P}_{\Omega_{i+1}}$</code> is the identity function.</p>
+<p>Let <code>$G_1=(\Omega_1, E_1, w_1)$</code> be any arbitrary consistent preference on
+<code>$\Omega_1$</code>.</p>
+<p>Then <code>$f$</code> is <strong>distributive over ontological shifts</strong> if and only if</p>
+<div>
+$$(f \circ g_n \circ \dots \circ g_2 \circ g_1)(G_1)=(f\circ g_n \circ f \circ \dots \circ f \circ g_2 \circ f \circ g_1)(G_1)$$
+</div>
 <p>Intuitively, this condition says that it shouldn't matter whether an
 agent changes their mind on which things exist to have preferences over
 multiple times, and then resolves the resulting preferences into
 consistent ones, <em>or</em> resolve their preferences after each time they
-undergo an ontological shift $s_i$.</p>
-<p>::: proposition
-<strong>Proposition 5</strong>. <code>HodgeRank</code> is not <strong>distributive over ontological
-shifts</strong>.
-:::</p>
-<p>::: proof
-<em>Proof.</em> It is easy to find examples where <code>HodgeRank</code> is not
+undergo an ontological shift <code>$s_i$</code>.</p>
+<p><strong>Proposition 5</strong>. <code>HodgeRank</code> is not <strong>distributive over ontological
+shifts</strong>.</p>
+<p><em>Proof.</em> It is easy to find examples where <code>HodgeRank</code> is not
 <strong>distributive over ontological shifts</strong>.</p>
-<p>Let $G<em>1=(\Omega={a, b}, E={(a \overset{1}{\rightarrow} b)})$. Let
-$s</em>1(a)={(d, 0.28)}$, $s<em>1(b)={(c, 0.57), (e, 0.43)}$. And let
-$s</em>2(c)={(f, 0.014)}$, $s<em>2(d)={}$, and $s</em>2(e)={(f, 0.34),
-(g, 0.66)}$.</p>
+<p>Let <code>$G_1=(\Omega=\{a, b\}, E=\{(a \overset{1}{\rightarrow} b)\})$</code>. Let
+<code>$s_1(a)=\{(d, 0.28)\}$</code>, <code>$s_1(b)=\{(c, 0.57), (e, 0.43)\}$</code>. And let
+<code>$s_2(c)=\{(f, 0.014)\}$</code>, <code>$s_2(d)=\{\}$</code>, and <code>$s_2(e)=\{(f, 0.34),
+(g, 0.66)\}$</code>.</p>
 <p>Then <strong>Figure</strong> <a href="#fig:nores_dist_example">17</a> shows applying the two ontological
 shifts $s<em>1, s</em>2$, and resolving in the end using <code>HodgeRank</code>, and
 <strong>Figure</strong> <a href="#fig:res_dist_example">21</a> shows applying <code>HodgeRank</code> after $s<em>1$
@@ -2352,8 +2357,7 @@ just <span class="math inline"><em>g</em><sub>1</sub>(<em>G</em><sub>1</sub>)</s
 The final preference shown in (c), <span class="math inline">(<code>H</code><code>o</code><code>d</code><code>g</code><code>e</code><code>R</code><code>a</code><code>n</code><code>k</code>∘<em>g</em><sub>2</sub>∘<code>H</code><code>o</code><code>d</code><code>g</code><code>e</code><code>R</code><code>a</code><code>n</code><code>k</code>∘<em>g</em><sub>1</sub>)(<em>G</em><sub>1</sub>)</span>
 is <em>not</em> indifferent between <span class="math inline"><em>f</em></span> and <span class="math inline"><em>g</em></span>, and slightly prefers <span class="math inline"><em>f</em></span>.</figcaption>
 </figure>
-<p> ◻
-:::</p>
+<p> ◻</p>
 <p>This example works because $d$ gets "deleted" from the set of options,
 so having all preferences depend on $d$ without resolving the
 incomparability between $c$ and $e$ results in there being no
