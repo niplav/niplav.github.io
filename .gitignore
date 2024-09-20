@@ -1,3 +1,4 @@
+*.html
 *.eps
 *.log
 *.aux
@@ -8,10 +9,6 @@
 .*vis*
 *.o
 !header.html
-code/turning/confusions.csv
-code/turning/subgraphs.csv
-code/turning/subgraphs_overview.csv
 __pycache__
-code/turning/confusions_fast.csv
-code/turning/gen_data_fast.py
-code/turning/subgraphs_fast.csv
+code/turning/*.csv
+code/turning/anim/media

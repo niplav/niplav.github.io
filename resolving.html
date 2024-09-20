@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-04-15, modified: 2024-09-04, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2023-04-15, modified: 2024-09-19, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>We consider the problem of resolving preferences
 that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
@@ -466,7 +466,7 @@ not violate asymmetry). The result is a set of directed acyclic
 graphs $\mathbf{A}$, one for each minimum feedback arc set removed
 from $G$. For this, one can use an algorithm for finding the minimum
 feedback arc set from [@baharev2021exact], called <code>mfas</code> in
-<strong>Algorithm</strong> <a href="#alg:stepwise">[alg:stepwise]</a>.</li>
+<code>stepwise</code>.</li>
 <li> <strong>Generate all compatible topological sortings</strong>. The elements of
 $\mathbf{A}$ are now to be converted into acyclic tournaments. We
 achieve this by computing all topological sortings for each element
@@ -2219,29 +2219,25 @@ are mostly fishes, and few mammals.</p>
 <p>(Ignoring, for the sake of simplicity of the example,
 <a href="https://en.wikipedia.org/wiki/Exocoetidae"><em>exocoetidae</em></a><sup id="fnref8"><a href="#fn8" rel="footnote">8</a></sup> and
 aquatic insects).</p>
-<figure id="fig:animals_example">
-<figure id="fig:animals_1">
-<img src="./img/resolving/animals_1.png"/>
-<figcaption>The initial preference <span class="math inline"><em>G</em></span>, as an edge-weighted
-graph.</figcaption>
-</figure>
-<figure id="fig:animals_2">
-<img src="./img/resolving/animals_2.png"/>
-<figcaption><span class="math inline"><em>G</em><sup>⋆</sup></span>,
-after applying the ontological shift <span class="math inline"><em>s</em></span> and determining the edge weights
-using <span class="math inline"><em>t</em></span>. Positive 3-cycle in
-red.</figcaption>
-</figure>
-<figure id="fig:animals_3">
-<img src="./img/resolving/animals_3.png"/>
-<figcaption><span class="math inline"><em>G</em>′</span> after applying
-a procedure for resolving the inconsistent preference <span class="math inline"><em>G</em><sup>⋆</sup></span>, in this case using
-<code>HodgeRank</code>.</figcaption>
-</figure>
-<figcaption>Undergoing an ontological shift <span class="math inline"><em>s</em></span> and then resolving the ontological
-crisis using <code>HodgeRank</code>. In the right image transitive
-correctly weighted edges are ommitted for readability.</figcaption>
-</figure>
+<table>
+<thead>
+<tr>
+<th style="text-align: left">The initial preference <code>$G$</code>, as an edge-weighted graph.</th>
+<th style="text-align: left"><code>$G^*$</code>, after applying the ontological shift <code>$s$</code> and determining the edge weights using <code>$t$</code>. Positive 3-cycle in red.</th>
+<th style="text-align: left"><code>$G'$</code> after applying a procedure for resolving the inconsistent preference <code>$G^*$</code>, in this case using <code>HodgeRank</code>.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left"><img alt="" src="./img/resolving/animals_1.png"/></td>
+<td style="text-align: left"><img alt="" src="./img/resolving/animals_2.png"/></td>
+<td style="text-align: left"><img alt="" src="./img/resolving/animals_3.png"/></td>
+</tr>
+</tbody>
+</table>
+<p><em>Undergoing an ontological shift <code>$s$</code> and then resolving the ontological
+crisis using <code>HodgeRank</code>. In the right image transitive correctly weighted
+edges are ommitted for readability.</em></p>
 <p>The procedure for resolving ontological crises by representing them as
 inconsistent preferences is in pseudocode below as <code>ResolveShift</code>. The
 algorithm takes a consistent edge-weighted graph <code>$G$</code>, a graph-based
@@ -2319,50 +2315,41 @@ shifts</strong>.</p>
 s_2$</code>, and resolving in the end using <code>HodgeRank</code>, and <strong>Figure</strong>
 21 shows applying <code>HodgeRank</code> after <code>$s_1$</code> and then again after
 <code>$s_2$</code>. The final graphs have different weights.</p>
-<figure id="fig:nores_dist_example">
-<figure id="fig:distr_1">
-<img src="./img/resolving/distr_example_1.png"/>
-<figcaption aria-hidden="true"></figcaption>
-</figure>
-<figure id="fig:distr_2">
-<img src="./img/resolving/distr_example_2.png"/>
-<figcaption aria-hidden="true"></figcaption>
-</figure>
-<figure id="fig:distr_3">
-<img src="./img/resolving/distr_example_3.png"/>
-<figcaption aria-hidden="true"></figcaption>
-</figure>
-<figure id="fig:distr_3">
-<img src="./img/resolving/distr_example_final.png"/>
-<figcaption aria-hidden="true"></figcaption>
-</figure>
-<figcaption>In (a) we have the initial preference <span class="math inline"><em>G</em><sub>1</sub></span>, as an edge-weighted
-graph. (b) shows the unresolved preference <span class="math inline"><em>g</em><sub>1</sub>(<em>G</em><sub>1</sub>)</span>,
-and (c) shows <span class="math inline"><em>g</em><sub>2</sub>(<em>g</em><sub>1</sub>(<em>G</em><sub>1</sub>))</span>,
-which has no edges. As a result, finally resolving <span class="math inline"><em>g</em><sub>2</sub>(<em>g</em><sub>1</sub>(<em>G</em>))</span>
-using <code>HodgeRank</code> results in a graph in which there is
-indifference between the vertices <span class="math inline"><em>f</em></span> and <span class="math inline"><em>g</em></span>.</figcaption>
-</figure>
-<figure id="fig:res_dist_example">
-<figure id="fig:res_distr_1">
-<img src="./img/resolving/distr_example_1.png"/>
-<figcaption aria-hidden="true"></figcaption>
-</figure>
-<figure id="fig:res_distr_2">
-<img src="./img/resolving/distr_example_res_2.png"/>
-<figcaption aria-hidden="true"></figcaption>
-</figure>
-<figure id="fig:res_distr_3">
-<img src="./img/resolving/distr_example_res_3.png"/>
-<figcaption aria-hidden="true"></figcaption>
-</figure>
-<figcaption>(a) again shows the initial preference <span class="math inline"><em>G</em><sub>1</sub></span>. (b) is <span class="math inline"><code>H</code><code>o</code><code>d</code><code>g</code><code>e</code><code>R</code><code>a</code><code>n</code><code>k</code>(<em>g</em><sub>1</sub>(<em>G</em><sub>1</sub>))</span>,
-which has an edge between <span class="math inline"><em>e</em></span>
-and <span class="math inline"><em>c</em></span>, unlike the result of
-just <span class="math inline"><em>g</em><sub>1</sub>(<em>G</em><sub>1</sub>)</span>.
-The final preference shown in (c), <span class="math inline">(<code>H</code><code>o</code><code>d</code><code>g</code><code>e</code><code>R</code><code>a</code><code>n</code><code>k</code>∘<em>g</em><sub>2</sub>∘<code>H</code><code>o</code><code>d</code><code>g</code><code>e</code><code>R</code><code>a</code><code>n</code><code>k</code>∘<em>g</em><sub>1</sub>)(<em>G</em><sub>1</sub>)</span>
-is <em>not</em> indifferent between <span class="math inline"><em>f</em></span> and <span class="math inline"><em>g</em></span>, and slightly prefers <span class="math inline"><em>f</em></span>.</figcaption>
-</figure>
+<table>
+<thead>
+<tr>
+<th style="text-align: left">The initial preference <code>$G_1$</code>, as an edge-weighted graph.</th>
+<th style="text-align: left">The unresolved preference <code>$g_1(G_1)$</code>.</th>
+<th style="text-align: left"><code>$g_2(g_1(G_1))$</code>, which has no edges.</th>
+<th style="text-align: left">Resolving <code>$g_2(g_1(G_1))$</code> using <code>HodgeRank</code> results in a graph in which there is indifference between the vertices <code>$f$</code> and <code>$g$</code>.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left"><img alt="" src="./img/resolving/distr_example_1.png"/></td>
+<td style="text-align: left"><img alt="" src="./img/resolving/distr_example_2.png"/></td>
+<td style="text-align: left"><img alt="" src="./img/resolving/distr_example_3.png"/></td>
+<td style="text-align: left"><img alt="" src="./img/resolving/distr_example_final.png"/></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<table>
+<thead>
+<tr>
+<th style="text-align: left">The initial preference <code>$G_1$</code>.</th>
+<th style="text-align: left"><code>$\mathtt{HodgeRank}(g_1(G_1))$</code>, which has an edge between <code>$e$</code> and <code>$c$</code>, unlike the result of just <code>$g_1(G_1)$</code>.</th>
+<th style="text-align: left">The final preference, <code>$(\mathtt{HodgeRank}∘g_2∘\mathtt{HodgeRank}∘g_1)(G_1)$</code> is <em>not</em> indifferent between <code>$f$</code> and <code>$g$</code>, and slightly prefers <code>$f$</code>.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left"><img alt="" src="./img/resolving/distr_example_1.png"/></td>
+<td style="text-align: left"><img alt="" src="./img/resolving/distr_example_res_2.png"/></td>
+<td style="text-align: left"><img alt="" src="./img/resolving/distr_example_res_3.png"/></td>
+</tr>
+</tbody>
+</table>
 <p> ◻</p>
 <p>This example works because <code>$d$</code> gets "deleted" from the set of
 options, so having all preferences depend on <code>$d$</code> without resolving
@@ -2469,41 +2456,38 @@ surprising ideas in the lottery case.</p>
 <li id="fn1">
 <p>The notation for lotteries is common in social choice theory
 [@gaertner2009primer ch. 8.2]. Some sources would instead write this
-as $p<em>1 \cdot \omega</em>1 + p<em>2 \cdot
-\omega</em>2$ [@von1947theory], but I have decided against it, since no
-addition is actually taking place. <a href="#fnref1" rev="footnote">↩</a></p>
+as <code>$p_1 \cdot \omega_1 + p_2 \cdot \omega_2$</code> [@von1947theory], but
+I have decided against it, since no addition is actually taking place. <a href="#fnref1" rev="footnote">↩</a></p>
 </li>
 <li id="fn2">
 <p>Unless further specified, in this text it will always be the case
-that the nodes of $G$ are called $\Omega$ and its edges are called
-$E$. <a href="#fnref2" rev="footnote">↩</a></p>
+that the nodes of <code>$G$</code> are called <code>$\Omega$</code> and its edges are called
+<code>$E$</code>. <a href="#fnref2" rev="footnote">↩</a></p>
 </li>
 <li id="fn3">
 <p>Sample size too small. <a href="#fnref3" rev="footnote">↩</a></p>
 </li>
 <li id="fn4">
-<p>Without reflexive edges $(\xi, \xi) \in E$. <a href="#fnref4" rev="footnote">↩</a></p>
+<p>Without reflexive edges <code>$(\xi, \xi) \in E$</code>. <a href="#fnref4" rev="footnote">↩</a></p>
 </li>
 <li id="fn5">
-<p>This definition allows for there to be graph $G$, a consistent
-subgraph $\mathit{S}<em>G$ of $G$ and resolved weakly consistent graph
-$W=(\Omega,
-E</em>W) \in f(G)$ such that there exist nodes
-$\omega<em>1, \omega</em>2 \in \Omega$ in $\mathit{S}<em>G$ which are not
-<em>strictly</em> ordered in $W$, that is both
-$\omega</em>1 \rightarrow \omega<em>2 \in E</em>W$ and $\omega<em>2 \rightarrow
-\omega</em>1 \in E<em>W$. It is possible to define a stronger criterion,
-<strong>Strict Preservation of Consistent Subgraphs</strong>, which requires that
-for such $\omega</em>1, \omega<em>2$ <em>only</em> the edge $\omega</em>1
-\rightarrow \omega<em>2$ being present in $E</em>W$, but we will not work
-with that definition here. <a href="#fnref5" rev="footnote">↩</a></p>
+<p>This definition allows for there to be graph <code>$G$</code>, a consistent
+subgraph <code>$\mathit{S}_G$</code> of <code>$G$</code> and resolved weakly consistent graph
+<code>$W=(\Omega, E_W) \in f(G)$</code> such that there exist nodes <code>$\omega_1,
+\omega_2 \in \Omega$</code> in <code>$\mathit{S}_G$</code> which are not <em>strictly</em>
+ordered in <code>$W$</code>, that is both <code>$\omega_1 \rightarrow \omega_2 \in
+E_W$</code> and <code>$\omega_2 \rightarrow \omega_1 \in E_W$</code>. It is possible
+to define a stronger criterion, <strong>Strict Preservation of Consistent
+Subgraphs</strong>, which requires that for such <code>$\omega_1, \omega_2$</code> <em>only</em>
+the edge <code>$\omega_1 \rightarrow \omega_2$</code> being present in <code>$E_W$</code>,
+but we will not work with that definition here. <a href="#fnref5" rev="footnote">↩</a></p>
 </li>
 <li id="fn6">
 <p>Only if the output is allowed to be a weak ordering. <a href="#fnref6" rev="footnote">↩</a></p>
 </li>
 <li id="fn7">
-<p>Russell and Norvig note that sometimes $R$ takes actions into
-account as well: $R: S \times A \times S \rightarrow \mathbb{R}$
+<p>Russell and Norvig note that sometimes <code>$R$</code> takes actions into
+account as well: <code>$R: S \times A \times S \rightarrow \mathbb{R}$</code>
 (with different rewards for transitioning to a state with different
 actions), but also notes that this merely simplifies the description
 of some environments, but doesn't change which environments can be

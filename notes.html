@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-05-22, modified: 2024-07-31, language: english, status: in progress, importance: 3, confidence: other</em></p>
+<p><em>author: niplav, created: 2019-05-22, modified: 2024-09-18, language: english, status: in progress, importance: 3, confidence: other</em></p>
 <blockquote>
 <p><strong>Short texts on different topics.</strong></p>
 </blockquote>
@@ -1428,33 +1428,7 @@ Calling that address starts the download process automatically.</p>
 <h2 id="A_Response_on_FOOM"><a class="hanchor" href="#A_Response_on_FOOM">A Response on FOOM</a></h2>
 <p>Moved <a href="./foom.html">here</a>.</p>
 <h2 id="Paternalism_May_Be_About_Mechanism_Design"><a class="hanchor" href="#Paternalism_May_Be_About_Mechanism_Design">Paternalism May Be About Mechanism Design</a></h2>
-<p>There's
-<a href="https://www.lesswrong.com/posts/6dSitnwYPg8i8NHn3/burch-s-law">been</a>
-<a href="https://www.overcomingbias.com/p/rational_agent_html">some</a>
-<a href="http://www.overcomingbias.com/2006/11/asymmetric_pate.html">discussion</a>
-<a href="https://musingsandroughdrafts.wordpress.com/2022/03/29/paternalism-is-about-outrage/">about</a>
-<a href="https://www.overcomingbias.com/p/paternalism_is_html">the origins</a>
-<a href="https://www.lesswrong.com/posts/wg5YpAofgbEg587d2/don-t-take-bad-options-away-from-people">of</a>
-<a href="https://www.overcomingbias.com/p/heres_my_openinhtml">paternalism</a>.</p>
-<p>I believe that there's another possible justification for paternalism:
-Intervening in situations between different actors to bring about
-Pareto-improved games.</p>
-<p>Let's take the <a href="https://en.wikipedia.org/wiki/Chicken_(game)">game of
-chicken</a>. If
-one <em>favors</em> a specific player, and one has access to their car
-before the game, one could remove the steering wheel to make their
-commitment for them—taking an option away, but still improving
-their situation by forcing the other player to swerve first,
-and guaranteeing the swerve (after all, it's a <a href="https://en.wikipedia.org/wiki/Dominant_Strategy">strictly dominant
-strategy</a>).</p>
-<p>In a less artificial context, one could see <a href="https://en.wikipedia.org/wiki/Minimum_wage_law">minimum wage
-laws</a> as an example of
-this. Disregarding potential effects from increased unemployment, having
-higher minimum wage removes the temptation of workers to accept lower
-wages. <a href="https://en.wikipedia.org/wiki/Braess_Paradox">Braess' paradox</a>
-is another instantiation of this problem.</p>
-<p>One can imagine a paternalist government as more of a <a href="https://en.wikipedia.org/wiki/Mechanism_Design">mechanism
-designer</a>, then.</p>
+<p>Moved <a href="./options.html">here</a>.</p>
 <h2 id="Scientific_and_Other_Classifications"><a class="hanchor" href="#Scientific_and_Other_Classifications">Scientific and Other Classifications</a></h2>
 <p>One might think all we do is stamp-collecting.</p>
 <ul>
@@ -1491,6 +1465,7 @@ designer</a>, then.</p>
 </ul></li>
 <li>Physics
 <ul>
+<li><a href="https://en.wikipedia.org/wiki/Atomic_Orbital#Orbitals_table">Orbitals</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Stellar_Classification">Standard Model</a>
 <ul>
 <li>Classifies all <a href="https://en.wikipedia.org/wiki/Fundamental_particles">fundamental particles</a></li>
@@ -1502,7 +1477,7 @@ designer</a>, then.</p>
 <li>Orbital mechanics
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Lagrange_Points">Lagrange points</a></li>
-<li>Different types of orbits</li>
+<li>Different <a href="https://en.wikipedia.org/wiki/List_of_orbits">types of orbits</a></li>
 </ul></li>
 </ul></li>
 </ul></li>
@@ -1930,30 +1905,5 @@ that <code>$(v, w) \in E_{k+1}$</code> if and only if <code>$(v_i, w_i) \in E_i$
 <code>$v \in f_i(v_i), w \in f_i(w_i)$</code>.</p>
 <!--TODO: weighted graph sevolution-->
 <h2 id="How_Often_Does_Taking_Away_Options_Help"><a class="hanchor" href="#How_Often_Does_Taking_Away_Options_Help">How Often Does Taking Away Options Help?</a></h2>
-<p>In some game-theoretic setups, <a href="./notes.html#Paternalism_May_Be_About_Mechanism_Design">taking
-options away from a player improves their
-situation</a>. I
-ran a <a href="https://en.wikipedia.org/wiki/Monte-Carlo_simulation">Monte-Carlo
-simulation</a> to
-figure out how often that is the case, generating random <a href="https://en.wikipedia.org/wiki/Normal-form_game">normal form
-games</a> with payoffs in
-<code>$[0,1]$</code>, removing a random option from the first player, and comparing
-the <a href="https://en.wikipedia.org/wiki/Nash_Equilibrium">Nash equilibria</a>
-found via <a href="https://en.wikipedia.org/wiki/Vertex_enumeration_problem">vertex
-enumeration</a>
-of the <a href="https://en.wikipedia.org/wiki/Best_response">best response</a>
-<a href="https://en.wikipedia.org/wiki/Polytope">polytope</a> (using
-<a href="https://www.theoj.org/joss-papers/joss.00904/10.21105.joss.00904.pdf">nashpy</a>)—the
-<a href="https://en.wikipedia.org/wiki/Lemke-Howson_algorithm">Lemke-Howson
-algorithm</a> was
-giving me duplicate results.</p>
-<p>The removal of an option for player A is considered an improvement for
-some player if the mean payoff across all equilibria in the game
-with removed option is strictly greater than the mean payoff across all
-equilibria in the full game. I.e., I assume that we are just as
-likely to land in one equilibrium as compared to any other.</p>
-<p><img alt="" src="./img/options/player_A.png"/></p>
-<p><img alt="" src="./img/options/player_B.png"/></p>
-<p>Code <a href="./code/options/options.py">here</a>, largely written by <a href="https://www.anthropic.com/news/claude-3-5-sonnet">Claude 3.5
-Sonnet</a>.</p>
+<p>Moved <a href="./options.html#Frequency">here</a>.</p>
 </body></html>

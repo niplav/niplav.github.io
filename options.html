@@ -33,14 +33,84 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2024-09-03, modified: 2024-09-03, language: english, status: notes, importance: 6, confidence: likely</em></p>
+<p><em>author: niplav, created: 2024-09-20, modified: 2024-09-20, language: english, status: draft, importance: 5, confidence: certain</em></p>
 <blockquote>
-<p><strong>In some game-theoretic setups,
-<a href="./notes.html#Paternalism_May_Be_About_Mechanism_Design">taking options away from a personimproves their
-situation</a>. I
-perform a <a href="https://en.wikipedia.org/wiki/Monte-Carlo_simulation">Monte-Carlo
-simulation</a> to
-figure out how often that is the case.</strong></p>
+<p><strong>In small normal-form games, taking away an option from a player
+improves the payoff of that player usually &lt;⅓ of the time, but improves
+the payoffs for the other player ½ of the time. The numbers depend on
+the size of the game; plotted <a href="#Plots">here</a>.</strong></p>
 </blockquote>
 <h1 id="How_Often_Does_Taking_Away_Options_Help"><a class="hanchor" href="#How_Often_Does_Taking_Away_Options_Help">How Often Does Taking Away Options Help?</a></h1>
+<p>There's
+<a href="https://www.lesswrong.com/posts/6dSitnwYPg8i8NHn3/burch-s-law">been</a>
+<a href="https://www.overcomingbias.com/p/rational_agent_html">some</a>
+<a href="http://www.overcomingbias.com/2006/11/asymmetric_pate.html">discussion</a>
+<a href="https://musingsandroughdrafts.wordpress.com/2022/03/29/paternalism-is-about-outrage/">about</a>
+<a href="https://www.overcomingbias.com/p/paternalism_is_html">the origins</a>
+<a href="https://www.lesswrong.com/posts/wg5YpAofgbEg587d2/don-t-take-bad-options-away-from-people">of</a>
+<a href="https://www.overcomingbias.com/p/heres_my_openinhtml">paternalism</a>.</p>
+<p>I believe that there's another possible justification for paternalism:
+Intervening in situations between different actors to bring about
+Pareto-improved games.</p>
+<p>Let's take the <a href="https://en.wikipedia.org/wiki/Chicken_(game)">game of
+chicken</a> between Abdullah
+and Benjamin. If a paternalist Petra <em>favors</em> Abdullah, and Petra has
+access to Abdullah's car before the game, Petra can remove the steering
+wheel to make Abdullah's commitment for them — taking an option
+away. This improves Abdullah's situation by forcing Benjamin to swerve
+first, and guaranteeing Abdullah's victory (after all, it's a <a href="https://en.wikipedia.org/wiki/Dominant_Strategy">strictly
+dominant strategy</a>
+for Benjamin to swerve).</p>
+<p>In a less artificial context, one could see <a href="https://en.wikipedia.org/wiki/Minimum_wage_law">minimum wage
+laws</a> as an example of
+this. Disregarding potential effects from increased unemployment, having
+higher minimum wage removes the temptation of workers to accept lower
+wages. <a href="https://en.wikipedia.org/wiki/Braess_Paradox">Braess' paradox</a>
+is another case where taking options away from people helps.</p>
+<h2 id="Frequency"><a class="hanchor" href="#Frequency">Frequency</a></h2>
+<p>We can figure this out by running a <a href="https://en.wikipedia.org/wiki/Monte-Carlo_simulation">Monte-Carlo
+simulation</a>.</p>
+<p>First, start by generating random <a href="https://en.wikipedia.org/wiki/Normal-form_game">normal form
+games</a>
+with payoffs in <code>$[0,1]$</code>. Then, compute the <a href="https://en.wikipedia.org/wiki/Nash_Equilibrium">Nash
+equilibria</a> for both players
+via <a href="https://en.wikipedia.org/wiki/Vertex_enumeration_problem">vertex
+enumeration</a>
+of the <a href="https://en.wikipedia.org/wiki/Best_response">best response</a>
+<a href="https://en.wikipedia.org/wiki/Polytope">polytope</a> (using
+<a href="https://www.theoj.org/joss-papers/joss.00904/10.21105.joss.00904.pdf">nashpy</a>)—the
+<a href="https://en.wikipedia.org/wiki/Lemke-Howson_algorithm">Lemke-Howson
+algorithm</a> was
+giving me duplicate results. Compute the payoffs for both Abdullah and Benjamin.</p>
+<p>Then, <em>remove</em> one option from Abdullah (which translates to deleting a
+row from the <a href="https://en.wikipedia.org/wiki/Payoff_Matrix">payoff matrix</a>).</p>
+<p>Calculate the Nash equilibria and payoffs again.</p>
+<p>We assume that all Nash equilibria are equally likely, so for each player
+we take the mean payoff across Nash equilibria.</p>
+<p>For a player, taking away one of Abdullah's options is considered an
+<em>improvement</em> iff the mean payoff in the original game is stricly lower
+than the mean payoff in the game with one option removed. Thus, one can
+improve the game for Abdullah by taking away one of his options, and
+one can improve the game for Benjamin by taking away one of Abdullah's
+options, or both.</p>
+<h2 id="Plots"><a class="hanchor" href="#Plots">Plots</a></h2>
+<p><img alt="" src="./img/options/player_A.png"/></p>
+<p><em>For games originally of size <code>$n \times m$</code>, how often is it the case that taking an option away from Abdullah improves the payoffs for Abdullah?</em></p>
+<p><img alt="" src="./img/options/player_B.png"/></p>
+<p><em>For games originally of size <code>$n \times m$</code>, how often is it the case that taking an option away from Abdullah improves the payoffs for Benjamin?</em></p>
+<h2 id="Interpretation"><a class="hanchor" href="#Interpretation">Interpretation</a></h2>
+<p>Abdullah is <em>most</em> helped by taking an option away from him when both
+he and Benjamin have a lot of options to choose from, e.g. in the case
+where both have six options. If Abdullah has many options and Benjamin has
+few, then taking an option away from Abdullah usually doesn't help him.</p>
+<p>Benjamin is much more likely to be in an improved position if one takes
+away an option from Abdullah, especially if Benjamin had many options
+available already—which suggests that in political situations, powerful
+players are incentivized to advocate for paternalism over weaker players.</p>
+<h2 id="Postscript"><a class="hanchor" href="#Postscript">Postscript</a></h2>
+<p>One can imagine a paternalist government as a <a href="https://en.wikipedia.org/wiki/Mechanism_Design">mechanism
+designer</a> with a
+bulldozer, then.</p>
+<p>Code <a href="./code/options/options.py">here</a>, largely written by <a href="https://www.anthropic.com/news/claude-3-5-sonnet">Claude 3.5
+Sonnet</a>.</p>
 </body></html>
