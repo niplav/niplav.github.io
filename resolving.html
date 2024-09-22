@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-04-15, modified: 2024-09-20, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2023-04-15, modified: 2024-09-22, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>We consider the problem of resolving preferences
 that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
@@ -59,19 +59,25 @@ the underlying set of objects changes.</strong></p>
 <h1 id="Resolving_von_NeumannMorgenstern_Inconsistent_Preferences"><a class="hanchor" href="#Resolving_von_NeumannMorgenstern_Inconsistent_Preferences">Resolving von Neumann-Morgenstern Inconsistent Preferences</a></h1>
 <p>In economics, decision theory, game theory and parts of artificial
 intelligence the standard approach to modeling actors is to assume those
-actors have a fixed utility function they optimise
-[@peterson2017introduction ch. 6] [@tadelis2013game ch. 2]
-[@russell2010artificial ch. 16], following the foundations laid by von
-Neumann and Morgenstern [@von1947theory ch. 3]. This model is quite
-appealing: It assigns a real-numbered value to each possible outcome,
-several theorems establish that an agent with a utility function can't
-be money-pumped [@gustafsson2022money], and it is compatible with taking
-Pareto improvements [@wald1947essentially].</p>
+actors have a fixed utility function they optimise <a href="https://www.goodreads.com/book/show/11729796-an-introduction-to-decision-theory">Peterson 2017, ch.
+6</a>,
+<a href="https://www.goodreads.com/book/show/15930573-game-theory">Tadelis 2013,
+ch. 2</a>,
+<a href="http://aima.cs.berkeley.edu/">Russel &amp; Norvig 2010, ch. 16</a>,
+following the foundations laid by von Neumann
+and Morgenstern <a href="https://www.goodreads.com/book/show/483055.Theory_of_Games_and_Economic_Behavior">von Neumann &amp; Morgenstern 1947, ch.
+3</a>.
+This model is quite appealing: It assigns a real-numbered value
+to each possible outcome, several theorems establish that an
+agent with a utility function can't be money-pumped <a href="https://johanegustafsson.net/books/money-pump-arguments/">Gustaffson
+2022</a>,
+and it is compatible with taking Pareto improvements <a href="https://projecteuclid.org/journals/annals-of-mathematical-statistics/volume-18/issue-4/An-Essentially-Complete-Class-of-Admissible-Decision-Functions/10.1214/aoms/1177730345.full">Wald
+1947</a>.</p>
 <p><img alt="" src="./img/resolving/dutch.jpg"/></p>
 <p>However, this model has come under criticism as being
-non-descriptive of human preferences, which can be
-experimentally shown to violate one or more of the von
-Neumann-Morgenstern axioms [@allais1953comportement] <a href="./doc/psychology/on_the_structural_consistency_of_preferences_el_gamal_2013.pdf">El Gamal
+non-descriptive of human preferences, which can be experimentally
+shown to violate one or more of the von Neumann-Morgenstern
+axioms <a href="https://www.jstor.org/stable/1907921">Allais 1953</a>, <a href="./doc/psychology/on_the_structural_consistency_of_preferences_el_gamal_2013.pdf">El Gamal
 2013</a>.
 Furthermore, the AI systems humanity has constructed so far usually have
 no in-built utility functions and appear inconsistent, as they are often
@@ -112,8 +118,9 @@ might construct such AI systems to have or develop consistent
 preferences as to avoid unpredictable behavior.</li>
 <li> <strong>Competitive pressure</strong>: An agent could modify their
 preferences in response to competitive pressures that exploit
-any incoherencies it displays, for example through other agents
-that are attempting to money-pump it [@gustafsson2022money].</li>
+any incoherencies it displays, for example through other
+agents that are attempting to money-pump it <a href="https://johanegustafsson.net/books/money-pump-arguments/">Gustaffson
+2022</a>.</li>
 <li> <strong>Self-modification</strong>: Agents might modify their own
 inconsistent preferences to adhere to the von
 Neumann-Morgenstern axioms, to avoid wasting resources and
@@ -165,14 +172,14 @@ answer.</p>
 in the von Neumann-Morgenstern setting: It is usually assumed that there
 is a set of goods <code>$B$</code> and a utility function <code>$U: B \times \mathbb{R}
 \rightarrow \mathbb{R}$</code> that takes as argument a good and the amount of
-that good that has been consumed. Consumption can take place at
-different time steps: Let <code>$c: B \times \mathbb{N}$</code> be a function that
-returns the consumption of a good at a specific timestep. With a single
-good $b$ and different quantities <code>$c(b, 1), c(b, 2), \dots, c(b, n)$</code>
-consumed at $n$ timesteps, the time-discounted utility (discount factor
-$\delta$) of this consumption is <code>$\sum_{i=1}^n \delta^i U(b, c(b, i))$</code>
-(which is equivalent to the use of discount rates in reinforcement
-learning [@sutton2020reinforcement ch. 3]).</p>
+that good that has been consumed. Consumption can take place at different
+time steps: Let <code>$c: B \times \mathbb{N}$</code> be a function that returns
+the consumption of a good at a specific timestep. With a single good $b$
+and different quantities <code>$c(b, 1), c(b, 2), \dots, c(b, n)$</code> consumed
+at $n$ timesteps, the time-discounted utility (discount factor $\delta$)
+of this consumption is <code>$\sum_{i=1}^n \delta^i U(b, c(b, i))$</code> (which
+is equivalent to the use of discount rates in reinforcement learning
+<a href="http://incompleteideas.net/book/the-book.html">Sutton 2020, ch.  3</a>.</p>
 <p>A common form of modeling human preferences that are not exponentially
 time-discounted in this way is hyperbolic discounting, in which the
 discounting factor is a hyperbolic function with a parameter $k$ instead
@@ -180,23 +187,26 @@ of an exponential. Let <code>$U_h(b, i, k)=\frac{1}{1+ki}U(b, c(b, i))$</code> b
 hyperbolically discounted utility of consuming $b$ at time step <code>$i$</code>.</p>
 <p>This kind of discounting leads to disproportionately preferring
 small rewards soon over large rewards later, and might lead to
-preference reversals: For two goods $b$ and $b'$, an agent can
-have the preference <code>$U_h(b, c(b, i))&gt;U_h(b', c(b, i+c))$</code> at a
-time step $i$ and a time step $i+c$, but reverse that preference
-if it lies at another timestep $j$: <code>$U_h(b, c(b, j))&lt;U_h(b',
-c(b, j+c))$</code>. Such hyperbolic discounting has been observed
-in humans [@green1994discounting] and pigeons <a href="./doc/econ/behavioral/preference_reversal_and_delayed_reinforcement_ainslie_herrnstein_1981.pdf">Ainslie &amp; Herrnstein
+preference reversals: For two goods $b$ and $b'$, an agent can have
+the preference <code>$U_h(b, c(b, i))&gt;U_h(b', c(b, i+c))$</code> at a time step
+$i$ and a time step $i+c$, but reverse that preference if it lies at
+another timestep $j$: <code>$U_h(b, c(b, j))&lt;U_h(b', c(b, j+c))$</code>. Such
+hyperbolic discounting has been observed in humans <a href="https://pubmed.ncbi.nlm.nih.gov/16812772/">Myerson &amp;
+Green 1994</a>
+and pigeons <a href="./doc/econ/behavioral/preference_reversal_and_delayed_reinforcement_ainslie_herrnstein_1981.pdf">Ainslie &amp; Herrnstein
 1981</a>.
 This kind of preference reversal does not occur with exponential
 discounting.</p>
 <p>Hyperbolic preferences can be modeled in a game-theoretic setup, in
 which subagents in aggregation execute a Pareto-dominated strategy, and
-via a single agent which follows an unchangeable plan
-<a href="./doc/econ/behavioral/modelling_time_inconsistent_preferences_caillaud_jullien_2000.pdf">Caillaud &amp; Jullien 2000</a>. Caillaud and Jullien do not attempt to resolve
-these time-inconsistencies to make them time-consistent. Backus and Zin
-explore further alternatives to the time-discounted utility setup,
-though they still work with utility functions that are invariant under
-positive affine transformation [@backus2004exotic].</p>
+via a single agent which follows an unchangeable plan <a href="./doc/econ/behavioral/modelling_time_inconsistent_preferences_caillaud_jullien_2000.pdf">Caillaud &amp; Jullien
+2000</a>.
+Caillaud and Jullien do not attempt to resolve these
+time-inconsistencies to make them time-consistent. Backus and
+Zin explore further alternatives to the time-discounted utility
+setup, though they still work with utility functions that are
+invariant under positive affine transformation <a href="https://pages.stern.nyu.edu/~dbackus/Exotic/BRZ%20exotic%20latest.pdf">Backus et al.
+2004</a>.</p>
 <h5 id="Resolving_Inconsistent_Preferences"><a class="hanchor" href="#Resolving_Inconsistent_Preferences">Resolving Inconsistent Preferences</a></h5>
 <p>In the context of taxonomical data, <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
 2017</a>
@@ -242,11 +252,12 @@ are noise.</p>
 </ul>
 <!--TODO: Other posts in the LW sequence draft-->
 <h5 id="Learning_Inconsistent_Preferences"><a class="hanchor" href="#Learning_Inconsistent_Preferences">Learning Inconsistent Preferences</a></h5>
-<p>The problem of <em>inferring</em> the preferences of irrational agents has
-been formally posed [@armstrong2018occam]: It is in general impossible
-learn such preferences, as any action is equally compatible both with a
-preference for that action <em>and</em> a systematic bias causing the action.
-Nevertheless <a href="./doc/cs/ai/alignment/value_learning/learning_the_preferences_of_ignorant_inconsistent_agents_evans_et_al_2016.pdf" title="Learning the Preferences of Ignorant, Inconsistent Agents">Evans et al.
+<p>The problem of <em>inferring</em> the preferences of
+irrational agents has been formally posed <a href="https://proceedings.neurips.cc/paper/2018/file/d89a66c7c80a29b1bdbab0f2a1a94af8-Paper.pdf">Mindermann &amp; Armstrong
+2018</a>:
+It is in general impossible learn such preferences, as any action
+is equally compatible both with a preference for that action <em>and</em>
+a systematic bias causing the action.  Nevertheless <a href="./doc/cs/ai/alignment/value_learning/learning_the_preferences_of_ignorant_inconsistent_agents_evans_et_al_2016.pdf" title="Learning the Preferences of Ignorant, Inconsistent Agents">Evans et al.
 2016</a>
 find a framework that is experimentally successful at
 inferring the preferences of an agent with time-inconsistent
@@ -269,7 +280,8 @@ interesting to philosophers), and instead assume that preferences
 conforming to the vNM axioms are a goal to be achieved.</p>
 <p>Let $\Omega$ be a set of $n$ distinct outcomes, and let $\Delta(\Omega)$
 be the set of all probability distributions on $\Omega$, which in von
-Neumann and Morgenstern call "lotteries" [@von1947theory].</p>
+Neumann and Morgenstern call "lotteries" <a href="https://www.goodreads.com/book/show/483055.Theory_of_Games_and_Economic_Behavior">von Neumann &amp; Morgenstern
+1947</a>.</p>
 <p>For given <code>$\omega_1, \omega_2 \in \Omega$</code>, a lottery in which $\omega_1$
 has a probability <code>$p_1$</code> and <code>$\omega_2$</code> has a probability <code>$p_2$</code> is
 written as <code>$[p_1: \omega_1, p_2: \omega_2]$</code><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>.</p>
@@ -296,9 +308,11 @@ it fulfills the four von Neumann-Morgenstern axioms</p>
 holds that $l \preceq l$.</p>
 <p>We denote the probability a lottery $l$ assigns to $\omega \in \Omega$
 as $p_l(\omega)$.</p>
-<p>Given a preference relation $\preceq$, one can create a function <code>$U\colon
-\Delta(\Omega) \rightarrow [0;1]$</code> for which it holds that <code>$U(l_1)
-\ge U(l_2)$</code> if and only if <code>$l_1 \preceq l_2$</code> [@von1947theory ch. 3.6].</p>
+<p>Given a preference relation $\preceq$, one can create a
+function <code>$U\colon \Delta(\Omega) \rightarrow [0;1]$</code> for
+which it holds that <code>$U(l_1) \ge U(l_2)$</code> if and only if
+<code>$l_1 \preceq l_2$</code> <a href="https://www.goodreads.com/book/show/483055.Theory_of_Games_and_Economic_Behavior">von Neumann &amp; Morgenstern 1947, ch.
+3.6</a>.</p>
 <p><strong>Definition 2</strong>. This function is called a <strong>utility function</strong> for the
 preference relation $\preceq$.</p>
 <p>Let us as a shorthand write $\omega$ for the lottery that assigns
@@ -373,12 +387,13 @@ axioms.</p>
 <code>$\omega_1$</code> and <code>$\omega_2$</code> exists if both <code>$\omega_1 \preceq \omega_2$</code> and
 <code>$\omega_2 \preceq \omega_1$</code>, incompleteness (or incomparability) is the
 case if neither <code>$\omega_2 \preceq \omega_1$</code> nor <code>$\omega_1 \preceq \omega_2$</code>.</p>
-<p>The presence of an incomplete preference in an agent is difficult to
-operationalize, [@gustafsson2022money] treats incomparable options as
-interchangeable, but setups in which an agent takes a default choice or
-randomizes when presented with incomparable options are also possible
-(however, as Gustaffson notes, the randomization offers an adversary the
-option to (in expectation) perform money-pumps).</p>
+<p>The presence of an incomplete preference in an
+agent is difficult to operationalize, <a href="https://johanegustafsson.net/books/money-pump-arguments/">Gustaffson
+2022</a> treats
+incomparable options as interchangeable, but setups in which an agent
+takes a default choice or randomizes when presented with incomparable
+options are also possible (however, as Gustaffson notes, the randomization
+offers an adversary the option to (in expectation) perform money-pumps).</p>
 <p>In a graph-theoretic setting, incomparability between options <code>$\omega_1,
 \omega_2$</code> is represented by the absence of any edge between <code>$\omega_1$</code>
 and <code>$\omega_2$</code> in the graph <code>$G$</code> representing the preference.</p>
@@ -456,16 +471,18 @@ consistent graphs is to proceed by establishing the desired properties
 stepwise. Our proposed algorithm (which we call "$\mathtt{stepwise}$")
 is to execute the following steps:</p>
 <ul>
-<li> <strong>Remove minimum feedback arc sets</strong>. <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al. 2017</a> use a
-greedy approximation algorithm to find and remove the minimum
-feedback arc set from a "noisy hierarchy" and create a directed
-acyclic graph. <code>stepwise</code> takes a similar approach by computing all
-minimum feedback arc sets for $G$ and then removing them to ensure
-the graph is acyclic (so that later establishing transitivity does
-not violate asymmetry). The result is a set of directed acyclic
-graphs $\mathbf{A}$, one for each minimum feedback arc set removed
-from $G$. For this, one can use an algorithm for finding the minimum
-feedback arc set from [@baharev2021exact], called <code>mfas</code> in
+<li> <strong>Remove minimum feedback arc sets</strong>. <a href="./doc/preference/breaking_cycles_in_noisy_hierarchies_sun_et_al_2017.pdf" title="Breaking Cycles in Noisy Hierarchies">Sun et al.
+2017</a>
+use a greedy approximation algorithm to find and remove the
+minimum feedback arc set from a "noisy hierarchy" and create a
+directed acyclic graph. <code>stepwise</code> takes a similar approach by
+computing all minimum feedback arc sets for $G$ and then removing
+them to ensure the graph is acyclic (so that later establishing
+transitivity does not violate asymmetry). The result is a set
+of directed acyclic graphs $\mathbf{A}$, one for each minimum
+feedback arc set removed from $G$. For this, one can use an
+algorithm for finding the minimum feedback arc set from <a href="https://dl.acm.org/doi/10.1145/3446429">Baharev
+2021</a>, called <code>mfas</code> in
 <code>stepwise</code>.</li>
 <li> <strong>Generate all compatible topological sortings</strong>. The elements of
 $\mathbf{A}$ are now to be converted into acyclic tournaments. We
@@ -677,10 +694,12 @@ of <code>HodgeRank</code>.</p>
     return Gr
 </code></pre>
 <h3 id="Criteria"><a class="hanchor" href="#Criteria">Criteria</a></h3>
-<p>Given the algorithms outlined above, one might want to compare
-them according to different criteria, similar to the method
-of evaluating voting methods in social choice theory by some
-criteria [@banks2000positive ch. 2], such as the <a href="https://en.wikipedia.org/wiki/Condorcet_Criterion">Condorcet
+<p>Given the algorithms outlined above, one might want to
+compare them according to different criteria, similar
+to the method of evaluating voting methods in social
+choice theory by some criteria <a href="https://www.goodreads.com/book/show/2065791.Positive_Political_Theory_II">Austen-Smith &amp; Banks 2000, ch.
+2</a>,
+such as the <a href="https://en.wikipedia.org/wiki/Condorcet_Criterion">Condorcet
 criterion</a> or
 <a href="https://en.wikipedia.org/wiki/Strategic_Voting">manipulability</a>. For
 this purpose, we examine the algorithms with regards to the computational
@@ -798,13 +817,14 @@ elements of the set of results).</p>
 <p>However, results from two different fields apply to this case.</p>
 <ul>
 <li> <strong>Social Choice Theory</strong>: Since all elements of <code>$\mathbf{C}_G=f(G)$</code>
-are complete, transitive, and asymmetric, one can apply
-the large toolbox of methods and results from <a href="https://en.wikipedia.org/wiki/Social_choice_theory">social choice
-theory</a> to
-elements from <code>$\mathbf{C}_G$</code> by treating them as individual
-preferences in a preference profile by applying a social
-welfare function in sense of Arrow to it [@gaertner2009primer
-ch.2]. Some impossibility results such as <a href="https://en.wikipedia.org/wiki/Arrow's_Impossibility_Theorem">Arrow's impossibility
+are complete, transitive, and asymmetric, one can apply the
+large toolbox of methods and results from <a href="https://en.wikipedia.org/wiki/Social_choice_theory">social choice
+theory</a>
+to elements from <code>$\mathbf{C}_G$</code> by treating them as
+individual preferences in a preference profile by applying
+a social welfare function in sense of Arrow to it <a href="https://www.goodreads.com/book/show/6390481-a-primer-in-social-choice-theory">Gaertner 2009,
+ch.2</a>.
+Some impossibility results such as <a href="https://en.wikipedia.org/wiki/Arrow's_Impossibility_Theorem">Arrow's impossibility
 theorem</a>
 still apply, but at least results about
 tactical voting (such as the <a href="https://en.wikipedia.org/wiki/Gibbard-Satterthwaite_theorem">Gibbard-Satterthwaite
@@ -935,7 +955,8 @@ no graphs of size 3 with confusion 4 (or 5).</p>
 <p>Interestingly, neither <code>$|\mathbf{G}_{n,1}|$</code> nor
 <code>$|\mathbf{G}_{n,1}|/n!$</code> are known integer sequences: a search on the
 <a href="https://en.wikipedia.org/wiki/On-line_Encyclopedia_of_Integer_Sequences">OEIS</a>
-and via SuperSeeker [@sloane2003line] yield no matching results.</p>
+and via SuperSeeker <a href="https://arxiv.org/pdf/math/0312448">Sloane 2003</a>
+yield no matching results.</p>
 <p><strong>Conjecture 1</strong>. The average confusion of all directed graphs with size
 <code>$n$</code> diverges to infinity:</p>
 <div>
@@ -1676,8 +1697,9 @@ there are counter-examples that don't allow for this, but haven't been
 able to find any.</p>
 <h1 id="Inconsistent_Preferences_over_Lotteries"><a class="hanchor" href="#Inconsistent_Preferences_over_Lotteries">Inconsistent Preferences over Lotteries</a></h1>
 <p>Von Neumann and Morgenstern formulate their famous theorem by defining
-some restriction on relations over lotteries [@von1947theory], as
-explained in <a href="#The_von_NeumannMorgenstern_Axioms">this section</a>.</p>
+some restriction on relations over lotteries <a href="https://www.goodreads.com/book/show/483055.Theory_of_Games_and_Economic_Behavior">von Neumann &amp; Morgenstern
+1947</a>,
+as explained in <a href="#The_von_NeumannMorgenstern_Axioms">this section</a>.</p>
 <p>Finding a mathematical structure which can encode all inconsistent
 preferences over lotteries <em>and</em> is still computationally tractable
 remains an open problem, but we propose two structures which can either
@@ -1703,12 +1725,13 @@ effect</a> from
 in which subjects systematically overrate the value of
 certain (deterministic) option, which leads to the <a href="https://en.wikipedia.org/wiki/Allais_Paradox">Allais
 paradox</a>.</p>
-<p>A view under which discontinuities of this type make sense is if an agent
-has a specific aversion to lotteries, irrespective of the options they
-are comprised of (Von Neumann and Morgenstern call the continuity axiom
-"excluding a "utility of gambling"" [@von1947theory 3.7.1], and state
-that "concepts like a "specific utility of gambling" cannot be formulated
-free of contradiction on this level." [ibid.]).</p>
+<p>A view under which discontinuities of this type make sense is if an
+agent has a specific aversion to lotteries, irrespective of the options
+they are comprised of (Von Neumann and Morgenstern call the continuity
+axiom "excluding a "utility of gambling"" <a href="https://www.goodreads.com/book/show/483055.Theory_of_Games_and_Economic_Behavior">von Neumann &amp; Morgenstern 1947,
+3.7.1</a>,
+and state that "concepts like a "specific utility of gambling" cannot
+be formulated free of contradiction on this level." [ibid.]).</p>
 <h3 id="Dependence"><a class="hanchor" href="#Dependence">Dependence</a></h3>
 <p>Violations of the independence axiom ("dependence") occur if for two
 lotteries <code>$l_1, l_2$</code> (with <code>$l_1 \preceq l_2$</code>) there is an option
@@ -1777,10 +1800,12 @@ which lotteries are preferred over which others: Given a preference of
 <code>$w_r$</code> doesn't enable reconstruction of whether <code>$l_1 \prec l_2$</code> or
 <code>$l_1 \succ l_2$</code>.</p>
 <h3 id="Arbitrary_Relations_over_the_Lotteries"><a class="hanchor" href="#Arbitrary_Relations_over_the_Lotteries">Arbitrary Relations over the Lotteries</a></h3>
-<p>As [@von1947theory] uses lotteries on <code>$\Omega$</code> as the set of options
-over which agents can have preferences, a natural instinct is to use
-arbitrary relations over lotteries on <code>$\Omega$</code> as the mathematical
-object to represent preferences.</p>
+<p>As <a href="https://www.goodreads.com/book/show/483055.Theory_of_Games_and_Economic_Behavior">von Neumann &amp; Morgenstern
+1947</a>
+uses lotteries on <code>$\Omega$</code> as the set of options over which agents
+can have preferences, a natural instinct is to use arbitrary relations
+over lotteries on <code>$\Omega$</code> as the mathematical object to represent
+preferences.</p>
 <p>However, if <code>$\Omega$</code> has at least one element, such a relation can be
 uncountably large and without compact representation, making it
 impossible to be handled computationally.</p>
@@ -1926,10 +1951,11 @@ contexts and apply the knowledge gained to them. I will examine one of
 those: The problem of changing a preference as the underlying set of
 options changes.</p>
 <h2 id="Ontology_Identification_Ontological_Shifts_and_Ontological_Crises"><a class="hanchor" href="#Ontology_Identification_Ontological_Shifts_and_Ontological_Crises">Ontology Identification, Ontological Shifts and Ontological Crises</a></h2>
-<p>The term "ontological crisis" was introduced in de Blanc and intuitively
-refers to a scenario in which an agent has preferences, defined over
-some world model, and then the world model changes without corresponding
-changes in the values <a href="./doc/cs/ai/alignment/ontological_crises/ontological_crises_in_artificial_agents_value_systems_de_blanc_2011.pdf">de Blanc 2011</a>.</p>
+<p>The term "ontological crisis" was introduced in de Blanc
+and intuitively refers to a scenario in which an agent has
+preferences, defined over some world model, and then the world
+model changes without corresponding changes in the values <a href="./doc/cs/ai/alignment/ontological_crises/ontological_crises_in_artificial_agents_value_systems_de_blanc_2011.pdf">de Blanc
+2011</a>.</p>
 <p>An example of this can be observed in human values before and after
 exposure to philosophy: A human might have a value they would formulate as
 "I value the continuation of my life". However, after reading <a href="https://en.wikipedia.org/wiki/Reasons_and_Persons">Reasons
@@ -1949,10 +1975,24 @@ can identify which parts of the program and the tape represent atoms
 or macroscopic objects, and repeat the question for a Turing machine
 using a quantum-mechanical model of the world <a href="./doc/cs/ai/alignment/agent_foundations/agent_foundations_for_aligning_machine_intelligence_soares_fallenstein_2017.pdf">Soares &amp; Fallenstein
 2017</a>.
-The problem is further elaborated on outside
-of the academic literature in <a href="https://arbital.com/p/rescue_utility/">Yudkowsky et
-al. 2016</a> and <a href="https://arbital.com/p/ontology_identification/?l=6b">Andreev &amp; Yudkowsky
-2016</a>.</p>
+The problem is further elaborated on
+outside of the academic literature early in [Dai
+2012(<a href="https://www.lesswrong.com/s/kjcioCkqSSS4LiMAe/p/KLaJjNdENsHhKhG5m">https://www.lesswrong.com/s/kjcioCkqSSS4LiMAe/p/KLaJjNdENsHhKhG5m</a>)
+and <a href="https://www.lesswrong.com/s/kjcioCkqSSS4LiMAe/p/6RjL996E8Dsz3vHPk">Dai
+2019</a>,
+in <a href="https://arbital.com/p/rescue_utility/">Yudkowsky et al. 2016</a>
+and <a href="https://arbital.com/p/ontology_identification/?l=6b">Andreev &amp; Yudkowsky
+2016</a>,
+and under the term "model splintering" in <a href="https://www.lesswrong.com/s/kjcioCkqSSS4LiMAe/p/k54rgSg7GcjtXnMHX">Armstrong
+2020</a>,
+<a href="https://www.lesswrong.com/s/kjcioCkqSSS4LiMAe/p/i8sHdLyGQeBTGwTqq">Armstrong &amp; Gorman
+2022</a>.</p>
+<p>The word "ontology" here is a place-holder for a
+more rigorously defined model, such as <a href="https://en.wikipedia.org/wiki/Markov_Decision_Process">Markov Decision
+Processes</a>
+(MDPs) or <a href="https://en.wikipedia.org/wiki/Partially-observable_Markov_decision_process">Partially Observable Markov Decision
+Processes</a>
+(POMDPs).</p>
 <p>It seems useful to disambiguate some terms that appear in the
 literature, to create clarity about what they mean:</p>
 <ul>
@@ -1969,12 +2009,6 @@ ontology of the goals does not.</li>
 ontological shift, and the behavior of an agent after an ontological
 crisis could be undefined.</li>
 </ul>
-<p>The word "ontology" here is a place-holder for a
-more rigorously defined model, such as <a href="https://en.wikipedia.org/wiki/Markov_Decision_Process">Markov Decision
-Processes</a>
-(MDPs) or <a href="https://en.wikipedia.org/wiki/Partially-observable_Markov_decision_process">Partially Observable Markov Decision
-Processes</a>
-(POMDPs).</p>
 <h4 id="Existing_Approaches"><a class="hanchor" href="#Existing_Approaches">Existing Approaches</a></h4>
 <p>De Blanc approaches the problem of ontological crises
 formally in the context of what they call "finite
@@ -1982,7 +2016,7 @@ state models" (they neglect to give a full definition) <a href="./doc/cs/ai/alig
 2011</a>,
 and one can refine their problem statement and their approach to
 a solution by stating it in terms of Markov decision processes
-[@russell2010artificial ch. 17.1].</p>
+<a href="http://aima.cs.berkeley.edu/">Russell &amp; Norvig 2010, ch. 17.1</a>.</p>
 <p><strong>Definition 13</strong>. A finite <strong>Markov decision process</strong> (MDP)
 <code>$\mathcal{M}=(S,
 A, P, R, I)$</code> is a tuple of five elements, where <code>$S$</code> is a set of states
@@ -2080,7 +2114,8 @@ $$\begin{aligned}
 <p>The matrices <code>$\phi$</code> and <code>$\psi$</code> can be found by minimising
 <code>$\text{BisimulationDifference}(\mathcal{M}_1, \mathcal{M}_2, \phi,
 \psi)$</code> with a hill-climbing algorithm from random initial values,
-or by gradient descent with BisimulationDifference as a loss function.</p>
+or by gradient descent with <code>$\text{BisimulationDifference}$</code> as a
+loss function.</p>
 <p>De Blanc notes that both products of the matrices <code>$\phi, \psi$</code> are be
 close to equal to the identity matrix after computing
 <code>$\text{BisimulateShift}(\mathcal{M}_1, \mathcal{M}_2)$</code>, that is <code>$\phi \psi
@@ -2455,9 +2490,13 @@ surprising ideas in the lottery case.</p>
 <ol>
 <li id="fn1">
 <p>The notation for lotteries is common in social choice theory
-[@gaertner2009primer ch. 8.2]. Some sources would instead write this
-as <code>$p_1 \cdot \omega_1 + p_2 \cdot \omega_2$</code> [@von1947theory], but
-I have decided against it, since no addition is actually taking place. <a href="#fnref1" rev="footnote">↩</a></p>
+<a href="https://www.goodreads.com/book/show/6390481-a-primer-in-social-choice-theory">Gaertner 2009, ch.
+8.2</a>.
+Some sources would instead write this as <code>$p_1 \cdot
+\omega_1 + p_2 \cdot \omega_2$</code> <a href="https://www.goodreads.com/book/show/483055.Theory_of_Games_and_Economic_Behavior">von Neumann &amp; Morgenstern,
+1947</a>,
+but I have decided against it, since no addition is actually taking
+place. <a href="#fnref1" rev="footnote">↩</a></p>
 </li>
 <li id="fn2">
 <p>Unless further specified, in this text it will always be the case
@@ -2491,7 +2530,7 @@ account as well: <code>$R: S \times A \times S \rightarrow \mathbb{R}$</code>
 (with different rewards for transitioning to a state with different
 actions), but also notes that this merely simplifies the description
 of some environments, but doesn't change which environments can be
-described [@russell2010artificial ch. 17]. <a href="#fnref7" rev="footnote">↩</a></p>
+described <a href="http://aima.cs.berkeley.edu/">Russell &amp; Norvig 2010, ch. 17</a>. <a href="#fnref7" rev="footnote">↩</a></p>
 </li>
 <li id="fn8">
 <p>Also known as flying fish. <a href="#fnref8" rev="footnote">↩</a></p>
