@@ -278,13 +278,7 @@ swift CSV export of the data. They even turned changed the <em>annoying</em>
 default. No post-processing needed, the data <em>is just there</em>. An app by
 programmers, for programmers.</p>
 <p>But there is still <em>some</em> data cleanup to do:</p>
-<pre><code>cat mood.csv ~/site/data/mood.csv |
-sort |
-uniq |
-sed -E 's/^([0-9T: -]+),"/\1,\1,"/g' |
-sed 's/nothing/Nothing/g;s/mindfulness/Mindfulness/' |
-sort |
-uniq &gt;newmood.csv
+<pre><code>sort -n mood.csv &gt;&gt;~/proj/site/data/mood.csv
 </code></pre>
 <p>Finally I rename the mood columns simply to "happy", "content", "relaxed",
 and "horny".</p>
