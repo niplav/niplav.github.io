@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-01-04, modified: 2024-07-12, language: english, status: in progress, importance: 7, confidence: certain</em></p>
+<p><em>author: niplav, created: 2023-01-04, modified: 2024-09-29, language: english, status: in progress, importance: 7, confidence: certain</em></p>
 <blockquote>
 <p><strong>There are too many possible quantified self experiments to run. Do
 hobbyist prediction platforms<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup> make priorisation easier? I test
@@ -42,7 +42,9 @@ experiments (the best one, and a random one), mostly for the effects
 of various <a href="https://en.wikipedia.org/wiki/Nootropics">nootropics</a>
 on absorption in meditation. After one experiment, the <a href="https://en.wikipedia.org/wiki/Proper_scoring_rule#Logarithmic_score">log
 score</a>
-of the market is -0.326 — pretty good.</strong></p>
+of the market <a href="#Scoring_the_Market">is -0.326</a> — pretty good. This
+gains us <a href="#0202_Bits_of_Evidence_In_Favor_of_Futarchy">0.202 bits</a>
+of evidence in favor of the accuracy of the markets.</strong></p>
 </blockquote>
 <h1 id="Using_Prediction_Platforms_to_Select_Quantified_Self_Experiments"><a class="hanchor" href="#Using_Prediction_Platforms_to_Select_Quantified_Self_Experiments">Using Prediction Platforms to Select Quantified Self Experiments</a></h1>
 <p><a href="https://dynomight.net/prediction-market-causation/#7">dynomight 2022</a>
@@ -415,6 +417,7 @@ results don't contain any content.</p>
 <p>So the pomodoro method somewhat increases productivity (at the edge of
 statistical significance), and <em>maybe</em> decreases subjective length of
 the day a bit.</p>
+<h3 id="Scoring_the_Market"><a class="hanchor" href="#Scoring_the_Market">Scoring the Market</a></h3>
 <p>I can now score the market:</p>
 <pre><code>def logscore(o,p):
         return np.mean(o*np.log(p)+(np.ones_like(o)-o)*np.log(np.ones_like(p)-p))
@@ -424,12 +427,45 @@ logscore(outcomes, p)
 -0.3258531953347593
 </code></pre>
 <p>Honestly: The market did pretty well.</p>
-<h2 id="0744_Bits_of_Evidence_for_Futarchy"><a class="hanchor" href="#0744_Bits_of_Evidence_for_Futarchy">0.744 Bits of Evidence for Futarchy</a></h2>
+<h2 id="0202_Bits_of_Evidence_In_Favor_of_Futarchy"><a class="hanchor" href="#0202_Bits_of_Evidence_In_Favor_of_Futarchy">0.202 Bits of Evidence In Favor of Futarchy</a></h2>
+<p>So, <a href="./platforms.html#Table_of_Current_Market_Status">I put up some prediction markets on the results of quantified
+self RCTs</a>. I <a href="./platforms.html#Pomodoros">ran
+one of the experiments</a>, and <a href="./platforms.html#Scoring_the_Market">scored one
+market</a> on the results.</p>
+<p>How much should the performance of the market change our opinion about
+the viability of using prediction platforms to predict RCTs, and thus be
+plausibly useful in selecting experiments to run and actions to perform?</p>
+<p>We can define the maximum entropy distribution
+(our prior on how good <a href="https://dynomight.net/prediction-market-causation/">causal Futarchy markets should
+be</a>) over possible
+log scores as having the mean of the log score of random forecasts,
+namely -0.6931…</p>
 <p>The <a href="https://en.wikipedia.org/wiki/Maximum_entropy_distribution">maximum entropy
 distribution</a>
 for a given mean on the positive
 <a href="https://en.wikipedia.org/wiki/Real_Numbers">reals</a> is the <a href="https://en.wikipedia.org/wiki/Exponential_distribution">exponential
 distribution</a>.</p>
+<p>The exponential distribution is defined by one parameter, which is
+<code>$\lambda=\frac{1}{μ}$</code> (the mean of the distribution), in this case
+<code>$\lambda=\frac{1}{0.6931} \approx 1.4427$</code> (for convenience flipping
+the distribution to be defined over positive reals). The logscore
+observed for the Pomodoro method market was 0.3258, so the posterior
+distribution is <code>$\text{Exponential}(λ + 1/x)$</code>: <code>$λ_{n} = 1.4427 +
+1/0.326 ≈ 4.5102$</code>.</p>
+<p>To calculate the bits of evidence we got from
+running the market, we calculate the <a href="https://en.wikipedia.org/wiki/Information_gain">information
+gain</a>, the bits of
+evidence are calculated by log₂(posterior odds / prior odds).</p>
+<p>For continuous distributions, we use probability densities, for the
+exponential distribution:</p>
+<div>
+    $$\log_2 \frac{(4.5102 \cdot \exp(-4.5102 \cdot 0.326))}{(1.4427 \cdot \exp(-1.4427 \cdot 0.326))} ≈ \\
+    \log_2(1.0367 / 0.9014) ≈ \\
+    0.20176$$
+</div>
+<p>I don't really have a comparison point which to compare this result to,
+but ≈0.2 bits of evidence seems fairly small to me. I guess I'll have
+to run some more experiments for further evidence.</p>
 <h2 id="Acknowledgements"><a class="hanchor" href="#Acknowledgements">Acknowledgements</a></h2>
 <p>Many thanks to <a href="https://manifold.markets/anonymous">clippy</a>
 (<a href="http://nitter.poast.org/12leavesleft">twitter</a>) for M̶500,
@@ -439,6 +475,8 @@ used to subsidize the markets. Also many thanks to the manifold admin
 <a href="https://manifold.markets/Gen">Genzy</a> for subsidizing each market
 with M̶450.</p>
 <p>Your funding of the sciences is greatly appreciated.</p>
+<p>My gratitude also goes out to all the traders on the markets. You help
+me prioritize, you help us gain knowledge.</p>
 <h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
 <ul>
 <li><a href="https://replicationmarkets.com/">Replication Markets</a>, <a href="http://www.citationfuture.com/index.html">Prediction markets for Science</a>, and <a href="https://socialscienceprediction.org/">Social Science Prediction Platform</a></li>
