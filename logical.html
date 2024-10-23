@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2024-04-22, modified: 2024-07-07, language: english, status: in progress, importance: 5, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2024-04-22, modified: 2024-10-22, language: english, status: in progress, importance: 5, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>How to compare how similarly programs compute their outputs.</strong></p>
 </blockquote>
@@ -79,10 +79,12 @@ two programs and returns a number that quantifies how similarly the two
 programs compute what they compute.</p>
 <h3 id="Setup"><a class="hanchor" href="#Setup">Setup</a></h3>
 <p>Let a program <code>$p$</code> be a tuple of code for a <a href="https://en.wikipedia.org/wiki/Turing_Machine">Turing
-machine</a>, intermediate
-tape states after each command execution, and output. All in binary.</p>
-<p>That is <code>$p=(c, t, o)$</code>, with <code>$c \in \{0, 1\}^+, t \in (\{0, 1\}^+)^+$</code> and <code>$o \in \{0, 1\}^+$</code>.
-Let <code>$l=|t|$</code> be the number of steps that <code>$p$</code> takes to halt.</p>
+machine</a> and intermediate
+tape states after each command execution. We'll treat the final tape
+state as the output, all in binary.</p>
+<p>That is <code>$p=(c, t)$</code>, with <code>$c \in \{0, 1\}^+$</code> and <code>$t \in (\{0,
+1\}^+)^+$</code> Let <code>$l=|t|$</code> be the number of steps that <code>$p$</code> takes to halt.</p>
+<p>For simplicities' sake, let's call <code>$t_l$</code> <code>$o$</code>, the output.</p>
 <h3 id="Possible_Desiderata"><a class="hanchor" href="#Possible_Desiderata">Possible Desiderata</a></h3>
 <ol>
 <li>If possible, we would want our formula for logical correlation to be a <a href="https://en.wikipedia.org/wiki/Metric_space">metric</a> or a <a href="https://en.wikipedia.org/wiki/Pseudometric_space">pseudometric</a> on the space of programs:
@@ -99,12 +101,16 @@ Let <code>$l=|t|$</code> be the number of steps that <code>$p$</code> takes to h
 </ol></li>
 </ol>
 <h3 id="Formal_Definition"><a class="hanchor" href="#Formal_Definition">Formal Definition</a></h3>
-<p>Then a formula for the logical correlation <code>$合$</code> of two halting
-programs <code>$p_1=(c_1, t_1, o_1), p_2=(c_2, t_2, o_2)$</code>, a tape-state
-discount factor <code>$γ$</code><sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>, and a <a href="https://en.wikipedia.org/wiki/String_similarity_metric">string-distance metric</a>
-<code>$d: \{0, 1\}^+ \times \{0, 1\}^+ \rightarrow ℕ$</code> could be</p>
+<p>Let <code>$p_1=(c_1, t_1), p_2=(c_2, t_2)$</code> be two halting programs,
+<code>$l_1, l_2$</code> are the number of steps it takes <code>$p_1, p_2$</code> to halt,
+and <code>$o_1=t_{l_1}, o_2=t_{l_2}$</code> the last tape states (outputs) of the
+two programs.</p>
+<p>Then a formula for the logical correlation <code>$合$</code> of <code>$p_1, p_2$</code>,
+a tape-state discount factor <code>$γ$</code><sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>, and a <a href="https://en.wikipedia.org/wiki/String_similarity_metric">string-distance
+metric</a> <code>$d:
+\{0, 1\}^+ \times \{0, 1\}^+ \rightarrow ℕ$</code> could be</p>
 <div>
-        $$合(p_1, p_2, γ)=d(o_1, o_2)+0.5-\frac{1}{2+\sum_{k=0}^{\min(l_1, l_2)} γ^k \cdot d(t_1(l_1-k), t_2(l_2-k))}$$
+        $$合(p_1, p_2, γ)=d(o_1, o_2)+0.5-\frac{1}{2+\sum_{k=1}^{\min(l_1, l_2)} γ^k \cdot d(t_1(l_1-k), t_2(l_2-k))}$$
 </div>
 <p>The lower <code>$合$</code>, the higher the logical correlation between <code>$p_1$</code>
 and <code>$p_2$</code>.</p>
@@ -117,8 +123,6 @@ different trace lengths, and penalize that, e.g. amending the formula:</p>
 <p>I'm a bit unhappy that the code doesn't factor into the logical
 correlation, and ideally one would want to be able to compute the logical
 correlation without having to run the program.</p>
-<p>How does this relate to
-<a href="https://wiki.c2.com/?DataAndCodeAreTheSameThing">data=code</a>?</p>
 <h3 id="Desiderata_Fulfilled"><a class="hanchor" href="#Desiderata_Fulfilled">Desiderata Fulfilled?</a></h3>
 <p>Does this fulfill our desiderata from earlier? I'll assume that the
 string distance <code>$d$</code> is a metric, in the mathematical sense.</p>
@@ -135,6 +139,7 @@ string distance <code>$d$</code> is a metric, in the mathematical sense.</p>
 <p>(The minimal logical correlation is 0.)</p>
 <h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
 <ul>
+<li>How does this relate to <a href="https://wiki.c2.com/?DataAndCodeAreTheSameThing">data=code</a>?</li>
 <li><a href="https://www.lesswrong.com/posts/Xd9FLs4geRAWxkQPE/writing-causal-models-like-we-write-programs">Writing Causal Models Like We Write Programs (johnswentworth, 2020)</a></li>
 </ul>
 <!--TODO: check with brainfuck-->
