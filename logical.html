@@ -33,9 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2024-04-22, modified: 2024-10-22, language: english, status: in progress, importance: 5, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2024-04-22, modified: 2024-10-24, language: english, status: in progress, importance: 5, confidence: highly likely</em></p>
 <blockquote>
-<p><strong>How to compare how similarly programs compute their outputs.</strong></p>
+<p><strong>In which to compare how similarly programs compute their outputs,
+<a href="#A_Nave_Formula">naïvely</a> and <a href="#A_Less_Nave_Formula">less naïvely</a>.</strong></p>
 </blockquote>
 <h1 id="Logical_Correlation"><a class="hanchor" href="#Logical_Correlation">Logical Correlation</a></h1>
 <p>In the <a href="https://www.lesswrong.com/tag/psychological-twin-prisoner-s-dilemma">twin prisoners
@@ -53,8 +54,13 @@ to be radically different. Intuitively, my similarity to <code>$p^{\star}$</code
 is pretty small, because even though it gives the same output, it gives
 that output for very different reasons, so I don't have much control
 over its outputs by controlling my own computations.</p>
-<p>Let's call this similarity of two algorithms the <strong>logical correlation</strong>
-between the two algorithms, a term also used in <a href="./cs/ai/alignment/agent_foundations/embedded_agency_demski_garrabrant_2020.pdf">Demski &amp; Garrabrant
+<p>Let's call this similarity of two algorithms the
+<strong>logical correlation</strong> between the two algorithms (<a href="https://forum.effectivealtruism.org/posts/JGazpLa3Gvvter4JW/cooperating-with-aliens-and-agis-an-ecl-explainer#fnref5yum06b0ld8">alternative
+terms</a>
+"include “logical influence,” “logical
+correlation,” “correlation,” “quasi-causation,”
+“metacausation,” […] “entanglement”[,] “acausal
+influence”"). I take this term from <a href="./cs/ai/alignment/agent_foundations/embedded_agency_demski_garrabrant_2020.pdf">Demski &amp; Garrabrant
 2020</a>:</p>
 <blockquote>
 <p>One idea is that exact copies should be treated as 100% under
@@ -71,11 +77,12 @@ as logical (Garrabrant et al., 2016): if I cooperate, then this implies
 that all other implementations of my decision algorithm also cooperate.</p>
 </blockquote>
 <p><em>—Caspar Oesterheld, “Multiverse-wide Cooperation via Correlated Decision Making” p. 18, 2018</em></p>
-<p>We don't yet have a way of estimating the logical correlation between
-different decision algorithms.</p>
-<p>Thus: Consider proposing the most naïve formula (which we'll designate
-by <code>$合$</code><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>) for logical correlation<sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup>: Something that takes in
-two programs and returns a number that quantifies how similarly the two
+<p>There isn't yet an established way of estimating the logical correlation
+between different decision algorithms.</p>
+<h2 id="A_Nave_Formula"><a class="hanchor" href="#A_Nave_Formula">A Naïve Formula</a></h2>
+<p>Thus: Consider the some naïve formula (which we'll designate by
+<code>$合$</code><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>) for logical correlation<sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup>: Something that takes in two
+programs and returns a number that quantifies how similarly the two
 programs compute what they compute.</p>
 <h3 id="Setup"><a class="hanchor" href="#Setup">Setup</a></h3>
 <p>Let a program <code>$p$</code> be a tuple of code for a <a href="https://en.wikipedia.org/wiki/Turing_Machine">Turing
@@ -83,8 +90,9 @@ machine</a> and intermediate
 tape states after each command execution. We'll treat the final tape
 state as the output, all in binary.</p>
 <p>That is <code>$p=(c, t)$</code>, with <code>$c \in \{0, 1\}^+$</code> and <code>$t \in (\{0,
-1\}^+)^+$</code> Let <code>$l=|t|$</code> be the number of steps that <code>$p$</code> takes to halt.</p>
-<p>For simplicities' sake, let's call <code>$t_l$</code> <code>$o$</code>, the output.</p>
+1\}^+)^+$</code>. Let <code>$l=|t|$</code> be the number of steps that <code>$p$</code> takes to halt.</p>
+<p>For simplicity's sake, let's give <code>$t_l$</code> (the tape state upon halting)
+the name <code>$o$</code>, the output.</p>
 <h3 id="Possible_Desiderata"><a class="hanchor" href="#Possible_Desiderata">Possible Desiderata</a></h3>
 <ol>
 <li>If possible, we would want our formula for logical correlation to be a <a href="https://en.wikipedia.org/wiki/Metric_space">metric</a> or a <a href="https://en.wikipedia.org/wiki/Pseudometric_space">pseudometric</a> on the space of programs:
@@ -114,29 +122,84 @@ metric</a> <code>$d:
 </div>
 <p>The lower <code>$合$</code>, the higher the logical correlation between <code>$p_1$</code>
 and <code>$p_2$</code>.</p>
-<p>If <code>$d(o_1, o_2)&lt;d(o_1, o_3)$</code>, then it's also the case that <code>$合(p_1, p_2, γ)&lt;合(p_1, p_3, γ)$</code>.</p>
+<h4 id="Explanation"><a class="hanchor" href="#Explanation">Explanation</a></h4>
+<p>Let's take a look at the equation again, but this time with some color
+highlighting:</p>
+<div>
+        $$合(p_1, p_2, γ)=\color{red}{d(o_1, o_2)}+0.5\color{orange}{-}\frac{1}{2+\color{green}{\sum_{k=1}^{\min(l_1, l_2)}} \color{purple}{γ^k \cdot} \color{blue}{d(t_1(l_1-k), t_2(l_2-k))}}$$
+</div>
+<p>The fundamental idea is that we first <span style="color:red">compute
+the distance of the two outputs</span>. We then go <em>backward</em> through
+the trace of the two programs, <span style="color:green">adding up the
+pairwise </span> <span style="color:blue">differences of the traces at
+each timestep</span>, potentially <span style="color:purple">discounting
+the differences the farther they lie in in the "past" of the
+output/further towards the start of the computation</span>.</p>
+<p><img alt="" src="./img/logical/naive.png"/></p>
+<p>Finally, we <span style="color:orange"><em>subtract</em></span> the inverse of
+this (discounted) sum of trace differences from the output difference<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup>.</p>
+<p>The fraction can maximally be ½ (since we're
+adding a number greater than zero to two in the <a href="./mathematics_notation_convention.html#Basics">lower
+number</a>). Thus, since
+we're subtracting a number ≤½ from <code>$d(o_1, o_2)+0.5$</code>, the resulting
+logical correlation must be <code>$d(o_1, o_2)≤合(p_1, p_2, γ)≤d(o_1,
+o_2)+0.5$</code>. That implies that for three programs with the same output,
+their logical correlations all lie in that range. That also means that
+if <code>$d(o_1, o_2)&lt;d(o_1, o_3)$</code>, then it's the case that <code>$合(p_1, p_2,
+γ)&lt;合(p_1, p_3, γ)$</code>.</p>
+<p>Or, in even simpler terms; "Output similarity dominates trace similarity."</p>
+<h4 id="Different_Trace_Lengths"><a class="hanchor" href="#Different_Trace_Lengths">Different Trace Lengths</a></h4>
 <p>One might also want to be able to deal with the fact that programs have
 different trace lengths, and penalize that, e.g. amending the formula:</p>
 <div>
         $$合'(p_1, p_2, γ)=合(p_1, p_2, γ)+2^{|l_1-l_2|}$$
 </div>
-<p>I'm a bit unhappy that the code doesn't factor into the logical
-correlation, and ideally one would want to be able to compute the logical
-correlation without having to run the program.</p>
 <h3 id="Desiderata_Fulfilled"><a class="hanchor" href="#Desiderata_Fulfilled">Desiderata Fulfilled?</a></h3>
 <p>Does this fulfill our desiderata from earlier? I'll assume that the
 string distance <code>$d$</code> is a metric, in the mathematical sense.</p>
 <h4 id="None"><a class="hanchor" href="#None">Proving <code>$合(p, p)=0$</code></a></h4>
 <p>Proof:</p>
 <div>
-    $$d(o, o)+0.5-\frac{1}{2+\sum_{k=0}^{\min(l, l)} γ^k \cdot d(t(l-k), t(l-k))}= \\
-    0+0.5+\frac{1}{2+\sum_{k=0}^l y^k \cdot 0}= \\
+    $$d(o, o)+0.5-\frac{1}{2+\sum_{k=1}^{\min(l, l)} γ^k \cdot d(t(l-k), t(l-k))}= \\
+    0+0.5+\frac{1}{2+\sum_{k=1}^l y^k \cdot 0}= \\
     0.5+\frac{1}{2+0}= \\
     0$$
 </div>
 <p>Since <code>$d$</code> is a metric, <code>$d(o, o)=0$</code>.</p>
 <h4 id="Proving_Positivity"><a class="hanchor" href="#Proving_Positivity">Proving Positivity</a></h4>
-<p>(The minimal logical correlation is 0.)</p>
+<p>The minimal logical correlation is 0.</p>
+<div>
+    $$合(p_1, p_2, γ)≥0 \Leftrightarrow \\
+    d(o_1, o_2)+0.5-\frac{1}{2+\sum_{k=1}^{\min(l_1, l_2)} γ^k \cdot d(t_1(l_1-k), t_2(l_2-k))}≥0 \Leftrightarrow \\
+    d(o_1, o_2)+0.5 ≥\frac{1}{2+\sum_{k=1}^{\min(l_1, l_2)} γ^k \cdot d(t_1(l_1-k), t_2(l_2-k))} \Leftrightarrow \\
+    2 \cdot d(o_1, o_2)+1+d(o_1, o_2) \cdot \sum_{k=1}^{\min(l_1, l_2)} γ^k \cdot d(t_1(l_1-k), t_2(l_2-k))+0.5 \cdot \sum_{k=1}^{\min(l_1, l_2)} γ^k \cdot d(t_1(l_1-k), t_2(l_2-k))≥1 \Leftrightarrow \\
+    2 \cdot d(o_1, o_2)+1+(d(o_1, o_2)+0.5) \cdot \sum_{k=1}^{\min(l_1, l_2)} γ^k \cdot d(t_1(l_1-k), t_2(l_2-k)))≥1 \Leftrightarrow \\
+    2 \cdot d(o_1, o_2)+(d(o_1, o_2)+0.5) \cdot \sum_{k=1}^{\min(l_1, l_2)} γ^k \cdot d(t_1(l_1-k), t_2(l_2-k)))≥0 $$
+</div>
+<p>This is true, because:</p>
+<ol>
+<li><code>$d(o_1, o_2)≥0$</code>.</li>
+<li><code>$d(t_1(l_1-k), t_2(l_2-k))≥0$</code> for every <code>$k$</code>.</li>
+<li><code>$γ^k≥0$</code> for every <code>$k$</code>.</li>
+</ol>
+<p>Thus we have a sum of products of only positive things, which is in turn
+positive itself.</p>
+<!--
+### Implementation
+
+TODO: implement in Rust using Brainfuck-->
+<h2 id="A_Less_Nave_Formula"><a class="hanchor" href="#A_Less_Nave_Formula">A Less Naïve Formula</a></h2>
+<p>I think that <a href="#Some_Nave_Formula">the naïve formula</a> is <em>too</em> naïve.
+Reasons:</p>
+<ol>
+<li>If you have a program <code>$p$</code> and a program <code>$p^-$</code> which is just <code>$p$</code> but with the tape reversed (so that whenever <code>$p$</code> makes a step left, <code>$p^-$</code> makes a step right, and same with right steps for <code>$p$</code>). Intuitively <code>$p$</code> and <code>$p^-$</code> should have a very high logical correlation, but <code>$合$</code> would tell us that they very much don't.</li>
+<li><code>$合$</code> doesn't <em>really</em> make a statement about which states of the program influence which other states, it just compares them.
+3 I'm a bit unhappy that the code doesn't factor into <code>$合$</code>, and ideally one would want to be able to compute the logical correlation without having to run the program.</li>
+</ol>
+<p>I think one can create a better (though not perfect)
+way of determining logical correlations based on <a href="https://en.wikipedia.org/wiki/Shapley_value">Shapley
+Values</a> and possible
+tape-permutations.</p>
 <h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
 <ul>
 <li>How does this relate to <a href="https://wiki.c2.com/?DataAndCodeAreTheSameThing">data=code</a>?</li>
@@ -157,6 +220,9 @@ exactly same tape states…)-->
 </li>
 <li id="fn3">
 <p>Which is needed because tape states close to the output are more important than tape states early on. <a href="#fnref3" rev="footnote">↩</a></p>
+</li>
+<li id="fn4">
+<p>Together with two constants to avoid division by zero or same logical correlations for programs with different outputs differences. <a href="#fnref4" rev="footnote">↩</a></p>
 </li>
 </ol>
 </div>
