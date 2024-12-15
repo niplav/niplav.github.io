@@ -74,6 +74,7 @@ form, starts with a <code>$2^n+1 \times 2^n+1$</code> grid of numbers.</p>
 <li>The algorithm terminates if each sub-grid is of size <code>$1 \times 1$</code>.</li>
 </ol>
 <p>For <code>$n$</code> dimensions, do that, just higher-dimensional.</p>
+<hr/>
 <p>We start by initializing an n-dimensional space with zeros, and the
 corners with random values:</p>
 <pre><code>def create_space(dim, size, minval, maxval, factor):
@@ -91,9 +92,34 @@ diamond-square algorithm:</p>
 <p>Now there are two possible variants of the generalized diamond-square
 algorithm: the Long Diamond variation and the Long Square variation.</p>
 <h2 id="The_Long_Diamond__Long_Cube_Spectrum"><a class="hanchor" href="#The_Long_Diamond__Long_Cube_Spectrum">The Long Diamond ⇔ Long Cube Spectrum</a></h2>
-<h3 id="Long_Diamond"><a class="hanchor" href="#Long_Diamond">Long Diamond</a></h3>
+<p>Let's take a cube and think about how we can run the diamond-square
+algorithm on it.</p>
+<p><strong>One way</strong> of doing so would be to calculate the center of the cube as
+the mean of all the corners, and then the center of each face as the mean
+of its corners. The value for the midpoint of each edge is calculated
+from the midpoints of the edges and the centers adjacent faces.</p>
 <p><video controls="" src="./vid/diamond/long_diamond_white.mp4" type="video/mp4">
 </video></p>
+<p>I call this variant the <strong>Long Diamond</strong> variant. It performs <em>two</em>
+diamond steps and only one square step along the three dimensions.</p>
+<p>But there's <strong>another way</strong>: Calculate the center of the cube as the
+mean of its corners, just as before. But now go directly to the edges
+and calculate their midpoints as the mean of the endpoints of each edge.
+Then, calculate the value of each face as the mean of the value in the
+center of the cube <em>and</em> the centers of the adjacent edges.</p>
+<p><video controls="" src="./vid/diamond/long_square_white.mp4" type="video/mp4">
+</video></p>
+<p>That is the <strong>Long Square</strong> variant: It performs one diamond step
+(computing the value for the center) and two square steps (for edges
+and for faces).</p>
+<p>Consecutive diamond steps go from <em>higher</em> dimensions to <em>lower</em>
+ones, consecutive square steps go from <em>lower</em> dimensions to <em>higher</em>
+ones. There is one dimension where the values are "stitched together"—in
+the long diamond case it's the first dimension (on edges), in the long
+square step it's the second dimension (on faces). I guess one could
+also leave out the diamond steps together and calculate the center of
+the cube as the mean of the faces—zero diamond, very long square.</p>
+<h3 id="Long_Diamond"><a class="hanchor" href="#Long_Diamond">Long Diamond</a></h3>
 <p>The diamond step of the algorithm starts out with the base case: If the
 space is only one element big, we return and do nothing (assuming the
 value has been filled in):</p>
@@ -111,7 +137,6 @@ describes where the "left lower corner" of those smaller squares is. We
 initialized it with zeros, that way we start in a definite corner.</p>
 <h4 id="Diamond"><a class="hanchor" href="#Diamond">Diamond</a></h4>
 <h4 id="Square"><a class="hanchor" href="#Square">Square</a></h4>
-<h3 id="Long_Square"><a class="hanchor" href="#Long_Square">Long Square</a></h3>
 <p>Code <a href="code/diamond/ndim_diamond_square.py">here</a>. I think this is probably
 the 2nd-most beautiful code I've ever written, just after <a href="./99_problems_klong_solution.html#P25__Generate_a_random_permutation_of_the_elements_of_a_list">this absolute
 smokeshow</a>.</p>

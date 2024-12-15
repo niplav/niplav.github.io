@@ -1776,11 +1776,15 @@ present</em>.</p>
 <p>I think this is wrong in the strict
 sense. I'll generate 10k 2k-dimensional <a href="https://en.wikipedia.org/wiki/Normal-distribution">normally
 distributed</a>
-samples, reduce them down to 2 dimensions, and plot the result (code in
+samples, reduce them down to 2 dimensions, and plot
+the result (code <a href="./code/dimension/code.jl">here</a> in
 <a href="https://en.wikipedia.org/wiki/Julia_programming_language">julia</a>):</p>
 <pre><code>using TSne, UMAP, Plots
 
-data=rand(10000, 2000)
+datapoints=1000
+dims=200
+
+data=rand(datapoints, dims)
 
 reduced=tsne(data)
 reduced_umap=umap(transpose(data))
@@ -1799,10 +1803,8 @@ gui(scatter(reduced_5[:,1],reduced_5[:,2], color=:green))
 <p><img alt="" src="./img/dimension/tsne_5_plot.png"/></p>
 <p>But—what if we have <em>more</em> dimensions than datapoints? Surely it
 hallucinates structure in that case‼</p>
-<pre><code>reduced_moredims=tsne(transpose(data)) # 2k 10k-dimensional datapoints
-gui(scatter(reduced_moredims[:,1],reduced_moredims[:,2]))
-</code></pre>
 <p><img alt="" src="./img/dimension/tsne_moredims.png"/></p>
+<p>(In all cases with 1000 datapoints.)</p>
 <p>And the same for UMAP:</p>
 <p><img alt="" src="./img/dimension/umap_moredims.png"/></p>
 <p>A <a href="https://en.wikipedia.org/wiki/Steelmanning">steelmanned</a> critique

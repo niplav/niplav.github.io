@@ -35,10 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2024-09-20, modified: 2024-09-20, language: english, status: draft, importance: 5, confidence: certain</em></p>
 <blockquote>
-<p><strong>In small normal-form games, taking away an option from a player
-improves the payoff of that player usually &lt;⅓ of the time, but improves
-the payoffs for the other player ½ of the time. The numbers depend on
-the size of the game; plotted <a href="#Plots">here</a>.</strong></p>
+<p><strong>In small <a href="https://en.wikipedia.org/wiki/Normal-form_game">normal-form
+games</a>, taking away
+an option from a player usually improves the payoff of that player
+&lt;⅓ of the time, but improves the payoffs for the other player ½
+of the time. The numbers depend on the size of the game; plotted
+<a href="#Plots">here</a>.</strong></p>
 </blockquote>
 <h1 id="How_Often_Does_Taking_Away_Options_Help"><a class="hanchor" href="#How_Often_Does_Taking_Away_Options_Help">How Often Does Taking Away Options Help?</a></h1>
 <p>There's
@@ -70,37 +72,56 @@ temptation of workers to accept lower wages. <a href="https://en.wikipedia.org/w
 paradox</a> is another case
 where taking options away from people helps.</p>
 <h2 id="Frequency"><a class="hanchor" href="#Frequency">Frequency</a></h2>
-<p>We can figure this out by running a <a href="https://en.wikipedia.org/wiki/Monte-Carlo_simulation">Monte-Carlo
+<p>We can determine a low-information prior on how often taking away
+options from a player improves their game by running a <a href="https://en.wikipedia.org/wiki/Monte-Carlo_simulation">Monte-Carlo
 simulation</a>.</p>
-<p>First, start by generating random <a href="https://en.wikipedia.org/wiki/Normal-form_game">normal form
-games</a>
+<p>First, start by generating random normal form games
 with payoffs in <code>$[0,1]$</code>. Then, compute the <a href="https://en.wikipedia.org/wiki/Nash_Equilibrium">Nash
-equilibria</a> for both players
-via <a href="https://en.wikipedia.org/wiki/Vertex_enumeration_problem">vertex
+equilibria</a>
+for both players via <a href="https://en.wikipedia.org/wiki/Vertex_enumeration_problem">vertex
 enumeration</a>
 of the <a href="https://en.wikipedia.org/wiki/Best_response">best response</a>
-<a href="https://en.wikipedia.org/wiki/Polytope">polytope</a> (using
+<a href="https://en.wikipedia.org/wiki/Polytope">polytope</a> (with
 <a href="https://www.theoj.org/joss-papers/joss.00904/10.21105.joss.00904.pdf">nashpy</a>)—the
 <a href="https://en.wikipedia.org/wiki/Lemke-Howson_algorithm">Lemke-Howson
 algorithm</a> was
-giving me duplicate results. Compute the payoffs for both Abdullah and Benjamin.</p>
+giving me duplicate results. Compute the payoffs for both Abdullah
+and Benjamin.</p>
 <p>Then, <em>remove</em> one option from Abdullah (which translates to deleting a
 row from the <a href="https://en.wikipedia.org/wiki/Payoff_Matrix">payoff matrix</a>).</p>
 <p>Calculate the Nash equilibria and payoffs again.</p>
 <p>We assume that all Nash equilibria are equally likely, so for each player
 we take the unweighted mean payoff across Nash equilibria.</p>
 <p>For a player, taking away one of Abdullah's options is considered an
-<em>improvement</em> iff the mean payoff in the original game is stricly lower
-than the mean payoff in the game with one option removed. Thus, one can
-improve the game for Abdullah by taking away one of his options, and
-one can improve the game for Benjamin by taking away one of Abdullah's
-options, or both.</p>
+<em>improvement</em> iff the mean payoff across equilibria in the original
+game is stricly lower than the mean payoff in the game with one option
+removed. Thus, one can improve the game for Abdullah by taking away one
+of his options, and one can improve the game for Benjamin by taking away
+one of Abdullah's options, or both.</p>
 <h2 id="Plots"><a class="hanchor" href="#Plots">Plots</a></h2>
+<p>I run this analysis on games with up to nine actions, leaving out games
+with two actions/one option in the reduced game (since nashpy requires
+at least two options for each player, and a player with only one option
+can't be really said to play the game).</p>
+<h3 id="Improved_Payoffs"><a class="hanchor" href="#Improved_Payoffs">Improved Payoffs</a></h3>
 <p><img alt="" src="./img/options/A_i.png"/></p>
 <p><em>For games originally of size <code>$n \times m$</code>, how often is it the case that taking an option away from Abdullah improves the payoffs for Abdullah?</em></p>
 <p><img alt="" src="./img/options/B_i.png"/></p>
 <p><em>For games originally of size <code>$n \times m$</code>, how often is it the case that taking an option away from Abdullah improves the payoffs for Benjamin?</em></p>
-<!--TODO: add unchanged or worsened here, or simply unchanged?-->
+<h3 id="Unchanged_Payoffs"><a class="hanchor" href="#Unchanged_Payoffs">Unchanged Payoffs</a></h3>
+<p><img alt="" src="./img/options/A_n.png"/></p>
+<p>Removing an option from Abdullah usually changes their payoffs, unless
+they had many options already.</p>
+<p><img alt="" src="./img/options/B_n.png"/></p>
+<p>Similarly, removing an option from Abdullah usually changes the payoffs
+for Benjamin, unless they had very few options.</p>
+<h3 id="Worsened_Payoffs"><a class="hanchor" href="#Worsened_Payoffs">Worsened Payoffs</a></h3>
+<p><img alt="" src="./img/options/A_w.png"/></p>
+<p>Abdullahs payoffs are usually worsened, most often when Benjamin has
+many options.</p>
+<p><img alt="" src="./img/options/B_w.png"/></p>
+<p>Benjamins payoffs are rarely worsened by taking an option away from
+Abdullah.</p>
 <h2 id="Interpretation"><a class="hanchor" href="#Interpretation">Interpretation</a></h2>
 <p>Abdullah is <em>most</em> helped by taking an option away from him when both
 he and Benjamin have a lot of options to choose from, e.g. in the case
@@ -113,7 +134,9 @@ players are incentivized to advocate for paternalism over weaker players.</p>
 <h2 id="Postscript"><a class="hanchor" href="#Postscript">Postscript</a></h2>
 <p>One can imagine a paternalist government as a <a href="https://en.wikipedia.org/wiki/Mechanism_Design">mechanism
 designer</a> with a
-bulldozer, then.</p>
+bulldozer, then—it can only remove options from people, but that
+hurts those people more than it helps them, unless the intervention is
+carefully chosen.</p>
 <p>Code <a href="./code/options/options.py">here</a>, largely written by <a href="https://www.anthropic.com/news/claude-3-5-sonnet">Claude 3.5
 Sonnet</a>.</p>
 <h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
