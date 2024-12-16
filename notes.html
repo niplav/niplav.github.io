@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2019-05-22, modified: 2024-11-28, language: english, status: in progress, importance: 3, confidence: other</em></p>
+<p><em>author: niplav, created: 2019-05-22, modified: 2024-12-15, language: english, status: in progress, importance: 3, confidence: other</em></p>
 <blockquote>
 <p><strong>Short texts on different topics.</strong></p>
 </blockquote>
@@ -1774,7 +1774,7 @@ techniques like <a href="https://distill.pub/2016/misread-tsne/">t-SNE</a> or
 tend to find clusters in random data, even if they're not <em>really
 present</em>.</p>
 <p>I think this is wrong in the strict
-sense. I'll generate 10k 2k-dimensional <a href="https://en.wikipedia.org/wiki/Normal-distribution">normally
+sense. I'll generate 10k 2k-dimensional <a href="https://en.wikipedia.org/wiki/Uniform_distribution">uniformly
 distributed</a>
 samples, reduce them down to 2 dimensions, and plot
 the result (code <a href="./code/dimension/code.jl">here</a> in
@@ -1795,8 +1795,10 @@ gui(scatter(reduced[:,1],reduced[:,2]))
 <pre><code>gui(scatter(reduced_umap[1,:],reduced_umap[2,:], color=:red))
 </code></pre>
 <p><img alt="" src="./img/dimension/umap_plot.png"/></p>
-<p>Changing the perplexity to 5 doesn't change the clustering produced
-by t-SNE:</p>
+<p>Changing the perplexity to 5 changes the clustering produced by t-SNE —
+no obvious <em>clustering</em>, but it leads to structure being hallucinated,
+especially the tendency towards identifying a cross-shaped pattern in
+the data, and imagining outliers where they don't exist.</p>
 <pre><code>reduced_5=tsne(data, 2, 0, 1000, 5.0)
 gui(scatter(reduced_5[:,1],reduced_5[:,2], color=:green))
 </code></pre>
@@ -1807,13 +1809,34 @@ hallucinates structure in that case‼</p>
 <p>(In all cases with 1000 datapoints.)</p>
 <p>And the same for UMAP:</p>
 <p><img alt="" src="./img/dimension/umap_moredims.png"/></p>
-<p>A <a href="https://en.wikipedia.org/wiki/Steelmanning">steelmanned</a> critique
-could be that sometimes people use dimensionality reduction techniques for
-clustering, instead of separating visualization and clustering (such as
-via good ol' <a href="https://en.wikipedia.org/wiki/K-means_Clustering">k-means</a>),
+<p><a href="https://x.com/quetzal_rainbow/status/1868307804702069173">quetzal_rainbow
+suggested</a>
+I test it with data where half the dimensions are <a href="https://en.wikipedia.org/wiki/Normal-distribution">normally
+distributed</a>
+and the other half is <a href="https://en.wikipedia.org/wiki/Lognormal_Distribution">lognormally
+distributed</a>.
+Intuitively, the resulting dataset has the shape of an skewed hyperegg,
+in which for half the dimensions the cross-section is spherical and for
+the other half they extend much further in one direction than the other.</p>
+<p>When reducing the dimensions, we see this for t-SNE on 1000 datapoints each:</p>
+<p><img alt="" src="./img/dimension/tsne_mixed_moredims.png"/></p>
+<p>And similarly for UMAP:</p>
+<p><img alt="" src="./img/dimension/umap_mixed_moredims.png"/></p>
+<p>The dimensionality reduction algorithms get executed on the same dataset
+per dimensionality, which is why they have very similar outputs for
+e.g. 16k dimensions: The generated dataset has a few outliers which end
+up far away from the center of the dataset, and both t-SNE and UMAP pick
+up on that. I find it pretty encouraging to see how two very different
+algorithms find the same structure in the data.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Steelmanning">steelmanned</a>
+critique of these two algorithms could be that sometimes people
+use dimensionality reduction techniques for clustering, instead
+of separating visualization and clustering (such as via good ol'
+<a href="https://en.wikipedia.org/wiki/K-means_Clustering">k-means</a>),
 but t-SNE is <a href="https://en.wikipedia.org/wiki/Clustering_high-dimensional_data#Projection-based_clustering">sometimes used even for
 clustering</a>,
-all my charity is being exhausted at this point. But beware:</p>
+all my charity is being exhausted at this point.</p>
+<p>Worth noting though:</p>
 <blockquote>
 <p>Cluster sizes in a t-SNE plot mean nothing […]<br/>
 The basic message is that distances between well-separated clusters in
