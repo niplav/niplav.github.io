@@ -91,14 +91,14 @@ diamond-square algorithm:</p>
 </code></pre>
 <p>Now there are two possible variants of the generalized diamond-square
 algorithm: the Long Diamond variation and the Long Square variation.</p>
-<h2 id="The_Long_Diamond__Long_Cube_Spectrum"><a class="hanchor" href="#The_Long_Diamond__Long_Cube_Spectrum">The Long Diamond ⇔ Long Cube Spectrum</a></h2>
-<p>Let's take a cube and think about how we can run the diamond-square
-algorithm on it.</p>
+<h2 id="The_Long_Diamond__Long_Square_Spectrum"><a class="hanchor" href="#The_Long_Diamond__Long_Square_Spectrum">The Long Diamond ⇔ Long Square Spectrum</a></h2>
+<p>Let's take a 3×3×3 cubical grid and think about how we can run the
+diamond-square algorithm on it.</p>
 <p><strong>One way</strong> of doing so would be to calculate the center of the cube as
 the mean of all the corners, and then the center of each face as the mean
 of its corners. The value for the midpoint of each edge is calculated
 from the midpoints of the edges and the centers adjacent faces.</p>
-<p><video controls="" src="./vid/diamond/long_diamond_white.mp4" type="video/mp4">
+<p><video controls="" src="./vid/diamond/long_diamond.mp4" type="video/mp4">
 </video></p>
 <p>I call this variant the <strong>Long Diamond</strong> variant. It performs <em>two</em>
 diamond steps and only one square step along the three dimensions.</p>
@@ -107,7 +107,7 @@ mean of its corners, just as before. But now go directly to the edges
 and calculate their midpoints as the mean of the endpoints of each edge.
 Then, calculate the value of each face as the mean of the value in the
 center of the cube <em>and</em> the centers of the adjacent edges.</p>
-<p><video controls="" src="./vid/diamond/long_square_white.mp4" type="video/mp4">
+<p><video controls="" src="./vid/diamond/long_square.mp4" type="video/mp4">
 </video></p>
 <p>That is the <strong>Long Square</strong> variant: It performs one diamond step
 (computing the value for the center) and two square steps (for edges
