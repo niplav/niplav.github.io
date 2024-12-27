@@ -80,10 +80,6 @@ video {
 	margin: 0;
 }
 
-.toc ul ul {
-	padding-left: 20px;
-}
-
 .toc li {
 	margin: 2px 0;
 	line-height: 1.4;
@@ -107,7 +103,23 @@ video {
 /* Add numbering as pseudo-elements */
 .toc li {
 	position: relative;
-	padding-left: 2.5em;  /* Space for numbers */
+	padding-left: 3.5em;  /* Space for numbers */
+}
+
+.toc > ul > li {
+	counter-increment: h1;  /* Add this for first level */
+}
+
+.toc > ul > li::before {
+	content: counter(h1) ". ";  /* Add this for first level */
+	position: absolute;
+	left: 0;
+	color: #666;
+}
+
+/* Reset counter for first level */
+.toc > ul {
+	counter-reset: h1;  /* Add this */
 }
 
 .toc > ul > li > ul > li {
@@ -143,6 +155,17 @@ video {
 	color: #666;
 }
 
+.toc > ul > li > ul > li > ul > li > ul > li > ul >li {
+	counter-increment: h5;
+}
+
+.toc > ul > li > ul > li > ul > li > ul > li > ul > li::before {
+	content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) " ";
+	position: absolute;
+	left: 0;
+	color: #666;
+}
+
 /* Reset counters at each level */
 .toc > ul {
 	counter-reset: h2;
@@ -153,6 +176,10 @@ video {
 }
 
 .toc > ul > li > ul > li > ul {
+	counter-reset: h4;
+}
+
+.toc > ul > li > ul > li > ul >li > ul {
 	counter-reset: h4;
 }
 
