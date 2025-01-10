@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <blockquote>
 <p><strong>In which to compare how similarly programs compute their outputs,
 <a href="#A_Nave_Formula">naïvely</a> and <a href="#A_Less_Nave_Formula">less naïvely</a>.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#A_Nave_Formula">A Naïve Formula</a><ul><li><a href="#Setup">Setup</a><ul></ul></li><li><a href="#Possible_Desiderata">Possible Desiderata</a><ul></ul></li><li><a href="#Formal_Definition">Formal Definition</a><ul><li><a href="#Explanation">Explanation</a><ul></ul></li><li><a href="#Different_Trace_Lengths">Different Trace Lengths</a><ul></ul></li></ul></li><li><a href="#Desiderata_Fulfilled">Desiderata Fulfilled?</a><ul><li><a href="#None">Proving $合(p, p)=0$</a><ul></ul></li><li><a href="#Proving_Positivity">Proving Positivity</a><ul><li><a href="#Only_A_Pseudometric">Only A Pseudometric</a><ul></ul></li></ul></li></ul></li></ul></li><li><a href="#A_Less_Nave_Formula">A Less Naïve Formula</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#A_Nave_Formula">A Naïve Formula</a><ul><li><a href="#Setup">Setup</a><ul></ul></li><li><a href="#Possible_Desiderata">Possible Desiderata</a><ul></ul></li><li><a href="#Formal_Definition">Formal Definition</a><ul><li><a href="#Explanation">Explanation</a><ul></ul></li><li><a href="#Different_Trace_Lengths">Different Trace Lengths</a><ul></ul></li></ul></li><li><a href="#Desiderata_Fulfilled">Desiderata Fulfilled?</a><ul><li><a href="#None">Proving $合(p, p)=0$</a><ul></ul></li><li><a href="#Proving_Positivity">Proving Positivity</a><ul><li><a href="#Only_A_Pseudometric">Only A Pseudometric</a><ul></ul></li></ul></li></ul></li></ul></li><li><a href="#A_Less_Nave_Formula">A Less Naïve Formula</a><ul><li><a href="#Explanation_1">Explanation</a><ul><li><a href="#Shapley_Values_for_Tape_States">Shapley Values for Tape States</a><ul></ul></li><li><a href="#Comparing_Lists_of_Influences">Comparing Lists of Influences</a><ul></ul></li><li><a href="#DifferentlySized_Tapes">Differently-Sized Tapes</a><ul></ul></li><li><a href="#Plugging_It_All_Together">Plugging It All Together</a><ul></ul></li><li><a href="#Permuted_Tapes">Permuted Tapes</a><ul></ul></li></ul></li><li><a href="#Final_Equation">Final Equation</a><ul></ul></li></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
 <h1 id="Logical_Correlation"><a class="hanchor" href="#Logical_Correlation">Logical Correlation</a></h1>
 <p>Attention conservation notice: Premature formalization,
 <a href="https://en.wiktionary.org/wiki/ab-">ab-</a><a href="https://www.lesswrong.com/posts/GhFoAxG49RXFzze5Y/what-s-so-bad-about-ad-hoc-mathematical-definitions">hoc mathematical
@@ -215,10 +215,51 @@ Reasons:</p>
 <li><code>$合$</code> doesn't <em>really</em> make a statement about which states of the program influence which other states, it just compares them.</li>
 <li>I'm a bit unhappy that the code doesn't factor into <code>$合$</code>, and ideally one would want to be able to compute the logical correlation without having to run the program.</li>
 </ol>
-<p>I think one can create a better (though not perfect)
-way of determining logical correlations based on <a href="https://en.wikipedia.org/wiki/Shapley_value">Shapley
+<p>I think one can create a better (though not perfect) way of
+determining logical correlations based on (something like) <a href="https://en.wikipedia.org/wiki/Shapley_value">Shapley
 Values</a> and possible
 tape-permutations.</p>
+<h3 id="Explanation_1"><a class="hanchor" href="#Explanation_1">Explanation</a></h3>
+<p>We'll inherit <a href="#Setup">the basic setup</a> from the naïve formula, but now
+we won't determine the logical correlation of <code>$o_1, o_2$</code>.  Instead we
+pick one bit from each output, say <code>$b_1=o_1(k), b_2=o_2(k)$</code> for some
+<code>$k \in ℕ$</code>).</p>
+<h4 id="Shapley_Values_for_Tape_States"><a class="hanchor" href="#Shapley_Values_for_Tape_States">Shapley Values for Tape States</a></h4>
+<p>We now treat each tape state <code>$t_i$</code> of a Turing machine as a set of
+players, which can play either <code>$0$</code> or <code>$1$</code> (the two states each cell
+on the tape can assume).</p>
+<p>Then we can compute the Shapley value for each tape state on the bit
+produced down the line by the Turing machine. To recap, the Shapley
+value assumes that there's a set <code>$t_i(j) (j \in ℕ)$</code> of players,
+and a function <code>$v: 2^{t_i(j)} \rightarrow \{0,1\}$</code> for all subsets
+of players—in this case the execution of the program from <code>$t_i$</code>
+until it halts. It's assumed that <code>$v(\emptyset)=0$</code>.</p>
+<p>The Shapley value for a player <code>$j$</code> is then computed with the following equation:</p>
+<div>
+    $$\phi_j(v)=\sum_{S \subseteq N \backslash \{j\}} \frac{|S|!(n-|S|-1)!}{n!} (v(S \cup\{j\})-v(S)))$$
+</div>
+<p>Two conceptual difficulties present themselves:</p>
+<ol>
+<li>The Shapley value assumes there's a null-action for each player, i.e. players can choose not to do anything,</li>
+<li>It's assumed that if every player plays the null action, then the output of <code>$v$</code> is <code>$0$</code>, though this isn't required for the equation to work.</li>
+</ol>
+<p>1. can be solved by setting the null action to the tapestate produced by
+the program preceding the tapestate. I imagine this as a tapestate being
+able to "decide" to flip to the opposite bit before the program resumes.</p>
+<p>2. is a bit more tricky to resolve. I think the best way of fixing this
+is to say that <em>iff</em> the output of the Turing machine with no changes
+to the tape state is <code>$1$</code>, then the "real" Shapley value here is
+<code>$-\phi_j(v)$</code>—we evaluate tape state for their ability to move the
+bit in the output from <code>$1$</code> to <code>$0$</code>.</p>
+<h4 id="Comparing_Lists_of_Influences"><a class="hanchor" href="#Comparing_Lists_of_Influences">Comparing Lists of Influences</a></h4>
+<h4 id="DifferentlySized_Tapes"><a class="hanchor" href="#DifferentlySized_Tapes">Differently-Sized Tapes</a></h4>
+<h4 id="Plugging_It_All_Together"><a class="hanchor" href="#Plugging_It_All_Together">Plugging It All Together</a></h4>
+<h4 id="Permuted_Tapes"><a class="hanchor" href="#Permuted_Tapes">Permuted Tapes</a></h4>
+<h3 id="Final_Equation"><a class="hanchor" href="#Final_Equation">Final Equation</a></h3>
+<!--TODO: add difference in output bits?-->
+<div>
+    $$挧(b_1, b_2, γ)=\underset{\sigma \in S}{\text{argmin }} 0.5-\frac{1}{2+\sum_{k=1}^{\min(l_1, l_2)} γ^k \cdot \sum_{j=1}^{\min(|t_1(k)|, |t_2(k)|)} (\phi_j(t_1(k)_j)-\sigma(\phi_j(t_2(k)_j))))^2}$$
+</div>
 <h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
 <ul>
 <li>How does this relate to <a href="https://wiki.c2.com/?DataAndCodeAreTheSameThing">data=code</a>?</li>
@@ -232,7 +273,7 @@ exactly same tape states…)-->
 <hr/>
 <ol>
 <li id="fn1">
-<p>Suggested by GPT-4. Stands for <a href="https://en.wiktionary.org/wiki/%E5%90%88#Definitions">joining, combining, uniting</a>. Also "to suit; to fit", "to have sexual intercourse", "to fight, to have a confrontation with", or "to be equivalent to, to add up". Maybe I could've used one of the <a href="https://en.wikipedia.org/wiki/Ghost_characters">ghost characters</a>. <a href="#fnref1" rev="footnote">↩</a></p>
+<p>Suggested by GPT-4. Stands for <a href="https://en.wiktionary.org/wiki/%E5%90%88#Definitions">joining, combining, uniting</a>. Also "to suit; to fit", "to have sexual intercourse", "to fight, to have a confrontation with", or "to be equivalent to, to add up". <a href="#fnref1" rev="footnote">↩</a></p>
 </li>
 <li id="fn2">
 <p>Actually not explained in detail anywhere, as far as I can tell. <a href="#fnref2" rev="footnote">↩</a></p>

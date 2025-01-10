@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-04-15, modified: 2024-10-15, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2023-04-15, modified: 2025-01-07, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>I consider the problem of resolving preferences
 that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
@@ -55,7 +55,7 @@ lotteries. None of those two representations prove to be satisfactory. I
 apply the findings to propose an algorithm for changing a <a href="https://en.wikipedia.org/wiki/Utility#Utility_function">utility
 function</a> as
 the underlying set of objects changes.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Motivation">Motivation</a><ul><li><a href="#Why_vNM">Why vNM?</a><ul></ul></li></ul></li><li><a href="#Structure_of_the_Text">Structure of the Text</a><ul></ul></li><li><a href="#Related_Work">Related Work</a><ul><li><a href="#Modeling_Inconsistent_Preferences">Modeling Inconsistent Preferences</a><ul></ul></li><li><a href="#Resolving_Inconsistent_Preferences">Resolving Inconsistent Preferences</a><ul></ul></li><li><a href="#Learning_Inconsistent_Preferences">Learning Inconsistent Preferences</a><ul></ul></li><li><a href="#The_von_NeumannMorgenstern_Axioms">The von Neumann-Morgenstern Axioms</a><ul><li><a href="#Assuming_Asymmetry">Assuming Asymmetry</a><ul></ul></li></ul></li></ul></li><li><a href="#Inconsistent_Preferences_over_Deterministic_Options">Inconsistent Preferences over Deterministic Options</a><ul><li><a href="#Violating_the_von_NeumannMorgenstern_Axioms">Violating the von Neumann-Morgenstern Axioms</a><ul><li><a href="#Incompleteness">Incompleteness.</a><ul></ul></li><li><a href="#Intransitivity">Intransitivity.</a><ul></ul></li><li><a href="#Symmetry">Symmetry.</a><ul></ul></li></ul></li><li><a href="#Algorithms_for_Resolving_Inconsistencies">Algorithms for Resolving Inconsistencies</a><ul><li><a href="#Finding_Consistent_Graphs_with_the_Smallest_GraphEdit_Distance">Finding Consistent Graphs with the Smallest Graph-Edit Distance</a><ul></ul></li><li><a href="#Establishing_Consistency_Stepwise">Establishing Consistency Stepwise</a><ul></ul></li><li><a href="#None">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Criteria">Criteria</a><ul><li><a href="#Surjectivity_and_Identity">Surjectivity and Identity</a><ul></ul></li><li><a href="#Minimizing_GraphEdit_Distance">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_1">Applying HodgeRank</a><ul></ul></li><li><a href="#Polynomial_Time_Complexity">Polynomial Time Complexity</a><ul><li><a href="#Minimizing_GraphEdit_Distance_1">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_2">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Uniqueness">Uniqueness</a><ul><li><a href="#Minimizing_GraphEdit_Distance_2">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_3">Applying HodgeRank</a><ul></ul></li><li><a href="#Further_Considerations">Further Considerations</a><ul></ul></li></ul></li><li><a href="#Resolution_to_Polynomially_Many_Preferences">Resolution to Polynomially Many Preferences</a><ul><li><a href="#Minimizing_GraphEdit_Distance_3">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_4">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Preservation_of_Consistent_Subgraphs">Preservation of Consistent Subgraphs</a><ul><li><a href="#Minimizing_GraphEdit_Distance_4">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_5">Applying HodgeRank</a><ul></ul></li></ul></li></ul></li><li><a href="#Preservation_of_Completely_Dominating_and_Dominated_Set">Preservation of Completely Dominating and Dominated Set</a><ul><li><a href="#Minimizing_GraphEdit_Distance_5">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_6">Applying HodgeRank</a><ul></ul></li></ul></li></ul></li><li><a href="#Summary">Summary</a><ul></ul></li><li><a href="#Impossibilities">Impossibilities</a><ul><li><a href="#Resolution_to_Polynomially_Many_Preferences_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Resolution to Polynomially Many Preferences and Preservation of Consistent Subgraphs are Incompatible</a><ul></ul></li><li><a href="#Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Polynomial Time Complexity and Preservation of Consistent Subgraphs are Incompatible</a><ul></ul></li></ul></li><li><a href="#Violating_the_Axioms">Violating the Axioms</a><ul><li><a href="#Discontinuity">Discontinuity</a><ul></ul></li><li><a href="#Dependence">Dependence</a><ul></ul></li></ul></li><li><a href="#Representing_Inconsistencies">Representing Inconsistencies</a><ul><li><a href="#EdgeWeighted_Graphs">Edge-Weighted Graphs</a><ul></ul></li><li><a href="#Arbitrary_Relations_over_the_Lotteries">Arbitrary Relations over the Lotteries</a><ul></ul></li></ul></li><li><a href="#Algorithms">Algorithms</a><ul><li><a href="#HodgeRank">HodgeRank</a><ul></ul></li></ul></li><li><a href="#Ontology_Identification_Ontological_Shifts_and_Ontological_Crises">Ontology Identification, Ontological Shifts and Ontological Crises</a><ul><li><a href="#Existing_Approaches">Existing Approaches</a><ul><li><a href="#Advantages">Advantages</a><ul></ul></li><li><a href="#Disadvantages">Disadvantages</a><ul></ul></li></ul></li><li><a href="#Using_Inconsistent_Preferences_to_Represent_Ontological_Crises">Using Inconsistent Preferences to Represent Ontological Crises</a><ul><li><a href="#Advantages_1">Advantages</a><ul></ul></li><li><a href="#Disadvantages_1">Disadvantages</a><ul></ul></li></ul></li></ul></li><li><a href="#Conclusion">Conclusion</a><ul><li><a href="#Further_Research">Further Research</a><ul></ul></li></ul></li><li><a href="#Acknowledgements">Acknowledgements</a><ul></ul></li><li><a href="#Appendix_A_Hints_in_Prior_Texts">Appendix A: Hints in Prior Texts</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Motivation">Motivation</a><ul><li><a href="#Why_vNM">Why vNM?</a><ul></ul></li></ul></li><li><a href="#Structure_of_the_Text">Structure of the Text</a><ul></ul></li><li><a href="#Related_Work">Related Work</a><ul><li><a href="#Modeling_Inconsistent_Preferences">Modeling Inconsistent Preferences</a><ul></ul></li><li><a href="#Resolving_Inconsistent_Preferences">Resolving Inconsistent Preferences</a><ul></ul></li><li><a href="#Learning_Inconsistent_Preferences">Learning Inconsistent Preferences</a><ul></ul></li><li><a href="#The_von_NeumannMorgenstern_Axioms">The von Neumann-Morgenstern Axioms</a><ul><li><a href="#Assuming_Asymmetry">Assuming Asymmetry</a><ul></ul></li></ul></li></ul></li><li><a href="#Inconsistent_Preferences_over_Deterministic_Options">Inconsistent Preferences over Deterministic Options</a><ul><li><a href="#Violating_the_von_NeumannMorgenstern_Axioms">Violating the von Neumann-Morgenstern Axioms</a><ul><li><a href="#Incompleteness">Incompleteness.</a><ul></ul></li><li><a href="#Intransitivity">Intransitivity.</a><ul></ul></li><li><a href="#Symmetry">Symmetry.</a><ul></ul></li></ul></li><li><a href="#Algorithms_for_Resolving_Inconsistencies">Algorithms for Resolving Inconsistencies</a><ul><li><a href="#Finding_Consistent_Graphs_with_the_Smallest_GraphEdit_Distance">Finding Consistent Graphs with the Smallest Graph-Edit Distance</a><ul></ul></li><li><a href="#Establishing_Consistency_Stepwise">Establishing Consistency Stepwise</a><ul></ul></li><li><a href="#None">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Criteria">Criteria</a><ul><li><a href="#Surjectivity_and_Identity">Surjectivity and Identity</a><ul></ul></li><li><a href="#Minimizing_GraphEdit_Distance">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_1">Applying HodgeRank</a><ul></ul></li><li><a href="#Polynomial_Time_Complexity">Polynomial Time Complexity</a><ul><li><a href="#Minimizing_GraphEdit_Distance_1">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_2">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Uniqueness">Uniqueness</a><ul><li><a href="#Minimizing_GraphEdit_Distance_2">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_3">Applying HodgeRank</a><ul></ul></li><li><a href="#Further_Considerations">Further Considerations</a><ul></ul></li></ul></li><li><a href="#Resolution_to_Polynomially_Many_Preferences">Resolution to Polynomially Many Preferences</a><ul><li><a href="#Minimizing_GraphEdit_Distance_3">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_4">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Preservation_of_Consistent_Subgraphs">Preservation of Consistent Subgraphs</a><ul><li><a href="#Minimizing_GraphEdit_Distance_4">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_5">Applying HodgeRank</a><ul></ul></li></ul></li></ul></li><li><a href="#Preservation_of_Completely_Dominating_and_Dominated_Set">Preservation of Completely Dominating and Dominated Set</a><ul><li><a href="#Minimizing_GraphEdit_Distance_5">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_6">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Summary">Summary</a><ul></ul></li><li><a href="#Impossibilities">Impossibilities</a><ul><li><a href="#Resolution_to_Polynomially_Many_Preferences_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Resolution to Polynomially Many Preferences and Preservation of Consistent Subgraphs are Incompatible</a><ul></ul></li><li><a href="#Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Polynomial Time Complexity and Preservation of Consistent Subgraphs are Incompatible</a><ul></ul></li></ul></li></ul></li><li><a href="#Inconsistent_Preferences_over_Lotteries">Inconsistent Preferences over Lotteries</a><ul><li><a href="#Violating_the_Axioms">Violating the Axioms</a><ul><li><a href="#Discontinuity">Discontinuity</a><ul></ul></li><li><a href="#Dependence">Dependence</a><ul></ul></li></ul></li><li><a href="#Representing_Inconsistencies">Representing Inconsistencies</a><ul><li><a href="#EdgeWeighted_Graphs">Edge-Weighted Graphs</a><ul></ul></li><li><a href="#Arbitrary_Relations_over_the_Lotteries">Arbitrary Relations over the Lotteries</a><ul></ul></li></ul></li><li><a href="#Algorithms">Algorithms</a><ul><li><a href="#HodgeRank">HodgeRank</a><ul></ul></li><li><a href="#Sondej_Sampling">Sondej Sampling</a><ul></ul></li></ul></li></ul></li><li><a href="#Applications">Applications</a><ul><li><a href="#Ontology_Identification_Ontological_Shifts_and_Ontological_Crises">Ontology Identification, Ontological Shifts and Ontological Crises</a><ul><li><a href="#Existing_Approaches">Existing Approaches</a><ul><li><a href="#Advantages">Advantages</a><ul></ul></li><li><a href="#Disadvantages">Disadvantages</a><ul></ul></li></ul></li><li><a href="#Using_Inconsistent_Preferences_to_Represent_Ontological_Crises">Using Inconsistent Preferences to Represent Ontological Crises</a><ul><li><a href="#Advantages_1">Advantages</a><ul></ul></li><li><a href="#Disadvantages_1">Disadvantages</a><ul></ul></li></ul></li></ul></li></ul></li><li><a href="#Conclusion">Conclusion</a><ul><li><a href="#Further_Research">Further Research</a><ul></ul></li></ul></li><li><a href="#Acknowledgements">Acknowledgements</a><ul></ul></li><li><a href="#Appendix_A_Hints_in_Prior_Texts">Appendix A: Hints in Prior Texts</a><ul></ul></li></ul></div>
 <h1 id="Resolving_von_NeumannMorgenstern_Inconsistent_Preferences"><a class="hanchor" href="#Resolving_von_NeumannMorgenstern_Inconsistent_Preferences">Resolving von Neumann-Morgenstern Inconsistent Preferences</a></h1>
 <p>In economics, decision theory, game theory and parts of artificial
 intelligence the standard approach to modeling actors is to assume those
@@ -1516,7 +1516,7 @@ computational experiment, and for random samples of graphs (<code>$2^{16}$</code
 graphs generated for each number of nodes, using the <a href="https://en.wikipedia.org/wiki/Erdos-Renyi_model">Erdős-Rényi
 model</a> with the
 probability <code>$\frac{1}{2}$</code> of edge creation) with up to 13 nodes.</p>
-<h2 id="Summary"><a class="hanchor" href="#Summary">Summary</a></h2>
+<h3 id="Summary"><a class="hanchor" href="#Summary">Summary</a></h3>
 <p>We can now summarize how well the two algorithms fulfill the different
 criteria:</p>
 <table>
@@ -1565,10 +1565,10 @@ criteria:</p>
 </tr>
 </tbody>
 </table>
-<h2 id="Impossibilities"><a class="hanchor" href="#Impossibilities">Impossibilities</a></h2>
+<h3 id="Impossibilities"><a class="hanchor" href="#Impossibilities">Impossibilities</a></h3>
 <p>Some of the criteria listed in Section 3.3 are incompatible with each
 other.</p>
-<h3 id="Resolution_to_Polynomially_Many_Preferences_and_Preservation_of_Consistent_Subgraphs_are_Incompatible"><a class="hanchor" href="#Resolution_to_Polynomially_Many_Preferences_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Resolution to Polynomially Many Preferences and Preservation of Consistent Subgraphs are Incompatible</a></h3>
+<h4 id="Resolution_to_Polynomially_Many_Preferences_and_Preservation_of_Consistent_Subgraphs_are_Incompatible"><a class="hanchor" href="#Resolution_to_Polynomially_Many_Preferences_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Resolution to Polynomially Many Preferences and Preservation of Consistent Subgraphs are Incompatible</a></h4>
 <p>It is not possible to have an algorithm that retains every maximal
 consistent subgraph at least once in the set of outputs and has only
 polynomially many outputs.</p>
@@ -1685,7 +1685,7 @@ most size <code>$2^n$</code>. Then the size of $\mathbf{P}$ would be at least
 <code>$(\frac{3}{2})^{\frac{v}{3}}=\sqrt[3]{\frac{3}{2}}^v \approx 1.145^v$</code>
 for the number of vertices <code>$v$</code> in <code>$E_v$</code>, which is exponential but
 can probably be improved upon.</p>
-<h3 id="Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible"><a class="hanchor" href="#Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Polynomial Time Complexity and Preservation of Consistent Subgraphs are Incompatible</a></h3>
+<h4 id="Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible"><a class="hanchor" href="#Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Polynomial Time Complexity and Preservation of Consistent Subgraphs are Incompatible</a></h4>
 <p>Given that in the worst case, only a small proportion of consistent
 subgraphs can be preserved, it also is not possible to have an algorithm
 that returns, for each inclusion-maximal consistent subgraph
@@ -1711,7 +1711,7 @@ inclusion-maximal consistent subgraphs of the "levels" <code>$V_i$</code>:</p>
 which includes all inclusion-maximal consistent subgraphs. We suspect
 there are counter-examples that don't allow for this, but haven't been
 able to find any.</p>
-<h1 id="Inconsistent_Preferences_over_Lotteries"><a class="hanchor" href="#Inconsistent_Preferences_over_Lotteries">Inconsistent Preferences over Lotteries</a></h1>
+<h2 id="Inconsistent_Preferences_over_Lotteries"><a class="hanchor" href="#Inconsistent_Preferences_over_Lotteries">Inconsistent Preferences over Lotteries</a></h2>
 <p>Von Neumann and Morgenstern formulate their famous theorem by defining
 some restriction on relations over lotteries <a href="https://www.goodreads.com/book/show/483055.Theory_of_Games_and_Economic_Behavior">von Neumann &amp; Morgenstern
 1947</a>,
@@ -1722,10 +1722,10 @@ remains an open problem, but we propose two structures which can either
 tractably encode some subset of inconsistent preferences or are rich
 enough to encode all inconsistent preferences, but too complex to be
 compactly represented.</p>
-<h2 id="Violating_the_Axioms"><a class="hanchor" href="#Violating_the_Axioms">Violating the Axioms</a></h2>
+<h3 id="Violating_the_Axioms"><a class="hanchor" href="#Violating_the_Axioms">Violating the Axioms</a></h3>
 <p>Introducing lotteries allows for a large variety of violations of the
 von Neumann-Morgenstern axioms.</p>
-<h3 id="Discontinuity"><a class="hanchor" href="#Discontinuity">Discontinuity</a></h3>
+<h4 id="Discontinuity"><a class="hanchor" href="#Discontinuity">Discontinuity</a></h4>
 <p>Discontinuity in relations over lotteries can occur if we know that
 <code>$l_1 \preceq l_2 \preceq l_3$</code>, but there is no <code>$p$</code> so that <code>$l_2 \sim
 [p: l_1, (1-p): l_3]$</code>. A discontinuous preference that fulfills <code>$l_1
@@ -1748,7 +1748,7 @@ axiom "excluding a "utility of gambling"" <a href="https://www.goodreads.com/boo
 3.7.1</a>,
 and state that "concepts like a "specific utility of gambling" cannot
 be formulated free of contradiction on this level." [ibid.]).</p>
-<h3 id="Dependence"><a class="hanchor" href="#Dependence">Dependence</a></h3>
+<h4 id="Dependence"><a class="hanchor" href="#Dependence">Dependence</a></h4>
 <p>Violations of the independence axiom ("dependence") occur if for two
 lotteries <code>$l_1, l_2$</code> (with <code>$l_1 \preceq l_2$</code>) there is an option
 <code>$l_3$</code> and a <code>$p \in [0; 1]$</code> so that <code>$[p: l_1, (1-p): l_3] \succ [p:
@@ -1780,11 +1780,11 @@ then "mix in" 0.89 of $0 into the two resulting distributions to create
     \Leftrightarrow &amp; A_2 \prec B_2
     \end{aligned}$$
 </div>
-<h2 id="Representing_Inconsistencies"><a class="hanchor" href="#Representing_Inconsistencies">Representing Inconsistencies</a></h2>
+<h3 id="Representing_Inconsistencies"><a class="hanchor" href="#Representing_Inconsistencies">Representing Inconsistencies</a></h3>
 <p>It is more difficult to find a mathematical structure to represent
 arbitrary inconsistent preferences over lotteries over some set of
 options <code>$\Omega$</code>.</p>
-<h3 id="EdgeWeighted_Graphs"><a class="hanchor" href="#EdgeWeighted_Graphs">Edge-Weighted Graphs</a></h3>
+<h4 id="EdgeWeighted_Graphs"><a class="hanchor" href="#EdgeWeighted_Graphs">Edge-Weighted Graphs</a></h4>
 <p>Given <code>$\Omega$</code>, some inconsistent preferences on lotteries on <code>$\Omega$</code>
 can be represented by the set <code>$\mathfrak{G}_{\Omega}$</code> of edge-weighted
 directed graphs on <code>$\Omega$</code>, where edge weights of a graph <code>$G$</code> can
@@ -1815,7 +1815,7 @@ which lotteries are preferred over which others: Given a preference of
 <code>$\alpha$ over $\beta$</code> by <code>$w_l$</code>, and of <code>$\beta$ over $\alpha$</code> by
 <code>$w_r$</code> doesn't enable reconstruction of whether <code>$l_1 \prec l_2$</code> or
 <code>$l_1 \succ l_2$</code>.</p>
-<h3 id="Arbitrary_Relations_over_the_Lotteries"><a class="hanchor" href="#Arbitrary_Relations_over_the_Lotteries">Arbitrary Relations over the Lotteries</a></h3>
+<h4 id="Arbitrary_Relations_over_the_Lotteries"><a class="hanchor" href="#Arbitrary_Relations_over_the_Lotteries">Arbitrary Relations over the Lotteries</a></h4>
 <p>As <a href="https://www.goodreads.com/book/show/483055.Theory_of_Games_and_Economic_Behavior">von Neumann &amp; Morgenstern
 1947</a>
 uses lotteries on <code>$\Omega$</code> as the set of options over which agents
@@ -1832,7 +1832,7 @@ of <code>$\Omega=\{\alpha, \beta\}$</code> in which <code>$[p: \alpha, (1-p): \b
 uncomputable real number and <code>$q \in [0;1]$</code> is a computable real number.</p>
 <p>We were also unable to find a method for resolving such inconsistent
 preferences into their consistent versions.</p>
-<h2 id="Algorithms"><a class="hanchor" href="#Algorithms">Algorithms</a></h2>
+<h3 id="Algorithms"><a class="hanchor" href="#Algorithms">Algorithms</a></h3>
 <p>After some search, we were able to identify <code>HodgeRank</code> from <a href="./doc/preference/statistical_ranking_and_combinatorial_hodge_theory_jiang_et_al_2011.pdf">Jiang et al.
 2011</a>
 as a candidate algorithm for resolving an edge-weighted inconsistent
@@ -1854,7 +1854,7 @@ centrality</a>: In
 graphs that are already consistent, the greatest element usually receives
 a low centrality score, and elements closer to the center receive larger
 scores, which is counter to our criteria.</p>
-<h3 id="HodgeRank"><a class="hanchor" href="#HodgeRank"><code>HodgeRank</code></a></h3>
+<h4 id="HodgeRank"><a class="hanchor" href="#HodgeRank"><code>HodgeRank</code></a></h4>
 <p><code>HodgeRank</code>, introduced in <a href="./doc/preference/statistical_ranking_and_combinatorial_hodge_theory_jiang_et_al_2011.pdf">Jiang et al. 2011</a>, is an
 algorithm based on Hodge theory from algebraic geometry for decomposing
 a doubly edge-weighted, potentially not fully connected graph
@@ -1962,13 +1962,14 @@ of modeling agents as being comprised of subagents <a href="./doc/cs/ai/alignmen
 <a href="https://www.goodreads.com/book/show/326790.The_Society_of_Mind">Minsky
 1988</a>,
 which we will not pursue further here.</p>
-<h1 id="Applications"><a class="hanchor" href="#Applications">Applications</a></h1>
+<h4 id="Sondej_Sampling"><a class="hanchor" href="#Sondej_Sampling">Sondej Sampling</a></h4>
+<h2 id="Applications"><a class="hanchor" href="#Applications">Applications</a></h2>
 <p>Equipped with a notion of how to represent inconsistent preferences and
 how to resolve them, one can examine problems that have come up in other
 contexts and apply the knowledge gained to them. I will examine one of
 those: The problem of changing a preference as the underlying set of
 options changes.</p>
-<h2 id="Ontology_Identification_Ontological_Shifts_and_Ontological_Crises"><a class="hanchor" href="#Ontology_Identification_Ontological_Shifts_and_Ontological_Crises">Ontology Identification, Ontological Shifts and Ontological Crises</a></h2>
+<h3 id="Ontology_Identification_Ontological_Shifts_and_Ontological_Crises"><a class="hanchor" href="#Ontology_Identification_Ontological_Shifts_and_Ontological_Crises">Ontology Identification, Ontological Shifts and Ontological Crises</a></h3>
 <p>The term "ontological crisis" was introduced in de Blanc
 and intuitively refers to a scenario in which an agent has
 preferences, defined over some world model, and then the world
@@ -2027,7 +2028,7 @@ ontology of the goals does not.</li>
 ontological shift, and the behavior of an agent after an ontological
 crisis could be undefined.</li>
 </ul>
-<h4 id="Existing_Approaches"><a class="hanchor" href="#Existing_Approaches">Existing Approaches</a></h4>
+<h5 id="Existing_Approaches"><a class="hanchor" href="#Existing_Approaches">Existing Approaches</a></h5>
 <p>De Blanc approaches the problem of ontological crises
 formally in the context of what they call "finite
 state models" (they neglect to give a full definition) <a href="./doc/cs/ai/alignment/ontological_crises/ontological_crises_in_artificial_agents_value_systems_de_blanc_2011.pdf">de Blanc
@@ -2144,7 +2145,7 @@ back loses little information and the state transition probabilities can
 be mapped to each other.</p>
 <p>Given <code>$\phi$</code> and <code>$\psi$</code>, it is possible to infer <code>$\mathbf{R}_2$</code>
 using <code>$\phi$</code>: It is <code>$\mathbf{R}_2=\mathbf{R}_1^{\top} \phi$</code>.</p>
-<h5 id="Advantages"><a class="hanchor" href="#Advantages">Advantages</a></h5>
+<h6 id="Advantages"><a class="hanchor" href="#Advantages">Advantages</a></h6>
 <p>There are some advantages to taking this approach for resolving
 ontological crises. One is that it does not presuppose a known mapping
 between <code>$S_1$</code> and <code>$S_2$</code>, and can infer the mapping solely from the
@@ -2191,7 +2192,7 @@ initial states.</p>
 <p><strong>Conjecture 6</strong>. There exists a linear function <code>$f(x)=ax+b$</code> so that for
 any <code>$a \in A$</code>, <code>$k \in \mathbb{N}$</code>, it holds that
 <code>$r_2(a, k, \mathbf{i}_2)=f(r_1(a, k, \mathbf{i}_1))$</code>.</p>
-<h5 id="Disadvantages"><a class="hanchor" href="#Disadvantages">Disadvantages</a></h5>
+<h6 id="Disadvantages"><a class="hanchor" href="#Disadvantages">Disadvantages</a></h6>
 <p>The approach de Blanc outlines has some limitations. As they remark,
 their setting of what they call "finite state models" is a fairly
 restrictive class of computational models of the environment. Similarly,
@@ -2218,7 +2219,7 @@ a_1, s')+R(s', a_1, s)+R(s, a_2, s)=R(s, a_2, s)+R(s, a_1, s')+R(s', a_1,
 s)=R(t_2)$</code>. However, intuitively there should way a way to differently
 value these two trajectories: It should be possible to value be in <code>$s'$</code>
 earlier rather than later.</p>
-<h4 id="Using_Inconsistent_Preferences_to_Represent_Ontological_Crises"><a class="hanchor" href="#Using_Inconsistent_Preferences_to_Represent_Ontological_Crises">Using Inconsistent Preferences to Represent Ontological Crises</a></h4>
+<h5 id="Using_Inconsistent_Preferences_to_Represent_Ontological_Crises"><a class="hanchor" href="#Using_Inconsistent_Preferences_to_Represent_Ontological_Crises">Using Inconsistent Preferences to Represent Ontological Crises</a></h5>
 <p>The framework of representing preferences as edge-weighted directed
 graphs on a set <code>$\Omega$</code> of vertices, and consistent preferences as the
 set of edge-weighted acyclic tournaments on a set of deterministic
@@ -2316,7 +2317,7 @@ externally, e.g. by using <code>HodgeRank</code> or dropping the weights and usi
 <p><em>Resolving an ontological shift <code>$s$</code> on an edge-weighted directed
 graph. <code>$G$</code> is a tuple <code>$(Ω, E, w)$</code>, and <code>$s$</code> is of type
 <code>$Ω\rightarrow \mathcal{P}(\Xi \times [0, 1])$</code>.</em></p>
-<h5 id="Advantages_1"><a class="hanchor" href="#Advantages_1">Advantages</a></h5>
+<h6 id="Advantages_1"><a class="hanchor" href="#Advantages_1">Advantages</a></h6>
 <p>An advantage of <code>ResolveShift</code> over BisimulateShift is the set of
 preferences that can be represented by <code>$G$</code> and <code>$G'$</code>. If <code>$\Omega$</code> is the
 set of all finite sequences of state-action pairs <code>$((S \times A)^k
@@ -2329,7 +2330,7 @@ preference of <code>$t_1$</code> over <code>$t_2$</code> can be represented e.g.
 runtime complexity of <code>$\mathcal{O}(|E| \cdot m^2)$</code>, which is a subset of
 the functions in <code>$\mathcal{O}(n^2 \cdot m^2)$</code> (with <code>$n=|\Omega|$</code>, and
 <code>$m=|\Xi|$</code>), unlike BisimulateShift, which offers no such guarantees.</p>
-<h5 id="Disadvantages_1"><a class="hanchor" href="#Disadvantages_1">Disadvantages</a></h5>
+<h6 id="Disadvantages_1"><a class="hanchor" href="#Disadvantages_1">Disadvantages</a></h6>
 <p>If the dynamics (e.g. the transition function) of the elements of
 <code>$\Xi$</code> are known, then BisimulateShift is able to use this information
 to construct <code>$R_2$</code>. Additionally, if no mapping <code>$s$</code> from <code>$\Omega$</code>
