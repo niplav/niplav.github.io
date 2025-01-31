@@ -1,0 +1,163 @@
+
+##
+## Step 1: PC1 algorithm for selecting lagged conditions
+##
+
+Parameters:
+independence test = par_corr
+tau_min = 1
+tau_max = 4
+pc_alpha = [0.05]
+max_conds_dim = None
+max_combinations = 1
+
+
+
+## Resulting lagged parent (super)sets:
+
+    Variable total_duration has 10 link(s):
+        (total_duration -1): max_pval = 0.00000, |min_val| =  0.475
+        (total_duration -3): max_pval = 0.00000, |min_val| =  0.054
+        (avg_duration -2): max_pval = 0.00000, |min_val| =  0.046
+        (avg_duration -1): max_pval = 0.00000, |min_val| =  0.044
+        (total_duration -4): max_pval = 0.00000, |min_val| =  0.036
+        (avg_duration -3): max_pval = 0.00000, |min_val| =  0.029
+        (total_duration -2): max_pval = 0.00000, |min_val| =  0.028
+        (num_sessions -1): max_pval = 0.00000, |min_val| =  0.026
+        (avg_duration -4): max_pval = 0.00028, |min_val| =  0.017
+        (num_sessions -4): max_pval = 0.00100, |min_val| =  0.015
+
+    Variable mindfulness has 6 link(s):
+        (mindfulness -1): max_pval = 0.00000, |min_val| =  0.876
+        (mindfulness -2): max_pval = 0.00000, |min_val| =  0.390
+        (mindfulness -4): max_pval = 0.00000, |min_val| =  0.120
+        (mindfulness -3): max_pval = 0.00000, |min_val| =  0.026
+        (num_sessions -1): max_pval = 0.00066, |min_val| =  0.016
+        (num_sessions -2): max_pval = 0.01538, |min_val| =  0.011
+
+    Variable concentration has 7 link(s):
+        (concentration -1): max_pval = 0.00000, |min_val| =  0.875
+        (concentration -2): max_pval = 0.00000, |min_val| =  0.402
+        (concentration -4): max_pval = 0.00000, |min_val| =  0.088
+        (total_duration -1): max_pval = 0.00290, |min_val| =  0.014
+        (mindfulness -2): max_pval = 0.00602, |min_val| =  0.013
+        (mindfulness -1): max_pval = 0.01666, |min_val| =  0.011
+        (happy -1): max_pval = 0.04704, |min_val| =  0.009
+
+    Variable num_sessions has 8 link(s):
+        (num_sessions -1): max_pval = 0.00000, |min_val| =  0.661
+        (num_sessions -4): max_pval = 0.00000, |min_val| =  0.065
+        (avg_duration -3): max_pval = 0.00023, |min_val| =  0.017
+        (avg_duration -2): max_pval = 0.00183, |min_val| =  0.014
+        (num_sessions -3): max_pval = 0.00426, |min_val| =  0.013
+        (abstinence_hours -1): max_pval = 0.02051, |min_val| =  0.011
+        (num_sessions -2): max_pval = 0.02393, |min_val| =  0.010
+        (total_duration -1): max_pval = 0.04127, |min_val| =  0.009
+
+    Variable happy has 8 link(s):
+        (happy -1): max_pval = 0.00000, |min_val| =  0.775
+        (happy -2): max_pval = 0.00000, |min_val| =  0.468
+        (happy -3): max_pval = 0.00000, |min_val| =  0.266
+        (happy -4): max_pval = 0.00000, |min_val| =  0.167
+        (content -1): max_pval = 0.00000, |min_val| =  0.032
+        (content -2): max_pval = 0.00000, |min_val| =  0.028
+        (abstinence_hours -2): max_pval = 0.00013, |min_val| =  0.018
+        (relaxed -1): max_pval = 0.01239, |min_val| =  0.012
+
+    Variable content has 7 link(s):
+        (content -1): max_pval = 0.00000, |min_val| =  0.851
+        (content -2): max_pval = 0.00000, |min_val| =  0.461
+        (content -3): max_pval = 0.00000, |min_val| =  0.222
+        (content -4): max_pval = 0.00000, |min_val| =  0.136
+        (relaxed -3): max_pval = 0.00419, |min_val| =  0.013
+        (productivity -1): max_pval = 0.01542, |min_val| =  0.011
+        (productivity -2): max_pval = 0.02449, |min_val| =  0.010
+
+    Variable relaxed has 8 link(s):
+        (relaxed -1): max_pval = 0.00000, |min_val| =  0.849
+        (relaxed -2): max_pval = 0.00000, |min_val| =  0.472
+        (relaxed -3): max_pval = 0.00000, |min_val| =  0.241
+        (relaxed -4): max_pval = 0.00000, |min_val| =  0.157
+        (happy -2): max_pval = 0.00000, |min_val| =  0.022
+        (happy -1): max_pval = 0.00001, |min_val| =  0.021
+        (nicotine_hours -4): max_pval = 0.00167, |min_val| =  0.015
+        (happy -3): max_pval = 0.01035, |min_val| =  0.012
+
+    Variable horny has 6 link(s):
+        (horny -1): max_pval = 0.00000, |min_val| =  0.873
+        (horny -2): max_pval = 0.00000, |min_val| =  0.364
+        (horny -4): max_pval = 0.00000, |min_val| =  0.212
+        (horny -3): max_pval = 0.00000, |min_val| =  0.092
+        (vitaminb12_hours -3): max_pval = 0.00009, |min_val| =  0.018
+        (vitaminb12_hours -4): max_pval = 0.00015, |min_val| =  0.018
+
+    Variable productivity has 3 link(s):
+        (productivity -1): max_pval = 0.00000, |min_val| =  0.891
+        (productivity -2): max_pval = 0.00000, |min_val| =  0.441
+        (vitamind3_hours -4): max_pval = 0.04691, |min_val| =  0.009
+
+    Variable creativity has 3 link(s):
+        (creativity -1): max_pval = 0.00000, |min_val| =  0.891
+        (creativity -2): max_pval = 0.00000, |min_val| =  0.444
+        (creativity -4): max_pval = 0.00910, |min_val| =  0.012
+
+    Variable sublen has 6 link(s):
+        (sublen -1): max_pval = 0.00000, |min_val| =  0.891
+        (sublen -2): max_pval = 0.00000, |min_val| =  0.448
+        (creatine_hours -3): max_pval = 0.00000, |min_val| =  0.025
+        (creatine_hours -4): max_pval = 0.00000, |min_val| =  0.025
+        (sublen -4): max_pval = 0.00000, |min_val| =  0.023
+        (creativity -4): max_pval = 0.04875, |min_val| =  0.009
+
+    Variable abstinence_hours has 7 link(s):
+        (abstinence_hours -1): max_pval = 0.00000, |min_val| =  0.698
+        (horny -1): max_pval = 0.00000, |min_val| =  0.033
+        (abstinence_hours -4): max_pval = 0.00000, |min_val| =  0.032
+        (abstinence_hours -2): max_pval = 0.00000, |min_val| =  0.030
+        (mindfulness -1): max_pval = 0.00339, |min_val| =  0.014
+        (mindfulness -2): max_pval = 0.00860, |min_val| =  0.012
+        (mindfulness -3): max_pval = 0.01700, |min_val| =  0.011
+
+    Variable masturbation_enjoyment has 7 link(s):
+        (masturbation_enjoyment -1): max_pval = 0.00000, |min_val| =  0.878
+        (masturbation_enjoyment -2): max_pval = 0.00000, |min_val| =  0.487
+        (masturbation_enjoyment -3): max_pval = 0.00000, |min_val| =  0.197
+        (masturbation_enjoyment -4): max_pval = 0.00000, |min_val| =  0.053
+        (relaxed -1): max_pval = 0.00170, |min_val| =  0.015
+        (relaxed -2): max_pval = 0.01871, |min_val| =  0.011
+        (content -2): max_pval = 0.03434, |min_val| =  0.010
+
+    Variable avg_duration has 10 link(s):
+        (avg_duration -1): max_pval = 0.00000, |min_val| =  0.418
+        (avg_duration -2): max_pval = 0.00000, |min_val| =  0.178
+        (num_sessions -1): max_pval = 0.00000, |min_val| =  0.057
+        (avg_duration -3): max_pval = 0.00000, |min_val| =  0.044
+        (total_duration -1): max_pval = 0.00000, |min_val| =  0.034
+        (avg_duration -4): max_pval = 0.00000, |min_val| =  0.027
+        (num_sessions -2): max_pval = 0.00000, |min_val| =  0.024
+        (total_duration -3): max_pval = 0.01388, |min_val| =  0.011
+        (concentration -1): max_pval = 0.01689, |min_val| =  0.011
+        (productivity -4): max_pval = 0.02497, |min_val| =  0.010
+
+    Variable melatonin_hours has 6 link(s):
+        (melatonin_hours -1): max_pval = 0.00000, |min_val| =  0.753
+        (melatonin_hours -2): max_pval = 0.00000, |min_val| =  0.075
+        (melatonin_hours -4): max_pval = 0.00000, |min_val| =  0.030
+        (melatonin_hours -3): max_pval = 0.00000, |min_val| =  0.027
+        (horny -4): max_pval = 0.02389, |min_val| =  0.010
+        (horny -3): max_pval = 0.03426, |min_val| =  0.010
+
+    Variable l-theanine_hours has 4 link(s):
+        (l-theanine_hours -1): max_pval = 0.00000, |min_val| =  0.739
+        (l-theanine_hours -2): max_pval = 0.00000, |min_val| =  0.047
+        (l-theanine_hours -3): max_pval = 0.00000, |min_val| =  0.026
+        (l-theanine_hours -4): max_pval = 0.00048, |min_val| =  0.016
+
+    Variable nicotine_hours has 5 link(s):
+        (nicotine_hours -1): max_pval = 0.00000, |min_val| =  0.737
+        (nicotine_hours -2): max_pval = 0.00000, |min_val| =  0.045
+        (l-theanine_hours -4): max_pval = 0.00000, |min_val| =  0.027
+        (nicotine_hours -3): max_pval = 0.00000, |min_val| =  0.025
+        (nicotine_hours -4): max_pval = 0.03316, |min_val| =  0.010
+
+    Variable creatine_hours has 7 link(s):
