@@ -37,12 +37,15 @@ document.addEventListener('DOMContentLoaded', function () {
 <blockquote>
 <p><strong>I've decided to learn some real math, not just computer scientist
 math.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Chapter_1">Chapter 1</a><ul><li><a href="#Question_1110">Question 1.1.10</a><ul></ul></li><li><a href="#Question_1116">Question 1.1.16</a><ul></ul></li><li><a href="#Exercise_1118">Exercise 1.1.18</a><ul></ul></li><li><a href="#Exercise_126">Exercise 1.2.6</a><ul></ul></li><li><a href="#Exercise_135">Exercise 1.3.5</a><ul></ul></li><li><a href="#Question_145">Question 1.4.5</a><ul></ul></li><li><a href="#Exercise_156">Exercise 1.5.6</a><ul></ul></li><li><a href="#Problem_1A">Problem 1A</a><ul></ul></li><li><a href="#Problem_1B">Problem 1B</a><ul></ul></li><li><a href="#Problem_1C">Problem 1C</a><ul></ul></li></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Chapter_1">Chapter 1</a><ul><li><a href="#Question_1110">Question 1.1.10</a><ul></ul></li><li><a href="#Question_1116">Question 1.1.16</a><ul></ul></li><li><a href="#Exercise_1118">Exercise 1.1.18</a><ul></ul></li><li><a href="#Exercise_126">Exercise 1.2.6</a><ul></ul></li><li><a href="#Exercise_135">Exercise 1.3.5</a><ul></ul></li><li><a href="#Question_145">Question 1.4.5</a><ul></ul></li><li><a href="#Exercise_156">Exercise 1.5.6</a><ul></ul></li><li><a href="#Problem_1A">Problem 1A</a><ul></ul></li><li><a href="#Problem_1B">Problem 1B</a><ul></ul></li><li><a href="#Problem_1C">Problem 1C</a><ul></ul></li><li><a href="#Problem_1D">Problem 1D</a><ul></ul></li><li><a href="#Problem_1E">Problem 1E</a><ul></ul></li><li><a href="#Problem_1F">Problem 1F</a><ul><li><a href="#a">(a)</a><ul></ul></li><li><a href="#b">(b)</a><ul></ul></li></ul></li><li><a href="#Problem_1G">Problem 1G</a><ul></ul></li></ul></li></ul></div>
 <h1 id="Solutions_to_An_Infinitely_Large_Napkin"><a class="hanchor" href="#Solutions_to_An_Infinitely_Large_Napkin">Solutions to “An Infinitely Large Napkin”</a></h1>
 <blockquote>
 <p>Natural explations supersede proofs.</p>
 </blockquote>
 <p><em>—Evan Chen, “An Infinitely Large Napkin” p. 6, 2023</em></p>
+<p>I'll limit my time to 15 minutes/exercise—not because I don't like
+chewing on problems (I do!), but because I want to spend most of my
+chewing on important <em>or</em> unsolved problems.</p>
 <h2 id="Chapter_1"><a class="hanchor" href="#Chapter_1">Chapter 1</a></h2>
 <h3 id="Question_1110"><a class="hanchor" href="#Question_1110">Question 1.1.10</a></h3>
 <blockquote>
@@ -151,8 +154,76 @@ case that (1) <code>$\text{ord } g&lt;|G|$</code> or (2) <code>$\text{ord } g&gt
 </ol>
 <h3 id="Problem_1C"><a class="hanchor" href="#Problem_1C">Problem 1C</a></h3>
 <p>Let the isomorphism <code>$\phi$</code> be as follows: <code>$\phi(1)=\{1, 2, 3\},
-\phi(s)=\{1, 3, 2\}, \phi(r)=\{3, 1, 2\}, \phi(r^2)=\{2, 3, 1\}, \phi(rs)=\{2,
-1, 3\}, \phi(r^2s)=\{3, 2, 1\}$</code>.</p>
+\phi(s)=\{1, 3, 2\}, \phi(r)=\{3, 1, 2\}, \phi(r^2)=\{2, 3, 1\},
+\phi(sr)=\{3, 2, 1\}, \phi(sr^2)=\{2, 1, 3\}$</code>.</p>
 <p>I could go through the pairs of elements of <code>$D_6$</code> individually, but
-that seems not smart.</p>
+that seems not smart, since (even if I leave out the identity), there's
+<code>$5^2=25$</code> different pairs.</p>
+<p>Maybe I can just focus on the "composed" operations <code>$r^2, sr, sr^2$</code>?</p>
+<p>In that case it's enough to check the following ones:</p>
+<div>
+    $$\phi(r^2)=\phi(r)\circ\phi(r) \Leftrightarrow \\
+    \{2,3,1\}=\{3,1,2\}\circ\{3,1,2\} \\
+    \phi(sr)=\phi(s)\circ\phi(r) \Leftrightarrow \\
+    \{3,2,1\}=\{1,3,2\}\circ\{3,1,2\} \\
+    \phi(sr^2)=\phi(s)\circ\phi(r^2) \\
+    \{2,1,3\}=\{1,3,2\}\circ\{2,3,1\}$$
+</div>
+<p>But I'm not sure that that's actually enough.</p>
+<p>As for <code>$D_{24} \not \cong S_4$</code>: Maybe it's
+enough to prove that if two groups have two different
+<a href="https://en.wikipedia.org/wiki/Multiset">multisets</a> of orders, then they
+can't be isomorphic.</p>
+<p>Proof: Say <code>$G_1, G_2$</code> have the two "order profiles" <code>$p_1, p_2$</code>
+(that is, sorted lists of the orders of all elements in the group),
+that necessarily differ in at least one element <code>$x_1, x_2$</code> so that
+<code>$\text{ord } x_1=k≠\text{ord } x_2$</code>.</p>
+<p>Then <code>$G_1 \not \cong G_2$</code>, since such a <code>$\phi$</code> would need
+to fulfill <code>$\phi(x_1^{k-1} \circ x_1)=1$</code>, but we know that
+<code>$\phi(x_1^{k-1})\circ\phi(x_1)\not=1$</code>.</p>
+<p>Now, what are the orders of the elements of <code>$D_{24}$</code>, <code>$S_4$</code>?</p>
+<p>Well, my timer has run out, so I'll go to the next exercise.</p>
+<h3 id="Problem_1D"><a class="hanchor" href="#Problem_1D">Problem 1D</a></h3>
+<p>Let's be <em>not boring</em> and try to write a constructive proof. For that,
+given a group of order <code>$p$</code>, which is prime, one can construct an
+isomorphism <code>$\phi$</code> so that <code>$G \cong ℤ/pℤ$</code>.</p>
+<p>By <strong>Fact 1.4.7</strong> and Lagrange's theorem, we know that every element
+needs to have order <code>$p$</code>.</p>
+<p>Of course we fix that <code>$\phi(1_G)=0$</code>. Let's fix an element <code>$g_1$</code>
+and its inverse <code>$g_1^{-1}$</code>. We now fix that <code>$\phi(g_1)=1,
+\phi(g_1^{-1})=p-1$</code>. Similarly, we fix <code>$\phi(g_1^2)=2$</code>, and
+<code>$\phi((g_1^2)^{-1})=p-2$</code>, and so on. (My timer runs out)</p>
+<h3 id="Problem_1E"><a class="hanchor" href="#Problem_1E">Problem 1E</a></h3>
+<p>(Switching to parentheses for the symmetric group.)</p>
+<div>
+    $$\phi(1)=(1,2,3,4)\\
+    \phi(s)=(2,1,4,3)\\
+    \phi(r)=(4,1,2,3)\\
+    \phi(r^2)=(3,4,1,2)\\
+    \phi(r^3)=(2,3,4,1)\\
+    \phi(sr)=(1,4,3,2)\\
+    \phi(sr^2)=(4,3,1,2)\\
+    \phi(sr^3)=(3,2,1,4)$$
+</div>
+<p>Constructed by labeling the corners of a square and then visually rotating
+it + flipping the values in my mind. It's not stupid if it works :-)</p>
+<h3 id="Problem_1F"><a class="hanchor" href="#Problem_1F">Problem 1F</a></h3>
+<h4 id="a"><a class="hanchor" href="#a">(a)</a></h4>
+<p>Hm. Can I be extremely wasteful, and set <code>$n=|G|$</code>, and then
+do something with that? Like indicating which element is being
+"addressed" by swapping that element with the first element? But then
+composition doesn't really work. (God I'm writing like a <a href="https://blog.research.google/2022/05/language-models-perform-reasoning-via.html">chain of
+thought</a>.)</p>
+<p>Unit gets mapped to unit, of course.</p>
+<p>Maybe a proof by contradiction? Darn timer's up.</p>
+<h4 id="b"><a class="hanchor" href="#b">(b)</a></h4>
+<p>Given (a), this is easy: For any permutation, one can construct a matrix
+by permuting the rows (or columns, same difference) of the identity
+matrix that encodes that permutation. Any of those row-permuted identity
+matrices are still in <code>$\text{GL}_n(ℝ)$</code>. So, given Cayley's theorem and
+<code>$G$</code>, we find the subgroup of <code>$S \le S_n$</code> that <code>$G$</code> is isomorphic to,
+and then for each element of <code>$S$</code> we can construct the isomorphism to
+some subgroup of <code>$\text{GL}_n(ℝ)$</code> by permuting the rows of <code>$I_n$</code>
+according to the permutation in <code>$S$</code>.</p>
+<h3 id="Problem_1G"><a class="hanchor" href="#Problem_1G">Problem 1G</a></h3>
 </body></html>
