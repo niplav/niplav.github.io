@@ -1,18 +1,14 @@
-
-<title>niplav</title>
-<link rel="shortcut icon" type="image/png" href="./favicon.png">
-<link rel="stylesheet" type="text/css" href="main.css">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
 <!DOCTYPE HTML>
 
-<style TYPE="text/css">
+<style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-
-<script type="text/javascript" async
-	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
 </script>
-
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -26,7 +22,6 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -37,17 +32,16 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-
-<h2 id="home"><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-07-07, modified: 2025-02-02, language: english, status: maintenance, importance: 2, confidence: log</em></p>
 <blockquote>
 <p><strong>Notes for myself on the data I track, how to transform it into a
 usable shape, data quality and other random assortments.</strong></p>
-</blockquote>
-<h1 id="types-methods-of-data-collection-i-use">Types &#38; Methods of Data Collection I Use</h1>
-<p>I&#39;ve always collected some data about myself and the world around me,
-but not using&#47;analyzing it because of a chronic "I&#39;ll get around to it
-<em>eventually</em>" syndrome. Which is a shame, because that means I&#39;ve been
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Anki">Anki</a><ul></ul></li><li><a href="#Meditation">Meditation</a><ul></ul></li><li><a href="#Daygame">Daygame</a><ul></ul></li><li><a href="#Fitbit_Biometrics">Fitbit Biometrics</a><ul></ul></li><li><a href="#Others">Others</a><ul><li><a href="#Masturbation">Masturbation</a><ul></ul></li><li><a href="#Mood">Mood</a><ul></ul></li><li><a href="#Substances">Substances</a><ul></ul></li><li><a href="#Weight">Weight</a><ul></ul></li><li><a href="#Daily_Performance_Metrics">Daily Performance Metrics</a><ul></ul></li><li><a href="#Bag_Spreading">Bag Spreading</a><ul></ul></li><li><a href="#Phone_Data">Phone Data</a><ul></ul></li><li><a href="#Forecasting_Performance">Forecasting Performance</a><ul></ul></li></ul></li></ul></div>
+<h1 id="Types__Methods_of_Data_Collection_I_Use"><a class="hanchor" href="#Types__Methods_of_Data_Collection_I_Use">Types &amp; Methods of Data Collection I Use</a></h1>
+<p>I've always collected some data about myself and the world around me,
+but not using/analyzing it because of a chronic "I'll get around to it
+<em>eventually</em>" syndrome. Which is a shame, because that means I've been
 putting in a reasonably large amount of effort and have nothing to show
 for it, a 1-legged stool:</p>
 <blockquote>
@@ -76,7 +70,7 @@ has only a few small trials in its favor—which would you choose? I
 would choose the second pill! […]</p>
 <p>One failure mode which is particularly dangerous for QSers is
 to overdo the data collection and collect masses of data they
-never use. Famous computer entrepreneur &#38; mathematician <a href="https://en.wikipedia.org/wiki/Stephen_Wolfram">Stephen
+never use. Famous computer entrepreneur &amp; mathematician <a href="https://en.wikipedia.org/wiki/Stephen_Wolfram">Stephen
 Wolfram</a>
 exemplified this for me in March 2012 with his
 lengthy blog post ⁠<a href="https://writings.stephenwolfram.com/2012/03/the-personal-analytics-of-my-life/">“The Personal Analytics of My
@@ -95,10 +89,10 @@ a treadmill, and perhaps more he didn’t mention. […]</p>
 carry our burdens.</p>
 </blockquote>
 <p><em>—<a href="https://gwern.net">Gwern</a>, <a href="https://www.gwern.net/Zeo">“Zeo sleep self-experiments”</a>, 2018</em></p>
-<p>At least I now know that I&#39;m falling into this trap, "Selbsterkenntnis
+<p>At least I now know that I'm falling into this trap, "Selbsterkenntnis
 ist der erste Schritt zur Besserung". And the second step is to bring
 all of your data in a usable format.</p>
-<h2 id="anki">Anki</h2>
+<h2 id="Anki"><a class="hanchor" href="#Anki">Anki</a></h2>
 <p>I use spaced repetition, and plan to take it as a proxy for cognitive
 performance in QS experiments.</p>
 <p>The data can be found in the helpfully named <code>collection.anki2</code>, which
@@ -107,9 +101,9 @@ in disguise.</p>
 <p>The <a href="https://docs.ankiweb.net/stats.html#manual-analysis">Anki manual</a>
 helpfully informs that the most important table is <code>revlog</code>, one can
 then export the data to CSV with the following command:</p>
-<pre><code>echo -e &#39;.headers on \n select * from revlog;&#39; |
+<pre><code>echo -e '.headers on \n select * from revlog;' |
 sqlite3 anki_2022-07-04T08:43:00.db |
-tr &#39;|&#39; &#39;,&#39; &#62;anki_2022-07-04T08:43:00.csv
+tr '|' ',' &gt;anki_2022-07-04T08:43:00.csv
 </code></pre>
 <p>The header is to be interpreted as follows:</p>
 <blockquote>
@@ -152,35 +146,35 @@ are not due).</p>
 </blockquote>
 <p><em>— Anki developers, <a href="https://docs.ankiweb.net/stats.html#manual-analysis">“Manual Analysis”</a> in <a href="https://docs.ankiweb.net/stats.html#manual-analysis">“Graphs and Statistics”</a>, year unknown</em></p>
 <p>The CSV of the data can be found <a href="./data/anki_reviews.csv">here</a>.</p>
-<h2 id="meditation">Meditation</h2>
+<h2 id="Meditation"><a class="hanchor" href="#Meditation">Meditation</a></h2>
 <p>Similarly, one can export meditation data from Medativo (if one has
 coughed up 5€ for the premium version, which I decided was worth it
 for the data, after having locked myself in :-|):</p>
-<pre><code>echo -e &#39;.headers on \n select * from History;&#39; |
+<pre><code>echo -e '.headers on \n select * from History;' |
 sqlite3 meditation_2022-07-02T20:00:00.db |
-tr &#39;|&#39; &#39;,&#39; &#62;meditations.csv
+tr '|' ',' &gt;meditations.csv
 </code></pre>
 <p>The names for the columns are exceedingly obvious and need no further
 explanation.</p>
-<p>I didn&#39;t rate my sessions in the beginning (and manually inserted
+<p>I didn't rate my sessions in the beginning (and manually inserted
 data from meditation retreats with unrated sessions), leading to
 a very optimistic default of 4.0 mindfulness and "concentration"
 (better called absorption, I claim). So we remove those, using
 the <a href="https://plan9.io/sys/doc/sam/sam.html">sam</a> language in
 <a href="https://github.com/martanne/vis">vis</a>:</p>
-<pre><code>,&#47;^1,&#47;;&#47;^860,&#47;
-x&#47;4\.0,4\.0,&#47;c&#47;,&#47;
-,&#47;^1210,&#47;;&#47;^1308,&#47;
-x&#47;4\.0,4\.0,&#47;c&#47;,&#47;
-,&#47;^1594,&#47;;&#47;^1615,&#47;
-x&#47;4\.0,4\.0,&#47;c&#47;,&#47;
+<pre><code>,/^1,/;/^860,/
+x/4\.0,4\.0,/c/,/
+,/^1210,/;/^1308,/
+x/4\.0,4\.0,/c/,/
+,/^1594,/;/^1615,/
+x/4\.0,4\.0,/c/,/
 </code></pre>
 <p>The CSV of the meditation data can be found <a href="./data/meditations.csv">here</a>.</p>
 <p><code>mindfulness_ranking</code> and <code>concentration_ranking</code> are both subjective
 impressions directly after meditation, where "mindfulness" describes the
 degree of sensory clarity, and "concentration" (better called "absorption"
 or "rest") describes my ability to rest on a specific sensory object.</p>
-<h2 id="daygame">Daygame</h2>
+<h2 id="Daygame"><a class="hanchor" href="#Daygame">Daygame</a></h2>
 <!--TODO: Clean up as per https://claude.ai/chat/f2735ad5-dfd6-4d0c-aaaa-6e1a43f96498-->
 <!--
 Sanitizing the sessions file by converting the datetime to
@@ -200,30 +194,30 @@ Formatting the approaches file:
 
 -->
 <p>Find incorrectly written locations:</p>
-<pre><code>$ awk -F, &#39;{ print($2) }&#39; &#60;daygame_approaches.csv | sort | uniq
+<pre><code>$ awk -F, '{ print($2) }' &lt;daygame_approaches.csv | sort | uniq
 </code></pre>
 <p>and manually correct them (this is useful for the other fields as well,
 just to check consistency).</p>
 <p>Anonymizing locations and the names of the women:</p>
-<pre><code>$ awk -F, &#39;BEGIN {
+<pre><code>$ awk -F, 'BEGIN {
     FS = OFS = ","
-    while (getline &#60; "admn&#47;daygame&#47;locations") {
+    while (getline &lt; "admn/daygame/locations") {
         loc[$2] = $1
     }
     close("locations")
 }
 {
-    if (name[$8] == "" &#38;&#38; $8 != "Name") {
+    if (name[$8] == "" &amp;&amp; $8 != "Name") {
         name[$8] = int(100000 * rand())
-        gsub(&#47;\.&#47;, "", name[$8])
+        gsub(/\./, "", name[$8])
     }
     if ($2 != "Location") {
         original_location = $2
-        gsub(&#47;"&#47;, "", original_location)
+        gsub(/"/, "", original_location)
         if (loc[original_location] == "") {
-            print "Warning: Location &#39;" $2 "&#39; not found in locations file" &#62; "&#47;dev&#47;stderr"
+            print "Warning: Location '" $2 "' not found in locations file" &gt; "/dev/stderr"
             loc[original_location] = 100000 * rand()
-            printf "%d,\"%s\"\n", id, location &#62;&#62; "admn&#47;daygame&#47;locations"
+            printf "%d,\"%s\"\n", id, location &gt;&gt; "admn/daygame/locations"
         }
         $2 = loc[original_location]
     }
@@ -231,7 +225,7 @@ just to check consistency).</p>
         $8 = name[$8]
     }
     print $0
-}&#39; &#60;daygame_approaches.csv &#62;daygame_approaches_anon.csv
+}' &lt;daygame_approaches.csv &gt;daygame_approaches_anon.csv
 $ mv daygame_approaches.csv daygame_approaches_deanon.csv
 $ mv daygame_approaches_anon.csv daygame_approaches.csv
 </code></pre>
@@ -241,15 +235,16 @@ the sessions file can be found <a href="./data/daygame_sessions.csv">here</a>.</
 <ul>
 <li><code>Approach</code>: Monotonically incrementing <a href="https://en.wikipedia.org/wiki/Primary_Key">primary key</a>.</li>
 <li><code>Location</code>: Replaced with a random integer for anonymization.</li>
-<li><code>Attractiveness</code>: Floating point on the classical scale, between 1 and 10. See <a href="https://theredquest.wordpress.com/2019/03/25/garbage-post-about-ranking-chicks/">TheRedQuest, 2022</a></li>
+<li><code>Attractiveness</code>: Floating point on the classical scale, between 1 and 10. See <a href="https://theredquest.wordpress.com/2019/03/25/garbage-post-about-ranking-chicks/">TheRedQuest 2022</a>.</li>
 <li><code>Size</code>: Number of women in set, 1 if not given.</li>
 <li><code>Frequency</code>: Frequency at which the woman has been approached, estimated from the answer given to "How often does this kind of thing happen to you?"</li>
 <li><code>Enjoyment</code>: How much the woman seemed to enjoy the approach. Floating point number in <code>$[-10, 10]$</code>.</li>
 <li><code>Blowout</code>: Whether the approach was a blowout. Floating point number in <code>$[0, 1]$</code>, usually either 0 or 1 (but some brush-offs are less harsh than others).</li>
 <li><code>Name</code>: Replaced with a random integer for anonymization.</li>
-<li><code>Contact</code>: Contact information received&#47;given. <code>number</code>, <code>instagram</code>, <code>facebook</code>, and sometimes regrettably <code>number given</code> (to the woman).</li>
+<li><code>Contact</code>: Contact information received/given. <code>number</code>, <code>instagram</code>, <code>facebook</code>, and sometimes regrettably <code>number given</code> (to the woman).</li>
 <li><code>Age</code>: Age of the woman, if I learn about it. Usually not.</li>
 <li><code>Datetime</code>: Datetime of when the approached happened.</li>
+<li><code>Estimated</code>: Whether the datetime of the approach was estimated from session data.</li>
 </ul>
 <p>Sessions file:</p>
 <ul>
@@ -271,18 +266,18 @@ the sessions file can be found <a href="./data/daygame_sessions.csv">here</a>.</
 <li>Date before first sex [1..10] length (minutes)</li>
 <li>Sex number of times (approximately)</li>
 </ul>
-<h2 id="fitbit-biometrics">Fitbit Biometrics</h2>
+<h2 id="Fitbit_Biometrics"><a class="hanchor" href="#Fitbit_Biometrics">Fitbit Biometrics</a></h2>
 <p>I use the <a href="https://en.wikipedia.org/wiki/List_of_Fitbit_products#Fitbit_Inspire_3">Fitbit Inspire
 3</a>
 because Fitbit is one of the few (the only?) companies whose products
-allow for data exporting, mostly to track my sleep, but maybe I&#39;ll also
+allow for data exporting, mostly to track my sleep, but maybe I'll also
 get mileage out of the heart rate, step, glucose and temperature tracking.</p>
 <p>Sleep data <a href="./data/sleep.json">here</a>.</p>
-<h2 id="others">Others</h2>
+<h2 id="Others"><a class="hanchor" href="#Others">Others</a></h2>
 <!--TODO: light.csv, islight.csv, ispomodoro.csv, pomodoros.csv-->
-<p>Other metrics I track don&#39;t deserve as much elaboration.</p>
-<h3 id="masturbation">Masturbation</h3>
-<p>I track when I masturbate &#38; how good it feels &#38; the type of
+<p>Other metrics I track don't deserve as much elaboration.</p>
+<h3 id="Masturbation"><a class="hanchor" href="#Masturbation">Masturbation</a></h3>
+<p>I track when I masturbate &amp; how good it feels &amp; the type of
 pornography in <a href="./data/masturbations.csv">this file</a> via <a href="./data/mstrbt">this
 script</a>. Data quality is pretty high.</p>
 <ul>
@@ -291,7 +286,7 @@ script</a>. Data quality is pretty high.</p>
 <li><code>i</code> stands for image</li>
 <li><code>v</code> stands for video</li>
 </ul>
-<h3 id="mood">Mood</h3>
+<h3 id="Mood"><a class="hanchor" href="#Mood">Mood</a></h3>
 <p>I track my mood via the excellent <a href="https://play.google.com/store/apps/details?id=info.moodpatterns.moodpatterns&amp;hl=en&amp;gl=US">Mood
 Patterns</a>
 which performs <a href="https://en.wikipedia.org/wiki/Experience_sampling_method">experience
@@ -301,7 +296,7 @@ swift CSV export of the data. They even turned changed the <em>annoying</em>
 default. No post-processing needed, the data <em>is just there</em>. An app by
 programmers, for programmers.</p>
 <p>But there is still <em>some</em> data cleanup to do:</p>
-<pre><code>sort -n mood.csv &#62;&#62;~&#47;proj&#47;site&#47;data&#47;mood.csv
+<pre><code>sort -n mood.csv &gt;&gt;~/proj/site/data/mood.csv
 </code></pre>
 <p>Finally I rename the mood columns simply to "happy", "content", "relaxed",
 and "horny".</p>
@@ -313,34 +308,34 @@ of not responding to questions, giving more conservative (closer to
 the activity is "Mindfulness" it means I spend a couple of seconds in
 a more mindful state)). Also, I use the "interested — uninterested"
 metric to track horniness (higher means hornier).</p>
-<h3 id="substances">Substances</h3>
+<h3 id="Substances"><a class="hanchor" href="#Substances">Substances</a></h3>
 <p>I track which substances I take
-(<a href="./nootropics.html">nootropics</a>&#47;melatonin&#47;drugs) in <a href="./data/substances.csv">this
+(<a href="./nootropics.html">nootropics</a>/melatonin/drugs) in <a href="./data/substances.csv">this
 file</a> via <a href="./data/cnsm">this script</a>. Data quality
 is good but fairly few entries. At the moment I am mostly using it to
 perform self-blinded RCTs.</p>
-<h3 id="weight">Weight</h3>
+<h3 id="Weight"><a class="hanchor" href="#Weight">Weight</a></h3>
 <p>Tracking weight, mostly for exercise purposes. Data
 <a href="./data/weights.csv">here</a>, collected with <a href="./data/weight">this script</a>.</p>
-<h3 id="daily-performance-metrics">Daily Performance Metrics</h3>
+<h3 id="Daily_Performance_Metrics"><a class="hanchor" href="#Daily_Performance_Metrics">Daily Performance Metrics</a></h3>
 <p>Productivity, creativity and the subjective length of the
 day. Collected with <a href="./data/mental">this script</a> into <a href="./data/mental.csv">this
 file</a>. Started collecting subjective length of the
 day on 2023-08-21.</p>
-<h3 id="bag-spreading">Bag Spreading</h3>
+<h3 id="Bag_Spreading"><a class="hanchor" href="#Bag_Spreading">Bag Spreading</a></h3>
 <p>Data on bag spreading on public transport, in <a href="./data/bag_spreading.csv">this
 file</a>. Data quality is horrible: probably prone
 to multiple biases from my side, from different locations, no tracking
 of location or datetime…maybe I should just delete this one.</p>
-<h3 id="phone-data">Phone Data</h3>
+<h3 id="Phone_Data"><a class="hanchor" href="#Phone_Data">Phone Data</a></h3>
 <p>Via <a href="https://play.google.com/store/apps/details?id=com.kelvin.sensorapp&amp;hl=en_US">Sensor
 Logger</a>,
-I use my phone as an easy way to collect large amounts of data. I don&#39;t want to
+I use my phone as an easy way to collect large amounts of data. I don't want to
 make the files public, as they contain information that could de-pseudonymise me.</p>
-<h3 id="forecasting-performance">Forecasting Performance</h3>
+<h3 id="Forecasting_Performance"><a class="hanchor" href="#Forecasting_Performance">Forecasting Performance</a></h3>
 <p>In principle it should be possible for me to track my forecasting
-performance on Manifold, Fatebook&#47;PredictionBook and Metaculus,
+performance on Manifold, Fatebook/PredictionBook and Metaculus,
 given that all of them have APIs over which data can be exported and
-analyzed. In practice I haven&#39;t done so yet, but it might be a good
+analyzed. In practice I haven't done so yet, but it might be a good
 (albeit slow-to-evaluate) proxy for cognitive performance.</p>
-</html>
+</body></html>
