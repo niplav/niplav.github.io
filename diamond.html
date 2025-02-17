@@ -190,7 +190,6 @@ resulting structure should have have the size <code>$[{d \choose c},
 on the boundary of <code>space</code></em>, <strong>list all corners of that c-dimensional
 hypercube</strong>, but <em><strong>use <code>dim</code> dimensions</strong></em>.</p>
 <p><img alt="" src="./img/diamond/conspiracy.jpg"/></p>
-<p>(Let's hope this makes sense to ≥0 people when read after today.)</p>
 <p>We create now an empty canvas for our corners, an object with the right dimensions
 but zero everywhere:</p>
 <pre><code>cornerspos=np.broadcast_to(np.zeros(dim), [math.comb(dim, subdim), 2**(dim-subdim), 2**subdim, dim])
