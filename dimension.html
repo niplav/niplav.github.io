@@ -1,0 +1,126 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML>
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2024-06-27, modified: 2024-12-19, language: english, status: finished, importance: 4, confidence: certain</em></p>
+<blockquote>
+<p><strong>Randomness revived, structure banished, outliers observed, perplexity
+examined, and scatterplots produced; all to the discerning enjoyment of
+the nobly dimensionality-reduction-interested reader, and for the general
+betterment of public knowledge; be it machinic or biological in nature.</strong></p>
+</blockquote>
+<h1 id="tSNE_and_UMAP_Dont_Produce_Clusters_on_Random_Data"><a class="hanchor" href="#tSNE_and_UMAP_Dont_Produce_Clusters_on_Random_Data">t-SNE and UMAP Don't Produce Clusters on Random Data</a></h1>
+<!--https://stats.stackexchange.com/questions/263539/clustering-on-the-output-of-t-sne/264647-->
+<p>Every once in a while, my corner of 𝕏
+erupts in discussion about <a href="https://en.wikipedia.org/wiki/Dimensionality_reduction_algorithm">dimensionality reduction
+techniques</a>,
+usually in the context of some paper which visualizes high-dimensional
+data and clearly shows clusters in the visualization. (Often, this has
+to do with discussions about race or gender 🙄)</p>
+<p>A common claim in those discussions is that dimensionality reduction
+techniques like <a href="https://distill.pub/2016/misread-tsne/">t-SNE</a> or
+<a href="https://en.wikipedia.org/wiki/Nonlinear_dimensionality_reduction#Uniform_manifold_approximation_and_projection">UMAP</a>
+tend to find clusters in random data, even if they're not <em>really
+present</em>.</p>
+<p>I think this is wrong in the strict
+sense. I'll generate 10k 2k-dimensional <a href="https://en.wikipedia.org/wiki/Uniform_distribution">uniformly
+distributed</a>
+samples, reduce them down to 2 dimensions, and plot
+the result (code <a href="./code/dimension/code.jl">here</a> in
+<a href="https://en.wikipedia.org/wiki/Julia_programming_language">julia</a>):</p>
+<pre><code>using TSne, UMAP, Plots
+
+datapoints=1000
+dims=200
+
+data=rand(datapoints, dims)
+
+reduced=tsne(data)
+reduced_umap=umap(transpose(data))
+
+gui(scatter(reduced[:,1],reduced[:,2]))
+</code></pre>
+<p><img alt="" src="./img/dimension/tsne_plot.png"/></p>
+<pre><code>gui(scatter(reduced_umap[1,:],reduced_umap[2,:], color=:red))
+</code></pre>
+<p><img alt="" src="./img/dimension/umap_plot.png"/></p>
+<p>Changing the perplexity to 5 changes the clustering produced by t-SNE —
+no obvious <em>clustering</em>, but it leads to structure being hallucinated,
+especially the tendency towards identifying a cross-shaped pattern in
+the data, and imagining outliers where they don't exist.</p>
+<pre><code>reduced_5=tsne(data, 2, 0, 1000, 5.0)
+gui(scatter(reduced_5[:,1],reduced_5[:,2], color=:green))
+</code></pre>
+<p><img alt="" src="./img/dimension/tsne_5_plot.png"/></p>
+<p>But—what if we have <em>more</em> dimensions than datapoints? Surely it
+hallucinates structure in that case‼</p>
+<p><img alt="" src="./img/dimension/tsne_moredims.png"/></p>
+<p>(In all cases with 1000 datapoints.)</p>
+<p>And the same for UMAP:</p>
+<p><img alt="" src="./img/dimension/umap_moredims.png"/></p>
+<p><a href="https://x.com/quetzal_rainbow/status/1868307804702069173">quetzal_rainbow
+suggested</a>
+I test it with data where half the dimensions are <a href="https://en.wikipedia.org/wiki/Normal-distribution">normally
+distributed</a>
+and the other half is <a href="https://en.wikipedia.org/wiki/Lognormal_Distribution">lognormally
+distributed</a>.
+Intuitively, the resulting dataset has the shape of a skewed hyperegg,
+in which for half the dimensions the cross-section is spherical and for
+the other half they extend much further in one direction than the other.</p>
+<p>When reducing the dimensions, we see this for t-SNE on 1000 datapoints each:</p>
+<p><img alt="" src="./img/dimension/tsne_mixed_moredims.png"/></p>
+<p>And similarly for UMAP:</p>
+<p><img alt="" src="./img/dimension/umap_mixed_moredims.png"/></p>
+<p>The dimensionality reduction algorithms get executed on the same dataset
+per dimensionality, which is why they have very similar outputs for
+e.g. 16k dimensions: The generated dataset has a few outliers which end
+up far away from the center of the dataset, and both t-SNE and UMAP pick
+up on that. I find it pretty encouraging to see how two very different
+algorithms find the same structure in the data.</p>
+<p>A <a href="https://en.wikipedia.org/wiki/Steelmanning">steelmanned</a>
+critique of these two algorithms could be that sometimes people
+use dimensionality reduction techniques for clustering, instead
+of separating visualization and clustering (such as via good ol'
+<a href="https://en.wikipedia.org/wiki/K-means_Clustering">k-means</a>),
+but t-SNE is <a href="https://en.wikipedia.org/wiki/Clustering_high-dimensional_data#Projection-based_clustering">sometimes used even for
+clustering</a>,
+all my charity is being exhausted at this point.</p>
+<p>Worth noting though:</p>
+<blockquote>
+<p>Cluster sizes in a t-SNE plot mean nothing […]
+The basic message is that distances between well-separated clusters in
+a t-SNE plot may mean nothing.</p>
+</blockquote>
+<p><em>—Fernanda Viegas/Ian Johnson/Martin Wattenberg, <a href="https://distill.pub/2016/misread-tsne/">“How to Use t-SNE Effectively”</a>, 2016</em></p>
+</body></html>
