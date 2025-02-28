@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-03-12, modified: 2024-11-11, language: english, status: in progress, importance: 2, confidence: other</em></p>
+<p><em>author: niplav, created: 2022-03-12, modified: 2025-02-27, language: english, status: in progress, importance: 2, confidence: other</em></p>
 <blockquote>
 <p><strong>Short texts on pickup, mostly daygame.</strong></p>
 </blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Approach_Anxiety">Approach Anxiety</a><ul></ul></li><li><a href="#Ask_About_Frequency_of_Being_Approached_After_Rejection">Ask About Frequency of Being Approached After Rejection</a><ul></ul></li><li><a href="#She_Needs_to_Know_Youre_Not_a_Weirdo">She Needs to Know You're Not a Weirdo</a><ul></ul></li><li><a href="#Reductionism_on_Approach_Difficulties">Reductionism on Approach Difficulties</a><ul></ul></li><li><a href="#Instead_of_Recognizing_and_Dismantling_Shit_Tests_You_Could_Just_Vibe_Over_Them">Instead of Recognizing and Dismantling Shit Tests, You Could Just Vibe Over Them</a><ul></ul></li><li><a href="#Leaving_My_Phone_At_Home">Leaving My Phone At Home</a><ul></ul></li><li><a href="#Using_MultiArmed_Bandits_to_Select_Daygame_Locations">Using Multi-Armed Bandits to Select Daygame Locations</a><ul></ul></li><li><a href="#Eyesight_as_a_Neglected_Factor_in_Daygame">Eyesight as a Neglected Factor in Daygame</a><ul></ul></li><li><a href="#Meditation_Improves_Vibe_Which_Improves_Everything_Else">Meditation Improves Vibe, Which Improves Everything Else</a><ul></ul></li><li><a href="#The_Red_Quest_An_Anthology">The Red Quest: An Anthology</a><ul><li><a href="#Practical_Pickup">Practical Pickup</a><ul><li><a href="#Randomness_and_Noise">Randomness and Noise</a><ul></ul></li><li><a href="#Sex_Clubs_and_NonMonogamy">Sex Clubs and Non-Monogamy</a><ul></ul></li></ul></li><li><a href="#Attractiveness">Attractiveness</a><ul><li><a href="#Fashion">Fashion</a><ul></ul></li><li><a href="#Fitness">Fitness</a><ul></ul></li><li><a href="#Fucking">Fucking</a><ul></ul></li><li><a href="#Food">Food</a><ul></ul></li><li><a href="#Photography_and_Sex_Tapes">Photography and Sex Tapes</a><ul></ul></li></ul></li><li><a href="#Competition">Competition</a><ul></ul></li><li><a href="#Players_Psychology">Player's Psychology</a><ul><li><a href="#Writing">Writing</a><ul></ul></li><li><a href="#Emptiness">Emptiness</a><ul></ul></li><li><a href="#Darkness">Darkness</a><ul></ul></li></ul></li><li><a href="#Society">Society</a><ul></ul></li><li><a href="#Stories">Stories</a><ul><li><a href="#Marriage_and_Divorce">Marriage and Divorce</a><ul></ul></li></ul></li></ul></li><li><a href="#Vascular_Tension_and_Attractiveness">Vascular Tension and Attractiveness</a><ul></ul></li></ul></div>
@@ -516,11 +516,11 @@ ones by <a href="http://www.daysofgame.com/">Nash</a>.</p>
 </ul>
 <h2 id="Vascular_Tension_and_Attractiveness"><a class="hanchor" href="#Vascular_Tension_and_Attractiveness">Vascular Tension and Attractiveness</a></h2>
 <p>Men like to create theories on what they should do in order to become
-attractive to women. One of those theories is that muscular tension
-is <em>unattractive</em>: It indicates that a man is hiding his intentions,
-trying to evade from hostile telepaths (because he believes that, if his
-intentions were known, he'd be shunned).<!--TODO: link to Chris Lakins
-writing on this, and the hostile telepaths stuff--></p>
+attractive to women. One of those theories is that <a href="https://chrislakin.blog/p/what-if-muscle-tension-is-sometimes">muscular tension is
+<em>unattractive</em></a>:
+It indicates that a man is hiding his intentions, trying to evade from
+hostile telepaths (because he believes that, if his intentions were known,
+he'd be shunned).<!--TODO: link to the hostile telepaths stuff--></p>
 <p>I think I can look into a related hypothesis, namely whether <em>meditation</em>
 increases success from cold approaching women. The hypothesis is that
 meditation decreases muscular tension, thus indicating that the approacher
@@ -584,4 +584,21 @@ sizes are just too damn small. If I do that, then I don't immediately
 <em>see</em> any clear pattern. It's not like meditating a bunch (~2h/day)
 causes more women to give me their contact information, and if anything
 the opposite seems to be the case.</p>
+<p>Let's see what the <a href="https://en.wikipedia.org/wiki/Linear_Regression">linear
+regression</a> has to say:</p>
+<pre><code>&gt;&gt;&gt; slope, intercept, r, p, stderr=sps.linregress(both['meditation_duration'], both['Contactind'])
+&gt;&gt;&gt; slope
+-6.349359906142442e-08
+&gt;&gt;&gt; intercept
+0.16460352073438347
+&gt;&gt;&gt; p
+0.9359174508450456
+&gt;&gt;&gt; r
+-0.003251381879711259
+</code></pre>
+<p>Yep, just like I thought, the result could've just as well come from
+random data. (Don't be fooled into thinking the slope is meaningfully
+negative: Such a small p-value means it might just flip to positive at
+the next datapoint).</p>
+<!--TODO: plot-->
 </body></html>

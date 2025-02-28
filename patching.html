@@ -1,0 +1,157 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML>
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2025-02-20, modified: 2025-02-27, language: english, status: finished, importance: 5, confidence: log</em></p>
+<blockquote>
+<p><strong>Trying to make the internet secure from takeover by advanced
+AI systems by removing exploits from open-source software
+<a href="#Who_Pays">would cost at least</a> ~\$31 mio./~\$1.9 bio./~\$168
+bio. (5th/50th/95th percentile estimate), mean estimate ~$140 bio. But
+hardware or software/hardware hybrid vulnerabilities <a href="#Hybrid_and_Hardware_Vulnerabilities">are harder to
+fix</a>, and <a href="#Maintainer_Overload">open-source maintainers
+would be overworked</a>.</strong></p>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Maintainer_Overload">Maintainer Overload</a><ul></ul></li><li><a href="#Hybrid_and_Hardware_Vulnerabilities">Hybrid and Hardware Vulnerabilities</a><ul></ul></li><li><a href="#Who_Pays">Who Pays?</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
+<h1 id="Patching_All_SecurityRelevant_OpenSource_Software"><a class="hanchor" href="#Patching_All_SecurityRelevant_OpenSource_Software">Patching ~All Security-Relevant Open-Source Software?</a></h1>
+<p>Preventative measures discussed for averting an AI takeover
+attempt include hardenening the software infrastructure of
+the world against attacks. The plan is to use lab-internal
+(specialized?) software engineering AI systems to submit patches to
+fix all findable security vulnerabilities in open-source software
+(think a vastly expanded and automated version of <a href="https://en.wikipedia.org/wiki/Project_Zero">Project
+Zero</a>, and likely
+to partner with companies developing internet-critical software
+(in the likes of <a href="https://en.wikipedia.org/wiki/Cisco">Cisco</a> &amp;
+<a href="https://en.wikipedia.org/wiki/Huawei">Huawei</a><!--TODO: find others
+maybe?-->).</p>
+<p>I think that that plan is net-positive. I also think that it has some
+pretty glaring open problems (in ascending order of exigency): (1)
+Maintainer overload and response times, (2) hybrid hardware/software
+vulnerabilities, and (3) cost as a public good (also known as  "who's
+gonna pay for it?").</p>
+<h3 id="Maintainer_Overload"><a class="hanchor" href="#Maintainer_Overload">Maintainer Overload</a></h3>
+<p>If transformative AI is developed soon, most open source projects
+(especially old ones relevant to internet infrastructure) are going to be
+maintained by humans with human response times. That will significantly
+increase the time for relevant security patches to be reviewed and merged
+into existing codebases, especially if at the time attackers will submit
+AI-generated or co-developed subtle exploits using AI systems six to nine
+months behind the leading capabilities, keeping maintainers especially
+vigilant.</p>
+<h3 id="Hybrid_and_Hardware_Vulnerabilities"><a class="hanchor" href="#Hybrid_and_Hardware_Vulnerabilities">Hybrid and Hardware Vulnerabilities</a></h3>
+<p>My impression is that vulnerabilities are moving from
+software-only vulnerabilities towards very low-level
+microcode or software/hardware hybrid vulnerabilities
+(e.g. <a href="https://en.wikipedia.org/wiki/Hertzbleed">Hertzbleed</a>,
+<a href="https://en.wikipedia.org/wiki/Spectre_(vulnerability)">Spectre</a>,
+<a href="https://en.wikipedia.org/wiki/Meltdown_(security_vulnerability)">Meltdown</a>,
+<a href="https://en.wikipedia.org/wiki/Rowhammer">Rowhammer</a>,
+<a href="https://en.wikipedia.org/wiki/Microarchitectural_Data_Sampling">Microarchitectural Data
+Sampling</a>,
+…), for which software fixes, <em>if they exist</em>, have pretty bad
+performance penalties. GPU-level vulnerabilities get less attention, but
+they absolutely exist, e.g. <a href="https://leftoverlocals.com/">LeftoverLocals</a>
+and <a href="https://github.com/nwork/jellyfish">JellyFish</a>. My best
+guess is that cutting-edge GPUs are much less secure than CPUs,
+since they've received less attention from researchers and their
+documentation is less easily accessible. (They probably have less
+cruft from bad design choices in early computer history.) Hence:
+Software-only vulnerabilities are easy to fix, software/hardware
+hybrid ones are more painful to fix, hardware vulnerabilities escape
+quick fixes (in the extreme demanding recall like the <a href="https://en.wikipedia.org/wiki/Pentium_FDIV_bug">Pentium FDIV
+bug</a>). And
+don't get me started on the
+<a href="https://en.wikipedia.org/wiki/Cognitive_Bias">vulnerabilities</a>
+<a href="https://en.wikipedia.org/wiki/Cults">lurking in</a> <a href="https://www.lesswrong.com/posts/aHaqgTNnFzD7NGLMx/reason-as-memetic-immune-disorder">human
+psychology</a>,
+which are basically impossible to fix on short time-scales…</p>
+<h3 id="Who_Pays"><a class="hanchor" href="#Who_Pays">Who Pays?</a></h3>
+<p>Finding vulnerabilities in all the relevant security
+infrastructure of the internet and fixing them might be
+<em>expensive</em>. 1 mio. input tokens for <a href="https://cloud.google.com/vertex-ai/generative-ai/pricing">Gemini 2.0 Flash
+cost</a>
+\$0.15, and \$0.60 for output tokens—but a model able
+to find &amp; find fixes to security vulnerabilities is going
+to be more expensive. An AI-generated me-adjusted <a href="https://squigglehub.org/models/niplav/automated_internet_hardening">Squiggle
+model</a>
+estimates that <strong>it'd cost (median estimate) ~$1.9
+bio. to fix most vulnerabilities in open-source software (90%
+<a href="https://en.wikipedia.org/wiki/Confidence_Interval">confidence-interval</a>:
+~\$31 mio. to ~\$168 bio., mean estimated cost is… <em>gulp</em>… ~\$140
+bio.)</strong>.</p>
+<p><img alt="" src="./img/patching/cost.png"/></p>
+<p>(I think the analysis under-estimates the cost because it doesn't consider
+setting up the project, paying human supervisors and reviewers, costs
+for testing infrastructure &amp; compute, finding complicated vulnerabilities
+that arise from the interaction of different programs…).</p>
+<p>It was notable when Google <a href="https://www.securityweek.com/google-shells-out-600000-for-oss-fuzz-project-integrations/">paid $600k for open-source
+fuzzing</a>,
+so &gt;~$1.9 bio. is going to be…
+hefty. The discussion on this has been pretty <a href="https://en.wikipedia.org/wiki/Construal_level_theory">far
+mode</a> and "surely
+<a href="https://www.overcomingbias.com/p/abstractly-ideal-concretely-selfishhtml">somebody</a>
+is going to do that when it's “so easy”", but there
+have been fewer remarks about the expense and who'll
+carry the burden. For comparison, the 6-year budget for <a href="https://commission.europa.eu/funding-tenders/find-funding/eu-funding-programmes/horizon-europe_en">Horizon
+Europe</a>
+(which funds, as a tiny part of its portfolio, open source projects like
+<a href="https://en.wikipedia.org/wiki/Peertube">PeerTube</a> and the <a href="https://en.wikipedia.org/wiki/Eclipse_Foundation">Eclipse
+Foundation</a>)
+<a href="https://commission.europa.eu/strategy-and-policy/eu-budget/performance-and-reporting/programme-performance-statements/horizon-e%0Aurope-performance_en">is 93.5 bio.
+€</a>,
+and the EU <a href="https://ngi.eu/">Next Generation
+Internet</a> programme has spent <a href="https://eur-lex.europa.eu/EN/legal-content/glossary/next-generation-internet.html">250 mio.
+€</a>
+(2018-2020)+<a href="https://sciencebusiness.net/news/next-generation-internet-showcase-goes-live">62 mio.
+€</a>
+(2021-2022)+<a href="https://edri.org/our-work/european-commission-cuts-funding-support-for-free-software-projects/">27 mio.
+€</a>
+(2023-2025)=~337 mio. € on funding open-source software.</p>
+<p>Another consideration is that this project would need to be finished
+<em>quickly</em>—potentially less than a year as open weights models catch
+up and frontier models become more dangerous. So humanity will not be
+able to wait until the frontier models become cheaper so that it'll be
+less expensive—as soon as automated vulnerability finding becomes,
+both attackers and defenders will be in a race to exploit them.</p>
+<p>So, <em>a proposal</em>: Whenever someone claims that LLMs will d/acc us out of
+AI takeover by fixing our infrastructure, they will also have to specify
+who will pay the costs of setting up this project and running it.</p>
+<h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
+<ul>
+<li>Discussions
+<ul>
+<li><a href="https://forum.effectivealtruism.org/posts/sh4zDoyQiwnAGCRd6/patching-all-security-relevant-open-source-software">Effective Altruism Forum</a></li>
+</ul></li>
+</ul>
+</body></html>
