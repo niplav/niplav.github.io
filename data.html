@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2022-07-07, modified: 2025-02-02, language: english, status: maintenance, importance: 2, confidence: log</em></p>
+<p><em>author: niplav, created: 2022-07-07, modified: 2025-03-20, language: english, status: maintenance, importance: 2, confidence: log</em></p>
 <blockquote>
 <p><strong>Notes for myself on the data I track, how to transform it into a
 usable shape, data quality and other random assortments.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Anki">Anki</a><ul></ul></li><li><a href="#Meditation">Meditation</a><ul></ul></li><li><a href="#Daygame">Daygame</a><ul></ul></li><li><a href="#Fitbit_Biometrics">Fitbit Biometrics</a><ul></ul></li><li><a href="#Others">Others</a><ul><li><a href="#Masturbation">Masturbation</a><ul></ul></li><li><a href="#Mood">Mood</a><ul></ul></li><li><a href="#Substances">Substances</a><ul></ul></li><li><a href="#Weight">Weight</a><ul></ul></li><li><a href="#Daily_Performance_Metrics">Daily Performance Metrics</a><ul></ul></li><li><a href="#Bag_Spreading">Bag Spreading</a><ul></ul></li><li><a href="#Phone_Data">Phone Data</a><ul></ul></li><li><a href="#Forecasting_Performance">Forecasting Performance</a><ul></ul></li></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Anki">Anki</a><ul></ul></li><li><a href="#Meditation">Meditation</a><ul></ul></li><li><a href="#Daygame">Daygame</a><ul></ul></li><li><a href="#Fitbit_Biometrics">Fitbit Biometrics</a><ul></ul></li><li><a href="#Others">Others</a><ul><li><a href="#Masturbation">Masturbation</a><ul></ul></li><li><a href="#Mood">Mood</a><ul></ul></li><li><a href="#Substances">Substances</a><ul></ul></li><li><a href="#Weight">Weight</a><ul></ul></li><li><a href="#Daily_Performance_Metrics">Daily Performance Metrics</a><ul></ul></li><li><a href="#Reaction_Times">Reaction Times</a><ul></ul></li><li><a href="#Bag_Spreading">Bag Spreading</a><ul></ul></li><li><a href="#Phone_Data">Phone Data</a><ul></ul></li><li><a href="#Forecasting_Performance">Forecasting Performance</a><ul></ul></li></ul></li></ul></div>
 <h1 id="Types__Methods_of_Data_Collection_I_Use"><a class="hanchor" href="#Types__Methods_of_Data_Collection_I_Use">Types &amp; Methods of Data Collection I Use</a></h1>
 <p>I've always collected some data about myself and the world around me,
 but not using/analyzing it because of a chronic "I'll get around to it
@@ -145,7 +145,8 @@ and 3 for "cram" cards (cards being studied in a filtered deck when they
 are not due).</p>
 </blockquote>
 <p><em>— Anki developers, <a href="https://docs.ankiweb.net/stats.html#manual-analysis">“Manual Analysis”</a> in <a href="https://docs.ankiweb.net/stats.html#manual-analysis">“Graphs and Statistics”</a>, year unknown</em></p>
-<p>The CSV of the data can be found <a href="./data/anki_reviews.csv">here</a>.</p>
+<p>The CSV of the data can be found <a href="./data/anki_reviews.csv">here</a>, data
+collected starting 2021-01-24.</p>
 <h2 id="Meditation"><a class="hanchor" href="#Meditation">Meditation</a></h2>
 <p>Similarly, one can export meditation data from Medativo (if one has
 coughed up 5€ for the premium version, which I decided was worth it
@@ -169,7 +170,8 @@ x/4\.0,4\.0,/c/,/
 ,/^1594,/;/^1615,/
 x/4\.0,4\.0,/c/,/
 </code></pre>
-<p>The CSV of the meditation data can be found <a href="./data/meditations.csv">here</a>.</p>
+<p>The CSV of the meditation data can be found
+<a href="./data/meditations.csv">here</a>, data collected starting 2020-01-23.</p>
 <p><code>mindfulness_ranking</code> and <code>concentration_ranking</code> are both subjective
 impressions directly after meditation, where "mindfulness" describes the
 degree of sensory clarity, and "concentration" (better called "absorption"
@@ -229,9 +231,8 @@ just to check consistency).</p>
 $ mv daygame_approaches.csv daygame_approaches_deanon.csv
 $ mv daygame_approaches_anon.csv daygame_approaches.csv
 </code></pre>
-<p>The approaches file can be found <a href="./data/daygame_approaches.csv">here</a>,
-the sessions file can be found <a href="./data/daygame_sessions.csv">here</a>.</p>
-<p>Approaches file datapoints (in CSV):</p>
+<p><a href="./data/daygame_approaches.csv">Approaches file</a> datapoints in CSV,
+collected starting 2020-08-25:</p>
 <ul>
 <li><code>Approach</code>: Monotonically incrementing <a href="https://en.wikipedia.org/wiki/Primary_Key">primary key</a>.</li>
 <li><code>Location</code>: Replaced with a random integer for anonymization.</li>
@@ -246,7 +247,7 @@ the sessions file can be found <a href="./data/daygame_sessions.csv">here</a>.</
 <li><code>Datetime</code>: Datetime of when the approached happened.</li>
 <li><code>Estimated</code>: Whether the datetime of the approach was estimated from session data.</li>
 </ul>
-<p>Sessions file:</p>
+<p><a href="./data/daygame_sessions.csv">Sessions file</a>:</p>
 <ul>
 <li><code>Depart</code>: When I start moving to the place where I daygame, datetime.</li>
 <li><code>Start</code>: When I arrive at the place I do daygame, datetime.</li>
@@ -272,14 +273,16 @@ the sessions file can be found <a href="./data/daygame_sessions.csv">here</a>.</
 because Fitbit is one of the few (the only?) companies whose products
 allow for data exporting, mostly to track my sleep, but maybe I'll also
 get mileage out of the heart rate, step, glucose and temperature tracking.</p>
-<p>Sleep data <a href="./data/sleep.json">here</a>.</p>
+<p>Sleep data <a href="./data/sleep.json">here</a>, collected starting 2023-11-30.</p>
 <h2 id="Others"><a class="hanchor" href="#Others">Others</a></h2>
-<!--TODO: light.csv, islight.csv, ispomodoro.csv, pomodoros.csv-->
+<!--TODO: light.csv, islight.csv, ispomodoro.csv, pomodoros.csv,
+reaction_times.csv-->
 <p>Other metrics I track don't deserve as much elaboration.</p>
 <h3 id="Masturbation"><a class="hanchor" href="#Masturbation">Masturbation</a></h3>
 <p>I track when I masturbate &amp; how good it feels &amp; the type of
 pornography in <a href="./data/masturbations.csv">this file</a> via <a href="./data/mstrbt">this
-script</a>. Data quality is pretty high.</p>
+script</a>. Data quality is pretty high, data collected
+starting 2021-01-15.</p>
 <ul>
 <li><code>t</code> stands for text</li>
 <li><code>a</code> stands for audio</li>
@@ -301,27 +304,32 @@ programmers, for programmers.</p>
 <p>Finally I rename the mood columns simply to "happy", "content", "relaxed",
 and "horny".</p>
 <p>CSV <a href="./data/mood.csv">here</a>, the data quality is mediocre (long stretches
-of not responding to questions, giving more conservative (closer to
-50) answers over time, starting to use activities around July 2022
-(and not using it for what it was intended for: when the activity is
-"Nothing" that means I carried on with my day as normal afterwards, if
-the activity is "Mindfulness" it means I spend a couple of seconds in
-a more mindful state)). Also, I use the "interested — uninterested"
-metric to track horniness (higher means hornier).</p>
+of not responding to questions, giving more conservative (closer to 50)
+answers over time, starting to use activities around July 2022 (and not
+using it for what it was intended for: when the activity is "Nothing"
+that means I carried on with my day as normal afterwards, if the activity
+is "Mindfulness" it means I spend a couple of seconds in a more mindful
+state)). Also, I use the "interested — uninterested" metric to track
+horniness (higher means hornier). Data collection started 2021-01-16.</p>
 <h3 id="Substances"><a class="hanchor" href="#Substances">Substances</a></h3>
 <p>I track which substances I take
 (<a href="./nootropics.html">nootropics</a>/melatonin/drugs) in <a href="./data/substances.csv">this
 file</a> via <a href="./data/cnsm">this script</a>. Data quality
 is good but fairly few entries. At the moment I am mostly using it to
-perform self-blinded RCTs.</p>
+perform self-blinded RCTs. Collection starting 2022-07-06.</p>
 <h3 id="Weight"><a class="hanchor" href="#Weight">Weight</a></h3>
 <p>Tracking weight, mostly for exercise purposes. Data
-<a href="./data/weights.csv">here</a>, collected with <a href="./data/weight">this script</a>.</p>
+<a href="./data/weights.csv">here</a>, collected with <a href="./data/weight">this script</a>,
+starting 2022-10-14.</p>
 <h3 id="Daily_Performance_Metrics"><a class="hanchor" href="#Daily_Performance_Metrics">Daily Performance Metrics</a></h3>
 <p>Productivity, creativity and the subjective length of the
 day. Collected with <a href="./data/mental">this script</a> into <a href="./data/mental.csv">this
-file</a>. Started collecting subjective length of the
-day on 2023-08-21.</p>
+file</a>. Started collecting productivity and creativity
+from 2022-10-27, and subjective length of the day on 2023-08-21.</p>
+<h3 id="Reaction_Times"><a class="hanchor" href="#Reaction_Times">Reaction Times</a></h3>
+<p>Started tracking <a href="https://en.wikipedia.org/wiki/Reaction_Time">reaction
+time</a> to a visual stimulus
+on 2025-02-13 in <a href="./data/reaction_times.csv">this file</a>.</p>
 <h3 id="Bag_Spreading"><a class="hanchor" href="#Bag_Spreading">Bag Spreading</a></h3>
 <p>Data on bag spreading on public transport, in <a href="./data/bag_spreading.csv">this
 file</a>. Data quality is horrible: probably prone
