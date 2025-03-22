@@ -2,7 +2,8 @@ import math
 import json
 import numpy as np
 import pandas as pd
-import scipy.stats as scistat
+import scipy.stats as sps
+import matplotlib.pyplot as plt
 
 def normal_likelihood(data, mu, std):
 	data_probs=scistat.norm.pdf(data, loc=mu, scale=std)
@@ -23,9 +24,19 @@ def likelihood_ratio_test(lr):
 def llrt_pval(lmbda, df=2):
 	return scistat.chi2.cdf(df, lmbda)
 
+def get_meditations():
+	meditations=pd.read_csv('../../data/meditations.csv')
+	meditations['meditation_start']=pd.to_datetime(meditations['meditation_start'], utc=True, format='mixed')
+	meditations['meditation_end']=pd.to_datetime(meditations['meditation_end'], utc=True, format='mixed')
+
+	return meditations
+
 sleep_file_name='../../data/sleep.json'
 sleep_file=open(sleep_file_name, 'r')
 sleep_data = json.load(sleep_file)
+
+backwards_horizon='4d'
+relevant_sleep_cols=['duration', 'minutes_asleep', 'minutes_to_sleep', 'minutes_after_wakeup', 'time_in_bed', 'deep_count', 'deep_minutes', 'light_count', 'light_minutes', 'rem_count', 'rem_minutes', 'wake_count', 'wake_minutes']
 
 sleep_values={
 	'date': [],
@@ -84,20 +95,41 @@ for session in sleep_data:
 
 sleep=pd.DataFrame(sleep_values)
 first_sleep=sleep['date'].min()
+last_sleep=sleep['date'].max()
 
-substances=pd.read_csv('../../data/substances.csv')
-substances['datetime']=pd.to_datetime(substances['datetime'], utc=True)
-melatonin_consumption=substances.loc[substances['substance']=='melatonin']
-melatonin_consumption=melatonin_consumption.loc[melatonin_consumption['datetime']>first_sleep]
-
-melatonin_consumption.sort_values(by=['datetime'], inplace=True)
+meditations=get_meditations()
+meditations.sort_values(by=['meditation_start'], inplace=True)
+meditations=meditations.loc[meditations['meditation_start']>(first_sleep-pd.Timedelta(backwards_horizon))]
 sleep.sort_values(by=['start_time'], inplace=True)
 
-melatonin_sleep=pd.merge_asof(melatonin_consumption, sleep, left_on='datetime', right_on='start_time', direction='forward')
+checkpoints=pd.DataFrame()
+checkpoints['checkpoint']=pd.date_range(start=first_sleep, end=last_sleep, freq='1d')+pd.Timedelta('18h')
 
-non_melatonin_dates=list(set(sleep['date'])-set(melatonin_sleep['date']))
-non_melatonin=pd.DataFrame(non_melatonin_dates, columns=['date'])
-non_melatonin_sleep=pd.merge(sleep, non_melatonin, on='date')
+aggregated=pd.merge_asof(sleep, checkpoints, left_on='start_time', right_on='checkpoint', direction='backward')
+aggregated=aggregated[relevant_sleep_cols+['checkpoint']].groupby('checkpoint').sum()
+aggregated.reset_index(inplace=True)
 
-non_nap_melatonin_sleep=melatonin_sleep.loc[(melatonin_sleep['start_time'].dt.hour<6) & (melatonin_sleep['start_time'].dt.hour<18)]
-non_nap_non_melatonin_sleep=non_melatonin_sleep.loc[(non_melatonin_sleep['start_time'].dt.hour<6) & (non_melatonin_sleep['start_time'].dt.hour<18)]
+aggregated=pd.merge(aggregated, meditations, how='cross')
+aggregated=aggregated.loc[
+	(aggregated['checkpoint']-aggregated['meditation_end']<pd.Timedelta(backwards_horizon)) &
+	(aggregated['checkpoint']-aggregated['meditation_end']>pd.Timedelta('0d'))]
+
+aggregated=aggregated.groupby('checkpoint').agg({'meditation_duration': 'sum'} | {col: 'min' for col in relevant_sleep_cols})
+no_outliers=aggregated.loc[aggregated['meditation_duration']<8*3600]
+
+field='minutes_asleep'
+aggregated[['meditation_duration', field]].plot.scatter(x='meditation_duration', y=field)
+
+slope, intercept, r, p, stderr=sps.linregress(aggregated['meditation_duration'], aggregated[field])
+over=np.linspace(0, aggregated['meditation_duration'].max())
+plt.plot(over, intercept+slope*over, color='red')
+
+plt.savefig('aggregated_scatter_total.png')
+
+no_outliers[['meditation_duration', field]].plot.scatter(x='meditation_duration', y=field)
+
+slope, intercept, r, p, stderr=sps.linregress(no_outliers['meditation_duration'], no_outliers[field])
+over=np.linspace(0, no_outliers['meditation_duration'].max())
+plt.plot(over, intercept+slope*over, color='red')
+
+plt.savefig('no_outliers_scatter_total.png')
