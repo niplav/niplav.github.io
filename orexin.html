@@ -1,0 +1,145 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML>
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2025-04-03, modified: 2025-04-03, language: english, status: notes, importance: 9, confidence: log</em></p>
+<blockquote>
+<p><strong>.</strong></p>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Protocol">Protocol</a><ul><li><a href="#Requirements">Requirements</a><ul></ul></li><li><a href="#Checklist">Checklist</a><ul><li><a href="#Measurements">Measurements</a><ul></ul></li></ul></li><li><a href="#Complications__Explanation">Complications &amp; Explanation</a><ul></ul></li><li><a href="#Open_Questions">Open Questions</a><ul></ul></li></ul></li><li><a href="#Power_Calculation">Power Calculation</a><ul></ul></li></ul></div>
+<h1 id="Orexin_And_Sleep_Deprivation"><a class="hanchor" href="#Orexin_And_Sleep_Deprivation">Orexin And Sleep Deprivation</a></h1>
+<h2 id="Protocol"><a class="hanchor" href="#Protocol">Protocol</a></h2>
+<p>The rough idea is to have a self-blinded randomized trial with
+<a href="https://en.wikipedia.org/wiki/Blocking_(statistics)">blocking</a>, where
+each block is a period of four days alternating between administration
+and recovery days.</p>
+<h3 id="Requirements"><a class="hanchor" href="#Requirements">Requirements</a></h3>
+<ul>
+<li>Two undistinguishable <a href="https://en.wikipedia.org/wiki/Spray_Bottle">spray bottles</a></li>
+<li>Two identical opaque containers for fitting the bottles</li>
+<li>Two pieces of paper, one marked with 'O', one marked with 'P', folded so that the text is not visible</li>
+<li>Saline solution</li>
+<li>Orexin powder for a sufficient dose<!--TODO: ask Claude/read papers to figure out sufficient dose and dissolution!--></li>
+</ul>
+<h3 id="Checklist"><a class="hanchor" href="#Checklist">Checklist</a></h3>
+<ul>
+<li>Store Orexin powder in the freezer</li>
+<li>Before a block:
+<ul>
+<li>Dissolve Orexin powder in the saline solution in <em>one</em> spray bottle</li>
+<li>Put saline solution in the other bottle</li>
+<li>Put the Orexin-filled spray bottle in one container, together with the 'O' piece of paper</li>
+<li>Put the saline solution spray bottle in the other container, together with the 'P' piece of paper</li>
+<li>Shuffle the containers until you don't remember which is which, put them in the fridge</li>
+</ul></li>
+<li>During the block:
+<ul>
+<li>Day 1:
+<ul>
+<li>Sleep only 5-6 hours</li>
+<li>Pick a container at random, take out only the bottle, administer nasal spray</li>
+<li>Mark the container so that you know that you took it on day one of the block</li>
+<li>Wait ~30 minutes</li>
+<li>Run <a href="#Measurements">a bunch of measurements</a></li>
+</ul></li>
+<li>Day 2:
+<ul>
+<li>Sleep a normal amount</li>
+</ul></li>
+<li>Day 3:
+<ul>
+<li>Sleep only 5-6 hours</li>
+<li>Pick the other container, take out only the bottle, administer nasal spray</li>
+<li>Mark the container so that you know that you took it on day three of the block</li>
+<li>Wait ~30 minutes</li>
+<li>Run <a href="#Measurements">a bunch of measurements</a></li>
+</ul></li>
+<li>Day 4:
+<ul>
+<li>Sleep a normal amount</li>
+<li>Look into the containers, write down whether you took placebo/orexin on days one and three</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>It doesn't matter when a block starts, it can be any day of the week,
+and one can take a couple of days off from the experiment when something
+(e.g. a holiday) comes in the way.</p>
+<h4 id="Measurements"><a class="hanchor" href="#Measurements">Measurements</a></h4>
+<p>I would like to keep the measurements manageable and scalable: There
+is a core of measurements performed in each block, but if I feel like I
+have slack I might decide to do more extensive measurements for one block.</p>
+<p>If done per block, this will not impact the quality of the data, but
+please don't decide within a block to switch the detail of measurements.</p>
+<ul>
+<li>Active measurements
+<ul>
+<li>Reaction speed: ≥10 datapoints, collected via TODO</li>
+<li>Digit span: ≥10 datapoints, collected via TODO</li>
+<li>Subjective well-being: ≥10 datapoints, collected via TODO (maybe MoodPatterns?)</li>
+</ul></li>
+<li>Passive measurements
+<ul>
+<li>Whatever is collected by the fitbit</li>
+</ul></li>
+</ul>
+<h3 id="Complications__Explanation"><a class="hanchor" href="#Complications__Explanation">Complications &amp; Explanation</a></h3>
+<p>Ideally, we wouldn't have to re-fill the nasal spray bottles after
+every block, instead marking the bottle in an easily blindable way
+(e.g. a small dot on the bottom) for being able to figure out which
+bottle contains what.</p>
+<p>Unfortunately, Claude informs me that Orexin has a half-life of ~2 weeks
+when stored at fridge temperatures in a liquid solution, and is best
+stored long-term in powder-form in the freezer—hence the plan to be careful
+and mix it back for each block.</p>
+<p>The blocks reduce unexplained variability. The pause days make sure that
+(1) one doesn't suffer from excessive sleep deprivation, and (2) to check
+if there is any "catch-up sleep" that needs to happen even after taking
+Orexin. Investigating tolerance effects would be interesting, but I just
+don't think we have enough statistical power to get there, and it's more
+useful to focus on one-off effectiveness instead<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>. Tolerance effects
+can be examined later.</p>
+<h3 id="Open_Questions"><a class="hanchor" href="#Open_Questions">Open Questions</a></h3>
+<ul>
+<li>Is there a way to store Orexin in a dissolved form without it degrading?</li>
+<li>How long should we wait after taking Orexin before starting measurements?</li>
+</ul>
+<h2 id="Power_Calculation"><a class="hanchor" href="#Power_Calculation">Power Calculation</a></h2>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn1">
+<p>Even demonstrating one-off effectiveness would be cool: It's often the case that people have short-term sleep deprivation, and would like to ameliorate the effects. <a href="#fnref1" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>
+</body></html>
