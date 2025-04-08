@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-04-15, modified: 2025-02-22, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2023-04-15, modified: 2025-04-08, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>I <a href="#Motivation">consider</a> the problem of resolving preferences
 that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
@@ -62,7 +62,7 @@ findings</a>
 to propose an algorithm for changing a <a href="https://en.wikipedia.org/wiki/Utility#Utility_function">utility
 function</a> as
 the underlying set of objects changes.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Motivation">Motivation</a><ul><li><a href="#Why_vNM">Why vNM?</a><ul></ul></li></ul></li><li><a href="#Structure_of_the_Text">Structure of the Text</a><ul></ul></li><li><a href="#Related_Work">Related Work</a><ul><li><a href="#Modeling_Inconsistent_Preferences">Modeling Inconsistent Preferences</a><ul></ul></li><li><a href="#Resolving_Inconsistent_Preferences">Resolving Inconsistent Preferences</a><ul></ul></li><li><a href="#Learning_Inconsistent_Preferences">Learning Inconsistent Preferences</a><ul></ul></li><li><a href="#The_von_NeumannMorgenstern_Axioms">The von Neumann-Morgenstern Axioms</a><ul><li><a href="#Assuming_Asymmetry">Assuming Asymmetry</a><ul></ul></li></ul></li></ul></li><li><a href="#Inconsistent_Preferences_over_Deterministic_Options">Inconsistent Preferences over Deterministic Options</a><ul><li><a href="#Violating_the_von_NeumannMorgenstern_Axioms">Violating the von Neumann-Morgenstern Axioms</a><ul><li><a href="#Incompleteness">Incompleteness.</a><ul></ul></li><li><a href="#Intransitivity">Intransitivity.</a><ul></ul></li><li><a href="#Symmetry">Symmetry.</a><ul></ul></li></ul></li><li><a href="#Algorithms_for_Resolving_Inconsistencies">Algorithms for Resolving Inconsistencies</a><ul><li><a href="#Finding_Consistent_Graphs_with_the_Smallest_GraphEdit_Distance">Finding Consistent Graphs with the Smallest Graph-Edit Distance</a><ul></ul></li><li><a href="#Establishing_Consistency_Stepwise">Establishing Consistency Stepwise</a><ul></ul></li><li><a href="#None">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Criteria">Criteria</a><ul><li><a href="#Surjectivity_and_Identity">Surjectivity and Identity</a><ul></ul></li><li><a href="#Minimizing_GraphEdit_Distance">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_1">Applying HodgeRank</a><ul></ul></li><li><a href="#Polynomial_Time_Complexity">Polynomial Time Complexity</a><ul><li><a href="#Minimizing_GraphEdit_Distance_1">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_2">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Uniqueness">Uniqueness</a><ul><li><a href="#Minimizing_GraphEdit_Distance_2">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_3">Applying HodgeRank</a><ul></ul></li><li><a href="#Further_Considerations">Further Considerations</a><ul></ul></li></ul></li><li><a href="#Resolution_to_Polynomially_Many_Preferences">Resolution to Polynomially Many Preferences</a><ul><li><a href="#Minimizing_GraphEdit_Distance_3">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_4">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Preservation_of_Consistent_Subgraphs">Preservation of Consistent Subgraphs</a><ul><li><a href="#Minimizing_GraphEdit_Distance_4">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_5">Applying HodgeRank</a><ul></ul></li></ul></li></ul></li><li><a href="#Preservation_of_Completely_Dominating_and_Dominated_Set">Preservation of Completely Dominating and Dominated Set</a><ul><li><a href="#Minimizing_GraphEdit_Distance_5">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_6">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Summary">Summary</a><ul></ul></li><li><a href="#Impossibilities">Impossibilities</a><ul><li><a href="#Resolution_to_Polynomially_Many_Preferences_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Resolution to Polynomially Many Preferences and Preservation of Consistent Subgraphs are Incompatible</a><ul></ul></li><li><a href="#Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Polynomial Time Complexity and Preservation of Consistent Subgraphs are Incompatible</a><ul></ul></li></ul></li></ul></li><li><a href="#Inconsistent_Preferences_over_Lotteries">Inconsistent Preferences over Lotteries</a><ul><li><a href="#Violating_the_Axioms">Violating the Axioms</a><ul><li><a href="#Discontinuity">Discontinuity</a><ul></ul></li><li><a href="#Dependence">Dependence</a><ul></ul></li></ul></li><li><a href="#Representing_Inconsistencies">Representing Inconsistencies</a><ul><li><a href="#EdgeWeighted_Graphs">Edge-Weighted Graphs</a><ul></ul></li><li><a href="#Arbitrary_Relations_over_the_Lotteries">Arbitrary Relations over the Lotteries</a><ul></ul></li></ul></li><li><a href="#Algorithms">Algorithms</a><ul><li><a href="#HodgeRank">HodgeRank</a><ul></ul></li><li><a href="#Sondej_Sampling">Sondej Sampling</a><ul></ul></li></ul></li></ul></li><li><a href="#Ontology_Identification_Ontological_Shifts_and_Ontological_Crises">Ontology Identification, Ontological Shifts and Ontological Crises</a><ul><li><a href="#Existing_Approaches">Existing Approaches</a><ul><li><a href="#Advantages">Advantages</a><ul></ul></li><li><a href="#Disadvantages">Disadvantages</a><ul></ul></li></ul></li><li><a href="#Using_Inconsistent_Preferences_to_Represent_Ontological_Crises">Using Inconsistent Preferences to Represent Ontological Crises</a><ul><li><a href="#Graph_Sevolutions">Graph Sevolutions</a><ul></ul></li><li><a href="#Advantages_1">Advantages</a><ul></ul></li><li><a href="#Disadvantages_1">Disadvantages</a><ul></ul></li></ul></li></ul></li><li><a href="#Value_Learning">Value Learning</a><ul></ul></li><li><a href="#Conclusion">Conclusion</a><ul><li><a href="#Further_Research">Further Research</a><ul></ul></li></ul></li><li><a href="#Acknowledgements">Acknowledgements</a><ul></ul></li><li><a href="#Appendix_A_Hints_in_Prior_Texts">Appendix A: Hints in Prior Texts</a><ul></ul></li><li><a href="#Appendix_B_Proofs">Appendix B: Proofs</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Motivation">Motivation</a><ul><li><a href="#Why_vNM">Why vNM?</a><ul></ul></li></ul></li><li><a href="#Structure_of_the_Text">Structure of the Text</a><ul></ul></li><li><a href="#Related_Work">Related Work</a><ul><li><a href="#Modeling_Inconsistent_Preferences">Modeling Inconsistent Preferences</a><ul></ul></li><li><a href="#Resolving_Inconsistent_Preferences">Resolving Inconsistent Preferences</a><ul></ul></li><li><a href="#Learning_Inconsistent_Preferences">Learning Inconsistent Preferences</a><ul></ul></li><li><a href="#The_von_NeumannMorgenstern_Axioms">The von Neumann-Morgenstern Axioms</a><ul><li><a href="#Assuming_Asymmetry">Assuming Asymmetry</a><ul></ul></li></ul></li></ul></li><li><a href="#Inconsistent_Preferences_over_Deterministic_Options">Inconsistent Preferences over Deterministic Options</a><ul><li><a href="#Violating_the_von_NeumannMorgenstern_Axioms">Violating the von Neumann-Morgenstern Axioms</a><ul><li><a href="#Incompleteness">Incompleteness.</a><ul></ul></li><li><a href="#Intransitivity">Intransitivity.</a><ul></ul></li><li><a href="#Symmetry">Symmetry.</a><ul></ul></li></ul></li><li><a href="#Algorithms_for_Resolving_Inconsistencies">Algorithms for Resolving Inconsistencies</a><ul><li><a href="#Finding_Consistent_Graphs_with_the_Smallest_GraphEdit_Distance">Finding Consistent Graphs with the Smallest Graph-Edit Distance</a><ul></ul></li><li><a href="#Establishing_Consistency_Stepwise">Establishing Consistency Stepwise</a><ul></ul></li><li><a href="#None">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Criteria">Criteria</a><ul><li><a href="#Surjectivity_and_Identity">Surjectivity and Identity</a><ul></ul></li><li><a href="#Minimizing_GraphEdit_Distance">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_1">Applying HodgeRank</a><ul></ul></li><li><a href="#Polynomial_Time_Complexity">Polynomial Time Complexity</a><ul><li><a href="#Minimizing_GraphEdit_Distance_1">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_2">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Uniqueness">Uniqueness</a><ul><li><a href="#Minimizing_GraphEdit_Distance_2">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_3">Applying HodgeRank</a><ul></ul></li><li><a href="#Further_Considerations">Further Considerations</a><ul></ul></li></ul></li><li><a href="#Resolution_to_Polynomially_Many_Preferences">Resolution to Polynomially Many Preferences</a><ul><li><a href="#Minimizing_GraphEdit_Distance_3">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_4">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Preservation_of_Consistent_Subgraphs">Preservation of Consistent Subgraphs</a><ul><li><a href="#Minimizing_GraphEdit_Distance_4">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_5">Applying HodgeRank</a><ul></ul></li></ul></li></ul></li><li><a href="#Preservation_of_Completely_Dominating_and_Dominated_Set">Preservation of Completely Dominating and Dominated Set</a><ul><li><a href="#Minimizing_GraphEdit_Distance_5">Minimizing Graph-Edit Distance</a><ul></ul></li><li><a href="#None_6">Applying HodgeRank</a><ul></ul></li></ul></li><li><a href="#Summary">Summary</a><ul></ul></li><li><a href="#Impossibilities">Impossibilities</a><ul><li><a href="#Resolution_to_Polynomially_Many_Preferences_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Resolution to Polynomially Many Preferences and Preservation of Consistent Subgraphs are Incompatible</a><ul></ul></li><li><a href="#Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Polynomial Time Complexity and Preservation of Consistent Subgraphs are Incompatible</a><ul></ul></li></ul></li></ul></li><li><a href="#Inconsistent_Preferences_over_Lotteries">Inconsistent Preferences over Lotteries</a><ul><li><a href="#Violating_the_Axioms">Violating the Axioms</a><ul><li><a href="#Discontinuity">Discontinuity</a><ul></ul></li><li><a href="#Dependence">Dependence</a><ul></ul></li></ul></li><li><a href="#Representing_Inconsistencies">Representing Inconsistencies</a><ul><li><a href="#EdgeWeighted_Graphs">Edge-Weighted Graphs</a><ul></ul></li><li><a href="#Arbitrary_Relations_over_the_Lotteries">Arbitrary Relations over the Lotteries</a><ul></ul></li></ul></li><li><a href="#Algorithms">Algorithms</a><ul><li><a href="#HodgeRank">HodgeRank</a><ul></ul></li><li><a href="#Sondej_Sampling">Sondej Sampling</a><ul></ul></li></ul></li></ul></li><li><a href="#Ontology_Identification_Ontological_Shifts_and_Ontological_Crises">Ontology Identification, Ontological Shifts and Ontological Crises</a><ul><li><a href="#Existing_Approaches">Existing Approaches</a><ul><li><a href="#Advantages">Advantages</a><ul></ul></li><li><a href="#Disadvantages">Disadvantages</a><ul></ul></li></ul></li><li><a href="#Using_Inconsistent_Preferences_to_Represent_Ontological_Crises">Using Inconsistent Preferences to Represent Ontological Crises</a><ul><li><a href="#Graph_Sevolutions">Graph Sevolutions</a><ul></ul></li><li><a href="#Advantages_1">Advantages</a><ul></ul></li><li><a href="#Disadvantages_1">Disadvantages</a><ul></ul></li></ul></li></ul></li><li><a href="#Value_Learning">Value Learning</a><ul></ul></li><li><a href="#Conclusion">Conclusion</a><ul><li><a href="#Further_Research">Further Research</a><ul></ul></li></ul></li><li><a href="#Acknowledgements">Acknowledgements</a><ul></ul></li><li><a href="#Appendix_A_Hints_in_Prior_Texts">Appendix A: Hints in Prior Texts</a><ul></ul></li><li><a href="#Appendix_B_Proofs">Appendix B: Proofs</a><ul><li><a href="#Proposition_1">Proposition 1</a><ul></ul></li><li><a href="#Lemma_1">Lemma 1</a><ul></ul></li><li><a href="#Lemma_2">Lemma 2</a><ul></ul></li><li><a href="#Lemma_3">Lemma 3</a><ul></ul></li><li><a href="#Lemma_4">Lemma 4</a><ul></ul></li><li><a href="#Theorem_5">Theorem 5</a><ul></ul></li><li><a href="#Theorem_6">Theorem 6</a><ul></ul></li><li><a href="#Theorem_6_1">Theorem 6</a><ul></ul></li><li><a href="#Proposition_2">Proposition 2</a><ul></ul></li><li><a href="#Lemma_8">Lemma 8</a><ul></ul></li><li><a href="#Proposition_3">Proposition 3</a><ul></ul></li><li><a href="#Theorem_9">Theorem 9</a><ul></ul></li><li><a href="#Lemma_11">Lemma 11</a><ul></ul></li><li><a href="#Lemma_12">Lemma 12</a><ul></ul></li><li><a href="#Lemma_13">Lemma 13</a><ul></ul></li><li><a href="#Theorem_14">Theorem 14</a><ul></ul></li><li><a href="#Proposition_4">Proposition 4</a><ul></ul></li></ul></li></ul></div>
 <h1 id="Resolving_von_NeumannMorgenstern_Inconsistent_Preferences"><a class="hanchor" href="#Resolving_von_NeumannMorgenstern_Inconsistent_Preferences">Resolving von Neumann-Morgenstern Inconsistent Preferences</a></h1>
 <!--TODO: move proofs into an appendix-->
 <p>In economics, decision theory, game theory and parts of artificial
@@ -480,11 +480,7 @@ undesirable.</p>
 <code>$G_1=(\Omega, E_1), G_2=(\Omega, E_2)$</code> the edge-graph-edit distance is the same as the size
 of the symmetrical difference of the sets of edges, that is
 <code>$\text{EGED}(G_1, G_2)=|E_1 \Delta E_2|$</code>.</p>
-<p><em>Proof.</em></p>
-<ol>
-<li><code>$\text{EGED}(G_1, G_2) \le |E_1 \Delta E_2|$</code>: To generate <code>$G_2$</code> from <code>$G_1$</code> it is necessary to remove edges from <code>$G_1$</code> not in <code>$G_2$</code>, and then add edges from <code>$G_2$</code> not in <code>$G_1$</code>. These comprise the set <code>$(E_1 \backslash E_2) \cup (E_2 \backslash E_1)$</code>. So the graph-edit distance is upper-bounded by the size of the symmetric difference.</li>
-<li><code>$\text{EGED}(G_1, G_2) \ge |E_1 \Delta E_2|$</code>: Assume that <code>$|E_1 \Delta E_2|&lt;\text{EGED}(G_1, G_2)$</code>. Removing <code>$E^-=E_1 \backslash E_2$</code> from <code>$G_1$</code> and adding the edges <code>$E^+=E_2 \backslash E_1$</code> results in <code>$G_2$</code>. But then <code>$E^- \uplus E^+$</code> is already a graph edit that creates <code>$G_2$</code> from <code>$G_1$</code>, so <code>$\text{EGED}(G_1, G_2)$</code> can't be a minimal edge-graph-edit distance between <code>$G_1$</code> and <code>$G_2$</code>. ◻</li>
-</ol>
+<p><a href="#Proposition_1"><em>Proof.</em></a></p>
 <p><em><strong>Algorithm 1</strong>: A naive algorithm for computing <code>EGEDmin</code></em></p>
 <pre><code>function EGEDmin(G)
     m=∞,R=∅
@@ -552,19 +548,7 @@ we prove that all outputs of <code>stepwise</code> have the same edge-graph-edit
 distance from $G$.</p>
 <p><strong>Lemma 1</strong>. For a given $G=(\Omega, E_G)$, all graphs returned by
 $\mathtt{stepwise}$ have the same edge-graph-edit distance from $G$.</p>
-<p><em>Proof.</em> Let <code>$\mathbf{S}=\mathtt{stepwise}(G)$</code>, and <code>$S=(\Omega,
-E_S) \in \mathbf{S}$</code>. Since all <code>$S$</code> are transitive, complete and
-reflexive, all $S$ have the same number of edges, namely the triangular
-number <code>$|E_S|=\frac{|\Omega|(|\Omega|+1)}{2}$</code>. We also know that
-<code>$\text{EGED}(G, S)=|E_G \Delta E_S|$</code>, and <code>$E_G \Delta E_S=E_G
-\backslash E_S \cup E_S \backslash E_G$</code> (the edges we remove from
-<code>$E_G$</code> and the edges we add to <code>$E_S$</code>). The edges removed from
-<code>$E_G$</code> are the minimal feedback arc sets, so they all have the same
-size <code>$m=|E_G \backslash E_S|$</code>. It now suffices to show that <code>$i=E_S
-\backslash E_G$</code>, the size of the edges added, is constant. It holds
-that <code>$|E_G|-m+i=|E_S|$</code>, and then <code>$i=|E_S|-|E_G|+m$</code>, which must be
-constant. So <code>$\text{EGED}(S, G)=m+i$</code> is also constant for a given <code>$G,
-S \in \mathbf{S}$</code>. ◻</p>
+<p><a href="#Lemma_1"><em>Proof.</em></a></p>
 <p>We then show that the edges removed by <code>EGEDmin</code> are always a minimum
 feedback arc set.</p>
 <p><strong>Lemma 2</strong>. Given a directed graph <code>$G$</code>, let <code>$T=(\Omega, E_T)
@@ -572,121 +556,23 @@ feedback arc set.</p>
 removed from <code>$G$</code> to achieve <code>$T$</code>) and <code>$E^+_T=E_T \backslash E$</code>
 (the edges added to <code>$G$</code> to create <code>$T$</code>). Then <code>$E^-_T$</code> is a minimum
 feedback arc set of <code>$G$</code>.</p>
-<p><em>Proof.</em> <code>$E^-_T$</code> is a feedback arc set: Assume for contradiction that
-<code>$E^-_T$</code> was not a feedback arc set. Then $G$ would need to contain a
-cycle of directed edges <code>$E_c=\omega_1 \rightarrow \omega_2 \rightarrow
-\dots \rightarrow \omega_{k-1} \rightarrow \omega_k \rightarrow \omega_1$</code>
-so that the cycle was still present after removing <code>$E^-_T$</code>, that
-is <code>$E_c \subseteq E \backslash E^-_T$</code>. We know that then <code>$E_T=(E
-\backslash E^-_T) \cup E^+_T$</code>, but adding edges can't remove a subset,
-so <code>$E_c \subseteq E \backslash E^-_T \Rightarrow E_c \subseteq (E
-\backslash E^-_T) \cup E^+_T$</code>.</p>
-<p>But then <code>$T$</code> can't be transitive, asymmetric and complete: If it was
-transitive and complete, then there would need to be an edge <code>$\omega_1
-\rightarrow \omega_3$</code> (created through <code>$\omega_1 \rightarrow \omega_2
-\rightarrow \omega_3$</code>), an edge <code>$\omega_1 \rightarrow \omega_4$</code>
-(created through <code>$\omega_1 \rightarrow \omega_3 \rightarrow
-\omega_4$</code>), and so on. Then <code>$E_T$</code> would also contain the edge
-<code>$\omega_1 \rightarrow \omega_{k-1}$</code>, and thereby also the edge
-<code>$\omega_{k} \rightarrow \omega_{k-1}$</code> (through the transitivity of
-<code>$\omega_k \rightarrow \omega_1 \rightarrow \omega_{k-1}$</code>). But since
-both <code>$\omega_k \rightarrow \omega_{k-1} \in E_T$</code> and <code>$\omega_{k-1}
-\rightarrow \omega_k \in E_T$</code>, it can't be asymmetric.</p>
-<p><code>$E^-_T$</code> is minimal: Assume <code>$E^-_T$</code> was a feedback arc set, but not
-minimal. Then there would need to be another feedback arc set <code>$E^{-'}_T$</code>
-so that <code>$|E^{-'}_T|&lt;|E^-_T|$</code>. Then one can create <code>$T'=(\Omega, E_T')$</code>
-from <code>$G$</code> by removing <code>$E^{-'}_T$</code> from <code>$E$</code> and then completing the
-resulting directed acyclic graph to a consistent graph.</p>
-<p>We know that <code>$|E_T|=|E_T'|=\frac{|\Omega|(|\Omega|+1)}{2}$</code>, since both
-<code>$T$</code> and <code>$T'$</code> are acyclic tournaments.</p>
-<p>Then it is the case that <code>$\text{EGED}(G, T) &gt; \text{EGED}(G, T')$</code>:</p>
-<div>
-    $$\begin{aligned}
-    &amp;\text{EGED}(G, T)&gt;\text{EGED}(G, T') \\
-    &amp;\Leftrightarrow |E \Delta E_T| &gt; |E \Delta E_T'| \\
-    &amp;\Leftrightarrow |E^-_T \uplus E^+_T| &gt; |E^{-'}_T \uplus E^{+'}_T| \\
-    &amp;\Leftrightarrow |E^-_T|+|E_T|-(|E|-|E^-_T|)&gt;|E^{-'}_T|+|E_T'|-(|E|-|E^{-'}_T|) \\
-    &amp;\Leftrightarrow |E^-_T|-|E|+|E^-_T|&gt;|E^{-'}_T|-|E|+|E^{-'}_T| \\
-    &amp;\Leftrightarrow 2 \cdot |E^-_T|&gt;2 \cdot |E^{-'}_T| \\
-    \end{aligned}$$
-</div>
-<p>So <code>$E^-_T$</code> must be minimal, since otherwise it is not a set of edges
-removed by <code>EGEDmin</code>. ◻</p>
+<p><a href="#Lemma_2"><em>Proof.</em></a></p>
 <p>Using the fact that $E_T^-$ is a minimum feedback arc set, and that all
 outputs of stepwise have the same edge-edit distance from the input, we
 can prove that all outputs of <code>stepwise</code> are contained in <code>EGEDmin</code>.</p>
 <p><strong>Lemma 3</strong>.
 <code>$\forall G \in \mathfrak{P}: \mathtt{stepwise}(G) \subseteq \mathtt{EGEDmin}(G)$</code>.</p>
-<p><em>Proof.</em> Let <code>$S=(\Omega, E_S) \in \mathtt{stepwise}(G)$</code> for any <code>$G$</code>, and
-let <code>$T=(\Omega, E_T) \in \mathtt{EGEDmin}(G)$</code>. Let
-<code>$E^-_S=E \backslash E_S$</code> be the minimum feedback arc set we remove from
-<code>$S$</code> to create <code>$G$</code>, and <code>$E^+_S=E_S \backslash E$</code> the edges we add to make
-<code>$G$</code> complete. We similarly define <code>$E^-_T=E \backslash E_T$</code> and
-<code>$E^+_T=E_T \backslash E_T$</code>.</p>
-<p>We can now show that <code>$\text{EGED}(S, G) \le \text{EGED}(T, G)$</code>: Assume
-that <code>$\text{EGED}(S, G) &gt; \text{EGED}(T, G)$</code>. By <strong>Lemma</strong> 2 <code>$E^-_T$</code>
-is a minimum feedback arc set, and so <code>$|E^-_T|=|E^-_S|$</code>. Furthermore,
-<code>$|E_S|=|E_T|$</code>, since they are both acyclic tournaments on <code>$\Omega$</code>.</p>
-<p>Then</p>
-<div>
-    $$\begin{aligned}
-    &amp;\text{EGED}(G, S) = |E \Delta E_S| \\
-    &amp;= |(E \backslash E^-_S) \uplus E^+_S| \\
-    &amp;= (|E|-|E^-_S|)+|E^+_S| \\
-    &amp;= (|E|-|E^-_S|)+|E_S|-(|E|-|E^-_S|) \\
-    &amp;= (|E|-|E^-_T|)+|E_T|-(|E|-|E^-_T|) \\
-    &amp;= (|E|-|E^-_T|)+|E^+_T| \\
-    &amp;= |(E \backslash E^-_T) \uplus E^+_T| \\
-    &amp;= |E \Delta E_T| = \text{EGED}(G, T)
-    \end{aligned}$$
-</div>
-<p>So it can't be the case that <code>$\text{EGED}(S, G) &gt; \text{EGED}(T, G)$</code>.</p>
-<p>We can also show that <code>$\text{EGED}(S, G) \ge \text{EGED}(T, G)$</code>: Assume
-that <code>$\text{EGED}(S, G) &lt; \text{EGED}(T, G)$</code>. Since both <code>$S,
-T \in \mathfrak{C}_{\Omega}$</code>, this contradicts the assumption that the
-output of <code>EGEDmin</code> has minimal distance. ◻</p>
+<p><a href="#Lemma_3"><em>Proof.</em></a></p>
 <p>We now show that all outputs of <code>EGEDmin</code> are also outputs of
 <code>stepwise</code>.</p>
 <p><strong>Lemma 4</strong>.
 <code>$\forall G \in \mathfrak{P}: \mathtt{EGEDmin}(G) \subseteq \mathtt{stepwise}(G)$</code>.</p>
-<p><em>Proof.</em> Assume there exists a <code>$G \in \mathfrak{P}_{\Omega}$</code> so that
-there exists a <code>$T=(\Omega, E_T) \in \mathtt{EGEDmin}(G)$</code> so that <code>$T \not
-\in \mathtt{stepwise}(G)$</code>.</p>
-<p>Then, by <strong>Lemma</strong> 2, <code>$E^-_T=E \backslash E_T$</code> is a minimum feedback
-arc set. Therefore, removing <code>$E^-_T$</code> from <code>$E$</code> results in a directed
-acyclic graph <code>$G_A$</code> which is an element of the intermediate set
-<code>$\mathbf{A}$</code> of directed acyclic graphs in <code>stepwise</code>.</p>
-<p>Let <code>$E^+_T=E_T \backslash E$</code>. Assume <code>$E^+_T$</code> was not a set of edges
-added to <code>$G_A$</code> in a topological sort.</p>
-<p>Then let <code>$\omega \in \Omega$</code> be the node in <code>$T$</code> that has no incoming
-edges. <code>$\omega$</code> must also have had no incoming edges in <code>$G_A$</code>,
-since we only add edges to <code>$G_A$</code> to achieve <code>$T$</code>, and therefore has
-in-degree 0 in <code>$G_A$</code>, which means that <code>$\omega$</code> must have been added
-first to some topological sort in <strong>T</strong> by <code>topological_sorts</code>.</p>
-<p>One can now create <code>$T'$</code> and <code>$G_A'$</code> by removing <code>$\omega$</code> and
-all edges from <code>$\omega$</code> from <code>$T$</code> and <code>$G_A$</code>. Let the node in
-<code>$T'$</code> with no incoming edges be called <code>$\omega'$</code>. Then in <code>$G_A$</code>
-the node <code>$\omega'$</code> either had no incoming edges or one incoming edge
-from <code>$\omega$</code>, since one can create <code>$T'$</code> from <code>$G_A$</code> by adding
-<code>$E^+_T$</code> and then (potentially) removing the edge <code>$\omega \rightarrow
-\omega'$</code>. So in the graph <code>$G_A'$</code> with <code>$\omega$</code> and all its outgoing
-edges removed from <code>$G_A$</code>, the node <code>$\omega'$</code> has in-degree zero,
-and is therefore also selected as the first element in some topological
-sort of <code>$G_A'$</code>, to which <code>$\omega$</code> is prepended after recursion. In
-the base case of a <code>$T^{\star}$</code> with one element <code>$\omega^{\star}$</code>, this
-element <code>$\omega^{\star}$</code> is the only element of <code>$G_A^{\star}$</code> and also
-the only element of the topological sort of <code>$G_A^{\star}$</code>.</p>
-<p>Therefore, by induction, given an acyclic tournament <code>$T$</code> and a set of
-edges <code>$E^+_T=E_T \backslash E$</code>, this set <code>$E^+_T$</code> must be the edges added
-by some topological sort of <code>$G_A=(\Omega, E \backslash E^-_T)$</code>. ◻</p>
+<p><a href="#Lemma_4"><em>Proof.</em></a></p>
 <p>This concludes the proof that both algorithms always have the same
 output.</p>
 <p><strong>Theorem 5</strong>.
 <code>$\forall G \in \mathfrak{P}: \mathtt{stepwise}(G)=\mathtt{EGEDmin}(G)$</code>.</p>
-<p><em>Proof.</em> By <strong>Lemma</strong> 3 it holds that <code>$\mathtt{stepwise}(G)
-\subseteq \mathtt{EGEDmin}(G)$</code> and by <strong>Lemma</strong> 4 it holds that
-<code>$\mathtt{stepwise}(G) \supseteq \mathtt{EGEDmin}(G)$</code>, so the sets must
-be equal. ◻</p>
+<p><a href="#Theorem_5"><em>Proof.</em></a></p>
 <h4 id="None"><a class="hanchor" href="#None">Applying <code>HodgeRank</code></a></h4>
 <p>Another option to resolve inconsistent preferences over deterministic
 options into consistent preferences is to apply the <code>HodgeRank</code>
@@ -775,21 +661,7 @@ smallest distance to a given tournament) is known to be NP-hard <a href="./doc/c
 2010</a>.</p>
 <p><strong>Theorem 6</strong>. Finding the set of acyclic tournaments with smallest
 edge-graph-edit distance to a given graph $G$ is NP-hard.</p>
-<p><em>Proof.</em> Reduction from finding all Slater orders with the smallest
-distance to a given tournament <code>$T$</code>.</p>
-<p>Assume we know an algorithm <code>A</code> to compute <code>$f_{\text{EGED}}(G)$</code>
-efficiently, that is, to compute the set of all acyclic tournaments with
-the minimal graph-edit distance to a given directed graph $G$ in
-polynomial time.</p>
-<p>Then one could solve Slater's problem in polynomial time: For any given
-tournament <code>$T$</code>, <code>A</code> would compute a set <code>$\mathbf{C}_T$</code> of
-acyclic tournaments which have the same minimal graph-edit distance <code>$2k$</code>
-to <code>$T$</code>, the distance is divisible by two because by editing a tournament
-<code>$T$</code> into a tournament <code>$T'$</code>. Edges can only be flipped, which engenders
-two edge operations (removing an edge and then adding a new one). Then
-that set would also be the set of Slater orders of <code>$T$</code> (with distance
-<code>$k$</code>), a solution to ($P_3$) from <a href="./doc/cs/preference/on_the_complexity_of_slaters_problems_hudry_2010.pdf">Hudry 2010</a>, which is known
-to be NP-hard. ◻</p>
+<p><a href="#Theorem_6"><em>Proof.</em></a></p>
 <p>Similarly, finding only <em>one</em> element from <code>$f_{\text{EGED}}(G)$</code>
 is also NP-hard, by reducing it to <code>$P_2$</code> ("PROBLEM <code>$P_2$</code>. Given a
 tournament <code>$T$</code>, compute a Slater order <code>$O^*(T)$</code> of <code>$T$</code>") <a href="./doc/cs/preference/on_the_complexity_of_slaters_problems_hudry_2010.pdf">Hudry
@@ -814,14 +686,7 @@ each inconsistent graph, that is <code>$\forall G \in \mathfrak{P}_{\Omega}:
 vertices <code>$\Omega$</code>, every acyclic tournament with the same set of
 vertices has the same graph-edit distance to <code>$G_e$</code>. Therefore,
 <code>$|\mathtt{EGEDmin}(G_e)|=n!$</code>, which is not unique.</p>
-<p><em>Proof.</em> Let <code>$T$</code> be any acyclic tournament with vertices
-<code>$\Omega$</code>. Then <code>$T$</code> has <code>${n \choose 2}$</code> edges. Since
-<code>$G_e$</code> has no edges, one can edit <code>$G_e$</code> to be <code>$T$</code> simply
-by adding all edges of <code>$T$</code> to <code>$G_e$</code>. This is sufficient and
-necessary for turning <code>$G_e$</code> into <code>$T$</code>. Since this holds for
-any tournament <code>$T$</code>, the graph-edit distance from <code>$G_e$</code> to
-any acyclic tournament is the same, namely <code>${n \choose 2}$</code>. So
-<code>$|\mathtt{EGEDmin}(G_e)|=|\mathfrak{C}_{\Omega}|=n!$</code>. ◻</p>
+<p><a href="#Theorem_7"><em>Proof.</em></a></p>
 <h5 id="None_3"><a class="hanchor" href="#None_3">Applying <code>HodgeRank</code></a></h5>
 <p>If one allows for the output of <code>HodgeResolve</code> to be a weak ordering,
 then <code>HodgeResolve</code> has a unique output, since assigning each vertex a
@@ -996,21 +861,7 @@ yield no matching results.</p>
 </div>
 <p>We attempted to prove this conjecture, but were unable to do so.</p>
 <p><strong>Proposition 2</strong>. <code>$|\mathbf{G}_{n,1}|$</code> is always divisible by <code>$2^n$</code>.</p>
-<p><em>Proof.</em> This is an artifact of including graphs with reflexive edges in
-the set of graphs tested. Let $G$ be a graph with confusion $k$ and no
-reflexive edges.</p>
-<p>Let now $\mathbf{G}^{\circ}$ be the set of all graphs that are variants
-of $G$ with reflexive edges added. This set include $G$ itself, and $G$
-with all reflexive edges, as well as each version of $G$ with only one
-reflexive edge. Every element in $\mathbf{G}^{\circ}$ also has confusion
-$k$: all reflexive edges must be removed to create a consistent
-preference, yielding $G$, and there are $k$ unique acyclic tournaments
-that has the smallest edge-graph-edit distance to $G$.</p>
-<p>Then it is the case <code>$|\mathbf{G}^{\circ}|=2^n$</code>: for each node,
-the presence of a reflexive edge on that node can be described by
-one bit of information, and since there are <code>$n$</code> nodes, the size of
-<code>$|\mathbf{G}^{\circ}|$</code> is the same as the length of an <code>$n$</code> bit
-bitstring. ◻</p>
+<p><a href="#Proposition_2"><em>Proof.</em></a></p>
 <p>Dividing <code>$\mathbf{G}_{n,1}$</code> by both <code>$n!$</code> and <code>$2^n$</code> yields the
 sequence <code>$1, 1, 1, 3, 28, 861$</code>, which also doesn't occur in the OEIS,
 and also can't be found using SuperSeeker.</p>
@@ -1062,43 +913,7 @@ number of inclusion-maximal consistent subgraphs in the number of nodes.</p>
 with <code>$n$</code> nodes, and let <code>$\mathcal{S}_G$</code> be the set of inclusion-maximal
 consistent subgraphs of <code>$G$</code>. Then there exists no polynomial <code>$p$</code> so
 that <code>$\forall G \in \mathfrak{P}_n: |\mathcal{S}_G| \le p(n)$</code>.</p>
-<p><em>Proof.</em> <a href="./doc/math/on_cliques_in_graphs_moon_moser_1965.pdf">Moon &amp; Moser
-1965</a>
-describe how to construct an undirected graph <code>$G_n=(V_G,E_G)$</code>
-with <code>$n$</code> vertices and <code>$3^{\frac{n}{3}}$</code> inclusion-maximal
-<a href="https://en.wikipedia.org/wiki/Clique_(graph_theory)">cliques</a>. Then
-one can construct a directed graph <code>$P_n=(V_P,E_P)$</code> with
-<code>$3^{\frac{n}{3}}\approx 1.4422^n$</code> inclusion-maximal consistent
-subgraphs from <code>$G_n$</code>, which grows faster than any polynomial. First,
-<code>$P_n$</code> receives the same vertices as <code>$G_n$</code>.  Then, every <code>$v \in V$</code> is
-assigned a unique number <code>$j(v): V \rightarrow \mathbb{N}$</code>, and for each
-<code>$\{u,v\} \in E_G$</code>, the set of edges <code>$E_P$</code> contains <code>$(u,v)$</code> if and
-only if <code>$j(u)&gt;j(v)$</code>, and <code>$(v,u)$</code> if and only if <code>$j(v)&gt;j(u)$</code>. Now,
-if a subgraph <code>$\mathit{S}_G$</code> of <code>$G_n$</code> with vertices <code>$V_{\mathit{S}}$</code>
-is a maximal clique, then a subgraph <code>$\mathit{S}_P$</code> of <code>$P_n$</code> with
-vertices <code>$V_{\mathit{S}}$</code> is an inclusion-maximal consistent subgraph in
-<code>$P_n$</code>:</p>
-<ol>
-<li><p><code>$\mathit{S}_P$</code> is complete, because for every <code>$\{u,v\}$</code> in
-<code>$\mathit{S}_G$</code>, either <code>$(u,v)$</code> or <code>$(v,u)$</code> exists in <code>$\mathit{S}_P$</code>.</p></li>
-<li><p><code>$\mathit{S}_P$</code> is transitive. For any three vertices <code>$\{u,v,w\}$</code> in
-<code>$\mathit{S}_G$</code>, <code>$\mathit{S}_G$</code> contains the edges
-<code>$\{\{u,v\},\{v,w\},\{u,w\}\}$</code> (since it is a clique). Then, without
-loss of generality, assume that <code>$j(u)&gt;j(v)&gt;j(w)$</code>. Then
-<code>$(u, w) \in E_P$</code>. Therefore <code>$\mathit{S}_P$</code> contains the edges
-<code>$\{(u,v),(v,w),(u,w)\}$</code>.</p></li>
-<li><p><code>$\mathit{S}_P$</code> is asymmetric, because for any edge <code>$\{u,v\}$</code> in
-<code>$\mathit{S}_G$</code> it is the case that <code>$j(u)&gt;j(v)$</code> and <code>$j(v)&gt;j(u)$</code> can't
-be true at the same time (since $j$ assigns each vertex a unique
-natural number). So <code>$\mathit{S}_P$</code> can only contain either <code>$(u,v)$</code>
-or <code>$(v,u)$</code>.</p></li>
-<li><p><code>$\mathit{S}_P$</code> is inclusion-maximal. If <code>$\mathit{S}_P$</code> were not
-inclusion-maximal, there'd exist a vertex <code>$u$</code> so that every vertex
-<code>$v$</code> of <code>$\mathit{S}_P$</code> had an edge with <code>$u$</code>. But since the procedure
-of constructing <code>$P_n$</code> above did not add any edges, that would mean
-that <code>$\mathit{S}_G$</code> was not a maximal clique.</p></li>
-</ol>
-<p> ◻</p>
+<p><a href="#Lemma_8"><em>Proof.</em></a></p>
 <h5 id="Minimizing_GraphEdit_Distance_4"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_4">Minimizing Graph-Edit Distance</a></h5>
 <p><code>EGEDmin</code> violates this criterion, which can be easily demonstrated:</p>
 <p><strong>Example 1</strong>.</p>
@@ -1461,14 +1276,7 @@ of vertices <code>$\Sigma_1, \dots, \Sigma_n$ so that $\biguplus_{i=1}^n
 formally, every element from a subset of a completely dominating set is
 strictly preferred over any element from a subset of a completely
 dominated set in the output of the resolution function <code>$f$</code>).</p>
-<p><em>Proof.</em> Fix <code>$1&lt;j&lt;k&lt;n$</code>. Let <code>$\Sigma_l=\biguplus_{i=1}^{k-1} \Sigma_i$</code>
-and <code>$\Sigma_r=\biguplus_{i=k}^n \Sigma_i$</code>. Then <code>$\Sigma_l$</code> dominates
-<code>$\Sigma_r$</code> in <code>$G$</code>, and by assumption also in <code>$C \in f(G)$</code>. Since
-<code>$\Sigma_j \subsetneq \Sigma_l$</code> and <code>$\Sigma_k \subsetneq \Sigma_r$</code>, it
-holds that <code>$\forall \sigma_j \in \Sigma_j, \sigma_k \in \Sigma_k:
-\sigma_j \rightarrow \sigma_k \in E_C \land \sigma_k \rightarrow \sigma_j
-\not \in E_C$</code>. So <code>$\Sigma_j$</code> now completely dominates <code>$\Sigma_k$</code> in
-$C$. ◻</p>
+<p><a href="#Proposition_3"><em>Proof.</em></a></p>
 <p><strong>Remark 1</strong>. Sets of such <code>$\Sigma_1, \dots, \Sigma_n$</code> such that there
 is a relationship of complete domination between any two of them are
 quite similar to graph quotients, but is somewhat stricter (demanding
@@ -1482,48 +1290,7 @@ greatest element in $f(G)$. The same holds for the a completely
 dominated consistent subgraph, which stays at the bottom.</p>
 <h4 id="Minimizing_GraphEdit_Distance_5"><a class="hanchor" href="#Minimizing_GraphEdit_Distance_5">Minimizing Graph-Edit Distance</a></h4>
 <p><strong>Theorem 9</strong>. <code>EGEDmin</code> fulfills <strong>Preservation of Complete Domination</strong>.</p>
-<p><em>Proof.</em> Let <code>$C=(\Omega, E_C)$</code>, with <code>$C \in \mathtt{EGEDmin}(G)$</code> be a
-consistent graph for a directed graph <code>$G$</code>, where <code>$G$</code> has a completely
-dominating set <code>$\Sigma_1$</code> and a completely dominated set <code>$\Sigma_2$</code>.
-Assume <code>$C$</code> does not have the completely dominating set <code>$\Sigma_1$</code>, and
-let <code>$n=\mathtt{EGED}(G,C)$</code>. Then there must be a "highest" or "largest"
-<code>$\sigma_2 \in \Sigma_2$</code> in <code>$C$</code> (one for which there is no other
-<code>$\sigma_2' \in \Sigma_2$</code> so that <code>$\sigma_2' \rightarrow \sigma_2$</code> is an
-edge in <code>$C$</code>). There must also be a "highest" or "largest"
-<code>$\sigma_1^* \in \Sigma_1$</code> so that <code>$\sigma_2
-\rightarrow \sigma_1^*$</code> is an edge in <code>$C$</code>.</p>
-<p>Let there be <code>$m \ge 0$</code> elements of <code>$\Sigma_1$</code> "between" <code>$\sigma_2$</code>
-and <code>$\sigma_1^*$</code>, that is for <code>$\Sigma_2^*=\{\sigma_2^*| \sigma_2
-\rightarrow \sigma_2^* \in E_C\ \land \sigma_2^* \rightarrow \sigma_1^*
-\in E_C\}$</code> it holds that <code>$\Sigma_2^*=m$</code>.</p>
-<p>One can now create a <code>$C'$</code> from <code>$C$</code> so that <code>$\mathtt{EGED}(G,
-C')=n-2(m+1)$</code> by moving <code>$\sigma_1^*$</code> into the position directly above
-<code>$\sigma_2$</code> by reversing the edges <code>$\sigma_2 \rightarrow \sigma_1^*$</code>
-and <code>$\sigma_2^* \rightarrow \sigma_1^*$</code> for all <code>$\sigma_2^* \in
-\Sigma_2^*$</code>. The modified <code>$C'$</code> now contains some edges from <code>$G$</code>
-that need to be reversed to create <code>$C$</code>: <code>$\sigma_1^* \rightarrow
-\sigma_2$</code> and <code>$\{\sigma_1^* \rightarrow \sigma_2^* | \sigma_2^* \in
-\Sigma_2^*\}$</code> are already edges in <code>$G$</code>, and because edge reversals
-have weight 2 (deleting and then adding one edge), this saves <code>$2(m+1)$</code>
-edge operations.</p>
-<p>Furthermore all other edge operations to minimally achieve <code>$C$</code> from
-<code>$G$</code> can be held constant to create <code>$C'$</code>, so that the graph-edit
-distance is not changed otherwise. <code>$C'$</code> is now an acyclic tournament
-with a smaller edge-graph-edit distance from <code>$G$</code> than <code>$C$</code>. Thus
-all other outputs <code>$\mathbf{C}=\mathtt{EGEDmin}(G)$</code> must also have a
-smaller edge-graph-edit distance than <code>$C$</code> has to <code>$G$</code>.</p>
-<p>If <code>$C'$</code> does not have the same completely dominating set <code>$\Sigma_1$</code>
-that <code>$G$</code> has, one can create a new graph <code>$C''$</code> by finding a new
-"highest" <code>$\sigma_2$</code> and corresponding <code>$\sigma_1^*$</code> and switching
-them. This <code>$C''$</code> again has shorter edge-graph-edit distance.</p>
-<p>This process can be repeated as long as <code>$\Sigma_1$</code> is not a completely
-dominating set in the consistent graph, monotonically decreasing the
-edge-graph-edit distance, until no further such modifications can be
-found.</p>
-<p>The final consistent graph resulting from this process contains
-<code>$\Sigma_1$</code> as a completely dominating set: Every <code>$\sigma_1
-\in \Sigma_1$</code> has a one-directional edge to every <code>$\sigma_2 \in
-\Sigma_2$</code>. ◻</p>
+<p><a href="#Theorem_9"><em>Proof.</em></a></p>
 <h4 id="None_6"><a class="hanchor" href="#None_6">Applying <code>HodgeRank</code></a></h4>
 <p><strong>Conjecture 5</strong>. <code>$\mathtt{HodgeResolve}(G)$</code> fulfills <strong>Preservation
 of Complete Domination</strong> for every <code>$G \in \mathfrak{P}$</code>.</p>
@@ -1613,85 +1380,21 @@ only contains one edge from each <code>$\mathit{V}_i$</code>.</p>
 <p><strong>Lemma 11</strong>. Every inclusion-maximal consistent subgraph <code>$V$</code> of <code>$E_n$</code>
 contains exactly one edge from each
 <code>$\mathit{V}_i \in \{\mathit{V}_1, \dots, \mathit{V}_n\}$</code>.</p>
-<p><em>Proof.</em> Assume <code>$S$</code> is a subgraph of <code>$E_n$</code>, and there exists (without
-loss of generality) a <code>$\mathit{V}_i$</code> so that <code>$S \cap \mathit{V}_i$</code> has
-two edges <code>$\alpha_i
-\rightarrow \beta_i$</code> and <code>$\beta_i \rightarrow \gamma_i$</code>. Since <code>$S$</code> is
-stipulated to be consistent, due to the transitivity requirement it must
-also contain the edge <code>$\alpha_i \rightarrow \gamma_i$</code>. But then <code>$S$</code>
-would no longer be a subgraph of <code>$E_n$</code>, since
-<code>$\alpha_i \rightarrow \gamma_i$</code> is not an edge in <code>$\mathit{V}_i$</code>. If
-<code>$S \cap \mathit{V}_i$</code> has three edges, <code>$S$</code> must be inconsistent, since
-transivity or asymmetry are violated. Assume now there is a subgraph
-<code>$\mathit{V}_i$</code> of <code>$E_n$</code> so that <code>$S \cap \mathit{V}_i$</code> has no edges. Then
-one can add any one edge from <code>$\mathit{V}_i$</code> to <code>$S$</code> while retaining
-consistency: If one adds (without loss of generality)
-<code>$\alpha_i \rightarrow \beta_i$</code>, this preserves consistency, since</p>
-<ul>
-<li> <strong>Completeness</strong> is preserved (<code>$\alpha_i, \beta_i$</code> are connected to
-all <code>$\omega_h, \omega_j$</code> (<code>$h &lt;i&lt;j$</code>)).</li>
-<li> <strong>Transitivity</strong> is preserved
-(<code>$\omega_h \rightarrow \alpha_i, \alpha_i \rightarrow \beta_i$</code> also
-means that <code>$\omega_h \rightarrow \beta_i$</code> since <code>$h&lt;i$</code>, and similar
-for <code>$\alpha_i \rightarrow \beta_i, \beta_i \rightarrow \omega_j$</code>).</li>
-<li> <strong>Asymmetry</strong> is preserved because we add no reversed edges where
-there were edges in <code>$S$</code> before.</li>
-</ul>
-<p> ◻</p>
+<p><a href="#Lemma_11"><em>Proof.</em></a></p>
 <p>We then show that any consistent graph on the vertices of <code>$E_n$</code> can not
 contain <code>$2^n+1$</code> inclusion-maximal consistent subgraphs of <code>$E_n$</code>.</p>
 <p><strong>Lemma 12</strong>. Let <code>$\mathcal{S}$</code> be a set of inclusion-maximal consistent
 subgraphs of <code>$E_n$</code>, and <code>$|\mathcal{S}|=2^n+1$</code>. Then there exists no
 consistent graph <code>$C$</code> on the vertices of <code>$E_n$</code> so that <code>$\forall S
 \in \mathcal{S}: S \text{ is a subgraph of } C$</code>.</p>
-<p><em>Proof.</em> We showed that each <code>$S \in \mathcal{S}$</code> contains exactly one
-edge from each <code>$\mathit{V}_i$</code>. If two <code>$S_1, S_2$</code> for a given
-<code>$\mathit{V}_i$</code> share the same edge (i.e.
-<code>$S_1 \cap \mathit{V}_i=S_2 \cap \mathit{V}_i$</code>), <code>$S_1$</code> and <code>$S_2$</code> can be
-subgraphs of the same consistent graph <code>$C$</code>. If two <code>$S_1,
-S_2 \in \mathcal{S}$</code>, for a given <code>$\mathit{V}_i$</code>, <em>don't</em> share the same
-edge (that is <code>$S_1 \cap \mathit{V}_i \not =S_2 \cap \mathit{V}_i$</code>), they
-can be nevertheless still be subgraphs of the same consistent <code>$C$</code>:</p>
-<p>If (without loss of generality) <code>$(S_1 \cap \mathit{V}_i)=\alpha_i
-\rightarrow \beta_i$</code> and <code>$(S_2 \cap \mathit{V}_i) =\beta_i \rightarrow
-\gamma_i$</code>, <code>$C$</code> can contain those edges as well as <code>$\alpha_i \rightarrow
-\gamma_i$</code>.</p>
-<p>If, though, there are three <code>$S_1, S_2, S_3 \in \mathcal{S}$</code> that each
-don't share an edge on a given <code>$\mathit{V}_i$</code>, they can't be subgraphs
-of any consistent <code>$C$</code>: Such a <code>$C$</code> would need to contain <code>$\{\alpha_i
-\rightarrow \beta_i, \beta_i \rightarrow \gamma_i, \gamma_i \rightarrow
-\alpha_i\}$</code>, but this would violate either asymmetry (if one added
-<code>$\alpha_i \rightarrow \gamma_i$</code> as well) or transitivity (through the
-absence of <code>$\alpha_i \rightarrow \gamma_i$</code>).</p>
-<p>Therefore, for each <code>$\mathit{V}_i$</code>, only two edges from <code>$\mathit{V}_i$</code>
-can occur in any element of <code>$\mathcal{S}$</code>. Then an <code>$S \in
-\mathcal{S}$</code> can be uniquely identified by which edge from each
-<code>$\mathit{V}_i$</code> it contains, since there are two edges for each
-<code>$\mathit{V}_i$</code> and there are <code>$n$</code> such "levels" <code>$\mathit{V}_i$</code>,
-and no two edges from different <code>$\mathit{V}_i, \mathit{V}_j$</code> are
-mutually exclusive.</p>
-<p>Therefore, <code>$|\mathcal{S}|\le 2^n$</code> if all elements of <code>$\mathcal{S}$</code> are
-to be subgraphs of an acyclic tournament. But introducing an additional
-distinct <code>$S_{2^n+1}$</code> to <code>$\mathcal{S}$</code> must add a third edge from
-at least one <code>$\mathit{V}_i$</code>, thus <code>$2^n$</code> is the maximal size of
-<code>$\mathcal{S}$</code>. ◻</p>
+<p><a href="#Lemma_12"><em>Proof.</em></a></p>
 <p>We can now show that the set of consistent graphs that contain all
 inclusion-maximal consistent subgraphs of <code>$E_n$</code> grows exponentially in
 <code>$n$</code> (albeit with a small exponent).</p>
 <p><strong>Lemma 13</strong>. The set of consistent graphs <code>$\mathbf{C}$</code> on the vertices
 of <code>$E_n$</code> that includes all inclusion-maximal consistent subgraphs of
 <code>$E_n$</code> has size at least <code>$(\frac{3}{2})^n$</code>.</p>
-<p><em>Proof.</em> Assume that one can partition the set <code>$\mathbf{C}$</code> of
-inclusion-maximal consistent subgraphs of $E_n$ into a set <code>$\mathbf{P}$</code>
-of disjoint sets of size <code>$\le 2^n$</code> (that is
-<code>$\forall \mathcal{C}_i \in \mathbf{P}:
-|\mathcal{C}_i|=2^n|$</code>) such that there exists a consistent graph <code>$C$</code>
-that contains all <code>$\mathcal{C}_i$</code>. Then the number of such partitions
-would be the number of consistent graphs required to "cover" all
-elements in <code>$\mathbf{C}$</code>, since by Lemma
-12 the sets of compatible graphs have at
-most size <code>$2^n$</code>. Then the size of $\mathbf{P}$ would be at least
-<code>$\frac{3^n}{2^n}=1.5^n$</code>, which is exponential in <code>$n$</code>. ◻</p>
+<p><a href="#Lemma_13"><em>Proof.</em></a></p>
 <p>Therefore, Theorem 10 is true.</p>
 <p><strong>Corollary 1</strong>. There is no polynomial $p$ and function <code>$f: \mathfrak{P}
 \rightarrow \mathcal{P}(\mathfrak{C})$</code> such that <code>$|f(E_n)|\le p(n)$</code> and
@@ -1713,10 +1416,7 @@ of Consistent Subgraphs</strong> for all graphs <code>$G \in \mathfrak{P}$</code
 there exists no polynomial <code>$p$</code> so that for all directed graphs
 <code>$P_n \in \mathfrak{P}_n$</code> of size <code>$n$</code> it holds that <code>$\mathtt{A}(P_n)$</code>
 computes its output in less than <code>$p(n)$</code> steps.</p>
-<p><em>Proof.</em> Let <code>$\mathbf{C}=\mathtt{A}(E_n)$</code>. <strong>Lemma</strong> 13 shows that
-<code>$\mathbf{C}$</code> is exponential in the number of vertices (by <strong>remark</strong>
-3. Any <code>$\mathtt{A}$</code> would at least need to enumerate all <code>$C \in
-\mathbf{C}$</code>, which would take exponential time. ◻</p>
+<p><a href="#Theorem_14"><em>Proof.</em></a></p>
 <p><strong>Remark 4</strong>. The set of inclusion-maximal consistent subgraphs on
 <code>$E_n$</code> can be compactly represented as the Cartesian product of the
 inclusion-maximal consistent subgraphs of the "levels" <code>$V_i$</code>:</p>
@@ -2191,19 +1891,7 @@ average reward of executing <code>$a$</code> for <code>$k$</code> times in the t
 <code>$\mathbf{M} \in \mathbb{R}^{n_1 \times n_1}$</code> and therefore <code>$\mathbf{M}
 \mathbf{i}_1$</code> is a linear transformation of the distribution over
 initial states.</p>
-<p><em>Proof.</em> <code>$r_2(a, k, \mathbf{i}_2)$</code> can be expanded and simplified to</p>
-<div>
-    $$\begin{aligned}
-    &amp;r_2(a, k, \mathbf{i}_2)= \\
-    &amp;\frac{1}{k} \sum_{i=1}^{k} (\mathbf{R}_1^{\top} \phi) \times \mathbf{T
-    }_2(a)^i \times \mathbf{i}_2= \\
-    &amp;\frac{1}{k} \sum_{i=1}^{k} (\mathbf{R}_1^{\top} \phi) \times (\psi \mathbf{T}_1(a) \phi)^i \times (\mathbf{i}_2^{\top} \phi)^{\top}= \\
-    &amp;\frac{1}{k} \sum_{i=1}^{k} \mathbf{R}_1^{\top} \times \mathbf{T}_1(a)^i \phi \times \phi^{\top} \mathbf{i}_1= \\
-    &amp;\frac{1}{k} \sum_{i=1}^{k} \mathbf{R}_1^{\top} \times \mathbf{T}_1(a)^i \times \phi \phi^{\top} \times \mathbf{i}_2= \\
-    &amp; r_1(a, k, \phi \phi^{\top} \mathbf{i}_2)
-    \end{aligned}$$
-</div>
-<p>◻</p>
+<p><a href="#Proposition_4"><em>Proof.</em></a></p>
 <p><strong>Conjecture 6</strong>. There exists a linear function <code>$f(x)=ax+b$</code> so that for
 any <code>$a \in A$</code>, <code>$k \in \mathbb{N}$</code>, it holds that
 <code>$r_2(a, k, \mathbf{i}_2)=f(r_1(a, k, \mathbf{i}_1))$</code>.</p>
@@ -2535,8 +2223,355 @@ better than pears and sometimes worse. It tries to correct by adjusting
 the value of oranges to be the same as pears. The new utility function
 is exactly as incoherent as the old one.</p>
 </blockquote>
-<h2 id="Appendix_B_Proofs"><a class="hanchor" href="#Appendix_B_Proofs">Appendix B: Proofs</a></h2>
 <p><em>—Katja Grace, <a href="https://www.lesswrong.com/posts/LDRQ5Zfqwi8GjzPYG/counterarguments-to-the-basic-ai-x-risk-case">“Counterarguments to the basic AI x-risk case”</a>, 2022</em></p>
+<h2 id="Appendix_B_Proofs"><a class="hanchor" href="#Appendix_B_Proofs">Appendix B: Proofs</a></h2>
+<p>I don't read proofs, and neither should you—unless they're
+illustrative of some conceptual point. Probably I should
+<a href="https://en.wikipedia.org/wiki/Lean_(proof_assistant)">lean</a>ize these.</p>
+<h3 id="Proposition_1"><a class="hanchor" href="#Proposition_1">Proposition 1</a></h3>
+<ol>
+<li><code>$\text{EGED}(G_1, G_2) \le |E_1 \Delta E_2|$</code>: To generate <code>$G_2$</code> from <code>$G_1$</code> it is necessary to remove edges from <code>$G_1$</code> not in <code>$G_2$</code>, and then add edges from <code>$G_2$</code> not in <code>$G_1$</code>. These comprise the set <code>$(E_1 \backslash E_2) \cup (E_2 \backslash E_1)$</code>. So the graph-edit distance is upper-bounded by the size of the symmetric difference.</li>
+<li><code>$\text{EGED}(G_1, G_2) \ge |E_1 \Delta E_2|$</code>: Assume that <code>$|E_1 \Delta E_2|&lt;\text{EGED}(G_1, G_2)$</code>. Removing <code>$E^-=E_1 \backslash E_2$</code> from <code>$G_1$</code> and adding the edges <code>$E^+=E_2 \backslash E_1$</code> results in <code>$G_2$</code>. But then <code>$E^- \uplus E^+$</code> is already a graph edit that creates <code>$G_2$</code> from <code>$G_1$</code>, so <code>$\text{EGED}(G_1, G_2)$</code> can't be a minimal edge-graph-edit distance between <code>$G_1$</code> and <code>$G_2$</code>. ◻</li>
+</ol>
+<h3 id="Lemma_1"><a class="hanchor" href="#Lemma_1">Lemma 1</a></h3>
+<p>Let <code>$\mathbf{S}=\mathtt{stepwise}(G)$</code>, and <code>$S=(\Omega,
+E_S) \in \mathbf{S}$</code>. Since all <code>$S$</code> are transitive, complete and
+reflexive, all $S$ have the same number of edges, namely the triangular
+number <code>$|E_S|=\frac{|\Omega|(|\Omega|+1)}{2}$</code>. We also know that
+<code>$\text{EGED}(G, S)=|E_G \Delta E_S|$</code>, and <code>$E_G \Delta E_S=E_G
+\backslash E_S \cup E_S \backslash E_G$</code> (the edges we remove from
+<code>$E_G$</code> and the edges we add to <code>$E_S$</code>). The edges removed from
+<code>$E_G$</code> are the minimal feedback arc sets, so they all have the same
+size <code>$m=|E_G \backslash E_S|$</code>. It now suffices to show that <code>$i=E_S
+\backslash E_G$</code>, the size of the edges added, is constant. It holds
+that <code>$|E_G|-m+i=|E_S|$</code>, and then <code>$i=|E_S|-|E_G|+m$</code>, which must be
+constant. So <code>$\text{EGED}(S, G)=m+i$</code> is also constant for a given <code>$G,
+S \in \mathbf{S}$</code>. ◻</p>
+<h3 id="Lemma_2"><a class="hanchor" href="#Lemma_2">Lemma 2</a></h3>
+<p><code>$E^-_T$</code> is a feedback arc set: Assume for contradiction that
+<code>$E^-_T$</code> was not a feedback arc set. Then $G$ would need to contain a
+cycle of directed edges <code>$E_c=\omega_1 \rightarrow \omega_2 \rightarrow
+\dots \rightarrow \omega_{k-1} \rightarrow \omega_k \rightarrow \omega_1$</code>
+so that the cycle was still present after removing <code>$E^-_T$</code>, that
+is <code>$E_c \subseteq E \backslash E^-_T$</code>. We know that then <code>$E_T=(E
+\backslash E^-_T) \cup E^+_T$</code>, but adding edges can't remove a subset,
+so <code>$E_c \subseteq E \backslash E^-_T \Rightarrow E_c \subseteq (E
+\backslash E^-_T) \cup E^+_T$</code>.</p>
+<p>But then <code>$T$</code> can't be transitive, asymmetric and complete: If it was
+transitive and complete, then there would need to be an edge <code>$\omega_1
+\rightarrow \omega_3$</code> (created through <code>$\omega_1 \rightarrow \omega_2
+\rightarrow \omega_3$</code>), an edge <code>$\omega_1 \rightarrow \omega_4$</code>
+(created through <code>$\omega_1 \rightarrow \omega_3 \rightarrow
+\omega_4$</code>), and so on. Then <code>$E_T$</code> would also contain the edge
+<code>$\omega_1 \rightarrow \omega_{k-1}$</code>, and thereby also the edge
+<code>$\omega_{k} \rightarrow \omega_{k-1}$</code> (through the transitivity of
+<code>$\omega_k \rightarrow \omega_1 \rightarrow \omega_{k-1}$</code>). But since
+both <code>$\omega_k \rightarrow \omega_{k-1} \in E_T$</code> and <code>$\omega_{k-1}
+\rightarrow \omega_k \in E_T$</code>, it can't be asymmetric.</p>
+<p><code>$E^-_T$</code> is minimal: Assume <code>$E^-_T$</code> was a feedback arc set, but not
+minimal. Then there would need to be another feedback arc set <code>$E^{-'}_T$</code>
+so that <code>$|E^{-'}_T|&lt;|E^-_T|$</code>. Then one can create <code>$T'=(\Omega, E_T')$</code>
+from <code>$G$</code> by removing <code>$E^{-'}_T$</code> from <code>$E$</code> and then completing the
+resulting directed acyclic graph to a consistent graph.</p>
+<p>We know that <code>$|E_T|=|E_T'|=\frac{|\Omega|(|\Omega|+1)}{2}$</code>, since both
+<code>$T$</code> and <code>$T'$</code> are acyclic tournaments.</p>
+<p>Then it is the case that <code>$\text{EGED}(G, T) &gt; \text{EGED}(G, T')$</code>:</p>
+<div>
+    $$\begin{aligned}
+    &amp;\text{EGED}(G, T)&gt;\text{EGED}(G, T') \\
+    &amp;\Leftrightarrow |E \Delta E_T| &gt; |E \Delta E_T'| \\
+    &amp;\Leftrightarrow |E^-_T \uplus E^+_T| &gt; |E^{-'}_T \uplus E^{+'}_T| \\
+    &amp;\Leftrightarrow |E^-_T|+|E_T|-(|E|-|E^-_T|)&gt;|E^{-'}_T|+|E_T'|-(|E|-|E^{-'}_T|) \\
+    &amp;\Leftrightarrow |E^-_T|-|E|+|E^-_T|&gt;|E^{-'}_T|-|E|+|E^{-'}_T| \\
+    &amp;\Leftrightarrow 2 \cdot |E^-_T|&gt;2 \cdot |E^{-'}_T| \\
+    \end{aligned}$$
+</div>
+<p>So <code>$E^-_T$</code> must be minimal, since otherwise it is not a set of edges
+removed by <code>EGEDmin</code>. ◻</p>
+<h3 id="Lemma_3"><a class="hanchor" href="#Lemma_3">Lemma 3</a></h3>
+<p>Let <code>$S=(\Omega, E_S) \in \mathtt{stepwise}(G)$</code> for any <code>$G$</code>, and let
+<code>$T=(\Omega, E_T) \in \mathtt{EGEDmin}(G)$</code>. Let <code>$E^-_S=E \backslash
+E_S$</code> be the minimum feedback arc set we remove from <code>$S$</code> to create
+<code>$G$</code>, and <code>$E^+_S=E_S \backslash E$</code> the edges we add to make <code>$G$</code>
+complete. We similarly define <code>$E^-_T=E \backslash E_T$</code> and <code>$E^+_T=E_T
+\backslash E_T$</code>.</p>
+<p>We can now show that <code>$\text{EGED}(S, G) \le \text{EGED}(T, G)$</code>: Assume
+that <code>$\text{EGED}(S, G) &gt; \text{EGED}(T, G)$</code>. By <strong>Lemma</strong> 2 <code>$E^-_T$</code>
+is a minimum feedback arc set, and so <code>$|E^-_T|=|E^-_S|$</code>. Furthermore,
+<code>$|E_S|=|E_T|$</code>, since they are both acyclic tournaments on <code>$\Omega$</code>.</p>
+<p>Then</p>
+<div>
+    $$\begin{aligned}
+    &amp;\text{EGED}(G, S) = |E \Delta E_S| \\
+    &amp;= |(E \backslash E^-_S) \uplus E^+_S| \\
+    &amp;= (|E|-|E^-_S|)+|E^+_S| \\
+    &amp;= (|E|-|E^-_S|)+|E_S|-(|E|-|E^-_S|) \\
+    &amp;= (|E|-|E^-_T|)+|E_T|-(|E|-|E^-_T|) \\
+    &amp;= (|E|-|E^-_T|)+|E^+_T| \\
+    &amp;= |(E \backslash E^-_T) \uplus E^+_T| \\
+    &amp;= |E \Delta E_T| = \text{EGED}(G, T)
+    \end{aligned}$$
+</div>
+<p>So it can't be the case that <code>$\text{EGED}(S, G) &gt; \text{EGED}(T, G)$</code>.</p>
+<p>We can also show that <code>$\text{EGED}(S, G) \ge \text{EGED}(T, G)$</code>: Assume
+that <code>$\text{EGED}(S, G) &lt; \text{EGED}(T, G)$</code>. Since both <code>$S,
+T \in \mathfrak{C}_{\Omega}$</code>, this contradicts the assumption that the
+output of <code>EGEDmin</code> has minimal distance. ◻</p>
+<h3 id="Lemma_4"><a class="hanchor" href="#Lemma_4">Lemma 4</a></h3>
+<p>Assume there exists a <code>$G \in \mathfrak{P}_{\Omega}$</code> so that
+there exists a <code>$T=(\Omega, E_T) \in \mathtt{EGEDmin}(G)$</code> so that <code>$T \not
+\in \mathtt{stepwise}(G)$</code>.</p>
+<p>Then, by <strong>Lemma</strong> 2, <code>$E^-_T=E \backslash E_T$</code> is a minimum feedback
+arc set. Therefore, removing <code>$E^-_T$</code> from <code>$E$</code> results in a directed
+acyclic graph <code>$G_A$</code> which is an element of the intermediate set
+<code>$\mathbf{A}$</code> of directed acyclic graphs in <code>stepwise</code>.</p>
+<p>Let <code>$E^+_T=E_T \backslash E$</code>. Assume <code>$E^+_T$</code> was not a set of edges
+added to <code>$G_A$</code> in a topological sort.</p>
+<p>Then let <code>$\omega \in \Omega$</code> be the node in <code>$T$</code> that has no incoming
+edges. <code>$\omega$</code> must also have had no incoming edges in <code>$G_A$</code>,
+since we only add edges to <code>$G_A$</code> to achieve <code>$T$</code>, and therefore has
+in-degree 0 in <code>$G_A$</code>, which means that <code>$\omega$</code> must have been added
+first to some topological sort in <strong>T</strong> by <code>topological_sorts</code>.</p>
+<p>One can now create <code>$T'$</code> and <code>$G_A'$</code> by removing <code>$\omega$</code> and
+all edges from <code>$\omega$</code> from <code>$T$</code> and <code>$G_A$</code>. Let the node in
+<code>$T'$</code> with no incoming edges be called <code>$\omega'$</code>. Then in <code>$G_A$</code>
+the node <code>$\omega'$</code> either had no incoming edges or one incoming edge
+from <code>$\omega$</code>, since one can create <code>$T'$</code> from <code>$G_A$</code> by adding
+<code>$E^+_T$</code> and then (potentially) removing the edge <code>$\omega \rightarrow
+\omega'$</code>. So in the graph <code>$G_A'$</code> with <code>$\omega$</code> and all its outgoing
+edges removed from <code>$G_A$</code>, the node <code>$\omega'$</code> has in-degree zero,
+and is therefore also selected as the first element in some topological
+sort of <code>$G_A'$</code>, to which <code>$\omega$</code> is prepended after recursion. In
+the base case of a <code>$T^{\star}$</code> with one element <code>$\omega^{\star}$</code>, this
+element <code>$\omega^{\star}$</code> is the only element of <code>$G_A^{\star}$</code> and also
+the only element of the topological sort of <code>$G_A^{\star}$</code>.</p>
+<p>Therefore, by induction, given an acyclic tournament <code>$T$</code> and a set of
+edges <code>$E^+_T=E_T \backslash E$</code>, this set <code>$E^+_T$</code> must be the edges added
+by some topological sort of <code>$G_A=(\Omega, E \backslash E^-_T)$</code>. ◻</p>
+<h3 id="Theorem_5"><a class="hanchor" href="#Theorem_5">Theorem 5</a></h3>
+<p>By <strong>Lemma</strong> 3 it holds that <code>$\mathtt{stepwise}(G)
+\subseteq \mathtt{EGEDmin}(G)$</code> and by <strong>Lemma</strong> 4 it holds that
+<code>$\mathtt{stepwise}(G) \supseteq \mathtt{EGEDmin}(G)$</code>, so the sets must
+be equal. ◻</p>
+<h3 id="Theorem_6"><a class="hanchor" href="#Theorem_6">Theorem 6</a></h3>
+<p>Reduction from finding all Slater orders with the smallest
+distance to a given tournament <code>$T$</code>.</p>
+<p>Assume we know an algorithm <code>A</code> to compute <code>$f_{\text{EGED}}(G)$</code>
+efficiently, that is, to compute the set of all acyclic tournaments with
+the minimal graph-edit distance to a given directed graph $G$ in
+polynomial time.</p>
+<p>Then one could solve Slater's problem in polynomial time: For any
+given tournament <code>$T$</code>, <code>A</code> would compute a set <code>$\mathbf{C}_T$</code> of
+acyclic tournaments which have the same minimal graph-edit distance
+<code>$2k$</code> to <code>$T$</code>, the distance is divisible by two because by editing
+a tournament <code>$T$</code> into a tournament <code>$T'$</code>. Edges can only be
+flipped, which engenders two edge operations (removing an edge and
+then adding a new one). Then that set would also be the set of Slater
+orders of <code>$T$</code> (with distance <code>$k$</code>), a solution to ($P_3$) from <a href="./doc/cs/preference/on_the_complexity_of_slaters_problems_hudry_2010.pdf">Hudry
+2010</a>,
+which is known to be NP-hard. ◻</p>
+<h3 id="Theorem_6_1"><a class="hanchor" href="#Theorem_6_1">Theorem 6</a></h3>
+<p>Let <code>$T$</code> be any acyclic tournament with vertices
+<code>$\Omega$</code>. Then <code>$T$</code> has <code>${n \choose 2}$</code> edges. Since
+<code>$G_e$</code> has no edges, one can edit <code>$G_e$</code> to be <code>$T$</code> simply
+by adding all edges of <code>$T$</code> to <code>$G_e$</code>. This is sufficient and
+necessary for turning <code>$G_e$</code> into <code>$T$</code>. Since this holds for
+any tournament <code>$T$</code>, the graph-edit distance from <code>$G_e$</code> to
+any acyclic tournament is the same, namely <code>${n \choose 2}$</code>. So
+<code>$|\mathtt{EGEDmin}(G_e)|=|\mathfrak{C}_{\Omega}|=n!$</code>. ◻</p>
+<h3 id="Proposition_2"><a class="hanchor" href="#Proposition_2">Proposition 2</a></h3>
+<p>This is an artifact of including graphs with reflexive edges in
+the set of graphs tested. Let $G$ be a graph with confusion $k$ and no
+reflexive edges.</p>
+<p>Let now $\mathbf{G}^{\circ}$ be the set of all graphs that are variants
+of $G$ with reflexive edges added. This set include $G$ itself, and $G$
+with all reflexive edges, as well as each version of $G$ with only one
+reflexive edge. Every element in $\mathbf{G}^{\circ}$ also has confusion
+$k$: all reflexive edges must be removed to create a consistent
+preference, yielding $G$, and there are $k$ unique acyclic tournaments
+that has the smallest edge-graph-edit distance to $G$.</p>
+<p>Then it is the case <code>$|\mathbf{G}^{\circ}|=2^n$</code>: for each node,
+the presence of a reflexive edge on that node can be described by
+one bit of information, and since there are <code>$n$</code> nodes, the size of
+<code>$|\mathbf{G}^{\circ}|$</code> is the same as the length of an <code>$n$</code> bit
+bitstring. ◻</p>
+<h3 id="Lemma_8"><a class="hanchor" href="#Lemma_8">Lemma 8</a></h3>
+<p><a href="./doc/math/on_cliques_in_graphs_moon_moser_1965.pdf">Moon &amp; Moser
+1965</a>
+describe how to construct an undirected graph <code>$G_n=(V_G,E_G)$</code>
+with <code>$n$</code> vertices and <code>$3^{\frac{n}{3}}$</code> inclusion-maximal
+<a href="https://en.wikipedia.org/wiki/Clique_(graph_theory)">cliques</a>. Then
+one can construct a directed graph <code>$P_n=(V_P,E_P)$</code> with
+<code>$3^{\frac{n}{3}}\approx 1.4422^n$</code> inclusion-maximal consistent
+subgraphs from <code>$G_n$</code>, which grows faster than any polynomial. First,
+<code>$P_n$</code> receives the same vertices as <code>$G_n$</code>.  Then, every <code>$v \in V$</code> is
+assigned a unique number <code>$j(v): V \rightarrow \mathbb{N}$</code>, and for each
+<code>$\{u,v\} \in E_G$</code>, the set of edges <code>$E_P$</code> contains <code>$(u,v)$</code> if and
+only if <code>$j(u)&gt;j(v)$</code>, and <code>$(v,u)$</code> if and only if <code>$j(v)&gt;j(u)$</code>. Now,
+if a subgraph <code>$\mathit{S}_G$</code> of <code>$G_n$</code> with vertices <code>$V_{\mathit{S}}$</code>
+is a maximal clique, then a subgraph <code>$\mathit{S}_P$</code> of <code>$P_n$</code> with
+vertices <code>$V_{\mathit{S}}$</code> is an inclusion-maximal consistent subgraph in
+<code>$P_n$</code>:</p>
+<ol>
+<li><p><code>$\mathit{S}_P$</code> is complete, because for every <code>$\{u,v\}$</code> in
+<code>$\mathit{S}_G$</code>, either <code>$(u,v)$</code> or <code>$(v,u)$</code> exists in <code>$\mathit{S}_P$</code>.</p></li>
+<li><p><code>$\mathit{S}_P$</code> is transitive. For any three vertices <code>$\{u,v,w\}$</code> in
+<code>$\mathit{S}_G$</code>, <code>$\mathit{S}_G$</code> contains the edges
+<code>$\{\{u,v\},\{v,w\},\{u,w\}\}$</code> (since it is a clique). Then, without
+loss of generality, assume that <code>$j(u)&gt;j(v)&gt;j(w)$</code>. Then
+<code>$(u, w) \in E_P$</code>. Therefore <code>$\mathit{S}_P$</code> contains the edges
+<code>$\{(u,v),(v,w),(u,w)\}$</code>.</p></li>
+<li><p><code>$\mathit{S}_P$</code> is asymmetric, because for any edge <code>$\{u,v\}$</code> in
+<code>$\mathit{S}_G$</code> it is the case that <code>$j(u)&gt;j(v)$</code> and <code>$j(v)&gt;j(u)$</code> can't
+be true at the same time (since $j$ assigns each vertex a unique
+natural number). So <code>$\mathit{S}_P$</code> can only contain either <code>$(u,v)$</code>
+or <code>$(v,u)$</code>.</p></li>
+<li><p><code>$\mathit{S}_P$</code> is inclusion-maximal. If <code>$\mathit{S}_P$</code> were not
+inclusion-maximal, there'd exist a vertex <code>$u$</code> so that every vertex
+<code>$v$</code> of <code>$\mathit{S}_P$</code> had an edge with <code>$u$</code>. But since the procedure
+of constructing <code>$P_n$</code> above did not add any edges, that would mean
+that <code>$\mathit{S}_G$</code> was not a maximal clique.
+◻</p></li>
+</ol>
+<h3 id="Proposition_3"><a class="hanchor" href="#Proposition_3">Proposition 3</a></h3>
+<p>Fix <code>$1&lt;j&lt;k&lt;n$</code>. Let <code>$\Sigma_l=\biguplus_{i=1}^{k-1} \Sigma_i$</code> and
+<code>$\Sigma_r=\biguplus_{i=k}^n \Sigma_i$</code>. Then <code>$\Sigma_l$</code> dominates
+<code>$\Sigma_r$</code> in <code>$G$</code>, and by assumption also in <code>$C \in f(G)$</code>. Since
+<code>$\Sigma_j \subsetneq \Sigma_l$</code> and <code>$\Sigma_k \subsetneq \Sigma_r$</code>,
+it holds that <code>$\forall \sigma_j \in \Sigma_j, \sigma_k \in \Sigma_k:
+\sigma_j \rightarrow \sigma_k \in E_C \land \sigma_k \rightarrow \sigma_j
+\not \in E_C$</code>. So <code>$\Sigma_j$</code> now completely dominates <code>$\Sigma_k$</code>
+in $C$. ◻</p>
+<h3 id="Theorem_9"><a class="hanchor" href="#Theorem_9">Theorem 9</a></h3>
+<p>Let <code>$C=(\Omega, E_C)$</code>, with <code>$C \in \mathtt{EGEDmin}(G)$</code> be a
+consistent graph for a directed graph <code>$G$</code>, where <code>$G$</code> has a completely
+dominating set <code>$\Sigma_1$</code> and a completely dominated set <code>$\Sigma_2$</code>.
+Assume <code>$C$</code> does not have the completely dominating set <code>$\Sigma_1$</code>, and
+let <code>$n=\mathtt{EGED}(G,C)$</code>. Then there must be a "highest" or "largest"
+<code>$\sigma_2 \in \Sigma_2$</code> in <code>$C$</code> (one for which there is no other
+<code>$\sigma_2' \in \Sigma_2$</code> so that <code>$\sigma_2' \rightarrow \sigma_2$</code>
+is an edge in <code>$C$</code>). There must also be a "highest" or "largest"
+<code>$\sigma_1^* \in \Sigma_1$</code> so that <code>$\sigma_2 \rightarrow \sigma_1^*$</code>
+is an edge in <code>$C$</code>.</p>
+<p>Let there be <code>$m \ge 0$</code> elements of <code>$\Sigma_1$</code> "between" <code>$\sigma_2$</code>
+and <code>$\sigma_1^*$</code>, that is for <code>$\Sigma_2^*=\{\sigma_2^*| \sigma_2
+\rightarrow \sigma_2^* \in E_C\ \land \sigma_2^* \rightarrow \sigma_1^*
+\in E_C\}$</code> it holds that <code>$\Sigma_2^*=m$</code>.</p>
+<p>One can now create a <code>$C'$</code> from <code>$C$</code> so that <code>$\mathtt{EGED}(G,
+C')=n-2(m+1)$</code> by moving <code>$\sigma_1^*$</code> into the position directly above
+<code>$\sigma_2$</code> by reversing the edges <code>$\sigma_2 \rightarrow \sigma_1^*$</code>
+and <code>$\sigma_2^* \rightarrow \sigma_1^*$</code> for all <code>$\sigma_2^* \in
+\Sigma_2^*$</code>. The modified <code>$C'$</code> now contains some edges from <code>$G$</code>
+that need to be reversed to create <code>$C$</code>: <code>$\sigma_1^* \rightarrow
+\sigma_2$</code> and <code>$\{\sigma_1^* \rightarrow \sigma_2^* | \sigma_2^* \in
+\Sigma_2^*\}$</code> are already edges in <code>$G$</code>, and because edge reversals
+have weight 2 (deleting and then adding one edge), this saves <code>$2(m+1)$</code>
+edge operations.</p>
+<p>Furthermore all other edge operations to minimally achieve <code>$C$</code> from
+<code>$G$</code> can be held constant to create <code>$C'$</code>, so that the graph-edit
+distance is not changed otherwise. <code>$C'$</code> is now an acyclic tournament
+with a smaller edge-graph-edit distance from <code>$G$</code> than <code>$C$</code>. Thus
+all other outputs <code>$\mathbf{C}=\mathtt{EGEDmin}(G)$</code> must also have a
+smaller edge-graph-edit distance than <code>$C$</code> has to <code>$G$</code>.</p>
+<p>If <code>$C'$</code> does not have the same completely dominating set <code>$\Sigma_1$</code>
+that <code>$G$</code> has, one can create a new graph <code>$C''$</code> by finding a new
+"highest" <code>$\sigma_2$</code> and corresponding <code>$\sigma_1^*$</code> and switching
+them. This <code>$C''$</code> again has shorter edge-graph-edit distance.</p>
+<p>This process can be repeated as long as <code>$\Sigma_1$</code> is not a completely
+dominating set in the consistent graph, monotonically decreasing the
+edge-graph-edit distance, until no further such modifications can be
+found.</p>
+<p>The final consistent graph resulting from this process contains
+<code>$\Sigma_1$</code> as a completely dominating set: Every <code>$\sigma_1
+\in \Sigma_1$</code> has a one-directional edge to every <code>$\sigma_2 \in
+\Sigma_2$</code>. ◻</p>
+<h3 id="Lemma_11"><a class="hanchor" href="#Lemma_11">Lemma 11</a></h3>
+<p>Assume <code>$S$</code> is a subgraph of <code>$E_n$</code>, and there exists (without
+loss of generality) a <code>$\mathit{V}_i$</code> so that <code>$S \cap \mathit{V}_i$</code> has
+two edges <code>$\alpha_i
+\rightarrow \beta_i$</code> and <code>$\beta_i \rightarrow \gamma_i$</code>. Since <code>$S$</code> is
+stipulated to be consistent, due to the transitivity requirement it must
+also contain the edge <code>$\alpha_i \rightarrow \gamma_i$</code>. But then <code>$S$</code>
+would no longer be a subgraph of <code>$E_n$</code>, since
+<code>$\alpha_i \rightarrow \gamma_i$</code> is not an edge in <code>$\mathit{V}_i$</code>. If
+<code>$S \cap \mathit{V}_i$</code> has three edges, <code>$S$</code> must be inconsistent, since
+transivity or asymmetry are violated. Assume now there is a subgraph
+<code>$\mathit{V}_i$</code> of <code>$E_n$</code> so that <code>$S \cap \mathit{V}_i$</code> has no edges. Then
+one can add any one edge from <code>$\mathit{V}_i$</code> to <code>$S$</code> while retaining
+consistency: If one adds (without loss of generality)
+<code>$\alpha_i \rightarrow \beta_i$</code>, this preserves consistency, since</p>
+<ul>
+<li> <strong>Completeness</strong> is preserved (<code>$\alpha_i, \beta_i$</code> are connected to
+all <code>$\omega_h, \omega_j$</code> (<code>$h &lt;i&lt;j$</code>)).</li>
+<li> <strong>Transitivity</strong> is preserved
+(<code>$\omega_h \rightarrow \alpha_i, \alpha_i \rightarrow \beta_i$</code> also
+means that <code>$\omega_h \rightarrow \beta_i$</code> since <code>$h&lt;i$</code>, and similar
+for <code>$\alpha_i \rightarrow \beta_i, \beta_i \rightarrow \omega_j$</code>).</li>
+<li> <strong>Asymmetry</strong> is preserved because we add no reversed edges where
+there were edges in <code>$S$</code> before.</li>
+</ul>
+<p> ◻</p>
+<h3 id="Lemma_12"><a class="hanchor" href="#Lemma_12">Lemma 12</a></h3>
+<p>We showed that each <code>$S \in \mathcal{S}$</code> contains exactly one
+edge from each <code>$\mathit{V}_i$</code>. If two <code>$S_1, S_2$</code> for a given
+<code>$\mathit{V}_i$</code> share the same edge (i.e.  <code>$S_1 \cap \mathit{V}_i=S_2
+\cap \mathit{V}_i$</code>), <code>$S_1$</code> and <code>$S_2$</code> can be subgraphs of the same
+consistent graph <code>$C$</code>. If two <code>$S_1, S_2 \in \mathcal{S}$</code>, for a
+given <code>$\mathit{V}_i$</code>, <em>don't</em> share the same edge (that is <code>$S_1 \cap
+\mathit{V}_i \not =S_2 \cap \mathit{V}_i$</code>), they can be nevertheless
+still be subgraphs of the same consistent <code>$C$</code>:</p>
+<p>If (without loss of generality) <code>$(S_1 \cap \mathit{V}_i)=\alpha_i
+\rightarrow \beta_i$</code> and <code>$(S_2 \cap \mathit{V}_i) =\beta_i \rightarrow
+\gamma_i$</code>, <code>$C$</code> can contain those edges as well as <code>$\alpha_i \rightarrow
+\gamma_i$</code>.</p>
+<p>If, though, there are three <code>$S_1, S_2, S_3 \in \mathcal{S}$</code> that each
+don't share an edge on a given <code>$\mathit{V}_i$</code>, they can't be subgraphs
+of any consistent <code>$C$</code>: Such a <code>$C$</code> would need to contain <code>$\{\alpha_i
+\rightarrow \beta_i, \beta_i \rightarrow \gamma_i, \gamma_i \rightarrow
+\alpha_i\}$</code>, but this would violate either asymmetry (if one added
+<code>$\alpha_i \rightarrow \gamma_i$</code> as well) or transitivity (through the
+absence of <code>$\alpha_i \rightarrow \gamma_i$</code>).</p>
+<p>Therefore, for each <code>$\mathit{V}_i$</code>, only two edges from <code>$\mathit{V}_i$</code>
+can occur in any element of <code>$\mathcal{S}$</code>. Then an <code>$S \in
+\mathcal{S}$</code> can be uniquely identified by which edge from each
+<code>$\mathit{V}_i$</code> it contains, since there are two edges for each
+<code>$\mathit{V}_i$</code> and there are <code>$n$</code> such "levels" <code>$\mathit{V}_i$</code>,
+and no two edges from different <code>$\mathit{V}_i, \mathit{V}_j$</code> are
+mutually exclusive.</p>
+<p>Therefore, <code>$|\mathcal{S}|\le 2^n$</code> if all elements of <code>$\mathcal{S}$</code> are
+to be subgraphs of an acyclic tournament. But introducing an additional
+distinct <code>$S_{2^n+1}$</code> to <code>$\mathcal{S}$</code> must add a third edge from
+at least one <code>$\mathit{V}_i$</code>, thus <code>$2^n$</code> is the maximal size of
+<code>$\mathcal{S}$</code>. ◻</p>
+<h3 id="Lemma_13"><a class="hanchor" href="#Lemma_13">Lemma 13</a></h3>
+<p>Assume that one can partition the set <code>$\mathbf{C}$</code> of inclusion-maximal
+consistent subgraphs of $E_n$ into a set <code>$\mathbf{P}$</code> of disjoint sets
+of size <code>$\le 2^n$</code> (that is <code>$\forall \mathcal{C}_i \in \mathbf{P}:
+|\mathcal{C}_i|=2^n|$</code>) such that there exists a consistent graph <code>$C$</code>
+that contains all <code>$\mathcal{C}_i$</code>. Then the number of such partitions
+would be the number of consistent graphs required to "cover" all elements
+in <code>$\mathbf{C}$</code>, since by Lemma 12 the sets of compatible graphs have
+at most size <code>$2^n$</code>. Then the size of $\mathbf{P}$ would be at least
+<code>$\frac{3^n}{2^n}=1.5^n$</code>, which is exponential in <code>$n$</code>. ◻</p>
+<h3 id="Theorem_14"><a class="hanchor" href="#Theorem_14">Theorem 14</a></h3>
+<p>Let <code>$\mathbf{C}=\mathtt{A}(E_n)$</code>. <strong>Lemma</strong> 13 shows that
+<code>$\mathbf{C}$</code> is exponential in the number of vertices (by <strong>remark</strong>
+3. Any <code>$\mathtt{A}$</code> would at least need to enumerate all <code>$C \in
+\mathbf{C}$</code>, which would take exponential time. ◻</p>
+<h3 id="Proposition_4"><a class="hanchor" href="#Proposition_4">Proposition 4</a></h3>
+<p><code>$r_2(a, k, \mathbf{i}_2)$</code> can be expanded and simplified to</p>
+<div>
+    $$\begin{aligned}
+    &amp;r_2(a, k, \mathbf{i}_2)= \\
+    &amp;\frac{1}{k} \sum_{i=1}^{k} (\mathbf{R}_1^{\top} \phi) \times \mathbf{T
+    }_2(a)^i \times \mathbf{i}_2= \\
+    &amp;\frac{1}{k} \sum_{i=1}^{k} (\mathbf{R}_1^{\top} \phi) \times (\psi \mathbf{T}_1(a) \phi)^i \times (\mathbf{i}_2^{\top} \phi)^{\top}= \\
+    &amp;\frac{1}{k} \sum_{i=1}^{k} \mathbf{R}_1^{\top} \times \mathbf{T}_1(a)^i \phi \times \phi^{\top} \mathbf{i}_1= \\
+    &amp;\frac{1}{k} \sum_{i=1}^{k} \mathbf{R}_1^{\top} \times \mathbf{T}_1(a)^i \times \phi \phi^{\top} \times \mathbf{i}_2= \\
+    &amp; r_1(a, k, \phi \phi^{\top} \mathbf{i}_2)
+    \end{aligned}$$
+</div>
+<p>◻</p>
 <div class="footnotes">
 <hr/>
 <ol>

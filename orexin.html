@@ -33,10 +33,10 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2025-04-03, modified: 2025-04-03, language: english, status: notes, importance: 9, confidence: log</em></p>
+<p><em>author: niplav, created: 2025-04-03, modified: 2025-04-08, language: english, status: notes, importance: 9, confidence: log</em></p>
 <blockquote>
 <p><strong>.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Protocol">Protocol</a><ul><li><a href="#Requirements">Requirements</a><ul></ul></li><li><a href="#Checklist">Checklist</a><ul><li><a href="#Measurements">Measurements</a><ul></ul></li></ul></li><li><a href="#Complications__Explanation">Complications &amp; Explanation</a><ul></ul></li><li><a href="#Open_Questions">Open Questions</a><ul></ul></li></ul></li><li><a href="#Power_Calculation">Power Calculation</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Protocol">Protocol</a><ul><li><a href="#Requirements">Requirements</a><ul></ul></li><li><a href="#Checklist">Checklist</a><ul><li><a href="#Measurements">Measurements</a><ul></ul></li></ul></li><li><a href="#Complications__Explanation">Complications &amp; Explanation</a><ul></ul></li></ul></li><li><a href="#Power_Calculation">Power Calculation</a><ul></ul></li></ul></div>
 <h1 id="Orexin_And_Sleep_Deprivation"><a class="hanchor" href="#Orexin_And_Sleep_Deprivation">Orexin And Sleep Deprivation</a></h1>
 <h2 id="Protocol"><a class="hanchor" href="#Protocol">Protocol</a></h2>
 <p>The rough idea is to have a self-blinded randomized trial with
@@ -56,7 +56,7 @@ and recovery days.</p>
 <li>Store Orexin powder in the freezer</li>
 <li>Before a block:
 <ul>
-<li>Dissolve Orexin powder in the saline solution in <em>one</em> spray bottle</li>
+<li>Dissolve Orexin powder in the saline solution in <em>one</em> spray bottle, so that it contains an adequate amount (administration results in ~1μg/kg of bodymass)</li>
 <li>Put saline solution in the other bottle</li>
 <li>Put the Orexin-filled spray bottle in one container, together with the 'O' piece of paper</li>
 <li>Put the saline solution spray bottle in the other container, together with the 'P' piece of paper</li>
@@ -69,7 +69,7 @@ and recovery days.</p>
 <li>Sleep only 5-6 hours</li>
 <li>Pick a container at random, take out only the bottle, administer nasal spray</li>
 <li>Mark the container so that you know that you took it on day one of the block</li>
-<li>Wait ~30 minutes</li>
+<li>Wait 20 minutes</li>
 <li>Run <a href="#Measurements">a bunch of measurements</a></li>
 </ul></li>
 <li>Day 2:
@@ -81,7 +81,7 @@ and recovery days.</p>
 <li>Sleep only 5-6 hours</li>
 <li>Pick the other container, take out only the bottle, administer nasal spray</li>
 <li>Mark the container so that you know that you took it on day three of the block</li>
-<li>Wait ~30 minutes</li>
+<li>Wait 20 minutes</li>
 <li>Run <a href="#Measurements">a bunch of measurements</a></li>
 </ul></li>
 <li>Day 4:
@@ -100,12 +100,19 @@ is a core of measurements performed in each block, but if I feel like I
 have slack I might decide to do more extensive measurements for one block.</p>
 <p>If done per block, this will not impact the quality of the data, but
 please don't decide within a block to switch the detail of measurements.</p>
+<p>Measurements were selected according to how much they
+degrade with sleep deprivation, informed by <a href="./doc/orexin/impact_of_sleep_deprivation_on_psychological_metrics_elicit_2025.pdf">this auto-generated
+report</a>
+using <a href="https://elicit.org/">Elicit</a>.</p>
 <ul>
 <li>Active measurements
 <ul>
-<li>Reaction speed: ≥10 datapoints, collected via TODO</li>
-<li>Digit span: ≥10 datapoints, collected via TODO</li>
-<li>Subjective well-being: ≥10 datapoints, collected via TODO (maybe MoodPatterns?)</li>
+<li>Reaction speed via the <a href="https://en.wikipedia.org/wiki/Psychomotor_vigilance_task">psychomotor vigilance task</a>: ≥10 datapoints/day, collected via TODO</li>
+<li>Attention via the <a href="https://en.wikipedia.org/wiki/Digit_symbol_substitution_test">digit symbol substitution test</a>: 1 datapoint/day, collected via TODO</li>
+<li>Digit span: ≥10 datapoints/day, collected via TODO</li>
+<li><a href="https://en.wikipedia.org/wiki/Stanford_Sleepiness_Scale">Stanford Sleepiness Scale</a></li>
+<li>Subjective well-being: ≥4 datapoints/day, collected via MoodPatterns</li>
+<li>Time perception accuracy</li>
 </ul></li>
 <li>Passive measurements
 <ul>
@@ -128,12 +135,25 @@ Orexin. Investigating tolerance effects would be interesting, but I just
 don't think we have enough statistical power to get there, and it's more
 useful to focus on one-off effectiveness instead<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>. Tolerance effects
 can be examined later.</p>
-<h3 id="Open_Questions"><a class="hanchor" href="#Open_Questions">Open Questions</a></h3>
-<ul>
-<li>Is there a way to store Orexin in a dissolved form without it degrading?</li>
-<li>How long should we wait after taking Orexin before starting measurements?</li>
-</ul>
 <h2 id="Power_Calculation"><a class="hanchor" href="#Power_Calculation">Power Calculation</a></h2>
+<p><em>epistemic status</em>: Doing a <a href="https://en.wikipedia.org/wiki/Power_calculation#Power_analysis">power
+analysis</a>
+for the first time. Checked by Claude.</p>
+<p>Let's say we will use a
+<a href="https://en.wikipedia.org/wiki/Two-sample_hypothesis_testing">two-sample</a>
+<a href="https://en.wikipedia.org/wiki/Student's_t-test">t-test</a>. We can use
+<a href="https://www.statsmodels.org/">statsmodels</a> to do the heavy lifting; we
+want to detect a medium effect size (0.5) with a bog-standard significance
+level of 0.05 and a power of 0.75:</p>
+<pre><code>import statsmodels.stats.power
+&gt;&gt;&gt; statsmodels.stats.power.tt_ind_solve_power(effect_size=0.5, alpha=0.05, power=0.75, alternative='two-sided')
+56.49860618876443
+</code></pre>
+<p>This means that we'll have to collect ~60 Orexin samples to detect a
+medium effect size; splitting it over two people means that each takes
+Orexin ~30 times and Placebo 30 times, with blocks of a length of four
+days that gives us 240 days in total (though half of those don't actually
+entail any work in terms of data collection).</p>
 <div class="footnotes">
 <hr/>
 <ol>
