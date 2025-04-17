@@ -36,8 +36,9 @@ document.addEventListener('DOMContentLoaded', function () {
 <p><em>author: niplav, created: 2025-04-16, modified: 2025-04-16, language: english, status: in progress, importance: 7, confidence: certain</em></p>
 <blockquote>
 <p><strong>.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Building_on_inductive_biases_favoring_speed_over_simplicity">Building on inductive biases favoring speed over simplicity</a><ul></ul></li><li><a href="#Understanding_smaller_models_is_easier">Understanding smaller models is easier.</a><ul></ul></li><li><a href="#Inheriting_safety_properties_from_previous_models">Inheriting safety properties from previous models.</a><ul></ul></li><li><a href="#Allowing_for_more_gradual_scaling">Allowing for more gradual scaling</a><ul></ul></li><li><a href="#Open_questions">Open questions</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Building_on_inductive_biases_favoring_speed_over_simplicity">Building on inductive biases favoring speed over simplicity.</a><ul></ul></li><li><a href="#Understanding_smaller_models_is_easier">Understanding smaller models is easier.</a><ul></ul></li><li><a href="#Inheriting_safety_properties_from_previous_models">Inheriting safety properties from previous models.</a><ul></ul></li><li><a href="#Allowing_for_more_gradual_scaling">Allowing for more gradual scaling</a><ul></ul></li><li><a href="#Open_questions">Open questions</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
 <h1 id="Model_Expansion_and_AI_Alignment"><a class="hanchor" href="#Model_Expansion_and_AI_Alignment">Model Expansion and AI Alignment</a></h1>
+<!--TODO: incorporate feedback from https://claude.ai/chat/115d646d-3825-4afe-8786-4c4f6974f5a1-->
 <blockquote>
 <p>Suchst du das Unermeßliche hier, du hast dich geirret,
 Meine Größe ist die, größer zu machen dich selbst.</p>
@@ -57,7 +58,7 @@ of training a bigger model initialized with a smaller model is called
 AI models.</p>
 <p>There's four reasons why I think that this kind of training would be
 safer than pre-training from scratch with randomly initialized weights.</p>
-<h3 id="Building_on_inductive_biases_favoring_speed_over_simplicity"><a class="hanchor" href="#Building_on_inductive_biases_favoring_speed_over_simplicity">Building on inductive biases favoring speed over simplicity</a></h3>
+<h3 id="Building_on_inductive_biases_favoring_speed_over_simplicity"><a class="hanchor" href="#Building_on_inductive_biases_favoring_speed_over_simplicity">Building on inductive biases favoring speed over simplicity.</a></h3>
 <p>I don't think humanity yet has a good theory for the inductive biases
 of neural networks, initial attempts include the <a href="https://en.wikipedia.org/wiki/Neural_tangent_kernel">neural tangent
 kernel</a>
@@ -91,6 +92,27 @@ some non-scheming structure to build upon.</p>
 <p>In general, training in this way gives more control over when speed
 should be favored, and when simplicity should be favored.</p>
 <h3 id="Understanding_smaller_models_is_easier"><a class="hanchor" href="#Understanding_smaller_models_is_easier">Understanding smaller models is easier.</a></h3>
+<p>If AI alignment/safety/welfare/non-totalitarianism is going to route
+through some kind of understanding of what kinds of mechanisms the AI
+models implement, then having models spend a larger amount of time in
+a smaller stage gives humanity more leeway of making statements about
+the structure of the models.</p>
+<p>For example, sparse
+<a href="https://en.wikipedia.org/wiki/Autoencoder">autoencoders</a> on model
+activations are <!--much? TODO, maybe scaling Monosemanticity paper,
+or some Nanda anecdote--> more expensive to train on bigger models than
+smaller models, and doing mechanistic interpretability on smaller models
+is probably easier<sub>65%</sub> than doing it on bigger models<!--TODO:
+linear probes easier for smaller models? I'd guess so-->. So, under
+a scaling regime which involves model expansion, interpretability
+researchers could do run their interpretability tools on smaller models,
+and potentially carry over results to bigger models, e.g. by continuing
+to train a sparse autoencoder on an expanded model, or storing what
+specific circuits are expanded into.</p>
+<p>How successful this could be would depend on the expansion technique and
+how much structure is carried over after training following an expansion;
+some expansion techniques distribute the existing weights evenly over
+an expanded layer.</p>
 <h3 id="Inheriting_safety_properties_from_previous_models"><a class="hanchor" href="#Inheriting_safety_properties_from_previous_models">Inheriting safety properties from previous models.</a></h3>
 <p>When training smaller models to fulfill some behavioral safety
 criterion, it's more likely that the smaller model learns the
@@ -102,6 +124,20 @@ expansion, we may be able to track how the original learned the concept
 and then evaluate how the learned concept changes during further training,
 being able to better control how the concept generalizes.</p>
 <h3 id="Allowing_for_more_gradual_scaling"><a class="hanchor" href="#Allowing_for_more_gradual_scaling">Allowing for more gradual scaling</a></h3>
+<p>A common argument for the safety of scaling of neural networks is that
+they're scaled <em>gradually</em>, thus avoiding sudden capability jumps.</p>
+<p>I don't fully buy this argument because there may be relevant capabilities
+that emerge under even small changes in log loss<sub>40%</sub>,
+but my bigger complaint is that frontier training runs are not very
+continuous-sized: The biggest training run can be easily 10× bigger
+than the 2nd biggest training run<!--TODO: look at Epoch dataset &
+check if this is actually true!-->.</p>
+<p>Using model expansion solves this; you don't need to start
+training a model <em>from scratch</em>, but can take a small model,
+expand it a bit, continue training it, do safety testing, expand
+it further &amp;c, with a very clear path to further and further
+development. In this sense model expansion is the inverse of <a href="https://en.wikipedia.org/wiki/Distillation_(machine_learning)">model
+distillation</a>.</p>
 <p>As opposed to ever bigger pre-training runs.</p>
 <h3 id="Open_questions"><a class="hanchor" href="#Open_questions">Open questions</a></h3>
 <ol>
@@ -126,7 +162,7 @@ splintering</a>…</p>
 <hr/>
 <ol>
 <li id="fn1">
-<p>Someone<!--TODO: who again? janbam? the evangelion angel pfp guy?--> on twitter suggested that if we regard models as executing many short programs in superposition<!--TODO: toy models of superposition when read-->, then <a href="https://en.wikipedia.org/wiki/Stochastic_Gradient_Descent">SGD</a> may select for (1) error-correction, since programs do sometimes interfere with each other, and each program needs to correct its own data after interference (intuitively recapitulating the singular learning story), and (2) for <a href="https://www.lesswrong.com/posts/JBFHzfPkXHB2XfDGj">modularity</a>, since the end result of the individual programs needs to be combined together before producing an output. <a href="#fnref1" rev="footnote">↩</a></p>
+<p>Someone<!--TODO: who again? janbam? bootstrap_yang?--> on twitter suggested that if we regard models as executing many short programs in superposition<!--TODO: toy models of superposition when read-->, then <a href="https://en.wikipedia.org/wiki/Stochastic_Gradient_Descent">SGD</a> may select for (1) error-correction, since programs do sometimes interfere with each other, and each program needs to correct its own data after interference (intuitively recapitulating the singular learning story), and (2) for <a href="https://www.lesswrong.com/posts/JBFHzfPkXHB2XfDGj">modularity</a>, since the end result of the individual programs needs to be combined together before producing an output. <a href="#fnref1" rev="footnote">↩</a></p>
 </li>
 </ol>
 </div>
