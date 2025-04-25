@@ -33,11 +33,11 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-01-06, modified: 2025-04-14, language: english, status: maintenance, importance: 3, confidence: likely</em></p>
+<p><em>author: niplav, created: 2023-01-06, modified: 2025-04-25, language: english, status: maintenance, importance: 3, confidence: likely</em></p>
 <blockquote>
 <p><strong>Modeled after <a href="https://www.gwern.net/Nootropics">Gwern 2018</a> I've
-decided to log my nootropics usage and its effects.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Caffeine">Caffeine</a><ul><li><a href="#Experiment_A_SelfBlinded_RCT">Experiment A: Self-Blinded RCT</a><ul><li><a href="#Statistical_Method">Statistical Method</a><ul></ul></li><li><a href="#Predictions_on_the_Outcomes_of_the_Experiment">Predictions on the Outcomes of the Experiment</a><ul></ul></li><li><a href="#Analysis">Analysis</a><ul><li><a href="#Summary_Statistics">Summary Statistics</a><ul></ul></li></ul></li><li><a href="#Conclusion">Conclusion</a><ul></ul></li></ul></li><li><a href="#Discussions">Discussions</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></li><li><a href="#Creatine">Creatine</a><ul></ul></li><li><a href="#LTheanine">L-Theanine</a><ul><li><a href="#Experiment_B_SelfBlinded_RCT">Experiment B: Self-Blinded RCT</a><ul><li><a href="#Conclusion_1">Conclusion</a><ul></ul></li></ul></li><li><a href="#Discussions_1">Discussions</a><ul></ul></li></ul></li><li><a href="#Melatonin">Melatonin</a><ul><li><a href="#Effects">Effects</a><ul><li><a href="#Reducing_Sleep_Duration">Reducing Sleep Duration</a><ul></ul></li></ul></li><li><a href="#Takeaway">Takeaway</a><ul></ul></li></ul></li><li><a href="#Nicotine">Nicotine</a><ul></ul></li><li><a href="#Orexin">Orexin</a><ul></ul></li><li><a href="#Vitamin_D">Vitamin D₃</a><ul><li><a href="#Experiment_C_SelfBlinded_RCT">Experiment C: Self-Blinded RCT</a><ul></ul></li></ul></li><li><a href="#See_Also_1">See Also</a><ul></ul></li><li><a href="#Appendix_A_Predictions_on_SelfBlinded_RCTs">Appendix A: Predictions on Self-Blinded RCTs</a><ul></ul></li><li><a href="#Appendix_B_The_Code_for_Analyzing_The_Caffeine_Data">Appendix B: The Code for Analyzing The Caffeine Data</a><ul><li><a href="#Meditation">Meditation</a><ul></ul></li><li><a href="#Productivity_and_Creativity">Productivity and Creativity</a><ul></ul></li><li><a href="#Mood">Mood</a><ul></ul></li><li><a href="#Flashcards">Flashcards</a><ul></ul></li><li><a href="#Likelihood_Ratios">Likelihood Ratios</a><ul></ul></li></ul></li></ul></div>
+decided to log my nootropics usage and its effects. Includes three quantified self experiments, one on <a href="">Caffeine</a>, one on [L-theanine], and one on <a href="">Vitamin D₃</a></strong></p>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Caffeine">Caffeine</a><ul><li><a href="#Experiment_A_SelfBlinded_RCT">Experiment A: Self-Blinded RCT</a><ul><li><a href="#Statistical_Method">Statistical Method</a><ul></ul></li><li><a href="#Predictions_on_the_Outcomes_of_the_Experiment">Predictions on the Outcomes of the Experiment</a><ul></ul></li><li><a href="#Analysis">Analysis</a><ul><li><a href="#Summary_Statistics">Summary Statistics</a><ul></ul></li></ul></li><li><a href="#Conclusion">Conclusion</a><ul></ul></li></ul></li><li><a href="#Discussions">Discussions</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></li><li><a href="#Creatine">Creatine</a><ul></ul></li><li><a href="#LTheanine">L-Theanine</a><ul><li><a href="#Experiment_B_SelfBlinded_RCT">Experiment B: Self-Blinded RCT</a><ul><li><a href="#Conclusion_1">Conclusion</a><ul></ul></li></ul></li><li><a href="#Discussions_1">Discussions</a><ul></ul></li></ul></li><li><a href="#Melatonin">Melatonin</a><ul><li><a href="#Effects">Effects</a><ul><li><a href="#Reducing_Sleep_Duration">Reducing Sleep Duration</a><ul></ul></li></ul></li><li><a href="#Takeaway">Takeaway</a><ul></ul></li></ul></li><li><a href="#Nicotine">Nicotine</a><ul></ul></li><li><a href="#Orexin">Orexin</a><ul></ul></li><li><a href="#Vitamin_D">Vitamin D₃</a><ul><li><a href="#Experiment_C_SelfBlinded_RCT">Experiment C: Self-Blinded RCT</a><ul><li><a href="#Results">Results</a><ul></ul></li></ul></li></ul></li><li><a href="#See_Also_1">See Also</a><ul></ul></li><li><a href="#Appendix_A_Predictions_on_SelfBlinded_RCTs">Appendix A: Predictions on Self-Blinded RCTs</a><ul></ul></li><li><a href="#Appendix_B_The_Code_for_Analyzing_The_Caffeine_Data">Appendix B: The Code for Analyzing The Caffeine Data</a><ul><li><a href="#Meditation">Meditation</a><ul></ul></li><li><a href="#Productivity_and_Creativity">Productivity and Creativity</a><ul></ul></li><li><a href="#Mood">Mood</a><ul></ul></li><li><a href="#Flashcards">Flashcards</a><ul></ul></li><li><a href="#Likelihood_Ratios">Likelihood Ratios</a><ul></ul></li></ul></li><li><a href="#Appendix_C_Full_Table">Appendix C: Full Table</a><ul></ul></li></ul></div>
 <h1 id="Nootropics"><a class="hanchor" href="#Nootropics">Nootropics</a></h1>
 <!--Nootropics and meditation:
 *Caffeine
@@ -50,12 +50,12 @@ decided to log my nootropics usage and its effects.</strong></p>
 -->
 <p>You could put randomized substances in your body and find out what they
 do by recording the outcomes. That's what I did.</p>
-<!--TODO: color for effect size?-->
 <table>
 <thead>
 <tr>
 <th>Value tracked</th>
 <th>Effect size <a href="https://en.wikipedia.org/wiki/Effect_size#Cohen's_d">d</a> (<a href="https://en.wikipedia.org/wiki/Likelihood-ratio_test#General">λ</a>, <a href="https://en.wikipedia.org/wiki/P-Value">p</a>, <a href="https://en.wikipedia.org/wiki/Standard_Deviation">σ</a> change, <a href="https://en.wikipedia.org/wiki/Sample_size">k</a><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>)</th>
+<th>Effect size d (λ, p, σ change, k)</th>
 <th>Effect size d (λ, p, σ change, k)</th>
 </tr>
 </thead>
@@ -64,79 +64,95 @@ do by recording the outcomes. That's what I did.</p>
 <td></td>
 <td><em>200 mg Caffeine (n=1<sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup>, m=50<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>)</em></td>
 <td><em>500 mg L-theanine (n=1, m=50)</em></td>
+<td><em>25μg Vitamin D₃ (n=1, m=50)</em></td>
 </tr>
 <tr>
-<td>Log-score substance prediction<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup></td>
+<td>Log-score of prediction<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup></td>
 <td>-0.6</td>
 <td>-0.7</td>
+<td>-0.707</td>
 </tr>
 <tr>
 <td>Absorption</td>
-<td>0.61 (λ≈13.3, p≈0.00017, -0.072, 50)</td>
-<td>0.04 (λ≈1.38, p≈0.77, -0.07, 50)</td>
+<td><span style="color:rgba(0,180,0,0.95)">0.61</span></td>
+<td><span style="color:rgba(150,150,150,0.65)">0.04</span></td>
+<td><span style="color:rgba(255,70,70,0.7)">-0.14</span></td>
 </tr>
 <tr>
 <td>Mindfulness</td>
-<td>0.58 (λ≈11.8, p≈0.0007, 0.021, 50)</td>
-<td>0.12 (λ≈0.72, p≈0.89, -0.018, 50)</td>
+<td><span style="color:rgba(0,180,0,0.95)">0.58</span></td>
+<td><span style="color:rgba(100,180,100,0.65)">0.12</span></td>
+<td><span style="color:rgba(100,180,100,0.65)">0.16</span></td>
 </tr>
 <tr>
 <td>Productivity</td>
-<td>0.58 (λ≈28.9, p≈1.3<sup>-12</sup>, 0.11, 50)</td>
-<td>-0.28 (λ≈5.51, p≈0.109, 0.03, 50)</td>
+<td><span style="color:rgba(0,180,0,0.95)">0.58</span></td>
+<td><span style="color:rgba(230,30,30,0.7)">-0.28</span></td>
+<td><span style="color:rgba(150,150,150,0.65)">0.01</span></td>
 </tr>
 <tr>
 <td>Creativity</td>
-<td>0.45 (λ≈51, p≈4.6<sup>-27</sup>, 0.09, 50)</td>
-<td>-0.12 (λ≈5.05, p≈0.14, -0.04, 50)</td>
+<td><span style="color:rgba(0,180,0,0.95)">0.45</span></td>
+<td><span style="color:rgba(255,70,70,0.7)">-0.12</span></td>
+<td><span style="color:rgba(230,30,30,0.7)">-0.27</span></td>
+</tr>
+<tr>
+<td>Subjective duration</td>
+<td>Not collected</td>
+<td><span style="color:rgba(255,100,100,0.65)">-0.015</span></td>
+<td><span style="color:rgba(255,70,70,0.95)">-0.12</span></td>
 </tr>
 <tr>
 <td>Happiness</td>
-<td>0.27 (λ≈10.6, p≈0.002, 0.3, 161)</td>
-<td>0.16 (λ≈3.98, p≈0.27, -0.155, 201)</td>
+<td><span style="color:rgba(100,180,100,0.85)">0.27</span></td>
+<td><span style="color:rgba(100,180,100,0.7)">0.16</span></td>
+<td><span style="color:rgba(255,70,70,0.7)">-0.11</span></td>
 </tr>
 <tr>
 <td>Contentment</td>
-<td>0.13 (λ≈7.66, p≈0.02, 0.47, 161)</td>
-<td>0.25 (λ≈6.83, p≈0.04, -0.04, 201)</td>
+<td><span style="color:rgba(100,180,100,0.8)">0.13</span></td>
+<td><span style="color:rgba(100,180,100,0.8)">0.25</span></td>
+<td><span style="color:rgba(100,180,100,0.65)">0.07</span></td>
 </tr>
 <tr>
 <td>Relaxation</td>
-<td>-0.11 (λ≈5, p≈0.15, 0.42, 161)</td>
-<td>0.12 (λ≈1.5, p≈0.74, 0.02, 201)</td>
+<td><span style="color:rgba(255,70,70,0.7)">-0.11</span></td>
+<td><span style="color:rgba(100,180,100,0.65)">0.12</span></td>
+<td><span style="color:rgba(230,30,30,0.85)">-0.26</span></td>
 </tr>
 <tr>
 <td>Horniness<sup id="fnref5"><a href="#fn5" rel="footnote">5</a></sup></td>
-<td>-0.14 (λ≈1.9, p≈0.64, 0.11, 161)</td>
-<td>-0.03 (λ≈1.15, p≈0.8, 0.25, 201)</td>
-</tr>
-<tr>
-<td>Subjective length of day</td>
-<td>Not collected</td>
-<td>-0.015 (λ≈0.35, p≈0.95, -0.015, 21)</td>
+<td><span style="color:rgba(255,70,70,0.7)">-0.14</span></td>
+<td><span style="color:rgba(255,100,100,0.65)">-0.03</span></td>
+<td><span style="color:rgba(255,70,70,0.7)">-0.16</span></td>
 </tr>
 <tr>
 <td>Flashcard ease</td>
-<td>0.003 (λ≈∞, p≈0, -0.009, 10949)</td>
-<td>-0.072 (λ≈∞, p≈0, -0.01, 10248)</td>
+<td><span style="color:rgba(150,150,150,0.95)">0.003</span></td>
+<td><span style="color:rgba(255,100,100,0.95)">-0.072</span></td>
+<td><span style="color:rgba(150,150,150,0.95)">0.001</span></td>
 </tr>
 <tr>
 <td>Flashcard ease factor</td>
-<td>-0.039 (λ≈∞, p≈0, -32.7, 10949)</td>
-<td>0.0026 (λ≈∞, p≈0, -18.9, 10248)</td>
+<td><span style="color:rgba(255,100,100,0.95)">-0.039</span></td>
+<td><span style="color:rgba(150,150,150,0.95)">0.0026</span></td>
+<td><span style="color:rgba(255,140,140,0.95)">-0.014</span></td>
 </tr>
 <tr>
 <td>Flashcard new interval</td>
-<td>0.011 (λ≈∞, p≈0, -1.88, 10949)</td>
-<td>-0.016 (λ≈∞, p≈0, 3.1, 10248)</td>
+<td><span style="color:rgba(150,180,150,0.95)">0.011</span></td>
+<td><span style="color:rgba(255,140,140,0.95)">-0.016</span></td>
+<td><span style="color:rgba(100,180,100,0.95)">0.069</span></td>
 </tr>
 <tr>
 <td>Time per flashcard<sup id="fnref6"><a href="#fn6" rel="footnote">6</a></sup></td>
-<td>0.006 (λ≈∞, p≈0, 273.4, 10949)</td>
-<td>0.003 (λ≈∞, p≈0, 13.66, 10248)</td>
+<td><span style="color:rgba(150,180,150,0.95)">0.006</span></td>
+<td><span style="color:rgba(150,180,150,0.95)">0.003</span></td>
+<td><span style="color:rgba(100,180,100,0.95)">0.054</span></td>
 </tr>
 </tbody>
 </table>
+<p><em>Hue indicates effect size, opacity indicates likelihood ratio (less opacity indicates higher likelihood ratio. Full table with sample sizes, likelihood ratios, changes in variance &amp;c in <a href="#Appendix_C_Full_Table">this appendix</a>.</em></p>
 <p>I am especially interested in testing many different substances for their
 effect on meditation, while avoiding negative side effects. The benefits
 from high meditational attainments seem valuable to me, and could be
@@ -613,13 +629,46 @@ COVID-19, others?--></p>
 <h3 id="Experiment_C_SelfBlinded_RCT"><a class="hanchor" href="#Experiment_C_SelfBlinded_RCT">Experiment C: Self-Blinded RCT</a></h3>
 <p>After ingestion I wait for ~30 minutes, and then start meditating for
 30 minutes—15 minutes absorption on the breath, 15 minutes bodyscanning.</p>
-<p>Started 2024-08-29.</p>
+<p>Started 2024-08-29, last sample on 2025-04-11.</p>
 <p>Notes on the experiment:</p>
 <ul>
 <li>6th dose: Pill opened up inside the envelope, accidentally mostly de-blinding the dose (I'm pretty sure<sub>85%</sub> it was placebo).</li>
 <li>35th dose: Didn't note down that &amp; when I took it, inferred from my Anki &amp; meditation data that I must've taken it on 2025-01-30.</li>
 <li>48th dose: Started meditating, lay down, fell asleep.</li>
 </ul>
+<h4 id="Results"><a class="hanchor" href="#Results">Results</a></h4>
+<p>I love re-using my code. The analysis this time is very short, I just
+run the following code (<a href="./code/experiments/load.py">load.py here</a>:</p>
+<pre><code>$ python3 -i load.py
+&gt;&gt;&gt; vitamind3_datasets=get_datasets('C', 'vitamind3', 'sugar')
+&gt;&gt;&gt; analyze(vitamind3_datasets)
+    absorption  mindfulness  productivity  creativity        sublen       happy     content     relaxed       horny         ease       factor          ivl         time
+d    -0.136809     0.161834      0.008898   -0.274106 -0.1242045      -0.114252    0.065137   -0.262317   -0.156832     0.001205    -0.013549     0.068697     0.053914
+λ     4.852807     0.795776      0.772965    3.069284  18.64384        2.454851    0.434483    9.315708    2.397887          inf          inf          inf          inf
+p     0.164584     0.881298      0.885446    0.414719  5.402796e-07    0.535541    0.942362    0.006563    0.547394     0.000000     0.000000     0.000000     0.000000
+dσ   -0.126836    -0.015262      0.019154   -0.014085  5.444105e-02   -0.225306    0.100582    0.422303    0.168975     0.008075    -9.006776   -11.190531   811.955351
+k    50.000000    50.000000     50.000000   50.000000  5.000000e+01  159.000000  159.000000  159.000000  159.000000  1690.000000  1690.000000  1690.000000  1690.000000
+</code></pre>
+<p><img alt="" src="./img/nootropics/vitamind3_results.png"/></p>
+<p>I'd shelve this as a null-to-negative result; meditative absorption is
+plausibly <em>decreased</em>, subjective length of day is also decreased (but
+the variance is increased by a lot, if you want to gamble with your
+subjective length of day take Vitamin D₃), relaxation is slightly
+decreased as well… for me Vitamin D₃ is probably not worth it.</p>
+<p>I'll at some point look at my sleep data for the
+following night and see whether I can replicate <a href="https://gwern.net/zeo/vitamin-d">Gwern's
+results</a>. Too bad, now I have to figure
+out how these effects trade off against the longevity benefits, my best
+guess is that further experimentation would show the effect sizes converge
+towards zero.</p>
+<p>At least I fared well in predicting the results, right?, <strong>Right‽</strong></p>
+<pre><code>&gt;&gt;&gt; probs=np.array(expc['prediction'])
+&gt;&gt;&gt; substances=np.array(expc['substance'])
+&gt;&gt;&gt; outcomes=np.array([0 if i=='sugar' else 1 for i in substances])
+&gt;&gt;&gt; np.mean(list(map(lambda x: math.log(x[0]) if x[1]==1 else math.log(1-x[0]), zip(probs, out
+-0.7072507821345512
+</code></pre>
+<p>God damnit, worse than chance again.</p>
 <h2 id="See_Also_1"><a class="hanchor" href="#See_Also_1">See Also</a></h2>
 <!--TODO: something by kanzure?-->
 <ul>
@@ -1300,6 +1349,109 @@ why. Surely caffeine isn't <em>that</em> reliable!</p>
 <pre><code>&gt;&gt;&gt; llrt_pval([10.644193144917832, 7.6608928570645105, 5.007775005855661, 1.9642613047646074])
 array([0.0020736 , 0.02462515, 0.15015613, 0.63984027])
 </code></pre>
+<h2 id="Appendix_C_Full_Table"><a class="hanchor" href="#Appendix_C_Full_Table">Appendix C: Full Table</a></h2>
+<table>
+<thead>
+<tr>
+<th>Value tracked</th>
+<th>Effect size <a href="https://en.wikipedia.org/wiki/Effect_size#Cohen's_d">d</a> (<a href="https://en.wikipedia.org/wiki/Likelihood-ratio_test#General">λ</a>, <a href="https://en.wikipedia.org/wiki/P-Value">p</a>, <a href="https://en.wikipedia.org/wiki/Standard_Deviation">σ</a> change, <a href="https://en.wikipedia.org/wiki/Sample_size">k</a>[^6])</th>
+<th>Effect size d (λ, p, σ change, k)</th>
+<th>Effect size d (λ, p, σ change, k)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td><em>200 mg Caffeine (n=1[^4], m=50[^5])</em></td>
+<td><em>500 mg L-theanine (n=1, m=50)</em></td>
+<td><em>25μg Vitamin D₃ (n=1, m=50)</em></td>
+</tr>
+<tr>
+<td>Log-score of prediction[^1]</td>
+<td>-0.6</td>
+<td>-0.7</td>
+<td>-0.707</td>
+</tr>
+<tr>
+<td>Absorption</td>
+<td><span style="color:rgba(0,180,0,0.95)">0.61</span> (λ≈13.3, p≈0.00017, -0.072, 50)</td>
+<td><span style="color:rgba(150,150,150,0.65)">0.04</span> (λ≈1.38, p≈0.77, -0.07, 50)</td>
+<td><span style="color:rgba(255,70,70,0.7)">-0.14</span> (λ≈4.85, p≈0.16, -0.13, 50)</td>
+</tr>
+<tr>
+<td>Mindfulness</td>
+<td><span style="color:rgba(0,180,0,0.95)">0.58</span> (λ≈11.8, p≈0.0007, 0.021, 50)</td>
+<td><span style="color:rgba(100,180,100,0.65)">0.12</span> (λ≈0.72, p≈0.89, -0.018, 50)</td>
+<td><span style="color:rgba(100,180,100,0.65)">0.16</span> (λ≈0.80, p≈0.88, -0.015, 50)</td>
+</tr>
+<tr>
+<td>Productivity</td>
+<td><span style="color:rgba(0,180,0,0.95)">0.58</span> (λ≈28.9, p≈1.3<sup>-12</sup>, 0.11, 50)</td>
+<td><span style="color:rgba(230,30,30,0.7)">-0.28</span> (λ≈5.51, p≈0.109, 0.03, 50)</td>
+<td><span style="color:rgba(150,150,150,0.65)">0.01</span> (λ≈0.77, p≈0.89, 0.02, 50)</td>
+</tr>
+<tr>
+<td>Creativity</td>
+<td><span style="color:rgba(0,180,0,0.95)">0.45</span> (λ≈51, p≈4.6<sup>-27</sup>, 0.09, 50)</td>
+<td><span style="color:rgba(255,70,70,0.7)">-0.12</span> (λ≈5.05, p≈0.14, -0.04, 50)</td>
+<td><span style="color:rgba(230,30,30,0.7)">-0.27</span> (λ≈3.07, p≈0.41, -0.01, 50)</td>
+</tr>
+<tr>
+<td>Subjective duration</td>
+<td>Not collected</td>
+<td><span style="color:rgba(255,100,100,0.65)">-0.015</span> (λ≈0.35, p≈0.95, -0.015, 21)</td>
+<td><span style="color:rgba(255,70,70,0.95)">-0.12</span> (λ≈18.64, p≈5.4<sup>-7</sup>, 0.05, 50)</td>
+</tr>
+<tr>
+<td>Happiness</td>
+<td><span style="color:rgba(100,180,100,0.85)">0.27</span> (λ≈10.6, p≈0.002, 0.3, 161)</td>
+<td><span style="color:rgba(100,180,100,0.7)">0.16</span> (λ≈3.98, p≈0.27, -0.155, 201)</td>
+<td><span style="color:rgba(255,70,70,0.7)">-0.11</span> (λ≈2.45, p≈0.54, -0.23, 159)</td>
+</tr>
+<tr>
+<td>Contentment</td>
+<td><span style="color:rgba(100,180,100,0.8)">0.13</span> (λ≈7.66, p≈0.02, 0.47, 161)</td>
+<td><span style="color:rgba(100,180,100,0.8)">0.25</span> (λ≈6.83, p≈0.04, -0.04, 201)</td>
+<td><span style="color:rgba(100,180,100,0.65)">0.07</span> (λ≈0.43, p≈0.94, 0.10, 159)</td>
+</tr>
+<tr>
+<td>Relaxation</td>
+<td><span style="color:rgba(255,70,70,0.7)">-0.11</span> (λ≈5, p≈0.15, 0.42, 161)</td>
+<td><span style="color:rgba(100,180,100,0.65)">0.12</span> (λ≈1.5, p≈0.74, 0.02, 201)</td>
+<td><span style="color:rgba(230,30,30,0.85)">-0.26</span> (λ≈9.32, p≈0.007, 0.42, 159)</td>
+</tr>
+<tr>
+<td>Horniness[^2]</td>
+<td><span style="color:rgba(255,70,70,0.7)">-0.14</span> (λ≈1.9, p≈0.64, 0.11, 161)</td>
+<td><span style="color:rgba(255,100,100,0.65)">-0.03</span> (λ≈1.15, p≈0.8, 0.25, 201)</td>
+<td><span style="color:rgba(255,70,70,0.7)">-0.16</span> (λ≈2.40, p≈0.55, 0.17, 159)</td>
+</tr>
+<tr>
+<td>Flashcard ease</td>
+<td><span style="color:rgba(150,150,150,0.95)">0.003</span> (λ≈∞, p≈0, -0.009, 10949)</td>
+<td><span style="color:rgba(255,100,100,0.95)">-0.072</span> (λ≈∞, p≈0, -0.01, 10248)</td>
+<td><span style="color:rgba(150,150,150,0.95)">0.001</span> (λ≈∞, p≈0, 0.008, 1690)</td>
+</tr>
+<tr>
+<td>Flashcard ease factor</td>
+<td><span style="color:rgba(255,100,100,0.95)">-0.039</span> (λ≈∞, p≈0, -32.7, 10949)</td>
+<td><span style="color:rgba(150,150,150,0.95)">0.0026</span> (λ≈∞, p≈0, -18.9, 10248)</td>
+<td><span style="color:rgba(255,140,140,0.95)">-0.014</span> (λ≈∞, p≈0, -9.0, 1690)</td>
+</tr>
+<tr>
+<td>Flashcard new interval</td>
+<td><span style="color:rgba(150,180,150,0.95)">0.011</span> (λ≈∞, p≈0, -1.88, 10949)</td>
+<td><span style="color:rgba(255,140,140,0.95)">-0.016</span> (λ≈∞, p≈0, 3.1, 10248)</td>
+<td><span style="color:rgba(100,180,100,0.95)">0.069</span> (λ≈∞, p≈0, -11.2, 1690)</td>
+</tr>
+<tr>
+<td>Time per flashcard[^3]</td>
+<td><span style="color:rgba(150,180,150,0.95)">0.006</span> (λ≈∞, p≈0, 273.4, 10949)</td>
+<td><span style="color:rgba(150,180,150,0.95)">0.003</span> (λ≈∞, p≈0, 13.66, 10248)</td>
+<td><span style="color:rgba(100,180,100,0.95)">0.054</span> (λ≈∞, p≈0, 812.0, 1690)</td>
+</tr>
+</tbody>
+</table>
 <div class="footnotes">
 <hr/>
 <ol>
