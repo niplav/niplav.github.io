@@ -35,8 +35,12 @@ document.addEventListener('DOMContentLoaded', function () {
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2023-01-06, modified: 2025-04-25, language: english, status: maintenance, importance: 3, confidence: likely</em></p>
 <blockquote>
-<p><strong>Modeled after <a href="https://www.gwern.net/Nootropics">Gwern 2018</a> I've
-decided to log my nootropics usage and its effects. Includes three quantified self experiments, one on <a href="">Caffeine</a>, one on [L-theanine], and one on <a href="">Vitamin D₃</a></strong></p>
+<p><strong>Modeled after <a href="https://www.gwern.net/Nootropics">Gwern 2018</a>
+I've decided to log my nootropics usage and its
+effects. Includes three quantified self experiments,
+one on <a href="#Experiment_A_SelfBlinded_RCT">Caffeine</a>, one on
+<a href="#Experiment_B_SelfBlinded_RCT">L-theanine</a>, and one on <a href="#Experiment_C_SelfBlinded_RCT">Vitamin
+D₃</a>.</strong></p>
 </blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Caffeine">Caffeine</a><ul><li><a href="#Experiment_A_SelfBlinded_RCT">Experiment A: Self-Blinded RCT</a><ul><li><a href="#Statistical_Method">Statistical Method</a><ul></ul></li><li><a href="#Predictions_on_the_Outcomes_of_the_Experiment">Predictions on the Outcomes of the Experiment</a><ul></ul></li><li><a href="#Analysis">Analysis</a><ul><li><a href="#Summary_Statistics">Summary Statistics</a><ul></ul></li></ul></li><li><a href="#Conclusion">Conclusion</a><ul></ul></li></ul></li><li><a href="#Discussions">Discussions</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></li><li><a href="#Creatine">Creatine</a><ul></ul></li><li><a href="#LTheanine">L-Theanine</a><ul><li><a href="#Experiment_B_SelfBlinded_RCT">Experiment B: Self-Blinded RCT</a><ul><li><a href="#Conclusion_1">Conclusion</a><ul></ul></li></ul></li><li><a href="#Discussions_1">Discussions</a><ul></ul></li></ul></li><li><a href="#Melatonin">Melatonin</a><ul><li><a href="#Effects">Effects</a><ul><li><a href="#Reducing_Sleep_Duration">Reducing Sleep Duration</a><ul></ul></li></ul></li><li><a href="#Takeaway">Takeaway</a><ul></ul></li></ul></li><li><a href="#Nicotine">Nicotine</a><ul></ul></li><li><a href="#Orexin">Orexin</a><ul></ul></li><li><a href="#Vitamin_D">Vitamin D₃</a><ul><li><a href="#Experiment_C_SelfBlinded_RCT">Experiment C: Self-Blinded RCT</a><ul><li><a href="#Results">Results</a><ul></ul></li></ul></li></ul></li><li><a href="#See_Also_1">See Also</a><ul></ul></li><li><a href="#Appendix_A_Predictions_on_SelfBlinded_RCTs">Appendix A: Predictions on Self-Blinded RCTs</a><ul></ul></li><li><a href="#Appendix_B_The_Code_for_Analyzing_The_Caffeine_Data">Appendix B: The Code for Analyzing The Caffeine Data</a><ul><li><a href="#Meditation">Meditation</a><ul></ul></li><li><a href="#Productivity_and_Creativity">Productivity and Creativity</a><ul></ul></li><li><a href="#Mood">Mood</a><ul></ul></li><li><a href="#Flashcards">Flashcards</a><ul></ul></li><li><a href="#Likelihood_Ratios">Likelihood Ratios</a><ul></ul></li></ul></li><li><a href="#Appendix_C_Full_Table">Appendix C: Full Table</a><ul></ul></li></ul></div>
 <h1 id="Nootropics"><a class="hanchor" href="#Nootropics">Nootropics</a></h1>
 <!--Nootropics and meditation:
@@ -54,20 +58,14 @@ do by recording the outcomes. That's what I did.</p>
 <thead>
 <tr>
 <th>Value tracked</th>
-<th>Effect size <a href="https://en.wikipedia.org/wiki/Effect_size#Cohen's_d">d</a> (<a href="https://en.wikipedia.org/wiki/Likelihood-ratio_test#General">λ</a>, <a href="https://en.wikipedia.org/wiki/P-Value">p</a>, <a href="https://en.wikipedia.org/wiki/Standard_Deviation">σ</a> change, <a href="https://en.wikipedia.org/wiki/Sample_size">k</a><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>)</th>
-<th>Effect size d (λ, p, σ change, k)</th>
-<th>Effect size d (λ, p, σ change, k)</th>
+<th>Effect size <a href="https://en.wikipedia.org/wiki/Effect_size#Cohen's_d">d</a> (<em>200 mg Caffeine (n=1<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>, m=50<sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup>)</em>)</th>
+<th>Effect size d (<em>500 mg L-theanine (n=1, m=50)</em>)</th>
+<th>Effect size d (<em>25μg Vitamin D₃ (n=1, m=50)</em>)</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td></td>
-<td><em>200 mg Caffeine (n=1<sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup>, m=50<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>)</em></td>
-<td><em>500 mg L-theanine (n=1, m=50)</em></td>
-<td><em>25μg Vitamin D₃ (n=1, m=50)</em></td>
-</tr>
-<tr>
-<td>Log-score of prediction<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup></td>
+<td>Log-score of prediction<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup></td>
 <td>-0.6</td>
 <td>-0.7</td>
 <td>-0.707</td>
@@ -121,7 +119,7 @@ do by recording the outcomes. That's what I did.</p>
 <td><span style="color:rgba(230,30,30,0.85)">-0.26</span></td>
 </tr>
 <tr>
-<td>Horniness<sup id="fnref5"><a href="#fn5" rel="footnote">5</a></sup></td>
+<td>Horniness<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup></td>
 <td><span style="color:rgba(255,70,70,0.7)">-0.14</span></td>
 <td><span style="color:rgba(255,100,100,0.65)">-0.03</span></td>
 <td><span style="color:rgba(255,70,70,0.7)">-0.16</span></td>
@@ -145,14 +143,14 @@ do by recording the outcomes. That's what I did.</p>
 <td><span style="color:rgba(100,180,100,0.95)">0.069</span></td>
 </tr>
 <tr>
-<td>Time per flashcard<sup id="fnref6"><a href="#fn6" rel="footnote">6</a></sup></td>
+<td>Time per flashcard<sup id="fnref5"><a href="#fn5" rel="footnote">5</a></sup></td>
 <td><span style="color:rgba(150,180,150,0.95)">0.006</span></td>
 <td><span style="color:rgba(150,180,150,0.95)">0.003</span></td>
 <td><span style="color:rgba(100,180,100,0.95)">0.054</span></td>
 </tr>
 </tbody>
 </table>
-<p><em>Hue indicates effect size, opacity indicates likelihood ratio (less opacity indicates higher likelihood ratio. Full table with sample sizes, likelihood ratios, changes in variance &amp;c in <a href="#Appendix_C_Full_Table">this appendix</a>.</em></p>
+<p><em>Hue indicates effect size, opacity indicates likelihood ratio (less opacity indicates higher likelihood ratio). Full table with sample sizes, likelihood ratios, changes in variance &amp;c in <a href="#Appendix_C_Full_Table">this appendix</a>.</em></p>
 <p>I am especially interested in testing many different substances for their
 effect on meditation, while avoiding negative side effects. The benefits
 from high meditational attainments seem valuable to me, and could be
@@ -1354,7 +1352,7 @@ array([0.0020736 , 0.02462515, 0.15015613, 0.63984027])
 <thead>
 <tr>
 <th>Value tracked</th>
-<th>Effect size <a href="https://en.wikipedia.org/wiki/Effect_size#Cohen's_d">d</a> (<a href="https://en.wikipedia.org/wiki/Likelihood-ratio_test#General">λ</a>, <a href="https://en.wikipedia.org/wiki/P-Value">p</a>, <a href="https://en.wikipedia.org/wiki/Standard_Deviation">σ</a> change, <a href="https://en.wikipedia.org/wiki/Sample_size">k</a>[^6])</th>
+<th>Effect size <a href="https://en.wikipedia.org/wiki/Effect_size#Cohen's_d">d</a> (<a href="https://en.wikipedia.org/wiki/Likelihood-ratio_test#General">λ</a>, <a href="https://en.wikipedia.org/wiki/P-Value">p</a>, <a href="https://en.wikipedia.org/wiki/Standard_Deviation">σ</a> change, <a href="https://en.wikipedia.org/wiki/Sample_size">k</a><sup id="fnref6"><a href="#fn6" rel="footnote">6</a></sup>)</th>
 <th>Effect size d (λ, p, σ change, k)</th>
 <th>Effect size d (λ, p, σ change, k)</th>
 </tr>
@@ -1362,12 +1360,12 @@ array([0.0020736 , 0.02462515, 0.15015613, 0.63984027])
 <tbody>
 <tr>
 <td></td>
-<td><em>200 mg Caffeine (n=1[^4], m=50[^5])</em></td>
+<td><em>200 mg Caffeine (n=1, m=50)</em></td>
 <td><em>500 mg L-theanine (n=1, m=50)</em></td>
 <td><em>25μg Vitamin D₃ (n=1, m=50)</em></td>
 </tr>
 <tr>
-<td>Log-score of prediction[^1]</td>
+<td>Log-score of prediction</td>
 <td>-0.6</td>
 <td>-0.7</td>
 <td>-0.707</td>
@@ -1421,7 +1419,7 @@ array([0.0020736 , 0.02462515, 0.15015613, 0.63984027])
 <td><span style="color:rgba(230,30,30,0.85)">-0.26</span> (λ≈9.32, p≈0.007, 0.42, 159)</td>
 </tr>
 <tr>
-<td>Horniness[^2]</td>
+<td>Horniness</td>
 <td><span style="color:rgba(255,70,70,0.7)">-0.14</span> (λ≈1.9, p≈0.64, 0.11, 161)</td>
 <td><span style="color:rgba(255,100,100,0.65)">-0.03</span> (λ≈1.15, p≈0.8, 0.25, 201)</td>
 <td><span style="color:rgba(255,70,70,0.7)">-0.16</span> (λ≈2.40, p≈0.55, 0.17, 159)</td>
@@ -1445,7 +1443,7 @@ array([0.0020736 , 0.02462515, 0.15015613, 0.63984027])
 <td><span style="color:rgba(100,180,100,0.95)">0.069</span> (λ≈∞, p≈0, -11.2, 1690)</td>
 </tr>
 <tr>
-<td>Time per flashcard[^3]</td>
+<td>Time per flashcard</td>
 <td><span style="color:rgba(150,180,150,0.95)">0.006</span> (λ≈∞, p≈0, 273.4, 10949)</td>
 <td><span style="color:rgba(150,180,150,0.95)">0.003</span> (λ≈∞, p≈0, 13.66, 10248)</td>
 <td><span style="color:rgba(100,180,100,0.95)">0.054</span> (λ≈∞, p≈0, 812.0, 1690)</td>
@@ -1456,22 +1454,22 @@ array([0.0020736 , 0.02462515, 0.15015613, 0.63984027])
 <hr/>
 <ol>
 <li id="fn1">
-<p>The number of datapoints for that variable. Can be greater than the number of days since for some variables more than one a day were collected. <a href="#fnref1" rev="footnote">↩</a></p>
+<p>The number of participants. Usually only one, me. <a href="#fnref1" rev="footnote">↩</a></p>
 </li>
 <li id="fn2">
-<p>The number of participants. Usually only one, me. <a href="#fnref2" rev="footnote">↩</a></p>
+<p>The number of days during which samples were collected. <a href="#fnref2" rev="footnote">↩</a></p>
 </li>
 <li id="fn3">
-<p>The number of days during which samples were collected. <a href="#fnref3" rev="footnote">↩</a></p>
+<p>Higher is better. <a href="#fnref3" rev="footnote">↩</a></p>
 </li>
 <li id="fn4">
-<p>Higher is better. <a href="#fnref4" rev="footnote">↩</a></p>
+<p>Whether higher or lower values are better here is not clear. <a href="#fnref4" rev="footnote">↩</a></p>
 </li>
 <li id="fn5">
-<p>Whether higher or lower values are better here is not clear. <a href="#fnref5" rev="footnote">↩</a></p>
+<p>The value of higher or lower values here is not clear: Do we want to spend more time per flashcard, or are we content with fast but sloppy performance? <a href="#fnref5" rev="footnote">↩</a></p>
 </li>
 <li id="fn6">
-<p>The value of higher or lower values here is not clear: Do we want to spend more time per flashcard, or are we content with fast but sloppy performance? <a href="#fnref6" rev="footnote">↩</a></p>
+<p>The number of datapoints for that variable. Can be greater than the number of days since for some variables more than one a day were collected. <a href="#fnref6" rev="footnote">↩</a></p>
 </li>
 </ol>
 </div>
