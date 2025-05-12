@@ -1,14 +1,18 @@
-<html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+
+<title>niplav</title>
+<link rel="shortcut icon" type="image/png" href="./favicon.png">
+<link rel="stylesheet" type="text/css" href="main.css">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <!DOCTYPE HTML>
 
-<style type="text/css">
+<style TYPE="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+
+<script type="text/javascript" async
+	src="./mathjax/latest.js?config=TeX-MML-AM_CHTML">
 </script>
+
 <script type="text/x-mathjax-config">
 	MathJax.Hub.Config({
 	extensions: ["tex2jax.js"],
@@ -22,6 +26,7 @@ code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inher
 	"HTML-CSS": { availableFonts: ["TeX"] }
 	});
 </script>
+
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -32,7 +37,8 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+
+<h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-03-20, modified: 2022-07-23, language: english, status: in progress, importance: 2, confidence: likely</em></p>
 <blockquote>
 <p><strong><a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naive Set
@@ -40,10 +46,10 @@ Theory”</a>
 by <a href="https://en.wikipedia.org/wiki/Paul_Halmos">Paul Halmos</a> is a short
 introduction to set theory. Here, I present solutions to the explicitely
 stated exercises and problems in that book.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Section_3">Section 3</a><ul><li><a href="#Exercise_1">Exercise 1</a><ul></ul></li></ul></li><li><a href="#Section_4">Section 4</a><ul><li><a href="#Exercise_1_1">Exercise 1</a><ul></ul></li></ul></li><li><a href="#Section_5">Section 5</a><ul><li><a href="#Some_Easy_Exercises">Some Easy Exercises</a><ul></ul></li><li><a href="#Exercise_1_2">Exercise 1</a><ul></ul></li><li><a href="#Exercise_2">Exercise 2</a><ul></ul></li></ul></li><li><a href="#Section_6">Section 6</a><ul><li><a href="#A_NonTrivial_Exercise">A Non-Trivial Exercise</a><ul></ul></li><li><a href="#Exercise_1_3">Exercise 1</a><ul></ul></li></ul></li><li><a href="#Section_7">Section 7</a><ul><li><a href="#Exercise_1_4">Exercise 1</a><ul></ul></li><li><a href="#Exercise_2_1">Exercise 2</a><ul></ul></li></ul></li><li><a href="#Section_8">Section 8</a><ul><li><a href="#Exercise_1_5">Exercise 1</a><ul></ul></li><li><a href="#Exercise_2_2">Exercise 2</a><ul></ul></li></ul></li><li><a href="#Section_9">Section 9</a><ul><li><a href="#Exercise_1_6">Exercise 1</a><ul><li><a href="#Other_Failing_Ways_of_Interpreting_the_Exercise">Other Failing Ways of Interpreting the Exercise</a><ul></ul></li></ul></li><li><a href="#Exercise_2_3">Exercise 2</a><ul></ul></li><li><a href="#Exercise_3">Exercise 3</a><ul></ul></li></ul></li><li><a href="#Section_10">Section 10</a><ul><li><a href="#Exercise_1_7">Exercise 1</a><ul></ul></li><li><a href="#Exercise_2_4">Exercise 2</a><ul></ul></li><li><a href="#Exercise_3_1">Exercise 3</a><ul></ul></li><li><a href="#Query_1">Query 1</a><ul></ul></li><li><a href="#Exercise_4">Exercise 4</a><ul></ul></li><li><a href="#Query_2">Query 2</a><ul></ul></li><li><a href="#Exercise_5">Exercise 5</a><ul></ul></li></ul></li><li><a href="#Section_11">Section 11</a><ul><li><a href="#Exercise_1_8">Exercise 1</a><ul></ul></li></ul></li><li><a href="#Section_12">Section 12</a><ul><li><a href="#Exercise_1_9">Exercise 1</a><ul></ul></li><li><a href="#Exercise_2_5">Exercise 2</a><ul></ul></li><li><a href="#Exercise_3_2">Exercise 3</a><ul></ul></li><li><a href="#Exercise_4_1">Exercise 4</a><ul><li><a href="#None">Lemma: Any Successor of $n$ Contains $n$</a><ul></ul></li></ul></li></ul></li><li><a href="#Section_13">Section 13</a><ul><li><a href="#Stray_Exercise_1">Stray Exercise 1</a><ul></ul></li><li><a href="#Exercise_1_10">Exercise 1</a><ul></ul></li><li><a href="#Exercise_2_6">Exercise 2</a><ul></ul></li><li><a href="#Exercise_3_3">Exercise 3</a><ul></ul></li><li><a href="#Exercise_4_2">Exercise 4</a><ul></ul></li></ul></li><li><a href="#Section_14">Section 14</a><ul><li><a href="#Exercise_1_11">Exercise 1</a><ul></ul></li><li><a href="#Stray_Exercise_1_1">Stray Exercise 1</a><ul></ul></li></ul></li><li><a href="#Section_15">Section 15</a><ul><li><a href="#Stray_Exercise_1_2">Stray Exercise 1</a><ul></ul></li><li><a href="#Stray_Exercise_2">Stray Exercise 2</a><ul><li><a href="#I">I.</a><ul></ul></li><li><a href="#II">II.</a><ul></ul></li><li><a href="#I_1">I.</a><ul></ul></li><li><a href="#II_1">II.</a><ul></ul></li></ul></li></ul></li></ul></div>
-<h1 id="Solutions_to_Nave_Set_Theory"><a class="hanchor" href="#Solutions_to_Nave_Set_Theory">Solutions to “Naïve Set Theory”</a></h1>
-<h2 id="Section_3"><a class="hanchor" href="#Section_3">Section 3</a></h2>
-<h3 id="Exercise_1"><a class="hanchor" href="#Exercise_1">Exercise 1</a></h3>
+</blockquote>
+<h1 id="solutions-to-nave-set-theory">Solutions to “Naïve Set Theory”</h1>
+<h2 id="section-3">Section 3</h2>
+<h3 id="exercise-1">Exercise 1</h3>
 <p>It seems like there is no way one could use either insetting (putting
 a given set into another set) and pairing or pairing on two different
 inputs to obtain the same set. However, if one sees pairing the same set,
@@ -52,14 +58,14 @@ which is also the result of insetting <code>$\emptyset$</code>.</p>
 <p>Proof:</p>
 <p>Insetting and pairing must have different results because insetting
 will always result in a set with 1 element, and pairing will always
-result in a set with 2 elements. Therefore, they can't be the same set.</p>
-<p>Pairing the sets a, b and c, d can't result in the same set unless
+result in a set with 2 elements. Therefore, they can&#39;t be the same set.</p>
+<p>Pairing the sets a, b and c, d can&#39;t result in the same set unless
 <code>$a=c$</code> and <code>$b=d$</code> or <code>$a=d$</code> and <code>$b=c$</code>. Otherwise, <code>$\{a,b\}$</code> would contain
 at least one element not in <code>$\{c,d\}$</code>.</p>
 <p>□</p>
-<h2 id="Section_4"><a class="hanchor" href="#Section_4">Section 4</a></h2>
-<h3 id="Exercise_1_1"><a class="hanchor" href="#Exercise_1_1">Exercise 1</a></h3>
-<p>I am not exactly sure what I'm supposed to do here. I guess
+<h2 id="section-4">Section 4</h2>
+<h3 id="exercise-1-1">Exercise 1</h3>
+<p>I am not exactly sure what I&#39;m supposed to do here. I guess
 "observe" means "prove" here, so "prove that the condition
 has nothing to do with the set B".</p>
 <p>Proof:</p>
@@ -70,11 +76,11 @@ has nothing to do with the set B".</p>
 </div>
 <p>The last statement is trivially true.</p>
 <p>□</p>
-<h2 id="Section_5"><a class="hanchor" href="#Section_5">Section 5</a></h2>
-<h3 id="Some_Easy_Exercises"><a class="hanchor" href="#Some_Easy_Exercises">Some Easy Exercises</a></h3>
-<p><code>$A-B=A \cap B'$</code></p>
+<h2 id="section-5">Section 5</h2>
+<h3 id="some-easy-exercises">Some Easy Exercises</h3>
+<p><code>$A-B=A \cap B&#39;$</code></p>
 <p>Proof:</p>
-<p><code>$A-B=\{a | a \in A \land a \not \in B\}=\{a | a \in A \land a \in B'\}=A \cap B'$</code></p>
+<p><code>$A-B=\{a | a \in A \land a \not \in B\}=\{a | a \in A \land a \in B&#39;\}=A \cap B&#39;$</code></p>
 <p>□</p>
 <p><code>$A \subset B \hbox{ if and only if } A-B=\emptyset$</code></p>
 <p>Proof:</p>
@@ -107,7 +113,7 @@ has nothing to do with the set B".</p>
     A \cap (B-C)$$
 </div>
 <p>□</p>
-<p><code>$A \cap B \subset (A \cap C) \cup (B \cap C')$</code></p>
+<p><code>$A \cap B \subset (A \cap C) \cup (B \cap C&#39;)$</code></p>
 <p>Proof:</p>
 <div>
     $$A \cap B \subset (A \cap C) \cup (B \cap C')\\
@@ -116,11 +122,11 @@ has nothing to do with the set B".</p>
     =((A \cap C) \cup B) \cap (A \cup C')\\
     =(A \cup B) \cap (C \cup B) \cap (A \cup C')$$
 </div>
-<p><code>$A \cap B \subset (A \cup B) \cap (C \cup B) \cap (A \cup C')$</code> is true
+<p><code>$A \cap B \subset (A \cup B) \cap (C \cup B) \cap (A \cup C&#39;)$</code> is true
 because <code>$A \subset (A \cup B)$</code> and <code>$B \subset (C \cup B)$</code> and
-<code>$A \subset (A \cup C')$</code>.</p>
+<code>$A \subset (A \cup C&#39;)$</code>.</p>
 <p>□</p>
-<p><code>$ (A \cup C) \cap (B \cup C') \subset A \cup B $</code></p>
+<p><code>$ (A \cup C) \cap (B \cup C&#39;) \subset A \cup B $</code></p>
 <p>Proof:</p>
 <div>
     $$ (A \cup C) \cap (B \cup C')\\
@@ -130,9 +136,9 @@ because <code>$A \subset (A \cup B)$</code> and <code>$B \subset (C \cup B)$</co
 </div>
 <p>This is the case because <code>$(A \cap B) \cup (C \cap B) \subset B$</code> (since
 intersections with <code>$B$</code> are subsets of <code>$B$</code>), and the union with <code>$A$</code>
-doesn't change the equation.</p>
+doesn&#39;t change the equation.</p>
 <p>□</p>
-<h3 id="Exercise_1_2"><a class="hanchor" href="#Exercise_1_2">Exercise 1</a></h3>
+<h3 id="exercise-1-2">Exercise 1</h3>
 <p>To be shown: The power set of a set with n elements has <code>$2^n$</code> elements.
 Proof by induction.</p>
 <p>Proof:</p>
@@ -150,7 +156,7 @@ because elements in the power set can either contain <code>$a$</code>
 or not, there is no middle ground. It is clear that <code>$|N|=|P(A)|$</code>,
 therefore <code>$|P(A \cup \{a\})|=|P(A)|+|N|=2*|P(A)|=2*2^{|A|}=2^{|A|+1}$</code>.</p>
 <p>□</p>
-<h3 id="Exercise_2"><a class="hanchor" href="#Exercise_2">Exercise 2</a></h3>
+<h3 id="exercise-2">Exercise 2</h3>
 <p>To be shown:</p>
 <p><code>${\cal{P}}(E) \cap {\cal{P}}(F)={\cal{P}}(E \cap F)$</code></p>
 <p>Proof:</p>
@@ -224,7 +230,7 @@ subset, typically a proper subset" (p. 21).</p>
 <p>I am not entirely sure what this is supposed to mean. If it means
 that we treat <code>${\cal{E}}$</code> as a collection, then
 <code>$\forall X \in {\cal{E}}:\bigcup_{E \in {\cal{E}}} E \subset X$</code>.
-But that doesn't mean that
+But that doesn&#39;t mean that
 <code>${\cal{E}} \subset {\cal{P}}(\bigcup_{E \in {\cal{E}}}E)$</code>:
 If <code>${\cal{E}}=\{\{a,b\},\{b,c\}\}$</code>, then <code>$\bigcup_{E \in {\cal{E}}} E=\{b\}$</code>,
 and
@@ -232,8 +238,8 @@ and
 <p>If we treat <code>$E$</code> simply as a set, then <code>$\bigcup E=E$</code>, and it is of course
 clear that <code>$E \subset {\cal{P}}(E)$</code>, as for all other subsets of <code>$E$</code>.</p>
 <p>□</p>
-<h2 id="Section_6"><a class="hanchor" href="#Section_6">Section 6</a></h2>
-<h3 id="A_NonTrivial_Exercise"><a class="hanchor" href="#A_NonTrivial_Exercise">A Non-Trivial Exercise</a></h3>
+<h2 id="section-6">Section 6</h2>
+<h3 id="a-non-trivial-exercise">A Non-Trivial Exercise</h3>
 <p>"find an intrinsic characterization of those sets of subsets of A that
 correspond to some order in A"</p>
 <p>Let <code>${\cal{M}} \subset {\cal{P}}({\cal{P}}(A))$</code> be the set of all possible
@@ -257,7 +263,7 @@ is true that <code>$x \subset m \subset y$</code>.</p>
 the size of <code>$A$</code> is the size of <code>$M$</code>.</p>
 <p>These conditions characterise <code>$\cal{M}$</code> intrinsically and are the solution
 to the question.</p>
-<h3 id="Exercise_1_3"><a class="hanchor" href="#Exercise_1_3">Exercise 1</a></h3>
+<h3 id="exercise-1-3">Exercise 1</h3>
 <p>(i) To be shown: <code>$(A \cup B) \times X=(A \times X) \cup (B \times X)$</code></p>
 <p>Proof:</p>
 <div>
@@ -292,8 +298,8 @@ Since necessariliy <code>$v \in X$, $u \not \in A-B$</code>. But if <code>$u \no
 must be an element of <code>$A\cap B$</code>. Then <code>$u \in B$</code>,
 and there is a contradiction.</p>
 <p>□</p>
-<h2 id="Section_7"><a class="hanchor" href="#Section_7">Section 7</a></h2>
-<h3 id="Exercise_1_4"><a class="hanchor" href="#Exercise_1_4">Exercise 1</a></h3>
+<h2 id="section-7">Section 7</h2>
+<h3 id="exercise-1-4">Exercise 1</h3>
 <p>Reflexive, but neither symmetric nor transitive (symmetry violation:
 <code>$(b,a)\not\in$</code>, transitivity violation: <code>$(a,c)\not\in$</code>):
 <code>$\{(a,a),(a,b),(b,b),(b,c),(c,c)\}$</code></p>
@@ -303,28 +309,28 @@ and there is a contradiction.</p>
 <p>Transitive, but neither reflexive nor symmetric (reflexivity
 violation: <code>$(a,a)\not\in$</code>, symmetry violation: <code>$(b,a)\not\in$</code>):
 <code>$\{(a,b),(b,c),(a,c)\}$</code></p>
-<h3 id="Exercise_2_1"><a class="hanchor" href="#Exercise_2_1">Exercise 2</a></h3>
+<h3 id="exercise-2-1">Exercise 2</h3>
 <blockquote>
-<p>We shall write <code>$X/R$</code> for the set of all equivalence classe. (Pronounce
-<code>$X/R$</code> as “X modulo R,“ or, in abbreviated form, “X mod R.“ Exercise:
-show that <code>$X/R$</code> is indeed a set by exhibiting a condition that specifies
-exactly the subset <code>$X/R$</code> of the power set <code>${\cal{P}}(X)$</code>).</p>
+<p>We shall write <code>$X&#47;R$</code> for the set of all equivalence classe. (Pronounce
+<code>$X&#47;R$</code> as “X modulo R,“ or, in abbreviated form, “X mod R.“ Exercise:
+show that <code>$X&#47;R$</code> is indeed a set by exhibiting a condition that specifies
+exactly the subset <code>$X&#47;R$</code> of the power set <code>${\cal{P}}(X)$</code>).</p>
 </blockquote>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Paul_Halmos">Paul Halmos</a>, <a href="https://en.wikipedia.org/wiki/Naive_Set_Theory_(book)">“Naïve Set Theory“</a> p. 38, 1960</em></p>
-<p>To be honest, I'm not quite sure what exactly I am supposed to do here.
-<code>$X/R$</code> has been defined as being a set, how can I prove a definition?</p>
-<p>But I can try and construct <code>$X/R$</code> from <code>${\cal{P}}(X)$</code>:</p>
-<p><code>$X/R=\{E: (\forall x, y \in E: x R y) \land E \in {\cal{P}}(X) \} \subset {\cal{P}}(X)$</code></p>
+<p>To be honest, I&#39;m not quite sure what exactly I am supposed to do here.
+<code>$X&#47;R$</code> has been defined as being a set, how can I prove a definition?</p>
+<p>But I can try and construct <code>$X&#47;R$</code> from <code>${\cal{P}}(X)$</code>:</p>
+<p><code>$X&#47;R=\{E: (\forall x, y \in E: x R y) \land E \in {\cal{P}}(X) \} \subset {\cal{P}}(X)$</code></p>
 <p>□, I guess?</p>
-<h2 id="Section_8"><a class="hanchor" href="#Section_8">Section 8</a></h2>
-<h3 id="Exercise_1_5"><a class="hanchor" href="#Exercise_1_5">Exercise 1</a></h3>
+<h2 id="section-8">Section 8</h2>
+<h3 id="exercise-1-5">Exercise 1</h3>
 <p>Basically, the question is "Which projections are one-to-one", or,
 "Which projections are injective"?</p>
 <p>The answer is: A projection <code>$p: X\times Y \mapsto X$</code> is injective iff
 <code>$\forall (x,y)\in X \times Y: \nexists (x,z) \in X \times Y: z \neq y$</code>.
 Or, simpler: Every element of <code>$X$</code> occurs at most once in the relation.
 This can be extended easily to relations composed of more than 2 sets.</p>
-<h3 id="Exercise_2_2"><a class="hanchor" href="#Exercise_2_2">Exercise 2</a></h3>
+<h3 id="exercise-2-2">Exercise 2</h3>
 <p>(i) To be shown: <code>$Y^{\emptyset}=\{\emptyset\}$</code></p>
 <p>1. <code>$\emptyset:\emptyset \rightarrow Y$</code> (the empty set is a function
 from <code>$\emptyset$</code> to <code>$Y$</code>).</p>
@@ -342,10 +348,10 @@ that <code>$x \neq \emptyset$</code>. Therefore, no such <code>$x$</code> can ex
 <code>$f \subset X \times \emptyset \land \forall x \in X: \exists (x,y) \in f: y \in \emptyset$</code>
 (or: <code>$f$</code> maps all elements of <code>$X$</code> to an element in
 <code>$\emptyset$</code>). However there are no elements in the empty set (that I
-know of), so <code>$f$</code> can't exist.</p>
+know of), so <code>$f$</code> can&#39;t exist.</p>
 <p>However, if <code>$X=\emptyset$</code>, then (i) applies. So <code>$\emptyset^{\emptyset}=\{\emptyset\}$</code>.</p>
-<h2 id="Section_9"><a class="hanchor" href="#Section_9">Section 9</a></h2>
-<h3 id="Exercise_1_6"><a class="hanchor" href="#Exercise_1_6">Exercise 1</a></h3>
+<h2 id="section-9">Section 9</h2>
+<h3 id="exercise-1-6">Exercise 1</h3>
 <p>Here, the reader is asked to formulate and prove the commutative law
 for unions of families of sets.</p>
 <p>For context, the associative law for unions of families of sets is
@@ -362,8 +368,8 @@ $$\bigcup_{k \in K} A_{k}=\bigcup_{j \in J}(\bigcup_{i \in I_{j}} A_{i}) $$
 I have probably misunderstood this, because the way I understand it,
 the correct way to formulate the commutative law for unions of families
 does <em>not</em> hold.</p>
-<p>Let's say <code>$X$</code> is a set indexed by <code>$I$</code>, or, in other words, <code>$x_{i}$</code>
-is a family. Let's then define a new operator index-union to make these
+<p>Let&#39;s say <code>$X$</code> is a set indexed by <code>$I$</code>, or, in other words, <code>$x_{i}$</code>
+is a family. Let&#39;s then define a new operator index-union to make these
 expressions easier to read: <code>$I໔X$</code> as <code>$\bigcup_{i \in I} X_{i}$</code>.</p>
 <p>The associative law then expanded reads as</p>
 <div>
@@ -379,11 +385,11 @@ be <code>$\{(a,\{1\}),(b,\{2\})\}$</code>. Then
 and <code>$B໔A=\bigcup_{b \in B} A_{b}=\{a,b\}$</code>, and those
 two are different sets.</p>
 <p>Despite my obvious love for unnecessarily inventing new notation,
-I'm not a very good mathematician, and believe (credence <code>$\ge 99\%$</code>)
+I&#39;m not a very good mathematician, and believe (credence <code>$\ge 99\%$</code>)
 that I have misunderstood something here (the rest is taken up by this
-being an editing/printing mistake). I am not sure what, but would be
-glad about some pointers where I'm wrong.</p>
-<h4 id="Other_Failing_Ways_of_Interpreting_the_Exercise"><a class="hanchor" href="#Other_Failing_Ways_of_Interpreting_the_Exercise">Other Failing Ways of Interpreting the Exercise</a></h4>
+being an editing&#47;printing mistake). I am not sure what, but would be
+glad about some pointers where I&#39;m wrong.</p>
+<h4 id="other-failing-ways-of-interpreting-the-exercise">Other Failing Ways of Interpreting the Exercise</h4>
 <p>Other ways of interpreting the exercise also have obvious
 counter-examples.</p>
 <p>If <code>$f, g$</code> are two families in <code>$X$</code> (as functions:
@@ -406,7 +412,7 @@ counterexample is</p>
     f໔g=\{b\}\\
     g໔f=\{c\}$$
 </div>
-<h3 id="Exercise_2_3"><a class="hanchor" href="#Exercise_2_3">Exercise 2</a></h3>
+<h3 id="exercise-2-3">Exercise 2</h3>
 <p>To be shown:</p>
 <p>(i): <code>$(\bigcup_{i \in I} A_{i}) \cap (\bigcup_{j \in J} B_{j})=\bigcup_{(i,j) \in I \times J} (A_{i} \cap B_{j})$</code></p>
 <p>1. <code>$(\bigcup_{i \in I} A_{i}) \cap (\bigcup_{j \in J} B_{j}) \subset \bigcup_{(i,j) \in I \times J} (A_{i} \cap B_{j})$</code></p>
@@ -457,7 +463,7 @@ if not an <code>$e$</code> in every <code>$A_{i}$</code>, then this must be true
 <code>$B_{j}$</code> (with a similar reasoning as for <code>$A_{i}$</code>). But if <code>$e$</code> in
 every <code>$A_{i}$</code> or every <code>$B_{j}$</code>, it surely must be in their union.</p>
 <p>□</p>
-<h3 id="Exercise_3"><a class="hanchor" href="#Exercise_3">Exercise 3</a></h3>
+<h3 id="exercise-3">Exercise 3</h3>
 <p>To be proven:</p>
 <p><code>$(\bigcup_{i} A_{i}) \times (\bigcup_{j} B_{j})=\bigcup_{i,j}(A_{i} \times B_{j})$</code></p>
 <div>
@@ -502,8 +508,8 @@ e \in (\bigcap_{i} A_{i}) \times (\bigcap_{j} B_{j}) $$
     e \in \bigcup_{i} X_{i} $$
 </div>
 <p>□</p>
-<h2 id="Section_10"><a class="hanchor" href="#Section_10">Section 10</a></h2>
-<h3 id="Exercise_1_7"><a class="hanchor" href="#Exercise_1_7">Exercise 1</a></h3>
+<h2 id="section-10">Section 10</h2>
+<h3 id="exercise-1-7">Exercise 1</h3>
 <p>(i) To be shown: <code>$f(\bigcup_{i} A_{i}) = \bigcup_{i} f(A_{i}$</code></p>
 <p>If <code>$e \in f(\bigcup_{i} A_{i})$</code>, then there exists an <code>$i$</code> for which
 <code>$e \in f(A_{i})$</code>. Then also <code>$e \in \bigcup_{i}f(A_{i})$</code> (since the
@@ -516,7 +522,7 @@ for which <code>$e \in f(A_{i}$</code>. Then <code>$e$</code> is at least once a
 <code>$I=\{1, 2\}, A_1=\{1\}, A_2=\{2\}, f(\{1\})=\{a\}, f(\{2\})=\{a\}, f(\emptyset)=\emptyset, f(\{1,2\})=\{a\}$</code></p>
 <p>Then <code>$f(\bigcap_{i} A_{i})=f(\{1\} \cap \{2\})=f(\emptyset)=\emptyset$</code>,
 but <code>$\bigcap_{i} f(A_{i})=\{a\} \cap \{a\}=\{a\}$</code>.</p>
-<h3 id="Exercise_2_4"><a class="hanchor" href="#Exercise_2_4">Exercise 2</a></h3>
+<h3 id="exercise-2-4">Exercise 2</h3>
 <blockquote>
 <p>A necessary and sufficient condition that <code>$f$</code> map <code>$X$</code> onto <code>$Y$</code>
 is that the inverse image under <code>$f$</code> of each non-empty subset of <code>$Y$</code>
@@ -524,37 +530,37 @@ be a non-empty subset of <code>$X$</code>. (Proof?)</p>
 </blockquote>
 <!--TODO: with "maps onto", he probably means "surjective", i.e. all
 values are mapped to-->
-<p>But that's—false? Unless I understand something different by "map"
+<p>But that&#39;s—false? Unless I understand something different by "map"
 (which I just take as relates from one set to another, possibly in a
 many-to-one relation).</p>
 <p>Example:</p>
 <p><code>$X=\{1,2\}, Y=\{a,b\}$</code>. <code>$f(\{1\})=\{a\}, f(\{2\})=\{a\}$</code>, etc for
 all subsets of $X$. Then <code>$f^{-1}(\{b\})=\emptyset$</code>.</p>
-<h3 id="Exercise_3_1"><a class="hanchor" href="#Exercise_3_1">Exercise 3</a></h3>
+<h3 id="exercise-3-1">Exercise 3</h3>
 <p>To be proven: $h(gf)=(hg)f$</p>
 <p>Proof:</p>
 <p>$((hg)f)(x)=((hg)(f(x)))=h(g(f(x)))=h(gf(x))$</p>
-<h3 id="Query_1"><a class="hanchor" href="#Query_1">Query 1</a></h3>
+<h3 id="query-1">Query 1</h3>
 <blockquote>
 <p>what do <code>$R^{-1}$</code>, <code>$S^{-1}$</code>, <code>$RS$</code>, and <code>$R^{-1}S^{-1}$</code> mean?"</p>
 </blockquote>
 <p><code>$yR^{-1}x$</code>: <code>$y$</code> father of <code>$x$</code>, <code>$z S^{-1}y$</code>: <code>$z$</code> is brother of
 <code>$y$</code>. <code>$$xRSy$</code>: <code>$x$</code> nephew of <code>$y$</code>. <code>$xR^{-1}S^{-1}$</code>.</p>
-<h3 id="Exercise_4"><a class="hanchor" href="#Exercise_4">Exercise 4</a></h3>
+<h3 id="exercise-4">Exercise 4</h3>
 <p>To be proven: <code>$(SR)^{-1}=R^{-1}S^{-1}$</code></p>
 <p>Proof:</p>
 <p>Let <code>$(z,x) \in (SR)^{-1}$</code>. Then <code>$xSRz$</code>. Then <code>$\exists y: xSy \land yRs$</code>.
 Then <code>$yS^{-1}x$</code> and <code>$zR^{-1}y$</code>, and then <code>$zR^{-1}S^{-1}x$</code>.</p>
-<h3 id="Query_2"><a class="hanchor" href="#Query_2">Query 2</a></h3>
+<h3 id="query-2">Query 2</h3>
 <blockquote>
 <p>is there a connection among I, <code>$RR^{-1}$</code>, and <code>$R^{-1}R$</code>?</p>
 </blockquote>
-<p>Shouldn't <code>$I=RR^{-1}$</code>? No. Because if <code>$xRy$</code> and <code>$zRy$</code>, then
+<p>Shouldn&#39;t <code>$I=RR^{-1}$</code>? No. Because if <code>$xRy$</code> and <code>$zRy$</code>, then
 <code>$xRR^{-1}z$</code>. But <code>$I \subset RR^{-1}$</code>, and <code>$I \subset R^{-1}R$</code>. I think
 alsso that <code>$RR^{-1}=(R^{-1}R)^{-1}$</code>, and <code>$R^{-1}R=(RR^{-1})^{-1}$</code>
-(which is true by the previously proven theorem). I don't think there's
+(which is true by the previously proven theorem). I don&#39;t think there&#39;s
 any further connections here.</p>
-<h3 id="Exercise_5"><a class="hanchor" href="#Exercise_5">Exercise 5</a></h3>
+<h3 id="exercise-5">Exercise 5</h3>
 <p>(i) Given <code>$g: Y \rightarrow X$</code> and <code>$gf(x)=x$</code>, then <code>$f$</code> is "one-to-one"
 and "<code>$g$</code> maps <code>$Y$</code> onto <code>$X$</code>".</p>
 <p>Judging from what I understand, "<code>$f$</code> is one-to-one" would mean that <code>$f$</code>
@@ -582,7 +588,7 @@ That means <code>$x \in A \land x \in B$</code>. Then <code>$e \in f(A) \land e 
 <p>Let then <code>$x_1 \neq x_2 \in X$</code>, so that <code>$f(x_1)=f(x_2)=y$</code>. Let then
 <code>$A, B$</code> so that <code>$x_1 \in A \backslash B$</code> and <code>$x_2 \in B \backslash A$</code>.</p>
 <p>Then <code>$y \in f(A) \cap f(B)$</code>, but <code>$y \not \in f(A \cap B)$</code>. So those
-<code>$x_1, x_2$</code> can't exist, therefore f is injective.</p>
+<code>$x_1, x_2$</code> can&#39;t exist, therefore f is injective.</p>
 <p>□</p>
 <p>(iii) To be proven: f injective <code>$\Leftrightarrow f(X-A) \subset Y-f(A)$</code>
 for all subsets of A.</p>
@@ -606,9 +612,9 @@ there must be an x so that <code>$f(x)=y$</code> and <code>$x \not \in A$</code>
 <code>$\forall A \subset X: Y-f(A) \subset f(X-A) \Rightarrow \forall y: \exists x: f(x)=y$</code>.</p>
 <p>Assume <code>$ \exists y \in Y: \lnot \exists x: f(x)=y$</code>. Then <code>$y \in Y-f(A)$</code>
 for all A, but <code>$y \not \in f(X-A)$</code> (since y is not in the
-range). Contradiction of the assumption, such a y can't exist.</p>
-<h2 id="Section_11"><a class="hanchor" href="#Section_11">Section 11</a></h2>
-<h3 id="Exercise_1_8"><a class="hanchor" href="#Exercise_1_8">Exercise 1</a></h3>
+range). Contradiction of the assumption, such a y can&#39;t exist.</p>
+<h2 id="section-11">Section 11</h2>
+<h3 id="exercise-1-8">Exercise 1</h3>
 <blockquote>
 <p>Since the intersection of every (non-empty) family of successor sets
 is a successor set itself (proof?)</p>
@@ -632,8 +638,8 @@ would make f a non-empty family, but
 which is definitely not a successor set. Since the solution I presented
 above seems exactly like the thing Halmos would want me to do, I guess
 I have misunderstood the definition for "family of sets".</p>
-<h2 id="Section_12"><a class="hanchor" href="#Section_12">Section 12</a></h2>
-<h3 id="Exercise_1_9"><a class="hanchor" href="#Exercise_1_9">Exercise 1</a></h3>
+<h2 id="section-12">Section 12</h2>
+<h3 id="exercise-1-9">Exercise 1</h3>
 <blockquote>
 <p>Prove that if $n$ is a natural number, then <code>$n \not = n^{+}$</code></p>
 </blockquote>
@@ -654,11 +660,11 @@ That would contradict the assumption, so <code>$n^+ \not =n$</code>.</p>
 <p>□</p>
 <p>This would be much easier to prove if the <a href="https://en.wikipedia.org/wiki/Axiom_of_regularity">Axiom of
 Regularity</a> had
-been introduced: if we know that it can't be that <code>$a \in a$</code>, then
+been introduced: if we know that it can&#39;t be that <code>$a \in a$</code>, then
 <code>$n^+=n \cup \{n\}$</code> would need to be <code>$\{n\}$</code> for <code>$n^+$</code> to be equal
 to <code>$n$</code>, which could only be the case if <code>$n \in n$</code>, violating
 the axiom.</p>
-<h3 id="Exercise_2_5"><a class="hanchor" href="#Exercise_2_5">Exercise 2</a></h3>
+<h3 id="exercise-2-5">Exercise 2</h3>
 <blockquote>
 <p>Prove that if <code>$n$</code> is a natural number, […] if <code>$n \not = 0$</code>, then
 <code>$n=m^+$</code> for some natural number <code>$m$</code>.</p>
@@ -669,14 +675,14 @@ successor set <code>$ω$</code>". Then, if <code>$n \in ω$</code>, there must b
 <code>$n^-$</code> of <code>$ω$</code> so that <code>${n^-}^+=n$</code> (by the second Peano axiom and
 the condition that <code>$ω$</code> can contain no superfluous elements, which
 would be the third Peano axiom).</p>
-<h3 id="Exercise_3_2"><a class="hanchor" href="#Exercise_3_2">Exercise 3</a></h3>
+<h3 id="exercise-3-2">Exercise 3</h3>
 <blockquote>
 <p>Prove that <code>$ω$</code> is transitive.</p>
 </blockquote>
-<p>I don't understand what is being asked from me here. <code>$ω$</code> is not a
-relation since it's not a set of ordered sets with two elements (tuples),
+<p>I don&#39;t understand what is being asked from me here. <code>$ω$</code> is not a
+relation since it&#39;s not a set of ordered sets with two elements (tuples),
 so this question is underspecified.</p>
-<h3 id="Exercise_4_1"><a class="hanchor" href="#Exercise_4_1">Exercise 4</a></h3>
+<h3 id="exercise-4-1">Exercise 4</h3>
 <blockquote>
 <p>Prove that if <code>$E$</code> is a non-empty subset of some natural number, then
 there exists an element <code>$k$</code> in <code>$E$</code> such that <code>$k \in $</code> whenever
@@ -687,7 +693,7 @@ language again, I get that if <code>$E \subset N \in ℕ$</code>, then
 <code>$∃k\in E: ∀ m \not = k \in E: k \in m$</code>. Decoding into natural
 language, this roughly means that for every subset of the natural numbers,
 that subset has a minimum.</p>
-<h4 id="None"><a class="hanchor" href="#None">Lemma: Any Successor of <code>$n$</code> Contains <code>$n$</code></a></h4>
+<h4 id="lemma-any-successor-of-contains-">Lemma: Any Successor of <code>$n$</code> Contains <code>$n$</code></h4>
 <p>Statement: <code>$n \in n^{+_k}$</code> for all <code>$k$</code>.</p>
 <p>Basis: For <code>$k=1: n \in \{n\} \subset n^+$</code>.</p>
 <p>Assume this holds for <code>$k-1$</code>.</p>
@@ -696,15 +702,15 @@ so <code>$n \in n^{+_k}$</code>.</p>
 <hr/>
 <p>Assume such a <code>$k$</code> did not exist. Then for every <code>$k_i$</code>, it would hold
 that there is some <code>$m_i \not= k$</code> so that <code>$k_i \not \in m_i$</code>.</p>
-<p>But then it must hold that <code>$m_i \in k_i$</code> (it can't be that <code>$m_i \not \in k_i$</code>
-and <code>$k_i \not \in m_i$</code> for natural numbers). If that isn't
+<p>But then it must hold that <code>$m_i \in k_i$</code> (it can&#39;t be that <code>$m_i \not \in k_i$</code>
+and <code>$k_i \not \in m_i$</code> for natural numbers). If that isn&#39;t
 the case (so <code>$m_i \not \in k_i$</code>), then there must exists some <code>$r_i$</code>
 that <code>$m_i \not \in r_i$</code>. But since <code>$E$</code> contains only finitely many
 elements, this leads to a cycle (which is not possible, since that would
 mean that <code>$k_i \not \in k_j$</code> and <code>$k_j \not \in k_i$</code>). So such a
 <code>$k$</code> must exist.</p>
-<h2 id="Section_13"><a class="hanchor" href="#Section_13">Section 13</a></h2>
-<h3 id="Stray_Exercise_1"><a class="hanchor" href="#Stray_Exercise_1">Stray Exercise 1</a></h3>
+<h2 id="section-13">Section 13</h2>
+<h3 id="stray-exercise-1">Stray Exercise 1</h3>
 <blockquote>
 <p>The discovery and establishment of the properties of powers, as well
 as the detailed proofs of the statements about products, can safely be
@@ -734,7 +740,7 @@ then <code>$1 \cdot n^+=(1 \cdot n)+1=n+1=n^+$</code>.</p>
 <p>Induction assumption: <code>$(k \cdot m) \cdot n=k \cdot (m \cdot n)$</code></p>
 <p>Induction step: <code>$k \cdot (m \cdot n^+)=k \cdot ((m \cdot n)+m)=k \cdot (m \cdot n)+k \cdot m=(k \cdot m) \cdot n+k \cdot m=(k \cdot m) \cdot n^+$</code> (using distributivity).</p>
 <hr/>
-<p>As for the properties of the power, I don't really want to spend much
+<p>As for the properties of the power, I don&#39;t really want to spend much
 time and energy proving them. Let it suffice to say that the powers are
 neither associative (counterexample: <code>$2^{(3^2)}=512 \not =64=(2^3)^2$</code>)
 nor commutative (counterexample: <code>$2^3=8\not =9=3^2$</code>) nor distributive
@@ -743,15 +749,15 @@ or multiplication (counterexample: <code>$2^{3 \cdot 4}=4068 \not=128=2^3 \cdot 
 <p>They have two interesting properties: <code>$a^{b\cdot c}=(a^b)^c$</code>, and
 <code>$a^{b+c}=a^b \cdot a^c$</code>. <!--TODO: prove these someday--></p>
 <p>For commutative hyperoperators, see <a href="https://observablehq.com/@ishi/arithmetic" title="Hyperlogarithmic Arithmetic">Ghalimi 2019</a>.</p>
-<h3 id="Exercise_1_10"><a class="hanchor" href="#Exercise_1_10">Exercise 1</a></h3>
-<p>To be shown: if <code>$m&lt;n$</code>, then <code>$m+k &lt; n+k$</code></p>
+<h3 id="exercise-1-10">Exercise 1</h3>
+<p>To be shown: if <code>$m&#60;n$</code>, then <code>$m+k &#60; n+k$</code></p>
 <p>Induction over <code>$k$</code></p>
-<p>Induction base: If <code>$k=0$</code>, then <code>$m+k=m&lt;n=n+k$</code></p>
-<p>Induction assumption: <code>$m+k&lt;n+k$</code></p>
+<p>Induction base: If <code>$k=0$</code>, then <code>$m+k=m&#60;n=n+k$</code></p>
+<p>Induction assumption: <code>$m+k&#60;n+k$</code></p>
 <p>Induction step:</p>
 <div>
-    $$m+k^+ &lt; n+k^+ \Leftrightarrow \\
-    (m+k)^+ &lt; (n+k)^+ \Leftrightarrow \\
+    $$m+k^+ < n+k^+ \Leftrightarrow \\
+    (m+k)^+ < (n+k)^+ \Leftrightarrow \\
     \{m+k\} \cup (m+k) \subset \{n+k\} \cup (n+k)$$
 </div>
 <p>We know that <code>$m+k \subset n+k$</code>.</p>
@@ -760,20 +766,20 @@ or multiplication (counterexample: <code>$2^{3 \cdot 4}=4068 \not=128=2^3 \cdot 
 <code>$\{m+k\} \subset n+k$</code> clearly holds. Assume that <code>$m+k \subset n+k$</code>.
 Then <code>$n+k^+=(n+k)^+=\{n+k\} \cup (n+k) \supset n+k \supset m+k$</code>.</p>
 <p>Therefore, we know that <code>$\{m+k\} \subset n+k$</code> and therefore
-<code>$m+k \subset n+k$</code> and therefore <code>$m+k &lt; n+k$</code>.</p>
+<code>$m+k \subset n+k$</code> and therefore <code>$m+k &#60; n+k$</code>.</p>
 <hr/>
-<p>To be shown: if <code>$m&lt;n$</code> and <code>$k \not =0$</code>, then <code>$m \cdot k&lt;n \cdot k$</code>.</p>
-<p>Induction over <code>$k$</code>. Base case: <code>$m \cdot 1=m&lt;n=n \cdot 1$</code> (I don't
-think the text proves that <code>$p_1(n)=n$</code>, but I also don't think it would
+<p>To be shown: if <code>$m&#60;n$</code> and <code>$k \not =0$</code>, then <code>$m \cdot k&#60;n \cdot k$</code>.</p>
+<p>Induction over <code>$k$</code>. Base case: <code>$m \cdot 1=m&#60;n=n \cdot 1$</code> (I don&#39;t
+think the text proves that <code>$p_1(n)=n$</code>, but I also don&#39;t think it would
 be <em>that</em> useful for me to do that here).</p>
-<p>Induction assumption: <code>$m \cdot k&lt;n \cdot k$</code>.</p>
+<p>Induction assumption: <code>$m \cdot k&#60;n \cdot k$</code>.</p>
 <p>Induction step:
 It must hold that
-<code>$m \cdot k^+=p_m(k)+m=(m \cdot k)+m&lt;(n \cdot k)+n=p_n(k)+n=n \cdot k^+$</code>.
-In general, if <code>$m&lt;n$</code> and <code>$k&lt;l$</code>, then <code>$m+k&lt;n+l$</code> because
-<code>$m+k&lt;n+k=k+n&lt;l+n$</code> (two applications of the theorem above, and using
-the commutativity of addition), so <code>$(m \cdot k)+m&lt;(n \cdot k)+n$</code>.</p>
-<p>Therefore, <code>$m \cdot k&lt;n \cdot k$</code>.</p>
+<code>$m \cdot k^+=p_m(k)+m=(m \cdot k)+m&#60;(n \cdot k)+n=p_n(k)+n=n \cdot k^+$</code>.
+In general, if <code>$m&#60;n$</code> and <code>$k&#60;l$</code>, then <code>$m+k&#60;n+l$</code> because
+<code>$m+k&#60;n+k=k+n&#60;l+n$</code> (two applications of the theorem above, and using
+the commutativity of addition), so <code>$(m \cdot k)+m&#60;(n \cdot k)+n$</code>.</p>
+<p>Therefore, <code>$m \cdot k&#60;n \cdot k$</code>.</p>
 <hr/>
 <p>To be shown: Ever non-empty set <code>$E \subset ℕ$</code> has a minimum.</p>
 <p>(I tried to prove this constructively, but the result was some weird
@@ -783,20 +789,20 @@ then there can be no element of <code>$E$</code> smaller than <code>$e$</code>, 
 is smaller than any other natural number.</p>
 <p>If <code>$e \not=\emptyset$</code>, then for any <code>$e \in N$</code>, if we know that <code>$e \not \in E$</code>
 and <code>$e^+ \in E$</code>, then <code>$e^+$</code> is the number so that no natural number
-smaller than <code>$e^+ \in E$</code>, since we know that all numbers <code>$&lt; e^+$</code>
+smaller than <code>$e^+ \in E$</code>, since we know that all numbers <code>$&#60; e^+$</code>
 are not in <code>$E$</code>.</p>
-<h3 id="Exercise_2_6"><a class="hanchor" href="#Exercise_2_6">Exercise 2</a></h3>
+<h3 id="exercise-2-6">Exercise 2</h3>
 <p>Assume that there exists a bijection <code>$f$</code> between <code>$ω$</code> and some finite
 natural number <code>$n$</code>. Then <code>$n \subset ω$</code>, but <code>$ω \not \subseteq n$</code>,
 since <code>$n \subset n^+=\{n\} \cup n \subseteq ω$</code>. Then, by the <a href="https://en.wikipedia.org/wiki/pigeonhole_principle">pigeonhole
 principle</a>, <code>$f$</code>
-can't exist: there is at least one element too many in <code>$ω$</code> to be
+can&#39;t exist: there is at least one element too many in <code>$ω$</code> to be
 matched to <code>$n$</code>.</p>
-<p>Therefore, such an <code>$n$</code> can't exist, <code>$ω$</code> is infinite.</p>
-<h3 id="Exercise_3_3"><a class="hanchor" href="#Exercise_3_3">Exercise 3</a></h3>
+<p>Therefore, such an <code>$n$</code> can&#39;t exist, <code>$ω$</code> is infinite.</p>
+<h3 id="exercise-3-3">Exercise 3</h3>
 <p>The proof here is the same as the one in exercise 2.</p>
-<h3 id="Exercise_4_2"><a class="hanchor" href="#Exercise_4_2">Exercise 4</a></h3>
-<p>To be shown: the union of a finite set of finite sets is finite (wouldn't
+<h3 id="exercise-4-2">Exercise 4</h3>
+<p>To be shown: the union of a finite set of finite sets is finite (wouldn&#39;t
 this better be if it was a finite family of finite sets? Whatever.).</p>
 <p>Proof: Let <code>$\mathcal{S}$</code> be our set, and <code>$\bigcup_{S \in \mathcal{S}} S$</code>
 be the union of the finitely many elements of <code>$\mathcal{S}$</code>.</p>
@@ -805,11 +811,11 @@ which is clearly finite (equivalent to <code>$0$</code>.</p>
 <p>If <code>$\#(\mathcal{S})=1$</code>, then the resulting set is just the only element
 of <code>$\mathcal{S}$</code>, which is per definition finite.</p>
 <p>Assume that <code>$\#(\mathcal{S})=n$</code>, and that <code>$\bigcup_{S \in \mathcal{S}}
-S$</code> is finite. Let then <code>$\mathcal{S}'=\mathcal{S} \cup \{S_+\}$</code>,
+S$</code> is finite. Let then <code>$\mathcal{S}&#39;=\mathcal{S} \cup \{S_+\}$</code>,
 where <code>$S_+$</code> is a finite set. Then
-<code>$\bigcup_{S \in \mathcal{S}'} S=S_+ \cup \bigcup_{S \in \mathcal{S}} S$</code>.
+<code>$\bigcup_{S \in \mathcal{S}&#39;} S=S_+ \cup \bigcup_{S \in \mathcal{S}} S$</code>.
 Since we know that both <code>$\bigcup_{S \in \mathcal{S}} S$</code> and <code>$S_+$</code>
-are finite, we know that <code>$\bigcup_{S \in \mathcal{S}'} S$</code> is therefore
+are finite, we know that <code>$\bigcup_{S \in \mathcal{S}&#39;} S$</code> is therefore
 also finite, per the statement in the text that the union of two finite
 sets is also finite.</p>
 <p>But we can also prove that <code>$E \cup F$</code> is finite if <code>$E$</code> and <code>$F$</code> are
@@ -839,24 +845,24 @@ up with <code>$E=\emptyset$</code>, we have created a <code>$k$</code> such that
 for all <code>$m \in E$</code>.</p>
 <p>(Is this a constructive proof? It feels like one, but also like writing
 code.)</p>
-<h2 id="Section_14"><a class="hanchor" href="#Section_14">Section 14</a></h2>
-<h3 id="Exercise_1_11"><a class="hanchor" href="#Exercise_1_11">Exercise 1</a></h3>
+<h2 id="section-14">Section 14</h2>
+<h3 id="exercise-1-11">Exercise 1</h3>
 <p>Totality: <code>$R \cup R^{-1}=X \times X$</code></p>
 <p>Antisymmetry: <code>$R \cap R^{-1}=\{(x,x)| x \in X\}$</code></p>
-<h3 id="Stray_Exercise_1_1"><a class="hanchor" href="#Stray_Exercise_1_1">Stray Exercise 1</a></h3>
+<h3 id="stray-exercise-1-1">Stray Exercise 1</h3>
 <blockquote>
 <p>A set <code>$E$</code> may have no lower bounds or upper bounds at all, or it may
 have many; in the latter case it could happen that none of them belongs to
 <code>$E$</code>. (Examples?)</p>
 </blockquote>
-<p>Example for set without lower &amp; upper bounds is <code>$X=∅$</code> (where always
+<p>Example for set without lower &#38; upper bounds is <code>$X=∅$</code> (where always
 <code>$E=∅$</code>), if <code>$X=\{a,b,c,d\}$</code> and the partial order on <code>$X$</code> is
-<code>$a&lt;b&lt;d$</code> and <code>$a&lt;c&lt;d$</code> and <code>$E=\{d\}$</code> then the lower bounds are
+<code>$a&#60;b&#60;d$</code> and <code>$a&#60;c&#60;d$</code> and <code>$E=\{d\}$</code> then the lower bounds are
 <code>$\{a,b,c\}$</code>, if <code>$E=∅$</code>, then every element of <code>$X$</code> is a lower
 bound of <code>$E$</code> (since the empty all-quantification is true), but none
 of them are in <code>$E$</code>.</p>
-<h2 id="Section_15"><a class="hanchor" href="#Section_15">Section 15</a></h2>
-<h3 id="Stray_Exercise_1_2"><a class="hanchor" href="#Stray_Exercise_1_2">Stray Exercise 1</a></h3>
+<h2 id="section-15">Section 15</h2>
+<h3 id="stray-exercise-1-2">Stray Exercise 1</h3>
 <p>To be proven: The Cartesian product of a finite family of sets
 <code>$\{X_i\}$</code>, at least one of which is empty, is necessarily and
 sufficiently also empty.</p>
@@ -875,15 +881,15 @@ Then in the former case we know that
 (as per the text). In the latter case we know that
 <code>$X_{\star} \times X_{n+1}=\emptyset \times X_{n+1}=\emptyset$</code>,
 so in both cases we get the empty set as a result.</p>
-<h3 id="Stray_Exercise_2"><a class="hanchor" href="#Stray_Exercise_2">Stray Exercise 2</a></h3>
+<h3 id="stray-exercise-2">Stray Exercise 2</h3>
 <p>To prove:</p>
-<h5 id="I"><a class="hanchor" href="#I">I.</a></h5>
+<h5 id="i.">I.</h5>
 <blockquote>
 <p>there exists a function <code>$f$</code> with domain <code>$\mathcal{C}$</code> such that if
 <code>$A \in \mathcal{C}$</code>, then <code>$f(A) \in A$</code></p>
 </blockquote>
 <p>and</p>
-<h5 id="II"><a class="hanchor" href="#II">II.</a></h5>
+<h5 id="ii.">II.</h5>
 <blockquote>
 <p>if <code>$\mathcal{C}$</code> is a collection of pairwise disjoint non-empty sets,
 then there exists a set <code>$A$</code> such that <code>$A \cap C$</code> is a singleton for
@@ -894,7 +900,7 @@ each <code>$C$</code> in <code>$\mathcal{C}$</code></p>
 <p><strong>Axiom of choice.</strong> The Cartesian product of a non-empty family of
 non-empty sets is non-empty.</p>
 </blockquote>
-<h4 id="I_1"><a class="hanchor" href="#I_1">I.</a></h4>
+<h4 id="i.-1">I.</h4>
 <p>We need to prove two directions: <code>$\text{I} \Rightarrow \text{AOC}$</code>
 and <code>$\text{AOC} \Rightarrow \text{I}$</code>.</p>
 <p>For <code>$\text{AOC} \Rightarrow \text{I}$</code>, let <code>$\mathcal{C}^{\times}=C_1
@@ -907,8 +913,8 @@ is a tuple).</p>
 element of the Cartesian product of <code>$\mathcal{C}$</code> by constructing
 the element <code>$(f(C_1), f(C_2), f(C_3), \dots)$</code>. This tuple must be an
 element of the Cartesian product of the elements in <code>$\mathcal{C}$</code>,
-therefore that Cartesian product can't be empty.</p>
-<h4 id="II_1"><a class="hanchor" href="#II_1">II.</a></h4>
+therefore that Cartesian product can&#39;t be empty.</p>
+<h4 id="ii.-1">II.</h4>
 <p>This is actually a special case of I: we just define <code>$f(C)=C \cap
 A$</code>. This gives us the results from above.</p>
-</body></html>
+</html>
