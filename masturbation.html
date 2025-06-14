@@ -86,7 +86,7 @@ towards NoFap (pheromones and microexpressions), while the others are
 dependent on being a NoFap enthusiast.</p>
 <p>Given these claims, it should be possible to at least somewhat check
 the claims made by members of the NoFap community.</p>
-<p><img alt="Nice Hypothesis" src="img/masturbation_and_attractiveness/sagan_test_meme.png" title="(Zooming into face of Carl Sagan, looking smug) “Nice Hypothesis you have there. Would be a shame if someone were to test it”"/></p>
+<p><img alt="Nice Hypothesis" src="img/masturbation/sagan_test_meme.png" title="(Zooming into face of Carl Sagan, looking smug) “Nice Hypothesis you have there. Would be a shame if someone were to test it”"/></p>
 <p>(Taken from <a href="https://slatestarcodex.com/2013/10/20/the-anti-reactionary-faq/" title="The Anti-Reactionary FAQ">Scott Alexander
 (2013)</a>)</p>
 <h2 id="Method"><a class="hanchor" href="#Method">Method</a></h2>
@@ -184,7 +184,7 @@ fillrgb(1;1;1)
 
 draw()
 </code></pre>
-<p><img alt="Loss in different stages of the funnel" src="./img/masturbation_and_attractiveness/dur_after_bar.png" title="Loss in different stages of the funnel."/></p>
+<p><img alt="Loss in different stages of the funnel" src="./img/masturbation/dur_after_bar.png" title="Loss in different stages of the funnel."/></p>
 <p>Another possible method could be to visualize cumulative survival
 rates for the different stages by percentage by showing a <a href="https://en.wikipedia.org/wiki/Kaplan%E2%80%93Meier_estimator">Kaplan-Meier
 plot</a>. The
@@ -206,7 +206,7 @@ plot({after.cumperc@(_x)-1})
 
 draw()
 </code></pre>
-<p><img alt="Retention percentages for different stages, overall" src="./img/masturbation_and_attractiveness/survival.png" title="Retention percentages for different stages, overall"/></p>
+<p><img alt="Retention percentages for different stages, overall" src="./img/masturbation/survival.png" title="Retention percentages for different stages, overall"/></p>
 <p><em>Retention percentages for different stages, overall</em></p>
 <h3 id="Descriptive_Results"><a class="hanchor" href="#Descriptive_Results">Descriptive Results</a></h3>
 <p>Before testing the hypotheses, one can compare the results using very
@@ -419,9 +419,9 @@ by users of reddit.</p>
 <p>The raw markdown,
 <a href="https://en.wikipedia.org/wiki/Pre-registration_(science)">pre-registered</a>
 version of this article can be found
-<a href="https://niplav.site/masturbation_and_attractiveness_preregistered.txt">here</a>.</p>
+<a href="https://niplav.site/masturbation_preregistered.txt">here</a>.</p>
 <p>Its hashsum was computed as such:</p>
-<pre><code>$ sha256sum masturbation_and_attractiveness_preregistered.txt
+<pre><code>$ sha256sum masturbation_preregistered.txt
 </code></pre>
 <!--TODO: add link to reddit post-->
 <h3 id="Hypotheses"><a class="hanchor" href="#Hypotheses">Hypotheses</a></h3>
@@ -543,7 +543,7 @@ percentage points):</p>
 aft::[0.15 0.3 0.35 0.4 0.8 0.93 0.99]
 </code></pre>
 <p>I then generated the dummy data:</p>
-<pre><code>$ kg ./code/masturbation_and_attractiveness/gen_dummy.kg &gt;&gt;data/masturbation_attractiveness_dummy_better.csv
+<pre><code>$ kg ./code/masturbation/gen_dummy.kg &gt;&gt;data/masturbation_attractiveness_dummy_better.csv
 </code></pre>
 <p>and tested the hypothesis again:</p>
 <pre><code>julia&gt; MannWhitneyUTest(before[!, "progress"], after[!, "progress"])
@@ -810,7 +810,7 @@ both['Rounded']=both['Abstinence'].dt.round('2d')
 <pre><code>result=both[['Rounded', 'Contactind']].groupby('Rounded').agg(['mean', 'size'])
 </code></pre>
 <p>And the result is…</p>
-<p><img alt="" src="./img/masturbation_and_attractiveness/errorbars.png"/></p>
+<p><img alt="" src="./img/masturbation/errorbars.png"/></p>
 <p>The first week sees response rates go down <em>slightly</em>, but I wouldn't
 make any strong proclamations based on that. Afterwards the data is too
 sparse for me to conclude anything, though <em>maybe</em> the rates increase
