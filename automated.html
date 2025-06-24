@@ -1,0 +1,101 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML>
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2025-05-30, modified: 2025-06-20, language: english, status: notes, importance: 7, confidence: likely</em></p>
+<blockquote>
+<p><strong>An unstructured, unfinished braindump.</strong></p>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#I_Type_Signature_of_Output">I. Type Signature of Output</a><ul></ul></li><li><a href="#II_Condition_Number_of_Succession_Process">II. Condition Number of Succession Process</a><ul></ul></li><li><a href="#III_GeneratorVerifier_Gap_BrokenUnusual_For_Alignment">III. Generator-Verifier Gap Broken/Unusual For Alignment</a><ul></ul></li><li><a href="#IV_GoalGuarding__Adversarial_Examples">IV. Goal-Guarding + Adversarial Examples</a><ul></ul></li><li><a href="#V_Training_Imitators">V. Training Imitators</a><ul></ul></li></ul></div>
+<h1 id="Automated_AI_Alignment_Research"><a class="hanchor" href="#Automated_AI_Alignment_Research">Automated AI Alignment Research</a></h1>
+<h3 id="I_Type_Signature_of_Output"><a class="hanchor" href="#I_Type_Signature_of_Output">I. Type Signature of Output</a></h3>
+<p>When we create scaffolds for/train/create training environments for
+automated AI alignment researchers, what is the type signature of the
+outputs of those researchers?</p>
+<ul>
+<li>Model weights of new, presumably aligned, more powerful AI systems?</li>
+<li>New architectures for AI systems?</li>
+<li>Proofs of convergence or OOD generalization of new architectures?</li>
+<li>Enumerative safety through mechanistic interpretability?
+<ul>
+<li>That seems hard, there are probably exponentially many meaningful circuits in large neural networks</li>
+</ul></li>
+<li>New AI paradims that side-step inner optimizers?
+<ul>
+<li>Neo-GOFAI?</li>
+<li>Infra-Bayesian physicalism implementations?</li>
+</ul></li>
+<li>Control techniques that allow for better supervision of the next generation of automated alignment researchers?</li>
+<li>Just ask the automated alignment researchers what the type signature should be?</li>
+</ul>
+<h3 id="II_Condition_Number_of_Succession_Process"><a class="hanchor" href="#II_Condition_Number_of_Succession_Process">II. Condition Number of Succession Process</a></h3>
+<h3 id="III_GeneratorVerifier_Gap_BrokenUnusual_For_Alignment"><a class="hanchor" href="#III_GeneratorVerifier_Gap_BrokenUnusual_For_Alignment">III. Generator-Verifier Gap Broken/Unusual For Alignment</a></h3>
+<p>There are different perspectives on this.</p>
+<h3 id="IV_GoalGuarding__Adversarial_Examples"><a class="hanchor" href="#IV_GoalGuarding__Adversarial_Examples">IV. Goal-Guarding + Adversarial Examples</a></h3>
+<h3 id="V_Training_Imitators"><a class="hanchor" href="#V_Training_Imitators">V. Training Imitators</a></h3>
+<p><a href="https://www.lesswrong.com/posts/TTFsKxQThrqgWeXYJ/how-might-we-safely-pass-the-buck-to-ai">Clymer
+2025</a>
+suggests to train AIs that imitate human alignment researchers.</p>
+<p>Clymer suggests a method of checking AI systems by letting them replicate
+the output of the AI alignment community from a specific period; excluding
+training data from that period from the training data, and then checking
+if the automated alignment researchers make similar findings to the
+alignment community. This method is quite powerful, as it replicates the
+progress made by the <em>entire</em> research field, including interactions
+between researchers. But it also requires extensive cleaning of the
+training data, interventions in the training process, and consists only
+of a single data-point, replicating "fads" researchers get infatuated
+by.<!--Mention linear probes (Burns), SAEs, decision theory?--></p>
+<p>In smaller-scale experiments, Clymer isn't as clear about the
+procedure. There are two variants, namely whether one <strong>trains against
+alignment researcher feedback</strong> or <strong>trains against alignment researcher
+behavior</strong>.</p>
+<p><strong>Training against alignment researcher feedback</strong>: An alignment
+researcher formulates a task (i.e. an experiment, a conceptual question
+&amp;c). The AI model generates an output to solve the task. The researcher
+then samples and observes the output, and then grades the results
+according to how much they liked the output of the AI model with respect
+to the task. The model is trained on that feedback.</p>
+<p><strong>Training against alignment researcher behavior</strong>: An alignment
+researcher formulates a task. The AI model, as in the previous case,
+tries to solve the task and produces some output <code>$O_A$</code>. For some tasks,
+the alignment researcher <em>separately</em> tries to solve the task themselves,
+and produces some output <code>$O_R$</code>, without any access to <code>$O_A$</code>. A third
+person (which could be a different AI model, or another researcher) then
+goes over <code>$O_A$</code> and <code>$O_R$</code> and grades the AI model on how similar
+<code>$O_A$</code> is to <code>$O_R$</code>.</p>
+<p>Training against alignment researcher behavior is much more bona-fide
+<a href="https://en.wikipedia.org/wiki/Imitation_learning">imitation learning</a>,
+whereas training against alignment researcher feedback is much more
+similar in spirit to e.g. RLHF.</p>
+</body></html>
