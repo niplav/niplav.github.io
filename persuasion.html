@@ -1,0 +1,169 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<!DOCTYPE HTML>
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
+</script>
+<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	extensions: ["tex2jax.js"],
+	jax: ["input/TeX", "output/HTML-CSS"],
+	tex2jax: {
+		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+		processEscapes: true,
+		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+	},
+	"HTML-CSS": { availableFonts: ["TeX"] }
+	});
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2025-07-04, modified: 2025-07-08, language: english, status: notes, importance: 8, confidence: log</em></p>
+<blockquote>
+<p><strong>.</strong></p>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Motivation">Motivation</a><ul></ul></li><li><a href="#Assumptions">Assumptions</a><ul></ul></li><li><a href="#Both_Pre_and_PostDeployment">Both Pre- and Post-Deployment</a><ul></ul></li><li><a href="#Interventions_limited_to_predeployment">Interventions limited to pre-deployment</a><ul></ul></li><li><a href="#Interventions_limited_to_postdeployment">Interventions limited to post-deployment</a><ul></ul></li><li><a href="#Testing_AntiSuperpersuasion_Setups">Testing Anti-Superpersuasion Setups</a><ul></ul></li></ul></div>
+<h1 id="AntiSuperpersuasion_Interventions"><a class="hanchor" href="#AntiSuperpersuasion_Interventions">Anti-Superpersuasion Interventions</a></h1>
+<blockquote>
+<p>Meanwhile, I’ve got great confidence that the most incredible
+intelligence of the universe is not going to be able to construct 10
+words that will make me kill myself. I don’t care how good your words
+are. Words don’t work that way.</p>
+</blockquote>
+<p><em>—Bryan Caplan, <a href="https://80000hours.org/podcast/episodes/bryan-caplan-stop-reading-the-news/">“80,000 Hours Podcast Episode 172”</a>, 2023</em></p>
+<h3 id="Motivation"><a class="hanchor" href="#Motivation">Motivation</a></h3>
+<p>Humanity will plausibly start interacting with mildly superhuman
+artificial intelligences in the next decade<sub>65%</sub>. Such
+systems <a href="https://www.lesswrong.com/posts/8fpzBHt7e6n7Qjoo9/ai-risk-for-epistemic-minimalists">may have drives that cause them to act in ways we don't
+want</a>,
+potentially causing <a href="https://metr.org/blog/2024-11-12-rogue-replication-threat-model/">attempted
+self-exfiltration</a>
+from the servers they're running on. To do so, mildly superhuman AI
+systems have at least two avenues<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>:</p>
+<ol>
+<li>Circumventing the computer security of the servers they're runnign on.</li>
+<li>Psychologically manipulating and persuading their operators to let them exfiltrate themselves (or otherwise do what the AI systems want them to do).</li>
+</ol>
+<p>Computer security is currently a large focus of AI model providers,
+because preventing self-exfiltration coincides well with preventing
+exfiltration by third parties, e.g. foreign governments, trying to steal
+model weights.</p>
+<p>However, superhuman persuasion<sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup> has received less attention, mostly
+justifiedly: frontier AI companies are not training their AI systems to
+be more persuasive, whereas they <em>are</em> training their AI systems to be
+skilled software engineers; superhuman persuasion may run into issues of
+the heterogeneity, stochasticity and partial observability of different
+human minds, and there are fewer precedents of superhuman persuasion
+being used by governments to achieve their aims. Additionally, many
+people are incredulous at the prospect of superhuman persuasion.</p>
+<p>But given that superpersuasion is one of a few possible ways for AI
+systems to influence their environment according to their drives, too
+little attention has been paid to the issue. <a href="https://openai.com/index/sycophancy-in-gpt-4o/">Sycophancy by large language
+models</a> is commonplace,
+and <a href="https://www.anthropic.com/news/measuring-model-persuasiveness">large language models are becoming more persuasive with increasing
+scale</a>. (I
+also find it plausible that providers like
+<a href="https://en.wikipedia.org/wiki/Character.ai">Character.ai</a> or Meta
+are training their systems to be reinforced to have longer interaction
+lengths, making them more addictive, but I don't have definitive evidence
+for that<!--TODO: link 2h claim, AlphaRizz on twitter-->).</p>
+<p>AI developers and users will have to interact with increasingly
+persuasive and addictive systems<sub>70%</sub>, but most of
+the thinking on how to interact with superpersuasive sources
+of information has come from fiction. Exceptions include <a href="https://markelkori.substack.com/p/methods-of-defense-against-agi-manipulation">Kori
+2025</a>
+and <a href="">Davidson 2023</a><!--TODO: read & link!-->. <a href="https://markelkori.substack.com/p/methods-of-defense-against-agi-manipulation">Kori
+2025</a>
+is a useful first stab at defining some simple interventions, but I
+wanted to sketch a slightly more detailed list of interventions, similar
+to <a href="">AI Control protocols</a><!--TODO: link-->.<!--TODO: also relevant:
+Bostrom on infohazards. Not much follow-up there?--></p>
+<p>I am not going to attempt to convince people that superhuman persuasion
+abilities are possible, and indeed focus on trying to sketch what
+anti-persuasion measures could look like.</p>
+<h3 id="Assumptions"><a class="hanchor" href="#Assumptions">Assumptions</a></h3>
+<ul>
+<li><strong>Difficult Detection</strong>: Persuasion/manipulation/addiction can't easily be detected.</li>
+<li><strong>Non-Infection</strong>: No "infectious" memes/egregores that jump from person to person. So it's not possible for an AI system to produce some output that manipulates/persuades Alice, and then Alice successfully persuades Bob via a similar method that the AI persuaded Alice with, even though Alice didn't have that persuasive ability beforehand.
+<ul>
+<li>An edge-case is information that Alice would be extremely compelled to share with as many people as possible.</li>
+</ul></li>
+<li><strong>No One-Shotting</strong>: Persuasion is not wildly superhuman, needs to be gradual, e.g. no ten words that convince someone to commit suicide.
+<ul>
+<li>There are at least two different variants of superpersuasion, which form two ends of a spectrum:
+<ul>
+<li><em>Recognizable Persuasion</em>: AI systems build trust with users or developers, are charming and charismatic, report information selectively &amp;c, only to use that trust later to subvert safeguards.</li>
+<li><em>Adversarial Examples</em>: Human brains could have <a href="https://en.wikipedia.org/wiki/Adversarial_input">adversarial inputs</a> similar to <a href="https://en.wikipedia.org/wiki/Optical_Illusion">optical illusions</a> but for more general cognitive functions, which circumvent specific parts of the brain and cause others to be activated more than normally. If those exist, they could allow for a fast and potentially complete circumvention of conscious processing.</li>
+</ul></li>
+</ul></li>
+</ul>
+<h3 id="Both_Pre_and_PostDeployment"><a class="hanchor" href="#Both_Pre_and_PostDeployment">Both Pre- and Post-Deployment</a></h3>
+<ul>
+<li><strong>Refraining From Training</strong>: Don't build an advanced AI model that you suspect could have superpersuasive capabilities.</li>
+<li><strong>Refraining From Deployment</strong>: Don't deploy an advanced AI model that you suspect could have superpersuasive capabilities.</li>
+<li><strong>Rephrasing</strong>
+<ul>
+<li><em>Output Rephrasing</em>: Outputs by frontier models are rephrased by a weaker model, perhaps just initially (or when there are warning signs of manipulation/persuasion/addiction).</li>
+<li><em>Input Rephrasing</em>: A weaker model paraphrases inputs as to prevent information about the speaker leaking through to the AI, which could then be used for manipulation.</li>
+<li><em>No Rewrite Training</em>: No training of AIs based on user feedback in the re-writing setup.</li>
+</ul></li>
+<li><strong>Modality Limits</strong>: People interacting with the model, be they model whisperers or not, should in preliminary testing only interact with the text-based input/output modality.
+<ul>
+<li><em>Order</em>: The right order for modalities to be introduced are then images, audio, video, audio+video.</li>
+</ul></li>
+<li><strong>Interaction Limits</strong>: People interacting with the model, be they model whisperers or not, should only interact with model to a limited degree, e.g. less than a message/four minutes, and after one hour of interaction there needs to be a one-hour break.</li>
+<li><strong>Output Type Restriction</strong>: Output types are limited to mathematical proofs, code, scientific text. Potentially easily enforceable via sampling grammars<!--TODO: link-->.
+<ul>
+<li>Limit to ASCII/ASCII+whitelisted <a href="https://en.wikipedia.org/wiki/Unicode_block">unicode blocks</a></li>
+</ul></li>
+</ul>
+<h3 id="Interventions_limited_to_predeployment"><a class="hanchor" href="#Interventions_limited_to_predeployment">Interventions limited to pre-deployment</a></h3>
+<ul>
+<li><strong>Model Whisperers</strong>: Have a dedicated position of "Model Whisperers" who are the only people who interact with the model directly.
+<ul>
+<li><em>Separation of Concerns</em>: Model whisperers can't change anything of the rest of the infrastructure (e.g. writing code, changing access permissions &amp;c).</li>
+<li><em>Unremembered Whisperers</em>: Advanced AI models should not keep long-term memories of the conversations with and identities of their model whisperers.</li>
+<li><em>Sanctioning Deceptive Whisperers</em>: If a model whisperer attempts to e.g. cause the weights of a model to be exfiltrated, or similar actions, the model whisperer is relieved of their position in the organization.</li>
+</ul></li>
+<li><strong>Pair prompting</strong>: When interacting with a model, there is always a pair of model whisperers interacting with the model, similar to pair-programming
+<ul>
+<li><em>Different Backgrounds</em>: The model whisperers need to have very different backgrounds/gender/ethnicity</li>
+<li><em>Separated Whisperers</em>: The model whisperers should not be able to directly talk to each other, instead one needs to approve answers to messages before the interacting one sees them</li>
+</ul></li>
+</ul>
+<h3 id="Interventions_limited_to_postdeployment"><a class="hanchor" href="#Interventions_limited_to_postdeployment">Interventions limited to post-deployment</a></h3>
+<ul>
+<li><strong>One-Click Rollback</strong>: For the current model version, there is a person that can in less than a minute revert to the previously deployed model.</li>
+<li><strong>One-Click Undeployment</strong>: A model can be removed from deployment with actions that take less than a minute</li>
+</ul>
+<h3 id="Testing_AntiSuperpersuasion_Setups"><a class="hanchor" href="#Testing_AntiSuperpersuasion_Setups">Testing Anti-Superpersuasion Setups</a></h3>
+<!--Claude Chats:
+https://claude.ai/chat/9b59090a-d1b1-4cff-b0ce-77e439b027f4
+https://claude.ai/chat/752d0fda-12b0-4f3c-b509-431fc46f9059
+-->
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn1">
+<p>Wildly superhuman AI systems may have more exfiltration vectors, including side-channels through electromagnetic radiation from their GPUs, or novel physical laws humans have not yet discovered. <a href="#fnref1" rev="footnote">↩</a></p>
+</li>
+<li id="fn2">
+<p>From here on out also "superpersuasion". <a href="#fnref2" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>
+</body></html>
