@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <p><em>author: niplav, created: 2025-07-04, modified: 2025-07-08, language: english, status: notes, importance: 8, confidence: log</em></p>
 <blockquote>
 <p><strong>.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Motivation">Motivation</a><ul></ul></li><li><a href="#Assumptions">Assumptions</a><ul></ul></li><li><a href="#Both_Pre_and_PostDeployment">Both Pre- and Post-Deployment</a><ul></ul></li><li><a href="#Interventions_limited_to_predeployment">Interventions limited to pre-deployment</a><ul></ul></li><li><a href="#Interventions_limited_to_postdeployment">Interventions limited to post-deployment</a><ul></ul></li><li><a href="#Testing_AntiSuperpersuasion_Setups">Testing Anti-Superpersuasion Setups</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Motivation">Motivation</a><ul></ul></li><li><a href="#Assumptions">Assumptions</a><ul></ul></li><li><a href="#Both_Pre_and_PostDeployment">Both Pre- and Post-Deployment</a><ul></ul></li><li><a href="#Interventions_Limited_to_PreDeployment">Interventions Limited to Pre-Deployment</a><ul></ul></li><li><a href="#Interventions_Limited_to_PostDeployment">Interventions Limited to Post-Deployment</a><ul></ul></li><li><a href="#Testing_AntiSuperpersuasion_Setups">Testing Anti-Superpersuasion Setups</a><ul></ul></li></ul></div>
 <h1 id="AntiSuperpersuasion_Interventions"><a class="hanchor" href="#AntiSuperpersuasion_Interventions">Anti-Superpersuasion Interventions</a></h1>
 <blockquote>
 <p>Meanwhile, I’ve got great confidence that the most incredible
@@ -55,7 +55,7 @@ self-exfiltration</a>
 from the servers they're running on. To do so, mildly superhuman AI
 systems have at least two avenues<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>:</p>
 <ol>
-<li>Circumventing the computer security of the servers they're runnign on.</li>
+<li>Circumventing the computer security of the servers they're running on.</li>
 <li>Psychologically manipulating and persuading their operators to let them exfiltrate themselves (or otherwise do what the AI systems want them to do).</li>
 </ol>
 <p>Computer security is currently a large focus of AI model providers,
@@ -70,9 +70,10 @@ the heterogeneity, stochasticity and partial observability of different
 human minds, and there are fewer precedents of superhuman persuasion
 being used by governments to achieve their aims. Additionally, many
 people are incredulous at the prospect of superhuman persuasion.</p>
-<p>But given that superpersuasion is one of a few possible ways for AI
-systems to influence their environment according to their drives, too
-little attention has been paid to the issue. <a href="https://openai.com/index/sycophancy-in-gpt-4o/">Sycophancy by large language
+<p>But given that superpersuasion is one of a few possible ways
+for mildly superintelligent AI systems to influence their
+environment according to their drives, too little attention
+has been paid to the issue. <a href="https://openai.com/index/sycophancy-in-gpt-4o/">Sycophancy by large language
 models</a> is commonplace,
 and <a href="https://www.anthropic.com/news/measuring-model-persuasiveness">large language models are becoming more persuasive with increasing
 scale</a>. (I
@@ -98,7 +99,7 @@ anti-persuasion measures could look like.</p>
 <h3 id="Assumptions"><a class="hanchor" href="#Assumptions">Assumptions</a></h3>
 <ul>
 <li><strong>Difficult Detection</strong>: Persuasion/manipulation/addiction can't easily be detected either by other humans or by automated systems.<!--TODO: is this true? Probably early persuasion is going to look pretty blatant. Also Pair-Prompting sort of relies on the opposite being the case--></li>
-<li><strong>Non-Infection</strong>: No "infectious" memes/egregores that jump from person to person. So it's not possible for an AI system to produce some output that manipulates/persuades Alice, and then Alice successfully persuades Bob via a similar method that the AI persuaded Alice with, even though Alice didn't have that persuasive ability beforehand.
+<li><strong>Non-Infection</strong>: No "infectious" memes/<a href="https://en.wikipedia.org/wiki/Egregore">egregores</a> that jump from person to person. So it's not possible for an AI system to produce some output that manipulates/persuades Alice, and then Alice successfully persuades Bob via a similar method that the AI persuaded Alice with, even though Alice didn't have that persuasive ability beforehand.
 <ul>
 <li>An edge-case is information that Alice would be extremely compelled to share with as many people as possible.</li>
 </ul></li>
@@ -131,8 +132,9 @@ anti-persuasion measures could look like.</p>
 <li>Limit to ASCII/ASCII+whitelisted <a href="https://en.wikipedia.org/wiki/Unicode_block">unicode blocks</a></li>
 </ul></li>
 </ul>
-<h3 id="Interventions_limited_to_predeployment"><a class="hanchor" href="#Interventions_limited_to_predeployment">Interventions limited to pre-deployment</a></h3>
+<h3 id="Interventions_Limited_to_PreDeployment"><a class="hanchor" href="#Interventions_Limited_to_PreDeployment">Interventions Limited to Pre-Deployment</a></h3>
 <ul>
+<li><strong>Programmatic Evaluations</strong>: Before humans interact with an AI system, and early after training, evaluations should be mostly performed with pre-programmed evaluations and/or through weaker AI systems, so that developers can gain some understanding of the AI without having to interact with it.</li>
 <li><strong>Model Whisperers</strong>: Have a dedicated position of "Model Whisperers" who are the only people who interact with the model directly.
 <ul>
 <li><em>Separation of Concerns</em>: Model whisperers can't change anything of the rest of the infrastructure (e.g. writing code, changing access permissions &amp;c).</li>
@@ -145,7 +147,7 @@ anti-persuasion measures could look like.</p>
 <li><em>Separated Whisperers</em>: The model whisperers should not be able to directly talk to each other, instead one needs to approve answers to messages before the interacting one sees them</li>
 </ul></li>
 </ul>
-<h3 id="Interventions_limited_to_postdeployment"><a class="hanchor" href="#Interventions_limited_to_postdeployment">Interventions limited to post-deployment</a></h3>
+<h3 id="Interventions_Limited_to_PostDeployment"><a class="hanchor" href="#Interventions_Limited_to_PostDeployment">Interventions Limited to Post-Deployment</a></h3>
 <ul>
 <li><strong>One-Click Rollback</strong>: For the current model version, there is a person that can in less than a minute revert to the previously deployed model.</li>
 <li><strong>One-Click Undeployment</strong>: A model can be removed from deployment with actions that take less than a minute</li>
