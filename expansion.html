@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2025-04-16, modified: 2025-04-16, language: english, status: in progress, importance: 7, confidence: certain</em></p>
+<p><em>author: niplav, created: 2025-04-16, modified: 2025-07-23, language: english, status: in progress, importance: 7, confidence: certain</em></p>
 <blockquote>
 <p><strong>.</strong></p>
 </blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Building_on_inductive_biases_favoring_speed_over_simplicity">Building on inductive biases favoring speed over simplicity.</a><ul></ul></li><li><a href="#Understanding_smaller_models_is_easier">Understanding smaller models is easier.</a><ul></ul></li><li><a href="#Inheriting_safety_properties_from_previous_models">Inheriting safety properties from previous models.</a><ul></ul></li><li><a href="#Allowing_for_more_gradual_scaling">Allowing for more gradual scaling</a><ul></ul></li><li><a href="#Open_questions">Open questions</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
@@ -70,7 +70,7 @@ induction</a>,
 but limited to programs of some maximum length
 <code>$l$</code> and some maximum runtime <code>$t$</code> (similar to
 <a href="https://en.wikipedia.org/wiki/AIXI#Computational_aspects">AIXI-tl</a>,
-where I'm not sure what the prior is. <code>$l$</code> is upper-bounded by the
+where I'm not sure what the prior is). <code>$l$</code> is upper-bounded by the
 information-content of the weights of the network: The number of bits in
 the program is pre-determined by how much you can fit into the floats of
 the weights. <code>$t$</code> is upper-bounded by the number of layers, as one can
@@ -150,11 +150,13 @@ learning.</p>
 <li>Do circuits from pre-expansion training stick around?</li>
 <li>Do the inductive biases of the deeper network "overwhelm" the available circuits in the smaller model?</li>
 </ol>
-<p>In an ambitious vision, training after model expansion is a tiny
-step towards a craft of intelligence: one in which different stages
-of a model are trained with different data, invariances are kept
-across scalings, interpretability tools transfer partially (or
-completely) because sometimes weights can be frozen, tracking <a href="https://www.lesswrong.com/s/kjcioCkqSSS4LiMAe/p/k54rgSg7GcjtXnMHX">model
+<p>In an ambitious vision, training after
+model expansion is a tiny step towards a <a href="https://www.lesswrong.com/posts/gXinMpNJcXXgSTEpn/ai-craftsmanship">craft of
+intelligence</a>:
+one in which different stages of a model are trained with
+different data, invariances are kept across scalings,
+interpretability tools transfer partially (or completely)
+because sometimes weights can be frozen, tracking <a href="https://www.lesswrong.com/s/kjcioCkqSSS4LiMAe/p/k54rgSg7GcjtXnMHX">model
 splintering</a>…</p>
 <h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
 <ul>
