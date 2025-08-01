@@ -1,27 +1,12 @@
 <html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!DOCTYPE HTML>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
 
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
-</script>
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true,
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-	},
-	"HTML-CSS": { availableFonts: ["TeX"] }
-	});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -32,27 +17,206 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<style type="text/css">
+                            .mjpage .MJX-monospace {
+                            font-family: monospace
+                            }
+
+                            .mjpage .MJX-sans-serif {
+                            font-family: sans-serif
+                            }
+
+                            .mjpage {
+                            display: inline;
+                            font-style: normal;
+                            font-weight: normal;
+                            line-height: normal;
+                            font-size: 100%;
+                            font-size-adjust: none;
+                            text-indent: 0;
+                            text-align: left;
+                            text-transform: none;
+                            letter-spacing: normal;
+                            word-spacing: normal;
+                            word-wrap: normal;
+                            white-space: nowrap;
+                            float: none;
+                            direction: ltr;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            border: 0;
+                            padding: 0;
+                            margin: 0
+                            }
+
+                            .mjpage * {
+                            transition: none;
+                            -webkit-transition: none;
+                            -moz-transition: none;
+                            -ms-transition: none;
+                            -o-transition: none
+                            }
+
+                            .mjx-svg-href {
+                            fill: blue;
+                            stroke: blue
+                            }
+
+                            .MathJax_SVG_LineBox {
+                            display: table!important
+                            }
+
+                            .MathJax_SVG_LineBox span {
+                            display: table-cell!important;
+                            width: 10000em!important;
+                            min-width: 0;
+                            max-width: none;
+                            padding: 0;
+                            border: 0;
+                            margin: 0
+                            }
+
+                            .mjpage__block {
+                            text-align: center;
+                            margin: 1em 0em;
+                            position: relative;
+                            display: block!important;
+                            text-indent: 0;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            width: 100%
+                            }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-02-08, modified: 2024-06-27, language: english, status: maintenance, importance: 4, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>Imagine getting up every morning and throwing a coin so often that
 heads and tails have come up an equal amount of times. How often
 would you throw the coin on average? Infinitely often, it turns out.
 Code in <a href="http://t3x.org/klong/index.html">Klong</a>.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#None">Finding $x_{i}$</a><ul></ul></li><li><a href="#None_1">Finding $p_{i}$</a><ul><li><a href="#Observing_Coin_Flips">Observing Coin Flips</a><ul></ul></li><li><a href="#Considerations_on_Coin_Flips">Considerations on Coin Flips</a><ul><li><a href="#None_2">Proof that $o_{n}=2 \cdot n \cdot f_{n}$</a><ul></ul></li></ul></li><li><a href="#None_3">Probability of Finishing at $2 \cdot n$ Steps</a><ul></ul></li></ul></li><li><a href="#Final_Formula_and_Final_Code">Final Formula and Final Code</a><ul></ul></li><li><a href="#Proof_of_Divergence">Proof of Divergence</a><ul><li><a href="#None_4">Proof that $r_n \ge \frac{1}{n}$</a><ul></ul></li></ul></li><li><a href="#Further_Considerations">Further Considerations</a><ul></ul></li><li><a href="#External_Links">External Links</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#None">Finding <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.129ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 916.8 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">x_{i}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-78" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="809" y="-213"></use>
+</g>
+</svg></span></a><ul></ul></li><li><a href="#None_1">Finding <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.059ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 886.3 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-2-Title">
+<title id="MathJax-SVG-2-Title">p_{i}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="712" y="-213"></use>
+</g>
+</svg></span></a><ul><li><a href="#Observing_Coin_Flips">Observing Coin Flips</a><ul></ul></li><li><a href="#Considerations_on_Coin_Flips">Considerations on Coin Flips</a><ul><li><a href="#None_2">Proof that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.718ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 5906.2 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-3-Title">
+<title id="MathJax-SVG-3-Title">o_{n}=2 \cdot n \cdot f_{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="686" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1287" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="2344" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="3066" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="3567" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="4390" y="0"></use>
+<g transform="translate(4891,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="693" y="-213"></use>
+</g>
+</g>
+</svg></span></a><ul></ul></li></ul></li><li><a href="#None_3">Probability of Finishing at <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.236ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1823.9 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-4-Title">
+<title id="MathJax-SVG-4-Title">2 \cdot n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+</g>
+</svg></span> Steps</a><ul></ul></li></ul></li><li><a href="#Final_Formula_and_Final_Code">Final Formula and Final Code</a><ul></ul></li><li><a href="#Proof_of_Divergence">Proof of Divergence</a><ul><li><a href="#None_4">Proof that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.188ex" height="3.343ex" style="vertical-align: -1.005ex;" viewBox="0 -1006.6 3094.8 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-5-Title">
+<title id="MathJax-SVG-5-Title">r_n \ge \frac{1}{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-2265" x="1253" y="0"></use>
+<g transform="translate(2032,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="544" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="134" y="629"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="84" y="-488"></use>
+</g>
+</g>
+</g>
+</svg></span></a><ul></ul></li></ul></li><li><a href="#Further_Considerations">Further Considerations</a><ul></ul></li><li><a href="#External_Links">External Links</a><ul></ul></li></ul></div>
 <h1 id="Equally_Many_Heads_and_Tails"><a class="hanchor" href="#Equally_Many_Heads_and_Tails">Equally Many Heads and Tails</a></h1>
 <p>This thought experiment can be modeled as a simple
 <a href="https://en.wikipedia.org/wiki/Expected_value">expected value</a>
 calculation in a countably infinite case:</p>
 <div>
-    $$\mathbb{E}=\sum_{i=1}^{\infty} p_{i} \cdot x_{i}$$
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="14.168ex" height="6.843ex" style="vertical-align: -3.005ex;" viewBox="0 -1652.5 6100.3 2946.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-6-Title">
+<title id="MathJax-SVG-6-Title">\mathbb{E}=\sum_{i=1}^{\infty} p_{i} \cdot x_{i}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJAMS-45" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="945" y="0"></use>
+<g transform="translate(2001,0)">
+ <use xlink:href="#MJSZ2-2211" x="0" y="0"></use>
+<g transform="translate(147,-1090)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-3D" x="345" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1124" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-221E" x="521" y="1627"></use>
+</g>
+<g transform="translate(3612,0)">
+ <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="712" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="4682" y="0"></use>
+<g transform="translate(5183,0)">
+ <use xlink:href="#MJMATHI-78" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="809" y="-213"></use>
+</g>
+</g>
+</svg></span>
 </div>
-<h2 id="None"><a class="hanchor" href="#None">Finding <code>$x_{i}$</code></a></h2>
-<p>We know that flipping the coin definitely ends when for <code>$2 \cdot n$</code> coin flips,
+<h2 id="None"><a class="hanchor" href="#None">Finding <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.129ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 916.8 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-7-Title">
+<title id="MathJax-SVG-7-Title">x_{i}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-78" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="809" y="-213"></use>
+</g>
+</svg></span></a></h2>
+<p>We know that flipping the coin definitely ends when for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.236ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1823.9 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-8-Title">
+<title id="MathJax-SVG-8-Title">2 \cdot n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+</g>
+</svg></span> coin flips,
 we have gotten heads n times and tails n times as well. This gives us
-<code>$x_{i}=2 \cdot i$</code>.</p>
-<h2 id="None_1"><a class="hanchor" href="#None_1">Finding <code>$p_{i}$</code></a></h2>
-<p>Finding out <code>$p_{i}$</code> is a bit harder. In order to find it, it is best to look
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.872ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 3819.8 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-9-Title">
+<title id="MathJax-SVG-9-Title">x_{i}=2 \cdot i</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-78" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="809" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1194" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="2250" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="2973" y="0"></use>
+ <use xlink:href="#MJMATHI-69" x="3474" y="0"></use>
+</g>
+</svg></span>.</p>
+<h2 id="None_1"><a class="hanchor" href="#None_1">Finding <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.059ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 886.3 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-10-Title">
+<title id="MathJax-SVG-10-Title">p_{i}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="712" y="-213"></use>
+</g>
+</svg></span></a></h2>
+<p>Finding out <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.059ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 886.3 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-11-Title">
+<title id="MathJax-SVG-11-Title">p_{i}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="712" y="-213"></use>
+</g>
+</svg></span> is a bit harder. In order to find it, it is best to look
 at the first iterations of the process.</p>
 <h3 id="Observing_Coin_Flips"><a class="hanchor" href="#Observing_Coin_Flips">Observing Coin Flips</a></h3>
 <p>After starting, we have flipped the coin 2 times, so the possible solutions are:</p>
@@ -62,7 +226,22 @@ T;H
 T;T
 </code></pre>
 <p>We are done in two cases, H;T and T;H. p₁ therefore is
-<code>$\frac{2}{4}=0.5$</code>. We then continue flipping the coin 2 more times,
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.728ex" height="3.509ex" style="vertical-align: -1.171ex;" viewBox="0 -1006.6 3327.5 1510.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-12-Title">
+<title id="MathJax-SVG-12-Title">\frac{2}{4}=0.5</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(120,0)">
+<rect stroke="none" width="473" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="84" y="629"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-34" x="84" y="-600"></use>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="991" y="0"></use>
+<g transform="translate(2047,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-35" x="779" y="0"></use>
+</g>
+</g>
+</svg></span>. We then continue flipping the coin 2 more times,
 starting with either H;H or T;T, with the following possible results:</p>
 <pre><code>H;H;H;H
 H;H;H;T
@@ -74,7 +253,23 @@ T;T;H;T
 T;T;T;T
 </code></pre>
 <p>Of these, only two finish: H;H;T;T and T;T;H;H. So the chance of finishing
-given 4 coin flips is <code>$\frac{2}{8}=0.25$</code>.</p>
+given 4 coin flips is <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.891ex" height="3.676ex" style="vertical-align: -1.338ex;" viewBox="0 -1006.6 3828 1582.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-13-Title">
+<title id="MathJax-SVG-13-Title">\frac{2}{8}=0.25</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(120,0)">
+<rect stroke="none" width="473" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="84" y="629"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-38" x="84" y="-589"></use>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="991" y="0"></use>
+<g transform="translate(2047,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-35" x="1279" y="0"></use>
+</g>
+</g>
+</svg></span>.</p>
 <p>We continue flipping the coin with the non-finishing sequences, and our possible
 results look like this:</p>
 <pre><code>H;H;H;H;H;H
@@ -109,14 +304,53 @@ T;T;T;T;T;T
 </code></pre>
 <p>Here, the sequences <code>H;H;H;T;T;T, H;H;T;H;T;T, T;T;T;H;H;H,T;T;H;T;H;H</code>
 finish, so given six coin flips, the chance of finishing is
-<code>$\frac{4}{24}=0.1666666\dots$</code>.</p>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="18.635ex" height="3.509ex" style="vertical-align: -1.171ex;" viewBox="0 -1006.6 8023.5 1510.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-14-Title">
+<title id="MathJax-SVG-14-Title">\frac{4}{24}=0.1666666\dots</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(120,0)">
+<rect stroke="none" width="827" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-34" x="335" y="629"></use>
+<g transform="translate(60,-424)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-34" x="500" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="1345" y="0"></use>
+<g transform="translate(2401,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="1279" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="1780" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="2280" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="2781" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="3281" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="3782" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-2026" x="6851" y="0"></use>
+</g>
+</svg></span>.</p>
 <p>Writing down the next step gets messy, but we have already observed
 enough iterations to find a pattern in the sequences.</p>
 <h3 id="Considerations_on_Coin_Flips"><a class="hanchor" href="#Considerations_on_Coin_Flips">Considerations on Coin Flips</a></h3>
-<p>First of all, the number of finishing sequences given <code>$2 \cdot n$</code> coin flips
+<p>First of all, the number of finishing sequences given <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.236ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1823.9 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-15-Title">
+<title id="MathJax-SVG-15-Title">2 \cdot n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+</g>
+</svg></span> coin flips
 is the <a href="https://en.wikipedia.org/wiki/Catalan_number">Catalan number</a>
 Cₙ. In this case, it describes the number of <a href="https://en.wikipedia.org/wiki/Dyck_word">Dyck
-words</a> of the length <code>$2 \cdot n$</code>. To
+words</a> of the length <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.236ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1823.9 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-16-Title">
+<title id="MathJax-SVG-16-Title">2 \cdot n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+</g>
+</svg></span>. To
 quote Wikipedia:</p>
 <blockquote>
 <p>A Dyck word is a string consisting of n X's and n Y's such that no
@@ -125,7 +359,33 @@ initial segment of the string has more Y's than X's.</p>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Wikipedia">Wikipedia</a>, <a href="https://en.wikipedia.org/wiki/Dyck_word">“Dyck word”</a>, 2019</em></p>
 <p>This applies exactly to the given problem. A finishing sequence has
 equally many heads and tails, but doesn't begin with a sequence of
-equally many heads and tails. Cₙ is defined as <code>$\frac{1}{n+1} \cdot {2 \cdot n \choose n}$</code>.</p>
+equally many heads and tails. Cₙ is defined as <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.997ex" height="3.676ex" style="vertical-align: -1.338ex;" viewBox="0 -1006.6 4304.4 1582.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-17-Title">
+<title id="MathJax-SVG-17-Title">\frac{1}{n+1} \cdot {2 \cdot n \choose n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(120,0)">
+<rect stroke="none" width="1449" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="774" y="629"></use>
+<g transform="translate(60,-417)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="1911" y="0"></use>
+<g transform="translate(2411,0)">
+ <use xlink:href="#MJSZ1-28" x="0" y="-1"></use>
+<g transform="translate(458,0)">
+<g transform="translate(0,443)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="779" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="389" y="-488"></use>
+</g>
+ <use xlink:href="#MJSZ1-29" x="1433" y="-1"></use>
+</g>
+</g>
+</svg></span>.</p>
 <p>Catalan numbers can be easily implemented using the <a href="https://en.wikipedia.org/wiki/Binomial_coefficient">binomial
 coefficient</a>:</p>
 <pre><code>fact::{:[0=x;1;*/1+!x]}
@@ -133,70 +393,570 @@ bincoeff::{[n k];n::x;k::y;fact(n)%(fact(k)*fact(n-k))}
 catalan::{bincoeff(2*x;x)%x+1}
 f::{2*catalan(x)}
 </code></pre>
-<p>We call the number of finishing steps given <code>$2\cdot n$</code> coin flips fₙ.</p>
+<p>We call the number of finishing steps given <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.236ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1823.9 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-18-Title">
+<title id="MathJax-SVG-18-Title">2\cdot n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+</g>
+</svg></span> coin flips fₙ.</p>
 <p>One can also see that the total number of possible sequences of coin flips
-oₙ after <code>$2 \cdot n$</code> coin flips is <code>$4 \cdot (o_{n-1}-f_{n-1})$</code>, because
+oₙ after <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.236ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1823.9 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-19-Title">
+<title id="MathJax-SVG-19-Title">2 \cdot n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+</g>
+</svg></span> coin flips is <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.396ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 7059.4 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-20-Title">
+<title id="MathJax-SVG-20-Title">4 \cdot (o_{n-1}-f_{n-1})</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-34" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1223" y="0"></use>
+<g transform="translate(1612,0)">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+<g transform="translate(485,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2212" x="3749" y="0"></use>
+<g transform="translate(4750,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+<g transform="translate(490,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-29" x="6669" y="0"></use>
+</g>
+</svg></span>, because
 one appends <code>H;H</code> or <code>H;T</code> or <code>T;H</code> or <code>T;T</code> to the remaining number of
 sequences. So let oₙ be</p>
 <div>
-    $$o_{1}=4\\
-    o_{n}=4 \cdot (o_{n-1}-f_{n-1})$$
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="100ex" height="5.843ex" style="vertical-align: -4.005ex; max-width: 60000px;" viewBox="0 -791.3 43055.4 2515.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-21-Title">
+<title id="MathJax-SVG-21-Title">o_{1}=4\\
+    o_{n}=4 \cdot (o_{n-1}-f_{n-1})</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(20140,0)">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="686" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1217" y="0"></use>
+ <use xlink:href="#MJMAIN-34" x="2273" y="0"></use>
+</g>
+<g transform="translate(16825,-1333)">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="686" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1287" y="0"></use>
+ <use xlink:href="#MJMAIN-34" x="2344" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="3066" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="3567" y="0"></use>
+<g transform="translate(3957,0)">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+<g transform="translate(485,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2212" x="6093" y="0"></use>
+<g transform="translate(7094,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+<g transform="translate(490,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-29" x="9014" y="0"></use>
+</g>
+</g>
+</svg></span>
 </div>
-<p>One can implement <code>$o_{n}$</code> simply:</p>
+<p>One can implement <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.346ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 1010.1 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-22-Title">
+<title id="MathJax-SVG-22-Title">o_{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="686" y="-213"></use>
+</g>
+</svg></span> simply:</p>
 <pre><code>o::{:[x=1;4;4*o(x-1)-f(x-1)]}
 </code></pre>
 <p>When one executes <code>o</code> and <code>f</code>, one notices something peculiar: it seems
-that <code>$o_{n}=2 \cdot n \cdot f_{n}$</code>.</p>
-<h4 id="None_2"><a class="hanchor" href="#None_2">Proof that <code>$o_{n}=2 \cdot n \cdot f_{n}$</code></a></h4>
+that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.718ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 5906.2 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-23-Title">
+<title id="MathJax-SVG-23-Title">o_{n}=2 \cdot n \cdot f_{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="686" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1287" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="2344" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="3066" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="3567" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="4390" y="0"></use>
+<g transform="translate(4891,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="693" y="-213"></use>
+</g>
+</g>
+</svg></span>.</p>
+<h4 id="None_2"><a class="hanchor" href="#None_2">Proof that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.718ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 5906.2 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-24-Title">
+<title id="MathJax-SVG-24-Title">o_{n}=2 \cdot n \cdot f_{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="686" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1287" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="2344" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="3066" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="3567" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="4390" y="0"></use>
+<g transform="translate(4891,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="693" y="-213"></use>
+</g>
+</g>
+</svg></span></a></h4>
 <p>Induction basis:</p>
 <div>
-    $$o_{1}=2 \cdot 1 \cdot f_{1}\\
-    4=2 \cdot 1 \cdot 2$$
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="100ex" height="5.176ex" style="vertical-align: -3.338ex; max-width: 60000px;" viewBox="0 -791.3 43055.4 2228.5" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-25-Title">
+<title id="MathJax-SVG-25-Title">o_{1}=2 \cdot 1 \cdot f_{1}\\
+    4=2 \cdot 1 \cdot 2</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(18695,0)">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="686" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1217" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="2273" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="2996" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="3496" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="4219" y="0"></use>
+<g transform="translate(4720,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="693" y="-213"></use>
+</g>
+</g>
+<g transform="translate(19136,-1315)">
+ <use xlink:href="#MJMAIN-34" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="778" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="1834" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="2557" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="3058" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="3780" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="4281" y="0"></use>
+</g>
+</g>
+</svg></span>
 </div>
 <p>Induction assumption:</p>
 <div>
-    $$o_{n}=2 \cdot n \cdot f_{n}$$
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.718ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 5906.2 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-26-Title">
+<title id="MathJax-SVG-26-Title">o_{n}=2 \cdot n \cdot f_{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="686" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1287" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="2344" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="3066" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="3567" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="4390" y="0"></use>
+<g transform="translate(4891,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="693" y="-213"></use>
+</g>
+</g>
+</svg></span>
 </div>
 <p>Induction step:</p>
 <div>
-    $$o_{n+1}=2 \cdot (n+1) \cdot f_{n+1}\\
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="100ex" height="18.676ex" style="vertical-align: -16.671ex; max-width: 60000px;" viewBox="0 -863.1 43055.4 8041" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-27-Title">
+<title id="MathJax-SVG-27-Title">o_{n+1}=2 \cdot (n+1) \cdot f_{n+1}\\
     2 \cdot (o_{n}-f_{n})=(n+1) \cdot f_{n+1}\\
     2 \cdot (2 \cdot n \cdot f_{n}-f_{n})=(n+1) \cdot f_{n+1}\\
     8 \cdot n \cdot C_{n}-4 \cdot C_{n}=(n+1) \cdot 2 \cdot C_{n+1}\\
-    C_{n} \cdot \frac{4 \cdot n-2}{n+1}=C_{n+1}$$
+    C_{n} \cdot \frac{4 \cdot n-2}{n+1}=C_{n+1}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(16418,0)">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+<g transform="translate(485,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="2192" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="3248" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="3971" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="4472" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="4861" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="5684" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="6684" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="7185" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="7797" y="0"></use>
+<g transform="translate(8297,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+<g transform="translate(490,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+</g>
+<g transform="translate(15362,-1433)">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1223" y="0"></use>
+<g transform="translate(1612,0)">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="686" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2212" x="2845" y="0"></use>
+<g transform="translate(3846,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="693" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="4861" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="5528" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="6584" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="6974" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="7796" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="8797" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="9298" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="9909" y="0"></use>
+<g transform="translate(10410,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+<g transform="translate(490,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+</g>
+<g transform="translate(14086,-2866)">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1223" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="1612" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="2335" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="2836" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="3659" y="0"></use>
+<g transform="translate(4159,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="693" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2212" x="5397" y="0"></use>
+<g transform="translate(6397,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="693" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="7413" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="8080" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="9136" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="9526" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="10348" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="11349" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="11850" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="12461" y="0"></use>
+<g transform="translate(12962,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+<g transform="translate(490,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+</g>
+<g transform="translate(13526,-4298)">
+ <use xlink:href="#MJMAIN-38" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="2046" y="0"></use>
+<g transform="translate(2546,0)">
+ <use xlink:href="#MJMATHI-43" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="1011" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2212" x="4009" y="0"></use>
+ <use xlink:href="#MJMAIN-34" x="5009" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="5732" y="0"></use>
+<g transform="translate(6233,0)">
+ <use xlink:href="#MJMATHI-43" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="1011" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="7751" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="8807" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="9197" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="10019" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="11020" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="11521" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="12132" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="12633" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="13356" y="0"></use>
+<g transform="translate(13856,0)">
+ <use xlink:href="#MJMATHI-43" x="0" y="0"></use>
+<g transform="translate(715,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+</g>
+<g transform="translate(16853,-6334)">
+ <use xlink:href="#MJMATHI-43" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="1011" y="-213"></use>
+ <use xlink:href="#MJMAIN-22C5" x="1462" y="0"></use>
+<g transform="translate(1740,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="3667" height="60" x="0" y="220"></rect>
+<g transform="translate(60,676)">
+ <use xlink:href="#MJMAIN-34" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+ <use xlink:href="#MJMAIN-2212" x="2046" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="3046" y="0"></use>
+</g>
+<g transform="translate(671,-687)">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="822" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1823" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="6148" y="0"></use>
+<g transform="translate(7204,0)">
+ <use xlink:href="#MJMATHI-43" x="0" y="0"></use>
+<g transform="translate(715,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+</svg></span>
 </div>
 <p>This is equivalent to <a href="https://oeis.org/A000108">a recursive definition</a>
 of the Catalan numbers in the OEIS (sixth formula).</p>
 <!--TODO: This seems a tiny bit fishy: There is probably an offset here
 (first value of the catalan numbers is not used, so the whole sequence
 is shifted). Look at this.-->
-<h3 id="None_3"><a class="hanchor" href="#None_3">Probability of Finishing at <code>$2 \cdot n$</code> Steps</a></h3>
+<h3 id="None_3"><a class="hanchor" href="#None_3">Probability of Finishing at <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.236ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1823.9 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-28-Title">
+<title id="MathJax-SVG-28-Title">2 \cdot n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+</g>
+</svg></span> Steps</a></h3>
 <p>So, what's the probability of finishing given <code>2*n</code> steps now? Simple:
-it's <code>$\frac{f_{n}}{o_{n}}=\frac{f_n}{2 \cdot n \cdot f_{n}}=\frac{1}{2 \cdot n}$</code>.</p>
+it's <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="17.235ex" height="4.509ex" style="vertical-align: -1.671ex;" viewBox="0 -1221.9 7420.5 1941.5" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-29-Title">
+<title id="MathJax-SVG-29-Title">\frac{f_{n}}{o_{n}}=\frac{f_n}{2 \cdot n \cdot f_{n}}=\frac{1}{2 \cdot n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(120,0)">
+<rect stroke="none" width="882" height="60" x="0" y="220"></rect>
+<g transform="translate(60,625)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.574)" xlink:href="#MJMATHI-6E" x="604" y="-304"></use>
+</g>
+<g transform="translate(61,-345)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.574)" xlink:href="#MJMATHI-6E" x="598" y="-185"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="1400" y="0"></use>
+<g transform="translate(2178,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="2054" height="60" x="0" y="220"></rect>
+<g transform="translate(646,625)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.574)" xlink:href="#MJMATHI-6E" x="604" y="-304"></use>
+</g>
+<g transform="translate(60,-444)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="779" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="1379" y="0"></use>
+<g transform="translate(1172,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.574)" xlink:href="#MJMATHI-6E" x="604" y="-304"></use>
+</g>
+</g>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="5028" y="0"></use>
+<g transform="translate(5807,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="1095" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="524" y="629"></use>
+<g transform="translate(60,-417)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="779" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+</svg></span>.</p>
 <pre><code>pgn::{1%2*x}
 </code></pre>
 <p>Note that this probability is different from finishing at <code>2*n</code> steps:
 <code>pgn</code> simply tells us how likely it is for us to finish in the next 2
 flips if we have flipped the coin <code>2*(n-1)</code> times steps already. But we
 are looking for the probability of finishing at <code>2*n</code> steps.</p>
-<p>For this, we can now define <code>$r_{n}$</code> that tells us the probability
+<p>For this, we can now define <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.267ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 976.1 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-30-Title">
+<title id="MathJax-SVG-30-Title">r_{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+</g>
+</svg></span> that tells us the probability
 of arriving at a sequence with <code>2*n</code> coin flips. This can only have
 happened if we arrived at the last step and did not finish there. We
-define <code>$r_{n}$</code> recursively:</p>
+define <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.267ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 976.1 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-31-Title">
+<title id="MathJax-SVG-31-Title">r_{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+</g>
+</svg></span> recursively:</p>
 <div>
-    $$r_{0}=1\\
-    r_{n}=r_{n-1}-\frac{1}{2 \cdot (n-1)} \cdot r_{n-1}$$
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="100ex" height="9.009ex" style="vertical-align: -7.171ex; max-width: 60000px;" viewBox="0 -791.3 43055.4 3879" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-32-Title">
+<title id="MathJax-SVG-32-Title">r_{0}=1\\
+    r_{n}=r_{n-1}-\frac{1}{2 \cdot (n-1)} \cdot r_{n-1}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(20157,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-30" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1183" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="2239" y="0"></use>
+</g>
+<g transform="translate(15175,-1941)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1253" y="0"></use>
+<g transform="translate(2310,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+<g transform="translate(451,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2212" x="4412" y="0"></use>
+<g transform="translate(5191,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="4446" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="1972" y="676"></use>
+<g transform="translate(60,-771)">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1223" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1612" y="0"></use>
+ <use xlink:href="#MJMAIN-2212" x="2435" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="3436" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="3936" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="10322" y="0"></use>
+<g transform="translate(10822,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+<g transform="translate(451,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+</svg></span>
 </div>
-<p>Now, defining <code>$p_{n}$</code> is simple: <code>$p_{n}=\frac{1}{2 \cdot n} \cdot r_{n}$</code>.</p>
+<p>Now, defining <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.477ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 1066.6 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-33-Title">
+<title id="MathJax-SVG-33-Title">p_{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="712" y="-213"></use>
+</g>
+</svg></span> is simple: <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.624ex" height="3.509ex" style="vertical-align: -1.171ex; margin-left: -0.089ex;" viewBox="-38.5 -1006.6 5435.2 1510.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-34-Title">
+<title id="MathJax-SVG-34-Title">p_{n}=\frac{1}{2 \cdot n} \cdot r_{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="712" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1305" y="0"></use>
+<g transform="translate(2084,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="1095" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="524" y="629"></use>
+<g transform="translate(60,-417)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="779" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="3919" y="0"></use>
+<g transform="translate(4420,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+</g>
+</g>
+</svg></span>.</p>
 <h2 id="Final_Formula_and_Final_Code"><a class="hanchor" href="#Final_Formula_and_Final_Code">Final Formula and Final Code</a></h2>
 <p>Our final formula for the expected value is thus</p>
 <div>
-    $$\mathbb{E}=\sum_{i=1}^{\infty} \frac{1}{2 \cdot i} \cdot r_{i} \cdot 2 \cdot i$$
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="21.722ex" height="6.843ex" style="vertical-align: -3.005ex;" viewBox="0 -1652.5 9352.3 2946.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-35-Title">
+<title id="MathJax-SVG-35-Title">\mathbb{E}=\sum_{i=1}^{\infty} \frac{1}{2 \cdot i} \cdot r_{i} \cdot 2 \cdot i</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJAMS-45" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="945" y="0"></use>
+<g transform="translate(2001,0)">
+ <use xlink:href="#MJSZ2-2211" x="0" y="0"></use>
+<g transform="translate(147,-1090)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-3D" x="345" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1124" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-221E" x="521" y="1627"></use>
+</g>
+<g transform="translate(3446,0)">
+<g transform="translate(286,0)">
+<rect stroke="none" width="1688" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="594" y="676"></use>
+<g transform="translate(60,-687)">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-69" x="1223" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="5763" y="0"></use>
+<g transform="translate(6264,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="638" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="7282" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="7783" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="8506" y="0"></use>
+ <use xlink:href="#MJMATHI-69" x="9006" y="0"></use>
+</g>
+</svg></span>
 </div>
-<p>We could implement <code>$r_{n}$</code> very easily:</p>
+<p>We could implement <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.267ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 976.1 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-36-Title">
+<title id="MathJax-SVG-36-Title">r_{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+</g>
+</svg></span> very easily:</p>
 <pre><code>r::{r(x-1)-pgn(x-1)*r(x-1)}
 </code></pre>
-<p>But since we don't want to compute <code>$r_{n}$</code> every time we execute
+<p>But since we don't want to compute <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.267ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 976.1 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-37-Title">
+<title id="MathJax-SVG-37-Title">r_{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+</g>
+</svg></span> every time we execute
 a new iteration, we simply embed it into the final evaluation function:</p>
 <pre><code>ev::{[px];px::pgn(x);.p(($x),",",($px*y),",",$z);.f(x+1;y-(y*px);z+2*x*y*px)}
 </code></pre>
@@ -225,57 +985,618 @@ is the expected value at the given step.</p>
 <h2 id="Proof_of_Divergence"><a class="hanchor" href="#Proof_of_Divergence">Proof of Divergence</a></h2>
 <p>After watching the output of the code above for a while, one gets the
 suspicion that the expected value diverges to infinity.</p>
-<p>To prove this, let the <code>$\mathbb{E}_n$</code> for <code>$n \in \mathbb{N}$</code> be the
+<p>To prove this, let the <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.769ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1192.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-38-Title">
+<title id="MathJax-SVG-38-Title">\mathbb{E}_n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJAMS-45" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="943" y="-213"></use>
+</g>
+</svg></span> for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.913ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2546.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-39-Title">
+<title id="MathJax-SVG-39-Title">n \in \mathbb{N}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2208" x="878" y="0"></use>
+ <use xlink:href="#MJAMS-4E" x="1823" y="0"></use>
+</g>
+</svg></span> be the
 expected value if we finish throwing the coin after <code>2*n</code> steps:</p>
 <div>
-    $$\mathbb{E}_n=\sum_{i=1}^{n} \frac{1}{2 \cdot i} \cdot r_{i} \cdot 2 \cdot i$$
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.94ex" height="6.843ex" style="vertical-align: -3.005ex;" viewBox="0 -1652.5 9876.9 2946.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-40-Title">
+<title id="MathJax-SVG-40-Title">\mathbb{E}_n=\sum_{i=1}^{n} \frac{1}{2 \cdot i} \cdot r_{i} \cdot 2 \cdot i</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJAMS-45" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="943" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1469" y="0"></use>
+<g transform="translate(2526,0)">
+ <use xlink:href="#MJSZ2-2211" x="0" y="0"></use>
+<g transform="translate(147,-1090)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-3D" x="345" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1124" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="721" y="1627"></use>
+</g>
+<g transform="translate(3970,0)">
+<g transform="translate(286,0)">
+<rect stroke="none" width="1688" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="594" y="676"></use>
+<g transform="translate(60,-687)">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-69" x="1223" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="6288" y="0"></use>
+<g transform="translate(6789,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="638" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="7807" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="8307" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="9030" y="0"></use>
+ <use xlink:href="#MJMATHI-69" x="9531" y="0"></use>
+</g>
+</svg></span>
 </div>
 <p>We now want to show that</p>
 <div>
-    $$\lim_{n \to \infty} \mathbb{E_{n}}=\lim_{n \to \infty} \sum_{i=1}^{n} r_{i}=\infty$$
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="26.127ex" height="6.843ex" style="vertical-align: -3.005ex;" viewBox="0 -1652.5 11249 2946.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-41-Title">
+<title id="MathJax-SVG-41-Title">\lim_{n \to \infty} \mathbb{E_{n}}=\lim_{n \to \infty} \sum_{i=1}^{n} r_{i}=\infty</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(224,0)">
+ <use xlink:href="#MJMAIN-6C"></use>
+ <use xlink:href="#MJMAIN-69" x="278" y="0"></use>
+ <use xlink:href="#MJMAIN-6D" x="557" y="0"></use>
+</g>
+<g transform="translate(0,-601)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2192" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-221E" x="1601" y="0"></use>
+</g>
+<g transform="translate(2006,0)">
+ <use xlink:href="#MJAMS-45" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-6E" x="943" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="3444" y="0"></use>
+<g transform="translate(4501,0)">
+<g transform="translate(224,0)">
+ <use xlink:href="#MJMAIN-6C"></use>
+ <use xlink:href="#MJMAIN-69" x="278" y="0"></use>
+ <use xlink:href="#MJMAIN-6D" x="557" y="0"></use>
+</g>
+<g transform="translate(0,-601)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2192" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-221E" x="1601" y="0"></use>
+</g>
+</g>
+<g transform="translate(6507,0)">
+ <use xlink:href="#MJSZ2-2211" x="0" y="0"></use>
+<g transform="translate(147,-1090)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-3D" x="345" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1124" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="721" y="1627"></use>
+</g>
+<g transform="translate(8118,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="638" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="9192" y="0"></use>
+ <use xlink:href="#MJMAIN-221E" x="10248" y="0"></use>
+</g>
+</svg></span>
 </div>
-<p>We will show that <code>$r_{n} \ge \frac{1}{n}$</code>, and since we know the
+<p>We will show that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.188ex" height="3.343ex" style="vertical-align: -1.005ex;" viewBox="0 -1006.6 3094.8 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-42-Title">
+<title id="MathJax-SVG-42-Title">r_{n} \ge \frac{1}{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-2265" x="1253" y="0"></use>
+<g transform="translate(2032,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="544" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="134" y="629"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="84" y="-488"></use>
+</g>
+</g>
+</g>
+</svg></span>, and since we know the
 <a href="https://en.wikipedia.org/wiki/Harmonic_series_(mathematics)">harmonic series</a>
 diverges, we can make a
 <a href="https://en.wikipedia.org/wiki/Direct_comparison_test">direct comparison test</a>
-and show that <code>$\sum_{i=1}^{n} r_{i}$</code> diverges as well.</p>
-<p>Let <code>$r_{n}$</code> be</p>
-<p><code>$r_{0}=1$</code><br/>
-<code>$r_{n}=r_{n-1}-\frac{1}{2 \cdot (n-1)} \cdot r_{n-1}$</code></p>
-<h4 id="None_4"><a class="hanchor" href="#None_4">Proof that <code>$r_n \ge \frac{1}{n}$</code></a></h4>
+and show that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.589ex" height="3.176ex" style="vertical-align: -1.005ex;" viewBox="0 -934.9 3267.7 1367.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-43-Title">
+<title id="MathJax-SVG-43-Title">\sum_{i=1}^{n} r_{i}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJSZ1-2211" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="1494" y="675"></use>
+<g transform="translate(1056,-287)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-3D" x="345" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1124" y="0"></use>
+</g>
+<g transform="translate(2471,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="638" y="-213"></use>
+</g>
+</g>
+</svg></span> diverges as well.</p>
+<p>Let <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.267ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 976.1 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-44-Title">
+<title id="MathJax-SVG-44-Title">r_{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+</g>
+</svg></span> be</p>
+<p><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.364ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 2740 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-45-Title">
+<title id="MathJax-SVG-45-Title">r_{0}=1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-30" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1183" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="2239" y="0"></use>
+</g>
+</svg></span><br>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="25.102ex" height="4.176ex" style="vertical-align: -1.838ex;" viewBox="0 -1006.6 10807.8 1798" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-46-Title">
+<title id="MathJax-SVG-46-Title">r_{n}=r_{n-1}-\frac{1}{2 \cdot (n-1)} \cdot r_{n-1}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1253" y="0"></use>
+<g transform="translate(2310,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+<g transform="translate(451,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2212" x="4412" y="0"></use>
+<g transform="translate(5191,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="2550" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1553" y="629"></use>
+<g transform="translate(60,-476)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-28" x="779" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="1168" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="1768" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="2547" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-29" x="3048" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="8426" y="0"></use>
+<g transform="translate(8927,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+<g transform="translate(451,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+</g>
+</svg></span></p>
+<h4 id="None_4"><a class="hanchor" href="#None_4">Proof that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.188ex" height="3.343ex" style="vertical-align: -1.005ex;" viewBox="0 -1006.6 3094.8 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-47-Title">
+<title id="MathJax-SVG-47-Title">r_n \ge \frac{1}{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-2265" x="1253" y="0"></use>
+<g transform="translate(2032,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="544" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="134" y="629"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="84" y="-488"></use>
+</g>
+</g>
+</g>
+</svg></span></a></h4>
 <p>Proof by induction.</p>
 <p>Induction Basis:</p>
 <div>
-    $$r_{0}=1 \ge 1=\frac{1}{1}$$
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="15.722ex" height="5.176ex" style="vertical-align: -1.838ex;" viewBox="0 -1437.2 6769.1 2228.5" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-48-Title">
+<title id="MathJax-SVG-48-Title">r_{0}=1 \ge 1=\frac{1}{1}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-30" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-3D" x="1183" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="2239" y="0"></use>
+ <use xlink:href="#MJMAIN-2265" x="3017" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="4074" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="4852" y="0"></use>
+<g transform="translate(5630,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="620" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="60" y="676"></use>
+ <use xlink:href="#MJMAIN-31" x="60" y="-687"></use>
+</g>
+</g>
+</g>
+</svg></span>
 </div>
 <p>Induction Assumption:</p>
 <div>
-    $$r_n \ge \frac{1}{n}$$
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.596ex" height="5.176ex" style="vertical-align: -1.838ex;" viewBox="0 -1437.2 3270.7 2228.5" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-49-Title">
+<title id="MathJax-SVG-49-Title">r_n \ge \frac{1}{n}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-2265" x="1253" y="0"></use>
+<g transform="translate(2032,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="720" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="110" y="676"></use>
+ <use xlink:href="#MJMATHI-6E" x="60" y="-686"></use>
+</g>
+</g>
+</g>
+</svg></span>
 </div>
 <p>Induction Step:</p>
 <div>
-    $$r_{n+1} \ge \frac{1}{n+1}\\
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="100ex" height="31.676ex" style="vertical-align: -28.338ex; max-width: 60000px;" viewBox="0 -1437.2 43055.4 13638.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-50-Title">
+<title id="MathJax-SVG-50-Title">r_{n+1} \ge \frac{1}{n+1}\\
     r_{n}-\frac{1}{2 \cdot n} \cdot r_{n} \ge \frac{1}{n+1}\\
     r_{n} \cdot (1-\frac{1}{2 \cdot n}) \ge \frac{1}{n+1}\\
     r_{n} \ge \frac{1}{(n+1) \cdot (1-\frac{1}{2 \cdot n})}\\
-    r_{n} \ge \frac{1}{n+\frac{1}{2}-\frac{1}{2 \cdot n}}$$
+    r_{n} \ge \frac{1}{n+\frac{1}{2}-\frac{1}{2 \cdot n}}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(18578,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+<g transform="translate(451,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-2265" x="2158" y="0"></use>
+<g transform="translate(2936,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="2443" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="971" y="676"></use>
+<g transform="translate(60,-687)">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="822" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1823" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+<g transform="translate(16477,-2544)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-2212" x="1198" y="0"></use>
+<g transform="translate(1976,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="1943" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="721" y="676"></use>
+<g transform="translate(60,-687)">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="4605" y="0"></use>
+<g transform="translate(5105,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2265" x="6359" y="0"></use>
+<g transform="translate(7138,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="2443" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="971" y="676"></use>
+<g transform="translate(60,-687)">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="822" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1823" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+<g transform="translate(16325,-5087)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-22C5" x="1198" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1699" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="2088" y="0"></use>
+ <use xlink:href="#MJMAIN-2212" x="2811" y="0"></use>
+<g transform="translate(3589,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="1943" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="721" y="676"></use>
+<g transform="translate(60,-687)">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-29" x="5995" y="0"></use>
+ <use xlink:href="#MJMAIN-2265" x="6663" y="0"></use>
+<g transform="translate(7441,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="2443" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="971" y="676"></use>
+<g transform="translate(60,-687)">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="822" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1823" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+<g transform="translate(16360,-7631)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-2265" x="1253" y="0"></use>
+<g transform="translate(2032,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="7783" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="3641" y="676"></use>
+<g transform="translate(60,-937)">
+ <use xlink:href="#MJMAIN-28" x="0" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="389" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="1212" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="2212" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="2713" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="3325" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="3825" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="4215" y="0"></use>
+ <use xlink:href="#MJMAIN-2212" x="4938" y="0"></use>
+<g transform="translate(5716,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="1095" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="524" y="629"></use>
+<g transform="translate(60,-417)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="779" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-29" x="7274" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+<g transform="translate(17644,-10766)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-2265" x="1253" y="0"></use>
+<g transform="translate(2032,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="5215" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="2357" y="676"></use>
+<g transform="translate(60,-937)">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="822" y="0"></use>
+<g transform="translate(1601,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="473" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="84" y="629"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="84" y="-589"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2212" x="2759" y="0"></use>
+<g transform="translate(3538,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="1095" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="524" y="629"></use>
+<g transform="translate(60,-417)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="779" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</svg></span>
 </div>
 <p>Inserting the assumption:</p>
 <div>
-    $$r_{n} \ge \frac{1}{n} \ge \frac{1}{n+\frac{1}{2}-\frac{1}{2 \cdot n}}\\
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="100ex" height="21.176ex" style="vertical-align: -17.838ex; max-width: 60000px;" viewBox="0 -1437.2 43055.4 9117.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-51-Title">
+<title id="MathJax-SVG-51-Title">r_{n} \ge \frac{1}{n} \ge \frac{1}{n+\frac{1}{2}-\frac{1}{2 \cdot n}}\\
     n+\frac{1}{2}-\frac{1}{2 \cdot n} \ge n\\
     \frac{1}{2} \ge \frac{1}{2 \cdot n}\\
-    n \ge 1$$
+    n \ge 1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(16497,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="638" y="-213"></use>
+ <use xlink:href="#MJMAIN-2265" x="1253" y="0"></use>
+<g transform="translate(2032,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="720" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="110" y="676"></use>
+ <use xlink:href="#MJMATHI-6E" x="60" y="-686"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2265" x="3548" y="0"></use>
+<g transform="translate(4326,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="5215" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="2357" y="676"></use>
+<g transform="translate(60,-937)">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="822" y="0"></use>
+<g transform="translate(1601,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="473" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="84" y="629"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="84" y="-589"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2212" x="2759" y="0"></use>
+<g transform="translate(3538,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="1095" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="524" y="629"></use>
+<g transform="translate(60,-417)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="779" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+</g>
+<g transform="translate(17515,-3136)">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="822" y="0"></use>
+<g transform="translate(1601,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="620" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="60" y="676"></use>
+ <use xlink:href="#MJMAIN-32" x="60" y="-687"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2212" x="2906" y="0"></use>
+<g transform="translate(3684,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="1943" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="721" y="676"></use>
+<g transform="translate(60,-687)">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+</g>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2265" x="6368" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="7424" y="0"></use>
+</g>
+<g transform="translate(19338,-5608)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="620" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="60" y="676"></use>
+ <use xlink:href="#MJMAIN-32" x="60" y="-687"></use>
+</g>
+ <use xlink:href="#MJMAIN-2265" x="1138" y="0"></use>
+<g transform="translate(1916,0)">
+<g transform="translate(397,0)">
+<rect stroke="none" width="1943" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="721" y="676"></use>
+<g transform="translate(60,-687)">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="1223" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+<g transform="translate(20310,-7404)">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2265" x="878" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1934" y="0"></use>
+</g>
+</g>
+</svg></span>
 </div>
-<p>Since <code>$n \in \mathbb{N}$</code>, we have therefore proven that</p>
+<p>Since <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.913ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2546.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-52-Title">
+<title id="MathJax-SVG-52-Title">n \in \mathbb{N}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2208" x="878" y="0"></use>
+ <use xlink:href="#MJAMS-4E" x="1823" y="0"></use>
+</g>
+</svg></span>, we have therefore proven that</p>
 <div>
-    $$\lim_{n \to \infty} \sum_{i=1}^{n} \frac{1}{i}=\infty \le \lim_{n \to \infty} \sum_{i=1}^{n} r_{i}=\infty$$
+    <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="34.593ex" height="6.843ex" style="vertical-align: -3.005ex;" viewBox="0 -1652.5 14894.2 2946.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-53-Title">
+<title id="MathJax-SVG-53-Title">\lim_{n \to \infty} \sum_{i=1}^{n} \frac{1}{i}=\infty \le \lim_{n \to \infty} \sum_{i=1}^{n} r_{i}=\infty</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(224,0)">
+ <use xlink:href="#MJMAIN-6C"></use>
+ <use xlink:href="#MJMAIN-69" x="278" y="0"></use>
+ <use xlink:href="#MJMAIN-6D" x="557" y="0"></use>
+</g>
+<g transform="translate(0,-601)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2192" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-221E" x="1601" y="0"></use>
+</g>
+<g transform="translate(2006,0)">
+ <use xlink:href="#MJSZ2-2211" x="0" y="0"></use>
+<g transform="translate(147,-1090)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-3D" x="345" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1124" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="721" y="1627"></use>
+</g>
+<g transform="translate(3450,0)">
+<g transform="translate(286,0)">
+<rect stroke="none" width="620" height="60" x="0" y="220"></rect>
+ <use xlink:href="#MJMAIN-31" x="60" y="676"></use>
+ <use xlink:href="#MJMATHI-69" x="137" y="-686"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="4755" y="0"></use>
+ <use xlink:href="#MJMAIN-221E" x="5811" y="0"></use>
+ <use xlink:href="#MJMAIN-2264" x="7090" y="0"></use>
+<g transform="translate(8146,0)">
+<g transform="translate(224,0)">
+ <use xlink:href="#MJMAIN-6C"></use>
+ <use xlink:href="#MJMAIN-69" x="278" y="0"></use>
+ <use xlink:href="#MJMAIN-6D" x="557" y="0"></use>
+</g>
+<g transform="translate(0,-601)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2192" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-221E" x="1601" y="0"></use>
+</g>
+</g>
+<g transform="translate(10152,0)">
+ <use xlink:href="#MJSZ2-2211" x="0" y="0"></use>
+<g transform="translate(147,-1090)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-3D" x="345" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1124" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="721" y="1627"></use>
+</g>
+<g transform="translate(11763,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="638" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="12837" y="0"></use>
+ <use xlink:href="#MJMAIN-221E" x="13893" y="0"></use>
+</g>
+</svg></span>
 </div>
 <h2 id="Further_Considerations"><a class="hanchor" href="#Further_Considerations">Further Considerations</a></h2>
 <p>This model can be generalized to the average length of a random walk
-with steps with length 1 in <code>$\mathbb{Z}$</code> starting at 0 and ending at 0.</p>
+with steps with length 1 in <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.55ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 667.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-54-Title">
+<title id="MathJax-SVG-54-Title">\mathbb{Z}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJAMS-5A" x="0" y="0"></use>
+</g>
+</svg></span> starting at 0 and ending at 0.</p>
 <p>The question poses itself whether the found length would still hold in
-<code>$\mathbb{Z}^n$</code> (<code>$n \ge 2$</code>) for steps of size 1. It <em>seems</em> obvious
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.769ex" height="2.343ex" style="vertical-align: -0.338ex;" viewBox="0 -863.1 1192.1 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-55-Title">
+<title id="MathJax-SVG-55-Title">\mathbb{Z}^n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJAMS-5A" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="943" y="581"></use>
+</g>
+</svg></span> (<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.656ex" height="2.343ex" style="vertical-align: -0.505ex;" viewBox="0 -791.3 2435.1 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-56-Title">
+<title id="MathJax-SVG-56-Title">n \ge 2</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2265" x="878" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="1934" y="0"></use>
+</g>
+</svg></span>) for steps of size 1. It <em>seems</em> obvious
 that this should be the case, but one shouldn't be too sure of it.</p>
 <h2 id="External_Links"><a class="hanchor" href="#External_Links">External Links</a></h2>
 <ul>
@@ -287,4 +1608,5 @@ that this should be the case, but one shouldn't be too sure of it.</p>
 <li><a href="http://neilwebber.com/notes/2018/12/26/coin-flip-simulation-still-running-62-days/">“Coin flip simulation still running – 62 days!”</a><!--TODO: is the en dash in the original title?--></li>
 </ul></li>
 </ul>
-</body></html>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMATHI-78" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path><path stroke-width="1" id="MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="MJMATHI-70" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path><path stroke-width="1" id="MJMATHI-6F" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path><path stroke-width="1" id="MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="1" id="MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="1" id="MJMAIN-22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path><path stroke-width="1" id="MJMATHI-66" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path><path stroke-width="1" id="MJMATHI-72" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="MJMAIN-2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path><path stroke-width="1" id="MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="1" id="MJAMS-45" d="M12 666Q12 675 24 683H582Q590 680 593 672V588Q593 514 591 502T575 490Q567 490 563 495T555 517Q552 556 517 590Q486 623 445 634T340 648H282Q266 636 264 620T260 492V370H277Q329 375 358 391T404 439Q420 480 420 506Q420 529 436 529Q445 529 451 521Q455 517 455 361Q455 333 455 298T456 253Q456 217 453 207T437 197Q420 196 420 217Q420 240 406 270Q377 328 284 335H260V201Q261 174 261 134Q262 73 264 61T278 38Q281 36 282 35H331Q400 35 449 50Q571 93 602 179Q605 203 622 203Q629 203 634 197T640 183Q638 181 624 95T604 3L600 -1H24Q12 5 12 16Q12 35 51 35Q92 38 97 52Q102 60 102 341T97 632Q91 645 51 648Q12 648 12 666ZM137 341Q137 131 136 89T130 37Q129 36 129 35H235Q233 41 231 48L226 61V623L231 635L235 648H129Q132 641 133 638T135 603T137 517T137 341ZM557 603V648H504Q504 646 515 639Q527 634 542 619L557 603ZM420 317V397L406 383Q394 370 380 363L366 355Q373 350 382 346Q400 333 409 328L420 317ZM582 61L586 88Q585 88 582 83Q557 61 526 46L511 37L542 35H577Q577 36 578 39T580 49T582 61Z"></path><path stroke-width="1" id="MJSZ2-2211" d="M60 948Q63 950 665 950H1267L1325 815Q1384 677 1388 669H1348L1341 683Q1320 724 1285 761Q1235 809 1174 838T1033 881T882 898T699 902H574H543H251L259 891Q722 258 724 252Q725 250 724 246Q721 243 460 -56L196 -356Q196 -357 407 -357Q459 -357 548 -357T676 -358Q812 -358 896 -353T1063 -332T1204 -283T1307 -196Q1328 -170 1348 -124H1388Q1388 -125 1381 -145T1356 -210T1325 -294L1267 -449L666 -450Q64 -450 61 -448Q55 -446 55 -439Q55 -437 57 -433L590 177Q590 178 557 222T452 366T322 544L56 909L55 924Q55 945 60 948Z"></path><path stroke-width="1" id="MJMAIN-221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path><path stroke-width="1" id="MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path stroke-width="1" id="MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="1" id="MJMAIN-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path stroke-width="1" id="MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="1" id="MJMAIN-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path><path stroke-width="1" id="MJMAIN-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path stroke-width="1" id="MJMAIN-2026" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60ZM525 60Q525 84 542 102T585 120Q609 120 627 104T646 61Q646 36 629 18T586 0T543 17T525 60ZM972 60Q972 84 989 102T1032 120Q1056 120 1074 104T1093 61Q1093 36 1076 18T1033 0T990 17T972 60Z"></path><path stroke-width="1" id="MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path stroke-width="1" id="MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="MJSZ1-28" d="M152 251Q152 646 388 850H416Q422 844 422 841Q422 837 403 816T357 753T302 649T255 482T236 250Q236 124 255 19T301 -147T356 -251T403 -315T422 -340Q422 -343 416 -349H388Q359 -325 332 -296T271 -213T212 -97T170 56T152 251Z"></path><path stroke-width="1" id="MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="1" id="MJSZ1-29" d="M305 251Q305 -145 69 -349H56Q43 -349 39 -347T35 -338Q37 -333 60 -307T108 -239T160 -136T204 27T221 250T204 473T160 636T108 740T60 807T35 839Q35 850 50 850H56H69Q197 743 256 566Q305 425 305 251Z"></path><path stroke-width="1" id="MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="1" id="MJMATHI-43" d="M50 252Q50 367 117 473T286 641T490 704Q580 704 633 653Q642 643 648 636T656 626L657 623Q660 623 684 649Q691 655 699 663T715 679T725 690L740 705H746Q760 705 760 698Q760 694 728 561Q692 422 692 421Q690 416 687 415T669 413H653Q647 419 647 422Q647 423 648 429T650 449T651 481Q651 552 619 605T510 659Q484 659 454 652T382 628T299 572T226 479Q194 422 175 346T156 222Q156 108 232 58Q280 24 350 24Q441 24 512 92T606 240Q610 253 612 255T628 257Q648 257 648 248Q648 243 647 239Q618 132 523 55T319 -22Q206 -22 128 53T50 252Z"></path><path stroke-width="1" id="MJMAIN-2208" d="M84 250Q84 372 166 450T360 539Q361 539 377 539T419 540T469 540H568Q583 532 583 520Q583 511 570 501L466 500Q355 499 329 494Q280 482 242 458T183 409T147 354T129 306T124 272V270H568Q583 262 583 250T568 230H124V228Q124 207 134 177T167 112T231 48T328 7Q355 1 466 0H570Q583 -10 583 -20Q583 -32 568 -40H471Q464 -40 446 -40T417 -41Q262 -41 172 45Q84 127 84 250Z"></path><path stroke-width="1" id="MJAMS-4E" d="M20 664Q20 666 31 683H142Q256 683 258 681Q259 680 279 653T342 572T422 468L582 259V425Q582 451 582 490T583 541Q583 611 573 628T522 648Q500 648 493 654Q484 665 493 679L500 683H691Q702 676 702 666Q702 657 698 652Q688 648 680 648Q633 648 627 612Q624 601 624 294V-8Q616 -20 607 -20Q601 -20 596 -15Q593 -13 371 270L156 548L153 319Q153 284 153 234T152 167Q152 103 156 78T172 44T213 34Q236 34 242 28Q253 17 242 3L236 -1H36Q24 6 24 16Q24 34 56 34Q58 35 69 36T86 40T100 50T109 72Q111 83 111 345V603L96 619Q72 643 44 648Q20 648 20 664ZM413 419L240 648H120L136 628Q137 626 361 341T587 54L589 68Q589 78 589 121V192L413 419Z"></path><path stroke-width="1" id="MJMAIN-6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path stroke-width="1" id="MJMAIN-69" d="M69 609Q69 637 87 653T131 669Q154 667 171 652T188 609Q188 579 171 564T129 549Q104 549 87 564T69 609ZM247 0Q232 3 143 3Q132 3 106 3T56 1L34 0H26V46H42Q70 46 91 49Q100 53 102 60T104 102V205V293Q104 345 102 359T88 378Q74 385 41 385H30V408Q30 431 32 431L42 432Q52 433 70 434T106 436Q123 437 142 438T171 441T182 442H185V62Q190 52 197 50T232 46H255V0H247Z"></path><path stroke-width="1" id="MJMAIN-6D" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q351 442 364 440T387 434T406 426T421 417T432 406T441 395T448 384T452 374T455 366L457 361L460 365Q463 369 466 373T475 384T488 397T503 410T523 422T546 432T572 439T603 442Q729 442 740 329Q741 322 741 190V104Q741 66 743 59T754 49Q775 46 803 46H819V0H811L788 1Q764 2 737 2T699 3Q596 3 587 0H579V46H595Q656 46 656 62Q657 64 657 200Q656 335 655 343Q649 371 635 385T611 402T585 404Q540 404 506 370Q479 343 472 315T464 232V168V108Q464 78 465 68T468 55T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path stroke-width="1" id="MJMAIN-2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path><path stroke-width="1" id="MJMAIN-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path stroke-width="1" id="MJSZ1-2211" d="M61 748Q64 750 489 750H913L954 640Q965 609 976 579T993 533T999 516H979L959 517Q936 579 886 621T777 682Q724 700 655 705T436 710H319Q183 710 183 709Q186 706 348 484T511 259Q517 250 513 244L490 216Q466 188 420 134T330 27L149 -187Q149 -188 362 -188Q388 -188 436 -188T506 -189Q679 -189 778 -162T936 -43Q946 -27 959 6H999L913 -249L489 -250Q65 -250 62 -248Q56 -246 56 -239Q56 -234 118 -161Q186 -81 245 -11L428 206Q428 207 242 462L57 717L56 728Q56 744 61 748Z"></path><path stroke-width="1" id="MJMAIN-2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path><path stroke-width="1" id="MJAMS-5A" d="M39 -1Q29 9 29 12Q29 23 60 77T219 337L410 648H364Q261 648 210 628Q168 612 142 588T109 545T97 509T88 490Q85 489 80 489Q72 489 61 503L70 588Q72 607 75 628T79 662T81 675Q84 677 88 681Q90 683 341 683H592Q604 673 604 666Q604 662 412 348L221 37Q221 35 301 35Q406 35 446 48Q504 68 543 111T597 212Q602 239 617 239Q624 239 629 234T635 223Q635 215 621 113T604 8L597 1Q595 -1 317 -1H39ZM148 637L166 648H112V632Q111 629 110 622T108 612Q108 608 110 608T116 612T129 623T148 637ZM552 646Q552 648 504 648Q452 648 450 643Q448 639 266 343T77 37Q77 35 128 35H179L366 339L552 646ZM572 35Q581 89 581 97L561 77Q542 59 526 48L508 37L539 35H572Z"></path></defs></svg></body></html>

@@ -1,27 +1,12 @@
 <html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!DOCTYPE HTML>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
 
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
-</script>
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true,
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-	},
-	"HTML-CSS": { availableFonts: ["TeX"] }
-	});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -32,7 +17,79 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<style type="text/css">
+                            .mjpage .MJX-monospace {
+                            font-family: monospace
+                            }
+
+                            .mjpage .MJX-sans-serif {
+                            font-family: sans-serif
+                            }
+
+                            .mjpage {
+                            display: inline;
+                            font-style: normal;
+                            font-weight: normal;
+                            line-height: normal;
+                            font-size: 100%;
+                            font-size-adjust: none;
+                            text-indent: 0;
+                            text-align: left;
+                            text-transform: none;
+                            letter-spacing: normal;
+                            word-spacing: normal;
+                            word-wrap: normal;
+                            white-space: nowrap;
+                            float: none;
+                            direction: ltr;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            border: 0;
+                            padding: 0;
+                            margin: 0
+                            }
+
+                            .mjpage * {
+                            transition: none;
+                            -webkit-transition: none;
+                            -moz-transition: none;
+                            -ms-transition: none;
+                            -o-transition: none
+                            }
+
+                            .mjx-svg-href {
+                            fill: blue;
+                            stroke: blue
+                            }
+
+                            .MathJax_SVG_LineBox {
+                            display: table!important
+                            }
+
+                            .MathJax_SVG_LineBox span {
+                            display: table-cell!important;
+                            width: 10000em!important;
+                            min-width: 0;
+                            max-width: none;
+                            padding: 0;
+                            border: 0;
+                            margin: 0
+                            }
+
+                            .mjpage__block {
+                            text-align: center;
+                            margin: 1em 0em;
+                            position: relative;
+                            display: block!important;
+                            text-indent: 0;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            width: 100%
+                            }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2024-09-20, modified: 2025-02-28, language: english, status: finished, importance: 5, confidence: certain</em></p>
 <blockquote>
 <p><strong>In small <a href="https://en.wikipedia.org/wiki/Normal-form_game">normal-form
@@ -76,7 +133,16 @@ where taking options away from people helps.</p>
 options from a player improves their game by running a <a href="https://en.wikipedia.org/wiki/Monte-Carlo_simulation">Monte-Carlo
 simulation</a>.</p>
 <p>First, start by generating random normal form games
-with payoffs in <code>$[0,1]$</code>. Then, compute the <a href="https://en.wikipedia.org/wiki/Nash_Equilibrium">Nash
+with payoffs in <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.653ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2003.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">[0,1]</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-5B" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="278" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1224" y="0"></use>
+ <use xlink:href="#MJMAIN-5D" x="1724" y="0"></use>
+</g>
+</svg></span>. Then, compute the <a href="https://en.wikipedia.org/wiki/Nash_Equilibrium">Nash
 equilibria</a>
 for both players via <a href="https://en.wikipedia.org/wiki/Vertex_enumeration_problem">vertex
 enumeration</a>
@@ -104,22 +170,36 @@ with two actions/one option in the reduced game (since nashpy requires
 at least two options for each player, and a player with only one option
 can't be really said to play the game).</p>
 <h3 id="Improved_Payoffs"><a class="hanchor" href="#Improved_Payoffs">Improved Payoffs</a></h3>
-<p><img alt="" src="./img/options/A_i.png"/></p>
-<p><em>For games originally of size <code>$n \times m$</code>, how often is it the case that taking an option away from Abdullah improves the payoffs for Abdullah?</em></p>
-<p><img alt="" src="./img/options/B_i.png"/></p>
-<p><em>For games originally of size <code>$n \times m$</code>, how often is it the case that taking an option away from Abdullah improves the payoffs for Benjamin?</em></p>
+<p><img alt="" src="./img/options/A_i.png"></p>
+<p><em>For games originally of size <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.276ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 2701.9 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-2-Title">
+<title id="MathJax-SVG-2-Title">n \times m</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-D7" x="822" y="0"></use>
+ <use xlink:href="#MJMATHI-6D" x="1823" y="0"></use>
+</g>
+</svg></span>, how often is it the case that taking an option away from Abdullah improves the payoffs for Abdullah?</em></p>
+<p><img alt="" src="./img/options/B_i.png"></p>
+<p><em>For games originally of size <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.276ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 2701.9 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-3-Title">
+<title id="MathJax-SVG-3-Title">n \times m</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-D7" x="822" y="0"></use>
+ <use xlink:href="#MJMATHI-6D" x="1823" y="0"></use>
+</g>
+</svg></span>, how often is it the case that taking an option away from Abdullah improves the payoffs for Benjamin?</em></p>
 <h3 id="Unchanged_Payoffs"><a class="hanchor" href="#Unchanged_Payoffs">Unchanged Payoffs</a></h3>
-<p><img alt="" src="./img/options/A_n.png"/></p>
+<p><img alt="" src="./img/options/A_n.png"></p>
 <p>Removing an option from Abdullah usually changes their payoffs, unless
 they had many options already.</p>
-<p><img alt="" src="./img/options/B_n.png"/></p>
+<p><img alt="" src="./img/options/B_n.png"></p>
 <p>Similarly, removing an option from Abdullah usually changes the payoffs
 for Benjamin, unless they had very few options.</p>
 <h3 id="Worsened_Payoffs"><a class="hanchor" href="#Worsened_Payoffs">Worsened Payoffs</a></h3>
-<p><img alt="" src="./img/options/A_w.png"/></p>
+<p><img alt="" src="./img/options/A_w.png"></p>
 <p>Abdullahs payoffs are usually worsened, most often when Benjamin has
 many options.</p>
-<p><img alt="" src="./img/options/B_w.png"/></p>
+<p><img alt="" src="./img/options/B_w.png"></p>
 <p>Benjamins payoffs are rarely worsened by taking an option away from
 Abdullah.</p>
 <h2 id="Interpretation"><a class="hanchor" href="#Interpretation">Interpretation</a></h2>
@@ -149,4 +229,5 @@ Sonnet</a>.</p>
 <li><a href="https://www.lesswrong.com/s/Qn8DhSrdA2qPH2eJT/p/3ahqzpKvtqkom63cx">Game Theory without Argmax [Part 1] (Cleo Nardo, 2023)</a></li>
 <li><a href="https://www.lesswrong.com/s/Qn8DhSrdA2qPH2eJT/p/BtZSNfAcBGQftAwxq">Game Theory without Argmax [Part 2] (Cleo Nardo, 2023)</a></li>
 </ul>
-</body></html>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path><path stroke-width="1" id="MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="1" id="MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="1" id="MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="1" id="MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path><path stroke-width="1" id="MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path stroke-width="1" id="MJMATHI-6D" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path></defs></svg></body></html>

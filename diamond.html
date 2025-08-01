@@ -1,27 +1,12 @@
 <html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!DOCTYPE HTML>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
 
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
-</script>
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true,
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-	},
-	"HTML-CSS": { availableFonts: ["TeX"] }
-	});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -32,7 +17,79 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<style type="text/css">
+                            .mjpage .MJX-monospace {
+                            font-family: monospace
+                            }
+
+                            .mjpage .MJX-sans-serif {
+                            font-family: sans-serif
+                            }
+
+                            .mjpage {
+                            display: inline;
+                            font-style: normal;
+                            font-weight: normal;
+                            line-height: normal;
+                            font-size: 100%;
+                            font-size-adjust: none;
+                            text-indent: 0;
+                            text-align: left;
+                            text-transform: none;
+                            letter-spacing: normal;
+                            word-spacing: normal;
+                            word-wrap: normal;
+                            white-space: nowrap;
+                            float: none;
+                            direction: ltr;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            border: 0;
+                            padding: 0;
+                            margin: 0
+                            }
+
+                            .mjpage * {
+                            transition: none;
+                            -webkit-transition: none;
+                            -moz-transition: none;
+                            -ms-transition: none;
+                            -o-transition: none
+                            }
+
+                            .mjx-svg-href {
+                            fill: blue;
+                            stroke: blue
+                            }
+
+                            .MathJax_SVG_LineBox {
+                            display: table!important
+                            }
+
+                            .MathJax_SVG_LineBox span {
+                            display: table-cell!important;
+                            width: 10000em!important;
+                            min-width: 0;
+                            max-width: none;
+                            padding: 0;
+                            border: 0;
+                            margin: 0
+                            }
+
+                            .mjpage__block {
+                            text-align: center;
+                            margin: 1em 0em;
+                            position: relative;
+                            display: block!important;
+                            text-indent: 0;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            width: 100%
+                            }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2020-11-20, modified: 2025-01-04, language: english, status: in progress, importance: 4, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>The <a href="https://en.wikipedia.org/wiki/Diamond-square_algorithm">Diamond-Square
@@ -45,8 +102,8 @@ number of dimensions, and analyze the resulting algorithm.</strong></p>
 Code review for o3 code: https://claude.ai/chat/4655d84a-f3b7-4e79-859b-05b2748b7aa2-->
 <h1 id="Generalizing_the_DiamondSquare_Algorithm_to_n_Dimensions"><a class="hanchor" href="#Generalizing_the_DiamondSquare_Algorithm_to_n_Dimensions">Generalizing the Diamond-Square Algorithm to n Dimensions</a></h1>
 <blockquote>
-<p>Libre de la metáfora y del mito<br/>
-labra un arduo cristal: el infinito<br/>
+<p>Libre de la metáfora y del mito<br>
+labra un arduo cristal: el infinito<br>
 mapa de Aquel que es todas Sus estrellas.</p>
 </blockquote>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Jorge_Luis_Borges">Jorge Luis Borges</a>, <a href="https://thefunambulist.net/literature/litterature-spinoza-by-borges">“Spinoza”</a>, 1964</em></p>
@@ -65,18 +122,45 @@ fairly weak) Python and <a href="https://en.wikipedia.org/wiki/NumPy">numpy</a>
 skills.</p>
 <h2 id="Description"><a class="hanchor" href="#Description">Description</a></h2>
 <p>The original (2-dimensional) diamond-square algorithm, in its simplest
-form, starts with a <code>$2^n+1 \times 2^n+1$</code> grid of numbers.</p>
+form, starts with a <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="15.608ex" height="2.343ex" style="vertical-align: -0.505ex;" viewBox="0 -791.3 6720.1 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">2^n+1 \times 2^n+1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="707" y="557"></use>
+ <use xlink:href="#MJMAIN-2B" x="1247" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="2248" y="0"></use>
+ <use xlink:href="#MJMAIN-D7" x="2970" y="0"></use>
+<g transform="translate(3971,0)">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="707" y="557"></use>
+</g>
+ <use xlink:href="#MJMAIN-2B" x="5218" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="6219" y="0"></use>
+</g>
+</svg></span> grid of numbers.</p>
 <p>It is easiest explained visually:</p>
-<p><img alt="" src="./img/diamond/diamond_square.png"/></p>
+<p><img alt="" src="./img/diamond/diamond_square.png"></p>
 <ol>
 <li>Either a user or the algorithm itself assigns the four corners some values, which can be random.</li>
 <li>In the <strong>diamond step</strong> after that, the value in the middle of the grid is determined as the average of the four values in the corners, plus a random value.</li>
 <li>Next, the middle value every "face" of the grid is determined by the average of the three values in orthogonal directions plus a random value—the <strong>square step</strong>.</li>
 <li>The grid is broken down into four sub-grids, and each sub-grid undergoes the <strong>diamond step</strong> and the <strong>square step</strong>. The only difference is in the square step: If a point on the grid lies at the face of two sub-grids, it receives the average of all four orthogonal points.</li>
-<li>The algorithm terminates if each sub-grid is of size <code>$1 \times 1$</code>.</li>
+<li>The algorithm terminates if each sub-grid is of size <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.165ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2223.9 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-2-Title">
+<title id="MathJax-SVG-2-Title">1 \times 1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-31" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-D7" x="722" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1723" y="0"></use>
+</g>
+</svg></span>.</li>
 </ol>
-<p>For <code>$n$</code> dimensions, do that, just higher-dimensional.</p>
-<hr/>
+<p>For <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.395ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 600.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-3-Title">
+<title id="MathJax-SVG-3-Title">n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+</g>
+</svg></span> dimensions, do that, just higher-dimensional.</p>
+<hr>
 <p>We start by initializing an n-dimensional space with zeros, and the
 corners with random values:</p>
 <pre><code>def create_space(dim, size, minval, maxval, factor):
@@ -184,13 +268,53 @@ left face another one to zero and for the right one to the maximum,
 and so on for the front and back faces. (2) is a bit more tricky,
 but should be doable to imagine: If we instead can fix two dimensions,
 we can assign them 0 and the maximum <em>each</em>, independently.</p>
-<p>Abbreviating <code>$d$</code> for <code>dim</code> and <code>$c$</code> for <code>subdim</code>, the resulting
-structure should have have the size <code>$[{d \choose c}, 2^{d-c},2^c,
-d]$</code>—<em>for every c-dimensional direction</em>, <em>enumerate all
+<p>Abbreviating <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-4-Title">
+<title id="MathJax-SVG-4-Title">d</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
+</g>
+</svg></span> for <code>dim</code> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.007ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 433.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-5-Title">
+<title id="MathJax-SVG-5-Title">c</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-63" x="0" y="0"></use>
+</g>
+</svg></span> for <code>subdim</code>, the resulting
+structure should have have the size <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="14.953ex" height="3.509ex" style="vertical-align: -1.005ex;" viewBox="0 -1078.4 6437.9 1510.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-6-Title">
+<title id="MathJax-SVG-6-Title">[{d \choose c}, 2^{d-c},2^c,
+d]</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-5B" x="0" y="0"></use>
+<g transform="translate(278,0)">
+ <use xlink:href="#MJSZ1-28" x="0" y="-1"></use>
+<g transform="translate(458,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-64" x="0" y="627"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-63" x="45" y="-488"></use>
+</g>
+ <use xlink:href="#MJSZ1-29" x="828" y="-1"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="1565" y="0"></use>
+<g transform="translate(2010,0)">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+<g transform="translate(500,393)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-64" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="523" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-63" x="1302" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="3838" y="0"></use>
+<g transform="translate(4283,0)">
+ <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-63" x="707" y="557"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="5190" y="0"></use>
+ <use xlink:href="#MJMATHI-64" x="5635" y="0"></use>
+ <use xlink:href="#MJMAIN-5D" x="6159" y="0"></use>
+</g>
+</svg></span>—<em>for every c-dimensional direction</em>, <em>enumerate all
 <a href="https://en.wikipedia.org/wiki/Hypercube">hypercubes</a> in that direction
 on the boundary of <code>space</code></em>, <strong>list all corners of that c-dimensional
 hypercube</strong>, but <em><strong>use <code>dim</code> dimensions</strong></em>.</p>
-<p><img alt="" src="./img/diamond/conspiracy.jpg"/></p>
+<p><img alt="" src="./img/diamond/conspiracy.jpg"></p>
 <p>We create now an empty canvas for our corners, an object with the right dimensions
 but zero everywhere:</p>
 <pre><code>cornerspos=np.broadcast_to(np.zeros(dim), [math.comb(dim, subdim), 2**(dim-subdim), 2**subdim, dim])
@@ -224,17 +348,18 @@ two dimensions into one:</p>
 <pre><code>corners=np.reshape(corners, [offsets.shape[0]*cornerspos.shape[0], *cornerspos.shape[1:]])
 </code></pre>
 <h3 id="Square"><a class="hanchor" href="#Square">Square</a></h3>
-<hr/>
+<hr>
 <p>Code <a href="code/diamond/generalized.py">here</a>. I think this is probably
 the 2nd-most beautiful code I've ever written, just after <a href="./99_problems_klong_solution.html#P25__Generate_a_random_permutation_of_the_elements_of_a_list">this absolute
 smokeshow</a>.</p>
 <h2 id="Analysis"><a class="hanchor" href="#Analysis">Analysis</a></h2>
 <h2 id="Results"><a class="hanchor" href="#Results">Results</a></h2>
 <h3 id="One_Dimension"><a class="hanchor" href="#One_Dimension">One Dimension</a></h3>
-<p><img alt="Space generated by the algorithm in one dimension" src="./img/diamond/onedim.png" title="Space generated by the algorithm in one dimension"/></p>
+<p><img alt="Space generated by the algorithm in one dimension" src="./img/diamond/onedim.png" title="Space generated by the algorithm in one dimension"></p>
 <h3 id="Two_Dimensions"><a class="hanchor" href="#Two_Dimensions">Two Dimensions</a></h3>
-<p><img alt="Space generated by the algorithm in two dimensions" src="./img/diamond/twodim.png" title="Space generated by the algorithm in two dimensions"/></p>
+<p><img alt="Space generated by the algorithm in two dimensions" src="./img/diamond/twodim.png" title="Space generated by the algorithm in two dimensions"></p>
 <h3 id="Three_Dimensions"><a class="hanchor" href="#Three_Dimensions">Three Dimensions</a></h3>
 <!--TODO: slice plot perhaps-->
-<p><img alt="Space generated by the algorithm in three dimensions" src="./img/diamond/threedim.png" title="Space generated by the algorithm in three dimensions"/></p>
-</body></html>
+<p><img alt="Space generated by the algorithm in three dimensions" src="./img/diamond/threedim.png" title="Space generated by the algorithm in three dimensions"></p>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="1" id="MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path stroke-width="1" id="MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="1" id="MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path stroke-width="1" id="MJMATHI-64" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path><path stroke-width="1" id="MJMATHI-63" d="M34 159Q34 268 120 355T306 442Q362 442 394 418T427 355Q427 326 408 306T360 285Q341 285 330 295T319 325T330 359T352 380T366 386H367Q367 388 361 392T340 400T306 404Q276 404 249 390Q228 381 206 359Q162 315 142 235T121 119Q121 73 147 50Q169 26 205 26H209Q321 26 394 111Q403 121 406 121Q410 121 419 112T429 98T420 83T391 55T346 25T282 0T202 -11Q127 -11 81 37T34 159Z"></path><path stroke-width="1" id="MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path><path stroke-width="1" id="MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="MJSZ1-28" d="M152 251Q152 646 388 850H416Q422 844 422 841Q422 837 403 816T357 753T302 649T255 482T236 250Q236 124 255 19T301 -147T356 -251T403 -315T422 -340Q422 -343 416 -349H388Q359 -325 332 -296T271 -213T212 -97T170 56T152 251Z"></path><path stroke-width="1" id="MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="1" id="MJSZ1-29" d="M305 251Q305 -145 69 -349H56Q43 -349 39 -347T35 -338Q37 -333 60 -307T108 -239T160 -136T204 27T221 250T204 473T160 636T108 740T60 807T35 839Q35 850 50 850H56H69Q197 743 256 566Q305 425 305 251Z"></path><path stroke-width="1" id="MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="1" id="MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="1" id="MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path></defs></svg></body></html>

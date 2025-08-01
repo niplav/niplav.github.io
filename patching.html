@@ -1,27 +1,12 @@
 <html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!DOCTYPE HTML>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
 
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
-</script>
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true,
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-	},
-	"HTML-CSS": { availableFonts: ["TeX"] }
-	});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -37,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <blockquote>
 <p><strong>Trying to make the internet secure from takeover by advanced
 AI systems by removing exploits from open-source software
-<a href="#Who_Pays">would cost at least</a> ~\$31 mio./~\$1.9 bio./~\$168
+<a href="#Who_Pays">would cost at least</a> ~<span>$</span>31 mio./~<span>$</span>1.9 bio./~<span>$</span>168
 bio. (5th/50th/95th percentile estimate), mean estimate ~$140 bio. But
 hardware or software/hardware hybrid vulnerabilities <a href="#Hybrid_and_Hardware_Vulnerabilities">are harder to
 fix</a>, and <a href="#Maintainer_Overload">open-source maintainers
@@ -101,16 +86,16 @@ which are basically impossible to fix on short time-scales…</p>
 infrastructure of the internet and fixing them might be
 <em>expensive</em>. 1 mio. input tokens for <a href="https://cloud.google.com/vertex-ai/generative-ai/pricing">Gemini 2.0 Flash
 cost</a>
-\$0.15, and \$0.60 for output tokens—but a model able
+<span>$</span>0.15, and <span>$</span>0.60 for output tokens—but a model able
 to find &amp; find fixes to security vulnerabilities is going
 to be more expensive. An AI-generated me-adjusted <a href="https://squigglehub.org/models/niplav/automated_internet_hardening">Squiggle
 model</a>
 estimates that <strong>it'd cost (median estimate) ~$1.9
 bio. to fix most vulnerabilities in open-source software (90%
 <a href="https://en.wikipedia.org/wiki/Confidence_Interval">confidence-interval</a>:
-~\$31 mio. to ~\$168 bio., mean estimated cost is… <em>gulp</em>… ~\$140
+~<span>$</span>31 mio. to ~<span>$</span>168 bio., mean estimated cost is… <em>gulp</em>… ~<span>$</span>140
 bio.)</strong>.</p>
-<p><img alt="" src="./img/patching/cost.png"/></p>
+<p><img alt="" src="./img/patching/cost.png"></p>
 <p>(I think the analysis under-estimates the cost because it doesn't consider
 setting up the project, paying human supervisors and reviewers, costs
 for testing infrastructure &amp; compute, finding complicated vulnerabilities
@@ -154,4 +139,5 @@ who will pay the costs of setting up this project and running it.</p>
 <li><a href="https://forum.effectivealtruism.org/posts/sh4zDoyQiwnAGCRd6/patching-all-security-relevant-open-source-software">Effective Altruism Forum</a></li>
 </ul></li>
 </ul>
+
 </body></html>

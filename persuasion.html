@@ -1,27 +1,12 @@
 <html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!DOCTYPE HTML>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
 
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
-</script>
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true,
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-	},
-	"HTML-CSS": { availableFonts: ["TeX"] }
-	});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -32,7 +17,79 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<style type="text/css">
+                            .mjpage .MJX-monospace {
+                            font-family: monospace
+                            }
+
+                            .mjpage .MJX-sans-serif {
+                            font-family: sans-serif
+                            }
+
+                            .mjpage {
+                            display: inline;
+                            font-style: normal;
+                            font-weight: normal;
+                            line-height: normal;
+                            font-size: 100%;
+                            font-size-adjust: none;
+                            text-indent: 0;
+                            text-align: left;
+                            text-transform: none;
+                            letter-spacing: normal;
+                            word-spacing: normal;
+                            word-wrap: normal;
+                            white-space: nowrap;
+                            float: none;
+                            direction: ltr;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            border: 0;
+                            padding: 0;
+                            margin: 0
+                            }
+
+                            .mjpage * {
+                            transition: none;
+                            -webkit-transition: none;
+                            -moz-transition: none;
+                            -ms-transition: none;
+                            -o-transition: none
+                            }
+
+                            .mjx-svg-href {
+                            fill: blue;
+                            stroke: blue
+                            }
+
+                            .MathJax_SVG_LineBox {
+                            display: table!important
+                            }
+
+                            .MathJax_SVG_LineBox span {
+                            display: table-cell!important;
+                            width: 10000em!important;
+                            min-width: 0;
+                            max-width: none;
+                            padding: 0;
+                            border: 0;
+                            margin: 0
+                            }
+
+                            .mjpage__block {
+                            text-align: center;
+                            margin: 1em 0em;
+                            position: relative;
+                            display: block!important;
+                            text-indent: 0;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            width: 100%
+                            }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2025-07-04, modified: 2025-07-23, language: english, status: notes, importance: 8, confidence: log</em></p>
 <blockquote>
 <p><strong>Some ideas on how to handle mildly superpersuasive
@@ -41,7 +98,7 @@ a designated position at their organization for the only
 people who interact with newly trained AI systems, so-called
 <a href="#Appendix_A_Sketch_Setup_of_Model_Whisperers">"model-whisperers"</a>, which
 have no other relevant access to infrastructure within the organization.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Motivation">Motivation</a><ul></ul></li><li><a href="#Assumptions">Assumptions</a><ul></ul></li><li><a href="#Some_Ideas_for_Interventions">Some Ideas for Interventions</a><ul><li><a href="#Both_Pre_and_PostDeployment">Both Pre- and Post-Deployment</a><ul></ul></li><li><a href="#Interventions_Limited_to_PreDeployment">Interventions Limited to Pre-Deployment</a><ul></ul></li><li><a href="#Interventions_Limited_to_PostDeployment">Interventions Limited to Post-Deployment</a><ul></ul></li></ul></li><li><a href="#Testing_AntiSuperpersuasion_Setups">Testing Anti-Superpersuasion Setups</a><ul></ul></li><li><a href="#Appendix_A_Sketch_Setup_of_Model_Whisperers">Appendix A: Sketch Setup of Model Whisperers</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Motivation">Motivation</a><ul></ul></li><li><a href="#Assumptions">Assumptions</a><ul></ul></li><li><a href="#Some_Ideas_for_Interventions">Some Ideas for Interventions</a><ul><li><a href="#Both_Pre_and_PostDeployment">Both Pre- and Post-Deployment</a><ul></ul></li><li><a href="#Interventions_Limited_to_PreDeployment">Interventions Limited to Pre-Deployment</a><ul></ul></li><li><a href="#Interventions_Limited_to_PostDeployment">Interventions Limited to Post-Deployment</a><ul></ul></li></ul></li><li><a href="#Testing_AntiSuperpersuasion_Setups">Testing Anti-Superpersuasion Setups</a><ul></ul></li><li><a href="#Appendix_A_Sketch_Setup_of_Model_Whisperers">Appendix A: Sketch Setup of Model Whisperers</a><ul></ul></li><li><a href="#Appendix_B_Slightly_More_Arguments_That_Superpersuasion_is_Possible">Appendix B: Slightly More Arguments That Superpersuasion is Possible</a><ul></ul></li></ul></div>
 <h1 id="AntiSuperpersuasion_Interventions"><a class="hanchor" href="#AntiSuperpersuasion_Interventions">Anti-Superpersuasion Interventions</a></h1>
 <blockquote>
 <p>Meanwhile, I’ve got great confidence that the most incredible
@@ -120,7 +177,7 @@ anti-persuasion measures could look like.</p>
 <li>There are at least two different variants of superpersuasion, which form two ends of a spectrum:
 <ul>
 <li><em>Recognizable Persuasion</em>: AI systems build trust with users or developers, are charming and charismatic, report information selectively &amp;c, only to use that trust later to subvert safeguards.</li>
-<li><em>Adversarial Examples</em>: Human brains could have <a href="https://en.wikipedia.org/wiki/Adversarial_input">adversarial inputs</a> similar to <a href="https://en.wikipedia.org/wiki/Optical_Illusion">optical illusions</a> but for more general cognitive functions, which circumvent specific parts of the brain and cause others to be activated more than normally. If those exist, they could allow for a fast and potentially complete circumvention of conscious processing.</li>
+<li><em>Adversarial Examples</em>: Human brains could have <a href="https://en.wikipedia.org/wiki/Adversarial_input">adversarial inputs</a> similar to <a href="https://en.wikipedia.org/wiki/Optical_Illusion">optical illusions</a> but for more general cognitive functions, which circumvent specific parts of the brain and cause others to be activated more than normally. If those exist, they could allow for a fast and potentially complete circumvention of conscious processing. (Indeed, humans can <a href="https://deepmind.google/discover/blog/images-altered-to-trick-machine-vision-can-influence-humans-too/">already subconsciously detect adversarial noise</a>.)</li>
 </ul></li>
 </ul></li>
 </ul>
@@ -207,7 +264,12 @@ this may be a bit boring, and is mostly a sketch.)</p>
 <li>(Optional) A low or non-existent online profile (in order to prevent model <a href="https://cyborgism.wiki/hypha/truesight">truesighting</a> the psychology of the whisperer).</li>
 <li>(Optional) Unusual or out-of-distribution background, which makes it more difficult for superpersuaders to infer psychological facts about the whisperer.</li>
 </ol></li>
-<li>Model whisperers are re-screened every <code>$x$</code> months (e.g. every three months):
+<li>Model whisperers are re-screened every <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">x</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-78" x="0" y="0"></use>
+</g>
+</svg></span> months (e.g. every three months):
 <ol>
 <li>For continued psychological health and alignment to the company mission.</li>
 </ol></li>
@@ -237,25 +299,42 @@ this may be a bit boring, and is mostly a sketch.)</p>
 </ol></li>
 <li>PS-9 (<strong>Position Descriptions</strong>): Skipped.</li>
 </ol>
+<h2 id="Appendix_B_Slightly_More_Arguments_That_Superpersuasion_is_Possible"><a class="hanchor" href="#Appendix_B_Slightly_More_Arguments_That_Superpersuasion_is_Possible">Appendix B: Slightly More Arguments That Superpersuasion is Possible</a></h2>
+<ul>
+<li>McCollough Effect</li>
+<li>Dancing mania and in general <a href="https://en.wikipedia.org/wiki/Social_contagion">social contagion</a></li>
+<li>Cults</li>
+<li>Humans can <a href="https://deepmind.google/discover/blog/images-altered-to-trick-machine-vision-can-influence-humans-too/">subliminally perceive adversarial examples for AI vision models</a></li>
+</ul>
+<p>Two kinds of objections:</p>
+<ol>
+<li>Humans are too reliable/too hardened against superpersuasion</li>
+<li>There would be exploits, but they are impossible to find because
+<ol>
+<li>Prospective superpersuaders don't have the relevant access to information about human brains (no gradients)</li>
+<li>Human brains are too heterogeneous for generalizable attacks</li>
+</ol></li>
+</ol>
 <!--Claude Chats:
 https://claude.ai/chat/9b59090a-d1b1-4cff-b0ce-77e439b027f4
 https://claude.ai/chat/752d0fda-12b0-4f3c-b509-431fc46f9059
 -->
 <div class="footnotes">
-<hr/>
+<hr>
 <ol>
 <li id="fn1">
-<p>As stated, I think I agree with this quote, but there's certainly much to nitpick. For one, picking out ten words from the most common 20k English words? Yep, that should be fine. Ten sets of ten arbitrary unicode codepoints? I'm getting queasy. Five seconds of audio (which could contain about ten English words)? If chosen without constraint, my confidence goes way down. <a href="#fnref1" rev="footnote">↩</a></p>
+<p>As stated, I think I agree with this quote, but there's certainly much to nitpick. For one, picking out ten words from the most common 20k English words? Yep, that should be fine. Ten sets of ten arbitrary unicode codepoints? I'm getting queasy. Five seconds of audio (which could contain about ten English words)? If chosen without constraint, my confidence goes way down.&nbsp;<a href="#fnref1" rev="footnote">↩</a></p>
 </li>
 <li id="fn2">
-<p>Wildly superhuman AI systems may have more exfiltration vectors, including <a href="https://en.wikipedia.org/wiki/Side-channel">side-channels</a> via electromagnetic radiation from their GPUs, or novel physical laws humans have not yet discovered. <a href="#fnref2" rev="footnote">↩</a></p>
+<p>Wildly superhuman AI systems may have more exfiltration vectors, including <a href="https://en.wikipedia.org/wiki/Side-channel">side-channels</a> via electromagnetic radiation from their GPUs, or novel physical laws humans have not yet discovered.&nbsp;<a href="#fnref2" rev="footnote">↩</a></p>
 </li>
 <li id="fn3">
-<p>From here on out also "superpersuasion". <a href="#fnref3" rev="footnote">↩</a></p>
+<p>From here on out also "superpersuasion".&nbsp;<a href="#fnref3" rev="footnote">↩</a></p>
 </li>
 <li id="fn4">
-<p>Not that it's important, but examples include <a href="http://www.infinityplus.co.uk/stories/blit.htm">Langford 1988</a>, <a href="https://ansible.uk/writing/c-b-faq.html">Langford 2006</a>, <a href="https://www.narrativeark.xyz/p/trojan-sky">Ngo 2025</a>, <a href="http://www.scpwiki.com/introductory-antimemetics">qntm 2021</a>, <a href="https://qualiacomputing.com/2017/03/08/memetic-vaccine-against-interdimensional-aliens-infestation/">Emilsson &amp; Lehar 2017</a> and doubtlessly many others. <a href="#fnref4" rev="footnote">↩</a></p>
+<p>Not that it's important, but examples include <a href="http://www.infinityplus.co.uk/stories/blit.htm">Langford 1988</a>, <a href="https://ansible.uk/writing/c-b-faq.html">Langford 2006</a>, <a href="https://www.narrativeark.xyz/p/trojan-sky">Ngo 2025</a>, <a href="http://www.scpwiki.com/introductory-antimemetics">qntm 2021</a>, <a href="https://qualiacomputing.com/2017/03/08/memetic-vaccine-against-interdimensional-aliens-infestation/">Emilsson &amp; Lehar 2017</a> and doubtlessly many others.&nbsp;<a href="#fnref4" rev="footnote">↩</a></p>
 </li>
 </ol>
 </div>
-</body></html>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMATHI-78" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></defs></svg></body></html>

@@ -1,27 +1,12 @@
 <html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!DOCTYPE HTML>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
 
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
-</script>
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true,
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-	},
-	"HTML-CSS": { availableFonts: ["TeX"] }
-	});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -32,13 +17,90 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<style type="text/css">
+                            .mjpage .MJX-monospace {
+                            font-family: monospace
+                            }
+
+                            .mjpage .MJX-sans-serif {
+                            font-family: sans-serif
+                            }
+
+                            .mjpage {
+                            display: inline;
+                            font-style: normal;
+                            font-weight: normal;
+                            line-height: normal;
+                            font-size: 100%;
+                            font-size-adjust: none;
+                            text-indent: 0;
+                            text-align: left;
+                            text-transform: none;
+                            letter-spacing: normal;
+                            word-spacing: normal;
+                            word-wrap: normal;
+                            white-space: nowrap;
+                            float: none;
+                            direction: ltr;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            border: 0;
+                            padding: 0;
+                            margin: 0
+                            }
+
+                            .mjpage * {
+                            transition: none;
+                            -webkit-transition: none;
+                            -moz-transition: none;
+                            -ms-transition: none;
+                            -o-transition: none
+                            }
+
+                            .mjx-svg-href {
+                            fill: blue;
+                            stroke: blue
+                            }
+
+                            .MathJax_SVG_LineBox {
+                            display: table!important
+                            }
+
+                            .MathJax_SVG_LineBox span {
+                            display: table-cell!important;
+                            width: 10000em!important;
+                            min-width: 0;
+                            max-width: none;
+                            padding: 0;
+                            border: 0;
+                            margin: 0
+                            }
+
+                            .mjpage__block {
+                            text-align: center;
+                            margin: 1em 0em;
+                            position: relative;
+                            display: block!important;
+                            text-indent: 0;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            width: 100%
+                            }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-09-02, modified: 2024-02-14, language: english, status: in progress, importance: 2, confidence: other</em></p>
 <blockquote>
 <p><strong>awitt is a simple window title logger/time tracker. It is linked,
 described and compared to other similar projects. Then, its releases
 and outstanding bugs are listed.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Description">Description</a><ul></ul></li><li><a href="#None">Why not Choose $x$ instead?</a><ul><li><a href="#arbtt">arbtt</a><ul></ul></li></ul></li><li><a href="#Releases">Releases</a><ul></ul></li><li><a href="#Bugs">Bugs</a><ul><li><a href="#Definitely_Bugs">Definitely Bugs</a><ul></ul></li><li><a href="#Possibly_Bugs">Possibly Bugs</a><ul></ul></li></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Description">Description</a><ul></ul></li><li><a href="#None">Why not Choose <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">x</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-78" x="0" y="0"></use>
+</g>
+</svg></span> instead?</a><ul><li><a href="#arbtt">arbtt</a><ul></ul></li></ul></li><li><a href="#Releases">Releases</a><ul></ul></li><li><a href="#Bugs">Bugs</a><ul><li><a href="#Definitely_Bugs">Definitely Bugs</a><ul></ul></li><li><a href="#Possibly_Bugs">Possibly Bugs</a><ul></ul></li></ul></li></ul></div>
 <h1 id="awitt__Another_Window_Title_Tracker"><a class="hanchor" href="#awitt__Another_Window_Title_Tracker">awitt – Another Window Title Tracker</a></h1>
 <p>The project's sourced code is available on
 <a href="https://github.com/niplav/awitt">github</a>, along with its
@@ -57,7 +119,12 @@ spent on an activity, and when.</p>
 <pre><code>awitt &gt;activities.log &amp;
 </code></pre>
 <p>activities.log can then be later analysed using standard unix tools.</p>
-<h2 id="None"><a class="hanchor" href="#None">Why not Choose <code>$x$</code> instead?</a></h2>
+<h2 id="None"><a class="hanchor" href="#None">Why not Choose <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-2-Title">
+<title id="MathJax-SVG-2-Title">x</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-78" x="0" y="0"></use>
+</g>
+</svg></span> instead?</a></h2>
 <p>There are several time trackers available for unix, but most of them
 suffer from the fact that they need manual input of current activities,
 which makes them cumbersome and awkward to use. awitt prevents that by
@@ -94,4 +161,5 @@ because reinventing the wheel is fun.</p>
 <li>Window title changes are only logged if they last longer than 1 second.</li>
 <li><a href="https://en.wikipedia.org/wiki/Unix_time">Unix time</a> is not optimal, use <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO-8601</a> instead</li>
 </ul>
-</body></html>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMATHI-78" d="M52 289Q59 331 106 386T222 442Q257 442 286 424T329 379Q371 442 430 442Q467 442 494 420T522 361Q522 332 508 314T481 292T458 288Q439 288 427 299T415 328Q415 374 465 391Q454 404 425 404Q412 404 406 402Q368 386 350 336Q290 115 290 78Q290 50 306 38T341 26Q378 26 414 59T463 140Q466 150 469 151T485 153H489Q504 153 504 145Q504 144 502 134Q486 77 440 33T333 -11Q263 -11 227 52Q186 -10 133 -10H127Q78 -10 57 16T35 71Q35 103 54 123T99 143Q142 143 142 101Q142 81 130 66T107 46T94 41L91 40Q91 39 97 36T113 29T132 26Q168 26 194 71Q203 87 217 139T245 247T261 313Q266 340 266 352Q266 380 251 392T217 404Q177 404 142 372T93 290Q91 281 88 280T72 278H58Q52 284 52 289Z"></path></defs></svg></body></html>

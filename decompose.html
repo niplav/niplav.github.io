@@ -1,27 +1,12 @@
 <html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!DOCTYPE HTML>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
 
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
-</script>
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true,
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-	},
-	"HTML-CSS": { availableFonts: ["TeX"] }
-	});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -32,19 +17,227 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<style type="text/css">
+                            .mjpage .MJX-monospace {
+                            font-family: monospace
+                            }
+
+                            .mjpage .MJX-sans-serif {
+                            font-family: sans-serif
+                            }
+
+                            .mjpage {
+                            display: inline;
+                            font-style: normal;
+                            font-weight: normal;
+                            line-height: normal;
+                            font-size: 100%;
+                            font-size-adjust: none;
+                            text-indent: 0;
+                            text-align: left;
+                            text-transform: none;
+                            letter-spacing: normal;
+                            word-spacing: normal;
+                            word-wrap: normal;
+                            white-space: nowrap;
+                            float: none;
+                            direction: ltr;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            border: 0;
+                            padding: 0;
+                            margin: 0
+                            }
+
+                            .mjpage * {
+                            transition: none;
+                            -webkit-transition: none;
+                            -moz-transition: none;
+                            -ms-transition: none;
+                            -o-transition: none
+                            }
+
+                            .mjx-svg-href {
+                            fill: blue;
+                            stroke: blue
+                            }
+
+                            .MathJax_SVG_LineBox {
+                            display: table!important
+                            }
+
+                            .MathJax_SVG_LineBox span {
+                            display: table-cell!important;
+                            width: 10000em!important;
+                            min-width: 0;
+                            max-width: none;
+                            padding: 0;
+                            border: 0;
+                            margin: 0
+                            }
+
+                            .mjpage__block {
+                            text-align: center;
+                            margin: 1em 0em;
+                            position: relative;
+                            display: block!important;
+                            text-indent: 0;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            width: 100%
+                            }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2024-04-06, modified: 2024-04-06, language: english, status: on hold, importance: 5, confidence: likely</em></p>
 <blockquote>
 <p><strong>Question decomposition is unreasonably effective, despite good
 counter-arguments.</strong></p>
 </blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Classification_and_Improvements">Classification and Improvements</a><ul></ul></li><li><a href="#Using_LLMs">Using LLMs</a><ul><li><a href="#Small_Experiment">Small Experiment</a><ul><li><a href="#Description">Description</a><ul></ul></li><li><a href="#Conclusion">Conclusion</a><ul></ul></li></ul></li></ul></li><li><a href="#Discussions">Discussions</a><ul></ul></li></ul></div>
 <h1 id="On_The_Unreasonable_Effectiveness_Of_Question_Decomposition"><a class="hanchor" href="#On_The_Unreasonable_Effectiveness_Of_Question_Decomposition">On The Unreasonable Effectiveness Of Question Decomposition</a></h1>
-<p>If we say "<code>$X$</code> will happen if and only if <code>$Y_1$</code> and <code>$Y_2$</code> and
-<code>$Y_3$</code>... <em>all</em> happen, so we estimate <code>$P(Y_1)$</code> and <code>$P(Y_2|Y_1)$</code>
-and <code>$P(Y_3|Y_1, Y_2)$</code> &amp;c, and then multiply them together to estimate
-<code>$P(X)=P(Y_1)·P(Y_2|Y_1)·P(Y_3|Y_2,Y_1·)·$</code>…", do we usually get a
-probability that is close to <code>$P(X)$</code>? Does this <em>improve</em> forecasts where
-one tries to estimate <code>$P(X)$</code> directly?</p>
+<p>If we say "<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.98ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 852.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">X</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+</g>
+</svg></span> will happen if and only if <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.405ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1035.4 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-2-Title">
+<title id="MathJax-SVG-2-Title">Y_1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.405ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1035.4 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-3-Title">
+<title id="MathJax-SVG-3-Title">Y_2</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-213"></use>
+</g>
+</svg></span> and
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.405ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1035.4 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-4-Title">
+<title id="MathJax-SVG-4-Title">Y_3</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-33" x="822" y="-213"></use>
+</g>
+</svg></span>... <em>all</em> happen, so we estimate <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.96ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2565.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-5-Title">
+<title id="MathJax-SVG-5-Title">P(Y_1)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="2176" y="0"></use>
+</g>
+</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.011ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 3879.8 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-6-Title">
+<title id="MathJax-SVG-6-Title">P(Y_2|Y_1)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="2176" y="0"></use>
+<g transform="translate(2454,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="3490" y="0"></use>
+</g>
+</svg></span>
+and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.45ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5360.4 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-7-Title">
+<title id="MathJax-SVG-7-Title">P(Y_3|Y_1, Y_2)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-33" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="2176" y="0"></use>
+<g transform="translate(2454,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="3490" y="0"></use>
+<g transform="translate(3935,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="4970" y="0"></use>
+</g>
+</svg></span> &amp;c, and then multiply them together to estimate
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="40.706ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 17526.1 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-8-Title">
+<title id="MathJax-SVG-8-Title">P(X)=P(Y_1)·P(Y_2|Y_1)·P(Y_3|Y_2,Y_1·)·</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+ <use xlink:href="#MJMATHI-58" x="1141" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="1993" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="2660" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="3717" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="4468" y="0"></use>
+<g transform="translate(4858,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="5893" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="6505" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="7005" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="7757" y="0"></use>
+<g transform="translate(8146,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="9182" y="0"></use>
+<g transform="translate(9460,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="10496" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="11107" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="11608" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="12360" y="0"></use>
+<g transform="translate(12749,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-33" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="13785" y="0"></use>
+<g transform="translate(14063,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="15098" y="0"></use>
+<g transform="translate(15544,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="16579" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="16858" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="17247" y="0"></use>
+</g>
+</svg></span>…", do we usually get a
+probability that is close to <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.535ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2383 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-9-Title">
+<title id="MathJax-SVG-9-Title">P(X)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+ <use xlink:href="#MJMATHI-58" x="1141" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="1993" y="0"></use>
+</g>
+</svg></span>? Does this <em>improve</em> forecasts where
+one tries to estimate <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.535ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2383 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-10-Title">
+<title id="MathJax-SVG-10-Title">P(X)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+ <use xlink:href="#MJMATHI-58" x="1141" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="1993" y="0"></use>
+</g>
+</svg></span> directly?</p>
 <p>This type of question decomposition (which one could
 call <strong>multiplicative decomposition</strong>) appears to be a
 relatively common method for forecasting, see <a href="https://forum.effectivealtruism.org/posts/ARkbWch5RMsj6xP5p/transformative-agi-by-2043-is-less-than-1-likely">Allyn-Feuer &amp; Sanders
@@ -126,8 +319,70 @@ run a small experiment to determine whether multiplicative decomposition
 for binary forecasts a good method, by randomly spending 20 minutes either
 making explicitely decomposed forecasts or control forecasts (although
 the exact method for control needs to be elaborated on). Working in
-parallel, making 70 forecasts should take $70 \text{ forecasts} \cdot \frac{1 \text{hr}}{3 \text{ forecasts}} \cdot \frac{1}{4}
-\approx 5.8\text{hr}$ less than 6 hours, although it'd be useful to search for
+parallel, making 70 forecasts should take <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="33.373ex" height="3.843ex" style="vertical-align: -1.338ex;" viewBox="0 -1078.4 14368.8 1654.5" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-11-Title">
+<title id="MathJax-SVG-11-Title">70 \text{ forecasts} \cdot \frac{1 \text{hr}}{3 \text{ forecasts}} \cdot \frac{1}{4}
+\approx 5.8\text{hr}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-37"></use>
+ <use xlink:href="#MJMAIN-30" x="500" y="0"></use>
+<g transform="translate(1001,0)">
+ <use xlink:href="#MJMAIN-66" x="250" y="0"></use>
+ <use xlink:href="#MJMAIN-6F" x="556" y="0"></use>
+ <use xlink:href="#MJMAIN-72" x="1057" y="0"></use>
+ <use xlink:href="#MJMAIN-65" x="1449" y="0"></use>
+ <use xlink:href="#MJMAIN-63" x="1894" y="0"></use>
+ <use xlink:href="#MJMAIN-61" x="2338" y="0"></use>
+ <use xlink:href="#MJMAIN-73" x="2839" y="0"></use>
+ <use xlink:href="#MJMAIN-74" x="3233" y="0"></use>
+ <use xlink:href="#MJMAIN-73" x="3623" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="5240" y="0"></use>
+<g transform="translate(5519,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="3387" height="60" x="0" y="220"></rect>
+<g transform="translate(1181,445)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="0" y="0"></use>
+<g transform="translate(353,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-68"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-72" x="556" y="0"></use>
+</g>
+</g>
+<g transform="translate(60,-444)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-33" x="0" y="0"></use>
+<g transform="translate(353,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-66" x="353" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-6F" x="660" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-72" x="1160" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-65" x="1553" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-63" x="1997" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-61" x="2442" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-73" x="2942" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-74" x="3337" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-73" x="3726" y="0"></use>
+</g>
+</g>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="9591" y="0"></use>
+<g transform="translate(9870,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="473" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="84" y="629"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-34" x="84" y="-600"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2248" x="11084" y="0"></use>
+<g transform="translate(12140,0)">
+ <use xlink:href="#MJMAIN-35"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-38" x="779" y="0"></use>
+</g>
+<g transform="translate(13419,0)">
+ <use xlink:href="#MJMAIN-68"></use>
+ <use xlink:href="#MJMAIN-72" x="556" y="0"></use>
+</g>
+</g>
+</svg></span> less than 6 hours, although it'd be useful to search for
 more recent literature on the question.</p>
 <ul>
 <li>Would decomposition work better if one were operating with log-odds instead of probabilities?</li>
@@ -136,7 +391,12 @@ more recent literature on the question.</p>
 <p>The description of such decomposition in <a href="#Forecasting_Techniques">this
 section</a> is, of course, lacking: A
 <em>better</em> way of decomposition would be, for a specific outcome,
-to find a set of preconditions for <code>$X$</code> that are <a href="https://en.wikipedia.org/wiki/Mutually-exclusive">mutually
+to find a set of preconditions for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.98ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 852.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-12-Title">
+<title id="MathJax-SVG-12-Title">X</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+</g>
+</svg></span> that are <a href="https://en.wikipedia.org/wiki/Mutually-exclusive">mutually
 exclusive</a>
 and <a href="https://en.wikipedia.org/wiki/Collectively_exhaustive">collectively
 exhaustive</a>, find
@@ -144,20 +404,557 @@ a chain that precedes them (or another MECE decomposition), and iterate
 until a whole (possibly interweaving) tree of options has been found.</p>
 <p>Thus one can define three types of question decomposition:</p>
 <ol>
-<li><strong>Multiplicative Decomposition</strong>: Given an event <code>$X$</code>, find conditions <code>$Y_1, \dots Y_n$</code> so that <code>$X$</code> if any only if all of <code>$Y_1, \dots, Y_n$</code> happen. Estimate <code>$P(Y_1)$</code> and <code>$P(Y_2|Y_1)$</code> and <code>$P(Y_3|Y_1, Y_2)$</code> &amp;c, and then mult
-iply them together to estimate <code>$P(X)=P(Y_1)·P(Y_2|Y_1)·P(Y_3|Y_2,Y_1·) \dots P(Y_n | Y_{n-1}, \dots, Y_2, Y_1)$</code>.</li>
-<li><strong>Additive Decomposition</strong> or <strong><a href="https://en.wikipedia.org/wiki/Mutually-exclusive">ME</a><a href="https://en.wikipedia.org/wiki/Collectively_Exhaustive_Events">CE</a> Decomposition</strong>: Given an event <code>$X$</code>, find a set of scenarios <code>$Y_1, \dots Y_n$</code>
-such that <code>$X$</code> happens if any <code>$Y$</code> happens, and only then, and no two <code>$Y_k, Y_l$</code> have <code>$P(Y_k \cap Y_l)&gt;0$</code>. Estimate <code>$P(Y_1), P(Y_2), \dots P(Y_n)$</code> and then estimate <code>$P(X)=\sum_{i=1}^n P(Y_i)$</code>.</li>
-<li><strong>Recursive Decomposition</strong>: For each scenario <code>$X'$</code>, decide to pursue one of the following strategies:
-    1. Estimate <code>$P(X')$</code> directly
-    2. Multiplicative decomposition of <code>$P(X')$</code>
-            1. Find a multiplicative decomposition <code>$Y_1', \dots Y_n'$</code> for <code>$X'$</code>
-            2. Estimate <code>$P(Y_1'), \dots P(Y_n' | Y_1', \dots Y_{n-1}')$</code> each via recursive decomposition
-            3. Determine <code>$P(X')=P(Y_1')·P(Y_2'|Y_1')·P(Y_3'|Y_2', Y_1') \dots P(Y_n' | Y_{n-1}', \dots, Y_2', Y_1')$</code>.
-    3. Additive decomposition of <code>$P(X')$</code>
-            1. Find a multiplicative decomposition <code>$Y_1', \dots Y_n'$</code> for <code>$X'$</code>
-            2. Estimate <code>$P(Y_1'), \dots P(Y_n')$</code> each via recursive decomposition
-            3. Determine <code>$P(X')=P(Y_1')+P(Y_2')+ \dots P(Y_n')$</code>.</li>
+<li><strong>Multiplicative Decomposition</strong>: Given an event <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.98ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 852.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-13-Title">
+<title id="MathJax-SVG-13-Title">X</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+</g>
+</svg></span>, find conditions <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.118ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 3925.9 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-14-Title">
+<title id="MathJax-SVG-14-Title">Y_1, \dots Y_n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+ <use xlink:href="#MJMAIN-2C" x="1035" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="1480" y="0"></use>
+<g transform="translate(2819,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="822" y="-213"></use>
+</g>
+</g>
+</svg></span> so that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.98ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 852.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-15-Title">
+<title id="MathJax-SVG-15-Title">X</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+</g>
+</svg></span> if any only if all of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="10.152ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 4371 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-16-Title">
+<title id="MathJax-SVG-16-Title">Y_1, \dots, Y_n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+ <use xlink:href="#MJMAIN-2C" x="1035" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="1480" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="2819" y="0"></use>
+<g transform="translate(3264,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="822" y="-213"></use>
+</g>
+</g>
+</svg></span> happen. Estimate <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.96ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2565.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-17-Title">
+<title id="MathJax-SVG-17-Title">P(Y_1)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="2176" y="0"></use>
+</g>
+</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.011ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 3879.8 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-18-Title">
+<title id="MathJax-SVG-18-Title">P(Y_2|Y_1)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="2176" y="0"></use>
+<g transform="translate(2454,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="3490" y="0"></use>
+</g>
+</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.45ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5360.4 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-19-Title">
+<title id="MathJax-SVG-19-Title">P(Y_3|Y_1, Y_2)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-33" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="2176" y="0"></use>
+<g transform="translate(2454,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="3490" y="0"></use>
+<g transform="translate(3935,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="4970" y="0"></use>
+</g>
+</svg></span> &amp;c, and then mult
+iply them together to estimate <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="66.018ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 28424.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-20-Title">
+<title id="MathJax-SVG-20-Title">P(X)=P(Y_1)·P(Y_2|Y_1)·P(Y_3|Y_2,Y_1·) \dots P(Y_n | Y_{n-1}, \dots, Y_2, Y_1)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+ <use xlink:href="#MJMATHI-58" x="1141" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="1993" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="2660" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="3717" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="4468" y="0"></use>
+<g transform="translate(4858,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="5893" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="6505" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="7005" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="7757" y="0"></use>
+<g transform="translate(8146,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="9182" y="0"></use>
+<g transform="translate(9460,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="10496" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="11107" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="11608" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="12360" y="0"></use>
+<g transform="translate(12749,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-33" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="13785" y="0"></use>
+<g transform="translate(14063,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="15098" y="0"></use>
+<g transform="translate(15544,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-22C5" x="16579" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="16858" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="17414" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="18753" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="19504" y="0"></use>
+<g transform="translate(19894,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="21000" y="0"></use>
+<g transform="translate(21279,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+<g transform="translate(581,-150)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="23289" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="23734" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="25073" y="0"></use>
+<g transform="translate(25519,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="26554" y="0"></use>
+<g transform="translate(26999,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="28034" y="0"></use>
+</g>
+</svg></span>.</li>
+<li><strong>Additive Decomposition</strong> or <strong><a href="https://en.wikipedia.org/wiki/Mutually-exclusive">ME</a><a href="https://en.wikipedia.org/wiki/Collectively_Exhaustive_Events">CE</a> Decomposition</strong>: Given an event <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.98ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 852.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-21-Title">
+<title id="MathJax-SVG-21-Title">X</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+</g>
+</svg></span>, find a set of scenarios <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.118ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 3925.9 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-22-Title">
+<title id="MathJax-SVG-22-Title">Y_1, \dots Y_n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+ <use xlink:href="#MJMAIN-2C" x="1035" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="1480" y="0"></use>
+<g transform="translate(2819,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="822" y="-213"></use>
+</g>
+</g>
+</svg></span>
+such that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.98ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 852.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-23-Title">
+<title id="MathJax-SVG-23-Title">X</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+</g>
+</svg></span> happens if any <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.773ex" height="2.009ex" style="vertical-align: -0.171ex;" viewBox="0 -791.3 763.5 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-24-Title">
+<title id="MathJax-SVG-24-Title">Y</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+</g>
+</svg></span> happens, and only then, and no two <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.546ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 2388 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-25-Title">
+<title id="MathJax-SVG-25-Title">Y_k, Y_l</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6B" x="822" y="-213"></use>
+ <use xlink:href="#MJMAIN-2C" x="1050" y="0"></use>
+<g transform="translate(1495,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6C" x="822" y="-213"></use>
+</g>
+</g>
+</svg></span> have <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="14.911ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 6419.8 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-26-Title">
+<title id="MathJax-SVG-26-Title">P(Y_k \cap Y_l)&gt;0</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6B" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2229" x="2413" y="0"></use>
+<g transform="translate(3303,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6C" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="4195" y="0"></use>
+ <use xlink:href="#MJMAIN-3E" x="4863" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="5919" y="0"></use>
+</g>
+</svg></span>. Estimate <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="23.221ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 9997.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-27-Title">
+<title id="MathJax-SVG-27-Title">P(Y_1), P(Y_2), \dots P(Y_n)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="2176" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="2565" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="3011" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="3762" y="0"></use>
+<g transform="translate(4152,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="5187" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="5576" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="6022" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="7361" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="8112" y="0"></use>
+<g transform="translate(8502,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="9608" y="0"></use>
+</g>
+</svg></span> and then estimate <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="20.079ex" height="3.176ex" style="vertical-align: -1.005ex;" viewBox="0 -934.9 8645.2 1367.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-28-Title">
+<title id="MathJax-SVG-28-Title">P(X)=\sum_{i=1}^n P(Y_i)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+ <use xlink:href="#MJMATHI-58" x="1141" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="1993" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="2660" y="0"></use>
+<g transform="translate(3717,0)">
+ <use xlink:href="#MJSZ1-2211" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="1494" y="675"></use>
+<g transform="translate(1056,-287)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-3D" x="345" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1124" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMATHI-50" x="6188" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="6940" y="0"></use>
+<g transform="translate(7329,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="822" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="8255" y="0"></use>
+</g>
+</svg></span>.</li>
+<li><strong>Recursive Decomposition</strong>: For each scenario <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.682ex" height="2.343ex" style="vertical-align: -0.338ex;" viewBox="0 -863.1 1154.6 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-29-Title">
+<title id="MathJax-SVG-29-Title">X'</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1215" y="513"></use>
+</g>
+</svg></span>, decide to pursue one of the following strategies:
+    1. Estimate <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.236ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2685.1 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-30-Title">
+<title id="MathJax-SVG-30-Title">P(X')</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1215" y="513"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="2295" y="0"></use>
+</g>
+</svg></span> directly
+    2. Multiplicative decomposition of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.236ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2685.1 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-31-Title">
+<title id="MathJax-SVG-31-Title">P(X')</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1215" y="513"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="2295" y="0"></use>
+</g>
+</svg></span>
+            1. Find a multiplicative decomposition <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.314ex" height="2.843ex" style="vertical-align: -1.005ex;" viewBox="0 -791.3 4010.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-32-Title">
+<title id="MathJax-SVG-32-Title">Y_1', \dots Y_n'</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-435"></use>
+ <use xlink:href="#MJMAIN-2C" x="1112" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="1558" y="0"></use>
+<g transform="translate(2897,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="822" y="-212"></use>
+</g>
+</g>
+</svg></span> for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.682ex" height="2.343ex" style="vertical-align: -0.338ex;" viewBox="0 -863.1 1154.6 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-33-Title">
+<title id="MathJax-SVG-33-Title">X'</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1215" y="513"></use>
+</g>
+</svg></span>
+            2. Estimate <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="28.469ex" height="3.176ex" style="vertical-align: -1.171ex;" viewBox="0 -863.1 12257.5 1367.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-34-Title">
+<title id="MathJax-SVG-34-Title">P(Y_1'), \dots P(Y_n' | Y_1', \dots Y_{n-1}')</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-435"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="2253" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="2643" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="3088" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="4427" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="5179" y="0"></use>
+<g transform="translate(5568,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="822" y="-212"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="6681" y="0"></use>
+<g transform="translate(6960,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-435"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="8073" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="8518" y="0"></use>
+<g transform="translate(9857,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+<g transform="translate(581,-308)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-29" x="11868" y="0"></use>
+</g>
+</svg></span> each via recursive decomposition
+            3. Determine <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="67.53ex" height="3.176ex" style="vertical-align: -1.171ex;" viewBox="0 -863.1 29075.3 1367.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-35-Title">
+<title id="MathJax-SVG-35-Title">P(X')=P(Y_1')·P(Y_2'|Y_1')·P(Y_3'|Y_2', Y_1') \dots P(Y_n' | Y_{n-1}', \dots, Y_2', Y_1')</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1215" y="513"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="2295" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="2962" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="4019" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="4770" y="0"></use>
+<g transform="translate(5160,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-435"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="6273" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="6884" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="7385" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="8137" y="0"></use>
+<g transform="translate(8526,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-435"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="9639" y="0"></use>
+<g transform="translate(9917,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-435"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="11030" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="11642" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="12143" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="12894" y="0"></use>
+<g transform="translate(13284,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-33" x="822" y="-434"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="14397" y="0"></use>
+<g transform="translate(14675,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-435"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="15788" y="0"></use>
+<g transform="translate(16233,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-435"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="17346" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="17903" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="19242" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="19993" y="0"></use>
+<g transform="translate(20383,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="822" y="-212"></use>
+</g>
+ <use xlink:href="#MJMAIN-7C" x="21496" y="0"></use>
+<g transform="translate(21774,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+<g transform="translate(581,-308)">
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="600" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="1379" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="23785" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="24230" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="25569" y="0"></use>
+<g transform="translate(26014,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-435"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="27127" y="0"></use>
+<g transform="translate(27572,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-435"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="28685" y="0"></use>
+</g>
+</svg></span>.
+    3. Additive decomposition of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.236ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2685.1 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-36-Title">
+<title id="MathJax-SVG-36-Title">P(X')</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1215" y="513"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="2295" y="0"></use>
+</g>
+</svg></span>
+            1. Find a multiplicative decomposition <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.314ex" height="2.843ex" style="vertical-align: -1.005ex;" viewBox="0 -791.3 4010.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-37-Title">
+<title id="MathJax-SVG-37-Title">Y_1', \dots Y_n'</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-435"></use>
+ <use xlink:href="#MJMAIN-2C" x="1112" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="1558" y="0"></use>
+<g transform="translate(2897,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="822" y="-212"></use>
+</g>
+</g>
+</svg></span> for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.682ex" height="2.343ex" style="vertical-align: -0.338ex;" viewBox="0 -863.1 1154.6 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-38-Title">
+<title id="MathJax-SVG-38-Title">X'</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1215" y="513"></use>
+</g>
+</svg></span>
+            2. Estimate <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.424ex" height="3.009ex" style="vertical-align: -1.005ex;" viewBox="0 -863.1 7071.2 1295.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-39-Title">
+<title id="MathJax-SVG-39-Title">P(Y_1'), \dots P(Y_n')</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-435"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="2253" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="2643" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="3088" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="4427" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="5179" y="0"></use>
+<g transform="translate(5568,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="822" y="-212"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="6681" y="0"></use>
+</g>
+</svg></span> each via recursive decomposition
+            3. Determine <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="36.545ex" height="3.009ex" style="vertical-align: -1.005ex;" viewBox="0 -863.1 15734.5 1295.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-40-Title">
+<title id="MathJax-SVG-40-Title">P(X')=P(Y_1')+P(Y_2')+ \dots P(Y_n')</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="751" y="0"></use>
+<g transform="translate(1141,0)">
+ <use xlink:href="#MJMATHI-58" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1215" y="513"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="2295" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="2962" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="4019" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="4770" y="0"></use>
+<g transform="translate(5160,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="822" y="-435"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="6273" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="6884" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="7885" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="8637" y="0"></use>
+<g transform="translate(9026,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="822" y="-435"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="10139" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="10751" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="11751" y="0"></use>
+ <use xlink:href="#MJMATHI-50" x="13091" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="13842" y="0"></use>
+<g transform="translate(14232,0)">
+ <use xlink:href="#MJMATHI-59" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1157" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="822" y="-212"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="15345" y="0"></use>
+</g>
+</svg></span>.</li>
 </ol>
 <p>A keen reader will notice that recursive decomposition is similar to
 <a href="https://en.wikipedia.org/wiki/Bayesian_Network">Bayes nets</a>. True,
@@ -277,4 +1074,5 @@ if my understanding is correct.</p>
 <li><a href="https://www.lesswrong.com/posts/YjZ8sJmkGJQhNcjHj/the-evidence-for-question-decomposition-is-weak">LessWrong</a></li>
 <li><a href="https://forum.effectivealtruism.org/posts/beRtXkMpCT39y8bPj/there-is-little-evidence-on-question-decomposition">Effective Altruism Forum</a></li>
 </ul>
-</body></html>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMATHI-58" d="M42 0H40Q26 0 26 11Q26 15 29 27Q33 41 36 43T55 46Q141 49 190 98Q200 108 306 224T411 342Q302 620 297 625Q288 636 234 637H206Q200 643 200 645T202 664Q206 677 212 683H226Q260 681 347 681Q380 681 408 681T453 682T473 682Q490 682 490 671Q490 670 488 658Q484 643 481 640T465 637Q434 634 411 620L488 426L541 485Q646 598 646 610Q646 628 622 635Q617 635 609 637Q594 637 594 648Q594 650 596 664Q600 677 606 683H618Q619 683 643 683T697 681T738 680Q828 680 837 683H845Q852 676 852 672Q850 647 840 637H824Q790 636 763 628T722 611T698 593L687 584Q687 585 592 480L505 384Q505 383 536 304T601 142T638 56Q648 47 699 46Q734 46 734 37Q734 35 732 23Q728 7 725 4T711 1Q708 1 678 1T589 2Q528 2 496 2T461 1Q444 1 444 10Q444 11 446 25Q448 35 450 39T455 44T464 46T480 47T506 54Q523 62 523 64Q522 64 476 181L429 299Q241 95 236 84Q232 76 232 72Q232 53 261 47Q262 47 267 47T273 46Q276 46 277 46T280 45T283 42T284 35Q284 26 282 19Q279 6 276 4T261 1Q258 1 243 1T201 2T142 2Q64 2 42 0Z"></path><path stroke-width="1" id="MJMATHI-59" d="M66 637Q54 637 49 637T39 638T32 641T30 647T33 664T42 682Q44 683 56 683Q104 680 165 680Q288 680 306 683H316Q322 677 322 674T320 656Q316 643 310 637H298Q242 637 242 624Q242 619 292 477T343 333L346 336Q350 340 358 349T379 373T411 410T454 461Q546 568 561 587T577 618Q577 634 545 637Q528 637 528 647Q528 649 530 661Q533 676 535 679T549 683Q551 683 578 682T657 680Q684 680 713 681T746 682Q763 682 763 673Q763 669 760 657T755 643Q753 637 734 637Q662 632 617 587Q608 578 477 424L348 273L322 169Q295 62 295 57Q295 46 363 46Q379 46 384 45T390 35Q390 33 388 23Q384 6 382 4T366 1Q361 1 324 1T232 2Q170 2 138 2T102 1Q84 1 84 9Q84 14 87 24Q88 27 89 30T90 35T91 39T93 42T96 44T101 45T107 45T116 46T129 46Q168 47 180 50T198 63Q201 68 227 171L252 274L129 623Q128 624 127 625T125 627T122 629T118 631T113 633T105 634T96 635T83 636T66 637Z"></path><path stroke-width="1" id="MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="1" id="MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="1" id="MJMAIN-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path stroke-width="1" id="MJMATHI-50" d="M287 628Q287 635 230 637Q206 637 199 638T192 648Q192 649 194 659Q200 679 203 681T397 683Q587 682 600 680Q664 669 707 631T751 530Q751 453 685 389Q616 321 507 303Q500 302 402 301H307L277 182Q247 66 247 59Q247 55 248 54T255 50T272 48T305 46H336Q342 37 342 35Q342 19 335 5Q330 0 319 0Q316 0 282 1T182 2Q120 2 87 2T51 1Q33 1 33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM645 554Q645 567 643 575T634 597T609 619T560 635Q553 636 480 637Q463 637 445 637T416 636T404 636Q391 635 386 627Q384 621 367 550T332 412T314 344Q314 342 395 342H407H430Q542 342 590 392Q617 419 631 471T645 554Z"></path><path stroke-width="1" id="MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="1" id="MJMAIN-7C" d="M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"></path><path stroke-width="1" id="MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="1" id="MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="1" id="MJMAIN-22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path><path stroke-width="1" id="MJMAIN-37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path stroke-width="1" id="MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="1" id="MJMAIN-66" d="M273 0Q255 3 146 3Q43 3 34 0H26V46H42Q70 46 91 49Q99 52 103 60Q104 62 104 224V385H33V431H104V497L105 564L107 574Q126 639 171 668T266 704Q267 704 275 704T289 705Q330 702 351 679T372 627Q372 604 358 590T321 576T284 590T270 627Q270 647 288 667H284Q280 668 273 668Q245 668 223 647T189 592Q183 572 182 497V431H293V385H185V225Q185 63 186 61T189 57T194 54T199 51T206 49T213 48T222 47T231 47T241 46T251 46H282V0H273Z"></path><path stroke-width="1" id="MJMAIN-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path><path stroke-width="1" id="MJMAIN-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path><path stroke-width="1" id="MJMAIN-65" d="M28 218Q28 273 48 318T98 391T163 433T229 448Q282 448 320 430T378 380T406 316T415 245Q415 238 408 231H126V216Q126 68 226 36Q246 30 270 30Q312 30 342 62Q359 79 369 104L379 128Q382 131 395 131H398Q415 131 415 121Q415 117 412 108Q393 53 349 21T250 -11Q155 -11 92 58T28 218ZM333 275Q322 403 238 411H236Q228 411 220 410T195 402T166 381T143 340T127 274V267H333V275Z"></path><path stroke-width="1" id="MJMAIN-63" d="M370 305T349 305T313 320T297 358Q297 381 312 396Q317 401 317 402T307 404Q281 408 258 408Q209 408 178 376Q131 329 131 219Q131 137 162 90Q203 29 272 29Q313 29 338 55T374 117Q376 125 379 127T395 129H409Q415 123 415 120Q415 116 411 104T395 71T366 33T318 2T249 -11Q163 -11 99 53T34 214Q34 318 99 383T250 448T370 421T404 357Q404 334 387 320Z"></path><path stroke-width="1" id="MJMAIN-61" d="M137 305T115 305T78 320T63 359Q63 394 97 421T218 448Q291 448 336 416T396 340Q401 326 401 309T402 194V124Q402 76 407 58T428 40Q443 40 448 56T453 109V145H493V106Q492 66 490 59Q481 29 455 12T400 -6T353 12T329 54V58L327 55Q325 52 322 49T314 40T302 29T287 17T269 6T247 -2T221 -8T190 -11Q130 -11 82 20T34 107Q34 128 41 147T68 188T116 225T194 253T304 268H318V290Q318 324 312 340Q290 411 215 411Q197 411 181 410T156 406T148 403Q170 388 170 359Q170 334 154 320ZM126 106Q126 75 150 51T209 26Q247 26 276 49T315 109Q317 116 318 175Q318 233 317 233Q309 233 296 232T251 223T193 203T147 166T126 106Z"></path><path stroke-width="1" id="MJMAIN-73" d="M295 316Q295 356 268 385T190 414Q154 414 128 401Q98 382 98 349Q97 344 98 336T114 312T157 287Q175 282 201 278T245 269T277 256Q294 248 310 236T342 195T359 133Q359 71 321 31T198 -10H190Q138 -10 94 26L86 19L77 10Q71 4 65 -1L54 -11H46H42Q39 -11 33 -5V74V132Q33 153 35 157T45 162H54Q66 162 70 158T75 146T82 119T101 77Q136 26 198 26Q295 26 295 104Q295 133 277 151Q257 175 194 187T111 210Q75 227 54 256T33 318Q33 357 50 384T93 424T143 442T187 447H198Q238 447 268 432L283 424L292 431Q302 440 314 448H322H326Q329 448 335 442V310L329 304H301Q295 310 295 316Z"></path><path stroke-width="1" id="MJMAIN-74" d="M27 422Q80 426 109 478T141 600V615H181V431H316V385H181V241Q182 116 182 100T189 68Q203 29 238 29Q282 29 292 100Q293 108 293 146V181H333V146V134Q333 57 291 17Q264 -10 221 -10Q187 -10 162 2T124 33T105 68T98 100Q97 107 97 248V385H18V422H27Z"></path><path stroke-width="1" id="MJMAIN-68" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 124T102 167T103 217T103 272T103 329Q103 366 103 407T103 482T102 542T102 586T102 603Q99 622 88 628T43 637H25V660Q25 683 27 683L37 684Q47 685 66 686T103 688Q120 689 140 690T170 693T181 694H184V367Q244 442 328 442Q451 442 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path stroke-width="1" id="MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path stroke-width="1" id="MJMAIN-2248" d="M55 319Q55 360 72 393T114 444T163 472T205 482Q207 482 213 482T223 483Q262 483 296 468T393 413L443 381Q502 346 553 346Q609 346 649 375T694 454Q694 465 698 474T708 483Q722 483 722 452Q722 386 675 338T555 289Q514 289 468 310T388 357T308 404T224 426Q164 426 125 393T83 318Q81 289 69 289Q55 289 55 319ZM55 85Q55 126 72 159T114 210T163 238T205 248Q207 248 213 248T223 249Q262 249 296 234T393 179L443 147Q502 112 553 112Q609 112 649 141T694 220Q694 249 708 249T722 217Q722 153 675 104T555 55Q514 55 468 76T388 123T308 170T224 192Q164 192 125 159T83 84Q80 55 69 55Q55 55 55 85Z"></path><path stroke-width="1" id="MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="1" id="MJMAIN-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path stroke-width="1" id="MJMAIN-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path><path stroke-width="1" id="MJMAIN-2026" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60ZM525 60Q525 84 542 102T585 120Q609 120 627 104T646 61Q646 36 629 18T586 0T543 17T525 60ZM972 60Q972 84 989 102T1032 120Q1056 120 1074 104T1093 61Q1093 36 1076 18T1033 0T990 17T972 60Z"></path><path stroke-width="1" id="MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="1" id="MJMATHI-6B" d="M121 647Q121 657 125 670T137 683Q138 683 209 688T282 694Q294 694 294 686Q294 679 244 477Q194 279 194 272Q213 282 223 291Q247 309 292 354T362 415Q402 442 438 442Q468 442 485 423T503 369Q503 344 496 327T477 302T456 291T438 288Q418 288 406 299T394 328Q394 353 410 369T442 390L458 393Q446 405 434 405H430Q398 402 367 380T294 316T228 255Q230 254 243 252T267 246T293 238T320 224T342 206T359 180T365 147Q365 130 360 106T354 66Q354 26 381 26Q429 26 459 145Q461 153 479 153H483Q499 153 499 144Q499 139 496 130Q455 -11 378 -11Q333 -11 305 15T277 90Q277 108 280 121T283 145Q283 167 269 183T234 206T200 217T182 220H180Q168 178 159 139T145 81T136 44T129 20T122 7T111 -2Q98 -11 83 -11Q66 -11 57 -1T48 16Q48 26 85 176T158 471L195 616Q196 629 188 632T149 637H144Q134 637 131 637T124 640T121 647Z"></path><path stroke-width="1" id="MJMATHI-6C" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path stroke-width="1" id="MJMAIN-2229" d="M88 -21T75 -21T55 -7V200Q55 231 55 280Q56 414 60 428Q61 430 61 431Q77 500 152 549T332 598Q443 598 522 544T610 405Q611 399 611 194V-7Q604 -22 591 -22Q582 -22 572 -9L570 405Q563 433 556 449T529 485Q498 519 445 538T334 558Q251 558 179 518T96 401Q95 396 95 193V-7Q88 -21 75 -21Z"></path><path stroke-width="1" id="MJMAIN-3E" d="M84 520Q84 528 88 533T96 539L99 540Q106 540 253 471T544 334L687 265Q694 260 694 250T687 235Q685 233 395 96L107 -40H101Q83 -38 83 -20Q83 -19 83 -17Q82 -10 98 -1Q117 9 248 71Q326 108 378 132L626 250L378 368Q90 504 86 509Q84 513 84 520Z"></path><path stroke-width="1" id="MJSZ1-2211" d="M61 748Q64 750 489 750H913L954 640Q965 609 976 579T993 533T999 516H979L959 517Q936 579 886 621T777 682Q724 700 655 705T436 710H319Q183 710 183 709Q186 706 348 484T511 259Q517 250 513 244L490 216Q466 188 420 134T330 27L149 -187Q149 -188 362 -188Q388 -188 436 -188T506 -189Q679 -189 778 -162T936 -43Q946 -27 959 6H999L913 -249L489 -250Q65 -250 62 -248Q56 -246 56 -239Q56 -234 118 -161Q186 -81 245 -11L428 206Q428 207 242 462L57 717L56 728Q56 744 61 748Z"></path><path stroke-width="1" id="MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="MJMAIN-2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path><path stroke-width="1" id="MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path></defs></svg></body></html>

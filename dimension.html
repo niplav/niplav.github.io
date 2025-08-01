@@ -1,27 +1,12 @@
 <html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!DOCTYPE HTML>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
 
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
-</script>
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true,
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-	},
-	"HTML-CSS": { availableFonts: ["TeX"] }
-	});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -73,10 +58,10 @@ reduced_umap=umap(transpose(data))
 
 gui(scatter(reduced[:,1],reduced[:,2]))
 </code></pre>
-<p><img alt="" src="./img/dimension/tsne_plot.png"/></p>
+<p><img alt="" src="./img/dimension/tsne_plot.png"></p>
 <pre><code>gui(scatter(reduced_umap[1,:],reduced_umap[2,:], color=:red))
 </code></pre>
-<p><img alt="" src="./img/dimension/umap_plot.png"/></p>
+<p><img alt="" src="./img/dimension/umap_plot.png"></p>
 <p>Changing the perplexity to 5 (default is 30 for t-SNE) changes
 the clustering produced — no obvious <em>clustering</em>, but it leads to
 structure being hallucinated, especially the tendency towards identifying
@@ -85,13 +70,13 @@ don't exist.</p>
 <pre><code>reduced_5=tsne(data, 2, 0, 1000, 5.0)
 gui(scatter(reduced_5[:,1],reduced_5[:,2], color=:green))
 </code></pre>
-<p><img alt="" src="./img/dimension/tsne_5_plot.png"/></p>
+<p><img alt="" src="./img/dimension/tsne_5_plot.png"></p>
 <p>But—what if we have <em>more</em> dimensions than datapoints? Surely it
 hallucinates structure in that case‼</p>
-<p><img alt="" src="./img/dimension/tsne_moredims.png"/></p>
+<p><img alt="" src="./img/dimension/tsne_moredims.png"></p>
 <p>(In all cases with 1000 datapoints.)</p>
 <p>And the same for UMAP:</p>
-<p><img alt="" src="./img/dimension/umap_moredims.png"/></p>
+<p><img alt="" src="./img/dimension/umap_moredims.png"></p>
 <p><a href="https://x.com/quetzal_rainbow/status/1868307804702069173">quetzal_rainbow
 suggested</a>
 I test it with data where half the dimensions are <a href="https://en.wikipedia.org/wiki/Normal-distribution">normally
@@ -102,9 +87,9 @@ Intuitively, the resulting dataset has the shape of a skewed hyperegg,
 in which for half the dimensions the cross-section is spherical and for
 the other half they extend much further in one direction than the other.</p>
 <p>When reducing the dimensions, we see this for t-SNE on 1000 datapoints each:</p>
-<p><img alt="" src="./img/dimension/tsne_mixed_moredims.png"/></p>
+<p><img alt="" src="./img/dimension/tsne_mixed_moredims.png"></p>
 <p>And similarly for UMAP:</p>
-<p><img alt="" src="./img/dimension/umap_mixed_moredims.png"/></p>
+<p><img alt="" src="./img/dimension/umap_mixed_moredims.png"></p>
 <p>The dimensionality reduction algorithms get executed on the same dataset
 per dimensionality, which is why they have very similar outputs for
 e.g. 16k dimensions: The generated dataset has a few outliers which end
@@ -128,4 +113,5 @@ The basic message is that distances between well-separated clusters in
 a t-SNE plot may mean nothing.</p>
 </blockquote>
 <p><em>—Fernanda Viegas/Ian Johnson/Martin Wattenberg, <a href="https://distill.pub/2016/misread-tsne/">“How to Use t-SNE Effectively”</a>, 2016</em></p>
+
 </body></html>

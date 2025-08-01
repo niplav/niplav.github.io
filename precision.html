@@ -1,27 +1,12 @@
 <html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!DOCTYPE HTML>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
 
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
-</script>
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true,
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-	},
-	"HTML-CSS": { availableFonts: ["TeX"] }
-	});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -32,7 +17,79 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<style type="text/css">
+                            .mjpage .MJX-monospace {
+                            font-family: monospace
+                            }
+
+                            .mjpage .MJX-sans-serif {
+                            font-family: sans-serif
+                            }
+
+                            .mjpage {
+                            display: inline;
+                            font-style: normal;
+                            font-weight: normal;
+                            line-height: normal;
+                            font-size: 100%;
+                            font-size-adjust: none;
+                            text-indent: 0;
+                            text-align: left;
+                            text-transform: none;
+                            letter-spacing: normal;
+                            word-spacing: normal;
+                            word-wrap: normal;
+                            white-space: nowrap;
+                            float: none;
+                            direction: ltr;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            border: 0;
+                            padding: 0;
+                            margin: 0
+                            }
+
+                            .mjpage * {
+                            transition: none;
+                            -webkit-transition: none;
+                            -moz-transition: none;
+                            -ms-transition: none;
+                            -o-transition: none
+                            }
+
+                            .mjx-svg-href {
+                            fill: blue;
+                            stroke: blue
+                            }
+
+                            .MathJax_SVG_LineBox {
+                            display: table!important
+                            }
+
+                            .MathJax_SVG_LineBox span {
+                            display: table-cell!important;
+                            width: 10000em!important;
+                            min-width: 0;
+                            max-width: none;
+                            padding: 0;
+                            border: 0;
+                            margin: 0
+                            }
+
+                            .mjpage__block {
+                            text-align: center;
+                            margin: 1em 0em;
+                            position: relative;
+                            display: block!important;
+                            text-indent: 0;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            width: 100%
+                            }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-02-04, modified: 2023-09-19, language: english, status: maintenance, importance: 4, confidence: possible</em></p>
 <blockquote>
 <p><strong>I discuss proposals for a method that estimates how much predictive
@@ -52,7 +109,7 @@ precision</a> turns out to be tricky.</strong></p>
 <h1 id="Precision_of_Sets_of_Forecasts"><a class="hanchor" href="#Precision_of_Sets_of_Forecasts">Precision of Sets of Forecasts</a></h1>
 <h4 id="Epistemic_Status"><a class="hanchor" href="#Epistemic_Status">Epistemic Status</a></h4>
 <p>Maybe not just reinventing the wheel, but the whole bicycle.</p>
-<hr/>
+<hr>
 <p>Say we have a set of resolved forecasts and can display them on a
 calibration plot.</p>
 <p>We can grade the forecasts according to some <a href="./doc/prediction/calibration_scoring_rules_for_practical_prediction_training_greenberg_2018.pdf">proper scoring
@@ -99,16 +156,146 @@ gave no more additional information?</p>
 (resolved) forecasts, the precision that those predictions display:
 Any additional digits added to the probability beyond this precision
 would just be noise.</p>
-<p>Let us call this number the precision <code>$ᚠ$</code> of a set of forecasts.</p>
-<p>Let <code>$\mathbf{D}=((f_1, o_1), \dots, (f_n, o_n)) \in ((0,1),\{0,1\})^n$</code>
-be a dataset of <code>$n$</code> forecasts <code>$f_i$</code> and resolutions <code>$o_i$</code>.</p>
-<p>Then <code>$ᚠ$</code> is simply a function that takes in such a dataset of
-forecasts and produces a real number <code>$ᚠ: ((0;1),\{0,1\})^n \rightarrow \mathbb{R}$</code>,
-so for example <code>$ᚠ(D)=0.2$</code> for the forecasts and outcomes <code>$D$</code>
+<p>Let us call this number the precision <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.417ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 610 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">ᚠ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+</g>
+</svg></span> of a set of forecasts.</p>
+<p>Let <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="44.656ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 19226.6 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-2-Title">
+<title id="MathJax-SVG-2-Title">\mathbf{D}=((f_1, o_1), \dots, (f_n, o_n)) \in ((0,1),\{0,1\})^n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAINB-44" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="1160" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="2216" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="2606" y="0"></use>
+<g transform="translate(2995,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="693" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="3939" y="0"></use>
+<g transform="translate(4385,0)">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="686" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="5324" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="5714" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="6159" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="7498" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="7943" y="0"></use>
+<g transform="translate(8333,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="693" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="9348" y="0"></use>
+<g transform="translate(9793,0)">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="686" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="10803" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="11192" y="0"></use>
+ <use xlink:href="#MJMAIN-2208" x="11860" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="12805" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="13194" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="13584" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="14084" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="14530" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="15030" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="15420" y="0"></use>
+ <use xlink:href="#MJMAIN-7B" x="15865" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="16365" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="16866" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="17311" y="0"></use>
+ <use xlink:href="#MJMAIN-7D" x="17811" y="0"></use>
+<g transform="translate(18312,0)">
+ <use xlink:href="#MJMAIN-29" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="550" y="513"></use>
+</g>
+</g>
+</svg></span>
+be a dataset of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.395ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 600.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-3-Title">
+<title id="MathJax-SVG-3-Title">n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+</g>
+</svg></span> forecasts <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.939ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 834.8 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-4-Title">
+<title id="MathJax-SVG-4-Title">f_i</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="693" y="-213"></use>
+</g>
+</svg></span> and resolutions <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.927ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 829.8 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-5-Title">
+<title id="MathJax-SVG-5-Title">o_i</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="686" y="-213"></use>
+</g>
+</svg></span>.</p>
+<p>Then <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.417ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 610 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-6-Title">
+<title id="MathJax-SVG-6-Title">ᚠ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+</g>
+</svg></span> is simply a function that takes in such a dataset of
+forecasts and produces a real number <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="23.56ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 10143.7 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-7-Title">
+<title id="MathJax-SVG-7-Title">ᚠ: ((0;1),\{0,1\})^n \rightarrow \mathbb{R}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+ <use xlink:href="#MJMAIN-3A" x="887" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1444" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1833" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="2223" y="0"></use>
+ <use xlink:href="#MJMAIN-3B" x="2723" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="3168" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="3669" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="4058" y="0"></use>
+ <use xlink:href="#MJMAIN-7B" x="4503" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="5004" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="5504" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="5950" y="0"></use>
+ <use xlink:href="#MJMAIN-7D" x="6450" y="0"></use>
+<g transform="translate(6951,0)">
+ <use xlink:href="#MJMAIN-29" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="550" y="513"></use>
+</g>
+ <use xlink:href="#MJMAIN-2192" x="8142" y="0"></use>
+ <use xlink:href="#MJAMS-52" x="9421" y="0"></use>
+</g>
+</svg></span>,
+so for example <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.22ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 4831 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-8-Title">
+<title id="MathJax-SVG-8-Title">ᚠ(D)=0.2</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+ <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
+ <use xlink:href="#MJMATHI-44" x="999" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="1827" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="2495" y="0"></use>
+<g transform="translate(3551,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="779" y="0"></use>
+</g>
+</g>
+</svg></span> for the forecasts and outcomes <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.924ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 828.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-9-Title">
+<title id="MathJax-SVG-9-Title">D</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-44" x="0" y="0"></use>
+</g>
+</svg></span>
 of some forecaster, or team of forecasters.</p>
-<p>We call <code>$ᚠ$</code>  the <strong>precision function</strong>.</p>
+<p>We call <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.417ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 610 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-10-Title">
+<title id="MathJax-SVG-10-Title">ᚠ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+</g>
+</svg></span>  the <strong>precision function</strong>.</p>
 <h3 id="Bits_Not_Probabilities_for_Precision"><a class="hanchor" href="#Bits_Not_Probabilities_for_Precision">Bits, Not Probabilities, for Precision</a></h3>
-<p>It is natural to assume that <code>$ᚠ$</code> returns a <em>probability</em>:
+<p>It is natural to assume that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.417ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 610 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-11-Title">
+<title id="MathJax-SVG-11-Title">ᚠ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+</g>
+</svg></span> returns a <em>probability</em>:
 after all, the input dataset has probabilities, and
 when talking about <a href="#Overprecise_Omar">Omar's</a> <a href="https://en.wikipedia.org/wiki/Probabilistic_classification#Probability_calibration">calibration
 plot</a>
@@ -150,16 +337,111 @@ to return to probabilities.</p>
 different algorithms.</p>
 <p>These algorithms follow a common pattern:</p>
 <ol>
-<li>Input: a dataset <code>$D$</code> of forecasts and resolutions.</li>
-<li>Set a perturbation parameter <code>$σ$</code> to a minimum value.</li>
+<li>Input: a dataset <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.924ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 828.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-12-Title">
+<title id="MathJax-SVG-12-Title">D</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-44" x="0" y="0"></use>
+</g>
+</svg></span> of forecasts and resolutions.</li>
+<li>Set a perturbation parameter <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-13-Title">
+<title id="MathJax-SVG-13-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span> to a minimum value.</li>
 <li>Repeat:
 <ol>
 <li>Potentially do <em>something</em> with the probabilities, for example by moving to log-odds.</li>
-<li>Perturb the result, using <code>$σ$</code> as a parameter for the <strong>perturbation function</strong> <code>$ఐ: ((0,1),\{0,1\})^n \times ℝ \rightarrow ((0,1),\{0,1\})^n$</code> so that <code>$D'=ఐ(D, σ)$</code>.</li>
+<li>Perturb the result, using <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-14-Title">
+<title id="MathJax-SVG-14-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span> as a parameter for the <strong>perturbation function</strong> <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="41.314ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 17787.7 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-15-Title">
+<title id="MathJax-SVG-15-Title">ఐ: ((0,1),\{0,1\})^n \times ℝ \rightarrow ((0,1),\{0,1\})^n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ఐ</text>
+ <use xlink:href="#MJMAIN-3A" x="887" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1444" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1833" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="2223" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="2723" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="3168" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="3669" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="4058" y="0"></use>
+ <use xlink:href="#MJMAIN-7B" x="4503" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="5004" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="5504" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="5950" y="0"></use>
+ <use xlink:href="#MJMAIN-7D" x="6450" y="0"></use>
+<g transform="translate(6951,0)">
+ <use xlink:href="#MJMAIN-29" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="550" y="513"></use>
+</g>
+ <use xlink:href="#MJMAIN-D7" x="8087" y="0"></use>
+ <use xlink:href="#MJAMS-52" x="9088" y="0"></use>
+ <use xlink:href="#MJMAIN-2192" x="10088" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="11366" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="11756" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="12145" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="12646" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="13091" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="13591" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="13981" y="0"></use>
+ <use xlink:href="#MJMAIN-7B" x="14426" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="14926" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="15427" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="15872" y="0"></use>
+ <use xlink:href="#MJMAIN-7D" x="16373" y="0"></use>
+<g transform="translate(16873,0)">
+ <use xlink:href="#MJMAIN-29" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="550" y="513"></use>
+</g>
+</g>
+</svg></span> so that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.219ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 5691.5 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-16-Title">
+<title id="MathJax-SVG-16-Title">D'=ఐ(D, σ)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-44" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1171" y="513"></use>
+ <use xlink:href="#MJMAIN-3D" x="1401" y="0"></use>
+<g transform="translate(2457,0)">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ఐ</text>
+</g>
+ <use xlink:href="#MJMAIN-28" x="3067" y="0"></use>
+ <use xlink:href="#MJMATHI-44" x="3456" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="4285" y="0"></use>
+ <use xlink:href="#MJMATHI-3C3" x="4730" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="5301" y="0"></use>
+</g>
+</svg></span>.</li>
 <li>Reverse the things done in step 1 (if necessary).</li>
-<li>Calculate the score of <code>$D'$</code>.</li>
-<li>If the perturbed score is significantly worse than the unperturbed score, then <code>$σ$</code> is the correct level of precision, stop. This is the output of <code>$ᚠ(D)$</code>.</li>
-<li>Else increase <code>$σ$</code>.</li>
+<li>Calculate the score of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.609ex" height="2.343ex" style="vertical-align: -0.338ex;" viewBox="0 -863.1 1123.3 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-17-Title">
+<title id="MathJax-SVG-17-Title">D'</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-44" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1171" y="513"></use>
+</g>
+</svg></span>.</li>
+<li>If the perturbed score is significantly worse than the unperturbed score, then <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-18-Title">
+<title id="MathJax-SVG-18-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span> is the correct level of precision, stop. This is the output of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.15ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 2217.5 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-19-Title">
+<title id="MathJax-SVG-19-Title">ᚠ(D)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+ <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
+ <use xlink:href="#MJMATHI-44" x="999" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="1827" y="0"></use>
+</g>
+</svg></span>.</li>
+<li>Else increase <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-20-Title">
+<title id="MathJax-SVG-20-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span>.</li>
 </ol></li>
 </ol>
 <h3 id="LogOdds_Rounding"><a class="hanchor" href="#LogOdds_Rounding">Log-Odds Rounding</a></h3>
@@ -167,18 +449,64 @@ different algorithms.</p>
 by</a>
 <a href="http://nitter.poast.org/tenthkrige/">@tenthkrige</a> explores rounding in
 odds-form: The probabilities are converted into odds-form and there
-rounded to the nearest multiple of the perturbation parameter <code>$σ$</code>.</p>
-<p><img alt="" src="./img/precision/tenthkrige_odds_precision.png"/></p>
+rounded to the nearest multiple of the perturbation parameter <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-21-Title">
+<title id="MathJax-SVG-21-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span>.</p>
+<p><img alt="" src="./img/precision/tenthkrige_odds_precision.png"></p>
 <p>Here, the precision of the community predictions <em>looks like</em> it
 is somewhere between 0.5 and 1, and the precision of the Metaculus
 prediction is around 0.25 and 0.5, but it's hard to tell without access
 to the measurements.</p>
 <p>Log-odds rounding is pretty similar to odds-rounding.</p>
 <h4 id="Implementation"><a class="hanchor" href="#Implementation">Implementation</a></h4>
-<p>Once a probability <code>$p$</code> has been converted into log-odds
-form <code>$l_p$</code>, then rounding with a perturbation <code>$σ$</code> is
+<p>Once a probability <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-22-Title">
+<title id="MathJax-SVG-22-Title">p</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
+</g>
+</svg></span> has been converted into log-odds
+form <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.752ex" height="2.843ex" style="vertical-align: -1.005ex;" viewBox="0 -791.3 754.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-23-Title">
+<title id="MathJax-SVG-23-Title">l_p</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6C" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-70" x="422" y="-213"></use>
+</g>
+</svg></span>, then rounding with a perturbation <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-24-Title">
+<title id="MathJax-SVG-24-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span> is
 <a href="https://en.wikipedia.org/wiki/Rounding#Rounding_to_a_specified_multiple">simply</a>
-<code>$l'_p=σ \cdot \text{round}(l_p / σ)$</code>.</p>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="19.861ex" height="3.009ex" style="vertical-align: -1.005ex;" viewBox="0 -863.1 8551.1 1295.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-25-Title">
+<title id="MathJax-SVG-25-Title">l'_p=σ \cdot \text{round}(l_p / σ)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6C" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="422" y="445"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-70" x="422" y="-212"></use>
+ <use xlink:href="#MJMAIN-3D" x="1032" y="0"></use>
+ <use xlink:href="#MJMATHI-3C3" x="2088" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="2882" y="0"></use>
+<g transform="translate(3383,0)">
+ <use xlink:href="#MJMAIN-72"></use>
+ <use xlink:href="#MJMAIN-6F" x="392" y="0"></use>
+ <use xlink:href="#MJMAIN-75" x="893" y="0"></use>
+ <use xlink:href="#MJMAIN-6E" x="1449" y="0"></use>
+ <use xlink:href="#MJMAIN-64" x="2006" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-28" x="5945" y="0"></use>
+<g transform="translate(6335,0)">
+ <use xlink:href="#MJMATHI-6C" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-70" x="422" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2F" x="7089" y="0"></use>
+ <use xlink:href="#MJMATHI-3C3" x="7590" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="8161" y="0"></use>
+</g>
+</svg></span>.</p>
 <p>Scoring the forecasts using the logarithmic scoring rule, one can then
 write this in a couple of lines of python code:</p>
 <pre><code>def logodds_rounded_score(forecasts, perturbation=1):
@@ -201,7 +529,7 @@ d3=np.array([[0,0.8],[1,0.4],[1,0.65],[0,0.9]]).T
 </code></pre>
 <p>One notices that <code>d2</code> is just a slightly less resolute &amp; precise <code>d1</code>,
 and <code>d3</code> is pretty bad.</p>
-<p><img alt="" src="./img/precision/lo_rounded.png"/></p>
+<p><img alt="" src="./img/precision/lo_rounded.png"></p>
 <h4 id="Problems"><a class="hanchor" href="#Problems">Problems</a></h4>
 <p>Now this is not… great, and certainly quite different from the data
 by tenthkrige. I'm pretty sure this isn't a bug in my implementation or
@@ -211,9 +539,52 @@ method of rounding for perturbation.</p>
 <ol>
 <li><p>If you decrease precision by rounding, you can actually make a
 probability <em>better</em> by moving it closer to 0%/100%. If you have one
-forecast with probability <code>$p=0.75$</code> and the outcome <code>$o=1$</code>. Without
-rounding, this has a log-score of ~-0.29. Setting <code>$σ=0.3$</code> and rounding
-in log-odds space and transforming back gives <code>$p_r \approx 0.77$</code>, with
+forecast with probability <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.492ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 3656.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-26-Title">
+<title id="MathJax-SVG-26-Title">p=0.75</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="781" y="0"></use>
+<g transform="translate(1837,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-37" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-35" x="1279" y="0"></use>
+</g>
+</g>
+</svg></span> and the outcome <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.389ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2320.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-27-Title">
+<title id="MathJax-SVG-27-Title">o=1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="763" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1819" y="0"></use>
+</g>
+</svg></span>. Without
+rounding, this has a log-score of ~-0.29. Setting <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.398ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 3185.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-28-Title">
+<title id="MathJax-SVG-28-Title">σ=0.3</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="849" y="0"></use>
+<g transform="translate(1905,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-33" x="779" y="0"></use>
+</g>
+</g>
+</svg></span> and rounding
+in log-odds space and transforming back gives <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.465ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 4075.3 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-29-Title">
+<title id="MathJax-SVG-29-Title">p_r \approx 0.77</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-72" x="712" y="-213"></use>
+ <use xlink:href="#MJMAIN-2248" x="1200" y="0"></use>
+<g transform="translate(2256,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-37" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-37" x="1279" y="0"></use>
+</g>
+</g>
+</svg></span>, with
 an improved log-score of ~-0.26. When one sees the weird zig-zag pattern
 for log-score, I believe that <em>this</em> is the reason. This is likely only
 an issue in smaller datasets: In larger ones, these individual random
@@ -229,7 +600,29 @@ their judgments too extreme".</p></li>
 enough rounding <em>every</em> dataset has the same score. This has some
 counter-intuitive implications: If you are worse than chance, perturbing
 your probabilities more and more leads you reliably to a better score
-(in the case of the log score, <code>$\log(0.5) \approx -0.69$</code>). One can also
+(in the case of the log score, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.794ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 7230.6 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-30-Title">
+<title id="MathJax-SVG-30-Title">\log(0.5) \approx -0.69</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-6C"></use>
+ <use xlink:href="#MJMAIN-6F" x="278" y="0"></use>
+ <use xlink:href="#MJMAIN-67" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1279" y="0"></use>
+<g transform="translate(1669,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-35" x="779" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="2948" y="0"></use>
+ <use xlink:href="#MJMAIN-2248" x="3615" y="0"></use>
+ <use xlink:href="#MJMAIN-2212" x="4672" y="0"></use>
+<g transform="translate(5450,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-39" x="1279" y="0"></use>
+</g>
+</g>
+</svg></span>). One can also
 see this in the plot above: All but one datasets end up with approximately
 the same log score. This isn't an property that <em>kills</em> rounding, since
 we in theory only care about the point where the perturbed score starts
@@ -241,18 +634,45 @@ diverging from the unperturbed score, but it is still undesirable.</p></li>
 <h3 id="Noise_in_LogOdds_Space"><a class="hanchor" href="#Noise_in_LogOdds_Space">Noise in Log-Odds Space</a></h3>
 <p>But one can also examine a different paradigm: Applying noise to
 the predictions. In our <a href="#Algorithms">framework</a>, this is concretely
-operationalized by repeatedly (<code>$s$</code> times) projecting the probabilities
-into log-odds space, applying some noise with width <code>$σ$</code> to them,
+operationalized by repeatedly (<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.09ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 469.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-31-Title">
+<title id="MathJax-SVG-31-Title">s</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-73" x="0" y="0"></use>
+</g>
+</svg></span> times) projecting the probabilities
+into log-odds space, applying some noise with width <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-32-Title">
+<title id="MathJax-SVG-32-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span> to them,
 and then calculating the resulting probabilities and scoring them,
 finally taking the mean of the scores.</p>
 <p>There are some free parameters here, especially around the exact type of
 noise to use (<a href="https://en.wikipedia.org/wiki/Normal_distribution">normal</a>?
 <a href="https://en.wikipedia.org/wiki/Beta_distribution">beta</a>?
 <a href="https://en.wikipedia.org/wiki/Continuous_uniform_distribution">uniform</a>?),
-as well as the number <code>$s$</code> of samples.</p>
+as well as the number <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.09ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 469.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-33-Title">
+<title id="MathJax-SVG-33-Title">s</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-73" x="0" y="0"></use>
+</g>
+</svg></span> of samples.</p>
 <p>I have decided to use uniform noise, but for no special mathematical
 reason, and adjust the number of samples by the size of the dataset
-(with small datasets <code>$n \approx 1000$</code>, less with bigger datasets).</p>
+(with small datasets <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.143ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 3936.6 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-34-Title">
+<title id="MathJax-SVG-34-Title">n \approx 1000</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2248" x="878" y="0"></use>
+<g transform="translate(1934,0)">
+ <use xlink:href="#MJMAIN-31"></use>
+ <use xlink:href="#MJMAIN-30" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="1001" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="1501" y="0"></use>
+</g>
+</g>
+</svg></span>, less with bigger datasets).</p>
 <pre><code>def noised_score(forecasts, perturbation=1, samples=100):
     o=forecasts[0]
     p=forecasts[1]
@@ -262,8 +682,19 @@ reason, and adjust the number of samples by the size of the dataset
         pert_scores.append(logscore(o,noised))
     return np.mean(pert_scores)
 </code></pre>
-<p>This gives a <em>much</em> nicer looking plot, with <code>$n=500$</code> samples:</p>
-<p><img alt="" src="./img/precision/noised.png"/></p>
+<p>This gives a <em>much</em> nicer looking plot, with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.981ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 3436.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-35-Title">
+<title id="MathJax-SVG-35-Title">n=500</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="878" y="0"></use>
+<g transform="translate(1934,0)">
+ <use xlink:href="#MJMAIN-35"></use>
+ <use xlink:href="#MJMAIN-30" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="1001" y="0"></use>
+</g>
+</g>
+</svg></span> samples:</p>
+<p><img alt="" src="./img/precision/noised.png"></p>
 <p>The plots are falling ~monotonously, with a worse score for increasing
 noise, as expected. The score for <code>d2</code> drops more quickly than the one
 for <code>d1</code>, maybe because <code>d2</code> is less precise than <code>d1</code>? I'm not sure.</p>
@@ -273,8 +704,20 @@ perturbation, the score falls ~monotonically (which I conjecture to
 always be true in the limit of infinitely many samples), and doesn't
 converge to a specific value as rounding-based methods do.</p>
 <p>This can be seen when comparing increasing perturbation with the
-<code>$n=2000$</code> dataset:</p>
-<p><img alt="" src="./img/precision/comparison.png"/></p>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.143ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 3936.6 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-36-Title">
+<title id="MathJax-SVG-36-Title">n=2000</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="878" y="0"></use>
+<g transform="translate(1934,0)">
+ <use xlink:href="#MJMAIN-32"></use>
+ <use xlink:href="#MJMAIN-30" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="1001" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="1501" y="0"></use>
+</g>
+</g>
+</svg></span> dataset:</p>
+<p><img alt="" src="./img/precision/comparison.png"></p>
 <p>The disadvantage lies in the runtime: Taking many samples makes the
 method slow, but a small number of samples is too noisy to reliably
 detect when the the quality of forecasts starts dropping off. I think
@@ -283,20 +726,176 @@ case I'd have to do a bunch of numpy-magic to optimize this further
 (or rewrite the code in a faster programming language, prototype in C
 <a href="./code/precision/precision.c">here</a>).</p>
 <h3 id="Finding_Divergence"><a class="hanchor" href="#Finding_Divergence">Finding Divergence</a></h3>
-<p>If the unperturbed dataset <code>$D$</code> has a score <code>$r=S(D)$</code>, then we also need
-to find a value for <code>$σ$</code> with <code>$D'=ఐ(D, σ)$</code> so that <code>$r'=S(D')\not \approx r$</code>,
-with <code>$r'&lt;r$</code> (in the case of scoring rules where lower scores are worse)
-or even that for all positive <code>$δ \in ℝ$</code> and <code>$D''=ఐ(D, σ+δ)$</code>
-it holds that <code>$r''=S(D'')&lt;r'$</code>. That is, as we increase the perturbation
+<p>If the unperturbed dataset <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.924ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 828.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-37-Title">
+<title id="MathJax-SVG-37-Title">D</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-44" x="0" y="0"></use>
+</g>
+</svg></span> has a score <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.38ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4038.6 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-38-Title">
+<title id="MathJax-SVG-38-Title">r=S(D)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="729" y="0"></use>
+ <use xlink:href="#MJMATHI-53" x="1785" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="2431" y="0"></use>
+ <use xlink:href="#MJMATHI-44" x="2820" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="3649" y="0"></use>
+</g>
+</svg></span>, then we also need
+to find a value for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-39-Title">
+<title id="MathJax-SVG-39-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span> with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.219ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 5691.5 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-40-Title">
+<title id="MathJax-SVG-40-Title">D'=ఐ(D, σ)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-44" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1171" y="513"></use>
+ <use xlink:href="#MJMAIN-3D" x="1401" y="0"></use>
+<g transform="translate(2457,0)">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ఐ</text>
+</g>
+ <use xlink:href="#MJMAIN-28" x="3067" y="0"></use>
+ <use xlink:href="#MJMATHI-44" x="3456" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="4285" y="0"></use>
+ <use xlink:href="#MJMATHI-3C3" x="4730" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="5301" y="0"></use>
+</g>
+</svg></span> so that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="14.898ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 6414.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-41-Title">
+<title id="MathJax-SVG-41-Title">r'=S(D')\not \approx r</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="638" y="513"></use>
+ <use xlink:href="#MJMAIN-3D" x="1024" y="0"></use>
+ <use xlink:href="#MJMATHI-53" x="2080" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="2725" y="0"></use>
+<g transform="translate(3115,0)">
+ <use xlink:href="#MJMATHI-44" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="1171" y="513"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="4238" y="0"></use>
+<g transform="translate(4905,0)">
+ <use xlink:href="#MJMAIN-2248"></use>
+ <use xlink:href="#MJMAIN-338" x="778" y="0"></use>
+</g>
+ <use xlink:href="#MJMATHI-72" x="5962" y="0"></use>
+</g>
+</svg></span>,
+with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.88ex" height="2.343ex" style="vertical-align: -0.338ex;" viewBox="0 -863.1 2531.9 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-42-Title">
+<title id="MathJax-SVG-42-Title">r'&lt;r</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="638" y="513"></use>
+ <use xlink:href="#MJMAIN-3C" x="1024" y="0"></use>
+ <use xlink:href="#MJMATHI-72" x="2080" y="0"></use>
+</g>
+</svg></span> (in the case of scoring rules where lower scores are worse)
+or even that for all positive <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.551ex" height="2.343ex" style="vertical-align: -0.338ex;" viewBox="0 -863.1 2390.1 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-43-Title">
+<title id="MathJax-SVG-43-Title">δ \in ℝ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3B4" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2208" x="722" y="0"></use>
+ <use xlink:href="#MJAMS-52" x="1667" y="0"></use>
+</g>
+</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="17.544ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 7553.7 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-44-Title">
+<title id="MathJax-SVG-44-Title">D''=ఐ(D, σ+δ)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-44" x="0" y="0"></use>
+<g transform="translate(828,362)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="275" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="1595" y="0"></use>
+<g transform="translate(2652,0)">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ఐ</text>
+</g>
+ <use xlink:href="#MJMAIN-28" x="3262" y="0"></use>
+ <use xlink:href="#MJMATHI-44" x="3651" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="4480" y="0"></use>
+ <use xlink:href="#MJMATHI-3C3" x="4925" y="0"></use>
+ <use xlink:href="#MJMAIN-2B" x="5719" y="0"></use>
+ <use xlink:href="#MJMATHI-3B4" x="6719" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="7164" y="0"></use>
+</g>
+</svg></span>
+it holds that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.486ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 7098.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-45-Title">
+<title id="MathJax-SVG-45-Title">r''=S(D'')&lt;r'</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+<g transform="translate(451,362)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="275" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="1218" y="0"></use>
+ <use xlink:href="#MJMATHI-53" x="2275" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="2920" y="0"></use>
+<g transform="translate(3310,0)">
+ <use xlink:href="#MJMATHI-44" x="0" y="0"></use>
+<g transform="translate(828,362)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="275" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-29" x="4628" y="0"></use>
+ <use xlink:href="#MJMAIN-3C" x="5295" y="0"></use>
+<g transform="translate(6351,0)">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="638" y="513"></use>
+</g>
+</g>
+</svg></span>. That is, as we increase the perturbation
 more and more, the score becomes worse and worse.</p>
-<p>The easiest way to do this is to iterate through values for <code>$σ$</code>,
-and once the difference between <code>$r$</code> and <code>$r'$</code> is too big, return the
-corresponding <code>$σ$</code>. This method has disadvantages (the least-noteworthy
-difference between <code>$r$</code> and <code>$r'$</code> is probably an arbitrary constant,
+<p>The easiest way to do this is to iterate through values for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-46-Title">
+<title id="MathJax-SVG-46-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span>,
+and once the difference between <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.049ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 451.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-47-Title">
+<title id="MathJax-SVG-47-Title">r</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+</g>
+</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.733ex" height="2.343ex" style="vertical-align: -0.338ex;" viewBox="0 -863.1 746.3 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-48-Title">
+<title id="MathJax-SVG-48-Title">r'</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="638" y="513"></use>
+</g>
+</svg></span> is too big, return the
+corresponding <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-49-Title">
+<title id="MathJax-SVG-49-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span>. This method has disadvantages (the least-noteworthy
+difference between <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.049ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 451.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-50-Title">
+<title id="MathJax-SVG-50-Title">r</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+</g>
+</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.733ex" height="2.343ex" style="vertical-align: -0.338ex;" viewBox="0 -863.1 746.3 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-51-Title">
+<title id="MathJax-SVG-51-Title">r'</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2032" x="638" y="513"></use>
+</g>
+</svg></span> is probably an arbitrary constant,
 simply iterating requires a bunch of compute and only finds an upper
-bound on a <code>$σ$</code> which is "too much"), but shines by virtue of being
+bound on a <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-52-Title">
+<title id="MathJax-SVG-52-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span> which is "too much"), but shines by virtue of being
 bog-simple and easy to implement. A more sophisticated method can use
-binary search to zero in on a <code>$σ$</code> that <em>just</em> crosses the threshold.</p>
+binary search to zero in on a <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-53-Title">
+<title id="MathJax-SVG-53-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span> that <em>just</em> crosses the threshold.</p>
 <pre><code>def linsearch_precision(forecasts, samples=100, low=10e-4, high=10, change=1.05, mindiff=0.01, mode='round'):
     clean_score=pert_score=np.mean(logscore(forecasts[0], forecasts[1]))
     p=low
@@ -326,8 +925,38 @@ binary search to zero in on a <code>$σ$</code> that <em>just</em> crosses the t
 </code></pre>
 <p>It seems like smaller datasets need higher sample sizes to adequately
 assess the precision using noise-based methods.</p>
-<p>But this <em>does</em> tell us that <code>$ᚠ(d1)\approx 1.2$</code> bits, and
-<code>$ᚠ(d1)\approx 1.3$</code> bits.</p>
+<p>But this <em>does</em> tell us that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.675ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 5026.5 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-54-Title">
+<title id="MathJax-SVG-54-Title">ᚠ(d1)\approx 1.2</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+ <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
+ <use xlink:href="#MJMATHI-64" x="999" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1522" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="2023" y="0"></use>
+ <use xlink:href="#MJMAIN-2248" x="2690" y="0"></use>
+<g transform="translate(3747,0)">
+ <use xlink:href="#MJMAIN-31"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="779" y="0"></use>
+</g>
+</g>
+</svg></span> bits, and
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.675ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 5026.5 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-55-Title">
+<title id="MathJax-SVG-55-Title">ᚠ(d1)\approx 1.3</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+ <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
+ <use xlink:href="#MJMATHI-64" x="999" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1522" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="2023" y="0"></use>
+ <use xlink:href="#MJMAIN-2248" x="2690" y="0"></use>
+<g transform="translate(3747,0)">
+ <use xlink:href="#MJMAIN-31"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-33" x="779" y="0"></use>
+</g>
+</g>
+</svg></span> bits.</p>
 <h4 id="Binary_Search"><a class="hanchor" href="#Binary_Search">Binary Search</a></h4>
 <p>The code can be changed to be faster, using <a href="https://en.wikipedia.org/wiki/Binary_search">binary
 search</a>:</p>
@@ -399,9 +1028,31 @@ project<!--TODO-->.</p>
 <p>But perhaps the entire idea of using a fixed value for divergence
 is flawed? The divergence point needs to depend on the perturbation
 parameter. I think I should instead assume there is a perfectly
-calibrated, infinitely big dataset <code>$D^{\star}$</code>. How much does its
-score drop if we perturb by <code>$σ$</code>? If <code>$D$</code>, perturbed, drops by half
-(or whatever) as much as the score of <code>$D^{\star}$</code> then we have found
+calibrated, infinitely big dataset <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.979ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1282.4 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-56-Title">
+<title id="MathJax-SVG-56-Title">D^{\star}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-44" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C6" x="1171" y="513"></use>
+</g>
+</svg></span>. How much does its
+score drop if we perturb by <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-57-Title">
+<title id="MathJax-SVG-57-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span>? If <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.924ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 828.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-58-Title">
+<title id="MathJax-SVG-58-Title">D</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-44" x="0" y="0"></use>
+</g>
+</svg></span>, perturbed, drops by half
+(or whatever) as much as the score of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.979ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1282.4 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-59-Title">
+<title id="MathJax-SVG-59-Title">D^{\star}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-44" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C6" x="1171" y="513"></use>
+</g>
+</svg></span> then we have found
 our point.</p>
 <p>A more sophisticated technique could try to estimate the  <a href="https://en.wikipedia.org/wiki/Knee_of_a_curve">elbow
 point</a> of the declining
@@ -465,7 +1116,7 @@ pred_fcasts=np.array([np.int64(pred_fcasts['answer_option']==pred_fcasts['outcom
 <p>The difference is quite small but noticeable, and the purple and the green
 plot overlap a bunch: Metaculus and PredictionBook aren't so different
 (?):</p>
-<p><img alt="" src="./img/precision/platforms.png"/></p>
+<p><img alt="" src="./img/precision/platforms.png"></p>
 <p>The precision tracks the unperturbed score to a high degree. I'm not
 sure whether this is an airtight relation or just commonly the case,
 perhaps someone will look into this.</p>
@@ -501,34 +1152,536 @@ that they have similar precisions.</p>
 <li><a href="https://www.lesswrong.com/posts/WhwHYsKTNptbFwdwP/precision-of-sets-of-forecasts">LessWrong</a></li>
 </ul>
 <h2 id="Appendix_A_Conditions_for_a_Precision_Evaluation_Function"><a class="hanchor" href="#Appendix_A_Conditions_for_a_Precision_Evaluation_Function">Appendix A: Conditions for a Precision Evaluation Function</a></h2>
-<p>Using a <strong>precision function</strong> <code>$ᚠ$</code>, <strong>perturbation function</strong> <code>$ఐ$</code>,
-<strong>proper scoring rule</strong> <code>$s$</code> and noise <code>$σ$</code>. These are very much me
+<p>Using a <strong>precision function</strong> <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.417ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 610 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-60-Title">
+<title id="MathJax-SVG-60-Title">ᚠ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+</g>
+</svg></span>, <strong>perturbation function</strong> <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.417ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 610 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-61-Title">
+<title id="MathJax-SVG-61-Title">ఐ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ఐ</text>
+</g>
+</svg></span>,
+<strong>proper scoring rule</strong> <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.09ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 469.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-62-Title">
+<title id="MathJax-SVG-62-Title">s</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-73" x="0" y="0"></use>
+</g>
+</svg></span> and noise <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex; margin-right: -0.002ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-63-Title">
+<title id="MathJax-SVG-63-Title">σ</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+</g>
+</svg></span>. These are very much me
 thinking out loud.</p>
 <ol>
-<li><strong>(Emptiness)</strong> If <code>$n=0$</code>, <code>$ᚠ(\emptyset)$</code> is undefined.</li>
-<li><strong>(Loneliness)</strong> If <code>$n=1$</code>, <code>$ᚠ(\mathbf{D})=1$</code>: We are generally suspicious of any single forecast.
+<li><strong>(Emptiness)</strong> If <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.656ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2435.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-64-Title">
+<title id="MathJax-SVG-64-Title">n=0</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="878" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="1934" y="0"></use>
+</g>
+</svg></span>, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.388ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 1889.5 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-65-Title">
+<title id="MathJax-SVG-65-Title">ᚠ(\emptyset)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+ <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
+ <use xlink:href="#MJMAIN-2205" x="999" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="1499" y="0"></use>
+</g>
+</svg></span> is undefined.</li>
+<li><strong>(Loneliness)</strong> If <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.656ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2435.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-66-Title">
+<title id="MathJax-SVG-66-Title">n=1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="878" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1934" y="0"></use>
+</g>
+</svg></span>, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.537ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 4106 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-67-Title">
+<title id="MathJax-SVG-67-Title">ᚠ(\mathbf{D})=1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+ <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
+ <use xlink:href="#MJMAINB-44" x="999" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="1881" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="2549" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="3605" y="0"></use>
+</g>
+</svg></span>: We are generally suspicious of any single forecast.
 <ol>
-<li>More generally, if <code>$\mathbf{D}$</code> contains an <code>$f_i$</code> so that there is no other prediction with a probability within <code>$[f_i-\frac{σ}{2}; f_i+\frac{σ}{2}]$</code>, then <code>$ఐ(\mathbf{D}, σ)=s(D)$</code>. Yes, even if the set of forecasts is "dense" and non-random in other places.</li>
+<li>More generally, if <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.05ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 882.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-68-Title">
+<title id="MathJax-SVG-68-Title">\mathbf{D}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAINB-44" x="0" y="0"></use>
+</g>
+</svg></span> contains an <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.939ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 834.8 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-69-Title">
+<title id="MathJax-SVG-69-Title">f_i</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="693" y="-213"></use>
+</g>
+</svg></span> so that there is no other prediction with a probability within <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="14.403ex" height="3.176ex" style="vertical-align: -1.171ex;" viewBox="0 -863.1 6201.4 1367.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-70-Title">
+<title id="MathJax-SVG-70-Title">[f_i-\frac{σ}{2}; f_i+\frac{σ}{2}]</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-5B" x="0" y="0"></use>
+<g transform="translate(278,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="693" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2212" x="1335" y="0"></use>
+<g transform="translate(2114,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="524" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-3C3" x="84" y="640"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="120" y="-589"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-3B" x="2878" y="0"></use>
+<g transform="translate(3323,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="693" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-2B" x="4380" y="0"></use>
+<g transform="translate(5158,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="524" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-3C3" x="84" y="640"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="120" y="-589"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-5D" x="5922" y="0"></use>
+</g>
+</svg></span>, then <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="15.559ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 6699.2 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-71-Title">
+<title id="MathJax-SVG-71-Title">ఐ(\mathbf{D}, σ)=s(D)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ఐ</text>
+ <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
+ <use xlink:href="#MJMAINB-44" x="999" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="1881" y="0"></use>
+ <use xlink:href="#MJMATHI-3C3" x="2327" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="2898" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="3565" y="0"></use>
+ <use xlink:href="#MJMATHI-73" x="4622" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="5091" y="0"></use>
+ <use xlink:href="#MJMATHI-44" x="5481" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="6309" y="0"></use>
+</g>
+</svg></span>. Yes, even if the set of forecasts is "dense" and non-random in other places.</li>
 </ol></li>
-<li><strong>(Edginess)</strong> If <code>$n=2$</code>, then it should hold for an <code>$ε&gt;0$</code> (but close to 0): <code>$ᚠ(((ε, 0), (1-ε, 1)))=1$</code>.
+<li><strong>(Edginess)</strong> If <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.656ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2435.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-72-Title">
+<title id="MathJax-SVG-72-Title">n=2</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="878" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="1934" y="0"></use>
+</g>
+</svg></span>, then it should hold for an <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.344ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2301.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-73-Title">
+<title id="MathJax-SVG-73-Title">ε&gt;0</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3B5" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3E" x="744" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="1800" y="0"></use>
+</g>
+</svg></span> (but close to 0): <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="24.511ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 10553.5 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-74-Title">
+<title id="MathJax-SVG-74-Title">ᚠ(((ε, 0), (1-ε, 1)))=1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+ <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="999" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1388" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="1778" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="2244" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="2690" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="3190" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="3580" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="4025" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="4414" y="0"></use>
+ <use xlink:href="#MJMAIN-2212" x="5137" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="6138" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="6604" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="7049" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="7550" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="7939" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="8329" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="8996" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="10052" y="0"></use>
+</g>
+</svg></span>.
 <ol>
-<li>More generally, if we have only zeros in the left half and ones in the right half, with <code>$n \rightarrow \infty$</code>, and a sufficiently small <code>$\frac{1}{n}&gt;ε&gt;0$</code>, it should hold that <code>$ఐ(((ε,0),(2ε,0), \dots, (\lfloor \frac{n}{2} \rfloor ε, 0), (\lceil \frac{n}{2} \rceil ε, 1), \dots, (nε, 1)), σ)$</code> is <code>$0$</code> for <code>$σ=1$</code> and <code>$1$</code> for <code>$σ \le 0.5$</code>.</li>
+<li>More generally, if we have only zeros in the left half and ones in the right half, with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.333ex" height="1.843ex" style="vertical-align: -0.338ex;" viewBox="0 -647.8 3157.1 793.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-75-Title">
+<title id="MathJax-SVG-75-Title">n \rightarrow \infty</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2192" x="878" y="0"></use>
+ <use xlink:href="#MJMAIN-221E" x="2156" y="0"></use>
+</g>
+</svg></span>, and a sufficiently small <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="10.265ex" height="3.343ex" style="vertical-align: -1.005ex;" viewBox="0 -1006.6 4419.7 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-76-Title">
+<title id="MathJax-SVG-76-Title">\frac{1}{n}&gt;ε&gt;0</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(120,0)">
+<rect stroke="none" width="544" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="134" y="629"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="84" y="-488"></use>
+</g>
+ <use xlink:href="#MJMAIN-3E" x="1062" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="2118" y="0"></use>
+ <use xlink:href="#MJMAIN-3E" x="2862" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="3919" y="0"></use>
+</g>
+</svg></span>, it should hold that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="55.598ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 23938 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-77-Title">
+<title id="MathJax-SVG-77-Title">ఐ(((ε,0),(2ε,0), \dots, (\lfloor \frac{n}{2} \rfloor ε, 0), (\lceil \frac{n}{2} \rceil ε, 1), \dots, (nε, 1)), σ)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ఐ</text>
+ <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="999" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1388" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="1778" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="2244" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="2690" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="3190" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="3580" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="4025" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="4414" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="4915" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="5381" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="5826" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="6327" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="6716" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="7162" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="8501" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="8946" y="0"></use>
+ <use xlink:href="#MJMAIN-230A" x="9335" y="0"></use>
+<g transform="translate(9780,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="544" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="84" y="640"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="134" y="-589"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-230B" x="10565" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="11009" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="11476" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="11921" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="12421" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="12811" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="13256" y="0"></use>
+ <use xlink:href="#MJMAIN-2308" x="13645" y="0"></use>
+<g transform="translate(14090,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="544" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="84" y="640"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="134" y="-589"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2309" x="14875" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="15319" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="15786" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="16231" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="16731" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="17121" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="17566" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="18905" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="19350" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="19740" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="20340" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="20807" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="21252" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="21752" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="22142" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="22531" y="0"></use>
+ <use xlink:href="#MJMATHI-3C3" x="22977" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="23548" y="0"></use>
+</g>
+</svg></span> is <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 500.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-78-Title">
+<title id="MathJax-SVG-78-Title">0</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-30" x="0" y="0"></use>
+</g>
+</svg></span> for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.588ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2406.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-79-Title">
+<title id="MathJax-SVG-79-Title">σ=1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="849" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1905" y="0"></use>
+</g>
+</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 500.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-80-Title">
+<title id="MathJax-SVG-80-Title">1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-31" x="0" y="0"></use>
+</g>
+</svg></span> for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.398ex" height="2.343ex" style="vertical-align: -0.505ex;" viewBox="0 -791.3 3185.1 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-81-Title">
+<title id="MathJax-SVG-81-Title">σ \le 0.5</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2264" x="849" y="0"></use>
+<g transform="translate(1905,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-35" x="779" y="0"></use>
+</g>
+</g>
+</svg></span>.</li>
 </ol></li>
-<li><strong>(Perfection)</strong> For a sufficiently large <code>$n \rightarrow \infty$</code>, and a sufficiently small <code>$\frac{1}{n}&gt;ε&gt;0$</code>, and <code>$r(p)$</code> being 1 with probability <code>$p$</code> and 0 with probability <code>$1-p$</code>, it should hold that <code>$ᚠ(((ε,r(ε)),(2ε,r(2ε)), \dots, (\lfloor \frac{n}{2} \rfloor ε, r(\lfloor \frac{n}{2} \rfloor ε)), (\lceil \frac{n}{2} \rceil ε, r(\lceil \frac{n}{2} \rceil ε)), \dots, (nε, r(nε))))=0$</code>: If we have lots of datapoints, all perfectly calibrated, the score is nearly 0 at all precisions.</li>
-<li><strong>(Anti-Uniformity)</strong> In expectation, if we sample every <code>$o_i$</code> uniformly from <code>$\{0, 1\}$</code> with replacement, <code>$ᚠ(\mathbf{D})=1$</code>.</li>
-<li><strong>(Monotonicity)</strong> With <code>$σ_1&lt;σ_2$</code>, <code>$ఐ(\mathbf{D}, σ_1) \le ఐ(\mathbf{D}, σ_2)$</code> (smaller precision shouldn't lead to a greater score, since if you're uncalibrated at a precision of 10%, you're not going to be suddenly calibrated at a precision of 5%).
+<li><strong>(Perfection)</strong> For a sufficiently large <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.333ex" height="1.843ex" style="vertical-align: -0.338ex;" viewBox="0 -647.8 3157.1 793.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-82-Title">
+<title id="MathJax-SVG-82-Title">n \rightarrow \infty</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2192" x="878" y="0"></use>
+ <use xlink:href="#MJMAIN-221E" x="2156" y="0"></use>
+</g>
+</svg></span>, and a sufficiently small <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="10.265ex" height="3.343ex" style="vertical-align: -1.005ex;" viewBox="0 -1006.6 4419.7 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-83-Title">
+<title id="MathJax-SVG-83-Title">\frac{1}{n}&gt;ε&gt;0</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(120,0)">
+<rect stroke="none" width="544" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="134" y="629"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="84" y="-488"></use>
+</g>
+ <use xlink:href="#MJMAIN-3E" x="1062" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="2118" y="0"></use>
+ <use xlink:href="#MJMAIN-3E" x="2862" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="3919" y="0"></use>
+</g>
+</svg></span>, and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.027ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 1734 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-84-Title">
+<title id="MathJax-SVG-84-Title">r(p)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-72" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="451" y="0"></use>
+ <use xlink:href="#MJMATHI-70" x="841" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="1344" y="0"></use>
+</g>
+</svg></span> being 1 with probability <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-85-Title">
+<title id="MathJax-SVG-85-Title">p</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
+</g>
+</svg></span> and 0 with probability <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.172ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 2226.9 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-86-Title">
+<title id="MathJax-SVG-86-Title">1-p</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-31" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2212" x="722" y="0"></use>
+ <use xlink:href="#MJMATHI-70" x="1723" y="0"></use>
+</g>
+</svg></span>, it should hold that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="81.724ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 35186.6 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-87-Title">
+<title id="MathJax-SVG-87-Title">ᚠ(((ε,r(ε)),(2ε,r(2ε)), \dots, (\lfloor \frac{n}{2} \rfloor ε, r(\lfloor \frac{n}{2} \rfloor ε)), (\lceil \frac{n}{2} \rceil ε, r(\lceil \frac{n}{2} \rceil ε)), \dots, (nε, r(nε))))=0</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+ <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="999" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="1388" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="1778" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="2244" y="0"></use>
+ <use xlink:href="#MJMATHI-72" x="2690" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="3141" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="3531" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="3997" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="4387" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="4776" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="5221" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="5611" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="6111" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="6578" y="0"></use>
+ <use xlink:href="#MJMATHI-72" x="7023" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="7474" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="7864" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="8364" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="8831" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="9220" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="9610" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="10055" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="11394" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="11839" y="0"></use>
+ <use xlink:href="#MJMAIN-230A" x="12229" y="0"></use>
+<g transform="translate(12673,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="544" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="84" y="640"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="134" y="-589"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-230B" x="13458" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="13903" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="14369" y="0"></use>
+ <use xlink:href="#MJMATHI-72" x="14814" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="15266" y="0"></use>
+ <use xlink:href="#MJMAIN-230A" x="15655" y="0"></use>
+<g transform="translate(16100,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="544" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="84" y="640"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="134" y="-589"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-230B" x="16884" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="17329" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="17795" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="18185" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="18574" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="19020" y="0"></use>
+ <use xlink:href="#MJMAIN-2308" x="19409" y="0"></use>
+<g transform="translate(19854,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="544" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="84" y="640"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="134" y="-589"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2309" x="20638" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="21083" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="21549" y="0"></use>
+ <use xlink:href="#MJMATHI-72" x="21994" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="22446" y="0"></use>
+ <use xlink:href="#MJMAIN-2308" x="22835" y="0"></use>
+<g transform="translate(23280,0)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="544" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="84" y="640"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="134" y="-589"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2309" x="24064" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="24509" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="24975" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="25365" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="25754" y="0"></use>
+ <use xlink:href="#MJMAIN-2026" x="26200" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="27539" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="27984" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="28373" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="28974" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="29440" y="0"></use>
+ <use xlink:href="#MJMATHI-72" x="29886" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="30337" y="0"></use>
+ <use xlink:href="#MJMATHI-6E" x="30727" y="0"></use>
+ <use xlink:href="#MJMATHI-3B5" x="31327" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="31794" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="32183" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="32573" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="32962" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="33629" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="34686" y="0"></use>
+</g>
+</svg></span>: If we have lots of datapoints, all perfectly calibrated, the score is nearly 0 at all precisions.</li>
+<li><strong>(Anti-Uniformity)</strong> In expectation, if we sample every <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.927ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 829.8 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-88-Title">
+<title id="MathJax-SVG-88-Title">o_i</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="686" y="-213"></use>
+</g>
+</svg></span> uniformly from <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.684ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2447.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-89-Title">
+<title id="MathJax-SVG-89-Title">\{0, 1\}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-7B" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="1001" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1446" y="0"></use>
+ <use xlink:href="#MJMAIN-7D" x="1946" y="0"></use>
+</g>
+</svg></span> with replacement, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.537ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 4106 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-90-Title">
+<title id="MathJax-SVG-90-Title">ᚠ(\mathbf{D})=1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᚠ</text>
+ <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
+ <use xlink:href="#MJMAINB-44" x="999" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="1881" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="2549" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="3605" y="0"></use>
+</g>
+</svg></span>.</li>
+<li><strong>(Monotonicity)</strong> With <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.862ex" height="2.176ex" style="vertical-align: -0.671ex;" viewBox="0 -647.8 3384.9 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-91-Title">
+<title id="MathJax-SVG-91-Title">σ_1&lt;σ_2</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="808" y="-213"></use>
+ <use xlink:href="#MJMAIN-3C" x="1303" y="0"></use>
+<g transform="translate(2359,0)">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="808" y="-213"></use>
+</g>
+</g>
+</svg></span>, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="20.481ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 8818.1 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-92-Title">
+<title id="MathJax-SVG-92-Title">ఐ(\mathbf{D}, σ_1) \le ఐ(\mathbf{D}, σ_2)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ఐ</text>
+ <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
+ <use xlink:href="#MJMAINB-44" x="999" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="1881" y="0"></use>
+<g transform="translate(2327,0)">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="808" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="3352" y="0"></use>
+ <use xlink:href="#MJMAIN-2264" x="4019" y="0"></use>
+<g transform="translate(5076,0)">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ఐ</text>
+</g>
+ <use xlink:href="#MJMAIN-28" x="5686" y="0"></use>
+ <use xlink:href="#MJMAINB-44" x="6075" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="6958" y="0"></use>
+<g transform="translate(7403,0)">
+ <use xlink:href="#MJMATHI-3C3" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="808" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="8428" y="0"></use>
+</g>
+</svg></span> (smaller precision shouldn't lead to a greater score, since if you're uncalibrated at a precision of 10%, you're not going to be suddenly calibrated at a precision of 5%).
 <ol>
 <li>We can't just do this by multiplying the result with the precision, since that would violate condition 4.</li>
 <li>This gets violated if one uses a proper scoring rule that is always negative, but if we flip the score this can still trivially hold.</li>
 </ol></li>
 </ol>
 <p>But what should be done about a calibration plot that looks like this?</p>
-<p><img alt="A lopsided calibration plot: Linear and ascending up to 0.5, and then linearly descending to 0" src="./img/precision/cap.png" title="A lopsided calibration plot: Linear and ascending up to 0.5, and then linearly descending to 0"/></p>
+<p><img alt="A lopsided calibration plot: Linear and ascending up to 0.5, and then linearly descending to 0" src="./img/precision/cap.png" title="A lopsided calibration plot: Linear and ascending up to 0.5, and then linearly descending to 0"></p>
 <p>There are two ways of arguing what, morally, the precision of the
 forecasts is:</p>
 <ul>
-<li>The argument <em>for</em> having a score of <code>$~1$</code> for every precision (assuming a large <code>$n$</code>) is that inferring the correct way to make forecasts from this calibration plot is trivial: With forecasts of probability <code>$f_i&gt;0.5$</code>, re-assign a probability <code>$f_i:=1-f_i$</code>.</li>
-<li>The argument <em>against</em> giving a score of <code>$~1$</code> is that extending this rule would mean that at every kind of correction on the plot is valid, but there is no clear cutoff point that prevents us from applying this to individual predictions ("If you predict 99% instead of 43%, and 1% instead of 13%, and 1% instead of 23%, and […], then you achieve perfect resolution and calibration.")</li>
+<li>The argument <em>for</em> having a score of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.743ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 750.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-93-Title">
+<title id="MathJax-SVG-93-Title">~1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-31" x="250" y="0"></use>
+</g>
+</svg></span> for every precision (assuming a large <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.395ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 600.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-94-Title">
+<title id="MathJax-SVG-94-Title">n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+</g>
+</svg></span>) is that inferring the correct way to make forecasts from this calibration plot is trivial: With forecasts of probability <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.009ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 3448.4 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-95-Title">
+<title id="MathJax-SVG-95-Title">f_i&gt;0.5</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="693" y="-213"></use>
+ <use xlink:href="#MJMAIN-3E" x="1112" y="0"></use>
+<g transform="translate(2168,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-35" x="779" y="0"></use>
+</g>
+</g>
+</svg></span>, re-assign a probability <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.626ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 5005.6 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-96-Title">
+<title id="MathJax-SVG-96-Title">f_i:=1-f_i</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="693" y="-213"></use>
+<g transform="translate(1112,0)">
+ <use xlink:href="#MJMAIN-3A"></use>
+ <use xlink:href="#MJMAIN-3D" x="278" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-31" x="2447" y="0"></use>
+ <use xlink:href="#MJMAIN-2212" x="3170" y="0"></use>
+<g transform="translate(4170,0)">
+ <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="693" y="-213"></use>
+</g>
+</g>
+</svg></span>.</li>
+<li>The argument <em>against</em> giving a score of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.743ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 750.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-97-Title">
+<title id="MathJax-SVG-97-Title">~1</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-31" x="250" y="0"></use>
+</g>
+</svg></span> is that extending this rule would mean that at every kind of correction on the plot is valid, but there is no clear cutoff point that prevents us from applying this to individual predictions ("If you predict 99% instead of 43%, and 1% instead of 13%, and 1% instead of 23%, and […], then you achieve perfect resolution and calibration.")</li>
 </ul>
 <h2 id="Appendix_B_Further_Idea_Sketches_for_Algorithms"><a class="hanchor" href="#Appendix_B_Further_Idea_Sketches_for_Algorithms">Appendix B: Further Idea Sketches for Algorithms</a></h2>
 <ul>
@@ -561,7 +1714,13 @@ forecasts is:</p>
 </ul></li>
 <li>Fourth idea:
 <ul>
-<li>Average linear regression of all subsequences with length<code>$\ge \mathcal{F}$</code></li>
+<li>Average linear regression of all subsequences with length<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.38ex" height="2.343ex" style="vertical-align: -0.505ex;" viewBox="0 -791.3 1885.8 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-98-Title">
+<title id="MathJax-SVG-98-Title">\ge \mathcal{F}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-2265" x="0" y="0"></use>
+ <use xlink:href="#MJCAL-46" x="1056" y="0"></use>
+</g>
+</svg></span></li>
 </ul></li>
 </ul></li>
 <li>Start with perfect predictor, the level of noise at which its Brier score is equal to the dataset</li>
@@ -570,4 +1729,5 @@ forecasts is:</p>
 <li>Multiply score with the average number of datapoints inside the given precision</li>
 </ul></li>
 </ul>
-</body></html>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMAINB-44" d="M39 624V686H270H310H408Q500 686 545 680T638 649Q768 584 805 438Q817 388 817 338Q817 171 702 75Q628 17 515 2Q504 1 270 0H39V62H147V624H39ZM655 337Q655 370 655 390T650 442T639 494T616 540T580 580T526 607T451 623Q443 624 368 624H298V62H377H387H407Q445 62 472 65T540 83T606 129Q629 156 640 195T653 262T655 337Z"></path><path stroke-width="1" id="MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="1" id="MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="MJMATHI-66" d="M118 -162Q120 -162 124 -164T135 -167T147 -168Q160 -168 171 -155T187 -126Q197 -99 221 27T267 267T289 382V385H242Q195 385 192 387Q188 390 188 397L195 425Q197 430 203 430T250 431Q298 431 298 432Q298 434 307 482T319 540Q356 705 465 705Q502 703 526 683T550 630Q550 594 529 578T487 561Q443 561 443 603Q443 622 454 636T478 657L487 662Q471 668 457 668Q445 668 434 658T419 630Q412 601 403 552T387 469T380 433Q380 431 435 431Q480 431 487 430T498 424Q499 420 496 407T491 391Q489 386 482 386T428 385H372L349 263Q301 15 282 -47Q255 -132 212 -173Q175 -205 139 -205Q107 -205 81 -186T55 -132Q55 -95 76 -78T118 -61Q162 -61 162 -103Q162 -122 151 -136T127 -157L118 -162Z"></path><path stroke-width="1" id="MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="1" id="MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="1" id="MJMATHI-6F" d="M201 -11Q126 -11 80 38T34 156Q34 221 64 279T146 380Q222 441 301 441Q333 441 341 440Q354 437 367 433T402 417T438 387T464 338T476 268Q476 161 390 75T201 -11ZM121 120Q121 70 147 48T206 26Q250 26 289 58T351 142Q360 163 374 216T388 308Q388 352 370 375Q346 405 306 405Q243 405 195 347Q158 303 140 230T121 120Z"></path><path stroke-width="1" id="MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="1" id="MJMAIN-2026" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60ZM525 60Q525 84 542 102T585 120Q609 120 627 104T646 61Q646 36 629 18T586 0T543 17T525 60ZM972 60Q972 84 989 102T1032 120Q1056 120 1074 104T1093 61Q1093 36 1076 18T1033 0T990 17T972 60Z"></path><path stroke-width="1" id="MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="MJMAIN-2208" d="M84 250Q84 372 166 450T360 539Q361 539 377 539T419 540T469 540H568Q583 532 583 520Q583 511 570 501L466 500Q355 499 329 494Q280 482 242 458T183 409T147 354T129 306T124 272V270H568Q583 262 583 250T568 230H124V228Q124 207 134 177T167 112T231 48T328 7Q355 1 466 0H570Q583 -10 583 -20Q583 -32 568 -40H471Q464 -40 446 -40T417 -41Q262 -41 172 45Q84 127 84 250Z"></path><path stroke-width="1" id="MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="1" id="MJMAIN-7B" d="M434 -231Q434 -244 428 -250H410Q281 -250 230 -184Q225 -177 222 -172T217 -161T213 -148T211 -133T210 -111T209 -84T209 -47T209 0Q209 21 209 53Q208 142 204 153Q203 154 203 155Q189 191 153 211T82 231Q71 231 68 234T65 250T68 266T82 269Q116 269 152 289T203 345Q208 356 208 377T209 529V579Q209 634 215 656T244 698Q270 724 324 740Q361 748 377 749Q379 749 390 749T408 750H428Q434 744 434 732Q434 719 431 716Q429 713 415 713Q362 710 332 689T296 647Q291 634 291 499V417Q291 370 288 353T271 314Q240 271 184 255L170 250L184 245Q202 239 220 230T262 196T290 137Q291 131 291 1Q291 -134 296 -147Q306 -174 339 -192T415 -213Q429 -213 431 -216Q434 -219 434 -231Z"></path><path stroke-width="1" id="MJMAIN-7D" d="M65 731Q65 745 68 747T88 750Q171 750 216 725T279 670Q288 649 289 635T291 501Q292 362 293 357Q306 312 345 291T417 269Q428 269 431 266T434 250T431 234T417 231Q380 231 345 210T298 157Q293 143 292 121T291 -28V-79Q291 -134 285 -156T256 -198Q202 -250 89 -250Q71 -250 68 -247T65 -230Q65 -224 65 -223T66 -218T69 -214T77 -213Q91 -213 108 -210T146 -200T183 -177T207 -139Q208 -134 209 3L210 139Q223 196 280 230Q315 247 330 250Q305 257 280 270Q225 304 212 352L210 362L209 498Q208 635 207 640Q195 680 154 696T77 713Q68 713 67 716T65 731Z"></path><path stroke-width="1" id="MJMATHI-69" d="M184 600Q184 624 203 642T247 661Q265 661 277 649T290 619Q290 596 270 577T226 557Q211 557 198 567T184 600ZM21 287Q21 295 30 318T54 369T98 420T158 442Q197 442 223 419T250 357Q250 340 236 301T196 196T154 83Q149 61 149 51Q149 26 166 26Q175 26 185 29T208 43T235 78T260 137Q263 149 265 151T282 153Q302 153 302 143Q302 135 293 112T268 61T223 11T161 -11Q129 -11 102 10T74 74Q74 91 79 106T122 220Q160 321 166 341T173 380Q173 404 156 404H154Q124 404 99 371T61 287Q60 286 59 284T58 281T56 279T53 278T49 278T41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="MJMAIN-3A" d="M78 370Q78 394 95 412T138 430Q162 430 180 414T199 371Q199 346 182 328T139 310T96 327T78 370ZM78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path stroke-width="1" id="MJMAIN-3B" d="M78 370Q78 394 95 412T138 430Q162 430 180 414T199 371Q199 346 182 328T139 310T96 327T78 370ZM78 60Q78 85 94 103T137 121Q202 121 202 8Q202 -44 183 -94T144 -169T118 -194Q115 -194 106 -186T95 -174Q94 -171 107 -155T137 -107T160 -38Q161 -32 162 -22T165 -4T165 4Q165 5 161 4T142 0Q110 0 94 18T78 60Z"></path><path stroke-width="1" id="MJMAIN-2192" d="M56 237T56 250T70 270H835Q719 357 692 493Q692 494 692 496T691 499Q691 511 708 511H711Q720 511 723 510T729 506T732 497T735 481T743 456Q765 389 816 336T935 261Q944 258 944 250Q944 244 939 241T915 231T877 212Q836 186 806 152T761 85T740 35T732 4Q730 -6 727 -8T711 -11Q691 -11 691 0Q691 7 696 25Q728 151 835 230H70Q56 237 56 250Z"></path><path stroke-width="1" id="MJAMS-52" d="M17 665Q17 672 28 683H221Q415 681 439 677Q461 673 481 667T516 654T544 639T566 623T584 607T597 592T607 578T614 565T618 554L621 548Q626 530 626 497Q626 447 613 419Q578 348 473 326L455 321Q462 310 473 292T517 226T578 141T637 72T686 35Q705 30 705 16Q705 7 693 -1H510Q503 6 404 159L306 310H268V183Q270 67 271 59Q274 42 291 38Q295 37 319 35Q344 35 353 28Q362 17 353 3L346 -1H28Q16 5 16 16Q16 35 55 35Q96 38 101 52Q106 60 106 341T101 632Q95 645 55 648Q17 648 17 665ZM241 35Q238 42 237 45T235 78T233 163T233 337V621L237 635L244 648H133Q136 641 137 638T139 603T141 517T141 341Q141 131 140 89T134 37Q133 36 133 35H241ZM457 496Q457 540 449 570T425 615T400 634T377 643Q374 643 339 648Q300 648 281 635Q271 628 270 610T268 481V346H284Q327 346 375 352Q421 364 439 392T457 496ZM492 537T492 496T488 427T478 389T469 371T464 361Q464 360 465 360Q469 360 497 370Q593 400 593 495Q593 592 477 630L457 637L461 626Q474 611 488 561Q492 537 492 496ZM464 243Q411 317 410 317Q404 317 401 315Q384 315 370 312H346L526 35H619L606 50Q553 109 464 243Z"></path><path stroke-width="1" id="MJMATHI-44" d="M287 628Q287 635 230 637Q207 637 200 638T193 647Q193 655 197 667T204 682Q206 683 403 683Q570 682 590 682T630 676Q702 659 752 597T803 431Q803 275 696 151T444 3L430 1L236 0H125H72Q48 0 41 2T33 11Q33 13 36 25Q40 41 44 43T67 46Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628ZM703 469Q703 507 692 537T666 584T629 613T590 629T555 636Q553 636 541 636T512 636T479 637H436Q392 637 386 627Q384 623 313 339T242 52Q242 48 253 48T330 47Q335 47 349 47T373 46Q499 46 581 128Q617 164 640 212T683 339T703 469Z"></path><path stroke-width="1" id="MJMAIN-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path stroke-width="1" id="MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="1" id="MJMATHI-3C3" d="M184 -11Q116 -11 74 34T31 147Q31 247 104 333T274 430Q275 431 414 431H552Q553 430 555 429T559 427T562 425T565 422T567 420T569 416T570 412T571 407T572 401Q572 357 507 357Q500 357 490 357T476 358H416L421 348Q439 310 439 263Q439 153 359 71T184 -11ZM361 278Q361 358 276 358Q152 358 115 184Q114 180 114 178Q106 141 106 117Q106 67 131 47T188 26Q242 26 287 73Q316 103 334 153T356 233T361 278Z"></path><path stroke-width="1" id="MJMAIN-D7" d="M630 29Q630 9 609 9Q604 9 587 25T493 118L389 222L284 117Q178 13 175 11Q171 9 168 9Q160 9 154 15T147 29Q147 36 161 51T255 146L359 250L255 354Q174 435 161 449T147 471Q147 480 153 485T168 490Q173 490 175 489Q178 487 284 383L389 278L493 382Q570 459 587 475T609 491Q630 491 630 471Q630 464 620 453T522 355L418 250L522 145Q606 61 618 48T630 29Z"></path><path stroke-width="1" id="MJMAIN-2032" d="M79 43Q73 43 52 49T30 61Q30 68 85 293T146 528Q161 560 198 560Q218 560 240 545T262 501Q262 496 260 486Q259 479 173 263T84 45T79 43Z"></path><path stroke-width="1" id="MJMATHI-70" d="M23 287Q24 290 25 295T30 317T40 348T55 381T75 411T101 433T134 442Q209 442 230 378L240 387Q302 442 358 442Q423 442 460 395T497 281Q497 173 421 82T249 -10Q227 -10 210 -4Q199 1 187 11T168 28L161 36Q160 35 139 -51T118 -138Q118 -144 126 -145T163 -148H188Q194 -155 194 -157T191 -175Q188 -187 185 -190T172 -194Q170 -194 161 -194T127 -193T65 -192Q-5 -192 -24 -194H-32Q-39 -187 -39 -183Q-37 -156 -26 -148H-6Q28 -147 33 -136Q36 -130 94 103T155 350Q156 355 156 364Q156 405 131 405Q109 405 94 377T71 316T59 280Q57 278 43 278H29Q23 284 23 287ZM178 102Q200 26 252 26Q282 26 310 49T356 107Q374 141 392 215T411 325V331Q411 405 350 405Q339 405 328 402T306 393T286 380T269 365T254 350T243 336T235 326L232 322Q232 321 229 308T218 264T204 212Q178 106 178 102Z"></path><path stroke-width="1" id="MJMATHI-6C" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path stroke-width="1" id="MJMAIN-22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path><path stroke-width="1" id="MJMAIN-72" d="M36 46H50Q89 46 97 60V68Q97 77 97 91T98 122T98 161T98 203Q98 234 98 269T98 328L97 351Q94 370 83 376T38 385H20V408Q20 431 22 431L32 432Q42 433 60 434T96 436Q112 437 131 438T160 441T171 442H174V373Q213 441 271 441H277Q322 441 343 419T364 373Q364 352 351 337T313 322Q288 322 276 338T263 372Q263 381 265 388T270 400T273 405Q271 407 250 401Q234 393 226 386Q179 341 179 207V154Q179 141 179 127T179 101T180 81T180 66V61Q181 59 183 57T188 54T193 51T200 49T207 48T216 47T225 47T235 46T245 46H276V0H267Q249 3 140 3Q37 3 28 0H20V46H36Z"></path><path stroke-width="1" id="MJMAIN-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path><path stroke-width="1" id="MJMAIN-75" d="M383 58Q327 -10 256 -10H249Q124 -10 105 89Q104 96 103 226Q102 335 102 348T96 369Q86 385 36 385H25V408Q25 431 27 431L38 432Q48 433 67 434T105 436Q122 437 142 438T172 441T184 442H187V261Q188 77 190 64Q193 49 204 40Q224 26 264 26Q290 26 311 35T343 58T363 90T375 120T379 144Q379 145 379 161T380 201T380 248V315Q380 361 370 372T320 385H302V431Q304 431 378 436T457 442H464V264Q464 84 465 81Q468 61 479 55T524 46H542V0Q540 0 467 -5T390 -11H383V58Z"></path><path stroke-width="1" id="MJMAIN-6E" d="M41 46H55Q94 46 102 60V68Q102 77 102 91T102 122T103 161T103 203Q103 234 103 269T102 328V351Q99 370 88 376T43 385H25V408Q25 431 27 431L37 432Q47 433 65 434T102 436Q119 437 138 438T167 441T178 442H181V402Q181 364 182 364T187 369T199 384T218 402T247 421T285 437Q305 442 336 442Q450 438 463 329Q464 322 464 190V104Q464 66 466 59T477 49Q498 46 526 46H542V0H534L510 1Q487 2 460 2T422 3Q319 3 310 0H302V46H318Q379 46 379 62Q380 64 380 200Q379 335 378 343Q372 371 358 385T334 402T308 404Q263 404 229 370Q202 343 195 315T187 232V168V108Q187 78 188 68T191 55T200 49Q221 46 249 46H265V0H257L234 1Q210 2 183 2T145 3Q42 3 33 0H25V46H41Z"></path><path stroke-width="1" id="MJMAIN-64" d="M376 495Q376 511 376 535T377 568Q377 613 367 624T316 637H298V660Q298 683 300 683L310 684Q320 685 339 686T376 688Q393 689 413 690T443 693T454 694H457V390Q457 84 458 81Q461 61 472 55T517 46H535V0Q533 0 459 -5T380 -11H373V44L365 37Q307 -11 235 -11Q158 -11 96 50T34 215Q34 315 97 378T244 442Q319 442 376 393V495ZM373 342Q328 405 260 405Q211 405 173 369Q146 341 139 305T131 211Q131 155 138 120T173 59Q203 26 251 26Q322 26 373 103V342Z"></path><path stroke-width="1" id="MJMAIN-2F" d="M423 750Q432 750 438 744T444 730Q444 725 271 248T92 -240Q85 -250 75 -250Q68 -250 62 -245T56 -231Q56 -221 230 257T407 740Q411 750 423 750Z"></path><path stroke-width="1" id="MJMAIN-37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path stroke-width="1" id="MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="1" id="MJMAIN-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path stroke-width="1" id="MJMATHI-72" d="M21 287Q22 290 23 295T28 317T38 348T53 381T73 411T99 433T132 442Q161 442 183 430T214 408T225 388Q227 382 228 382T236 389Q284 441 347 441H350Q398 441 422 400Q430 381 430 363Q430 333 417 315T391 292T366 288Q346 288 334 299T322 328Q322 376 378 392Q356 405 342 405Q286 405 239 331Q229 315 224 298T190 165Q156 25 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 114 189T154 366Q154 405 128 405Q107 405 92 377T68 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="MJMAIN-2248" d="M55 319Q55 360 72 393T114 444T163 472T205 482Q207 482 213 482T223 483Q262 483 296 468T393 413L443 381Q502 346 553 346Q609 346 649 375T694 454Q694 465 698 474T708 483Q722 483 722 452Q722 386 675 338T555 289Q514 289 468 310T388 357T308 404T224 426Q164 426 125 393T83 318Q81 289 69 289Q55 289 55 319ZM55 85Q55 126 72 159T114 210T163 238T205 248Q207 248 213 248T223 249Q262 249 296 234T393 179L443 147Q502 112 553 112Q609 112 649 141T694 220Q694 249 708 249T722 217Q722 153 675 104T555 55Q514 55 468 76T388 123T308 170T224 192Q164 192 125 159T83 84Q80 55 69 55Q55 55 55 85Z"></path><path stroke-width="1" id="MJMAIN-6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path stroke-width="1" id="MJMAIN-67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z"></path><path stroke-width="1" id="MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="1" id="MJMAIN-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path stroke-width="1" id="MJMAIN-39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z"></path><path stroke-width="1" id="MJMATHI-73" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path><path stroke-width="1" id="MJMATHI-53" d="M308 24Q367 24 416 76T466 197Q466 260 414 284Q308 311 278 321T236 341Q176 383 176 462Q176 523 208 573T273 648Q302 673 343 688T407 704H418H425Q521 704 564 640Q565 640 577 653T603 682T623 704Q624 704 627 704T632 705Q645 705 645 698T617 577T585 459T569 456Q549 456 549 465Q549 471 550 475Q550 478 551 494T553 520Q553 554 544 579T526 616T501 641Q465 662 419 662Q362 662 313 616T263 510Q263 480 278 458T319 427Q323 425 389 408T456 390Q490 379 522 342T554 242Q554 216 546 186Q541 164 528 137T492 78T426 18T332 -20Q320 -22 298 -22Q199 -22 144 33L134 44L106 13Q83 -14 78 -18T65 -22Q52 -22 52 -14Q52 -11 110 221Q112 227 130 227H143Q149 221 149 216Q149 214 148 207T144 186T142 153Q144 114 160 87T203 47T255 29T308 24Z"></path><path stroke-width="1" id="MJMAIN-338" d="M-612 -215T-619 -215T-631 -212T-637 -204T-639 -197Q-639 -190 -634 -183Q-621 -157 -400 274T-176 707Q-173 716 -160 716Q-153 716 -148 712T-142 703T-140 696Q-140 691 -372 241T-608 -212Q-612 -215 -619 -215Z"></path><path stroke-width="1" id="MJMAIN-3C" d="M694 -11T694 -19T688 -33T678 -40Q671 -40 524 29T234 166L90 235Q83 240 83 250Q83 261 91 266Q664 540 678 540Q681 540 687 534T694 519T687 505Q686 504 417 376L151 250L417 124Q686 -4 687 -5Q694 -11 694 -19Z"></path><path stroke-width="1" id="MJMATHI-3B4" d="M195 609Q195 656 227 686T302 717Q319 716 351 709T407 697T433 690Q451 682 451 662Q451 644 438 628T403 612Q382 612 348 641T288 671T249 657T235 628Q235 584 334 463Q401 379 401 292Q401 169 340 80T205 -10H198Q127 -10 83 36T36 153Q36 286 151 382Q191 413 252 434Q252 435 245 449T230 481T214 521T201 566T195 609ZM112 130Q112 83 136 55T204 27Q233 27 256 51T291 111T309 178T316 232Q316 267 309 298T295 344T269 400L259 396Q215 381 183 342T137 256T118 179T112 130Z"></path><path stroke-width="1" id="MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path stroke-width="1" id="MJMATHI-64" d="M366 683Q367 683 438 688T511 694Q523 694 523 686Q523 679 450 384T375 83T374 68Q374 26 402 26Q411 27 422 35Q443 55 463 131Q469 151 473 152Q475 153 483 153H487H491Q506 153 506 145Q506 140 503 129Q490 79 473 48T445 8T417 -8Q409 -10 393 -10Q359 -10 336 5T306 36L300 51Q299 52 296 50Q294 48 292 46Q233 -10 172 -10Q117 -10 75 30T33 157Q33 205 53 255T101 341Q148 398 195 420T280 442Q336 442 364 400Q369 394 369 396Q370 400 396 505T424 616Q424 629 417 632T378 637H357Q351 643 351 645T353 664Q358 683 366 683ZM352 326Q329 405 277 405Q242 405 210 374T160 293Q131 214 119 129Q119 126 119 118T118 106Q118 61 136 44T179 26Q233 26 290 98L298 109L352 326Z"></path><path stroke-width="1" id="MJMAIN-22C6" d="M210 282Q210 284 225 381T241 480Q241 484 245 484Q249 486 251 486Q258 486 260 477T272 406Q275 390 276 380Q290 286 290 282L388 299Q484 314 487 314H488Q497 314 497 302Q497 297 434 266Q416 257 404 251L315 206L361 118Q372 98 383 75T401 40L407 28Q407 16 395 16Q394 16 392 16L390 17L250 159L110 17L108 16Q106 16 105 16Q93 16 93 28L99 40Q105 52 116 75T139 118L185 206L96 251Q6 296 4 300Q3 301 3 302Q3 314 12 314H13Q16 314 112 299L210 282Z"></path><path stroke-width="1" id="MJMAIN-2205" d="M331 696Q335 708 339 722T345 744T350 759T357 769T367 772Q374 772 381 767T388 754Q388 746 377 712L366 673L378 661Q460 575 460 344Q460 281 456 234T432 126T373 27Q319 -22 250 -22Q214 -22 180 -7Q168 -3 168 -4L159 -33Q148 -71 142 -75Q138 -78 132 -78Q124 -78 118 -72T111 -60Q111 -52 122 -18L133 21L125 29Q39 111 39 344Q39 596 137 675Q187 716 251 716Q265 716 278 714T296 710T315 703T331 696ZM276 676Q264 679 246 679Q196 679 159 631Q134 597 128 536T121 356Q121 234 127 174T151 80L234 366Q253 430 275 506T308 618L318 654Q318 656 294 669L276 676ZM181 42Q207 16 250 16Q291 16 324 47Q354 78 366 136T378 356Q378 470 372 528T349 616L348 613Q348 611 264 326L181 42Z"></path><path stroke-width="1" id="MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path><path stroke-width="1" id="MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path><path stroke-width="1" id="MJMATHI-3B5" d="M190 -22Q124 -22 76 11T27 107Q27 174 97 232L107 239L99 248Q76 273 76 304Q76 364 144 408T290 452H302Q360 452 405 421Q428 405 428 392Q428 381 417 369T391 356Q382 356 371 365T338 383T283 392Q217 392 167 368T116 308Q116 289 133 272Q142 263 145 262T157 264Q188 278 238 278H243Q308 278 308 247Q308 206 223 206Q177 206 142 219L132 212Q68 169 68 112Q68 39 201 39Q253 39 286 49T328 72T345 94T362 105Q376 103 376 88Q376 79 365 62T334 26T275 -8T190 -22Z"></path><path stroke-width="1" id="MJMAIN-3E" d="M84 520Q84 528 88 533T96 539L99 540Q106 540 253 471T544 334L687 265Q694 260 694 250T687 235Q685 233 395 96L107 -40H101Q83 -38 83 -20Q83 -19 83 -17Q82 -10 98 -1Q117 9 248 71Q326 108 378 132L626 250L378 368Q90 504 86 509Q84 513 84 520Z"></path><path stroke-width="1" id="MJMAIN-221E" d="M55 217Q55 305 111 373T254 442Q342 442 419 381Q457 350 493 303L507 284L514 294Q618 442 747 442Q833 442 888 374T944 214Q944 128 889 59T743 -11Q657 -11 580 50Q542 81 506 128L492 147L485 137Q381 -11 252 -11Q166 -11 111 57T55 217ZM907 217Q907 285 869 341T761 397Q740 397 720 392T682 378T648 359T619 335T594 310T574 285T559 263T548 246L543 238L574 198Q605 158 622 138T664 94T714 61T765 51Q827 51 867 100T907 217ZM92 214Q92 145 131 89T239 33Q357 33 456 193L425 233Q364 312 334 337Q285 380 233 380Q171 380 132 331T92 214Z"></path><path stroke-width="1" id="MJMAIN-230A" d="M174 734Q174 735 175 737T177 740T180 744T184 747T189 749T196 750Q206 748 214 735V-210H310H373Q401 -210 411 -213T422 -230T411 -247T369 -251Q362 -251 338 -251T298 -250H190Q178 -246 174 -234V734Z"></path><path stroke-width="1" id="MJMAIN-230B" d="M229 734Q229 735 230 737T232 740T235 744T239 747T244 749T251 750Q262 748 269 735V-235Q266 -240 256 -249L147 -250H77Q43 -250 32 -247T21 -230T32 -213T72 -209Q79 -209 99 -209T133 -210H229V734Z"></path><path stroke-width="1" id="MJMAIN-2308" d="M174 734Q178 746 190 750H298H369Q400 750 411 747T422 730T411 713T372 709Q365 709 345 709T310 710H214V-235Q206 -248 196 -250Q192 -250 189 -249T184 -247T180 -244T178 -241T176 -237T174 -234V734Z"></path><path stroke-width="1" id="MJMAIN-2309" d="M21 717T21 730T32 746T75 750H147H256Q266 742 269 735V-235Q262 -248 251 -250Q247 -250 244 -249T239 -247T235 -244T233 -241T231 -237T229 -234V710H133Q119 710 99 710T71 709Q43 709 32 713Z"></path><path stroke-width="1" id="MJMAIN-2264" d="M674 636Q682 636 688 630T694 615T687 601Q686 600 417 472L151 346L399 228Q687 92 691 87Q694 81 694 76Q694 58 676 56H670L382 192Q92 329 90 331Q83 336 83 348Q84 359 96 365Q104 369 382 500T665 634Q669 636 674 636ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path><path stroke-width="1" id="MJMAIN-2265" d="M83 616Q83 624 89 630T99 636Q107 636 253 568T543 431T687 361Q694 356 694 346T687 331Q685 329 395 192L107 56H101Q83 58 83 76Q83 77 83 79Q82 86 98 95Q117 105 248 167Q326 204 378 228L626 346L360 472Q291 505 200 548Q112 589 98 597T83 616ZM84 -118Q84 -108 99 -98H678Q694 -104 694 -118Q694 -130 679 -138H98Q84 -131 84 -118Z"></path><path stroke-width="1" id="MJCAL-46" d="M199 579Q181 579 181 590Q181 598 188 611T212 639T260 666T335 682Q336 682 349 682T383 682T431 682T493 683T561 683Q776 682 784 681Q826 673 829 647Q829 620 797 600T744 580Q728 580 728 595Q729 607 713 610Q698 613 598 614H500L499 610Q499 598 467 486T428 367Q428 365 551 365H674Q683 360 684 355Q687 346 677 329Q666 312 642 299T598 285Q586 285 582 296H402L394 277Q386 258 373 229T346 167T315 102T286 51Q265 22 225 -5T133 -32Q108 -32 87 -25T54 -7T33 15T21 35T18 47Q18 60 44 80T98 103Q108 103 111 101T119 88Q130 66 150 54T179 39T195 37Q199 37 203 43Q217 67 245 125T318 300T391 532Q393 543 398 564T406 598T409 613T339 614H269Q229 579 199 579Z"></path></defs></svg></body></html>

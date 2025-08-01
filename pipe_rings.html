@@ -1,27 +1,12 @@
 <html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!DOCTYPE HTML>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
 
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
-</script>
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true,
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-	},
-	"HTML-CSS": { availableFonts: ["TeX"] }
-	});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -32,7 +17,79 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<style type="text/css">
+                            .mjpage .MJX-monospace {
+                            font-family: monospace
+                            }
+
+                            .mjpage .MJX-sans-serif {
+                            font-family: sans-serif
+                            }
+
+                            .mjpage {
+                            display: inline;
+                            font-style: normal;
+                            font-weight: normal;
+                            line-height: normal;
+                            font-size: 100%;
+                            font-size-adjust: none;
+                            text-indent: 0;
+                            text-align: left;
+                            text-transform: none;
+                            letter-spacing: normal;
+                            word-spacing: normal;
+                            word-wrap: normal;
+                            white-space: nowrap;
+                            float: none;
+                            direction: ltr;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            border: 0;
+                            padding: 0;
+                            margin: 0
+                            }
+
+                            .mjpage * {
+                            transition: none;
+                            -webkit-transition: none;
+                            -moz-transition: none;
+                            -ms-transition: none;
+                            -o-transition: none
+                            }
+
+                            .mjx-svg-href {
+                            fill: blue;
+                            stroke: blue
+                            }
+
+                            .MathJax_SVG_LineBox {
+                            display: table!important
+                            }
+
+                            .MathJax_SVG_LineBox span {
+                            display: table-cell!important;
+                            width: 10000em!important;
+                            min-width: 0;
+                            max-width: none;
+                            padding: 0;
+                            border: 0;
+                            margin: 0
+                            }
+
+                            .mjpage__block {
+                            text-align: center;
+                            margin: 1em 0em;
+                            position: relative;
+                            display: block!important;
+                            text-indent: 0;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            width: 100%
+                            }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-04-24, modified: 2023-06-22, language: english, status: finished, importance: 4, confidence: possible</em></p>
 <blockquote>
 <p><strong><a href="https://en.wikipedia.org/wiki/Pipeline_(Unix)">Pipelines</a> are an
@@ -93,8 +150,8 @@ MI and IM are two different strings. A string of symbols is not just a
   Here is the second rule:</p>
 <p>RULE II: Suppose you have Mx. Then you may add Mxx to your collection.</p>
 <p>What I mean by this is shown below, in a few examples.</p>
-<p>From MIU, you may get MIUIU.<br/>
-From MUM, you may get MUMUM.<br/>
+<p>From MIU, you may get MIUIU.<br>
+From MUM, you may get MUMUM.<br>
 From MU, you may get MUU.</p>
 <p>So the letter 'x' in the rule simply stands for any string; but once
 you have decided which string it stands for, you have to stick with your
@@ -112,10 +169,10 @@ Here is the third rule:</p>
 <p>RULE III: If III occurs in one of the strings in your collection, you
 may make a new string with U in place of III.</p>
 <p>Examples:</p>
-<p>From UMIIIMU, you could make UMUMU.<br/>
-From MIIII, you could make MIU (also MUI).<br/>
-From IIMII, you can't get anywhere using this rule.<br/>
-(The three I's have to be consecutive.)<br/>
+<p>From UMIIIMU, you could make UMUMU.<br>
+From MIIII, you could make MIU (also MUI).<br>
+From IIMII, you can't get anywhere using this rule.<br>
+(The three I's have to be consecutive.)<br>
 From MIII, make MU.  </p>
 </blockquote>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Douglas_Hofstadter">Douglas Hofstadter</a>, <a href="./doc/cs/the_mu_puzzle_hofstadter_1994.pdf">“The MU-puzzle“ in “Gödel, Escher, Bach: An Eternal Golden Braid”</a> p. 2, 1994</em></p>
@@ -219,7 +276,26 @@ means that applying a hash function to an element of this set results
 in the member of a set.</p>
 <p>The probability that there exists a hexadecimal string of
 length 32 that is it's own MD5 hash sum is approximately
-<code>$1-\frac{1}{e}≈63\%$</code> (see <a href="https://stackoverflow.com/questions/235785/is-there-an-md5-fixed-point-where-md5x-x">this stackoverflow
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.02ex" height="3.343ex" style="vertical-align: -1.005ex;" viewBox="0 -1006.6 5605.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">1-\frac{1}{e}≈63\%</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-31" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2212" x="722" y="0"></use>
+<g transform="translate(1501,0)">
+<g transform="translate(342,0)">
+<rect stroke="none" width="473" height="60" x="0" y="220"></rect>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="84" y="629"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-65" x="101" y="-488"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2248" x="2715" y="0"></use>
+<g transform="translate(3771,0)">
+ <use xlink:href="#MJMAIN-36"></use>
+ <use xlink:href="#MJMAIN-33" x="500" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-25" x="4772" y="0"></use>
+</g>
+</svg></span> (see <a href="https://stackoverflow.com/questions/235785/is-there-an-md5-fixed-point-where-md5x-x">this stackoverflow
 question</a>).</p>
 <p>This can be illustrated easily with a toy example: the set of hexadecimal
 strings with length 2, and a hash sum that is simply the first two
@@ -302,9 +378,10 @@ seems like a frivolous waste of energy and computing power.</p>
 <p>Fortunately for me, somebody else has done this already,
 creating a gif that displays its own MD5 sum (made by
 <a href="http://nitter.poast.org/__spq__/status/838583044260904960">spq</a>):</p>
-<p><img alt="A gif that displays its own MD5 sum" src="./img/pipe_rings/md5.gif" title="A gif that displays its own MD5 sum. The MD5 sum is F5CA4F935D44685C431A8BF788C0EACA."/></p>
+<p><img alt="A gif that displays its own MD5 sum" src="./img/pipe_rings/md5.gif" title="A gif that displays its own MD5 sum. The MD5 sum is F5CA4F935D44685C431A8BF788C0EACA."></p>
 <h2 id="External_Links"><a class="hanchor" href="#External_Links">External Links</a></h2>
 <ul>
 <li><a href="https://www2.dmst.aueb.gr/dds/sw/dgsh/">dgsh—directed graph shell</a></li>
 </ul>
-</body></html>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="1" id="MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="1" id="MJMATHI-65" d="M39 168Q39 225 58 272T107 350T174 402T244 433T307 442H310Q355 442 388 420T421 355Q421 265 310 237Q261 224 176 223Q139 223 138 221Q138 219 132 186T125 128Q125 81 146 54T209 26T302 45T394 111Q403 121 406 121Q410 121 419 112T429 98T420 82T390 55T344 24T281 -1T205 -11Q126 -11 83 42T39 168ZM373 353Q367 405 305 405Q272 405 244 391T199 357T170 316T154 280T149 261Q149 260 169 260Q282 260 327 284T373 353Z"></path><path stroke-width="1" id="MJMAIN-2248" d="M55 319Q55 360 72 393T114 444T163 472T205 482Q207 482 213 482T223 483Q262 483 296 468T393 413L443 381Q502 346 553 346Q609 346 649 375T694 454Q694 465 698 474T708 483Q722 483 722 452Q722 386 675 338T555 289Q514 289 468 310T388 357T308 404T224 426Q164 426 125 393T83 318Q81 289 69 289Q55 289 55 319ZM55 85Q55 126 72 159T114 210T163 238T205 248Q207 248 213 248T223 249Q262 249 296 234T393 179L443 147Q502 112 553 112Q609 112 649 141T694 220Q694 249 708 249T722 217Q722 153 675 104T555 55Q514 55 468 76T388 123T308 170T224 192Q164 192 125 159T83 84Q80 55 69 55Q55 55 55 85Z"></path><path stroke-width="1" id="MJMAIN-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path stroke-width="1" id="MJMAIN-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path stroke-width="1" id="MJMAIN-25" d="M465 605Q428 605 394 614T340 632T319 641Q332 608 332 548Q332 458 293 403T202 347Q145 347 101 402T56 548Q56 637 101 693T202 750Q241 750 272 719Q359 642 464 642Q580 642 650 732Q662 748 668 749Q670 750 673 750Q682 750 688 743T693 726Q178 -47 170 -52Q166 -56 160 -56Q147 -56 142 -45Q137 -36 142 -27Q143 -24 363 304Q469 462 525 546T581 630Q528 605 465 605ZM207 385Q235 385 263 427T292 548Q292 617 267 664T200 712Q193 712 186 709T167 698T147 668T134 615Q132 595 132 548V527Q132 436 165 403Q183 385 203 385H207ZM500 146Q500 234 544 290T647 347Q699 347 737 292T776 146T737 0T646 -56Q590 -56 545 0T500 146ZM651 -18Q679 -18 707 24T736 146Q736 215 711 262T644 309Q637 309 630 306T611 295T591 265T578 212Q577 200 577 146V124Q577 -18 647 -18H651Z"></path></defs></svg></body></html>

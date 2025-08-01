@@ -1,27 +1,12 @@
 <html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!DOCTYPE HTML>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
 
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
-</script>
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true,
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-	},
-	"HTML-CSS": { availableFonts: ["TeX"] }
-	});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -32,22 +17,94 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<style type="text/css">
+                            .mjpage .MJX-monospace {
+                            font-family: monospace
+                            }
+
+                            .mjpage .MJX-sans-serif {
+                            font-family: sans-serif
+                            }
+
+                            .mjpage {
+                            display: inline;
+                            font-style: normal;
+                            font-weight: normal;
+                            line-height: normal;
+                            font-size: 100%;
+                            font-size-adjust: none;
+                            text-indent: 0;
+                            text-align: left;
+                            text-transform: none;
+                            letter-spacing: normal;
+                            word-spacing: normal;
+                            word-wrap: normal;
+                            white-space: nowrap;
+                            float: none;
+                            direction: ltr;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            border: 0;
+                            padding: 0;
+                            margin: 0
+                            }
+
+                            .mjpage * {
+                            transition: none;
+                            -webkit-transition: none;
+                            -moz-transition: none;
+                            -ms-transition: none;
+                            -o-transition: none
+                            }
+
+                            .mjx-svg-href {
+                            fill: blue;
+                            stroke: blue
+                            }
+
+                            .MathJax_SVG_LineBox {
+                            display: table!important
+                            }
+
+                            .MathJax_SVG_LineBox span {
+                            display: table-cell!important;
+                            width: 10000em!important;
+                            min-width: 0;
+                            max-width: none;
+                            padding: 0;
+                            border: 0;
+                            margin: 0
+                            }
+
+                            .mjpage__block {
+                            text-align: center;
+                            margin: 1em 0em;
+                            position: relative;
+                            display: block!important;
+                            text-indent: 0;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            width: 100%
+                            }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2019-12-25, modified: 2024-07-05, language: english, status: in progress, importance: 3, confidence: possible</em></p>
 <blockquote>
 <p><strong>Is daygame worth it, and if yes,
 how much? I first present a simple <a href="https://en.wikipedia.org/wiki/Point_estimation">point
 estimate</a> <a href="https://en.wikipedia.org/wiki/Cost-benefit_analysis">cost-benefit
 value estimation</a>
-written in Klong and find that daygame is probably worth ~\$996 maximum,
+written in Klong and find that daygame is probably worth ~<span>$</span>996 maximum,
 at ~499 approaches, though the number varies strongly under different
 assumptions. After that, I modify the model to capture more of the nuance,
-and arrive at ~\$2098 of value for ~1000 approaches. I then perform a
+and arrive at ~<span>$</span>2098 of value for ~1000 approaches. I then perform a
 <a href="https://en.wikipedia.org/wiki/Monte_Carlo_method">Monte-Carlo simulation</a>
 to determine the uncertainty around the <a href="https://en.wikipedia.org/wiki/Expected_value">expected
 value</a> and find that in
-the simple case the value of daygame ranges from -\$3297 to \$3200
-(5th/95th percentile), with a median of \$899 and a mean of \$550,
+the simple case the value of daygame ranges from -<span>$</span>3297 to <span>$</span>3200
+(5th/95th percentile), with a median of <span>$</span>899 and a mean of <span>$</span>550,
 and in the complex case _.</strong></p>
 </blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Similar_Analyses">Similar Analyses</a><ul></ul></li><li><a href="#Ratios">Ratios</a><ul><li><a href="#Empirical_Data_for_Ratios">Empirical Data for Ratios</a><ul><li><a href="#Roy_Walker">Roy Walker</a><ul></ul></li><li><a href="#Seven">Seven</a><ul></ul></li><li><a href="#Mr_White">Mr. White</a><ul></ul></li><li><a href="#Thomas_Crown">Thomas Crown</a><ul></ul></li><li><a href="#Krauser">Krauser</a><ul></ul></li><li><a href="#Wolfe_Daygame">Wolfe Daygame</a><ul></ul></li></ul></li><li><a href="#Estimating_Parameters">Estimating Parameters</a><ul><li><a href="#Lays">Lays</a><ul></ul></li><li><a href="#Dates">Dates</a><ul></ul></li><li><a href="#Visualizing_the_Data">Visualizing the Data</a><ul></ul></li><li><a href="#Comparing_Date__Lay_Ratios">Comparing Date &amp; Lay Ratios</a><ul></ul></li></ul></li></ul></li><li><a href="#A_Simple_Model">A Simple Model</a><ul><li><a href="#Cost">Cost</a><ul><li><a href="#Approaching_Opportunity_Cost">Approaching Opportunity Cost</a><ul><li><a href="#Skepticism">Skepticism</a><ul></ul></li></ul></li><li><a href="#Costs_from_Dates">Costs from Dates</a><ul><li><a href="#Opportunity_Cost">Opportunity Cost</a><ul></ul></li><li><a href="#Paying_for_Dates">Paying for Dates</a><ul></ul></li></ul></li><li><a href="#Calculating_the_Cost">Calculating the Cost</a><ul></ul></li></ul></li><li><a href="#Benefit">Benefit</a><ul><li><a href="#Value_of_the_Sex_Itself">Value of the Sex Itself</a><ul><li><a href="#Diminishing_Returns_on_Sex_Partners">Diminishing Returns on Sex Partners</a><ul></ul></li></ul></li><li><a href="#A_Sense_of_Pride_and_Accomplishment">A Sense of Pride and Accomplishment</a><ul></ul></li><li><a href="#Calculating_the_Benefit">Calculating the Benefit</a><ul></ul></li></ul></li><li><a href="#Value">Value</a><ul></ul></li></ul></li><li><a href="#A_Slightly_More_Complex_Model">A Slightly More Complex Model</a><ul><li><a href="#Additional_Benefits">Additional Benefits</a><ul><li><a href="#Positive_Side_Effects">Positive Side Effects</a><ul></ul></li><li><a href="#Mental_Benefit">Mental Benefit</a><ul></ul></li></ul></li><li><a href="#Additional_Costs">Additional Costs</a><ul><li><a href="#Expenditures">Expenditures</a><ul><li><a href="#Fixed_Costs">Fixed Costs</a><ul></ul></li><li><a href="#Variable_Costs">Variable Costs</a><ul></ul></li><li><a href="#Code">Code</a><ul></ul></li></ul></li><li><a href="#Social_Costs_from_Being_Found_Out">Social Costs from Being Found Out</a><ul></ul></li></ul></li><li><a href="#Value_in_the_Complex_Model">Value in the Complex Model</a><ul></ul></li></ul></li><li><a href="#Conclusion">Conclusion</a><ul></ul></li><li><a href="#Appendix_A_A_Guesstimate_Version_of_the_Simple_Model">Appendix A: A Guesstimate Version of the Simple Model</a><ul><li><a href="#Inputs">Inputs</a><ul></ul></li></ul></li><li><a href="#Appendix_B_A_Slightly_More_Complex_Guesstimate_Model_of_the_Value">Appendix B: A Slightly More Complex Guesstimate Model of the Value</a><ul><li><a href="#Inputs_1">Inputs</a><ul></ul></li></ul></li><li><a href="#Appendix_C_Empirically_Checking_the_Assumptions">Appendix C: Empirically Checking the Assumptions</a><ul></ul></li><li><a href="#Appendix_D_Some_Questions_About_the_Value_of_Sex">Appendix D: Some Questions About the Value of Sex</a><ul></ul></li></ul></div>
 <!--
@@ -79,11 +136,11 @@ be doing?</p>
 <p>In this text, I first review existing texts on the topic and find them
 lacking in several ways. I then present a simple and general model for
 the value of doing a number of daygame approaches, and find that it
-recommends doing 484 approaches with a value of \$969 in the optimum. I
+recommends doing 484 approaches with a value of <span>$</span>969 in the optimum. I
 then extend the model to more subjective and hard to measure factors
 such as positive side effects, effects of daygame on mood and similar
 other factors, and estimate that the optimal number of approaches is 1024
-(power of two not indended, but appreciated), at a value of \$2110.</p>
+(power of two not indended, but appreciated), at a value of <span>$</span>2110.</p>
 <p>The models presented don't consider externalities, be they positive or
 negative. That is the subject of a different debate.</p>
 <h2 id="Similar_Analyses"><a class="hanchor" href="#Similar_Analyses">Similar Analyses</a></h2>
@@ -91,10 +148,10 @@ negative. That is the subject of a different debate.</p>
 2012</a>,
 he focuses on nightgame in bars and clubs and concludes that</p>
 <blockquote>
-<p>Cost for Sex [from prostitution]: \$300<br/>
-Cost for sex [from game]: \$460 (\$200 is you enjoy clubbing, gaming,
-and dating for their own sake)<br/>
-[…]<br/>
+<p>Cost for Sex [from prostitution]: <span>$</span>300<br>
+Cost for sex [from game]: <span>$</span>460 (<span>$</span>200 is you enjoy clubbing, gaming,
+and dating for their own sake)<br>
+[…]<br>
 For casual sex, a mid-range prostitute is cheaper than game.
 On the other hand, most of game’s costs are in the form of time
 opportunity costs, so if you have a lot of free time and little money
@@ -135,11 +192,11 @@ slept with (colloquially "lays"). In this text, I'm interested in the
 approach-to-date ratio (here the ratio of first dates to approaches)
 and the approach-to-lay ratio.</p>
 <blockquote>
-<p>30 approaches will get me between 10 - 15 phone numbers.<br/>
+<p>30 approaches will get me between 10 - 15 phone numbers.<br>
 Half of these phone numbers will flake leaving me messaging around 5 -
-8 girls.<br/>
+8 girls.<br>
 I will get half of these girls out on dates (between 2 - 4) and sleep
-with 1 or 2.<br/>
+with 1 or 2.<br>
 These are realistic stats, this is cold approach, cold approach
 is tough.</p>
 </blockquote>
@@ -150,8 +207,68 @@ quite high.</p>
 2018</a>
 proclaims
 16.9% numbers/approaches, 22.4% dates/numbers and 37.1% lays/dates
-(that would be <code>$0.169 \cdot 0.224=0.0378$</code> dates per approach, and
-<code>$0.169 \cdot 0.224*0.371=0.0140$</code> lays per approach).</p>
+(that would be <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="21.83ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 9399 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">0.169 \cdot 0.224=0.0378</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="1279" y="0"></use>
+ <use xlink:href="#MJMAIN-39" x="1780" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="2502" y="0"></use>
+<g transform="translate(3003,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="1279" y="0"></use>
+ <use xlink:href="#MJMAIN-34" x="1780" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="5561" y="0"></use>
+<g transform="translate(6617,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-33" x="1279" y="0"></use>
+ <use xlink:href="#MJMAIN-37" x="1780" y="0"></use>
+ <use xlink:href="#MJMAIN-38" x="2280" y="0"></use>
+</g>
+</g>
+</svg></span> dates per approach, and
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="29.321ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 12624.4 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-2-Title">
+<title id="MathJax-SVG-2-Title">0.169 \cdot 0.224*0.371=0.0140</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="1279" y="0"></use>
+ <use xlink:href="#MJMAIN-39" x="1780" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="2502" y="0"></use>
+<g transform="translate(3003,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-32" x="1279" y="0"></use>
+ <use xlink:href="#MJMAIN-34" x="1780" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-2217" x="5506" y="0"></use>
+<g transform="translate(6228,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-33" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-37" x="1279" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1780" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="8787" y="0"></use>
+<g transform="translate(9843,0)">
+ <use xlink:href="#MJMAIN-30"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-31" x="1279" y="0"></use>
+ <use xlink:href="#MJMAIN-34" x="1780" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="2280" y="0"></use>
+</g>
+</g>
+</svg></span> lays per approach).</p>
 <p>Tom Torero presents his experiences with daygame ratios in
 <a href="https://www.youtube.com/watch?v=7WzKWHvDOOQ">this video</a>
 <a href="./vid/daygame_cost_benefit/realistic_daygame_expectations.webm">(a)</a>.
@@ -278,7 +395,24 @@ with roughly the same age and quality: an improvement on last year’s
 ratio.</p>
 </blockquote>
 <p><em>— <a href="https://thomascrownpua.wordpress.com">Thomas Crown</a>, <a href="https://thomascrownpua.wordpress.com/2020/01/03/2019-in-review/">“2019 In Review”</a>, 2020</em></p>
-<p>From this one can deduce that the number of approaches was <code>$11*53=583$</code>,
+<p>From this one can deduce that the number of approaches was <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.43ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 5782.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-3-Title">
+<title id="MathJax-SVG-3-Title">11*53=583</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-31"></use>
+ <use xlink:href="#MJMAIN-31" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-2217" x="1223" y="0"></use>
+<g transform="translate(1945,0)">
+ <use xlink:href="#MJMAIN-35"></use>
+ <use xlink:href="#MJMAIN-33" x="500" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-3D" x="3224" y="0"></use>
+<g transform="translate(4281,0)">
+ <use xlink:href="#MJMAIN-35"></use>
+ <use xlink:href="#MJMAIN-38" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-33" x="1001" y="0"></use>
+</g>
+</g>
+</svg></span>,
 or at least a number somewhere near that.</p>
 <p>Lay ratios:</p>
 <pre><code>tclay::[[208 2][1638 20][2453 34][3036 45]]
@@ -446,14 +580,14 @@ dateratio::{dateceil*1%(1+exp(dateintercept+dateslope*x))}
 </ul>
 <p>The plotted data for lay ratios (and the corresponding fitted sigmoid
 curve) look like this:</p>
-<p><img alt="Empirical data for the cumulative value of lay-ratios over time" src="./img/daygame_cost_benefit/layratio_data.png" title="Empirical data for the cumulative value of lay-ratios over time."/></p>
+<p><img alt="Empirical data for the cumulative value of lay-ratios over time" src="./img/daygame_cost_benefit/layratio_data.png" title="Empirical data for the cumulative value of lay-ratios over time."></p>
 <p>Similarly, the data for reported date ratios:</p>
-<p><img alt="Empirical data for the cumulative value of date-ratios over time" src="./img/daygame_cost_benefit/dateratio_data.png" title="Empirical data for the cumulative value of date-ratios over time."/></p>
+<p><img alt="Empirical data for the cumulative value of date-ratios over time" src="./img/daygame_cost_benefit/dateratio_data.png" title="Empirical data for the cumulative value of date-ratios over time."></p>
 <h4 id="Comparing_Date__Lay_Ratios"><a class="hanchor" href="#Comparing_Date__Lay_Ratios">Comparing Date &amp; Lay Ratios</a></h4>
 <p>We can also compare date &amp; lay ratios with the fitted parameters, and
 I notice that date ratios grow faster than lay ratios. Not sure what is
 up with that.</p>
-<p><img alt="The date &amp; lay ratios over thousands of approaches" src="./img/daygame_cost_benefit/ratio_data.png" title="The date &amp; lay ratios over thousands of approaches"/></p>
+<p><img alt="The date &amp; lay ratios over thousands of approaches" src="./img/daygame_cost_benefit/ratio_data.png" title="The date &amp; lay ratios over thousands of approaches"></p>
 <h2 id="A_Simple_Model"><a class="hanchor" href="#A_Simple_Model">A Simple Model</a></h2>
 <p>One can separately estimate the costs and the benefits from doing daygame,
 and then subtract the costs from the benefits to calculate the value.</p>
@@ -533,9 +667,80 @@ numbers of dates starting from 2018:</p>
 </ul>
 <p>He reports 76 first dates, 27 second dates, 11 third dates and 5 fourth
 dates. This means that he went on 5 dates with 4 women, on 3 dates with
-<code>$11-5=6$</code> women, and so forth. This means that the average number of dates he
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="10.589ex" height="2.343ex" style="vertical-align: -0.505ex;" viewBox="0 -791.3 4559 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-4-Title">
+<title id="MathJax-SVG-4-Title">11-5=6</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-31"></use>
+ <use xlink:href="#MJMAIN-31" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-2212" x="1223" y="0"></use>
+ <use xlink:href="#MJMAIN-35" x="2223" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="3002" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="4058" y="0"></use>
+</g>
+</svg></span> women, and so forth. This means that the average number of dates he
 went on per first date was
-<code>$\frac{5\cdot 4+(11-5)\cdot 3+(27-11)\cdot 2+(76-27)}{76} \approx 1.566$</code>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="34.442ex" height="4.343ex" style="vertical-align: -1.338ex;" viewBox="0 -1293.7 14829.4 1869.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-5-Title">
+<title id="MathJax-SVG-5-Title">\frac{5\cdot 4+(11-5)\cdot 3+(27-11)\cdot 2+(76-27)}{76} \approx 1.566</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(120,0)">
+<rect stroke="none" width="10974" height="60" x="0" y="220"></rect>
+<g transform="translate(60,622)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-35" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-34" x="779" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="1279" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-28" x="2058" y="0"></use>
+<g transform="translate(1730,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="500" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="3448" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-35" x="4227" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-29" x="4727" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="5117" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-33" x="5395" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="5896" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-28" x="6674" y="0"></use>
+<g transform="translate(4995,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-37" x="500" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="8065" y="0"></use>
+<g transform="translate(6253,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="500" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-29" x="9844" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="10234" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="10512" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="11013" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-28" x="11791" y="0"></use>
+<g transform="translate(8613,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-37"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-36" x="500" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="13182" y="0"></use>
+<g transform="translate(9871,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-37" x="500" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-29" x="14961" y="0"></use>
+</g>
+<g transform="translate(5133,-424)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-37"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-36" x="500" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2248" x="11492" y="0"></use>
+<g transform="translate(12548,0)">
+ <use xlink:href="#MJMAIN-31"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-35" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="1279" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="1780" y="0"></use>
+</g>
+</g>
+</svg></span>
 – quite lower than the 3 assumed by <a href="https://freenortherner.wordpress.com/2012/06/12/economic-analysis-of-casual-sex-prostitution-vs-game/" title="Economic Analysis of Casual Sex – Prostitution vs Game">Free Northerner
 2012</a>!</p>
 <p>For <a href="https://sevendaygame.wordpress.com/">Seven</a>, the numbers can be
@@ -547,7 +752,77 @@ found here<!--TODO: did he update with 2020 numbers?-->:</p>
 </ul>
 <p>He reports 76 first dates, 21 second dates, 13 third
 dates, 6 fourth dates and 1 fifth date. This results in
-<code>$\frac{(1\cdot 5+(6-1)\cdot 4+(13-6)\cdot 3+(21-13)\cdot 2+(76-21))}{76} \approx 1.54$</code>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="41.319ex" height="4.343ex" style="vertical-align: -1.338ex;" viewBox="0 -1293.7 17790.1 1869.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-6-Title">
+<title id="MathJax-SVG-6-Title">\frac{(1\cdot 5+(6-1)\cdot 4+(13-6)\cdot 3+(21-13)\cdot 2+(76-21))}{76} \approx 1.54</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(120,0)">
+<rect stroke="none" width="14436" height="60" x="0" y="220"></rect>
+<g transform="translate(60,622)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-28" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="389" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="890" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-35" x="1168" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="1669" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-28" x="2447" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-36" x="2837" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="3337" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="4116" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-29" x="4616" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="5006" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-34" x="5284" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="5785" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-28" x="6563" y="0"></use>
+<g transform="translate(4916,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-33" x="500" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="7954" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-36" x="8732" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-29" x="9233" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="9622" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-33" x="9901" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="10401" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-28" x="11180" y="0"></use>
+<g transform="translate(8180,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="500" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="12570" y="0"></use>
+<g transform="translate(9439,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-33" x="500" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-29" x="14349" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-22C5" x="14739" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="15017" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="15518" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-28" x="16296" y="0"></use>
+<g transform="translate(11799,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-37"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-36" x="500" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="17687" y="0"></use>
+<g transform="translate(13057,0)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="500" y="0"></use>
+</g>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-29" x="19466" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-29" x="19856" y="0"></use>
+</g>
+<g transform="translate(6864,-424)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-37"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-36" x="500" y="0"></use>
+</g>
+</g>
+ <use xlink:href="#MJMAIN-2248" x="14953" y="0"></use>
+<g transform="translate(16010,0)">
+ <use xlink:href="#MJMAIN-31"></use>
+ <use xlink:href="#MJMAIN-2E" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-35" x="779" y="0"></use>
+ <use xlink:href="#MJMAIN-34" x="1279" y="0"></use>
+</g>
+</g>
+</svg></span>
 dates per lay, again smaller.</p>
 <p>Similarly, Thomas Crown reports <a href="https://thomascrownpua.wordpress.com/2016-17/" title="2016/17 Statistics">1.4 dates on average for a lay in
 his first year</a>
@@ -561,7 +836,7 @@ avgdates::1.7
 <h5 id="Paying_for_Dates"><a class="hanchor" href="#Paying_for_Dates">Paying for Dates</a></h5>
 <p>On dates, one usually needs to pay for drinks, food, and perhaps a taxi,
 there doesn't seem to be much information about the exact costs out
-there. I will assume \$20 for a date.</p>
+there. I will assume <span>$</span>20 for a date.</p>
 <pre><code>datecost::20
 </code></pre>
 <h4 id="Calculating_the_Cost"><a class="hanchor" href="#Calculating_the_Cost">Calculating the Cost</a></h4>
@@ -580,7 +855,7 @@ ytitle("Cumulative dollar cost of dates")
 plot(cost)
 draw()
 </code></pre>
-<p><img alt="Cumulative cost of approaching &amp; dating" src="./img/daygame_cost_benefit/cost.png" title="Cumulative cost of approaching and dating, is pretty much linear over approaches."/></p>
+<p><img alt="Cumulative cost of approaching &amp; dating" src="./img/daygame_cost_benefit/cost.png" title="Cumulative cost of approaching and dating, is pretty much linear over approaches."></p>
 <h3 id="Benefit"><a class="hanchor" href="#Benefit">Benefit</a></h3>
 <p>The thing providing most of the value from daygame is the sex with
 different women. Sex is not a homogenous commodity, but instead has a
@@ -601,7 +876,7 @@ on the city.</p>
 </blockquote>
 <p><em>— <a href="https://freenortherner.com/">Free Northerner</a>, <a href="http://freenortherner.com/2012/06/12/economic-analysis-of-casual-sex-prostitution-vs-game/">“Economic Analysis of Casual Sex – Prostitution vs Game”</a>, 2012</em></p>
 <!--TODO: find own sources-->
-<p>This leaves us with ~\$400 per hour of prostitution, but I want to flag
+<p>This leaves us with ~<span>$</span>400 per hour of prostitution, but I want to flag
 that the cost of prostitution is highly dependent on the attractiveness
 of the escort, with prices in the thousands of dollars for particularly
 beautiful women—but realistically I don't expect to find data on the
@@ -628,7 +903,24 @@ women is a higher initial return-->
 <h5 id="Diminishing_Returns_on_Sex_Partners"><a class="hanchor" href="#Diminishing_Returns_on_Sex_Partners">Diminishing Returns on Sex Partners</a></h5>
 <p>I will also assume that the dimimishing returns on sex with different
 partners are <a href="https://en.wikipedia.org/wiki/Square-root">radical</a>,
-with an exponent of <code>$\frac{199}{200}$</code>.</p>
+with an exponent of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.302ex" height="3.676ex" style="vertical-align: -1.338ex;" viewBox="0 -1006.6 1421.7 1582.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-7-Title">
+<title id="MathJax-SVG-7-Title">\frac{199}{200}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(120,0)">
+<rect stroke="none" width="1181" height="60" x="0" y="220"></rect>
+<g transform="translate(60,460)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-39" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-39" x="1001" y="0"></use>
+</g>
+<g transform="translate(60,-417)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-30" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-30" x="1001" y="0"></use>
+</g>
+</g>
+</g>
+</svg></span>.</p>
 <p>I have not found any people discussing this and <a href="#Appendix_D_Some_Questions_About_the_Value_of_Offspring">other
 questions</a>,
 and there is probably a high variance in these numbers depending on
@@ -656,7 +948,7 @@ real-world dynamics and theoretical intuitions.</p>
 <pre><code>partnerexp::199%200
 </code></pre>
 <h4 id="A_Sense_of_Pride_and_Accomplishment"><a class="hanchor" href="#A_Sense_of_Pride_and_Accomplishment">A Sense of Pride and Accomplishment</a></h4>
-<p>I will assume that the sense of pride and accomplishment is ~\$400 for
+<p>I will assume that the sense of pride and accomplishment is ~<span>$</span>400 for
 the first lay. I am making this number up, since I'm lacking any data
 on this. (If one believes this to be too much, I'll remind the reader
 that men sometimes pay thousands of dollars for pick-up coaching and
@@ -697,7 +989,7 @@ ytitle("Cumulative dollar value of lays")
 plot(layvals)
 draw()
 </code></pre>
-<p><img alt="Value of lays for a given number of approaches, cumulatively" src="./img/daygame_cost_benefit/layvals.png" title="Value of lays for a given number of approaches, cumulatively. It is a graph growing approximately by the number of approaches to the power of 199/200."/></p>
+<p><img alt="Value of lays for a given number of approaches, cumulatively" src="./img/daygame_cost_benefit/layvals.png" title="Value of lays for a given number of approaches, cumulatively. It is a graph growing approximately by the number of approaches to the power of 199/200."></p>
 <p>Then the total benefit is the discounted pride values and the discounted
 value of sex:</p>
 <pre><code>benefit::{discpridevals(x)+disclayvals(x)}
@@ -715,7 +1007,7 @@ case 5000, which is a common number for expert daygamers) and chooses the maximu
 10190.4271226371274
 </code></pre>
 <p>So one can conclude that 5000 approaches (i.e., as many as possible)
-are optimal under these assumptions, with a value of \$10k.</p>
+are optimal under these assumptions, with a value of <span>$</span>10k.</p>
 <p>This can be visualized as well:</p>
 <pre><code>.l("nplot")
 
@@ -740,7 +1032,7 @@ bar(optim;15000+optimben;10000)
 
 draw()
 </code></pre>
-<p><img alt="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum" src="img/daygame_cost_benefit/complete.png" title="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum"/></p>
+<p><img alt="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum" src="img/daygame_cost_benefit/complete.png" title="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum"></p>
 <h2 id="A_Slightly_More_Complex_Model"><a class="hanchor" href="#A_Slightly_More_Complex_Model">A Slightly More Complex Model</a></h2>
 <p>Of course one might answer that the simple model fails to capture much
 of the subtlety of the situation: Proponents of daygame might mention
@@ -771,8 +1063,8 @@ expected salary by 0.5% in the first year, with then logarithmic increases
 for each additional year, for 10 years.
 The <a href="https://en.wikipedia.org/wiki/List_of_countries_by_average_wage">parity purchasing power average annual
 wage</a>
-in the US was \$60k in 2017, but many industrialized countries are lower.
-I'll assume that the average annual wage for a daygamer is \$40k, just
+in the US was <span>$</span>60k in 2017, but many industrialized countries are lower.
+I'll assume that the average annual wage for a daygamer is <span>$</span>40k, just
 to be safe.</p>
 <p>The code for calculating the monetary value of the positive side-effects of
 doing x daygame approaches then is</p>
@@ -782,7 +1074,7 @@ increase::0.005
 apppy::1000
 sideeff::{yearsben*increase*annsal*ln(1+x%apppy)}
 </code></pre>
-<p><img alt="Positive side effects from doing daygame" src="img/daygame_cost_benefit/sideeff.png" title="Positive side effects from doing daygame"/></p>
+<p><img alt="Positive side effects from doing daygame" src="img/daygame_cost_benefit/sideeff.png" title="Positive side effects from doing daygame"></p>
 <h4 id="Mental_Benefit"><a class="hanchor" href="#Mental_Benefit">Mental Benefit</a></h4>
 <p>This one is tricky, especially for somebody who has never done any
 daygame approaches. Many daygamers seem to highly enjoy what they
@@ -798,14 +1090,14 @@ and positive effects such as playful enjoyment, flow-states and
 extraverted enthusiasm setting after in after an initial hump. These
 positive states become less strong over time because of getting used
 to pickup. Specifically, the negative effects peak at ~80 approaches
-(with -\$500), and break even after ~300. The cumulative value approaches
-\$1900 over thousands of approaches.</p>
+(with -<span>$</span>500), and break even after ~300. The cumulative value approaches
+<span>$</span>1900 over thousands of approaches.</p>
 <p>To model this, I abuse a <a href="https://en.wikipedia.org/wiki/Log-normal_distribution">log-normal
 distribution</a>
 to represent the value over time:</p>
 <pre><code>mental::{(10000*(ln.pdf((x*0.005)+0.5;1;1)))-1900}
 </code></pre>
-<p><img alt="Value of mental states due to doing daygame" src="img/daygame_cost_benefit/mental.png" title="Value of mental states due to doing daygame"/></p>
+<p><img alt="Value of mental states due to doing daygame" src="img/daygame_cost_benefit/mental.png" title="Value of mental states due to doing daygame"></p>
 <h3 id="Additional_Costs"><a class="hanchor" href="#Additional_Costs">Additional Costs</a></h3>
 <h4 id="Expenditures"><a class="hanchor" href="#Expenditures">Expenditures</a></h4>
 <p>Besides the cost for dates &amp; opportunity costs, doing daygame might carry
@@ -830,7 +1122,7 @@ what counts as a variable cost, I will mostly go with my gut feeling.</p>
 <p>Note that it is also important to consider the counterfactual case:
 Would these expenditures be made if the person wasn't doing daygame?</p>
 <h5 id="Fixed_Costs"><a class="hanchor" href="#Fixed_Costs">Fixed Costs</a></h5>
-<p>I assume that the fixed costs for doing any daygame at all are \$500:</p>
+<p>I assume that the fixed costs for doing any daygame at all are <span>$</span>500:</p>
 <pre><code>fixcost::500
 </code></pre>
 <!--
@@ -905,7 +1197,7 @@ This seems like something many daygamers do, I'll assume 80%.
 
 -->
 <h5 id="Variable_Costs"><a class="hanchor" href="#Variable_Costs">Variable Costs</a></h5>
-<p>I assume that the variable costs are \$0.5 per approach:</p>
+<p>I assume that the variable costs are <span>$</span>0.5 per approach:</p>
 <pre><code>varcost::0.5
 </code></pre>
 <!--
@@ -936,13 +1228,13 @@ ones whole social circle, and often probably has very small effects.</p>
 <p>I model this as having a certain probability of being discovered as
 a daygamer for every approach. Being found out more than once has
 logarithmically increasing costs with the number of being found out.</p>
-<p>I'll (somewhat arbitrarily) set the cost of first being found at \$500,
+<p>I'll (somewhat arbitrarily) set the cost of first being found at <span>$</span>500,
 and the probability of being found out at any approach to 0.1%.</p>
 <p>The probability of being discovered <code>n</code> times with
 <code>x</code> approaches can be calculated using the <a href="https://en.wikipedia.org/wiki/Binomial_distribution">binomial
 distribution</a>.</p>
 <p>To make the code run faster, only the scenarios with a cost of more than
-\$0.01 are being considered.</p>
+<span>$</span>0.01 are being considered.</p>
 <pre><code>fcbfo::300
 pbfo::0.001
 cbfo::{[t];t::x;+/{b.pmf(x;t;pbfo)*fcbfo*ln(e*x)}'1+!{(x&lt;t)&amp;00.1&lt;b.pmf(x;t;pbfo)*fcbfo*ln(e*x)}{x+1}:~1}
@@ -955,7 +1247,7 @@ cbfo::{[t];t::x;+/{b.pmf(x;t;pbfo)*fcbfo*ln(e*x)}'1+!{(x&lt;t)&amp;00.1&lt;b.pmf
 2110.1350422531768
 </code></pre>
 <p>The more complex model with additional considerations therefore recommends
-1024 approaches, with a value of ~\$2110.13.</p>
+1024 approaches, with a value of ~<span>$</span>2110.13.</p>
 <p>Graphically:</p>
 <pre><code>.l("nplot")
 
@@ -980,11 +1272,11 @@ bar(optim;20000+optimben;10000)
 
 draw()
 </code></pre>
-<p><img alt="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum. Using the more complex model." src="img/daygame_cost_benefit/complete_complex.png" title="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum. Using the more complex model."/></p>
+<p><img alt="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum. Using the more complex model." src="img/daygame_cost_benefit/complete_complex.png" title="Visualizing the cost &amp; benefit of daygame, against each other, as well as the optimum. Using the more complex model."></p>
 <h2 id="Conclusion"><a class="hanchor" href="#Conclusion">Conclusion</a></h2>
 <p>I have presented both a simple and a more complicated cost-benefit
 analysis for daygame. Both conclude that daygame is worth it, at around
-500-1000 approaches, but the value is not enormous, with only a \$1-2k,
+500-1000 approaches, but the value is not enormous, with only a <span>$</span>1-2k,
 and decreases rapidly with less lenient assumptions.</p>
 <p>I tentatively conclude that daygame may be worth it, but
 it's definitely not a surefire positive deal. Sign up for
@@ -1021,4 +1313,5 @@ perspective:</p>
 </ol></li>
 </ol>
 <!--TODO: Is this something?-->
-</body></html>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="1" id="MJMAIN-2E" d="M78 60Q78 84 95 102T138 120Q162 120 180 104T199 61Q199 36 182 18T139 0T96 17T78 60Z"></path><path stroke-width="1" id="MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="1" id="MJMAIN-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path stroke-width="1" id="MJMAIN-39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z"></path><path stroke-width="1" id="MJMAIN-22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path><path stroke-width="1" id="MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="1" id="MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path stroke-width="1" id="MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="1" id="MJMAIN-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path stroke-width="1" id="MJMAIN-37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path stroke-width="1" id="MJMAIN-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path><path stroke-width="1" id="MJMAIN-2217" d="M229 286Q216 420 216 436Q216 454 240 464Q241 464 245 464T251 465Q263 464 273 456T283 436Q283 419 277 356T270 286L328 328Q384 369 389 372T399 375Q412 375 423 365T435 338Q435 325 425 315Q420 312 357 282T289 250L355 219L425 184Q434 175 434 161Q434 146 425 136T401 125Q393 125 383 131T328 171L270 213Q283 79 283 63Q283 53 276 44T250 35Q231 35 224 44T216 63Q216 80 222 143T229 213L171 171Q115 130 110 127Q106 124 100 124Q87 124 76 134T64 161Q64 166 64 169T67 175T72 181T81 188T94 195T113 204T138 215T170 230T210 250L74 315Q65 324 65 338Q65 353 74 363T98 374Q106 374 116 368T171 328L229 286Z"></path><path stroke-width="1" id="MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="1" id="MJMAIN-2212" d="M84 237T84 250T98 270H679Q694 262 694 250T679 230H98Q84 237 84 250Z"></path><path stroke-width="1" id="MJMAIN-2B" d="M56 237T56 250T70 270H369V420L370 570Q380 583 389 583Q402 583 409 568V270H707Q722 262 722 250T707 230H409V-68Q401 -82 391 -82H389H387Q375 -82 369 -68V230H70Q56 237 56 250Z"></path><path stroke-width="1" id="MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="1" id="MJMAIN-2248" d="M55 319Q55 360 72 393T114 444T163 472T205 482Q207 482 213 482T223 483Q262 483 296 468T393 413L443 381Q502 346 553 346Q609 346 649 375T694 454Q694 465 698 474T708 483Q722 483 722 452Q722 386 675 338T555 289Q514 289 468 310T388 357T308 404T224 426Q164 426 125 393T83 318Q81 289 69 289Q55 289 55 319ZM55 85Q55 126 72 159T114 210T163 238T205 248Q207 248 213 248T223 249Q262 249 296 234T393 179L443 147Q502 112 553 112Q609 112 649 141T694 220Q694 249 708 249T722 217Q722 153 675 104T555 55Q514 55 468 76T388 123T308 170T224 192Q164 192 125 159T83 84Q80 55 69 55Q55 55 55 85Z"></path></defs></svg></body></html>

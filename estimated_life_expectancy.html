@@ -1,27 +1,12 @@
 <html><head><title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<!DOCTYPE HTML>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
 
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
-<script async="" src="./mathjax/latest.js?config=TeX-MML-AM_CHTML" type="text/javascript">
-</script>
-<script type="text/x-mathjax-config">
-	MathJax.Hub.Config({
-	extensions: ["tex2jax.js"],
-	jax: ["input/TeX", "output/HTML-CSS"],
-	tex2jax: {
-		inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-		displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-		processEscapes: true,
-		skipTags: ['script', 'noscript', 'style', 'textarea', 'pre']
-	},
-	"HTML-CSS": { availableFonts: ["TeX"] }
-	});
-</script>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
 	// Change the title to the h1 header
@@ -149,7 +134,7 @@ segplot(100:^fm)
 
 draw()
 </code></pre>
-<p><img alt="The ages of the participants" src="./img/estimated_life_expectancy/ages.png" title="The ages of the participants: Scatterplot where the data points are sorted, male age grows a little bit slower than female age, and female age has a gap between 42 and 50."/></p>
+<p><img alt="The ages of the participants" src="./img/estimated_life_expectancy/ages.png" title="The ages of the participants: Scatterplot where the data points are sorted, male age grows a little bit slower than female age, and female age has a gap between 42 and 50."></p>
 <!--TODO: there is an annoying red line at the border of the image here
 and in est_ages.png. Fix that.-->
 <p>As one can see in the image, the ages of the respondents by gender
@@ -245,7 +230,7 @@ setrgb(0;0;0)
 
 draw()
 </code></pre>
-<p><img alt="Subjective life expectancies of the participants" src="./img/estimated_life_expectancy/est_ages.png" title="Subjective life expectancies of the participants: Scatterplot of the estimated ages shows that most people estimate to become around 80 years old, with some outliers on the lower &amp; upper end. Male and female plots grow equally fast."/></p>
+<p><img alt="Subjective life expectancies of the participants" src="./img/estimated_life_expectancy/est_ages.png" title="Subjective life expectancies of the participants: Scatterplot of the estimated ages shows that most people estimate to become around 80 years old, with some outliers on the lower &amp; upper end. Male and female plots grow equally fast."></p>
 <p>The black line between the blue line for the male average estimated age
 and the red line for female average estimated age is for the overall
 average estimated age.</p>
@@ -293,7 +278,7 @@ plot(lr(;lreg(data)))
 
 draw()
 </code></pre>
-<p><img alt="A scatter plot of the whole data, with linear regression" src="./img/estimated_life_expectancy/all_scatter.png" title="A scatter plot of the whole data, with linear regressions. The linear regression for men starts at 77 years, and grows to ~90 years, the linear regression for women starts at age 80 and also grows to age ~90. The overall linear regression lies between these two datapoints."/></p>
+<p><img alt="A scatter plot of the whole data, with linear regression" src="./img/estimated_life_expectancy/all_scatter.png" title="A scatter plot of the whole data, with linear regressions. The linear regression for men starts at 77 years, and grows to ~90 years, the linear regression for women starts at age 80 and also grows to age ~90. The overall linear regression lies between these two datapoints."></p>
 <p>The red dots represent data points from women, the blue ones are from
 men. The red line is the linear regression for the data by women, the
 black line is the linear regression for the whole data, and the blue
@@ -372,7 +357,7 @@ ytitle("male: average estimated life expectancy (blue), average life expectancy 
 
 draw()
 </code></pre>
-<p><img alt="Mean estimate per year to actuarial table" src="./img/estimated_life_expectancy/avg_est.png" title="Mean estimate per year to actuarial table. The values for the actuarial table follow a standard distribution, starting at 80 years of age. They don't really change until the age of ~50, where they slowly start rising somewhat linearly. They end with 102 expected years for 100 year olds. The subjective life expectancy for a given age is clustered around the actuarial data, sometimes with 20 years differcen (probably due to a small sample size)."/></p>
+<p><img alt="Mean estimate per year to actuarial table" src="./img/estimated_life_expectancy/avg_est.png" title="Mean estimate per year to actuarial table. The values for the actuarial table follow a standard distribution, starting at 80 years of age. They don't really change until the age of ~50, where they slowly start rising somewhat linearly. They end with 102 expected years for 100 year olds. The subjective life expectancy for a given age is clustered around the actuarial data, sometimes with 20 years differcen (probably due to a small sample size)."></p>
 <!--TODO: Write something about the [Gompertz
 distribution](https://en.wikipedia.org/wiki/Gompertz_distribution)
 in the tooltip-->
@@ -396,7 +381,7 @@ ytitle("male: average estimated life expectancy (blue), average life expectancy 
 
 draw()
 </code></pre>
-<p><img alt="Mean estimate per year to actuarial table for men" src="./img/estimated_life_expectancy/m_res.png" title="Mean estimate per year to actuarial table for men. The graph shows the life expectancy for a person with a given age (actuarial values) (how old the person is to how old they will become on average) and the average subjective estimate for life expectancy per age (how old the person is to how old they think they will become). The actuarial data for men rises with the standard Gompertz curve, starting at 80 and beginning to rise at around the person reaching the age of 60. The mean estimate is clustered around this curve, but still quite noisy."/></p>
+<p><img alt="Mean estimate per year to actuarial table for men" src="./img/estimated_life_expectancy/m_res.png" title="Mean estimate per year to actuarial table for men. The graph shows the life expectancy for a person with a given age (actuarial values) (how old the person is to how old they will become on average) and the average subjective estimate for life expectancy per age (how old the person is to how old they think they will become). The actuarial data for men rises with the standard Gompertz curve, starting at 80 and beginning to rise at around the person reaching the age of 60. The mean estimate is clustered around this curve, but still quite noisy."></p>
 <p>For women:</p>
 <pre><code>.l("nplot")
 .l("nstat")
@@ -417,7 +402,7 @@ ytitle("female: average estimated life expectancy (red), average life expectancy
 
 draw()
 </code></pre>
-<p><img alt="Mean estimate per year to actuarial table for men" src="./img/estimated_life_expectancy/f_res.png" title="Mean estimate per year to actuarial table for women. The graph shows the life expectancy for a person with a given age (actuarial values) (how old the person is to how old they will become on average) and the average subjective estimate for life expectancy per age (how old the person is to how old they think they will become). The actuarial data for women also rises with the standard Gompertz curve, starting at 82 and beginning to rise at around the person reaching the age of 60. The mean estimate is clustered around this curve, but still quite noisy."/></p>
+<p><img alt="Mean estimate per year to actuarial table for men" src="./img/estimated_life_expectancy/f_res.png" title="Mean estimate per year to actuarial table for women. The graph shows the life expectancy for a person with a given age (actuarial values) (how old the person is to how old they will become on average) and the average subjective estimate for life expectancy per age (how old the person is to how old they think they will become). The actuarial data for women also rises with the standard Gompertz curve, starting at 82 and beginning to rise at around the person reaching the age of 60. The mean estimate is clustered around this curve, but still quite noisy."></p>
 <!--TODO: difference between estimated age and actuarial value, is there
 a correlation? Would that even be a useful measure?-->
 <h2 id="Problems"><a class="hanchor" href="#Problems">Problems</a></h2>
@@ -523,4 +508,5 @@ TODO: read:
 
 /usr/local/doc/unread/sle/*
 -->
+
 </body></html>
