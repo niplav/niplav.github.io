@@ -494,13 +494,13 @@ similar to those of the minimalist unix and <a href="https://en.wikipedia.org/wi
 <a href="https://suckless.org">suckless.org</a> and <a href="http://cat-v.org">cat-v.org</a>.</p>
 <h3 id="Miscellania"><a class="hanchor" href="#Miscellania">Miscellania</a></h3>
 <p>Various measures of size for the website (excluding automatically generated content and transcriptions):</p>
-<pre><code>$ cat (l *.md | g -v 'chrono|tao|_list|exercise_log|declaration') | pr | grep -Eo 'Page [0-9]+' | tail -1
+<pre><code>\$ cat (l *.md | g -v 'chrono|tao|_list|exercise_log|declaration') | pr | grep -Eo 'Page [0-9]+' | tail -1
 Page 830
-$ wc (l *.md | g -v 'chrono|tao|_list|exercise_log|declaration') | tail -1
+\$ wc (l *.md | g -v 'chrono|tao|_list|exercise_log|declaration') | tail -1
 46452  278664 2166233 total
 </code></pre>
 <p>Benford's law:</p>
-<pre><code>$ grep -ho '[0-9]' *.md | sort | uniq -c | sort -n | tail -10
+<pre><code>\$ grep -ho '[0-9]' *.md | sort | uniq -c | sort -n | tail -10
 9694 4
 10092 9
 10138 8
