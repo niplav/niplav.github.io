@@ -2031,7 +2031,7 @@ barplot(data)
 draw()
 </code></pre>
 <p><img alt="Value of signing up for cryonics in n years at age 20, no motivation drift." src="./img/considerations_on_cryonics/no_drift_val.png" title="Value of signing up for cryonics in n years at age 20, no motivation drift. In the first 30 years, the value continues to increase, until at ~30 (or age 50) the value starts decreasing rapidly."></p>
-<pre><code>\$ lua cryoyear.lua 20 50000 0.05 0.6 4500 1 | sort -nr | head -10
+<pre><code>$ lua cryoyear.lua 20 50000 0.05 0.6 4500 1 | sort -nr | head -10
 772358.83294268: 52
 772249.89402817: 51
 771393.75439825: 53
@@ -2052,7 +2052,7 @@ are so small that they might be swamped by even slight changes to the
 factors for the quality of cryopreservation.</p>
 <p>And, in case anybody was wondering, at age 26 the model also recommends
 deferring to age 52:</p>
-<pre><code>\$ lua cryoyear.lua 26 50000 0.05 0.6 4500 1 | sort -n | tail -1
+<pre><code>$ lua cryoyear.lua 26 50000 0.05 0.6 4500 1 | sort -n | tail -1
 1202556.0910284: 52
 </code></pre>
 <p>For ages 20-25, it recommends waiting until the age of 52, and if you're
@@ -2072,7 +2072,7 @@ decay=1
 </code></pre>
 <p>In this case, signing up for cryonics has negative value that converges
 to 0 the older one gets:</p>
-<pre><code>\$ lua cryoyear.lua 20 50000 0.01 0.6 50 1 | sort -n | tail -10
+<pre><code>$ lua cryoyear.lua 20 50000 0.01 0.6 50 1 | sort -n | tail -10
 -92300.725472993: 69
 -90585.101387741: 70
 -89238.764428451: 71
@@ -2105,7 +2105,7 @@ happen fairly soon?<!--TODO: Epoch/Metaculus timelines for full automation
 & the likes--></p>
 <p>This can be calculated easily, just adjust the parameters. For a
 singularity in 2030, for someone who's 30 years old now:</p>
-<pre><code>\$ lua cryoyear.lua 30 50000 0.05 0.9 4260 0.95 180 90000 2030 | sort -n | tail -4
+<pre><code>$ lua cryoyear.lua 30 50000 0.05 0.9 4260 0.95 180 90000 2030 | sort -n | tail -4
 -7151.7371069419: 76
 -6570.3669732371: 77
 -6014.0706728592: 78
@@ -2114,7 +2114,7 @@ singularity in 2030, for someone who's 30 years old now:</p>
 <p>We can see that the optimal time to sign up is when the person is 79
 years old, and then it's still negative.</p>
 <p>For a singularity in 2040 we get positive values:</p>
-<pre><code>\$ lua cryoyear.lua 30 50000 0.05 0.9 4260 0.95 180 90000 2040 | sort -n | tail -4
+<pre><code>$ lua cryoyear.lua 30 50000 0.05 0.9 4260 0.95 180 90000 2040 | sort -n | tail -4
 3499.9213538675: 42
 5604.6700295417: 43
 7279.17233885: 44
@@ -2123,7 +2123,7 @@ years old, and then it's still negative.</p>
 <p>Curiously, the optimal time to sign up is <em>in the year</em> in which we get
 longevity escape velocity. Strange.</p>
 <p>And for a singularity in 2050:</p>
-<pre><code>\$ lua cryoyear.lua 30 50000 0.05 0.9 4260 0.95 180 90000 2050 | sort -n | tail -4
+<pre><code>$ lua cryoyear.lua 30 50000 0.05 0.9 4260 0.95 180 90000 2050 | sort -n | tail -4
 45945.236228664: 41
 46262.529186917: 44
 46405.608341424: 42
@@ -2169,7 +2169,7 @@ for humans, a 50-50 chance would be twenty years at this point, and
 there's a 10 percent chance that we won't get there for a hundred years.</p>
 </blockquote>
 <p><em>— <a href="https://en.wikipedia.org/wiki/Aubrey_de_grey">Aubrey de Grey</a>, <a href="https://www.fightaging.org/archives/2018/02/aubrey-de-grey-on-progress-and-timescales-in-rejuvenation-research/">“Aubrey de Grey on Progress and Timescales in Rejuvenation Research”</a>, 2018</em></p>
-<p>The 90% confidence interval for this variable lies in <code>\$[2040;2150]\$</code>:
+<p>The 90% confidence interval for this variable lies in <code>$[2040;2150]$</code>:
 Aubrey de Grey gives a mean of 2038, I believe that number to be
 quite optimistic, but not completely so. He doesn't give a lower
 bound, but judging from the reasonable assumption that longevity

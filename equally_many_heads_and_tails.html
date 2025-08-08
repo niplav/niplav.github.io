@@ -910,7 +910,7 @@ define <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" widt
 </g>
 </svg></span> every time we execute
 a new iteration, we simply embed it into the final evaluation function:</p>
-<pre><code>ev::{[px];px::pgn(x);.p((\$x),",",(\$px*y),",",\$z);.f(x+1;y-(y*px);z+2*x*y*px)}
+<pre><code>ev::{[px];px::pgn(x);.p(($x),",",($px*y),",",$z);.f(x+1;y-(y*px);z+2*x*y*px)}
 </code></pre>
 <p><code>x</code> is the number of flips, <code>y</code> is the probability of not finishing after
 <code>x</code> steps, and <code>z</code> is the expected value. The function calculates the

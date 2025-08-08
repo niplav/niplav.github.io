@@ -919,8 +919,8 @@ won't) work with human forecasters).</p>
     0.1
     Give the most likely guess, as short as possible; not a complete
     sentence, just the guess!
-    The question is: \${QUESTION}.
-    \${RESOLUTION_CRITERIA}.
+    The question is: ${QUESTION}.
+    ${RESOLUTION_CRITERIA}.
 </code></pre>
 <p>Multiplicative decomposition:</p>
 <pre><code>    Provide your best probabilistic estimate a question.
@@ -957,8 +957,8 @@ won't) work with human forecasters).</p>
     Multiplying out the probabilities: 0.75*0.99*0.7*0.9=0.467775
     0.467775
     (End of output)
-    The question is: \${QUESTION}.
-    \${RESOLUTION_CRITERIA}
+    The question is: ${QUESTION}.
+    ${RESOLUTION_CRITERIA}
 </code></pre>
 <h3 id="Small_Experiment"><a class="hanchor" href="#Small_Experiment">Small Experiment</a></h3>
 <p>Using the metaculus data in <a href="./iqisa.html">iqisa</a>, I test whether
@@ -987,7 +987,7 @@ the prompts with the questions and <code>\${RESOLUTION_CRITERIA}</code> with the
 resolution criteria. I send the resulting prompt over the OpenAI API,
 and save the result in a separate file. The resulting files can be found
 <a href="https://github.com/niplav/decomposer/tree/main/completions">here</a>,
-file format is <code>\${QUESTION_ID}_\${METHOD}_completion\$</code>.</p>
+file format is <code>\${QUESTION_ID}_\${METHOD}_completion$</code>.</p>
 <p>I then <a href="https://github.com/niplav/decomposer/blob/main/analyser.py">load the last line from each
 file</a>, and
 calculate the <a href="https://en.wikipedia.org/wiki/Log_scoring_rule">log-score</a>

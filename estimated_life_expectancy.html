@@ -75,9 +75,9 @@ Finish, collect at least 1000 data points, then do analysis)-->.</p>
 <pre><code>    .l("csv")
     .l("nstat")
     .fc(.ic("./data/estimated_life_expectancy.csv"));data::csv.load()
-    m::1:\$'{1_x}'flr({"m"~*x};data)
-    f::1:\$'{1_x}'flr({"f"~*x};data)
-    data::1:\$'{1_x}'1_data
+    m::1:$'{1_x}'flr({"m"~*x};data)
+    f::1:$'{1_x}'flr({"f"~*x};data)
+    data::1:$'{1_x}'1_data
 </code></pre>
 <h3 id="Age"><a class="hanchor" href="#Age">Age</a></h3>
 <p>Of the 250 respondents, 125 were male and 125 were female. The
@@ -117,7 +117,7 @@ The standard deviation for age was 17.5 (17.17 for men, 17.76 for women).</p>
 <pre><code>.l("nplot")
 .l("./load.kg")
 
-cgrid("age (female red, male blue)                      (N=",(\$#data),")";[0 100 20])
+cgrid("age (female red, male blue)                      (N=",($#data),")";[0 100 20])
 
 setdot(3)
 fillrgb(0;0;1)
@@ -210,7 +210,7 @@ was 169 (lowest/highest for males: 1/86, lowest/highest for females: 1/169).</p>
 <pre><code>.l("nplot")
 .l("./load.kg")
 
-cgrid("estimated age (female red, male blue)           (N=",(\$#data),")";[0 200 20])
+cgrid("estimated age (female red, male blue)           (N=",($#data),")";[0 200 20])
 
 setdot(3)
 fillrgb(0;0;1)
@@ -318,7 +318,7 @@ following form:</p>
 <p>The resulting data can be viewed <a href="./data/de_actuarial_tables.csv">here</a>.</p>
 <p>Now, one can start comparing the collected estimates to the actuarial
 tables. To do this, one first loads the data into Klong:</p>
-<pre><code>    known::{(1:\$*x),(1.0:\$x@1),(1.0:\$x@2)}'1_known
+<pre><code>    known::{(1:$*x),(1.0:$x@1),(1.0:$x@2)}'1_known
     mk::{x@[0 1]}'known
     fk::{x@[0 2]}'known
     kr::{(*x),((x@1)+x@2)%2}'known

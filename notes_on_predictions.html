@@ -212,14 +212,14 @@ week with &lt;1000 cases of COVID-19 was March 30 2020.</p>
 <p>Extremely naively starting with the <a href="https://en.wikipedia.org/wiki/Lindy_effect">Lindy
 effect</a>, we assume it's going
 to take as long to subside as it took to get to this point, we calculate:</p>
-<pre><code>    \$ date -d '2020-03-30' '+%s'
+<pre><code>    $ date -d '2020-03-30' '+%s'
 1585519200
-    \$ date '+%s'
+    $ date '+%s'
 1622222618
-    \$ bc
+    $ bc
 1622222618+(1622222618-1585519200)
 1658926036
-    \$ date -d '@1658926036' --iso-8601
+    $ date -d '@1658926036' --iso-8601
 2022-07-27
 </code></pre>
 <p>WHO also states that ~26.5m vaccine doses have been administered.
