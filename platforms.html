@@ -430,8 +430,8 @@ logscore(vitamin_o, vitamin_p)
 <h2 id="0836_Bits_of_Evidence_for_Futarchy"><a class="hanchor" href="#0836_Bits_of_Evidence_for_Futarchy">0.836 Bits of Evidence for Futarchy</a></h2>
 <p>So, <a href="./platforms.html#Table_of_Current_Market_Status">I put up some prediction markets on the results of quantified
 self RCTs</a>. I <a href="./platforms.html#Pomodoros">ran
-one of the experiments</a>, and <a href="./platforms.html#Scoring_the_Market">scored one
-market</a> on the results.</p>
+two of the experiments</a>, and <a href="./platforms.html#Scoring_the_Market">scored one
+markets</a> on the results.</p>
 <p>How much should the performance of the market change our opinion about
 the viability of using prediction platforms to predict RCTs, and thus be
 plausibly useful in selecting experiments to run and actions to perform?</p>
@@ -441,6 +441,10 @@ experiment (-0.333). Qualitatively these are already fairly assuring
 because they're both far better than a random score of -0.69. But if we
 want to quantify the amount of information we've gained, we can do that
 by performing a Bayesian update.</p>
+<!--TODO: exponential isn't a conjugate prior! Gamma with exponential
+data-generating process is. But the underlying data-generating process
+likely isn't exponential, and gamma has two parameters which are hard
+to fit with two datapoints, which is why we stick with half-normals.-->
 <p>For that, we need a prior. What prior to choose? I
 tried fiddling around a bit with the <a href="https://en.wikipedia.org/wiki/Exponential_distribution">exponential
 distribution</a>,

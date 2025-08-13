@@ -494,23 +494,23 @@ similar to those of the minimalist unix and <a href="https://en.wikipedia.org/wi
 <a href="https://suckless.org">suckless.org</a> and <a href="http://cat-v.org">cat-v.org</a>.</p>
 <h3 id="Miscellania"><a class="hanchor" href="#Miscellania">Miscellania</a></h3>
 <p>Various measures of size for the website (excluding automatically generated content and transcriptions):</p>
-<pre><code>$ cat (l *.md | g -v 'chrono|tao|_list|exercise_log|declaration') | pr | grep -Eo 'Page [0-9]+' | tail -1
-Page 830
-$ wc (l *.md | g -v 'chrono|tao|_list|exercise_log|declaration') | tail -1
-46452  278664 2166233 total
+<pre><code>$ cat (l *.md | g -v 'chrono|tao|_list|exercise_log|declaration|grand') | pr | grep -Eo 'Page [0-9]+' | tail -1
+Page 930
+$ wc (l *.md | g -v 'chrono|tao|_list|exercise_log|declaration|about') | tail -1
+  52762  319918 2513803 total
 </code></pre>
-<p>Benford's law:</p>
+<p>Benford's law isn't followed by the digits on this site:</p>
 <pre><code>$ grep -ho '[0-9]' *.md | sort | uniq -c | sort -n | tail -10
-9694 4
-10092 9
-10138 8
-10271 6
-11056 7
-11764 3
-11887 5
-36400 1
-40989 2
-57962 0
+  11089 4
+  11120 6
+  11312 9
+  11578 8
+  12270 7
+  13231 3
+  13307 5
+  40500 1
+  46342 2
+  64559 0
 </code></pre>
 <p>(Note: as of the time of writing, the list of numbers above is not
 iteratively stable, that is, after I update the numbers, the distribution
@@ -551,8 +551,8 @@ matter</a></em>.</p>
 <p>Starting mid 2024, much of the content on this site has strongly
 benefitted from many hundreds of conversations with Claude 3/3.5/3.6/3.7/4
 Sonnet and Claude 3/4 Opus.</p>
-<p>The only AI-generated content is <a href="./microfiction#Squeal">half a line here</a>
-and a bunch of the code.</p>
+<p>The only AI-generated content is <a href="./microfiction.html#Squeal">half a line
+here</a> and a bunch of the code.</p>
 <h2 id="The_Author"><a class="hanchor" href="#The_Author">The Author</a></h2>
 <blockquote>
 <p>Ich bin ein Teil des Teils, der anfangs alles war,<br>
@@ -648,8 +648,8 @@ archive</a>.)</p>
 <h3 id="In_the_Universal_Prior"><a class="hanchor" href="#In_the_Universal_Prior">In the Universal Prior</a></h3>
 <p>If you're ever looking for me in the universal prior, I can be found
 very algorithmically close to the easily generated integer sequences
-<a href="./notes.html#Simple_Metagraphs">1, 2, 15, 180, 3638, …</a> and <a href="./resolving.html#Minimizing_GraphEdit_Distance_3">1, 1,
-1, 3, 28, 861, …</a></p>
+<a href="./pergraphs.html#Counting">1, 2, 15, 180, 3638, …</a> and <a href="./resolving.html#Minimizing_GraphEdit_Distance_3">1, 1, 1, 3,
+28, 861, …</a></p>
 <h3 id="Unusual_Preferences"><a class="hanchor" href="#Unusual_Preferences">Unusual Preferences</a></h3>
 <ul>
 <li>I'm very low percentile in the enjoyment of blowjobs (~4th), travel (~5th), good food (~10th)</li>
