@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 </head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-01-04, modified: 2025-08-08, language: english, status: in progress, importance: 7, confidence: certain</em></p>
+<p><em>author: niplav, created: 2023-01-04, modified: 2025-08-22, language: english, status: in progress, importance: 7, confidence: certain</em></p>
 <blockquote>
 <p><strong>There are too many possible quantified self experiments to run. Do
 hobbyist prediction platforms<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup> make priorisation easier? I test
@@ -28,8 +28,9 @@ of various <a href="https://en.wikipedia.org/wiki/Nootropics">nootropics</a>
 on absorption in meditation. The first experiment
 (testing the Pomodoro method) results in a <a href="https://en.wikipedia.org/wiki/Proper_scoring_rule#Logarithmic_score">log
 score</a>
-of <a href="#Scoring_the_Market">-0.326</a> for the market, the <a href="./nootropics.html#Experiment_C_SelfBlinded_RCT">second experiment</a>
-(testing Vitamin D₃) results in a log score of -0.333<!--TODO:- link-->
+of <a href="#Scoring_the_Market">-0.326</a> for the market, the <a href="./nootropics.html#Experiment_C_SelfBlinded_RCT">second
+experiment</a> (testing
+Vitamin D₃) <a href="#Scoring_the_Market">results in a log score of -0.333</a>
 — pretty good.</strong></p>
 </blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Timeline">Timeline</a><ul></ul></li><li><a href="#Markets">Markets</a><ul><li><a href="#Table_of_Current_Market_Status">Table of Current Market Status</a><ul></ul></li><li><a href="#SelfBlinded_Experiments">Self-Blinded Experiments</a><ul></ul></li><li><a href="#NonBlinded_Experiments">Non-Blinded Experiments</a><ul><li><a href="#Further_Ideas">Further Ideas</a><ul></ul></li></ul></li></ul></li><li><a href="#Pleas">Pleas</a><ul></ul></li><li><a href="#Further_Ideas_1">Further Ideas</a><ul></ul></li><li><a href="#Results">Results</a><ul><li><a href="#Pomodoros">Pomodoros</a><ul></ul></li><li><a href="#Vitamin_D">Vitamin D₃</a><ul></ul></li><li><a href="#Scoring_the_Market">Scoring the Market</a><ul></ul></li></ul></li><li><a href="#0836_Bits_of_Evidence_for_Futarchy">0.836 Bits of Evidence for Futarchy</a><ul></ul></li><li><a href="#Acknowledgements">Acknowledgements</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li><li><a href="#Appendix_A_Explanations_for_the_Experiments_I_Chose">Appendix A: Explanations for the Experiments I Chose</a><ul><li><a href="#None">L-Theanine + Caffeine vs. Sugar → Meditative Absorption</a><ul></ul></li><li><a href="#None_1">Nicotine vs. Normal chewing gum → Meditative Absorption</a><ul></ul></li><li><a href="#None_2">Modafinil vs. Sugar → Meditative Absorption</a><ul></ul></li><li><a href="#None_3">Vitamin D vs. Sugar → Meditative Absorption</a><ul></ul></li><li><a href="#None_4">Vitamin B12 vs. Sugar → Meditative Absorption</a><ul></ul></li><li><a href="#None_5">LSD Microdosing vs. Water → Meditative Absorption</a><ul></ul></li><li><a href="#None_6">CBD Oil vs. Similar-Tasting Oil → Meditative Absorption and THC Oil vs. Similar-Tasting Oil → Meditative Absorption</a><ul></ul></li><li><a href="#None_7">L-Phenylalanine vs. Sugar → Meditative Absorption</a><ul></ul></li><li><a href="#None_8">Bupropion vs. Sugar → Happiness</a><ul></ul></li><li><a href="#None_9">Intermittent Fasting vs. Normal Diet → Happiness</a><ul></ul></li><li><a href="#None_10">Pomodoro Method vs. Nothing → Productivity</a><ul></ul></li><li><a href="#None_11">Bright Light vs. Normal Light → Happiness</a><ul></ul></li><li><a href="#None_12">Meditation vs. No Meditation → Sleep duration</a><ul></ul></li></ul></li></ul></div>
 <!--TODO: use victorian subtitle somewhere https://claude.ai/chat/d7c72475-e84e-458f-867b-7a26d04598b2-->
@@ -430,7 +431,7 @@ logscore(vitamin_o, vitamin_p)
 <h2 id="0836_Bits_of_Evidence_for_Futarchy"><a class="hanchor" href="#0836_Bits_of_Evidence_for_Futarchy">0.836 Bits of Evidence for Futarchy</a></h2>
 <p>So, <a href="./platforms.html#Table_of_Current_Market_Status">I put up some prediction markets on the results of quantified
 self RCTs</a>. I <a href="./platforms.html#Pomodoros">ran
-two of the experiments</a>, and <a href="./platforms.html#Scoring_the_Market">scored one
+two of the experiments</a>, and <a href="./platforms.html#Scoring_the_Market">scored both
 markets</a> on the results.</p>
 <p>How much should the performance of the market change our opinion about
 the viability of using prediction platforms to predict RCTs, and thus be
@@ -441,35 +442,47 @@ experiment (-0.333). Qualitatively these are already fairly assuring
 because they're both far better than a random score of -0.69. But if we
 want to quantify the amount of information we've gained, we can do that
 by performing a Bayesian update.</p>
-<!--TODO: exponential isn't a conjugate prior! Gamma with exponential
-data-generating process is. But the underlying data-generating process
-likely isn't exponential, and gamma has two parameters which are hard
-to fit with two datapoints, which is why we stick with half-normals.-->
 <p>For that, we need a prior. What prior to choose? I
 tried fiddling around a bit with the <a href="https://en.wikipedia.org/wiki/Exponential_distribution">exponential
 distribution</a>,
 which is the <a href="https://en.wikipedia.org/wiki/Maximum_entropy_distribution">maximum entropy
 distribution</a>
-over possible logscores, only nailed down by the mean of
-the distribution. That one is great because it's a <a href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate
-prior</a>, and represents
-a status of minimal knowledge.</p>
+over possible logscores, only nailed down by the mean of the
+distribution. It represents a state of minimal knowledge.</p>
+<p>There's also the <a href="https://en.wikipedia.org/wiki/Gamma-distribution">Gamma
+distribution</a>
+which is great because it's a <a href="https://en.wikipedia.org/wiki/Conjugate_prior">conjugate
+prior</a> assuming an
+exponentially distributed underlying data generating process. So,
+after updating on the datapoints we again get a Gamma-distribution as
+the posterior.</p>
 <p>But I didn't go with that one because… I wasn't getting the pretty
-results I wanted<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>. A thing that happened was that I'd calculate
-the resulting distribution after two updates, but the first
-update would be very aggressive and the second update would then
-update away <em>harder</em> than the first update had updated towards
-the datapoints, causing a net information <em>loss</em>.<!--TODO: find
-claude conversation, go through examples & calculations--></p>
+results I wanted<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>.</p>
+<p>With the exponential distribution, a thing that happened was that I'd
+calculate the resulting distribution after two updates, but the first
+update would be very aggressive and the second update would then update
+away <em>harder</em> than the first update had updated towards the datapoints,
+causing a net information <em>loss</em>. The exponential distribution <em>also</em>
+has very long tails, resulting in a median of -1.0, which implies that the
+median market has a logscore that is <em>worse than chance</em>. I don't believe
+that to be the case. (The maxent mean implies that the mean market is
+only as good as chance, which I also wouldn't believe a priori? I think?)</p>
+<p>As for using the Gamma distribution as a prior, I simply don't think that
+the underlying data generating process is exponentially distributed, and
+thus we don't get any advantage through conjugacy. The Gamma distribution
+also has <em>two</em> parameters, which is too much to be nailed down with only
+two datapoints.<!--TODO: find claude conversation, go through examples
+& calculations--></p>
 <p>So I decided to pick a different prior, and landed on the <a href="https://en.wikipedia.org/wiki/Half-normal_distribution">half normal
-distribution</a>,
-which has some nicer properties than the exponential distribution—for
-one, it doesn't have both a mean (-0.69) and a median (-1.0) that are
-both as bad as or worse than chance, but with prediction markets we
-expect very few scores to be worse than chance, especially in the
-long-term. But the half normal distribution can't be updated in a
-closed-form solution, so instead I had to write a short script using
-<a href="https://en.wikipedia.org/wiki/PyMC">pymc</a>.</p>
+distribution</a>
+with half-normally distributed variance (<code>σ ~ HalfNormal(0.5)</code>), which
+has some nicer properties than the exponential distribution, especially
+with its thin tails. But the half normal distribution can't be updated
+in a closed-form solution, so instead I had to write a short script
+using <a href="https://en.wikipedia.org/wiki/PyMC">pymc</a>. Because of missing
+conjugacy the resulting distribution is <em>not</em> a half-normal distribution,
+but something a lot more complicated. I can't be bothered to try to
+calculate what it even is.</p>
 <p>Summary visualization of the update:</p>
 <p><img alt="" src="./img/platforms/update.png"></p>
 <p>The script<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup> initializes the model with the
@@ -529,6 +542,7 @@ Posterior mean σ: 0.434
 Evidence: 0.868 bits
 (vs null hypothesis σ = 0.7)
 </code></pre>
+<p>Thus: 0.868 bits in favor of futarchy<sup id="fnref5"><a href="#fn5" rel="footnote">5</a></sup>.</p>
 <h2 id="Acknowledgements"><a class="hanchor" href="#Acknowledgements">Acknowledgements</a></h2>
 <p>Many thanks to <a href="https://manifold.markets/anonymous">clippy</a>
 (<a href="http://nitter.poast.org/12leavesleft">twitter</a>) for M̶500,
@@ -650,7 +664,10 @@ technique.</p>
 <p>This is very bad statistical practice. I'm doing this because I want a cutesy title with a positive number of of bits as an update, and because I wanted to learn how to do Bayesian updating using computers.&nbsp;<a href="#fnref3" rev="footnote">↩</a></p>
 </li>
 <li id="fn4">
-<p>Thanks to Claude 4 Sonnet for writing the code and walking me through the process.&nbsp;<a href="#fnref4" rev="footnote">↩</a></p>
+<p>Code <a href="./code/platform/bits.py">here</a>. Thanks to Claude 4 Sonnet for writing the code and walking me through the process.&nbsp;<a href="#fnref4" rev="footnote">↩</a></p>
+</li>
+<li id="fn5">
+<p>Under several favorably cherry-picked assumptions. Don't @ me.&nbsp;<a href="#fnref5" rev="footnote">↩</a></p>
 </li>
 </ol>
 </div>
