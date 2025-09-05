@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             min-height: 0;
                             width: 100%
                             }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2025-07-10, modified: 2025-08-29, language: english, status: in progress, importance: 3, confidence: likely</em></p>
+<p><em>author: niplav, created: 2025-07-10, modified: 2025-09-05, language: english, status: in progress, importance: 3, confidence: likely</em></p>
 <blockquote>
 <p><strong>I describe a generalization of directed graphs, and try to port some
 concepts from graph theory over.</strong></p>
@@ -103,10 +103,10 @@ https://claude.ai/chat/acce955d-4c42-4dde-8c3e-0a9ef304e370-->
 enough to find new mathematical structures, but too dumb to prove anything
 interesting about them.</p>
 <p><img alt="A drawing with the letter 'A' on the left side, the letter 'B' on the right side. A red arrow goes from 'A' to 'B'. A blue arrow goes from the middle of the red arrow to 'A'." src="./img/pergraphs/garrabrant.png" title="A drawing with the letter 'A' on the left side, the letter 'B' on the right side. A red arrow goes from 'A' to 'B'. A blue arrow goes from the middle of the red arrow to 'A'."></p>
-<p>On a meditation retreat in 2022 I was remembering <a href="https://www.lesswrong.com/posts/qhsELHzAHFebRJE59/a-greater-than-b-greater-than-a">a post by Scott
+<p>On a meditation retreat in 2022 I remembered <a href="https://www.lesswrong.com/posts/qhsELHzAHFebRJE59/a-greater-than-b-greater-than-a">a post by Scott
 Garrabrant</a>
-and doodled the above image in my notebook, together with
-some other drawings of networks where edges can have edges as sources and sinks.</p>
+and doodled the above image in my notebook, together with some other
+drawings of networks where edges can have edges as sources and sinks.</p>
 <h2 id="Formalizing"><a class="hanchor" href="#Formalizing">Formalizing</a></h2>
 <p>Recently, I got thinking about those again, researched a bit and think
 I've discovered they've not been examined yet. I'll call those kinds of
@@ -244,18 +244,20 @@ starting at n=0:</p>
 <p>1, 2, 15, 180, 3638, …</p>
 <p>This sequence is not yet in the OEIS.</p>
 <ul>
-<li>For zero constituents there's only the empty pergraph <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.168ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2225.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-7-Title">
-<title id="MathJax-SVG-7-Title">(\emptyset, \emptyset)</title>
+<li>For zero constituents there's only the empty pergraph <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.365ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 3170.8 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-7-Title">
+<title id="MathJax-SVG-7-Title">(\emptyset, \emptyset, \emptyset)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-28" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-2205" x="389" y="0"></use>
  <use xlink:href="#MJMAIN-2C" x="890" y="0"></use>
  <use xlink:href="#MJMAIN-2205" x="1335" y="0"></use>
- <use xlink:href="#MJMAIN-29" x="1835" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="1835" y="0"></use>
+ <use xlink:href="#MJMAIN-2205" x="2280" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="2781" y="0"></use>
 </g>
 </svg></span>.</li>
-<li>For one constituent there's two pergraphs, the single node <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.512ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 3665.1 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-8-Title">
-<title id="MathJax-SVG-8-Title">(\{v_1, \emptyset\})</title>
+<li>For one constituent there's two pergraphs, the single node <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="10.709ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4610.7 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-8-Title">
+<title id="MathJax-SVG-8-Title">(\{v_1, \emptyset, \emptyset\})</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-28" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-7B" x="389" y="0"></use>
@@ -265,34 +267,43 @@ starting at n=0:</p>
 </g>
  <use xlink:href="#MJMAIN-2C" x="1829" y="0"></use>
  <use xlink:href="#MJMAIN-2205" x="2274" y="0"></use>
- <use xlink:href="#MJMAIN-7D" x="2775" y="0"></use>
- <use xlink:href="#MJMAIN-29" x="3275" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="2775" y="0"></use>
+ <use xlink:href="#MJMAIN-2205" x="3220" y="0"></use>
+ <use xlink:href="#MJMAIN-7D" x="3720" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="4221" y="0"></use>
 </g>
-</svg></span> and the self-directed peredge <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.621ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 7156.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-9-Title">
-<title id="MathJax-SVG-9-Title">(\emptyset, \{(e_1, e_1, e_1)\})</title>
+</svg></span> and the self-directed peredge <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.118ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 9522.8 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-9-Title">
+<title id="MathJax-SVG-9-Title">(\emptyset, \{e_1\}, \{(e_1, e_1, e_1)\})</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-28" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-2205" x="389" y="0"></use>
  <use xlink:href="#MJMAIN-2C" x="890" y="0"></use>
  <use xlink:href="#MJMAIN-7B" x="1335" y="0"></use>
- <use xlink:href="#MJMAIN-28" x="1835" y="0"></use>
-<g transform="translate(2225,0)">
+<g transform="translate(1835,0)">
  <use xlink:href="#MJMATHI-65" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="659" y="-213"></use>
 </g>
- <use xlink:href="#MJMAIN-2C" x="3145" y="0"></use>
-<g transform="translate(3590,0)">
+ <use xlink:href="#MJMAIN-7D" x="2756" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="3256" y="0"></use>
+ <use xlink:href="#MJMAIN-7B" x="3701" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="4202" y="0"></use>
+<g transform="translate(4591,0)">
  <use xlink:href="#MJMATHI-65" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="659" y="-213"></use>
 </g>
- <use xlink:href="#MJMAIN-2C" x="4511" y="0"></use>
-<g transform="translate(4956,0)">
+ <use xlink:href="#MJMAIN-2C" x="5512" y="0"></use>
+<g transform="translate(5957,0)">
  <use xlink:href="#MJMATHI-65" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="659" y="-213"></use>
 </g>
- <use xlink:href="#MJMAIN-29" x="5876" y="0"></use>
- <use xlink:href="#MJMAIN-7D" x="6266" y="0"></use>
- <use xlink:href="#MJMAIN-29" x="6766" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="6877" y="0"></use>
+<g transform="translate(7322,0)">
+ <use xlink:href="#MJMATHI-65" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="659" y="-213"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="8243" y="0"></use>
+ <use xlink:href="#MJMAIN-7D" x="8632" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="9133" y="0"></use>
 </g>
 </svg></span>.</li>
 <li>For two constituents there's these:</li>
@@ -395,7 +406,6 @@ so that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wid
 </svg></span>. As this loop is
 infinitely recursive, sets that are the edges violate the <a href="https://en.wikipedia.org/wiki/Axiom_of_Foundation">axiom of
 foundation</a>. In
-foundation](<a href="https://en.wikipedia.org/wiki/Axiom_of_Foundation">https://en.wikipedia.org/wiki/Axiom_of_Foundation</a>). In
 particular, there is no transitive closure of set membership
 for such hypergraphs. Although such structures may seem strange
 at first, they can be readily understood by noting that the
