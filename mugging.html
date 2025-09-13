@@ -90,15 +90,17 @@ document.addEventListener('DOMContentLoaded', function () {
                             min-height: 0;
                             width: 100%
                             }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2025-08-27, modified: 2025-08-27, language: english, status: draft, importance: 4, confidence: possible</em></p>
+<p><em>author: niplav, created: 2025-08-27, modified: 2025-09-12, language: english, status: draft, importance: 4, confidence: possible</em></p>
 <blockquote>
-<p><strong>I formalize <a href="https://nickbostrom.com/papers/pascal.pdf">Pascal's
+<p><strong>I <a href="#Formalizing_Pascals_Mugging">~formalize</a> <a href="https://nickbostrom.com/papers/pascal.pdf">Pascal's
 mugging</a>
 for utility-maximizing <a href="https://en.wikipedia.org/wiki/Solomonoff_induction">Solomonoff
-inductors</a>, and then
-characterize a set of utility functions that are immune to mugging. The
-utility functions in this set have strongly diminishing marginal returns,
-utilities must grow slower than <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.896ex" height="3.009ex" style="vertical-align: -0.338ex;" viewBox="0 -1150.1 3399.8 1295.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+inductors</a> with a
+<a href="https://en.wikipedia.org/wiki/Kolmogorov_complexity">simplicity prior</a>,
+and then characterize a set of utility functions that are <a href="#Mugging_Immunity">immune to
+mugging</a>. The utility functions in this set have
+strongly diminishing marginal returns, utilities must grow slower than
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.896ex" height="3.009ex" style="vertical-align: -0.338ex;" viewBox="0 -1150.1 3399.8 1295.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
 <title id="MathJax-SVG-1-Title">2^{CB^{-1}(k)}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
@@ -116,15 +118,22 @@ utilities must grow slower than <span class="mjpage"><svg xmlns:xlink="http://ww
  <use transform="scale(0.707)" xlink:href="#MJMAIN-29" x="3569" y="0"></use>
 </g>
 </g>
-</svg></span>, that is, slower
-than the exponential of the inverse of a busy-beaver-like function. This
-"breaks the boundedness barrier" for mugging-immune utility functions.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Formalizing_Pascals_Mugging">Formalizing Pascal's Mugging</a><ul><li><a href="#Sketch">Sketch</a><ul></ul></li></ul></li><li><a href="#Mugging_Immunity">Mugging Immunity</a><ul></ul></li><li><a href="#Multiple_Numraires">Multiple Numéraires</a><ul></ul></li><li><a href="#Escaping">Escaping?</a><ul></ul></li><li><a href="#Questions">Questions</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
+</svg></span>, that is, slower than the exponential of the inverse
+of a busy-beaver-like function. This "breaks the boundedness barrier"
+for mugging-immune utility functions.</strong></p>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Formalizing_Pascals_Mugging">~Formalizing Pascal's Mugging</a><ul><li><a href="#Sketch">Sketch</a><ul></ul></li></ul></li><li><a href="#Mugging_Immunity">Mugging Immunity</a><ul></ul></li><li><a href="#Multiple_Numraires">Multiple Numéraires</a><ul></ul></li><li><a href="#Escaping">Escaping?</a><ul></ul></li><li><a href="#Questions">Questions</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
 <h1 id="MuggingImmune_Utility_Functions"><a class="hanchor" href="#MuggingImmune_Utility_Functions">Mugging-Immune Utility Functions</a></h1>
 <p>I first attempt to formalize Pascal's mugging, then characterize a set
 of mugging-immune utility functions, and finally speculate on how one
 might escape the very harsh bound I have discovered.</p>
-<h3 id="Formalizing_Pascals_Mugging"><a class="hanchor" href="#Formalizing_Pascals_Mugging">Formalizing Pascal's Mugging</a></h3>
+<p>In previous discussions, a commonly-agreed upon
+solution to Pascal's mugging was to have a <a href="https://www.lesswrong.com/posts/gJxHRxnuFudzBFPuu/better-impossibility-result-for-unbounded-utilities">bounded utility
+function</a>,
+which is unsatisfying from a utilitarian perspective—a utilitarian
+ideally wants to be able to say that twice as much of a good thing is
+twice as good, or at least say that strictly more of a good thing is
+strictly better.</p>
+<h3 id="Formalizing_Pascals_Mugging"><a class="hanchor" href="#Formalizing_Pascals_Mugging">~Formalizing Pascal's Mugging</a></h3>
 <p><strong>Summary</strong>: The prior probability of worlds decreases exponentially with
 increasing program length, but the utility of some program output can
 grow <em>very quickly</em>: Almost as fast as the busy beaver numbers.</p>
@@ -350,8 +359,14 @@ but it will grow much faster than any standard sequence one may care to
 name, definitely faster than any polynomial, faster than factorials,
 surely faster than the Ackermann function… and, most notably, much
 much faster than an exponential.</p>
-<p>I'll call this growth rate <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.551ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2820.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-22-Title">
-<title id="MathJax-SVG-22-Title">CB(k)</title>
+<p><strong>Definition</strong>: I'll give the growth rate of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.343ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1439.3 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-22-Title">
+<title id="MathJax-SVG-22-Title">M_k</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-4D" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-6B" x="1372" y="-213"></use>
+</g>
+</svg></span> the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.551ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2820.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-23-Title">
+<title id="MathJax-SVG-23-Title">CB(k)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-43" x="0" y="0"></use>
  <use xlink:href="#MJMATHI-42" x="760" y="0"></use>
@@ -359,31 +374,33 @@ much faster than an exponential.</p>
  <use xlink:href="#MJMATHI-6B" x="1909" y="0"></use>
  <use xlink:href="#MJMAIN-29" x="2431" y="0"></use>
 </g>
-</svg></span>, the "<strong>copy-beaver number</strong>", which
-is the maximal number of copies a program of length <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.395ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 600.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-23-Title">
-<title id="MathJax-SVG-23-Title">n</title>
+</svg></span>,
+the "<strong>copy-beaver number</strong>", which is the maximal number of copies a
+program of length <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.395ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 600.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-24-Title">
+<title id="MathJax-SVG-24-Title">n</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
 </g>
-</svg></span> can make of
-a pre-written tape-state. The copy-beaver number is definitely smaller
-than the busy-beaver number, but my best guess is that it still grows
-much faster than almost all functions we can characterize, that it has
-"busy-beaver-like" growth behavior.</p>
-<p>This leads to a simple consequence: in <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-24-Title">
-<title id="MathJax-SVG-24-Title">k</title>
+</svg></span> can make of a pre-written tape-state.</p>
+<p>The copy-beaver
+number is definitely smaller than the busy-beaver number, but my best
+guess is that it still grows much faster than almost all functions we
+can characterize<sub>85%</sub>, that it has "busy-beaver-like" growth
+behavior.</p>
+<p>This leads to a simple consequence: in <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-25-Title">
+<title id="MathJax-SVG-25-Title">k</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6B" x="0" y="0"></use>
 </g>
 </svg></span>, the expected
-value of the mugging program <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.343ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1439.3 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-25-Title">
-<title id="MathJax-SVG-25-Title">M_k</title>
+value of the mugging program <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.343ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1439.3 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-26-Title">
+<title id="MathJax-SVG-26-Title">M_k</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-4D" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-6B" x="1372" y="-213"></use>
 </g>
-</svg></span> for the muggee <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.293ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 556.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-26-Title">
-<title id="MathJax-SVG-26-Title">\Finv</title>
+</svg></span> for the muggee <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.293ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 556.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-27-Title">
+<title id="MathJax-SVG-27-Title">\Finv</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJAMS-2132" x="0" y="0"></use>
 </g>
@@ -391,8 +408,8 @@ value of the mugging program <span class="mjpage"><svg xmlns:xlink="http://www.w
 <a href="https://www.lesswrong.com/posts/hbmsW2k9DxED5Z4eJ/impossibility-results-for-unbounded-utiliti%0Aes">unbounded</a>
 in program length.</p>
 <div>
-        <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="21.712ex" height="4.343ex" style="vertical-align: -2.005ex;" viewBox="0 -1006.6 9348.1 1869.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-27-Title">
-<title id="MathJax-SVG-27-Title">\lim_{k \rightarrow \infty} 2^{-k} \cdot CB(k) = \infty</title>
+        <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="21.712ex" height="4.343ex" style="vertical-align: -2.005ex;" viewBox="0 -1006.6 9348.1 1869.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-28-Title">
+<title id="MathJax-SVG-28-Title">\lim_{k \rightarrow \infty} 2^{-k} \cdot CB(k) = \infty</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <g transform="translate(196,0)">
  <use xlink:href="#MJMAIN-6C"></use>
@@ -431,8 +448,8 @@ returns</a> in some
 resource, if we believe that the copy beaver function has a slower growth
 rate than a double exponential, which, nah.</p>
 <div>
-        <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="100ex" height="6.843ex" style="vertical-align: -4.505ex; max-width: 60000px;" viewBox="0 -1006.6 43055.4 2946.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-28-Title">
-<title id="MathJax-SVG-28-Title">2^{-k} \cdot \log(CB(k)) \le c \Leftrightarrow \\
+        <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="100ex" height="6.843ex" style="vertical-align: -4.505ex; max-width: 60000px;" viewBox="0 -1006.6 43055.4 2946.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-29-Title">
+<title id="MathJax-SVG-29-Title">2^{-k} \cdot \log(CB(k)) \le c \Leftrightarrow \\
         CB(k) \le \exp(c \cdot 2^{k})</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <g transform="translate(16443,0)">
@@ -482,26 +499,28 @@ rate than a double exponential, which, nah.</p>
 </g>
 </svg></span>
 </div>
-<p>Note that in this case <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.541ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 1094 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-29-Title">
-<title id="MathJax-SVG-29-Title">n_\Finv</title>
+<p>Note that in this case <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.541ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 1094 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-30-Title">
+<title id="MathJax-SVG-30-Title">n_\Finv</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJAMS-2132" x="849" y="-213"></use>
 </g>
 </svg></span> isn't a numéraire anymore, since
-utility functions are linear in those. I'll call the goods the utility
-function is monotonic but not linear in "pseudo-numéraires". <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.007ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 433.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-30-Title">
-<title id="MathJax-SVG-30-Title">c</title>
+utility functions are linear in those.</p>
+<p><strong>Definition</strong>: I'll call the goods a utility function is
+<a href="https://en.wikipedia.org/wiki/Monotonic_function">monotonic</a> but not
+linear in "<strong>pseudo-numéraires</strong>". <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.007ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 433.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-31-Title">
+<title id="MathJax-SVG-31-Title">c</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-63" x="0" y="0"></use>
 </g>
-</svg></span>
-is just some constant.</p>
-<p>But we now have an interesting foothold! Logarithmic utility grows too
-quickly, <em>but</em> we can <em>identify</em> the growth rate of utility for our
-pseudo-numéraire so that we don't get this kind of unboundedness.</p>
-<p>Specifically, we need <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="19.457ex" height="3.176ex" style="vertical-align: -0.838ex;" viewBox="0 -1006.6 8377.2 1367.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-31-Title">
-<title id="MathJax-SVG-31-Title">U(CB(k)) \cdot 2^{-k} \le c</title>
+</svg></span> is just some constant.</p>
+<p>But we now have an interesting foothold! Logarithmic utility grows
+too quickly, <em>but</em> we can <em>identify</em> the growth rate of utility for
+our pseudo-numéraire so that we don't get this kind of divergence
+of utilities.</p>
+<p>Specifically, we need <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="19.457ex" height="3.176ex" style="vertical-align: -0.838ex;" viewBox="0 -1006.6 8377.2 1367.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-32-Title">
+<title id="MathJax-SVG-32-Title">U(CB(k)) \cdot 2^{-k} \le c</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-55" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-28" x="767" y="0"></use>
@@ -523,16 +542,16 @@ pseudo-numéraire so that we don't get this kind of unboundedness.</p>
  <use xlink:href="#MJMATHI-63" x="7943" y="0"></use>
 </g>
 </svg></span>, which (under the
-assumption that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.53ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1520 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-32-Title">
-<title id="MathJax-SVG-32-Title">CB</title>
+assumption that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.53ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1520 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-33-Title">
+<title id="MathJax-SVG-33-Title">CB</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-43" x="0" y="0"></use>
  <use xlink:href="#MJMATHI-42" x="760" y="0"></use>
 </g>
 </svg></span> is invertible) leads to:</p>
 <div>
-        <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="100ex" height="10.843ex" style="vertical-align: -8.505ex; max-width: 60000px;" viewBox="0 -1006.6 43055.4 4668.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-33-Title">
-<title id="MathJax-SVG-33-Title">U(CB(k)) \cdot 2^{-k} \le c \Leftrightarrow \\
+        <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="100ex" height="10.843ex" style="vertical-align: -8.505ex; max-width: 60000px;" viewBox="0 -1006.6 43055.4 4668.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-34-Title">
+<title id="MathJax-SVG-34-Title">U(CB(k)) \cdot 2^{-k} \le c \Leftrightarrow \\
         U(CB(k)) \le c \cdot 2^k \Leftrightarrow \\
         U(k) \le c \cdot 2^{CB^{-1}(k)}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -603,31 +622,31 @@ assumption that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xl
 </g>
 </svg></span>
 </div>
-<p>(Abusing notation, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.803ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2068 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-34-Title">
-<title id="MathJax-SVG-34-Title">U(k)</title>
+<p>(Abusing notation, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.803ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2068 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-35-Title">
+<title id="MathJax-SVG-35-Title">U(k)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-55" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-28" x="767" y="0"></use>
  <use xlink:href="#MJMATHI-6B" x="1157" y="0"></use>
  <use xlink:href="#MJMAIN-29" x="1678" y="0"></use>
 </g>
-</svg></span> is the utility of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-35-Title">
-<title id="MathJax-SVG-35-Title">k</title>
+</svg></span> is the utility of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-36-Title">
+<title id="MathJax-SVG-36-Title">k</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6B" x="0" y="0"></use>
 </g>
 </svg></span> copies of the
 pseudo-numéraire.)</p>
-<p>We can now identify a set of mugging-immune utility functions with a
-single pseudo-numéraire <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-36-Title">
-<title id="MathJax-SVG-36-Title">k</title>
+<p><strong>Definition</strong>: We can now identify a set of "<strong>mugging-immune utility
+functions</strong>" with a single pseudo-numéraire <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-37-Title">
+<title id="MathJax-SVG-37-Title">k</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6B" x="0" y="0"></use>
 </g>
 </svg></span>:</p>
 <div>
-        <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="39.606ex" height="3.509ex" style="vertical-align: -0.838ex; margin-left: -0.069ex;" viewBox="-29.5 -1150.1 17052.5 1510.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-37-Title">
-<title id="MathJax-SVG-37-Title">\mathcal{I}=\{U : \mathbb{R}^+ \rightarrow \mathbb{R} \mid U(k) \le c \cdot 2^{CB^{-1}(k)}\}</title>
+        <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="39.606ex" height="3.509ex" style="vertical-align: -0.838ex; margin-left: -0.069ex;" viewBox="-29.5 -1150.1 17052.5 1510.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-38-Title">
+<title id="MathJax-SVG-38-Title">\mathcal{I}=\{U : \mathbb{R}^+ \rightarrow \mathbb{R} \mid U(k) \le c \cdot 2^{CB^{-1}(k)}\}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJCAL-49" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-3D" x="920" y="0"></use>
@@ -685,8 +704,8 @@ tells us "Ah, but what about a world in which you have this one thing
 you like the first instance of, and this other thing, and yet this other
 thing…", for a lot of different numéraires.</p>
 <p>Specifically, if the number of pseudo-numéraires is greater than
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.386ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5332.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-38-Title">
-<title id="MathJax-SVG-38-Title">CB(\log_2(k))</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.386ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5332.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-39-Title">
+<title id="MathJax-SVG-39-Title">CB(\log_2(k))</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-43" x="0" y="0"></use>
  <use xlink:href="#MJMATHI-42" x="760" y="0"></use>
@@ -702,8 +721,8 @@ thing…", for a lot of different numéraires.</p>
  <use xlink:href="#MJMAIN-29" x="4553" y="0"></use>
  <use xlink:href="#MJMAIN-29" x="4943" y="0"></use>
 </g>
-</svg></span>, then a mugger of Kolmogorov complexity <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-39-Title">
-<title id="MathJax-SVG-39-Title">k</title>
+</svg></span>, then a mugger of Kolmogorov complexity <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-40-Title">
+<title id="MathJax-SVG-40-Title">k</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6B" x="0" y="0"></use>
 </g>
@@ -736,6 +755,7 @@ is possible and when it isn't; we may be stuck.</p>
 <li>Does the speed prior basically fulfill this condition?
 <ol>
 <li>A pure speed prior doesn't, but that's a bad prior.</li>
+<li>What happens to the bound if we use the classic speed prior which is really a mix between the simplicity prior and the speed prior?</li>
 </ol></li>
 </ol></li>
 </ol>

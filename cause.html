@@ -155,37 +155,33 @@ end
 <p>We can decide how dense/sparse we want the SEM to be via the <code>threshold</code>
 parameter, the probability that two different nodes have an edge
 between them. The higher the threshold, the more edges in the SEM.</p>
-<pre><code>function random_linear_sem(n::Int, threshold=0.5)
-    g=DiGraph(n)
-    for i in 1:n
-        for j in (i+1):n
-            if rand() &lt; threshold
-                add_edge!(g, i, j)
-            end
-        end
+<pre><code>function random_linear_sem(n::Int, threshold::Float64=DEFAULT_THRESHOLD)::LinearSEM
+    edges_to_add = [(i,j) for i in 1:n, j in (i+1):n if rand() &lt; threshold]
+
+    g = DiGraph(n)
+    coefficients = Dict(Edge(i,j) =&gt; randn() for (i,j) in edges_to_add)
+
+    for (i,j) in edges_to_add
+        add_edge!(g, i, j)
     end
-    coefficients=Dict()
-    for edge in edges(g)
-        coefficients[edge]=randn()
-    end
+
     return LinearSEM(g, coefficients)
 end
 </code></pre>
 <!--TODO: plot one of those graphs-->
 <p>We can then run a bunch of inputs through that model, and compute their
 correlations:</p>
-<pre><code>function correlations(sem::LinearSEM, inner_samples::Int)
-    n=size(vertices(sem.g), 1)
-    input_nodes=[node for node in vertices(sem.g) if indegree(sem.g, node) == 0]
-    results=Matrix{Float64}(undef, inner_samples, n) # Preallocate results matrix
-    for i in 1:inner_samples
-        input_values=Dict([node =&gt; randn() for node in input_nodes])
-        sem_values=calculate_sem_values(sem, input_values)
-        sem_value_row=reshape(collect(values(sort(sem_values))), 1, :)
-        results[i, :]=sem_value_row
-    end
-    cor_matrix==cor(results)
-    cor_matrix[diagind(cor_matrix)].=0
+<pre><code>function correlations(sem::LinearSEM, inner_samples::Int)::Matrix{Float64}
+    n = nv(sem.g)
+    input_nodes = findall(i -&gt; indegree(sem.g, i) == 0, 1:n)
+
+    inputs = randn(inner_samples, length(input_nodes))
+    results = hcat([calculate_sem_values(sem, Dict(zip(input_nodes, inputs[i,:]))) |&gt;
+               vals -&gt; [vals[i] for i in 1:n]
+               for i in 1:inner_samples]...)'
+
+    cor_matrix = cor(results)
+    cor_matrx[diagind(cor_matrix)] .= 0
     return abs.(cor_matrix)
 end
 </code></pre>
@@ -199,11 +195,11 @@ There is a causation but it's not detected.</p>
 between pairs of variables with causal relationship (i.e., a directed
 graph through the DAG representing the SEM), and pairs of variables
 without causal relationships.</p>
-<pre><code>    correlation=correlations(sem, inner_samples)
-    influence=Matrix(Bool.(transpose(adjacency_matrix(transitiveclosure(sem.g)))))
-    not_influence=tril(.!(influence), -1)
-    non_causal_cors=not_influence.*correlation
-    causal_cors=influence.*correlation
+<pre><code>correlation=correlations(sem, inner_samples)
+influence=Matrix(Bool.(transpose(adjacency_matrix(transitiveclosure(sem.g)))))
+not_influence=tril(.!(influence), -1)
+non_causal_cors=not_influence.*correlation
+causal_cors=influence.*correlation
 </code></pre>
 <p>This gives us two distributions, the distribution of <code>non_causal_cors</code>
 and the distribution of <code>causal_cors</code>, e.g. for SEMs with 48 variables:</p>
@@ -229,13 +225,12 @@ is small:</p>
 <a href="https://en.wikipedia.org/wiki/Effect_size#Pearson_r_or_correlation_coefficient">states</a>
 that a correlation of 0.1 is small. I think it's basically
 just an arbitrary cutoff, so I don't use it.</li>
-</ol></li>
 </ol>
-<div>
-    function misclassifications(sem::LinearSEM, inner_samples::Int)
-        return sum((causal_correlations .!= 0) .&amp; (causal_correlations .&lt; mean(non_causal_correlations)))
-    end
-</div>
+<p>function misclassifications(sem::LinearSEM, inner<em>samples::Int)::Int
+    non</em>causal<em>cors, causal</em>cors=different<em>cors(sem, inner</em>samples)
+    return sum((causal<em>cors .!= 0) .&amp; (causal</em>cors .&lt; mean(non<em>causal</em>cors)))
+end</p></li>
+</ol>
 <p>And, in the outermost loop, we compute the number of misclassifications
 for a number of linear SEMs (with a threshold of 0.25, since 0.5 usually
 produces SEMs which are too dense):</p>
@@ -247,21 +242,19 @@ end
 are ignored because when running the code, they never give me any
 causal non-correlations. (I'd be interested in seeing examples to the
 contrary).<!--TODO: try to actually find some--></p>
-<pre><code>results = Dict{Int, Array{Int, 1}}()
-sem_samples=400
-inputs_samples=10000
-upperlim=52
-stepsize=4
-Threads.@threads for i in 4:stepsize:upperlim
-    results[i]=misclassified_absence_mc(i, sem_samples, inputs_samples)
+<pre><code>results=Dict{Int, Vector{Int}}()
+Threads.@threads for i in size_range
+    println("Processing SEM size: $i")
+    results[i]=misclassified_absence_mc(i, sem_samples, input_samples)
 end
+return results
 </code></pre>
 <p>We can now first calculate the mean number of small
 causal correlations and the <em>proportion</em> of of small causal
 correlations correlations, using the <a href="https://en.wikipedia.org/wiki/Triangular_Number#Formula">formula for the triangular
 number</a>:</p>
-<pre><code>result_means=[mean(values) for (key, values) in sort(results)]
-result_props=[mean(values)/((key^2+key)/2) for (key, values) in sort(results)]
+<pre><code>result_means=[mean(values) for (_, values) in sort(results)]
+result_props=[mean(values)/triangular_number(key) for (key, values) in sort(results)]
 </code></pre>
 <p><img alt="" src="./img/cause/summaries.png"></p>
 <p>So it <em>looks like</em> at most 5% of causal relationships have a correlation
@@ -287,13 +280,13 @@ simply <em>not checking enough</em>? But 10k samples <a href="https://www.comput
 anybody</a>—if
 that's not sufficient, I don't know what is.</p>
 <p>But let's better go and write some code to check:</p>
-<pre><code>more_samples=Dict{Int, Array{Int, 1}}()
-samples_test_size=20
-sem_samples=400
-inputs_samples=2 .^(6:16)
-for inputs_sample in inputs_samples
-    println(inputs_sample)
-    more_samples[inputs_sample]=misclassified_absence_mc(samples_test_size, sem_samples, inputs_sample)
+<pre><code>more_samples=Dict{Int, Vector{Int}}()
+input_samples_range=2 .^ SAMPLE_POWERS
+sem=random_linear_sem(sem_size, SPARSE_THRESHOLD)
+
+Threads.@threads for input_sample in input_samples_range
+    println("Processing sample size: $input_sample")
+    more_samples[input_sample]=[misclassifications(sem, input_sample) for i in 1:DEFAULT_SEM_SAMPLES]
 end
 </code></pre>
 <p>Plotting the number of causal non-correlations reveals that 10k samples
