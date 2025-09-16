@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             min-height: 0;
                             width: 100%
                             }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2023-04-15, modified: 2025-09-07, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
+<p><em>author: niplav, created: 2023-04-15, modified: 2025-09-16, language: english, status: in progress, importance: 8, confidence: highly likely</em></p>
 <blockquote>
 <p><strong>I <a href="#Motivation">consider</a> the problem of resolving preferences
 that are inconsistent under the <a href="https://en.wikipedia.org/wiki/Von_Neumann-Morgenstern_axioms">von Neumann-Morgenstern
@@ -3260,21 +3260,22 @@ ordering vertices by that potential creates a weak ordering <span class="mjpage"
  <use xlink:href="#MJMATHI-57" x="0" y="0"></use>
 </g>
 </svg></span>.</p>
-<p>However, if one demands that the output of <code>HodgeResolve</code> be a total
-order then the output is dependent on the method of achieving that total
-order. If one generates the total orders by generating all acyclic
-tournaments with vertices <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.678ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 722.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-251-Title">
+<p>However, if one demands that the output of <code>HodgeResolve</code> be a
+total order then the output is dependent on the method of achieving
+that total order. If one generates the total orders by generating
+all acyclic tournaments with vertices <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.678ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 722.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-251-Title">
 <title id="MathJax-SVG-251-Title">\Omega</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-3A9" x="0" y="0"></use>
 </g>
-</svg></span> that are subgraphs of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.435ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1048.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-252-Title">
+</svg></span> that are <a href="https://en.wikipedia.org/wiki/Induced_subgraph">induced
+subgraphs</a> of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.435ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 1048.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-252-Title">
 <title id="MathJax-SVG-252-Title">W</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-57" x="0" y="0"></use>
 </g>
-</svg></span>, the output
-is no longer unique: In the worst case <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="10.609ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4567.7 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-253-Title">
+</svg></span>, the
+output is no longer unique: In the worst case <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="10.609ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4567.7 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-253-Title">
 <title id="MathJax-SVG-253-Title">G=(\Omega, \emptyset)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-47" x="0" y="0"></use>
@@ -3285,11 +3286,11 @@ is no longer unique: In the worst case <span class="mjpage"><svg xmlns:xlink="ht
  <use xlink:href="#MJMAIN-2205" x="3677" y="0"></use>
  <use xlink:href="#MJMAIN-29" x="4178" y="0"></use>
 </g>
-</svg></span>, which
-results in <code>HodgeRank</code> assigning a potential of 0 to every node, and
-<code>HodgeResolve</code> putting every vertex in the same equivalence class in the
-weak ordering. As a graph this is the complete directed graph on
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.678ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 722.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-254-Title">
+</svg></span>,
+which results in <code>HodgeRank</code> assigning a potential of 0 to every node,
+and <code>HodgeResolve</code> putting every vertex in the same equivalence class
+in the weak ordering. As a graph this is the complete directed graph
+on <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.678ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 722.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-254-Title">
 <title id="MathJax-SVG-254-Title">\Omega</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-3A9" x="0" y="0"></use>
@@ -3299,8 +3300,8 @@ weak ordering. As a graph this is the complete directed graph on
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-3A9" x="0" y="0"></use>
 </g>
-</svg></span> as
-subgraphs. Then there are <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.619ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 1558 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-256-Title">
+</svg></span>
+as induced subgraphs. Then there are <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.619ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 1558 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-256-Title">
 <title id="MathJax-SVG-256-Title">|\Omega|!</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-7C" x="0" y="0"></use>
@@ -3308,9 +3309,9 @@ subgraphs. Then there are <span class="mjpage"><svg xmlns:xlink="http://www.w3.o
  <use xlink:href="#MJMAIN-7C" x="1001" y="0"></use>
  <use xlink:href="#MJMAIN-21" x="1279" y="0"></use>
 </g>
-</svg></span> acyclic tournaments generated from
-this weak ordering, since all acyclic tournaments are equally compatible
-with the weak ordering.</p>
+</svg></span> acyclic tournaments
+generated from this weak ordering, since all acyclic tournaments are
+equally compatible with the weak ordering.</p>
 <h5 id="Further_Considerations"><a class="hanchor" href="#Further_Considerations">Further Considerations</a></h5>
 <p>Violating <strong>Uniqueness</strong> appears to have consequences for decision-making:
 If we want to use the output of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.279ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 550.5 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-257-Title">
@@ -4062,7 +4063,7 @@ as an output the output size can be factorial in the number of nodes.</p>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-3A9" x="1171" y="-360"></use>
 </g>
 </g>
-</svg></span>, a subgraph <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.098ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5208.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-319-Title">
+</svg></span>, an induced subgraph <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.098ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5208.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-319-Title">
 <title id="MathJax-SVG-319-Title">\mathit{S}_G=(\Xi, E)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAINI-53" x="0" y="0"></use>
@@ -4074,8 +4075,8 @@ as an output the output size can be factorial in the number of nodes.</p>
  <use xlink:href="#MJMATHI-45" x="4054" y="0"></use>
  <use xlink:href="#MJMAIN-29" x="4819" y="0"></use>
 </g>
-</svg></span> of
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-320-Title">
+</svg></span>
+of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-320-Title">
 <title id="MathJax-SVG-320-Title">G</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-47" x="0" y="0"></use>
@@ -4105,8 +4106,8 @@ as an output the output size can be factorial in the number of nodes.</p>
  <use xlink:href="#MJMATHI-45" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-50" x="1044" y="-213"></use>
 </g>
-</svg></span>) is an <strong>inclusion-maximal
-consistent subgraph</strong> of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-325-Title">
+</svg></span>) is an <strong>maximal consistent
+subgraph</strong> of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-325-Title">
 <title id="MathJax-SVG-325-Title">G</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-47" x="0" y="0"></use>
@@ -4127,13 +4128,13 @@ tournament)<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup>.</li>
  <use xlink:href="#MJMAINI-53" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-47" x="795" y="-219"></use>
 </g>
-</svg></span> inherits all available edges from <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-328-Title">
+</svg></span> is an <em>induced</em> subgraph, that is it inherits all
+available edges from <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-328-Title">
 <title id="MathJax-SVG-328-Title">G</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-47" x="0" y="0"></use>
 </g>
-</svg></span>, that is if
-there are two <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.57ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 4120.5 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-329-Title">
+</svg></span>. If there are two <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.57ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 4120.5 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-329-Title">
 <title id="MathJax-SVG-329-Title">\xi_1, \xi_2 \in \Xi</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-3BE" x="0" y="0"></use>
@@ -4146,7 +4147,8 @@ there are two <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlin
  <use xlink:href="#MJMAIN-2208" x="2507" y="0"></use>
  <use xlink:href="#MJMAIN-39E" x="3453" y="0"></use>
 </g>
-</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.011ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5601.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-330-Title">
+</svg></span>
+and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.011ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5601.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-330-Title">
 <title id="MathJax-SVG-330-Title">(\xi_1, \xi_2) \in E_P</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-28" x="0" y="0"></use>
@@ -4166,8 +4168,7 @@ there are two <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlin
  <use transform="scale(0.707)" xlink:href="#MJMATHI-50" x="1044" y="-213"></use>
 </g>
 </g>
-</svg></span>
-then <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.605ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4996.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-331-Title">
+</svg></span> then <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.605ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4996.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-331-Title">
 <title id="MathJax-SVG-331-Title">(\xi_1, \xi_2) \in E</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-28" x="0" y="0"></use>
@@ -4191,7 +4192,7 @@ then <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width=
  <use xlink:href="#MJMAINI-53" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-47" x="795" y="-219"></use>
 </g>
-</svg></span> is inclusion-maximal, that is, there exists no
+</svg></span> is maximal, that is, there exists no
 <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.677ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 3736.1 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-333-Title">
 <title id="MathJax-SVG-333-Title">\omega \in \Omega \backslash \Xi</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -4230,7 +4231,7 @@ consistent graph.</li>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-47" x="857" y="-219"></use>
 </g>
 </svg></span> be the set of all
-inclusion-maximal consistent subgraphs of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-338-Title">
+maximal consistent subgraphs of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-338-Title">
 <title id="MathJax-SVG-338-Title">G</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-47" x="0" y="0"></use>
@@ -4248,13 +4249,13 @@ inclusion-maximal consistent subgraphs of <span class="mjpage"><svg xmlns:xlink=
  <use xlink:href="#MJFRAK-43" x="4892" y="0"></use>
  <use xlink:href="#MJMAIN-29" x="5505" y="0"></use>
 </g>
-</svg></span> be a function that turns any <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-340-Title">
+</svg></span> be a function that turns any
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-340-Title">
 <title id="MathJax-SVG-340-Title">G</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-47" x="0" y="0"></use>
 </g>
-</svg></span>
-into a set <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.468ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4937.7 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-341-Title">
+</svg></span> into a set <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.468ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4937.7 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-341-Title">
 <title id="MathJax-SVG-341-Title">\mathbf{C}_G=f(G)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAINB-43" x="0" y="0"></use>
@@ -4270,21 +4271,22 @@ into a set <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" 
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
 </g>
-</svg></span> fulfills
-<strong>Preservation of Consistent Subgraphs</strong> if and only if every element of
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.933ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1262.6 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-343-Title">
+</svg></span>
+fulfills <strong>Preservation of Consistent Subgraphs</strong> if and only if every
+element of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.933ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1262.6 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-343-Title">
 <title id="MathJax-SVG-343-Title">\mathcal{S}_G</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJCAL-53" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-47" x="857" y="-219"></use>
 </g>
-</svg></span> is a subgraph of at least one <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.455ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1487.6 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-344-Title">
+</svg></span> is an induced subgraph of at least one
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.455ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1487.6 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-344-Title">
 <title id="MathJax-SVG-344-Title">\mathbf{C}_G</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAINB-43" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-47" x="1175" y="-219"></use>
 </g>
-</svg></span>, that is</p>
+</svg></span>. That is</p>
 <div>
     <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="41.796ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 17995.6 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-345-Title">
 <title id="MathJax-SVG-345-Title">\forall \mathit{S} \in \mathcal{S}_G: \exists C \in \mathbf{C}_G: V_{\mathit{S}} \subseteq V_{C} \land E_{\mathit{S}} \subseteq E_{C}</title>
@@ -4338,7 +4340,7 @@ consistent preferences over subsets of options a non-zero amount —
 after becoming consistent the agent still has the same preferences over
 fruit and dairy product as before.</p>
 <p>Furthermore, one can show that there are graphs with an exponential
-number of inclusion-maximal consistent subgraphs in the number of nodes.</p>
+number of maximal consistent subgraphs in the number of nodes.</p>
 <p><strong>Lemma 8</strong>. Let <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.81ex" height="2.676ex" style="vertical-align: -0.838ex;" viewBox="0 -791.3 3362.7 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-346-Title">
 <title id="MathJax-SVG-346-Title">G \in \mathfrak{P}_n</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -4361,7 +4363,7 @@ with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width=
  <use xlink:href="#MJCAL-53" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-47" x="857" y="-219"></use>
 </g>
-</svg></span> be the set of inclusion-maximal
+</svg></span> be the set of maximal
 consistent subgraphs of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-349-Title">
 <title id="MathJax-SVG-349-Title">G</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -4426,7 +4428,7 @@ contain the edge <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/x
  <use xlink:href="#MJMATHI-47" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-63" x="1112" y="-213"></use>
 </g>
-</svg></span> above contains a subgraph
+</svg></span> above contains an induced subgraph
 <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.025ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 9482.8 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-355-Title">
 <title id="MathJax-SVG-355-Title">\mathit{S}_{cd}=(\{c,d\},\{(c,d)\})</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -4452,7 +4454,7 @@ contain the edge <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/x
  <use xlink:href="#MJMAIN-7D" x="8592" y="0"></use>
  <use xlink:href="#MJMAIN-29" x="9093" y="0"></use>
 </g>
-</svg></span> that is also an inclusion-maximal
+</svg></span> that is also an maximal
 acyclic tournament in <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.771ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1193 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-356-Title">
 <title id="MathJax-SVG-356-Title">G_c</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -4497,7 +4499,7 @@ are shown in the resolved graph. Note that none of them contain
 </g>
 </svg></span> as a subgraph.</p>
 <p><img alt="" src="./img/resolving/counter_example_3.png"></p>
-<p>This counter-example can be generalized so that inclusion-maximal
+<p>This counter-example can be generalized so that maximal
 consistent subgraphs with an arbitrary number of nodes <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.395ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 600.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-362-Title">
 <title id="MathJax-SVG-362-Title">n</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -4586,7 +4588,7 @@ and an edge from every <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/
 </svg></span>. The graph
 on the left has confusion 40, and the subgraph emphasized in red is
 preserved in none of the outputs of <code>EGEDmin</code>.</p>
-<p>We also investigated the number of inclusion-maximal consistent
+<p>We also investigated the number of maximal consistent
 subgraphs preserved by <code>EGEDmin</code>. We again did this by analyzing the
 outputs of <code>EGEDmin</code> for all graphs with five nodes or less, and some
 graphs with six or seven nodes.</p>
@@ -4627,13 +4629,13 @@ graphs with six or seven nodes.</p>
  <use xlink:href="#MJCAL-53" x="0" y="0"></use>
 </g>
 </svg></span> be the set of
-inclusion-maximal consistent subgraphs of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-374-Title">
+maximal consistent subgraphs of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-374-Title">
 <title id="MathJax-SVG-374-Title">G</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-47" x="0" y="0"></use>
 </g>
 </svg></span>. One can now ask: For a
-given inclusion-maximal consistent subgraph, how often did that subgraph
+given maximal consistent subgraph, how often did that subgraph
 occur in the set of outputs <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.205ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5255 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-375-Title">
 <title id="MathJax-SVG-375-Title">\mathtt{EGEDmin}(G)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -4753,7 +4755,7 @@ be the <strong>r</strong>atio of <strong>s</strong>ubgraph <strong>p</strong>res
 </div>
 <p>(No relation to <a href="https://www.lesswrong.com/posts/jyM7MSTvy8Qs6aZcz/what-s-up-with-responsible-scaling-policies">responsible scaling
 policies</a>.)</p>
-<p>As we saw above, there are graphs with inclusion-maximal consistent
+<p>As we saw above, there are graphs with maximal consistent
 subgraphs <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.499ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 645.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-379-Title">
 <title id="MathJax-SVG-379-Title">S</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -4780,7 +4782,7 @@ subgraphs <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" w
  <use xlink:href="#MJMAIN-50" x="1293" y="0"></use>
 </g>
 </svg></span> to define a metric that tells us, for a
-given graph, how often inclusion-maximal consistent subgraphs were
+given graph, how often maximal consistent subgraphs were
 preserved on average.</p>
 <p><strong>Definition 9</strong>. Let <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.677ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 7180.4 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-382-Title">
 <title id="MathJax-SVG-382-Title">\text{AMSP}_{\mathtt{EGEDmin}}(G)</title>
@@ -4803,7 +4805,7 @@ preserved on average.</p>
  <use xlink:href="#MJMAIN-29" x="6790" y="0"></use>
 </g>
 </svg></span> be the
-average, for every inclusion-maximal consistent subgraph <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.471ex" height="2.176ex" style="vertical-align: -0.338ex; margin-right: -0.165ex;" viewBox="0 -791.3 633.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-383-Title">
+average, for every maximal consistent subgraph <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.471ex" height="2.176ex" style="vertical-align: -0.338ex; margin-right: -0.165ex;" viewBox="0 -791.3 633.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-383-Title">
 <title id="MathJax-SVG-383-Title">\mathit{S}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAINI-53" x="0" y="0"></use>
@@ -4979,7 +4981,7 @@ and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="
 </g>
 </g>
 </svg></span>.</p>
-<p>A higher number for AMSP is better: It means that more inclusion-maximal
+<p>A higher number for AMSP is better: It means that more maximal
 consistent subgraphs get preserved more often by the method for
 resolving inconsistent preferences.</p>
 <table>
@@ -5191,7 +5193,7 @@ resolving inconsistent preferences.</p>
 </tr>
 </tbody>
 </table>
-<p>One can see that the average number of inclusion-maximal consistent
+<p>One can see that the average number of maximal consistent
 subgraphs increases, albeit initially slowly. The number of times that
 maximal consistent subgraphs are preserved (Avg <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="10.385ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4471.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-412-Title">
 <title id="MathJax-SVG-412-Title">\text{AMSP}(G)</title>
@@ -5206,17 +5208,17 @@ maximal consistent subgraphs are preserved (Avg <span class="mjpage"><svg xmlns:
 </g>
 </svg></span>) starts
 dropping, though the shrinking behavior isn't clear from the limited
-amount of data. The number of graphs in which all inclusion-maximal
+amount of data. The number of graphs in which all maximal
 consistent subgraphs are preserved by <code>EGEDmin</code> shrinks even more
 quickly, indicating that preserving all consistent subgraphs is a
 property that is difficult to fulfill.</p>
 <p>Only for small graphs (up to 3 vertices) it is guaranteed that at least
-one inclusion-maximal consistent subgraph occurs in the output of
+one maximal consistent subgraph occurs in the output of
 <code>EGEDmin</code>.</p>
 <p>So we can pose some conjectures indicated by the datapoints observed
 above:</p>
 <p><strong>Conjecture 2</strong>. In the limit of graph size, on average <code>EGEDmin</code>
-preserves almost none of the inclusion-maximal consistent subgraphs:</p>
+preserves almost none of the maximal consistent subgraphs:</p>
 <div>
     <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="30.066ex" height="6.843ex" style="vertical-align: -3.505ex;" viewBox="0 -1437.2 12945.1 2946.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-413-Title">
 <title id="MathJax-SVG-413-Title">\underset{n \rightarrow \infty}{\lim} \frac{1}{|\mathfrak{P}_n|} \sum_{G \in \mathfrak{P}_n} \text{AMSP}(G)=0</title>
@@ -5277,7 +5279,7 @@ preserves almost none of the inclusion-maximal consistent subgraphs:</p>
  <use xlink:href="#MJMAIN-37" x="1056" y="0"></use>
 </g>
 </svg></span> nodes it remains the case that
-there are graphs for which the smallest number of inclusion-maximal
+there are graphs for which the smallest number of maximal
 consistent subgraphs preserved by <code>EGEDmin</code> is zero:</p>
 <div>
     <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="24.407ex" height="4.509ex" style="vertical-align: -2.505ex;" viewBox="0 -863.1 10508.3 1941.5" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-415-Title">
@@ -5323,7 +5325,7 @@ consistent subgraphs preserved by <code>EGEDmin</code> is zero:</p>
 </svg></span>
 </div>
 <p><strong>Conjecture 4</strong>. In the limit of number of nodes in a graph, for almost
-no graphs does <code>EGEDmin</code> preserve all inclusion-maximal consistent
+no graphs does <code>EGEDmin</code> preserve all maximal consistent
 subgraphs.</p>
 <div>
     <span class="mjpage mjpage__block"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="40.915ex" height="6.009ex" style="vertical-align: -2.671ex;" viewBox="0 -1437.2 17616.1 2587.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-416-Title">
@@ -5427,8 +5429,8 @@ Subgraphs</strong> stays otherwise unchanged<sup id="fnref5"><a href="#fn5" rel=
 <p><code>HodgeResolve</code> does not fulfill <strong>Preservation of Consistent
 Subgraphs</strong>. The following figure shows two graphs (both on the left
 in their respective subfigures). For the graph in the left subfigure no
-inclusion-maximal consistent subgraphs are preserved, for the right one
-all but one inclusion-maximal consistent subgraphs are preserved.</p>
+maximal consistent subgraphs are preserved, for the right one
+all but one maximal consistent subgraphs are preserved.</p>
 <p><img alt="" src="./img/resolving/hodge_no_preserve.png"></p>
 <p><em><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.939ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2557.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-422-Title">
 <title id="MathJax-SVG-422-Title">1 \rightarrow 2</title>
@@ -5437,9 +5439,9 @@ all but one inclusion-maximal consistent subgraphs are preserved.</p>
  <use xlink:href="#MJMAIN-2192" x="778" y="0"></use>
  <use xlink:href="#MJMAIN-32" x="2056" y="0"></use>
 </g>
-</svg></span> is the only consistent subgraph, but it gets reversed.</em></p>
+</svg></span> is the only consistent induced subgraph, but it gets reversed.</em></p>
 <p><img alt="" src="./img/resolving/hodge_some_preserve.png"></p>
-<p><em>Each edge is an inclusion-maximal consistent subgraph, and only the edge <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.97ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 3000.8 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-423-Title">
+<p><em>Each edge is an maximal consistent subgraph, and only the edge <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.97ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 3000.8 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-423-Title">
 <title id="MathJax-SVG-423-Title">3 \rightarrow 4</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-33" x="0" y="0"></use>
@@ -5447,9 +5449,9 @@ all but one inclusion-maximal consistent subgraphs are preserved.</p>
  <use xlink:href="#MJMAIN-34" x="2500" y="0"></use>
 </g>
 </svg></span> gets reversed. 1 and 2 in the result have the same potential.</em></p>
-<p>In the first image, a graph with 1 inclusion-maximal consistent subgraph
+<p>In the first image, a graph with 1 maximal consistent subgraph
 and its resolution through <code>HodgeResolve</code>, and in the second image a graph
-with several inclusion-maximal consistent subgraphs and its resolution
+with several maximal consistent subgraphs and its resolution
 through <code>HodgeResolve</code>. The labels at the edges are the gradients that
 <code>HodgeRank</code> has computed.</p>
 <p>In the following table, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.749ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2906 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-424-Title">
@@ -5789,13 +5791,13 @@ through <code>HodgeResolve</code>. The labels at the edges are the gradients tha
 </tbody>
 </table>
 <p>With this data, the next plot shows how well <code>EGEDmin</code> and <code>HodgeResolve</code>
-perform at preserving inclusion-maximal consistent subgraphs.</p>
-<p><img alt="Comparing `EGEDmin` and `HodgeResolve` at how well they perform on various metrics of preserving inclusion-maximal consistent subgraphs." src="./img/resolving/preservations.png"></p>
+perform at preserving maximal consistent subgraphs.</p>
+<p><img alt="Comparing `EGEDmin` and `HodgeResolve` at how well they perform on various metrics of preserving maximal consistent subgraphs." src="./img/resolving/preservations.png"></p>
 <p><em>Comparing <code>EGEDmin</code> and <code>HodgeResolve</code> at how well they perform on
-various metrics of preserving inclusion-maximal consistent subgraphs.</em></p>
-<p>One can see that on average, <code>EGEDmin</code> preserves inclusion-maximal
+various metrics of preserving maximal consistent subgraphs.</em></p>
+<p>One can see that on average, <code>EGEDmin</code> preserves maximal
 consistent subgraphs more often, and may also retain all
-inclusion-maximal consistent subgraphs more often (although the low
+maximal consistent subgraphs more often (although the low
 sample sizes for graphs with six and seven nodes makes this difficult to
 conclude without doubt).</p>
 <h3 id="Preservation_of_Completely_Dominating_and_Dominated_Set"><a class="hanchor" href="#Preservation_of_Completely_Dominating_and_Dominated_Set">Preservation of Completely Dominating and Dominated Set</a></h3>
@@ -6348,15 +6350,15 @@ that each <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" w
 </g>
 </svg></span>).</p>
 <p><strong>Remark 2</strong>. Preservation of complete domination implies some other
-criteria: If there is a consistent subgraph which is a completely
+criteria: If there is a consistent induced subgraph which is a completely
 dominating set, then it will comprise the "greatest" subgraph in the
 resolved preference, with the greatest element in <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.827ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 786.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-496-Title">
 <title id="MathJax-SVG-496-Title">G</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-47" x="0" y="0"></use>
 </g>
-</svg></span> also being the
-greatest element in <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.915ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2116 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-497-Title">
+</svg></span> also being
+the greatest element in <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.915ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2116 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-497-Title">
 <title id="MathJax-SVG-497-Title">f(G)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
@@ -6735,7 +6737,7 @@ so that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wid
  <use xlink:href="#MJMAIN-7D" x="13376" y="0"></use>
 </g>
 </svg></span>.</p>
-<p>We first prove that each inclusion-maximal consistent subgraph of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.934ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1263.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-523-Title">
+<p>We first prove that each maximal consistent subgraph of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.934ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1263.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-523-Title">
 <title id="MathJax-SVG-523-Title">E_n</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-45" x="0" y="0"></use>
@@ -6749,7 +6751,7 @@ only contains one edge from each <span class="mjpage"><svg xmlns:xlink="http://w
  <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="1051" y="-213"></use>
 </g>
 </svg></span>.</p>
-<p><strong>Lemma 11</strong>. Every inclusion-maximal consistent subgraph <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.787ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 769.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-525-Title">
+<p><strong>Lemma 11</strong>. Every maximal consistent subgraph <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.787ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 769.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-525-Title">
 <title id="MathJax-SVG-525-Title">V</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-56" x="0" y="0"></use>
@@ -6799,7 +6801,7 @@ contain <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wid
  <use xlink:href="#MJMAIN-2B" x="1247" y="0"></use>
  <use xlink:href="#MJMAIN-31" x="2248" y="0"></use>
 </g>
-</svg></span> inclusion-maximal consistent subgraphs of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.934ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1263.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-530-Title">
+</svg></span> maximal consistent subgraphs of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.934ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1263.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-530-Title">
 <title id="MathJax-SVG-530-Title">E_n</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-45" x="0" y="0"></use>
@@ -6811,7 +6813,7 @@ contain <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wid
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJCAL-53" x="0" y="0"></use>
 </g>
-</svg></span> be a set of inclusion-maximal consistent
+</svg></span> be a set of maximal consistent
 subgraphs of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.934ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1263.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-532-Title">
 <title id="MathJax-SVG-532-Title">E_n</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -6874,7 +6876,7 @@ consistent graph <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/x
 </svg></span>.</p>
 <p><a href="#Lemma_12"><em>Proof.</em></a></p>
 <p>We can now show that the set of consistent graphs that contain all
-inclusion-maximal consistent subgraphs of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.934ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1263.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-537-Title">
+maximal consistent subgraphs of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.934ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1263.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-537-Title">
 <title id="MathJax-SVG-537-Title">E_n</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-45" x="0" y="0"></use>
@@ -6899,7 +6901,7 @@ of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2
  <use xlink:href="#MJMATHI-45" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="1044" y="-213"></use>
 </g>
-</svg></span> that includes all inclusion-maximal consistent subgraphs of
+</svg></span> that includes all maximal consistent subgraphs of
 <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.934ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1263.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-541-Title">
 <title id="MathJax-SVG-541-Title">E_n</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -7037,20 +7039,20 @@ for the number of vertices <span class="mjpage"><svg xmlns:xlink="http://www.w3.
 can probably be improved upon.</p>
 <h4 id="Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible"><a class="hanchor" href="#Polynomial_Time_Complexity_and_Preservation_of_Consistent_Subgraphs_are_Incompatible">Polynomial Time Complexity and Preservation of Consistent Subgraphs are Incompatible</a></h4>
 <p>Given that in the worst case, only a small proportion of consistent
-subgraphs can be preserved, it also is not possible to have an algorithm
-that returns, for each inclusion-maximal consistent subgraph
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.471ex" height="2.176ex" style="vertical-align: -0.338ex; margin-right: -0.165ex;" viewBox="0 -791.3 633.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-551-Title">
+induced subgraphs can be preserved, it also is not possible to have
+an algorithm that returns, for each maximal consistent
+subgraph <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.471ex" height="2.176ex" style="vertical-align: -0.338ex; margin-right: -0.165ex;" viewBox="0 -791.3 633.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-551-Title">
 <title id="MathJax-SVG-551-Title">\mathit{S}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAINI-53" x="0" y="0"></use>
 </g>
-</svg></span>, at least one consistent graph that contains <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.471ex" height="2.176ex" style="vertical-align: -0.338ex; margin-right: -0.165ex;" viewBox="0 -791.3 633.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-552-Title">
+</svg></span>, at least one consistent graph that contains
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.471ex" height="2.176ex" style="vertical-align: -0.338ex; margin-right: -0.165ex;" viewBox="0 -791.3 633.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-552-Title">
 <title id="MathJax-SVG-552-Title">\mathit{S}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAINI-53" x="0" y="0"></use>
 </g>
-</svg></span>,
-<em>and</em> computes its output in polynomial time.</p>
+</svg></span>, <em>and</em> computes its output in polynomial time.</p>
 <p><strong>Theorem 14</strong>. Let <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.221ex" height="1.843ex" style="vertical-align: -0.171ex;" viewBox="0 -719.6 525.5 793.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-553-Title">
 <title id="MathJax-SVG-553-Title">\mathtt{A}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -7115,7 +7117,7 @@ computes its output in less than <span class="mjpage"><svg xmlns:xlink="http://w
 </g>
 </svg></span> steps.</p>
 <p><a href="#Theorem_14"><em>Proof.</em></a></p>
-<p><strong>Remark 4</strong>. The set of inclusion-maximal consistent subgraphs on
+<p><strong>Remark 4</strong>. The set of maximal consistent subgraphs on
 <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.934ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1263.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-561-Title">
 <title id="MathJax-SVG-561-Title">E_n</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -7123,7 +7125,7 @@ computes its output in less than <span class="mjpage"><svg xmlns:xlink="http://w
  <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="1044" y="-213"></use>
 </g>
 </svg></span> can be compactly represented as the Cartesian product of the
-inclusion-maximal consistent subgraphs of the "levels" <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.155ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 927.8 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-562-Title">
+maximal consistent subgraphs of the "levels" <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.155ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 927.8 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-562-Title">
 <title id="MathJax-SVG-562-Title">V_i</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-56" x="0" y="0"></use>
@@ -7183,7 +7185,7 @@ inclusion-maximal consistent subgraphs of the "levels" <span class="mjpage"><svg
  <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
 </g>
 </svg></span>
-which includes all inclusion-maximal consistent subgraphs. We suspect
+which includes all maximal consistent subgraphs. We suspect
 there are counter-examples that don't allow for this, but haven't been
 able to find any.</p>
 <h2 id="Inconsistent_Preferences_over_Lotteries"><a class="hanchor" href="#Inconsistent_Preferences_over_Lotteries">Inconsistent Preferences over Lotteries</a></h2>
@@ -13704,7 +13706,7 @@ graphs to acyclic tournaments, but are convinced that there are many
 other methods that could be investigated, specifically methods that use
 different methods of evaluating graph similarity or ones that result in
 weak orderings, or methods that are selected to preserve as many
-inclusion-maximal consistent subgraphs as possible.</p>
+maximal consistent subgraphs as possible.</p>
 <p>Resolving inconsistent graphs could also be approached from a different
 perspective using random walks on the graph, breaking cycles and
 completing edges as they are encountered. An extension of this setup
@@ -16411,7 +16413,7 @@ with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width=
 </g>
 </g>
 </g>
-</svg></span> inclusion-maximal
+</svg></span> maximal
 <a href="https://en.wikipedia.org/wiki/Clique_(graph_theory)">cliques</a>. Then
 one can construct a directed graph <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="14.656ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 6310.1 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1123-Title">
 <title id="MathJax-SVG-1123-Title">P_n=(V_P,E_P)</title>
@@ -16454,7 +16456,7 @@ one can construct a directed graph <span class="mjpage"><svg xmlns:xlink="http:/
  <use transform="scale(0.707)" xlink:href="#MJMATHI-6E" x="3932" y="572"></use>
 </g>
 </g>
-</svg></span> inclusion-maximal consistent
+</svg></span> maximal consistent
 subgraphs from <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.045ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1311.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1125-Title">
 <title id="MathJax-SVG-1125-Title">G_n</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -16599,7 +16601,7 @@ vertices <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
  <use xlink:href="#MJMATHI-56" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAINI-53" x="825" y="-220"></use>
 </g>
-</svg></span> is an inclusion-maximal consistent subgraph in
+</svg></span> is an maximal consistent subgraph in
 <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.711ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1167.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1142-Title">
 <title id="MathJax-SVG-1142-Title">P_n</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
@@ -16861,14 +16863,14 @@ or <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5
  <use xlink:href="#MJMAINI-53" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-50" x="795" y="-213"></use>
 </g>
-</svg></span> is inclusion-maximal. If <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.773ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1193.9 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1168-Title">
+</svg></span> is maximal. If <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.773ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1193.9 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1168-Title">
 <title id="MathJax-SVG-1168-Title">\mathit{S}_P</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAINI-53" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-50" x="795" y="-213"></use>
 </g>
 </svg></span> were not
-inclusion-maximal, there'd exist a vertex <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1169-Title">
+maximal, there'd exist a vertex <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.33ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 572.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1169-Title">
 <title id="MathJax-SVG-1169-Title">u</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-75" x="0" y="0"></use>
@@ -17947,7 +17949,7 @@ there were edges in <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/199
 </g>
 </svg></span> before.</li>
 </ul>
-<p>&nbsp;◻</p>
+<p>◻</p>
 <h3 id="Lemma_12"><a class="hanchor" href="#Lemma_12">Lemma 12</a></h3>
 <p>We showed that each <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.832ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2511.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1274-Title">
 <title id="MathJax-SVG-1274-Title">S \in \mathcal{S}</title>
@@ -18364,7 +18366,7 @@ at least one <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAINB-43" x="0" y="0"></use>
 </g>
-</svg></span> of inclusion-maximal
+</svg></span> of maximal
 consistent subgraphs of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.934ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1263.1 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1314-Title">
 <title id="MathJax-SVG-1314-Title">E_n</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
