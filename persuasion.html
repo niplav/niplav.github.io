@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             min-height: 0;
                             width: 100%
                             }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2025-07-04, modified: 2025-07-23, language: english, status: notes, importance: 8, confidence: log</em></p>
+<p><em>author: niplav, created: 2025-07-04, modified: 2025-09-17, language: english, status: notes, importance: 8, confidence: log</em></p>
 <blockquote>
 <p><strong>Some ideas on how to handle mildly superpersuasive
 AI systems. Top recommendation: AI developers should have
@@ -160,7 +160,7 @@ Also relevant: Bostrom<!--TODO: read Bostrom 2011--> <a href="https://en.wikiped
 hazards</a>, which hasn't
 received much follow-up.</p>
 <p>I am not going to attempt to convince people that superhuman persuasion
-abilities are possible, and indeed focus on trying to sketch what
+abilities are possible, and instead focus on trying to sketch what
 anti-persuasion measures could look like.</p>
 <h3 id="Assumptions"><a class="hanchor" href="#Assumptions">Assumptions</a></h3>
 <ul>
@@ -208,7 +208,11 @@ counter-measures, and the estimated effectiveness of such measures).</p>
 </ul>
 <h3 id="Interventions_Limited_to_PreDeployment"><a class="hanchor" href="#Interventions_Limited_to_PreDeployment">Interventions Limited to Pre-Deployment</a></h3>
 <ul>
-<li><strong>Refraining From Training</strong>: Don't build an advanced AI model that you suspect could have superpersuasive capabilities.</li>
+<li><strong>Refraining From Training</strong>: Don't build an advanced AI model that you suspect could have superpersuasive capabilities.
+<ul>
+<li>This can entail e.g. not including specific training data which details manipulation tactics, and refraining from doing reinforcement learning in persuasion environments (both with other AIs in a multi-agent setup, or in direct RL on human feedback).</li>
+<li>This also includes refraining from building or training advanced AI models that, while not trained to have persuasive abilities, get those <em>for free</em> just by being generally highly capable.</li>
+</ul></li>
 <li><strong>Refraining From Deployment</strong>: Don't deploy an advanced AI model that you suspect could have superpersuasive capabilities.</li>
 <li><strong>Programmatic Evaluations</strong>: Before humans interact with an AI system, and early after training, evaluations should be mostly performed with pre-programmed evaluations and/or through weaker AI systems, so that developers can gain some understanding of the AI without having to interact with it.</li>
 <li><strong>Model Whisperers</strong>: Have a dedicated position of "Model Whisperers" at the AI lab who are the only people who interact with the model directly, in whatever modality. Sketch of a more fleshed-out position <a href="#Appendix_A_Sketch_Setup_of_Model_Whisperers">here</a>.

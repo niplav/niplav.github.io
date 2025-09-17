@@ -121,7 +121,7 @@ in detail yet. I'll call those kinds of graphs or networks "pergraphs".</p>
 <p>In this post I'll go a double track where I'll first and foremost draw
 pretty pictures to give the reader a visual sense of what they should be
 thinking about, and also provide Lean 4 code for definitions, theorems
-and proofs.</p>
+and proofs, as a barbell strategy in terms of rigour.</p>
 <h3 id="Basic_Definitions"><a class="hanchor" href="#Basic_Definitions">Basic Definitions</a></h3>
 <p><strong>Intuition 1</strong>: Intuitively, a <strong>pergraph</strong> is a finite mathematical
 structure consisting of nodes and edges (which I'll also equivalently call
@@ -352,7 +352,7 @@ starting at n=0:</p>
 <a href="./code/pergraphs/simple.py">here</a>.</p>
 <p>The sequence that that counts the number of unlabeled undirected
 pergraphs, up to isomorphism, starting at n=0:</p>
-<p>1, 2, 11, …</p>
+<p>1, 2, 10, …</p>
 <p>Here's the <em>undirected</em> pergraphs with two components:</p>
 <p><img alt="" src="./img/pergraphs/two_undirected.png"></p>
 <p>As a variant one could ditch the nodes entirely, and replace them
@@ -497,6 +497,8 @@ with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width=
 </g>
 </svg></span>, help with learning Lean, and help with writing the Rust
 code for the enumeration.</p>
+<!--TODO: See Also: Gleech on graphs, that 3b1b video on Sol LeWitt's
+piece-->
 <h2 id="Appendix_A_Lean_Definitions_and_Proofs"><a class="hanchor" href="#Appendix_A_Lean_Definitions_and_Proofs">Appendix A: Lean Definitions and Proofs</a></h2>
 <p>I provide <a href="https://en.wikipedia.org/wiki/Lean_(proof_assistant)">Lean 4</a>
 definitions and proofs for pergraphs, related structures, and the theorems
