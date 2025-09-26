@@ -1,0 +1,88 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Key_findings">Key findings</a><ul></ul></li><li><a href="#Findings_table">Findings table</a><ul></ul></li><li><a href="#Data_limitations">Data limitations</a><ul></ul></li><li><a href="#Pattern">Pattern</a><ul><li><a href="#Sources">Sources</a><ul></ul></li></ul></li></ul></div><h1 id="Do_Games_Get_Longer_or_Shorter_as_Players_Get_Better"><a class="hanchor" href="#Do_Games_Get_Longer_or_Shorter_as_Players_Get_Better">Do Games Get Longer or Shorter as Players Get Better?</a></h1>
+<p><strong>Bottom line</strong>: <strong>Mixed patterns</strong> - some games show defense-favoring trends (chess, soccer, StarCraft) while others like basketball show strong offense-favoring patterns at higher skill levels.</p>
+<h2 id="Key_findings"><a class="hanchor" href="#Key_findings">Key findings</a></h2>
+<p><strong>Chess</strong>: Higher-rated players play longer games (more moves). Microsoft Research's analysis of 12 million games found games systematically increase in length with rating.</p>
+<p><strong>Soccer</strong>: Elite leagues average 2.6-2.9 goals per game versus higher scoring in lower-tier leagues. Longer periods between "rounds" (goals) at professional levels.</p>
+<p><strong>Basketball</strong>: NBA games have much higher scoring per minute (2.19) than college games (1.7), showing offense-favoring trends at elite levels.</p>
+<p><strong>StarCraft II</strong>: Professional players show decreased early rush frequency compared to lower skill levels, leading to longer average game duration.</p>
+<h2 id="Findings_table"><a class="hanchor" href="#Findings_table">Findings table</a></h2>
+<table>
+<thead>
+<tr>
+<th>Game/Sport</th>
+<th>Metric</th>
+<th>Skill Effect</th>
+<th>Offense-Defense Shift</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Chess</strong></td>
+<td>Game length (moves)</td>
+<td><strong>↑ Longer</strong></td>
+<td><strong>↓ Defense</strong></td>
+<td>Microsoft Research¹</td>
+</tr>
+<tr>
+<td><strong>Soccer</strong></td>
+<td>Goals per game</td>
+<td><strong>↓ Fewer</strong> (2.6-2.9 elite vs higher amateur)</td>
+<td><strong>↓ Defense</strong></td>
+<td>CIES Observatory²</td>
+</tr>
+<tr>
+<td><strong>Basketball</strong></td>
+<td>Points per minute</td>
+<td><strong>↑ Higher</strong> (NBA: 2.19 vs NCAA: 1.7)</td>
+<td><strong>↑ Offense</strong></td>
+<td>Multiple sources³</td>
+</tr>
+<tr>
+<td><strong>StarCraft II</strong></td>
+<td>Rush frequency</td>
+<td><strong>↓ Less</strong> rushing, longer games</td>
+<td><strong>↓ Defense</strong></td>
+<td>Thompson et al.⁴</td>
+</tr>
+<tr>
+<td><strong>Boxing</strong></td>
+<td>Activity ratios</td>
+<td><strong>→ More consistent</strong> (elite maintain patterns)</td>
+<td><strong>↔ Neutral</strong></td>
+<td>Thomson et al.⁵</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Data_limitations"><a class="hanchor" href="#Data_limitations">Data limitations</a></h2>
+<p>Most game research focuses on playing <em>style</em> rather than basic duration/scoring metrics. The available data is frustratingly sparse for such a straightforward question. Many domains lack systematic collection of skill-stratified game length data.</p>
+<h2 id="Pattern"><a class="hanchor" href="#Pattern">Pattern</a></h2>
+<p><strong>Mixed results</strong>: 3 games show defense-favoring patterns (chess, soccer, StarCraft) while basketball shows strong offense-favoring trends. The pattern may depend on game structure - turn-based and sports with discrete scoring events tend toward defense, while continuous action games favor offense at higher skill levels.</p>
+<hr>
+<h3 id="Sources"><a class="hanchor" href="#Sources">Sources</a></h3>
+<p>¹ Microsoft Research Maia study (2020) - 12 million games per rating bracket<br>
+² CIES Football Observatory analysis (2017) - 31 European leagues<br>
+³ Multiple sources - NCAA: ~68 ppg/40 min, NBA: ~105 ppg/48 min<br>
+⁴ Thompson et al. (2013) - 3,360 StarCraft II players across 7 skill levels<br>
+⁵ Thomson et al. (2012) - 92 English amateur boxers</p>
+
+</body></html>
