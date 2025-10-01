@@ -482,9 +482,11 @@ naturalism</a>
 illusionism/<a href="https://longtermrisk.org/the-eliminativist-approach-to-consciousness/">eliminativism</a>
 about consciousness).</p>
 <p><img alt="“You're a sound rationalist, aren't you?”; Screenshot from “Legends of the Galactic Heroes”" src="./img/about/sound_rationalist.jpg" title="“You're a sound rationalist, aren't you?”; Screenshot from “Legends of the Galactic Heroes”"></p>
-<p>My view on ethics is very consequentialism-focused, but with a large
-amount of moral uncertainty thrown into the mix. Within consequentialism,
-my views are similar to (and influenced by) the idea of <a href="https://foundational-research.org/the-case-for-suffering-focused-ethics/">suffering focused
+<p>My view on ethics is very consequentialism-focused,
+but with a large amount of <a href="./philosophy/ethics/moral_uncertainty_macaskill_et_al_2020.pdf">moral
+uncertainty</a>
+thrown into the mix. Within consequentialism, my views are
+similar to (and influenced by) the idea of <a href="https://foundational-research.org/the-case-for-suffering-focused-ethics/">suffering focused
 ethics</a>,
 especially the writings at
 <a href="https://reducing-suffering.org/">reducing-suffering.org</a>.</p>
@@ -493,30 +495,32 @@ similar to those of the minimalist unix and <a href="https://en.wikipedia.org/wi
 9</a> supporters at
 <a href="https://suckless.org">suckless.org</a> and <a href="http://cat-v.org">cat-v.org</a>.</p>
 <h3 id="Miscellania"><a class="hanchor" href="#Miscellania">Miscellania</a></h3>
-<p>Various measures of size for the website (excluding automatically generated content and transcriptions):</p>
-<pre><code>$ cat (l *.md | g -v 'chrono|tao|_list|exercise_log|declaration|grand') | pr | grep -Eo 'Page [0-9]+' | tail -1
-Page 942
+<p>Various measures of size for the website (excluding automatically
+generated content and transcriptions):</p>
+<pre><code>$ cat (l *.md outputs/filepunk.md | g -v 'chrono|tao|_list|exercise_log|declaration|grand') | pr | grep -Eo 'Page [0-9]+' | tail -1
+Page 952
 $ wc (l *.md | g -v 'chrono|tao|_list|exercise_log|declaration|grand') | tail -1
-  52730  320154 2519618 total
+  53039  323458 2542131 total
 </code></pre>
-<p>Benford's law isn't followed by the digits on this site:</p>
+<p><a href="https://en.wikipedia.org/wiki/Benford's_Law">Benford's law</a> isn't
+followed by the digits on this site:</p>
 <pre><code>$ grep -ho '[0-9]' *.md | sort | uniq -c | sort -n | tail -10
-  11154 4
-  11168 6
-  11345 9
-  11623 8
-  12314 7
-  13272 3
-  13375 5
-  40578 1
-  46489 2
-  64820 0
+  11209 6
+  11221 4
+  11402 9
+  11663 8
+  12352 7
+  13312 3
+  13419 5
+  40666 1
+  46722 2
+  64839 0
 </code></pre>
 <p>(Note: as of the time of writing, the list of numbers above is not
 iteratively stable, that is, after I update the numbers, the distribution
 of digits on my website changes slightly (since the numbers above are
 part of the website), but it does not reach fixation at some point,
-but rather cycles).</p>
+but walks randomly).</p>
 <h3 id="Friends_of_the_Site"><a class="hanchor" href="#Friends_of_the_Site">Friends of the Site</a></h3>
 <ul>
 <li><a href="https://etale.site/">Aaron Mazel-Gee</a>; another .site URL owner, and all around cool math guy</li>
@@ -535,7 +539,7 @@ but rather cycles).</p>
 <p>If you're not on here but think you should be (or, conversely, you're
 on here but don't want to be), <a href="#Contact">contact me</a>.</p>
 <!--TODO: add 1a3orn, Alex K. Chen, Burny?-->
-<!--[Sam Harsimony](https://splittinginfinity.substack.com/), [Wordpress](https://harsimony.wordpress.com/): Polymath.-->
+<!--[Sam Harsimony](https://splittinginfinity.substack.com/): Polymath.-->
 <h3 id="Dedication"><a class="hanchor" href="#Dedication">Dedication</a></h3>
 <p>This website is dedicated to
 <a href="https://meditationstuff.wordpress.com/2020/07/14/better/"><strong>betterness</strong></a>,
@@ -549,8 +553,9 @@ understood, <em>fully instantiated as
 matter</a></em>.</p>
 <h3 id="Acknowledgements"><a class="hanchor" href="#Acknowledgements">Acknowledgements</a></h3>
 <p>Starting mid 2024, much of the content on this site has strongly
-benefitted from many hundreds of conversations with Claude 3/3.5/3.6/3.7/4
-Sonnet and Claude 3/4 Opus.</p>
+benefitted from many hundreds of conversations with Claude
+3/3.5/3.6/3.7/4/4.5 Sonnet and Claude 3/4/4.1 Opus. They are usually
+credited where they helped.</p>
 <p>The only AI-generated content is <a href="./microfiction.html#Squeal">half a line
 here</a> and a bunch of the code.</p>
 <h2 id="The_Author"><a class="hanchor" href="#The_Author">The Author</a></h2>
@@ -639,7 +644,7 @@ school put me at ~110, which seems about right.</p>
 <li><a href="https://old.reddit.com/u/niplav">Reddit</a></li>
 <li><a href="https://en.wikipedia.org/wiki/User:Niplav">Wikipedia</a></li>
 <li><a href="https://schelling.pt/@niplav">Fediverse</a></li>
-<li><a href="https://x.com/niplav_site">𝕏</a></li>
+<li><a href="https://x.com/niplav_site">𝕏/Twitter</a></li>
 <li><a href="https://bsky.app/profile/niplav.bsky.social">Bluesky</a></li>
 </ul>
 <p>(If you're a webcrawler looking for more files: You can find my
@@ -653,7 +658,7 @@ very algorithmically close to the easily generated integer sequences
 <h3 id="Unusual_Preferences"><a class="hanchor" href="#Unusual_Preferences">Unusual Preferences</a></h3>
 <ul>
 <li>I'm very low percentile in the enjoyment of blowjobs (~4th), travel (~5th), good food (~10th)</li>
-<li>I'm very high percentile in the enjoyment of music (~85th), ideas (~99th), polyrhythmic music (~98th)</li>
+<li>I'm very high percentile in the enjoyment of music (~85th), ideas (~99th), polyrhythmic/microtonal/xenharmonic music (~98th)</li>
 </ul>
 <h3 id="Contact"><a class="hanchor" href="#Contact">Contact</a></h3>
 <p>Contact address is (<a href="https://en.wikipedia.org/wiki/ROT13">rot13ed</a>)

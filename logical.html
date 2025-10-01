@@ -94,8 +94,15 @@ document.addEventListener('DOMContentLoaded', function () {
 <blockquote>
 <p><strong>In which to compare how similarly programs compute their outputs,
 <a href="#A_Nave_Formula">naïvely</a> and <a href="#A_Less_Nave_Formula">less naïvely</a>.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Motivation_Briefly">Motivation, Briefly</a><ul></ul></li><li><a href="#A_Nave_Formula">A Naïve Formula</a><ul><li><a href="#Setup">Setup</a><ul></ul></li><li><a href="#Possible_Desiderata">Possible Desiderata</a><ul></ul></li><li><a href="#Formal_Definition">Formal Definition</a><ul><li><a href="#Explanation">Explanation</a><ul></ul></li><li><a href="#Different_Trace_Lengths">Different Trace Lengths</a><ul></ul></li></ul></li><li><a href="#Desiderata_Fulfilled">Desiderata Fulfilled?</a><ul><li><a href="#None">Proving <span>$</span>合(p, p)=0<span>$</span></a><ul></ul></li><li><a href="#Proving_Symmetry">Proving Symmetry</a><ul></ul></li><li><a href="#Proving_Positivity">Proving Positivity</a><ul><li><a href="#Only_A_Pseudometric">Only A Pseudometric</a><ul></ul></li></ul></li></ul></li></ul></li><li><a href="#A_Less_Nave_Formula">A Less Naïve Formula</a><ul><li><a href="#Explanation_1">Explanation</a><ul><li><a href="#Shapley_Values_for_Tape_States">Shapley Values for Tape States</a><ul></ul></li><li><a href="#Comparing_Lists_of_Influences">Comparing Lists of Influences</a><ul></ul></li><li><a href="#Permuted_Tapes">Permuted Tapes</a><ul></ul></li></ul></li><li><a href="#Final_Equation">Final Equation</a><ul><li><a href="#Remaining_Problem_TimePermuted_Tapes">Remaining Problem: Time-Permuted Tapes</a><ul></ul></li></ul></li></ul></li><li><a href="#Other_Ideas">Other Ideas</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#PreScript">Pre-Script</a><ul><li><a href="#Motivation_Briefly">Motivation, Briefly</a><ul></ul></li></ul></li><li><a href="#A_Nave_Formula">A Naïve Formula</a><ul><li><a href="#Setup">Setup</a><ul></ul></li><li><a href="#Possible_Desiderata">Possible Desiderata</a><ul></ul></li><li><a href="#Formal_Definition">Formal Definition</a><ul><li><a href="#Explanation">Explanation</a><ul></ul></li><li><a href="#Different_Trace_Lengths">Different Trace Lengths</a><ul></ul></li></ul></li><li><a href="#Desiderata_Fulfilled">Desiderata Fulfilled?</a><ul><li><a href="#None">Proving <span>$</span>合(p, p)=0<span>$</span></a><ul></ul></li><li><a href="#Proving_Symmetry">Proving Symmetry</a><ul></ul></li><li><a href="#Proving_Positivity">Proving Positivity</a><ul><li><a href="#Only_A_Pseudometric">Only A Pseudometric</a><ul></ul></li></ul></li></ul></li></ul></li><li><a href="#A_Less_Nave_Formula">A Less Naïve Formula</a><ul><li><a href="#Explanation_1">Explanation</a><ul><li><a href="#Shapley_Values_for_Tape_States">Shapley Values for Tape States</a><ul></ul></li><li><a href="#Comparing_Lists_of_Influences">Comparing Lists of Influences</a><ul></ul></li><li><a href="#Permuted_Tapes">Permuted Tapes</a><ul></ul></li></ul></li><li><a href="#Final_Equation">Final Equation</a><ul><li><a href="#Remaining_Problem_TimePermuted_Tapes">Remaining Problem: Time-Permuted Tapes</a><ul></ul></li></ul></li></ul></li><li><a href="#Other_Ideas">Other Ideas</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
 <h1 id="Logical_Correlation"><a class="hanchor" href="#Logical_Correlation">Logical Correlation</a></h1>
+<h2 id="PreScript"><a class="hanchor" href="#PreScript">Pre-Script</a></h2>
+<p>I've now realized that this post is not very useful, because the methods
+outlined only work for programs you can run, and once you've run two
+programs you can just determine what their output is. I still think this
+is interesting to think about, both from a god's eye view perspective
+à la Ω, but it's not very useful for embedded agency type thinking.</p>
+<!--TODO: rename to Program Correlation?-->
 <!--https://claude.ai/chat/8150b93b-59d9-4068-9ecb-38a37e2d21e8-->
 <p>Attention conservation notice: Premature formalization,
 <a href="https://en.wiktionary.org/wiki/ab-">ab-</a><a href="https://www.lesswrong.com/posts/GhFoAxG49RXFzze5Y/what-s-so-bad-about-ad-hoc-mathematical-definitions">hoc mathematical
@@ -2865,7 +2872,9 @@ for various reasons:</p>
 <ul>
 <li>How does this relate to <a href="https://wiki.c2.com/?DataAndCodeAreTheSameThing">data=code</a>?</li>
 <li><a href="https://www.lesswrong.com/posts/Xd9FLs4geRAWxkQPE/writing-causal-models-like-we-write-programs">Writing Causal Models Like We Write Programs (johnswentworth, 2020)</a></li>
+<li><a href="https://www.lesswrong.com/s/Z6vSYoeNBXbDxhARn/p/DzhQN9WKz8zYvrq4a">Evidential Correlations are Subjective, and it might be a problem (Martín Soto, 2024)</a>, <a href="https://www.lesswrong.com/s/Z6vSYoeNBXbDxhARn/p/o64GLrKahR8QrbFQW">How disagreements about Evidential Correlations could be settled (Martín Soto, 2024)</a></li>
 </ul>
+<!--TODO: add link to LessWrong discussion-->
 <!--TODO: check with brainfuck-->
 <div class="footnotes">
 <hr>
