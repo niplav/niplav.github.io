@@ -1,0 +1,182 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#The_Table">The Table</a><ul></ul></li><li><a href="#Observations">Observations</a><ul></ul></li><li><a href="#The_Mystery_Where_Are_the_Superquadratic_Verifiers">The Mystery: Where Are the Superquadratic Verifiers?</a><ul></ul></li><li><a href="#Open_Questions">Open Questions</a><ul></ul></li></ul></div><h1 id="Verification_Complexity_of_NP_Problems"><a class="hanchor" href="#Verification_Complexity_of_NP_Problems">Verification Complexity of NP Problems</a></h1>
+<p>An exploration of how long it takes to <em>verify</em> solutions to NP problems,
+given an appropriate certificate.</p>
+<h2 id="The_Table"><a class="hanchor" href="#The_Table">The Table</a></h2>
+<table>
+<thead>
+<tr>
+<th>Problem</th>
+<th>Input Size</th>
+<th>Certificate</th>
+<th>Verification</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>k-SAT</strong></td>
+<td>n clauses, m vars</td>
+<td>Assignment to vars</td>
+<td>O(n)</td>
+<td>Check each clause once</td>
+</tr>
+<tr>
+<td><strong>3-Coloring</strong></td>
+<td>n vertices, m edges</td>
+<td>Color assignment</td>
+<td>O(m)</td>
+<td>Check each edge once</td>
+</tr>
+<tr>
+<td><strong>Hamiltonian Path</strong></td>
+<td>n vertices, m edges</td>
+<td>Sequence of vertices</td>
+<td>O(n)</td>
+<td>Check consecutive pairs are edges</td>
+</tr>
+<tr>
+<td><strong>Subset Sum</strong></td>
+<td>k numbers</td>
+<td>Subset membership</td>
+<td>O(k)</td>
+<td>Sum the chosen numbers</td>
+</tr>
+<tr>
+<td><strong>Vertex Cover</strong></td>
+<td>n vertices, m edges</td>
+<td>Set of ≤k vertices</td>
+<td>O(m)</td>
+<td>Check each edge is covered</td>
+</tr>
+<tr>
+<td><strong>Independent Set</strong></td>
+<td>n vertices, m edges</td>
+<td>Set of k vertices</td>
+<td>O(m)</td>
+<td>Check no edges between them</td>
+</tr>
+<tr>
+<td><strong>Clique</strong></td>
+<td>n vertices, (m edges)</td>
+<td>Set of k vertices</td>
+<td>O(k²) or O(k² log m)</td>
+<td>Check all pairs are edges; depends on graph representation</td>
+</tr>
+<tr>
+<td><strong>Graph Isomorphism</strong></td>
+<td>n vertices each</td>
+<td>Permutation</td>
+<td>O(n²) or O(m)</td>
+<td>Check edge preservation; depends on representation</td>
+</tr>
+<tr>
+<td><strong>Integer Factorization</strong></td>
+<td>ℓ-bit number</td>
+<td>Factor p</td>
+<td>O(ℓ²) + primality</td>
+<td>Multiplication O(ℓ²), primality test O(ℓ⁶) via AKS</td>
+</tr>
+<tr>
+<td><strong>Discrete Log</strong></td>
+<td>ℓ-bit modulus</td>
+<td>Exponent x</td>
+<td>O(ℓ²·log x) or O(ℓ³)</td>
+<td>Modular exponentiation via repeated squaring</td>
+</tr>
+<tr>
+<td><strong>Partition</strong></td>
+<td>k ℓ-bit numbers</td>
+<td>Subset indicator</td>
+<td>O(k·ℓ)</td>
+<td>Add k numbers of ℓ bits each</td>
+</tr>
+<tr>
+<td><strong>Knapsack (decision)</strong></td>
+<td>k items</td>
+<td>Subset indicator</td>
+<td>O(k)</td>
+<td>Check weight ≤ W, value ≥ V</td>
+</tr>
+<tr>
+<td><strong>TSP (decision)</strong></td>
+<td>n cities, distances</td>
+<td>Tour permutation</td>
+<td>O(n)</td>
+<td>Sum edge weights in tour</td>
+</tr>
+<tr>
+<td><strong>Hamiltonian Cycle</strong></td>
+<td>n vertices, m edges</td>
+<td>Cycle</td>
+<td>O(n)</td>
+<td>Check edges exist, forms cycle</td>
+</tr>
+<tr>
+<td><strong>Exact Cover</strong></td>
+<td>n sets, universe size m</td>
+<td>Subcollection</td>
+<td>O(nm)</td>
+<td>Check each element covered exactly once</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Observations"><a class="hanchor" href="#Observations">Observations</a></h2>
+<p><strong>Most problems are linear:</strong> The vast majority of NP problems have
+verification complexity O(input size), meaning checking a certificate
+takes time proportional to just reading the input and certificate once.</p>
+<p><strong>Few quadratic problems:</strong> Only a handful require O(n²) verification, mostly:</p>
+<ul>
+<li>Graph problems where you must check all pairs (Clique)</li>
+<li>Problems involving graph structure comparison (Graph Isomorphism)</li>
+<li>Number-theoretic problems with multi-digit arithmetic (Factorization, Discrete Log)</li>
+</ul>
+<p><strong>No naturally superquadratic verification:</strong> Surprisingly, there appear
+to be no natural NP problems requiring O(n^k) verification for large
+k. This is unexpected - NP allows <em>any</em> polynomial verification time,
+so why don't we see O(n^{100}) verifiers in practice?</p>
+<p><strong>Log factors appear when:</strong>
+1. Performing arithmetic on multi-bit integers
+2. Binary search during verification
+3. Primality testing (though this is already polylog)</p>
+<p><strong>Graph representation matters:</strong> Whether graphs are given as adjacency
+matrices or edge lists changes verification complexity. Standard
+convention uses edge lists, keeping most graph problems at O(m).</p>
+<h2 id="The_Mystery_Where_Are_the_Superquadratic_Verifiers"><a class="hanchor" href="#The_Mystery_Where_Are_the_Superquadratic_Verifiers">The Mystery: Where Are the Superquadratic Verifiers?</a></h2>
+<p>It's straightforward to <em>construct</em> artificial NP problems with
+arbitrarily high polynomial verification complexity (e.g., by padding
+certificates with redundant validation bits). But finding <em>natural</em>
+problems that <em>require</em> cubic or higher verification seems difficult
+or impossible.</p>
+<p><strong>Hypotheses:</strong>
+1. <strong>Selection bias:</strong> We don't study problems with impractically expensive verification
+2. <strong>Structural reason:</strong> Natural problems ask about locally checkable properties
+3. <strong>Deep theorem:</strong> Something fundamental about certificate complexity limits natural problems to near-linear verification</p>
+<p>This deserves further investigation.</p>
+<h2 id="Open_Questions"><a class="hanchor" href="#Open_Questions">Open Questions</a></h2>
+<ul>
+<li>Is there a natural NP problem requiring O(n³) verification as a <em>minimum</em>?</li>
+<li>Can we prove all "natural" NP problems have verification ≤ O(n⁴)?</li>
+<li>What structural properties of problems lead to higher verification complexity?</li>
+<li>Is there work systematically classifying NP problems by verification degree?</li>
+</ul>
+
+</body></html>
