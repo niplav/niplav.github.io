@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             min-height: 0;
                             width: 100%
                             }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2025-07-04, modified: 2025-09-17, language: english, status: notes, importance: 8, confidence: log</em></p>
+<p><em>author: niplav, created: 2025-07-04, modified: 2025-10-23, language: english, status: notes, importance: 8, confidence: log</em></p>
 <blockquote>
 <p><strong>Some ideas on how to handle mildly superpersuasive
 AI systems. Top recommendation: AI developers should have
@@ -98,7 +98,7 @@ a designated position at their organization for the only
 people who interact with newly trained AI systems, so-called
 <a href="#Appendix_A_Sketch_Setup_of_Model_Whisperers">"model-whisperers"</a>, which
 have no other relevant access to infrastructure within the organization.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Motivation">Motivation</a><ul></ul></li><li><a href="#Assumptions">Assumptions</a><ul></ul></li><li><a href="#Some_Ideas_for_Interventions">Some Ideas for Interventions</a><ul><li><a href="#Both_Pre_and_PostDeployment">Both Pre- and Post-Deployment</a><ul></ul></li><li><a href="#Interventions_Limited_to_PreDeployment">Interventions Limited to Pre-Deployment</a><ul></ul></li><li><a href="#Interventions_Limited_to_PostDeployment">Interventions Limited to Post-Deployment</a><ul></ul></li></ul></li><li><a href="#Testing_AntiSuperpersuasion_Setups">Testing Anti-Superpersuasion Setups</a><ul></ul></li><li><a href="#Appendix_A_Sketch_Setup_of_Model_Whisperers">Appendix A: Sketch Setup of Model Whisperers</a><ul></ul></li><li><a href="#Appendix_B_Slightly_More_Arguments_That_Superpersuasion_is_Possible">Appendix B: Slightly More Arguments That Superpersuasion is Possible</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Motivation">Motivation</a><ul></ul></li><li><a href="#Assumptions">Assumptions</a><ul></ul></li><li><a href="#Some_Ideas_for_Interventions">Some Ideas for Interventions</a><ul><li><a href="#Both_Pre_and_PostDeployment">Both Pre- and Post-Deployment</a><ul></ul></li><li><a href="#Interventions_Limited_to_PreDeployment">Interventions Limited to Pre-Deployment</a><ul></ul></li><li><a href="#Interventions_Limited_to_PostDeployment">Interventions Limited to Post-Deployment</a><ul></ul></li></ul></li><li><a href="#Testing_AntiSuperpersuasion_Setups">Testing Anti-Superpersuasion Setups</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li><li><a href="#Appendix_A_Sketch_Setup_of_Model_Whisperers">Appendix A: Sketch Setup of Model Whisperers</a><ul></ul></li><li><a href="#Appendix_B_Slightly_More_Arguments_That_Superpersuasion_is_Possible">Appendix B: Slightly More Arguments That Superpersuasion is Possible</a><ul></ul></li></ul></div>
 <h1 id="AntiSuperpersuasion_Interventions"><a class="hanchor" href="#AntiSuperpersuasion_Interventions">Anti-Superpersuasion Interventions</a></h1>
 <blockquote>
 <p>Meanwhile, I’ve got great confidence that the most incredible
@@ -149,12 +149,17 @@ for that<!--TODO: link 2h claim, AlphaRizz on twitter-->).</p>
 persuasive and addictive systems<sub>70%</sub>, but most of the
 thinking on how to interact with superpersuasive sources of information
 has come from fiction<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup>. One (preliminary) exception is <a href="https://markelkori.substack.com/p/methods-of-defense-against-agi-manipulation">Kori
-2025</a><!--and
-[Davidson 2023]()--><!--TODO: read & link!-->, which takes a useful
-first stab at defining some simple interventions. I wanted to sketch
-a slightly more detailed list of interventions, similar to <a href="./doc/cs/ai/alignment/containment/ai_control_improving_safety_despite_intentional_subversion_greenblatt_et_al_2024.pdf">AI Control
+2025</a>,
+which takes a useful first stab
+at defining some simple interventions; <a href="https://www.lesswrong.com/posts/zxmzBTwKkPMxQQcfR/let-s-use-ai-to-harden-human-defenses-against-ai">Davidson
+2023</a>,
+who proposes training AI systems to manipulate humans, and harden against
+the detected manipulation techniques (thus requiring the ability to detect
+manipulation/persuasion and extract techniques). I wanted to sketch
+a slightly more detailed list of interventions under conservatively
+different <a href="#Assumptions">assumptions</a>, similar to <a href="./doc/cs/ai/alignment/containment/ai_control_improving_safety_despite_intentional_subversion_greenblatt_et_al_2024.pdf">AI Control
 protocols</a>.
-Also relevant: Bostrom<!--TODO: read Bostrom 2011--> <a href="https://en.wikipedia.org/wiki/Information_hazard">information
+Also relevant: Bostrom<!--TODO: read Bostrom 2011--> on <a href="https://en.wikipedia.org/wiki/Information_hazard">information
 hazards</a>, which hasn't
 received much follow-up.</p>
 <p>I am not going to attempt to convince people that superhuman persuasion
@@ -247,6 +252,13 @@ model<sub>65%</sub>, and are thus less applicable to cases in which
 superpersuasion appears like normal long-form conversations.</p>
 <p>But I think this is the least bad test-bed for anti-superpersuasion
 methods, if anyone finds a better one, I'd like to hear about it.</p>
+<h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
+<ul>
+<li><a href="https://www.lesswrong.com/s/dZMDxPBZgHzorNDTt/p/qKvn7rxP2mzJbKfcA">Persuasion Tools: AI takeover without AGI or agency? (Daniel Kokotajlo, 2020)</a></li>
+<li><a href="https://www.lesswrong.com/posts/6ZnznCaTcbGYsCmqu/the-rise-of-parasitic-ai">The Rise of Parasitic AI (Adele Lopez, 2025)</a></li>
+<li><a href="https://www.anthropic.com/news/measuring-model-persuasiveness">Measuring the Persuasiveness of Language Models (Esin Durmus/Liane Lovitt/Alex Tamkin/Stuart Ritchie/Jack Clark/Deep Ganguli, 2024)</a></li>
+<li><a href="https://arbital.com/p/user_manipulation/">User manipulation (Eliezer Yudkowsky, 2016)</a>, <a href="https://arbital.com/p/30b/">User maximization (Eliezer Yudkowsky, 2016)</a></li>
+</ul>
 <h2 id="Appendix_A_Sketch_Setup_of_Model_Whisperers"><a class="hanchor" href="#Appendix_A_Sketch_Setup_of_Model_Whisperers">Appendix A: Sketch Setup of Model Whisperers</a></h2>
 <p>Pursuant <a href="./doc/practical/personnel_security_nist_2020.pdf">NIST Special Publication 800-53, Revision 5, 3.14 Personnel
 Security</a>. (Sorry,
@@ -317,6 +329,10 @@ this may be a bit boring, and is mostly a sketch.)</p>
 <li>Human brains are too heterogeneous for generalizable attacks</li>
 </ol></li>
 </ol>
+<p>Possibility: Stimuli that are extremely persuasive/compelling <em>while
+observed</em> and shortly thereafter, but don't have any lasting effects
+unless there's repeated exposure, because neuronal pathways don't form
+quickly enough while the stimulus is observed.</p>
 <!--Claude Chats:
 https://claude.ai/chat/9b59090a-d1b1-4cff-b0ce-77e439b027f4
 https://claude.ai/chat/752d0fda-12b0-4f3c-b509-431fc46f9059

@@ -1,0 +1,114 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+</head><body><p>Detailed comments and suggested fixes:</p>
+<ul>
+<li>Model and Busy Beaver alignment
+<ul>
+<li>Right now you mix “program length k” with a Busy Beaver variant defined in terms of “2 symbols, m states,” writing things like <span>$</span><span>$</span>S(2, k - l(C_n))<span>$</span><span>$</span>. That mismatch can be avoided by staying within a single UTM model with prefix-free programs.</li>
+<li>Suggestion: define a steps Busy Beaver relative to a fixed prefix-free UTM, e.g.</li>
+<li><span>$</span><span>$</span>BB_{\text{steps}}(n) := \max{ \text{steps}(p) : p \text{ halts and } |p| \le n}<span>$</span><span>$</span>.</li>
+<li>Then define the copy beaver on the same machine as
+<ul>
+<li><span>$</span><span>$</span>CB(n) := \max{ \text{copies output by } p \text{ of a fixed target string } t : |p| \le n}<span>$</span><span>$</span>.</li>
+</ul></li>
+<li>Because writing one more copy requires at least a constant number of steps (finite alphabet, single head, finite write speed), you get
+<ul>
+<li><span>$</span><span>$</span>CB(n) = \Theta(BB_{\text{steps}}(n))<span>$</span><span>$</span> up to constant factors depending on the target-string length and the machine.</li>
+</ul></li>
+<li>This keeps everything uniform and avoids the states/length mismatch.</li>
+</ul></li>
+<li>Divergence under the simplicity prior
+<ul>
+<li>With the above, <span>$</span><span>$</span>BB_{\text{steps}}(n)<span>$</span><span>$</span> (and thus <span>$</span><span>$</span>CB(n)<span>$</span><span>$</span>) dominates every computable function, hence certainly every exponential in <span>$</span><span>$</span>n<span>$</span><span>$</span>. So your informal limit “mugger EV behaves like <span>$</span><span>$</span>2^{-k}\,CB(k)\to\infty<span>$</span><span>$</span>” is directionally correct.</li>
+<li>If you want a clean statement: for any fixed constant <span>$</span><span>$</span>c&gt;0<span>$</span><span>$</span>, <span>$</span><span>$</span>CB(n) / 2^{cn} \to \infty<span>$</span><span>$</span>. Consequently a sequence of “copy-beaver” programs of increasing length yields unbounded expected utility under the Solomonoff length prior.</li>
+<li>Nit: Solomonoff’s prior is a universal semimeasure, not a measure. That doesn’t change your point.</li>
+</ul></li>
+<li>The inverse-bound for mugging-immune utilities under the length prior
+<ul>
+<li>Your derivation</li>
+<li>Require for each length <span>$</span><span>$</span>k<span>$</span><span>$</span>: <span>$</span><span>$</span>2^{-k}\,U_i(CB(k)) \le c<span>$</span><span>$</span>.</li>
+<li>Hence <span>$</span><span>$</span>U_i(CB(k)) \le c\,2^k<span>$</span><span>$</span>.</li>
+<li>Using an inverse of <span>$</span><span>$</span>CB<span>$</span><span>$</span>: <span>$</span><span>$</span>U_i(x) \le c\,2<sup>{CB</sup>{-1}(x)}<span>$</span><span>$</span>.</li>
+<li>Two tweaks make this precise:</li>
+<li>Use the generalized inverse <span>$</span><span>$</span>CB^{-1}(x) := \min{n: CB(n)\ge x}<span>$</span><span>$</span> (monotonic, well-defined even if <span>$</span><span>$</span>CB<span>$</span><span>$</span> isn’t strictly increasing).</li>
+<li>Add a constant-factor slack from machine details; the clean version is
+<ul>
+<li><span>$</span><span>$</span>U_i(x) \le O!\left(2<sup>{CB</sup>{-1}(x)}\right)<span>$</span><span>$</span>.</li>
+</ul></li>
+<li>This does “break the boundedness barrier”: these utilities can be unbounded yet mugging-immune against copy-style muggers under the length prior. They are, however, extremely slowly growing, as you note.</li>
+</ul></li>
+<li>“Log diminishing returns isn’t enough”
+<ul>
+<li>Correct. Since <span>$</span><span>$</span>\log CB(k)<span>$</span><span>$</span> outgrows any linear function in <span>$</span><span>$</span>k<span>$</span><span>$</span> (indeed any computable function), <span>$</span><span>$</span>2^{-k}\log CB(k)<span>$</span><span>$</span> still diverges. Your displayed inequality is fine.</li>
+</ul></li>
+<li>Multiple pseudo-numéraires
+<ul>
+<li>The informal “threshold” using <span>$</span><span>$</span>CB(\log_2 k)<span>$</span><span>$</span> isn’t well-justified as written; it mixes description length and copy budgets without a clean construction.</li>
+<li>If you want a safe statement under the length prior alone: a mugger can spend bits to specify many distinct pseudo-numéraires and produce the first instance of each; if your utility has steep early marginal gains across a very large family of cheaply generatable goods, that can reintroduce problems. A precise threshold would need a model of how many distinct “first units” can be generated by a length‑<span>$</span><span>$</span>k<span>$</span><span>$</span> program (which is again bounded by runtime, hence by <span>$</span><span>$</span>BB_{\text{steps}}(k)<span>$</span><span>$</span>, not by a mere function of <span>$</span><span>$</span>k<span>$</span><span>$</span> like <span>$</span><span>$</span>\log k<span>$</span><span>$</span>).</li>
+</ul></li>
+<li>The speed prior part (this is where a crisp general argument helps)
+<ul>
+<li>What you wrote as a “speed prior” <span>$</span><span>$</span>P(p) \propto 2^{-(l(p)+s(p))}<span>$</span><span>$</span> is not the usual Schmidhuber/Levin choice (see below), but it’s a valid time-penalized semimeasure, and it does suffice to kill this mugging.</li>
+<li>General lemma (captures both your exponential penalty and the classical Kt/Levin penalty):</li>
+<li>Consider a prior of the form <span>$</span><span>$</span>P(p) \propto 2^{-|p|}\,g(s(p))<span>$</span><span>$</span>, where <span>$</span><span>$</span>g:\mathbb{N}\to\mathbb{R}_+<span>$</span><span>$</span> is nonincreasing.</li>
+<li>Assume any program that produces <span>$</span><span>$</span>v<span>$</span><span>$</span> units of the good must take at least <span>$</span><span>$</span>s \ge \alpha\,v<span>$</span><span>$</span> steps for some machine-dependent constant <span>$</span><span>$</span>\alpha&gt;0<span>$</span><span>$</span> (finite write speed).</li>
+<li>Then the expected utility contributed by a “copy-style” mugger of description length <span>$</span><span>$</span>k<span>$</span><span>$</span> is at most
+<ul>
+<li><span>$</span><span>$</span>2^{-k}\,\sup_{s\ge 1} \alpha\,s\,g(s)<span>$</span><span>$</span>.</li>
+</ul></li>
+<li>Conclusion: If <span>$</span><span>$</span>\sup_s s\,g(s) &lt; \infty<span>$</span><span>$</span>, all such muggings are uniformly bounded (no divergence, no mugging).</li>
+<li>Instantiations:</li>
+<li>Your exponential penalty: <span>$</span><span>$</span>g(s)=2^{-s}<span>$</span><span>$</span> gives <span>$</span><span>$</span>\sup_s s\,2^{-s} \le 1<span>$</span><span>$</span>. So EV ≤ constant·<span>$</span><span>$</span>2^{-k}<span>$</span><span>$</span>; tends to 0 and cannot dominate.</li>
+<li>Levin/“Kt” style speed prior: <span>$</span><span>$</span>g(s)=1/s<span>$</span><span>$</span> (equivalently weighting by <span>$</span><span>$</span>2^{-(|p|+\log s)}<span>$</span><span>$</span>). Then EV ≤ constant·<span>$</span><span>$</span>2^{-k}<span>$</span><span>$</span>. This is the standard result: penalizing by runtime 1/s suffices.</li>
+<li>Any polynomial penalty <span>$</span><span>$</span>g(s)=1/s^c<span>$</span><span>$</span> with <span>$</span><span>$</span>c&gt;1<span>$</span><span>$</span> also works; <span>$</span><span>$</span>c=1<span>$</span><span>$</span> is already enough.</li>
+<li>Normalization worry</li>
+<li>The “could normalization upweight by a superexponential amount?” worry does not apply. The normalizing constant <span>$</span><span>$</span>Z=\sum_p 2^{-|p|}g(s(p))<span>$</span><span>$</span> is a finite positive constant independent of <span>$</span><span>$</span>k<span>$</span><span>$</span> (because <span>$</span><span>$</span>2^{-|p|}<span>$</span><span>$</span> is summable over a prefix-free set and <span>$</span><span>$</span>g(s)\le g(1)<span>$</span><span>$</span>). Multiplying by <span>$</span><span>$</span>1/Z<span>$</span><span>$</span> cannot cancel the per‑program runtime penalty in a <span>$</span><span>$</span>k<span>$</span><span>$</span>-dependent way.</li>
+<li>Upshot: a standard speed prior (e.g., Levin’s <span>$</span><span>$</span>2^{-|p|}/s(p)<span>$</span><span>$</span>) already blocks Pascal-style muggings that rely on producing vast amounts of the valued good via long runtimes. Your stronger exponential‑in‑steps penalty also works, but is stricter than necessary and nonstandard.</li>
+</ul></li>
+<li>“Pure speed prior”
+<ul>
+<li>The obstacle is not “Lebesgue measure zero.” The real issue is normalization: if you tried <span>$</span><span>$</span>P(p)\propto g(s(p))<span>$</span><span>$</span> with no length penalty, the sum over all programs diverges because there are exponentially many prefix-free programs for each length and infinitely many lengths. You need a length penalty (e.g., <span>$</span><span>$</span>2^{-|p|}<span>$</span><span>$</span>) for Kraft-style summability. So a pure speed-only prior is not normalizable in the usual way.</li>
+</ul></li>
+<li>Scope of your immunity result
+<ul>
+<li>Your bound using <span>$</span><span>$</span>CB<span>$</span><span>$</span> shows immunity against any mugger whose trick is “use a short program and a huge runtime to produce a lot of the pseudo-numéraire.” That’s the canonical PM failure mode under the simplicity prior.</li>
+<li>With a speed prior, the same finite-write-speed argument shows immunity not just to copying but to any scheme where the quantity of value produced scales at most linearly with steps. This includes “first unit across many goods” type muggings as well, since producing <span>$</span><span>$</span>m<span>$</span><span>$</span> distinct first units still needs <span>$</span><span>$</span>\Omega(m)<span>$</span><span>$</span> steps overall.</li>
+</ul></li>
+<li>Small phrasing/math nits to consider fixing
+<ul>
+<li>Replace “proportional to <span>$</span><span>$</span>2^{-l(C)}<span>$</span><span>$</span>” with “a universal prefix semimeasure that upper‑bounds by <span>$</span><span>$</span>O(2^{-l(C)})<span>$</span><span>$</span>.”</li>
+<li>Replace your limit display “<span>$</span><span>$</span> \lim_{k\to\infty} 2^{-k} CB(k) = \infty<span>$</span><span>$</span>” with “<span>$</span><span>$</span>2^{-k} CB(k)\to\infty<span>$</span><span>$</span>” or “<span>$</span><span>$</span>CB(k)<span>$</span><span>$</span> dominates every exponential in <span>$</span><span>$</span>k<span>$</span><span>$</span>.”</li>
+<li>When you write the inverse-bound, say explicitly that you’re using the generalized inverse and include the big‑O: <span>$</span><span>$</span>U(k) \le O(2<sup>{CB</sup>{-1}(k)})<span>$</span><span>$</span>.</li>
+<li>Clarify that writing the numéraire may require zeros, hence use step-based BB (as you noted), not the “1s written” variant.</li>
+</ul></li>
+<li>Optional strengthening you could add
+<ul>
+<li>State the general “speed prior condition” explicitly:</li>
+<li>If your prior weights programs by <span>$</span><span>$</span>2^{-|p|} g(s(p))<span>$</span><span>$</span> with nonincreasing <span>$</span><span>$</span>g<span>$</span><span>$</span> such that <span>$</span><span>$</span>\sup_{s} s\,g(s)&lt;\infty<span>$</span><span>$</span>, then no Pascal-style mugging via runtime amplification is possible for any monotone unbounded utility that values a good deliverable at finite write speed.</li>
+<li>This abstracts away from the exact growth rate of <span>$</span><span>$</span>CB<span>$</span><span>$</span> and makes the “need for speed” point crisp.</li>
+</ul></li>
+</ul>
+<p>Bottom line:
+- The copy-beaver construction and the “almost Busy Beaver like” growth are fine once you pin them to a steps‑based BB on a fixed UTM.
+- Your inverse‑CB bound for mugging‑immune utilities under the length prior is algebraically right; just use the generalized inverse and big‑O.
+- The speed prior idea is correct and can be made both simpler and stronger by using the standard Levin/Schmidhuber form; normalization cannot rescue the mugger.
+- The “pure speed prior” section should be revised: the issue is non-normalizability without a length penalty, not measure-zero per program.</p>
+
+</body></html>
