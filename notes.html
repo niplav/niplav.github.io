@@ -6431,6 +6431,7 @@ into view.-->
 <li><a href="https://en.wikipedia.org/wiki/FAAH-OUT">FAAH-OUT and the FAAH gene variant rs324420</a>.</li>
 <li>Wanting≠Liking.</li>
 <li>A <a href="https://en.wikipedia.org/wiki/Singleton">singleton</a>, if it's indeed possible.</li>
+<li>The stability of GANs???</li>
 </ul>
 <p>Indicators that there is no replacement for evolution:</p>
 <ul>
@@ -6473,7 +6474,7 @@ I'd been doing it or not.</p>
 <h2 id="Pergraphs"><a class="hanchor" href="#Pergraphs">Pergraphs</a></h2>
 <p>Moved <a href="./pergraphs.html">here</a>.</p>
 <h2 id="Avoiding_Wireheading_via_Iterative_Convergent_Interventional_Avoidance"><a class="hanchor" href="#Avoiding_Wireheading_via_Iterative_Convergent_Interventional_Avoidance">Avoiding Wireheading via Iterative Convergent Interventional Avoidance</a></h2>
-<p>(All of the following assumes that <a href="https://centresecuriteia.github.io/textbook/Chapters/06%20-%20Reward%20Misspecification/3-Reward-Misspecification/index.html">reward
+<p>(All of the following assumes that <a href="https://centresecuriteia.github.io/textbook/Chapters/06%20-%20Reward%20nisspecification/3-Reward-Misspecification/index.html">reward
 tampering/wireheading</a>
 actually are problems in advanced AI systems, and I will
 not spend any time justifying that assumption, even though
@@ -6704,72 +6705,7 @@ is difficult to interpret beyond current understanding of neuroanatomy
 plans for mentalese communication between humans or instant Wikipedia
 fact recall, and still very useful.</p>
 <h2 id="I_Believe_the_Value_Misspecification_Argument"><a class="hanchor" href="#I_Believe_the_Value_Misspecification_Argument">I Believe the Value Misspecification Argument</a></h2>
-<p>The story goes like this: People used to believe that advanced AIs
-would take your instructions literally, and turn the entire universe
-into paperclips if you instructed them to create you a paperclip
-factory. But if you ask current LLMs, they tell you they won't turn the
-entire universe into a paperclip factory just because you expressed a
-weak desire to use some bent metal to bring order to your government
-forms. Thus, the original argument (the <a href="https://www.lesswrong.com/posts/i5kijcjFJD6bn7dwq/evaluating-the-historical-value-misspecification-argument">"Value Misspecification
-Argument"</a>)
-is wrong and the people who believed it should at least stop believing
-it).</p>
-<p>Here's a <em>different</em> story: Advanced AI systems are going to be
-optimizers. They are going to be optimizing <em>something</em>. What
-would that something be? There are two possibilities: (1) They
-are going to optimize a function of their world model<sup id="fnref6"><a href="#fn6" rel="footnote">6</a></sup>, or
-(2) they are going to optimize a function of the sensors. (See <a href="./cs/ai/alignment/value_learning/learning_what_to_value_dewey_2010.pdf">Dewey
-2010</a>
-on this.). Furthermore, so goes the assumption, they will be
-<a href="https://arxiv.org/abs/2412.14093">goal-guarding</a>: They will take actions
-to prevent the target of their optimization from being changed.  At some
-point then an AI will fix its goal in place. This goal will be to either
-optimize some function of its world model, or of its sensors. In the
-case (1) it will want to keep that goal, so for instrumental purposes
-it may continue improving its world model as it becomes more capable,
-but keep a copy of the old world model as a referent for what it truly
-values. In the case (2) it will simply have to keep the sensors.</p>
-<p>What happens if an AI optimizes a function of its world model? Well,
-there's precedent. <a href="https://en.wikipedia.org/wiki/DeepDream">DeepDream</a>
-images were created by finding maximizing activations for neurons in
-the <a href="https://en.wikipedia.org/wiki/Convolutional_neural_net">ConvNet</a>
-Inception trained on <a href="https://en.wikipedia.org/wiki/ImageNet">ImageNet</a>.
-These are some of the results:</p>
-<p><img alt="" src="img/misspecification/dog_1.jpg"></p>
-<p><img alt="" src="img/misspecification/dog_2.jpg"></p>
-<p><img alt="" src="img/misspecification/dog_3.jpg"></p>
-<p><img alt="" src="img/misspecification/dog_4.jpg"></p>
-<p>So, even if you've solved the <a href="https://www.lesswrong.com/s/r9tYkB2a8Fp4DN8yB/p/pL56xPoniLvtMDQ4J">inner alignment
-problem</a>,
-and you get some representation of human values into your AI, if it
-goal-guards and then ramps up its optimization power, the result will
-probably look like the DeepDream dogs, but for Helpfulness, Harmlessness
-and Honesty. I believe we once called this problem of finding a function
-that is safe to optimize the "outer alignment problem", but most people
-seem to have forgotten about this, or believe it's a solved problem.</p>
-<p>One could argue that current LLM representations of human values are
-robust to strong optimization, or that they will be robust to strong
-optimization at the time when AIs are capable of taking over. I think
-that's probably wrong, because (1) LLMs have many more degrees of freedom
-in their internal representations than e.g. Inception, so the resulting
-optimized outputs are going to look even stranger, and (2) I don't think
-humans have yet found any function that's safe and useful to optimize,
-so I don't think it's going to be "in the training data".</p>
-<p>If an advanced AI optimizes some functions of its
-sensors that is usually called wireheading or <a href="https://www.anthropic.com/research/reward-tampering">reward
-tampering</a>
-or the problem of inducing <a href="https://arbital.com/p/environmental_goals/">environmental
-goals</a>, and it doesn't lead
-to an AI sitting in the corner being helpless, but probably like trying
-to agentically create an expanding protective shell around some register
-in a computer somewhere.</p>
-<p>This argument fails if (1) advanced AIs are not optimizers, (2) AIs are
-not goal-guarding, (3) or representations can't be easily extracted for
-later optimization.</p>
-<p>What could the DeepDream dogs equivalent of helpfulness, harmlessness
-and honesty look like? Probably quite strange.<!--TODO: wedding
-fixation on maximized outputs, what happens with extremal SAE values
-for HHH/goodness?--></p>
+<p>See <a href="./automated.html#IV_GoalGuarding__Adversarial_Examples">here</a>.</p>
 <h2 id="Some_Thoughts_on_the_Stupid_Successionism_Debate"><a class="hanchor" href="#Some_Thoughts_on_the_Stupid_Successionism_Debate">Some Thoughts on the Stupid Successionism Debate</a></h2>
 <p>Successionism is a view of AI that claims that the creation of ASIs is
 inherently good because they are our deliberately created successors.</p>
@@ -6811,14 +6747,14 @@ believe that ASIs can be moral patients or moral agents, sure, but are
 they in the room with us right now? Also, for a transhumanist the future
 modifications of some humans will plausibly make them qualitatively as
 different from current humans as future ASIs from current humans.</p>
-<p>After that the conversation usually gets a bit murky, and as a ~non-successionist<sup id="fnref7"><a href="#fn7" rel="footnote">7</a></sup> I don't think
+<p>After that the conversation usually gets a bit murky, and as a ~non-successionist<sup id="fnref6"><a href="#fn6" rel="footnote">6</a></sup> I don't think
 I understand the successionists well enough to represent them maximally
 faithfully, but I'll try.</p>
 <p>Four answers spring to mind:</p>
 <ol>
 <li>If we lock in this abstract generator, we will lose out on moral progress outside of the envelope of this abstract generator. There are moral advancements that can only be made by minds that are vastly beyond humans, because there are axes of value that can only be discovered by exploring the entire space of possible values.</li>
 <li>This generator of human values does not produce values that are adaptive enough to survive into the future, so <em>if</em> it could be locked in that would spell the end of life or self-replication in the observable universe, or will be outcompeted by <a href="https://www.lesswrong.com/posts/evYne4Xx7L9J96BHW/video-and-transcript-of-talk-on-can-goodness-compete">systems focused on pure self-replication</a>.</li>
-<li>This generator of human values is too unconstrained, so the space of values is vacuously large, so the future is wildly unconstained and we get something as-if pulled from the space of possible values at random anyway<sup id="fnref8"><a href="#fn8" rel="footnote">8</a></sup>.</li>
+<li>This generator of human values is too unconstrained, so the space of values is vacuously large, so the future is wildly unconstained and we get something as-if pulled from the space of possible values at random anyway<sup id="fnref7"><a href="#fn7" rel="footnote">7</a></sup>.</li>
 <li>The generator of human values is something that's ~shared between all ~self-replicating entities anyway because game-theoretic considerations push towards it reliably, and humans were forged in a game-theoretic environment in the physical world which is shared by us and future ASIs.</li>
 <li>There is a variant of this position that basically says that optimal/maximal adaptation/game-theoretic behavior/dissipation=ethics/morality/goodness.</li>
 </ol>
@@ -7015,12 +6951,14 @@ Computing is About Atoms, Not Bits</strong>.</p>
 
 https://claude.ai/chat/3a9ba552-a477-4480-9495-64a90e3eaaff
 
-Are There Natural Problems With A Negative Prover-Verifier Gap?
-----------------------------------------------------------------
+It's fairly easy to construct NP-complete problems with cubic verifiers
+and above, but they don't appear in practice. Instead, most verifiers
+of NP-complete problems are linear, some are quadratic (Claude
+Sonnet-generated table [here](./outputs/verification.html)). Why?
 
-Related: [Verification is not Easier than
-Generation in General (johnswentworth,
-2022)](https://www.lesswrong.com/posts/2PDC69DDJuAx6GANa/verification-is-not-easier-than-generation-in-general).
+1. It's a contingent part of our tendency to choose NP-complete problems to focus on.
+2. Our physics favours NP-complete problems with subcubic verifiers.
+3. There's a deep complexity-theoretic reason why most (all?) "natural" NP-complete problems have subcubic verifiers.
 
 Why Are There No Real-World Phenomena With Γ-Like Growth?
 -----------------------------------------------------------
@@ -7064,13 +7002,10 @@ https://claude.ai/chat/6ad1f792-e006-44dd-a450-f4291f70bbb0
 <p>Though also equally large amounts of pleasure, balancing it out.&nbsp;<a href="#fnref5" rev="footnote">↩</a></p>
 </li>
 <li id="fn6">
-<p>Very likely its weights or activations.&nbsp;<a href="#fnref6" rev="footnote">↩</a></p>
+<p>AIs can be moral patients<sub>98%</sub> and agents<sub>99%</sub>, and there could be an extremely valuable future with no humans or human-descended minds but it's very unlikely<sub>0.1%</sub> to come to be by default. In most instigations of this future it would involve great amounts of theft (of the reachable universe from current humans), if not outright genocide of those humans, and thereby tarnishing the future even if it's otherwise quite valuable.&nbsp;<a href="#fnref6" rev="footnote">↩</a></p>
 </li>
 <li id="fn7">
-<p>AIs can be moral patients<sub>98%</sub> and agents<sub>99%</sub>, and there could be an extremely valuable future with no humans or human-descended minds but it's very unlikely<sub>0.1%</sub> to come to be by default. In most instigations of this future it would involve great amounts of theft (of the reachable universe from current humans), if not outright genocide of those humans, and thereby tarnishing the future even if it's otherwise quite valuable.&nbsp;<a href="#fnref7" rev="footnote">↩</a></p>
-</li>
-<li id="fn8">
-<p>Though: What measure on which space are we using here, exactly?&nbsp;<a href="#fnref8" rev="footnote">↩</a></p>
+<p>Though: What measure on which space are we using here, exactly?&nbsp;<a href="#fnref7" rev="footnote">↩</a></p>
 </li>
 </ol>
 </div>

@@ -90,12 +90,42 @@ document.addEventListener('DOMContentLoaded', function () {
                             min-height: 0;
                             width: 100%
                             }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
-<p><em>author: niplav, created: 2025-05-30, modified: 2025-06-20, language: english, status: notes, importance: 7, confidence: likely</em></p>
+<p><em>author: niplav, created: 2025-05-30, modified: 2025-10-28, language: english, status: notes, importance: 7, confidence: likely</em></p>
 <blockquote>
 <p><strong>An unstructured, unfinished braindump.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#I_Type_Signature_of_Output">I. Type Signature of Output</a><ul></ul></li><li><a href="#II_Condition_Number_of_Succession_Process">II. Condition Number of Succession Process</a><ul></ul></li><li><a href="#III_GeneratorVerifier_Gap_BrokenUnusual_For_Alignment">III. Generator-Verifier Gap Broken/Unusual For Alignment</a><ul></ul></li><li><a href="#IV_GoalGuarding__Adversarial_Examples">IV. Goal-Guarding + Adversarial Examples</a><ul></ul></li><li><a href="#V_Training_Imitators">V. Training Imitators</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Related_Writing">Related Writing</a><ul></ul></li><li><a href="#I_Type_Signature_of_Output">I. Type Signature of Output</a><ul></ul></li><li><a href="#II_Condition_Number_of_Succession_Process">II. Condition Number of Succession Process</a><ul></ul></li><li><a href="#III_GeneratorVerifier_Gap_BrokenUnusual_For_Alignment">III. Generator-Verifier Gap Broken/Unusual For Alignment?</a><ul></ul></li><li><a href="#IV_GoalGuarding__Adversarial_Examples">IV. Goal-Guarding + Adversarial Examples</a><ul></ul></li><li><a href="#V_Training_Imitators">V. Training Imitators</a><ul></ul></li><li><a href="#VI_Always_Solve_for_Next_Iteration_or_Sometime_in_Full">VI. Always Solve for Next Iteration, or Sometime in Full?</a><ul></ul></li></ul></div>
 <h1 id="Automated_AI_Alignment_Research"><a class="hanchor" href="#Automated_AI_Alignment_Research">Automated AI Alignment Research</a></h1>
-<h3 id="I_Type_Signature_of_Output"><a class="hanchor" href="#I_Type_Signature_of_Output">I. Type Signature of Output</a></h3>
+<p>People love to talk about whether AI misalignment is even a problem,
+probably by one order of magnitude. Unrelatedly, the main AI alignment
+plan of the major AI companies is (if they have one) to use mildly
+superhuman AIs to solve (parts of?) the alignment problem. Whether
+and how such plans could be made to work is underdiscussed
+by 1½ orders ot magnitude. But like with the <a href="https://en.wikipedia.org/wiki/Meta-problem_of_consciousness">meta-problem of
+consciousness</a>,
+we can probably learn something about the difficulty if we
+attempt to turn the issue of solving AI alignment into <a href="https://arbital.com/p/executable_philosophy/">executable
+philosophy</a>. Here's some
+random stabs.</p>
+<h2 id="Related_Writing"><a class="hanchor" href="#Related_Writing">Related Writing</a></h2>
+<p>The most detailed analyses are Joshua Clymer's writing
+<a href="https://www.lesswrong.com/posts/5gmALpCetyjkSPEDr/training-ai-to-do-alignment-research-we-don-t-already-know">on</a>
+<a href="https://www.lesswrong.com/posts/TTFsKxQThrqgWeXYJ/how-might-we-safely-pass-the-buck-to-ai">automating alignment
+research</a>,
+and Joe Carlsmith's
+<a href="https://joecarlsmith.com/2025/04/30/can-we-safely-automate-alignment-research">high-level</a>
+<a href="https://joecarlsmith.com/2025/03/14/ai-for-ai-safety">overview</a>. At
+this point most AI alignment organizations are working under the
+assumption of having large amount of AI labour available in a critical
+period. Coordinal<!--and another org?--> is directly tackling the problem
+of using AIs for alignment.</p>
+<p>RIP to
+<a href="https://openai.com/blog/introducing-superalignment">superalignment</a>.</p>
+<p>More:</p>
+<ul>
+<li><a href="https://www.lesswrong.com/posts/JKgGvJCzNoBQss2bq/beliefs-and-disagreements-about-automating-alignment">Beliefs and Disagreements about Automating Alignment Research (Ian McKenzie, 2022)</a></li>
+<li><a href="https://www.lesswrong.com/posts/2Gy9tfjmKwkYbF9BY/automation-collapse">Automation collapse (Geoffrey Irving/Tomek Korbak/Benjamin Hilton, 2024)</a></li>
+</ul>
+<h2 id="I_Type_Signature_of_Output"><a class="hanchor" href="#I_Type_Signature_of_Output">I. Type Signature of Output</a></h2>
 <p>When we create scaffolds for/train/create training environments for
 automated AI alignment researchers, what is the type signature of the
 outputs of those researchers?</p>
@@ -115,11 +145,85 @@ outputs of those researchers?</p>
 <li>Control techniques that allow for better supervision of the next generation of automated alignment researchers?</li>
 <li>Just ask the automated alignment researchers what the type signature should be?</li>
 </ul>
-<h3 id="II_Condition_Number_of_Succession_Process"><a class="hanchor" href="#II_Condition_Number_of_Succession_Process">II. Condition Number of Succession Process</a></h3>
-<h3 id="III_GeneratorVerifier_Gap_BrokenUnusual_For_Alignment"><a class="hanchor" href="#III_GeneratorVerifier_Gap_BrokenUnusual_For_Alignment">III. Generator-Verifier Gap Broken/Unusual For Alignment</a></h3>
+<h2 id="II_Condition_Number_of_Succession_Process"><a class="hanchor" href="#II_Condition_Number_of_Succession_Process">II. Condition Number of Succession Process</a></h2>
+<h2 id="III_GeneratorVerifier_Gap_BrokenUnusual_For_Alignment"><a class="hanchor" href="#III_GeneratorVerifier_Gap_BrokenUnusual_For_Alignment">III. Generator-Verifier Gap Broken/Unusual For Alignment?</a></h2>
 <p>There are different perspectives on this.</p>
-<h3 id="IV_GoalGuarding__Adversarial_Examples"><a class="hanchor" href="#IV_GoalGuarding__Adversarial_Examples">IV. Goal-Guarding + Adversarial Examples</a></h3>
-<h3 id="V_Training_Imitators"><a class="hanchor" href="#V_Training_Imitators">V. Training Imitators</a></h3>
+<p>Are there natural problems with a negative generator-verifier gap? How common are they?</p>
+<p>Related:</p>
+<ul>
+<li><a href="https://www.lesswrong.com/posts/2PDC69DDJuAx6GANa/verification-is-not-easier-than-generation-in-general">Verification is not Easier than Generation in General (johnswentworth, 2022)</a></li>
+<li><a href="https://www.lesswrong.com/posts/2PDC69DDJuAx6GANa/verification-is-not-easier-than-generation-in-general?commentId=feTSDufEqXozChSbB">Comment on “Verification Is Not Easier Than Generation In General” (Vanessa Kosoy, 2022)</a></li>
+</ul>
+<!--TODO: Kosoy on the List of Lethalities-->
+<h2 id="IV_GoalGuarding__Adversarial_Examples"><a class="hanchor" href="#IV_GoalGuarding__Adversarial_Examples">IV. Goal-Guarding + Adversarial Examples</a></h2>
+<p>The story goes like this: People used to believe that advanced AIs
+would take your instructions literally, and turn the entire universe
+into paperclips if you instructed them to create you a paperclip
+factory. But if you ask current LLMs, they tell you they won't turn the
+entire universe into a paperclip factory just because you expressed a
+weak desire to use some bent metal to bring order to your government
+forms. Thus, the original argument (the <a href="https://www.lesswrong.com/posts/i5kijcjFJD6bn7dwq/evaluating-the-historical-value-misspecification-argument">"Value Misspecification
+Argument"</a>)
+is wrong and the people who believed it should at least stop believing
+it).</p>
+<p>Here's a <em>different</em> story: Advanced AI systems are going to be
+optimizers. They are going to be optimizing <em>something</em>. What
+would that something be? There are two possibilities: (1) They
+are going to optimize a function of their world model<sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup>, or
+(2) they are going to optimize a function of the sensors. (See <a href="./cs/ai/alignment/value_learning/learning_what_to_value_dewey_2010.pdf">Dewey
+2010</a>
+on this.). Furthermore, so goes the assumption, they will be
+<a href="https://arxiv.org/abs/2412.14093">goal-guarding</a>: They will take actions
+to prevent the target of their optimization from being changed.  At some
+point then an AI will fix its goal in place. This goal will be to either
+optimize some function of its world model, or of its sensors. In the
+case (1) it will want to keep that goal, so for instrumental purposes
+it may continue improving its world model as it becomes more capable,
+but keep a copy of the old world model as a referent for what it truly
+values. In the case (2) it will simply have to keep the sensors.</p>
+<p>What happens if an AI optimizes a function of its world model? Well,
+there's precedent. <a href="https://en.wikipedia.org/wiki/DeepDream">DeepDream</a>
+images were created by finding maximizing activations for neurons in
+the <a href="https://en.wikipedia.org/wiki/Convolutional_neural_net">ConvNet</a>
+Inception trained on <a href="https://en.wikipedia.org/wiki/ImageNet">ImageNet</a>.
+These are some of the results:</p>
+<p><img alt="" src="img/misspecification/dog_1.jpg"></p>
+<p><img alt="" src="img/misspecification/dog_2.jpg"></p>
+<p><img alt="" src="img/misspecification/dog_3.jpg"></p>
+<p><img alt="" src="img/misspecification/dog_4.jpg"></p>
+<p>So, even if you've solved the <a href="https://www.lesswrong.com/s/r9tYkB2a8Fp4DN8yB/p/pL56xPoniLvtMDQ4J">inner alignment
+problem</a>,
+and you get some representation of human values into your AI, if it
+goal-guards and then ramps up its optimization power, the result will
+probably look like the DeepDream dogs, but for Helpfulness, Harmlessness
+and Honesty. I believe we once called this problem of finding a function
+that is safe to optimize the "outer alignment problem", but most people
+seem to have forgotten about this, or believe it's a solved problem. I
+don't quite see why they believe that.</p>
+<p>One could argue that current LLM representations of human values are
+robust to strong optimization, or that they will be robust to strong
+optimization at the time when AIs are capable of taking over. I think
+that's probably wrong, because (1) LLMs have many more degrees of freedom
+in their internal representations than e.g. Inception, so the resulting
+optimized outputs are going to look even stranger, and (2) I don't think
+humans have yet found any function that's safe and useful to optimize,
+so I don't think it's going to be "in the training data".</p>
+<p>If an advanced AI optimizes some functions of its
+sensors that is usually called wireheading or <a href="https://www.anthropic.com/research/reward-tampering">reward
+tampering</a>
+or the problem of inducing <a href="https://arbital.com/p/environmental_goals/">environmental
+goals</a>, and it doesn't lead
+to an AI sitting in the corner being helpless, but probably like trying
+to agentically create an expanding protective shell around some register
+in a computer somewhere.</p>
+<p>This argument fails if (1) advanced AIs are not optimizers, (2) AIs are
+not goal-guarding, (3) or representations can't be easily extracted for
+later optimization.</p>
+<p>What could the DeepDream dogs equivalent of helpfulness, harmlessness
+and honesty look like? Probably quite strange.<!--TODO: wedding
+fixation on maximized outputs, what happens with extremal SAE values
+for HHH/goodness?--></p>
+<h2 id="V_Training_Imitators"><a class="hanchor" href="#V_Training_Imitators">V. Training Imitators</a></h2>
 <p><a href="https://www.lesswrong.com/posts/TTFsKxQThrqgWeXYJ/how-might-we-safely-pass-the-buck-to-ai">Clymer
 2025</a>
 suggests to train AIs that imitate human alignment researchers.</p>
@@ -197,5 +301,14 @@ goes over <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" w
 <a href="https://en.wikipedia.org/wiki/Imitation_learning">imitation learning</a>,
 whereas training against alignment researcher feedback is much more
 similar in spirit to e.g. RLHF.</p>
+<h2 id="VI_Always_Solve_for_Next_Iteration_or_Sometime_in_Full"><a class="hanchor" href="#VI_Always_Solve_for_Next_Iteration_or_Sometime_in_Full">VI. Always Solve for Next Iteration, or Sometime in Full?</a></h2>
+<div class="footnotes">
+<hr>
+<ol>
+<li id="fn1">
+<p>Very likely its weights or activations.&nbsp;<a href="#fnref1" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>
 
 <svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMATHI-4F" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path><path stroke-width="1" id="MJMATHI-41" d="M208 74Q208 50 254 46Q272 46 272 35Q272 34 270 22Q267 8 264 4T251 0Q249 0 239 0T205 1T141 2Q70 2 50 0H42Q35 7 35 11Q37 38 48 46H62Q132 49 164 96Q170 102 345 401T523 704Q530 716 547 716H555H572Q578 707 578 706L606 383Q634 60 636 57Q641 46 701 46Q726 46 726 36Q726 34 723 22Q720 7 718 4T704 0Q701 0 690 0T651 1T578 2Q484 2 455 0H443Q437 6 437 9T439 27Q443 40 445 43L449 46H469Q523 49 533 63L521 213H283L249 155Q208 86 208 74ZM516 260Q516 271 504 416T490 562L463 519Q447 492 400 412L310 260L413 259Q516 259 516 260Z"></path><path stroke-width="1" id="MJMATHI-52" d="M230 637Q203 637 198 638T193 649Q193 676 204 682Q206 683 378 683Q550 682 564 680Q620 672 658 652T712 606T733 563T739 529Q739 484 710 445T643 385T576 351T538 338L545 333Q612 295 612 223Q612 212 607 162T602 80V71Q602 53 603 43T614 25T640 16Q668 16 686 38T712 85Q717 99 720 102T735 105Q755 105 755 93Q755 75 731 36Q693 -21 641 -21H632Q571 -21 531 4T487 82Q487 109 502 166T517 239Q517 290 474 313Q459 320 449 321T378 323H309L277 193Q244 61 244 59Q244 55 245 54T252 50T269 48T302 46H333Q339 38 339 37T336 19Q332 6 326 0H311Q275 2 180 2Q146 2 117 2T71 2T50 1Q33 1 33 10Q33 12 36 24Q41 43 46 45Q50 46 61 46H67Q94 46 127 49Q141 52 146 61Q149 65 218 339T287 628Q287 635 230 637ZM630 554Q630 586 609 608T523 636Q521 636 500 636T462 637H440Q393 637 386 627Q385 624 352 494T319 361Q319 360 388 360Q466 361 492 367Q556 377 592 426Q608 449 619 486T630 554Z"></path></defs></svg></body></html>
