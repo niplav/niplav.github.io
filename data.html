@@ -17,79 +17,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-<style type="text/css">
-                            .mjpage .MJX-monospace {
-                            font-family: monospace
-                            }
-
-                            .mjpage .MJX-sans-serif {
-                            font-family: sans-serif
-                            }
-
-                            .mjpage {
-                            display: inline;
-                            font-style: normal;
-                            font-weight: normal;
-                            line-height: normal;
-                            font-size: 100%;
-                            font-size-adjust: none;
-                            text-indent: 0;
-                            text-align: left;
-                            text-transform: none;
-                            letter-spacing: normal;
-                            word-spacing: normal;
-                            word-wrap: normal;
-                            white-space: nowrap;
-                            float: none;
-                            direction: ltr;
-                            max-width: none;
-                            max-height: none;
-                            min-width: 0;
-                            min-height: 0;
-                            border: 0;
-                            padding: 0;
-                            margin: 0
-                            }
-
-                            .mjpage * {
-                            transition: none;
-                            -webkit-transition: none;
-                            -moz-transition: none;
-                            -ms-transition: none;
-                            -o-transition: none
-                            }
-
-                            .mjx-svg-href {
-                            fill: blue;
-                            stroke: blue
-                            }
-
-                            .MathJax_SVG_LineBox {
-                            display: table!important
-                            }
-
-                            .MathJax_SVG_LineBox span {
-                            display: table-cell!important;
-                            width: 10000em!important;
-                            min-width: 0;
-                            max-width: none;
-                            padding: 0;
-                            border: 0;
-                            margin: 0
-                            }
-
-                            .mjpage__block {
-                            text-align: center;
-                            margin: 1em 0em;
-                            position: relative;
-                            display: block!important;
-                            text-indent: 0;
-                            max-width: none;
-                            max-height: none;
-                            min-width: 0;
-                            min-height: 0;
-                            width: 100%
-                            }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
+</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2022-07-07, modified: 2025-03-20, language: english, status: maintenance, importance: 2, confidence: log</em></p>
 <blockquote>
 <p><strong>Notes for myself on the data I track, how to transform it into a
@@ -296,17 +224,8 @@ collected starting 2020-08-25:</p>
 <li><code>Attractiveness</code>: Floating point on the classical scale, between 1 and 10. See <a href="https://theredquest.wordpress.com/2019/03/25/garbage-post-about-ranking-chicks/">TheRedQuest 2022</a>.</li>
 <li><code>Size</code>: Number of women in set, 1 if not given.</li>
 <li><code>Frequency</code>: Frequency at which the woman has been approached, estimated from the answer given to "How often does this kind of thing happen to you?"</li>
-<li><code>Enjoyment</code>: How much the woman seemed to enjoy the approach. Floating point number in <code>$[-10, 10]$</code>.</li>
-<li><code>Blowout</code>: Whether the approach was a blowout. Floating point number in <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.653ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2003.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
-<title id="MathJax-SVG-1-Title">[0, 1]</title>
-<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
- <use xlink:href="#MJMAIN-5B" x="0" y="0"></use>
- <use xlink:href="#MJMAIN-30" x="278" y="0"></use>
- <use xlink:href="#MJMAIN-2C" x="779" y="0"></use>
- <use xlink:href="#MJMAIN-31" x="1224" y="0"></use>
- <use xlink:href="#MJMAIN-5D" x="1724" y="0"></use>
-</g>
-</svg></span>, usually either 0 or 1 (but some brush-offs are less harsh than others).</li>
+<li><code>Enjoyment</code>: How much the woman seemed to enjoy the approach. Floating point number in between -10.0 and 10.0.</li>
+<li><code>Blowout</code>: Whether the approach was a blowout. Floating point number in between 0.0 and 1.0, usually either 0 or 1 (but some brush-offs are less harsh than others).</li>
 <li><code>Name</code>: Replaced with a random integer for anonymization.</li>
 <li><code>Contact</code>: Contact information received/given. <code>number</code>, <code>instagram</code>, <code>facebook</code>, and sometimes regrettably <code>number given</code> (to the woman).</li>
 <li><code>Age</code>: Age of the woman, if I learn about it. Usually not.</li>
@@ -324,13 +243,27 @@ collected starting 2020-08-25:</p>
 <li><code>Amount</code>: Number of approaches, just <code>Last-First</code>.</li>
 </ul>
 <p>Texting file:</p>
+<ul>
+<li>Flake:
+<ul>
+<li>-2: not contacted;</li>
+<li>-1: unknown</li>
+<li>0: wrong number</li>
+<li>1: didn't reply to opener</li>
+<li>2: rejected via text</li>
+<li>3: replied but conversation fizzled out</li>
+<li>4: didn't reply to date request</li>
+<li>5: agreed to date but didn't turn up</li>
+<li>6: stopped responding after date</li>
+</ul></li>
+</ul>
 <p>Dating file:</p>
 <ul>
 <li>Idate length (minutes)</li>
 <li>Idate cost (euro)</li>
 <li>Flake before 1st date (boolean)</li>
-<li>Date before first sex [1..10] cost (euro)</li>
-<li>Date before first sex [1..10] length (minutes)</li>
+<li>Date before first sex [1..4] cost (euro)</li>
+<li>Date before first sex [1..4] length (minutes)</li>
 <li>Sex number of times (approximately)</li>
 </ul>
 <h2 id="Fitbit_Biometrics"><a class="hanchor" href="#Fitbit_Biometrics">Fitbit Biometrics</a></h2>
@@ -413,4 +346,4 @@ given that all of them have APIs over which data can be exported and
 analyzed. In practice I haven't done so yet, but it might be a good
 (albeit slow-to-evaluate) proxy for cognitive performance.</p>
 
-<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path><path stroke-width="1" id="MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="1" id="MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="1" id="MJMAIN-31" d="M213 578L200 573Q186 568 160 563T102 556H83V602H102Q149 604 189 617T245 641T273 663Q275 666 285 666Q294 666 302 660V361L303 61Q310 54 315 52T339 48T401 46H427V0H416Q395 3 257 3Q121 3 100 0H88V46H114Q136 46 152 46T177 47T193 50T201 52T207 57T213 61V578Z"></path><path stroke-width="1" id="MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path></defs></svg></body></html>
+</body></html>

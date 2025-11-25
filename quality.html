@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
 <blockquote>
 <p><strong>In which I investigate whether not masturbating makes my meditations
 better. It doesn't, and instead plausibly makes them worse<sub>65%</sub>.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Results">Results</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
 <h1 id="Does_Recent_Masturbation_Decrease_Meditation_Quality"><a class="hanchor" href="#Does_Recent_Masturbation_Decrease_Meditation_Quality">Does Recent Masturbation Decrease Meditation Quality?</a></h1>
 <!--TODO: maybe replace correlations with linear regressions, which give
 p-values too.-->
@@ -120,6 +120,7 @@ result['concentration_rating', 'sem'] = (
     np.sqrt(result['concentration_rating']['size'])
 )
 </code></pre>
+<h3 id="Results"><a class="hanchor" href="#Results">Results</a></h3>
 <p>Plot together with sample sizes:</p>
 <p><img alt="&quot;Three line graphs: Concentration and mindfulness (with error bars), and sample sizes, with the x-axis being days since last masturbation. Concentration values decline fairly steadily for longer periods of abstinence, while mindfulness values first slightly decline, then spike at 32 days, then decline drastically and climbing up again towards 60 days. Sample sizes fall of quickly so that they're below 100 after 12 days.&quot;" src="./img/quality/time_series.png" title="Three line graphs: Concentration and mindfulness (with error bars), and sample sizes, with the x-axis being days since last masturbation. Concentration values decline fairly steadily for longer periods of abstinence, while mindfulness values first slightly decline, then spike at 32 days, then decline drastically and climbing up again towards 60 days. Sample sizes fall of quickly so that they're below 100 after 12 days."></p>
 <p>Now <em>this</em> is fairly interesting! Even just eye-balling suggests that

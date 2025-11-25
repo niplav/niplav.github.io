@@ -1,0 +1,255 @@
+<html><head><title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png">
+<link href="main.css" rel="stylesheet" type="text/css">
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+
+
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+<style type="text/css">
+                            .mjpage .MJX-monospace {
+                            font-family: monospace
+                            }
+
+                            .mjpage .MJX-sans-serif {
+                            font-family: sans-serif
+                            }
+
+                            .mjpage {
+                            display: inline;
+                            font-style: normal;
+                            font-weight: normal;
+                            line-height: normal;
+                            font-size: 100%;
+                            font-size-adjust: none;
+                            text-indent: 0;
+                            text-align: left;
+                            text-transform: none;
+                            letter-spacing: normal;
+                            word-spacing: normal;
+                            word-wrap: normal;
+                            white-space: nowrap;
+                            float: none;
+                            direction: ltr;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            border: 0;
+                            padding: 0;
+                            margin: 0
+                            }
+
+                            .mjpage * {
+                            transition: none;
+                            -webkit-transition: none;
+                            -moz-transition: none;
+                            -ms-transition: none;
+                            -o-transition: none
+                            }
+
+                            .mjx-svg-href {
+                            fill: blue;
+                            stroke: blue
+                            }
+
+                            .MathJax_SVG_LineBox {
+                            display: table!important
+                            }
+
+                            .MathJax_SVG_LineBox span {
+                            display: table-cell!important;
+                            width: 10000em!important;
+                            min-width: 0;
+                            max-width: none;
+                            padding: 0;
+                            border: 0;
+                            margin: 0
+                            }
+
+                            .mjpage__block {
+                            text-align: center;
+                            margin: 1em 0em;
+                            position: relative;
+                            display: block!important;
+                            text-indent: 0;
+                            max-width: none;
+                            max-height: none;
+                            min-width: 0;
+                            min-height: 0;
+                            width: 100%
+                            }</style></head><body><h2 id="home"><a href="./index.html">home</a></h2>
+<p><em>author: niplav, created: 2025-10-12, modified: 2025-11-25, language: english, status: finished, importance: 5, confidence: possible</em></p>
+<blockquote>
+<p><strong>Progress in quantum computing is mostly relevant insofar that it is
+progress in Atoms, not progress in Bits. This is because quantum computers
+are best suited for simulating quantum-mechanical systems, and because
+Shor's algorithm doesn't matter economically, Grover's algorithm only
+matters at huge scales, and quantum machine learning hasn't found any
+promising algorithms yet.</strong></p>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Quantum_Computing_is_about_Atoms_not_Bits">Quantum Computing is about Atoms, not Bits</a><ul></ul></li></ul></div>
+<h2 id="Quantum_Computing_is_about_Atoms_not_Bits"><a class="hanchor" href="#Quantum_Computing_is_about_Atoms_not_Bits">Quantum Computing is about Atoms, not Bits</a></h2>
+<p><em>epistemic status</em>: Stating impressions, but I don't know much about
+quantum physics (or quantum computing!). Someone more qualified please
+write the accurate version of this post.</p>
+<p>That said: I think people have been hyping quantum computing
+backwards. The specific algorithms that are always brought up as
+providing a relevant speedup over their classical counterparts are
+<a href="https://en.wikipedia.org/wiki/Shor's_Algorithm">Shor's algorithm</a> and
+<a href="https://en.wikipedia.org/wiki/Grover's_algorithm">Grover's algorithm</a>,
+but not much relevant economic activity is tied up with
+finding the prime factors of numbers, and while getting a
+<a href="https://en.wiktionary.org/wiki/radical#Etymology">radical</a> speedup in
+unsorted search is cool, the setup costs may only be worth it except
+for extremely large searches:</p>
+<blockquote>
+<p>Even when considering only problem instances that can be solved within
+one day, we find that there are potentially large quantum speedups
+available. ... However, the number of physical qubits used is extremely
+large, ... . In particular, the quantum advantage disappears if one
+includes the cost of the classical processing power required to perform
+decoding of the surface code using current techniques.” The most recent
+of the references listed above [<a href="https://arxiv.org/abs/2307.00523">11</a>]
+estimates that achieving a quantum advantage via a quadratic speedup
+requires at least a month-long computation already if each iteration
+contains at least one floating-point operation.</p>
+</blockquote>
+<p><em>—Dalzell et al., <a href="https://arxiv.org/pdf/2310.03011#subsection.0.4.1">“Quantum algorithms: A survey of applications and end-to-end complexities”</a> p. 76, 2023</em></p>
+<p>Relevantly, with cheaper quantum error correction this may drop, and
+I vaguely remember Aaronson claiming that performing unsorted search
+with tens of terabytes is a low estimate for when Grover speedups will
+be useful.</p>
+<p>For cracking 2048-bit RSA and 256-bit ECC:</p>
+<blockquote>
+<p>The physical resources required to implement these logical
+circuits fault tolerantly depends on many details of the
+hardware, including the error rate, the physical gate speed,
+and the available connectivity. In both cases (2048-bit RSA
+[<a href="https://arxiv.org/pdf/2310.03011#cite.21@gidney2021HowToFactor">10</a>,
+<a href="https://arxiv.org/pdf/2310.03011#cite.21@ha2022ShorResources">29</a>]
+and 256-bit ECC
+[<a href="https://arxiv.org/pdf/2310.03011#cite.21@webber2022HardwareSpecifications">25</a>,
+<a href="https://arxiv.org/pdf/2310.03011#cite.21@gouzien2023catCodeEllipticCurve">26</a>,
+<a href="https://arxiv.org/pdf/2310.03011#cite.21@litinski2023EllipticCurvesBaseline">27</a>]),
+given current hardware schemes restricted to nearest-neighbor 2D
+connectivity with logical qubits encoded into surface codes, the number
+of physical qubits is estimated to be on the order of 10 million and
+the computation runs for at least 3–10 hours (significantly longer
+than this for platforms with relatively slower physical gate speeds).</p>
+</blockquote>
+<p><em>—Dalzell et al., <a href="https://arxiv.org/pdf/2310.03011#subsection.0.6.1">“Quantum algorithms: A survey of applications and end-to-end complexities”</a> p. 114, 2023</em></p>
+<p>which is certainly much faster, but also much less
+economically useful, and in some sense economically
+<em>disvaluable</em> because now we have to find <a href="https://en.wikipedia.org/wiki/Post-Quantum_Cryptography">post-quantum
+cryptography</a>
+methods.</p>
+<p>I don't have a full picture of the possible applications for quantum
+algorithms, but my impression is that for purely bit-focused areas such as
+e.g. logistics or supply chain optimization or even machine learning the
+algorithms (1) are fairly narrow, (2) usually don't offer an exponential
+speedup <em>or</em> only offer it if we postulate specific setups (e.g. the <a href="https://en.wikipedia.org/wiki/HHL_algorithm">HHL
+algorithm</a> for estimating
+quadratic functions of the solution of a system of linear equations
+depends on <a href="https://en.wikipedia.org/wiki/HHL_algorithm#Implementation_difficulties">"the solution vector, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.549ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 1097.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">|b⟩</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-7C" x="0" y="0"></use>
+ <use xlink:href="#MJMATHI-62" x="278" y="0"></use>
+ <use xlink:href="#MJMAIN-27E9" x="708" y="0"></use>
+</g>
+</svg></span>, […] be efficiently
+prepared"</a>),
+(3) often the best classical algorithms exploit some structure that
+makes them comparable in performance to quantum algorithms (such as
+sorting an <a href="https://en.wikipedia.org/wiki/Database_index">index</a>
+once and searching in logarithmic time repeatedly) and (4) that
+finding exact solutions to computational problems efficiently is not
+a large bottleneck on bit-focused parts of the economy, except in
+training LLMs. I feel skeptical about quantum machine learning, and my
+guess is that if we <a href="https://www.scottaaronson.com/papers/qml.pdf">read the fine print on quantum machine learning
+speedups</a> we'll often not
+find them useful in practice:</p>
+<blockquote>
+<p>So in summary, how excited should we be about the new quantum machine
+learning algorithms? To whatever extent we care about quantum computing
+at all, I’d say we should be excited indeed: HHL and its offshoots
+represent real advances in the theory of quantum algorithms, and in a
+world with quantum computers, they’d probably find practical uses. But
+along with the excitement, we ought to maintain a sober understanding
+of what these algorithms would and wouldn’t do: an understanding
+that the original papers typically convey, but that often gets lost in
+secondhand accounts.<br>
+The new algorithms provide a general template, showing how quantum
+computers might be used to provide exponential speedups for central
+problems like clustering, pattern-matching, and principal component
+analysis. But for each intended application of the template, one still
+needs to invest a lot of work to see whether (a) the application satisfies
+all of the algorithm’s “fine print,” and (b) once we include the
+fine print, there’s also a fast classical algorithm that provides the
+same information.</p>
+</blockquote>
+<p><em>—Scott Aaronson, <a href="https://www.scottaaronson.com/papers/qml.pdf">“Quantum Machine Learning Algorithms: Read the Fine Print”</a>, 2015</em></p>
+<p>Hence: Quantum computing looks quite underwhelming on the side of bits.</p>
+<p>My best guess is still that quantum computing is still extremely
+promising, because quantum algorithms are really good at simulating
+quantum systems, and the world is at its basis quantum.</p>
+<blockquote>
+<p>Despite the apparent exponential cost of exact classical methods
+for this task, scientists have made incredible progress over the last
+century via increasingly sophisticated approximate methods. As a result,
+quantum chemistry is now a core part of several applications, including
+the analyses of chemistry experiments, the pharmaceutical drug discovery
+pipeline, and the optimization of materials for catalysts and batteries.</p>
+</blockquote>
+<p><em>—Dalzell et al., <a href="https://arxiv.org/pdf/2310.03011#section.0.2">“Quantum algorithms: A survey of applications and end-to-end complexities”</a> p. 36, 2023</em></p>
+<p>There's been some speculation that accurate quantum computers can even
+help with the construction of next-generation quantum computers</p>
+<blockquote>
+<p>I wish we had a quantum computer because by the way, the first thing the
+quantum computer will allow us to do is build quantum computers, because
+it's going to be so much easier to simulate atom-by-atom construction
+of these new quantum gates.</p>
+</blockquote>
+<p><em>—Dwarkesh Patel &amp; Satya Nadella, <a href="https://www.dwarkesh.com/p/satya-nadella">“Satya Nadella — Microsoft’s AGI plan &amp; quantum breakthrough”</a>, 2025</em></p>
+<p>but my impression is that these kinds of flywheel-arguments are usually
+not applicable and usually some different bottleneck kicks in.</p>
+<p>But otherwise, quantum algorithms seem really useful
+for simulating the interactions of small molecules and
+their formation, figuring out the dynamics of chemical
+interactions, maybe even making progress on <a href="https://www.gap-map.org/gaps/inability-to-perform-chemistry-with-direct-positional-control/">atomically precise
+manufacturing</a>
+and resolving the <a href="https://en.wikipedia.org/wiki/Drexler-Smalley_debate_on_molecular_nanotechnology">Drexler-Smalley
+debate</a>???</p>
+<p>There is also some hope that quantum computing will
+allow us to make <a href="https://arxiv.org/pdf/2310.03011#section.0.3">progress in nuclear and particle
+physics</a>, but I can't
+immediately think of any industrial applications of such progress.</p>
+<p>If my understanding here is correct, then that's way cooler
+than progress in bits! Humanity hasn't made much <a href="https://www.lesswrong.com/posts/Xqcorq5EyJBpZcCrN/thiel-on-progress-and-stagnation">progress in
+atoms</a>
+recently, while making tons of progress in bits, so that might be why
+people are hyping quantum computing as a bit-focussed technology—they
+can't conceive of anything else? And communicating the advantages of
+quantum computing has been extremely backwards, which is usually lead with
+"quantum computing will break this strange cryptography thing", <em>not</em>
+"quantum computing will let us make batteries that are substantially
+more efficient", guess which of those is more easily understandeable
+to laypeople‽</p>
+<p>So, yeah, I think quantum computing is hype-worthy, though my best guess
+is that the magnitude of current hype on it is too large relative to
+other technologies. But: the current hype is mis-directed, and can be
+redirected in the correct direction with a simple message: <strong>Quantum
+Computing is About Atoms, Not Bits</strong>.</p>
+
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMAIN-7C" d="M139 -249H137Q125 -249 119 -235V251L120 737Q130 750 139 750Q152 750 159 735V-235Q151 -249 141 -249H139Z"></path><path stroke-width="1" id="MJMATHI-62" d="M73 647Q73 657 77 670T89 683Q90 683 161 688T234 694Q246 694 246 685T212 542Q204 508 195 472T180 418L176 399Q176 396 182 402Q231 442 283 442Q345 442 383 396T422 280Q422 169 343 79T173 -11Q123 -11 82 27T40 150V159Q40 180 48 217T97 414Q147 611 147 623T109 637Q104 637 101 637H96Q86 637 83 637T76 640T73 647ZM336 325V331Q336 405 275 405Q258 405 240 397T207 376T181 352T163 330L157 322L136 236Q114 150 114 114Q114 66 138 42Q154 26 178 26Q211 26 245 58Q270 81 285 114T318 219Q336 291 336 325Z"></path><path stroke-width="1" id="MJMAIN-27E9" d="M55 732Q56 739 61 744T75 750Q85 750 92 740Q95 733 186 494T278 250T187 6T92 -240Q85 -250 75 -250Q67 -250 62 -245T55 -232Q55 -227 145 11Q236 248 236 250T145 489Q55 727 55 732Z"></path></defs></svg></body></html>
