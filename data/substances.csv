@@ -1037,7 +1037,7 @@ datetime,substance,amount,experiment,id,prediction
 2025-10-29T12:30:15+01:00,omega3,265mg,,,
 2025-10-30T01:04:26+01:00,melatonin,0.5mg,,,
 2025-10-30T01:04:50+01:00,magnesium,300mg,,,
-2025-10-30T09:07:07+01:00,water,2.5ml,D,B,0.35
+2025-10-30T09:07:07+01:00,orexin-a,2.5ml,D,B,0.35
 2025-10-30T10:26:59+01:00,caffeine,200mg,,,
 2025-10-31T14:01:20+01:00,2c-b,15mg,,,
 2025-11-03T23:26:29+01:00,melatonin,0.65mg,,,
@@ -1086,3 +1086,10 @@ datetime,substance,amount,experiment,id,prediction
 2025-11-27T22:40:00+01:00,magnesium,300mg,,,
 2025-11-28T11:55:11+01:00,zinc,25mg,,,
 2025-12-02T13:06:04+01:00,creatine,6g,,,
+2025-12-09T01:32:04+01:00,melatonin,0.65mg,,,
+2025-12-09T12:00:29+01:00,nicotine,2mg,,,
+2025-12-11T02:51:05+01:00,melatonin,0.2mg,,,
+2025-12-11T02:51:13+01:00,magnesium,300mg,,,
+2025-12-11T10:38:09+01:00,water,2.5ml,D,A,
+2025-12-12T00:37:05+01:00,melatonin,0.3mg,,,
+2025-12-12T00:37:13+01:00,magnesium,300mg,,,

@@ -1,9 +1,10 @@
-<html><head><title>niplav</title>
+<html><head></head><body><h2 id="home"><a href="./index.html">home</a></h2>
+
+
+<title>niplav</title>
 <link href="./favicon.png" rel="shortcut icon" type="image/png">
 <link href="main.css" rel="stylesheet" type="text/css">
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-
-
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
@@ -17,11 +18,10 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-</head><body><h2 id="home"><a href="./index.html">home</a></h2>
 <p><em>author: niplav, created: 2025-04-03, modified: 2025-11-24, language: english, status: notes, importance: 9, confidence: log</em></p>
 <blockquote>
 <p><strong>.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Protocol">Protocol</a><ul><li><a href="#Requirements">Requirements</a><ul></ul></li><li><a href="#Checklist">Checklist</a><ul><li><a href="#Measurements">Measurements</a><ul></ul></li></ul></li><li><a href="#Complications__Explanation">Complications &amp; Explanation</a><ul></ul></li></ul></li><li><a href="#Power_Calculation">Power Calculation</a><ul></ul></li><li><a href="#Literature">Literature</a><ul></ul></li><li><a href="#Experimental_Log">Experimental Log</a><ul><li><a href="#Batch_1">Batch 1</a><ul><li><a href="#Sample_1">Sample 1</a><ul></ul></li><li><a href="#Sample_2">Sample 2</a><ul></ul></li></ul></li><li><a href="#Sample_3">Sample 3</a><ul></ul></li><li><a href="#Sample_4">Sample 4</a><ul></ul></li><li><a href="#Sample_5">Sample 5</a><ul></ul></li><li><a href="#Sample_6">Sample 6</a><ul></ul></li></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Protocol">Protocol</a><ul><li><a href="#Requirements">Requirements</a><ul></ul></li><li><a href="#Checklist">Checklist</a><ul><li><a href="#Measurements">Measurements</a><ul></ul></li></ul></li><li><a href="#Complications__Explanation">Complications &amp; Explanation</a><ul></ul></li></ul></li><li><a href="#Power_Calculation">Power Calculation</a><ul></ul></li><li><a href="#Literature">Literature</a><ul></ul></li><li><a href="#Experimental_Log">Experimental Log</a><ul><li><a href="#Batch_1">Batch 1</a><ul><li><a href="#Sample_1">Sample 1</a><ul></ul></li><li><a href="#Sample_2">Sample 2</a><ul></ul></li></ul></li><li><a href="#Sample_3">Sample 3</a><ul></ul></li><li><a href="#Sample_4">Sample 4</a><ul></ul></li><li><a href="#Sample_5">Sample 5</a><ul></ul></li><li><a href="#Sample_6">Sample 6</a><ul></ul></li><li><a href="#Sample_7">Sample 7</a><ul></ul></li></ul></li></ul></div>
 <h1 id="Orexin_And_Sleep_Deprivation"><a class="hanchor" href="#Orexin_And_Sleep_Deprivation">Orexin And Sleep Deprivation</a></h1>
 <h2 id="Protocol"><a class="hanchor" href="#Protocol">Protocol</a></h2>
 <p>The rough idea is to have a self-blinded randomized trial with
@@ -137,12 +137,16 @@ level of 0.05 and a power of 0.75:</p>
 <pre><code>import statsmodels.stats.power
 &gt;&gt;&gt; statsmodels.stats.power.tt_ind_solve_power(effect_size=0.5, alpha=0.05, power=0.75, alternative='two-sided')
 56.49860618876443
+&gt;&gt;&gt; statsmodels.stats.power.tt_ind_solve_power(effect_size=0.8, alpha=0.05, power=0.75, alternative='two-\
 </code></pre>
+<p>sided')
+    22.68883256203551</p>
 <p>This means that we'll have to collect ~60 Orexin samples to detect a
 medium effect size; splitting it over two people means that each takes
 Orexin ~30 times and Placebo 30 times, with blocks of a length of four
 days that gives us 240 days in total (though half of those don't actually
 entail any work in terms of data collection).</p>
+<p>We're collecting 24 datapoints.</p>
 <h2 id="Literature"><a class="hanchor" href="#Literature">Literature</a></h2>
 <p><img alt="" src="./img/orexin/monkeys.png"></p>
 <p><em>SD stands for "sleep deprivation"</em></p>
@@ -237,6 +241,15 @@ entail any work in terms of data collection).</p>
 </ul></li>
 <li>Tuesday: Woke up at 09:30, but my fitbit slipped off while i slept</li>
 </ul>
+<h3 id="Sample_7"><a class="hanchor" href="#Sample_7">Sample 7</a></h3>
+<ul>
+<li>Thursday morning: Took melatonin and magnesium before sleep</li>
+<li>Thursday: Feeling refreshed by when snorting the water.
+<ul>
+<li>Maybe deblinded myself by accidentally looking at how full the syringe was?</li>
+<li>Good mood immediately after taking</li>
+</ul></li>
+</ul>
 <div class="footnotes">
 <hr>
 <ol>
@@ -245,5 +258,4 @@ entail any work in terms of data collection).</p>
 </li>
 </ol>
 </div>
-
 </body></html>
