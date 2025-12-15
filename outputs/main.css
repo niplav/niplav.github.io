@@ -10,19 +10,20 @@ body {
 pre {
 	background: #eee;
 	padding: 0.2em 5px;
-	overflow: scroll;
+	overflow: auto;
 }
 
 div {
 	background: #f0f0f0;
 	padding: 0.2em 5px;
-	overflow: scroll;
+	overflow: auto;
 }
 
 blockquote {
 	background: #f7f7f7;
-	margin: 1.5em 10px;
+	margin: 1.5em 10px 1.5em 30px;
 	padding: 0.5em 10px;
+	overflow: auto;
 }
 
 table {
@@ -62,12 +63,13 @@ video {
 	border: 1px solid #ddd;
 	border-radius: 4px;
 	padding: 15px 25px;
-	margin: 20px 0;
-	max-width: 100%;
+	margin: 20px 20px 20px 0;
+	max-width: 350px;
 	font-size: 14px;
 	overflow-x: auto;
 	box-sizing: border-box;
 	width: auto;
+	float: left;
 }
 
 .toc-title {
@@ -174,23 +176,59 @@ video {
 }
 
 /* Reset counters at each level */
-.toc > ul {
+.toc > ul > li {
 	counter-reset: h2;
 }
 
-.toc > ul > li > ul {
+.toc > ul > li > ul > li {
 	counter-reset: h3;
 }
 
-.toc > ul > li > ul > li > ul {
+.toc > ul > li > ul > li > ul > li {
 	counter-reset: h4;
 }
 
-.toc > ul > li > ul > li > ul >li > ul {
-	counter-reset: h4;
+.toc > ul > li > ul > li > ul > li > ul > li {
+	counter-reset: h5;
 }
 
 /* Hide empty items */
 .toc li:empty {
 	display: none;
+}
+
+/* Footnote tooltips */
+.footnote-tooltip {
+	display: none;
+	position: absolute;
+	background: #fff;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	padding: 10px 15px;
+	max-width: 400px;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+	z-index: 1000;
+	font-size: 14px;
+	line-height: 1.4;
+}
+
+.footnote-tooltip p {
+	margin: 0;
+}
+
+sup[id^="fnref"] {
+	cursor: help;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+	.toc {
+		float: none;
+		max-width: 100%;
+		margin: 20px 0;
+	}
+
+	blockquote {
+		margin: 1.5em 10px;
+	}
 }
