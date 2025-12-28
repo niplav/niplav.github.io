@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-<p><em>author: niplav, created: 2025-07-10, modified: 2025-12-24, language: english, status: in progress, importance: 3, confidence: likely</em></p>
+<p><em>author: niplav, created: 2025-07-10, modified: 2025-12-26, language: english, status: in progress, importance: 3, confidence: likely</em></p>
 <blockquote>
 <p><strong><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="14.338ex" height="3.009ex" style="vertical-align: -0.838ex;" viewBox="0 -934.9 6173.4 1295.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
 <title id="MathJax-SVG-1-Title">P→(V∪P)^2</title>
@@ -549,6 +549,7 @@ has/lacks such-and-such of an edge you're looking at a rhizome".</p>
 <p><strong>Intuition</strong>: A pergraph that has at least a vertex is either a single
 vertex or contains a single vertex as a proper sub-pergraph.</p>
 <p><strong>Remark 4</strong>: There are non-rhizomatic ratkings.</p>
+<p><img alt="" src="./img/pergraphs/non_rhizome_ratking.png"></p>
 <!--TODO: image of an example-->
 <h3 id="Decomposing"><a class="hanchor" href="#Decomposing">Decomposing</a></h3>
 <p><strong>Remark 5</strong>: Ratkings, ordered by whether they are sub-pergraphs, form a
@@ -559,6 +560,7 @@ are rhizomes.</p>
 <p><strong>Remark 6</strong>: Pergraphs, ordered by whether are sub-pergraphs, form a
 lattice where the minimal elements are rhizomes and a single vertex.</p>
 <!--TODO: turn from remarks into theorems? Prove then I guess-->
+<!--TODO: define perbasis!-->
 <p><strong>Theorem 3</strong>: Every pergraph has a unique perbasis.</p>
 <p><strong>Definition 11</strong>: Many pergraphs share a perbasis. For a given pergraph
 <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.743ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 750.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-39-Title">
@@ -807,6 +809,9 @@ that connects rhizomes and vertices with other rhizomes and vertices.</p>
 </g>
 </svg></span>.</p>
 <p><strong>Theorem 5</strong>: Any pergraph can be decomposed into a set of vertices, a set of rhizomes, and a set of docks.</p>
+<p><img alt="" src="./img/pergraphs/decomposition.png"></p>
+<hr>
+<p><img alt="" src="./img/pergraphs/decomposition_2.png"></p>
 <p><strong>Remark 8</strong>: Unfortunately, two distinct pergraphs can be decomposed into
 the sate set of vertices, rhizomes, and docks. One needs information on
 which edges from a dock connect to which eges of a rhizomes to achieve
@@ -821,9 +826,8 @@ some kind of hierarchy/partial hierarchy? Generating pergraphs from
 a simpler set with simpler rules?</p>
 <p>Bijection/injection with the directed graphs? Needs to blow up the
 directed graphs.</p>
-<p>Every pergraph can be built out of rhizomes, ports and
-vertices. If you cut all outgoing/incoming "open" edges from a
-port, call that "to machete" a port. The port falls apart into a
+<p>If you cut all outgoing/incoming "open" edges from a dock,
+call that "to machete" a port. The port falls apart into a
 <a href="https://en.wikipedia.org/wiki/Bag_(mathematics)">bag</a> of more ports.</p>
 <p>Building a large subset of pergraphs by taking what was previously built,
 putting on it:</p>
