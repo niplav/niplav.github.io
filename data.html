@@ -88,8 +88,8 @@ in disguise.</p>
 helpfully informs that the most important table is <code>revlog</code>, one can
 then export the data to CSV with the following command:</p>
 <pre><code>echo -e '.headers on \n select * from revlog;' |
-sqlite3 anki_2022-07-04T08:43:00.db |
-tr '|' ',' &gt;anki_2022-07-04T08:43:00.csv
+sqlite3 collection.anki2 |
+tr '|' ',' &gt;anki_reviews.csv
 </code></pre>
 <p>The header is to be interpreted as follows:</p>
 <blockquote>
@@ -195,22 +195,21 @@ just to check consistency).</p>
     close("locations")
 }
 {
-    if (name[$8] == "" &amp;&amp; $8 != "Name") {
-        name[$8] = int(100000 * rand())
-        gsub(/\./, "", name[$8])
+    if (name[$7] == "" &amp;&amp; $8 != "Name") {
+        name[$7] = int(100000 * rand())
+        gsub(/\./, "", name[$7])
     }
     if ($2 != "Location") {
         original_location = $2
         gsub(/"/, "", original_location)
         if (loc[original_location] == "") {
-            print "Warning: Location '" $2 "' not found in locations file" &gt; "/dev/stderr"
             loc[original_location] = 100000 * rand()
-            printf "%d,\"%s\"\n", id, location &gt;&gt; "admn/daygame/locations"
+            printf "%d,%s\n", loc[original_location], original_location &gt;&gt; "admn/daygame/locations"
         }
         $2 = loc[original_location]
     }
-    if ($8 != "Name") {
-        $8 = name[$8]
+    if ($7 != "Name") {
+        $7 = name[$7]
     }
     print $0
 }' &lt;daygame_approaches.csv &gt;daygame_approaches_anon.csv
