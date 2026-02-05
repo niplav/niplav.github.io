@@ -1,3 +1,4 @@
+*.html
 *.eps
 *.log
 *.aux
@@ -10,5 +11,9 @@
 !header.html
 __pycache__
 code/turning/*.csv
+code/process/state
 anim/*/media
 notes_on_locations.*
+node_modules
+package.json
+package-lock.json
