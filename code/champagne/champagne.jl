@@ -513,7 +513,7 @@ function save_json(x, n, nw, pos0, r, edge_len, vr, filepath)
 	)
 
 	open(filepath, "w") do f
-		JSON.print(f, result, 2)
+		JSON.print(f, result)
 	end
 end
 
