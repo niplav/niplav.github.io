@@ -97,9 +97,9 @@ document.addEventListener('DOMContentLoaded', function () {
 </blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Related_Writing">Related Writing</a><ul></ul></li><li><a href="#I_Type_Signature_of_Output">I. Type Signature of Output</a><ul></ul></li><li><a href="#II_Condition_Number_of_Succession_Process">II. Condition Number of Succession Process</a><ul></ul></li><li><a href="#III_GeneratorVerifier_Gap_BrokenUnusual_For_Alignment">III. Generator-Verifier Gap Broken/Unusual For Alignment?</a><ul></ul></li><li><a href="#IV_GoalGuarding__Adversarial_Examples">IV. Goal-Guarding + Adversarial Examples</a><ul></ul></li><li><a href="#V_Training_Imitators">V. Training Imitators</a><ul></ul></li><li><a href="#VI_Always_Solve_for_Next_Iteration_or_Sometime_in_Full">VI. Always Solve for Next Iteration, or Sometime in Full?</a><ul></ul></li></ul></div>
 <h1 id="Automated_AI_Alignment_Research"><a class="hanchor" href="#Automated_AI_Alignment_Research">Automated AI Alignment Research</a></h1>
 <p>People love to talk about whether AI misalignment is even a problem,
-probably by one order of magnitude. Unrelatedly, the main AI alignment
-plan of the major AI companies is (if they have one) to use mildly
-superhuman AIs to solve (parts of?) the alignment problem. Whether
+probably too much by one order of magnitude. Unrelatedly, the main AI
+alignment plan of the major AI companies is (if they have one) to use
+mildly superhuman AIs to solve (parts of?) the alignment problem. Whether
 and how such plans could be made to work is underdiscussed
 by 1½ orders ot magnitude. But like with the <a href="https://en.wikipedia.org/wiki/Meta-problem_of_consciousness">meta-problem of
 consciousness</a>,
@@ -126,6 +126,9 @@ of using AIs for alignment.</p>
 <li><a href="https://www.lesswrong.com/posts/JKgGvJCzNoBQss2bq/beliefs-and-disagreements-about-automating-alignment">Beliefs and Disagreements about Automating Alignment Research (Ian McKenzie, 2022)</a></li>
 <li><a href="https://www.lesswrong.com/posts/2Gy9tfjmKwkYbF9BY/automation-collapse">Automation collapse (Geoffrey Irving/Tomek Korbak/Benjamin Hilton, 2024)</a></li>
 </ul>
+<!--TODO: Demski's point in a comment somewher that automated alignment
+research should be useful for alignment research, not for automating
+alignment research. important but subtle distinction-->
 <h2 id="I_Type_Signature_of_Output"><a class="hanchor" href="#I_Type_Signature_of_Output">I. Type Signature of Output</a></h2>
 <p>When we create scaffolds for/train/create training environments for
 automated AI alignment researchers, what is the type signature of the
@@ -201,14 +204,15 @@ and Honesty. I believe we once called this problem of finding a function
 that is safe to optimize the "outer alignment problem", but most people
 seem to have forgotten about this, or believe it's a solved problem. I
 don't quite see why they believe that.</p>
-<p>One could argue that current LLM representations of human values are
-robust to strong optimization, or that they will be robust to strong
-optimization at the time when AIs are capable of taking over. I think
-that's probably wrong, because (1) LLMs have many more degrees of freedom
-in their internal representations than e.g. Inception, so the resulting
-optimized outputs are going to look even stranger, and (2) I don't think
-humans have yet found any function that's safe and useful to optimize,
-so I don't think it's going to be "in the training data".</p>
+<p>One could argue that current LLM representations of human values
+are robust to strong optimization, or that they will be robust to
+strong optimization at the time when AIs are capable of taking
+over. I think that's probably wrong, because (1) LLMs have many
+more degrees of freedom in their internal representations than
+e.g. <a href="https://en.wikipedia.org/wiki/Inceptionv3">Inceptionv3</a>, so the
+resulting optimized outputs are going to look even stranger, and (2)
+I don't think humans have yet found any function that's safe and useful
+to optimize, so I don't think it's going to be "in the training data".</p>
 <p>If an advanced AI optimizes some functions of its
 sensors that is usually called wireheading or <a href="https://www.anthropic.com/research/reward-tampering">reward
 tampering</a>
