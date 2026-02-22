@@ -19,18 +19,18 @@ document.addEventListener('DOMContentLoaded', function () {
 	}
 });
 </script>
-<p><em>author: niplav/Claude 3.7 Sonnet/Claude 4 Sonnet/Claude 4.6 Opus, created: 2025-08-19, modified: 2025-09-12, language: english, status: in progress, importance: 1, confidence: fiction</em></p>
+<p><em>author: niplav/Claude 3.7 Sonnet/Claude 4 Sonnet/Claude 4.6 Opus, created: 2025-08-19, modified: 2026-02-18, language: english, status: in progress, importance: 1, confidence: fiction</em></p>
 <blockquote>
 <p><strong>Fileservers × mechanism design × sub-cent microtransactions. A
 personal æsthetic.</strong></p>
 <p><strong>¢|⋈</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Slogans">Slogans</a><ul></ul></li><li><a href="#Core_Philosophy">Core Philosophy</a><ul></ul></li><li><a href="#Namespace_Metaphysics">Namespace Metaphysics</a><ul></ul></li><li><a href="#Economic_Commands">Economic Commands</a><ul></ul></li><li><a href="#Corporate_Automation">Corporate Automation</a><ul></ul></li><li><a href="#Temporal_Economics">Temporal Economics</a><ul></ul></li><li><a href="#System_Health">System Health</a><ul></ul></li><li><a href="#Distributed_Wisdom">Distributed Wisdom</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Slogans">Slogans</a><ul><li><a href="#Core_Philosophy">Core Philosophy</a><ul></ul></li><li><a href="#Namespace_Metaphysics">Namespace Metaphysics</a><ul></ul></li><li><a href="#Economic_Commands">Economic Commands</a><ul></ul></li><li><a href="#Corporate_Automation">Corporate Automation</a><ul></ul></li><li><a href="#Temporal_Economics">Temporal Economics</a><ul></ul></li><li><a href="#System_Health">System Health</a><ul></ul></li><li><a href="#Distributed_Wisdom">Distributed Wisdom</a><ul></ul></li></ul></li></ul></div>
 <h1 id="filepunk"><a class="hanchor" href="#filepunk"><code>filepunk</code></a></h1>
 <p>Co-written with a several Claudes, and a hefty amount of <a href="https://gwern.net/blog/2025/good-ai-samples">steering
-bits</a> from my side, lots
-of vetting.</p>
+bits</a> from my side, some
+vetting. Still too clean/uniform for a real command line history.</p>
 <p><br><br><br><br><br></p>
-<!--TODO: Something with sending an email for the price of 0.01 cent-->
+<!--TODO: Something with sending an email for the price of 0.01 cent, leak of payment infra clashes-->
 <pre><code>% srv tcp!claude.vigila!9p claude
 % mount -c /srv/claude /mnt/claude
 % echo 'key proto=eth dom=claude.vigila !secret='^$APIKEY | auth/factotum -g ''
@@ -40,24 +40,24 @@ of vetting.</p>
 % venti/copy -f /dev/sdC0/fossil -t tcp!venti.tarsnap.net!venti /usr/niplav/vigila
 % echo 'topup Ξ0.008' &gt;/mnt/claude/billing/ctl
 % lc /mnt/claude/ctx
-1_icia  2_forecasting  3_vigila  4_stanmod
+1_icia  2_forecasting  3_vigila  4_stevemod
 % cat /usr/niplav/vigila/TODO.txt &gt;/mnt/claude/ctx/3_vigila/in
 % cat /mnt/claude/ctx/3_vigila/out
 reviewed TODO items. 3 blocked on venti migration, 1 ready...
 
 % srv tcp!nytimes.com!9p nytimes
 % mount /srv/nytimes /mnt/nytimes
-% echo 'rate Ξ0.000001 Tread' &gt;/mnt/nytimes/ctl
+% echo 'rate ¢0.2 Tread' &gt;/mnt/nytimes/ctl
 % mkdir /mnt/payments/auto
 % mkdir /mnt/payments/auto/arxiv
-% echo 'rate Ξ0.000001 Tread' &gt;/mnt/payments/auto/arxiv/ctl
-% echo 'cap Ξ0.001 month' &gt;/mnt/payments/auto/arxiv/ctl
+% echo 'rate ¢0.2 Tread' &gt;/mnt/payments/auto/arxiv/ctl
+% echo 'cap $2 month' &gt;/mnt/payments/auto/arxiv/ctl
 % srv tcp!netflix.com!9p netflix
 % mount /srv/netflix /mnt/netflix
-% tail -f /mnt/netflix/shows/stranger_things/s05e01 |
+% tail -f /mnt/netflix/shows/labyrinths_on_cyprus/s05e01 |
     tee /dev/video &amp;
 % cat /mnt/payments/streaming_meter
-Ξ0.000003/min
+¢0.06/min
 
 % srv tcp!collab.local!9p collab
 % mount /srv/collab /mnt/collab
@@ -85,7 +85,7 @@ Twrite /mnt/claude/ctx/1_icia/in: limit exceeded by 1.4kb (Ξ0.00003 remaining)
 
 % srv -e 'tcp!generalcomputecorp.com!9p' gpu
 mount: tcp!generalcomputecorp.com!9p: auction closed, next window 14:00
-% srv -e 'tcp!gpu.market!9p' gpu
+% srv -e 'tcp!gpu.market.gl!9p' gpu
 % mount -c /srv/gpu /mnt/gpu
 % echo 'bid model=h200 max=Ξ0.0003/min' &gt;/mnt/gpu/auction/ctl
 % cat /usr/niplav/papers/icia/train_pin.lua &gt;/mnt/gpu/sessions/new
@@ -121,7 +121,7 @@ local parabolic_kernel = function(X, α, ℓ)
 3c3
 &lt; actually are problems in advanced AI systems, and I will
 ---
-&gt; actually are problems in advanced AI systems. I will
+&gt; actually are problems in advanced AI systems. We will
 7a8,12
 &gt; In some sense a reward-tampering AI system, across ~all reward
 &gt; functions, does the same thing: it intervenes "as closely as
@@ -129,7 +129,7 @@ local parabolic_kernel = function(X, α, ℓ)
 &gt; of the reward function. We call this phenomenon "convergent
 &gt; intervention", and believe it can be used to solve the problem of
 &gt; To solve this would be to solve the problem of [environmental
-&gt; goals](https://arbital.com/p/environmental_goals/).
+&gt; goals](tcp!arbital.com/p/environmental_goals/!https).
 % diff /mnt/collab/papers/icia/content /usr/niplav/papers/icia/draft.md | patch /mnt/collab/papers/icia/content
 % echo shapley &gt;/mnt/collab/papers/icia/compensation_model
 % cat /mnt/collab/papers/icia/contributions
@@ -180,7 +180,10 @@ bass_loop_01  Ξ0.00002    synth_pad_04  Ξ0.00001    drumkit_09  Ξ0.000005
 % cat sensitive_data | /mnt/zkp/generate tax_computation &gt;proof.zkp
 % cat proof.zkp &gt;/mnt/gvt/tax/submissions/new
 % cat /mnt/gvt/tax/submissions/last/verification
-valid proof, tax owed: Ξ0.32
+valid proof, tax owed: $632.18
+% echo 'pay Ξ0.32' &gt;/mnt/gvt/tax/submissions/last/ctl
+Twrite: currency not accepted (legacy rail only, use $ or ¢)
+% echo 'pay $632.18 via /mnt/pay/convert' &gt;/mnt/gvt/tax/submissions/last/ctl
 </code></pre>
 <h2 id="Slogans"><a class="hanchor" href="#Slogans">Slogans</a></h2>
 <ul>
@@ -197,12 +200,11 @@ valid proof, tax owed: Ξ0.32
 <li>in the filepunk future, value = information, and information wants to be Ξ0.00001</li>
 <li>contribution ≟ attribution ≟ compensation</li>
 </ul>
-<hr>
-<h2 id="Core_Philosophy"><a class="hanchor" href="#Core_Philosophy">Core Philosophy</a></h2>
+<h3 id="Core_Philosophy"><a class="hanchor" href="#Core_Philosophy">Core Philosophy</a></h3>
 <ul>
 <li>"everything is a file | value flows as data"</li>
 </ul>
-<h2 id="Namespace_Metaphysics"><a class="hanchor" href="#Namespace_Metaphysics">Namespace Metaphysics</a></h2>
+<h3 id="Namespace_Metaphysics"><a class="hanchor" href="#Namespace_Metaphysics">Namespace Metaphysics</a></h3>
 <ul>
 <li>"pipes dream of perfect liquidity"</li>
 <li>"attribution flows upstream like salmon to spawn new value"</li>
@@ -218,7 +220,7 @@ valid proof, tax owed: Ξ0.32
 <li>"per-process namespaces: your economy is yours alone to compose"</li>
 <li>"venti remembers everything; fossil forgets what you don't need yet"</li>
 </ul>
-<h2 id="Economic_Commands"><a class="hanchor" href="#Economic_Commands">Economic Commands</a></h2>
+<h3 id="Economic_Commands"><a class="hanchor" href="#Economic_Commands">Economic Commands</a></h3>
 <ul>
 <li><code>ls /mnt/universe/justice &amp;&amp; echo $status</code></li>
 <li><code>bind /dev/zero /mnt/coordination</code></li>
@@ -236,7 +238,7 @@ valid proof, tax owed: Ξ0.32
 <li>"automated arbitrage: <code>grep -v inefficiency /mnt/markets/* || profit</code>"</li>
 <li>"supply meets demand in /mnt/equilibrium"</li>
 </ul>
-<h2 id="Corporate_Automation"><a class="hanchor" href="#Corporate_Automation">Corporate Automation</a></h2>
+<h3 id="Corporate_Automation"><a class="hanchor" href="#Corporate_Automation">Corporate Automation</a></h3>
 <ul>
 <li>"a thousand corporations sleep in /proc, dreaming electric sheep margins"</li>
 <li>"automated companies are just really persistent background processes"</li>
@@ -246,7 +248,7 @@ valid proof, tax owed: Ξ0.32
 <li>"automated firms exist in userspace; value flows in kernelspace"</li>
 <li>"background processes dream of being foreground allocation mechanisms"</li>
 </ul>
-<h2 id="Temporal_Economics"><a class="hanchor" href="#Temporal_Economics">Temporal Economics</a></h2>
+<h3 id="Temporal_Economics"><a class="hanchor" href="#Temporal_Economics">Temporal Economics</a></h3>
 <ul>
 <li>"cron schedules the auctions; auctions schedule the future"</li>
 <li>"<code>cron</code> schedules auctions; auctions schedule allocation"</li>
@@ -255,7 +257,7 @@ valid proof, tax owed: Ξ0.32
 <li><code>market_maker &amp;</code></li>
 <li>"the auction daemon never sleeps, never rests, never extracts"</li>
 </ul>
-<h2 id="System_Health"><a class="hanchor" href="#System_Health">System Health</a></h2>
+<h3 id="System_Health"><a class="hanchor" href="#System_Health">System Health</a></h3>
 <ul>
 <li>"market failure is a trap: fault read in the economic kernel"</li>
 <li>"principal-agent problems are just really bad file permissions"</li>
@@ -264,7 +266,7 @@ valid proof, tax owed: Ξ0.32
 <li><code>Twalk</code> toward public goods; every step is a <code>Tread</code> on shared ground</li>
 <li><code>grep -v deadweight_loss /var/log/allocation.log | wc -l</code></li>
 </ul>
-<h2 id="Distributed_Wisdom"><a class="hanchor" href="#Distributed_Wisdom">Distributed Wisdom</a></h2>
+<h3 id="Distributed_Wisdom"><a class="hanchor" href="#Distributed_Wisdom">Distributed Wisdom</a></h3>
 <ul>
 <li>"compute dreams in DAGs; DAGs dream in consensus"</li>
 <li>"<code>Twrite</code> value; <code>Tread</code> wealth; <code>Twalk</code> toward equilibrium; <code>Tclunk</code> rent"</li>
