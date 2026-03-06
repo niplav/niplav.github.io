@@ -334,16 +334,35 @@ checkpoints['checkpoint']=pd.date_range(start=first_sleep, end=last_sleep, freq=
 aggregated=aggregated[relevant_sleep_cols+['checkpoint']].groupby('checkpoint').sum()
 aggregated.reset_index(inplace=True)
 </code></pre>
-<p>And add the time meditated:</p>
-<pre><code>aggregated=pd.merge(aggregated, meditations, how='cross')
-aggregated=aggregated.loc[
-    (aggregated['checkpoint']-aggregated['meditation_end']&lt;pd.Timedelta('4d')) &amp;
-    (aggregated['checkpoint']-aggregated['meditation_end']&gt;pd.Timedelta('0d'))]
+<p>And add the time meditated over the preceding 4 days (for the regression)
+and the time meditated on that day alone (to identify retreat days):</p>
+<pre><code>daily_meditation['meditation_duration'] = 0
+for _, meditation in meditations.iterrows():
+    relevant_checkpoints = daily_meditation.loc[
+        (daily_meditation['checkpoint'] - meditation['meditation_end'] &lt; pd.Timedelta('4d')) &amp;
+        (daily_meditation['checkpoint'] - meditation['meditation_end'] &gt; pd.Timedelta('0d'))
+    ]
+    if not relevant_checkpoints.empty:
+        daily_meditation.loc[relevant_checkpoints.index, 'meditation_duration'] += meditation['meditation_duration']
 
-aggregated=aggregated.groupby('checkpoint').agg({'meditation_duration': 'sum'} | {col: 'min' for col in relevant_sleep_cols})
+daily_meditation_same_day['meditation_same_day'] = 0
+for _, meditation in meditations.iterrows():
+    relevant_checkpoints = daily_meditation_same_day.loc[
+        (daily_meditation_same_day['checkpoint'] - meditation['meditation_end'] &lt; pd.Timedelta('1d')) &amp;
+        (daily_meditation_same_day['checkpoint'] - meditation['meditation_end'] &gt; pd.Timedelta('0d'))
+    ]
+    if not relevant_checkpoints.empty:
+        daily_meditation_same_day.loc[relevant_checkpoints.index, 'meditation_same_day'] += meditation['meditation_duration']
+
+aggregated = pd.merge(aggregated, daily_meditation, on='checkpoint', how='left')
+aggregated = pd.merge(aggregated, daily_meditation_same_day, on='checkpoint', how='left')
 </code></pre>
-<p>Finally, let's create a dataset without the meditation retreat data:</p>
-<pre><code>no_outliers=aggregated.loc[aggregated['meditation_duration']&lt;8*3600]
+<p>Finally, let's create a dataset without the meditation retreat data. Retreat
+days are identified by having ≥6 hours of meditation <em>on that day</em>—not by
+the 4-day rolling sum, which would incorrectly exclude the days following
+a retreat (which had no externally imposed sleep schedule):</p>
+<pre><code>retreat_days = aggregated['meditation_same_day'] &gt;= 6*3600
+no_outliers = aggregated.loc[~retreat_days]
 </code></pre>
 <p>Resulting scatterplots with linear regressions are:</p>
 <p><img alt="" src="./img/increasing/aggregated_scatter_total.png"></p>
