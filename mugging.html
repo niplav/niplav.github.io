@@ -126,7 +126,7 @@ for mugging-immune utility functions.</strong></p>
 half-solves this kind of Pascal's mugging, using the Leverage penalty
 fully solves it, but at the cost of strongly penalizing high-utility
 hypotheses.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Formalizing_Pascals_Mugging">~Formalizing Pascal's Mugging</a><ul><li><a href="#Sketch">Sketch</a><ul></ul></li></ul></li><li><a href="#Mugging_Immunity">Mugging Immunity</a><ul></ul></li><li><a href="#Multiple_Numraires">Multiple Numéraires</a><ul></ul></li><li><a href="#Escaping">Escaping?</a><ul><li><a href="#The_Need_for_Speed">The Need for Speed</a><ul></ul></li></ul></li><li><a href="#Acknowledgements">Acknowledgements</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li><li><a href="#Appendix_A_The_Pure_Speed_Prior">Appendix A: The Pure Speed Prior</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#Formalizing_Pascals_Mugging">~Formalizing Pascal's Mugging</a><ul><li><a href="#Sketch">Sketch</a><ul></ul></li></ul></li><li><a href="#Mugging_Immunity_via_Diminishing_Utility">Mugging Immunity via Diminishing Utility</a><ul><li><a href="#Multiple_Numraires">Multiple Numéraires</a><ul></ul></li></ul></li><li><a href="#Escaping">Escaping?</a><ul></ul></li><li><a href="#Mugging_Immunity_via_Modifying_the_Prior">Mugging Immunity via Modifying the Prior</a><ul></ul></li><li><a href="#Mugging_Immunity_via_Restricting_the_Hypothesis_Class">Mugging Immunity via Restricting the Hypothesis Class</a><ul></ul></li><li><a href="#Trading_Off_Different_Types_of_Muging_Immunity">Trading Off Different Types of Muging Immunity</a><ul></ul></li><li><a href="#Acknowledgements">Acknowledgements</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li><li><a href="#Appendix_A_The_Pure_Speed_Prior">Appendix A: The Pure Speed Prior</a><ul></ul></li></ul></div>
 <h1 id="MuggingImmune_Utility_Functions"><a class="hanchor" href="#MuggingImmune_Utility_Functions">Mugging-Immune Utility Functions</a></h1>
 <p>I first attempt to formalize Pascal's mugging, then characterize a set
 of mugging-immune utility functions, and finally speculate on how one
@@ -446,7 +446,7 @@ in program length.</p>
 </svg></span>
 </div>
 <p>I don't know if this is the only way of formalizing Pascal's mugging.</p>
-<h3 id="Mugging_Immunity"><a class="hanchor" href="#Mugging_Immunity">Mugging Immunity</a></h3>
+<h3 id="Mugging_Immunity_via_Diminishing_Utility"><a class="hanchor" href="#Mugging_Immunity_via_Diminishing_Utility">Mugging Immunity via Diminishing Utility</a></h3>
 <p><strong>Summary</strong>: We can circumvent Pascal's mugging by having utilities grow
 <em>extremely slowly</em> in whatever goods we are presented with, almost as
 slowly as the inverse of the busy beaver function.</p>
@@ -715,7 +715,7 @@ functions</strong>" with a single pseudo-numéraire <span class="mjpage"><svg xm
 but grow somewhat faster (e.g. by not first writing the pseudo-numéraire
 and then copying, but doing something more complex and interleaved.) But
 the result is "spiritually correct".</p>
-<h3 id="Multiple_Numraires"><a class="hanchor" href="#Multiple_Numraires">Multiple Numéraires</a></h3>
+<h4 id="Multiple_Numraires"><a class="hanchor" href="#Multiple_Numraires">Multiple Numéraires</a></h4>
 <p>One issue that may come up is that a muggee has multiple
 pseudo-numéraires. I'm pretty sure that a small number of
 pseudo-numéraires isn't a problem and difficult to mug, assuming that
@@ -775,7 +775,7 @@ so slowly that it can look <em>like</em> a bounded utility function if the
 constants are selected right.</p>
 <p>But I don't have a great intuition for when that kind of constant-picking
 is possible and when it isn't; we may be stuck.</p>
-<h4 id="The_Need_for_Speed"><a class="hanchor" href="#The_Need_for_Speed">The Need for Speed</a></h4>
+<h3 id="Mugging_Immunity_via_Modifying_the_Prior"><a class="hanchor" href="#Mugging_Immunity_via_Modifying_the_Prior">Mugging Immunity via Modifying the Prior</a></h3>
 <!--TODO: Instead switch to explaining the leverage penalty here-->
 <p>One way of defeating Pascal's mugging is to switch to a different prior,
 specifically one in which the construction of the copy-beaver receives
@@ -963,6 +963,8 @@ saves you from this type of copying Pascal's mugging.</p>
 <p>I imagine an extremely advanced agent coming into existence, doing some
 mathematics, and then <em>modifying its prior</em> based on pure mathematical
 reasoning.</p>
+<h3 id="Mugging_Immunity_via_Restricting_the_Hypothesis_Class"><a class="hanchor" href="#Mugging_Immunity_via_Restricting_the_Hypothesis_Class">Mugging Immunity via Restricting the Hypothesis Class</a></h3>
+<h3 id="Trading_Off_Different_Types_of_Muging_Immunity"><a class="hanchor" href="#Trading_Off_Different_Types_of_Muging_Immunity">Trading Off Different Types of Muging Immunity</a></h3>
 <h2 id="Acknowledgements"><a class="hanchor" href="#Acknowledgements">Acknowledgements</a></h2>
 <p>Thanks to Claude 4 &amp; 4.5 Sonnet, Claude 4 &amp; 4.1 Opus and GPT-5 for
 discussions on this topic.</p>
