@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>24-Cell · Cross-Sections</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #060810;
+    color: #8ab;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    height: 100vh;
+  }
+  #c { display: block; flex: 1; width: 100%; }
+  #panel {
+    width: 100%;
+    padding: 8px 24px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background: #07080f;
+    border-top: 1px solid #111a28;
+  }
+  .row {
+    width: min(600px, 96vw);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .lbl { min-width: 34px; text-align: right; color: #3a5060; flex-shrink: 0; }
+  input[type=range] {
+    flex: 1; height: 4px;
+    -webkit-appearance: none; appearance: none;
+    background: #111825; border-radius: 2px; outline: none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 13px; height: 13px; border-radius: 50%;
+    background: #4af; cursor: pointer; box-shadow: 0 0 6px #4af8;
+  }
+  input[type=range]::-moz-range-thumb {
+    width: 13px; height: 13px; border-radius: 50%;
+    background: #4af; border: none; cursor: pointer;
+  }
+  input.val {
+    min-width: 50px; width: 58px;
+    color: #6bf; font-size: 12px; flex-shrink: 0;
+    background: transparent; border: none;
+    border-bottom: 1px solid #1e3048;
+    font-family: 'Courier New', monospace;
+    outline: none; padding: 1px 2px;
+    cursor: text;
+  }
+  input.val:hover  { border-bottom-color: #2e5070; }
+  input.val:focus  { border-bottom-color: #4af; color: #aef; background: #0a1020; }
+  input.num {
+    width: 52px; color: #6bf; font-size: 12px; flex-shrink: 0;
+    background: #0a1018; border: 1px solid #1e3048; border-radius: 2px;
+    font-family: 'Courier New', monospace; outline: none;
+    padding: 2px 4px; text-align: right;
+    -moz-appearance: textfield;
+  }
+  input.num::-webkit-inner-spin-button,
+  input.num::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+  input.num:focus { border-color: #4af; }
+  .unit { color: #2e4a5a; font-size: 11px; flex-shrink: 0; }
+  .info { color: #4a6070; font-size: 11px; flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .hint { font-size: 11px; color: #253040; padding-top: 1px; }
+  .sep {
+    width: min(600px, 96vw);
+    border: none; border-top: 1px solid #111a28;
+    margin: 2px 0;
+  }
+  button {
+    background: #0e1520;
+    color: #5af;
+    border: 1px solid #1e3048;
+    border-radius: 3px;
+    padding: 3px 11px;
+    cursor: pointer;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    flex-shrink: 0;
+    transition: background 0.12s, border-color 0.12s;
+  }
+  button:hover { background: #172030; border-color: #4af; color: #8cf; }
+  button:active { background: #1f2e44; }
+</style>
+</head>
+<body>
+
+<canvas id="c"></canvas>
+
+<div id="panel">
+  <div class="row">
+    <span class="lbl">W</span>
+    <input type="range" id="sl-w" min="-1.5" max="1.5" value="0" step="0.001">
+    <input class="val" id="wval" value="0.000">
+    <span class="info" id="shape">cuboctahedron</span>
+  </div>
+  <hr class="sep">
+  <div class="row">
+    <span class="lbl">XW</span>
+    <input type="range" id="sl-xw" min="-180" max="180" value="0" step="0.5">
+    <input class="val" id="xwval" value="0°">
+    <button id="btn-rand">randomize</button>
+    <button id="btn-reset">reset</button>
+  </div>
+  <div class="row">
+    <span class="lbl">YW</span>
+    <input type="range" id="sl-yw" min="-180" max="180" value="0" step="0.5">
+    <input class="val" id="ywval" value="0°">
+  </div>
+  <div class="row">
+    <span class="lbl">ZW</span>
+    <input type="range" id="sl-zw" min="-180" max="180" value="0" step="0.5">
+    <input class="val" id="zwval" value="0°">
+  </div>
+  <div class="row">
+    <span class="lbl">GIF</span>
+    <button id="btn-gif">export</button>
+    <span class="unit">delay</span>
+    <input class="num" type="number" id="gif-delay" value="100" min="20" max="2000" step="10">
+    <span class="unit">ms</span>
+    <span class="unit" style="margin-left:6px">size</span>
+    <input class="num" type="number" id="gif-size"  value="480" min="120" max="960" step="60">
+    <span class="unit">px</span>
+    <span class="unit" style="margin-left:6px">step</span>
+    <input class="num" type="number" id="gif-step" value="0.05" min="0.005" max="0.5" step="0.005">
+    <span class="unit">ΔW</span>
+  </div>
+  <div class="hint">
+    drag · orbit &nbsp;|&nbsp; ←→ or scroll-on-W · slice &nbsp;|&nbsp; XW/YW/ZW · 4D orientation &nbsp;|&nbsp; scroll · zoom
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.js"></script>
+<script type="importmap">
+{
+  "imports": {
+    "three":         "https://cdn.jsdelivr.net/npm/three@0.169.0/build/three.module.js",
+    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.169.0/examples/jsm/"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls }  from 'three/addons/controls/OrbitControls.js';
+import { ConvexGeometry } from 'three/addons/geometries/ConvexGeometry.js';
+
+// ── 24-cell ────────────────────────────────────────────────────────────────
+
+const VERTS = (() => {
+  const v = [];
+  for (let i = 0; i < 4; i++)
+    for (let j = i+1; j < 4; j++)
+      for (const a of [1,-1])
+        for (const b of [1,-1]) {
+          const p = [0,0,0,0]; p[i]=a; p[j]=b; v.push(p);
+        }
+  return v;
+})();
+
+const EDGES = (() => {
+  const e = [];
+  for (let i = 0; i < VERTS.length; i++)
+    for (let j = i+1; j < VERTS.length; j++) {
+      let d2 = 0;
+      for (let k = 0; k < 4; k++) d2 += (VERTS[i][k]-VERTS[j][k])**2;
+      if (Math.abs(d2-2) < 1e-9) e.push([i,j]);
+    }
+  return e;
+})();
+
+// ── 4D linear algebra ──────────────────────────────────────────────────────
+
+const eye4 = () => Float64Array.from([1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1]);
+
+function mul4(A, B) {
+  const C = new Float64Array(16);
+  for (let i = 0; i < 4; i++)
+    for (let j = 0; j < 4; j++)
+      for (let k = 0; k < 4; k++)
+        C[i*4+j] += A[i*4+k] * B[k*4+j];
+  return C;
+}
+
+function mv4(M, v) {
+  return [
+    M[ 0]*v[0]+M[ 1]*v[1]+M[ 2]*v[2]+M[ 3]*v[3],
+    M[ 4]*v[0]+M[ 5]*v[1]+M[ 6]*v[2]+M[ 7]*v[3],
+    M[ 8]*v[0]+M[ 9]*v[1]+M[10]*v[2]+M[11]*v[3],
+    M[12]*v[0]+M[13]*v[1]+M[14]*v[2]+M[15]*v[3],
+  ];
+}
+
+function rot4(a, b, t) {
+  const M = eye4(), c = Math.cos(t), s = Math.sin(t);
+  M[a*4+a]=c; M[a*4+b]=-s; M[b*4+a]=s; M[b*4+b]=c;
+  return M;
+}
+
+// ── 4D rotation state ──────────────────────────────────────────────────────
+// Sliders are the sole source of truth: R = R_ZW(zw) · R_YW(yw) · R_XW(xw)
+
+const angles = { xw: 0, yw: 0, zw: 0 };
+
+function fullRot4D() {
+  return mul4(rot4(2,3, angles.zw * Math.PI/180),
+         mul4(rot4(1,3, angles.yw * Math.PI/180),
+              rot4(0,3, angles.xw * Math.PI/180)));
+}
+
+// ── Slice ──────────────────────────────────────────────────────────────────
+
+function computeSlice(t) {
+  const EPS = 1e-5;
+  const R   = fullRot4D();
+  const seen = new Map();
+  const add  = (x,y,z) => {
+    const key = `${x.toFixed(4)},${y.toFixed(4)},${z.toFixed(4)}`;
+    if (!seen.has(key)) seen.set(key, new THREE.Vector3(x,y,z));
+  };
+
+  for (const [i,j] of EDGES) {
+    const vi = mv4(R, VERTS[i]);
+    const vj = mv4(R, VERTS[j]);
+    const wi = vi[3], wj = vj[3];
+    if (Math.abs(wi-t) < EPS) add(vi[0], vi[1], vi[2]);
+    if (Math.abs(wj-t) < EPS) add(vj[0], vj[1], vj[2]);
+    if ((wi < t-EPS && wj > t+EPS) || (wi > t+EPS && wj < t-EPS)) {
+      const lam = (t-wi)/(wj-wi);
+      add(vi[0]+lam*(vj[0]-vi[0]), vi[1]+lam*(vj[1]-vi[1]), vi[2]+lam*(vj[2]-vi[2]));
+    }
+  }
+  return [...seen.values()];
+}
+
+function shapeName(n) {
+  if (n === 0)  return 'empty';
+  if (n === 6)  return 'regular octahedron';
+  if (n === 12) return 'cuboctahedron';
+  if (n === 24) return 'truncated octahedron';
+  return `${n}-vertex polytope`;
+}
+
+// ── Three.js ───────────────────────────────────────────────────────────────
+
+const canvas   = document.getElementById('c');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x060810);
+scene.fog        = new THREE.FogExp2(0x060810, 0.04);
+
+const camera = new THREE.PerspectiveCamera(40, 1, 0.05, 200);
+camera.position.set(0, 0, 7);
+
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.07;
+controls.minDistance   = 1;
+controls.maxDistance   = 30;
+
+// Lighting
+scene.add(new THREE.AmbientLight(0x223355, 2.5));
+const sun = new THREE.DirectionalLight(0xaaccff, 4);
+sun.position.set(3, 4, 5);
+scene.add(sun);
+const rim = new THREE.DirectionalLight(0xff8833, 1.8);
+rim.position.set(-4, -2, -3);
+scene.add(rim);
+
+// Axes
+{
+  const axMat = c => new THREE.LineBasicMaterial({ color: c, transparent: true, opacity: 0.15 });
+  const axLine = (p, q, c) => {
+    const g = new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(...p), new THREE.Vector3(...q)]);
+    return new THREE.Line(g, axMat(c));
+  };
+  scene.add(axLine([-3,0,0],[3,0,0], 0xff4444));
+  scene.add(axLine([0,-3,0],[0,3,0], 0x44ff88));
+  scene.add(axLine([0,0,-3],[0,0,3], 0x4488ff));
+}
+
+// ── Slice mesh ─────────────────────────────────────────────────────────────
+
+let solidMesh = null, wireMesh = null;
+
+function sliceColor(t) {
+  const tN = (t + 1.5) / 3.0;
+  const r = Math.round(THREE.MathUtils.lerp(0x10, 0xdd, tN));
+  const g = Math.round(THREE.MathUtils.lerp(0x99, 0xaa, tN));
+  const b = Math.round(THREE.MathUtils.lerp(0xff, 0x22, tN));
+  return (r << 16) | (g << 8) | b;
+}
+
+function updateSlice(t) {
+  if (solidMesh) { scene.remove(solidMesh); solidMesh.geometry.dispose(); solidMesh = null; }
+  if (wireMesh)  { scene.remove(wireMesh);  wireMesh.geometry.dispose();  wireMesh  = null; }
+
+  const pts = computeSlice(t);
+  document.getElementById('shape').textContent = shapeName(pts.length);
+  if (pts.length < 4) return;
+
+  let geo;
+  try { geo = new ConvexGeometry(pts); } catch { return; }
+
+  const col = sliceColor(t);
+  solidMesh = new THREE.Mesh(geo, new THREE.MeshPhongMaterial({
+    color:       col,
+    emissive:    new THREE.Color(col).multiplyScalar(0.07),
+    specular:    0x99ccff,
+    shininess:   90,
+    transparent: true,
+    opacity:     0.82,
+    side:        THREE.DoubleSide,
+  }));
+  scene.add(solidMesh);
+
+  wireMesh = new THREE.LineSegments(
+    new THREE.WireframeGeometry(geo),
+    new THREE.LineBasicMaterial({ color: 0xaaddff, transparent: true, opacity: 0.20 })
+  );
+  scene.add(wireMesh);
+}
+
+// ── UI wiring ──────────────────────────────────────────────────────────────
+
+const slW  = document.getElementById('sl-w');
+const slXW = document.getElementById('sl-xw');
+const slYW = document.getElementById('sl-yw');
+const slZW = document.getElementById('sl-zw');
+
+function setW(v) {
+  v = Math.max(-1.5, Math.min(1.5, +v));
+  slW.value = v;
+  document.getElementById('wval').value = v.toFixed(3);
+  updateSlice(v);
+}
+
+function setAngle(plane, deg) {
+  deg = Math.max(-180, Math.min(180, +deg));
+  angles[plane] = deg;
+  document.getElementById(`sl-${plane}`).value = deg;
+  document.getElementById(`${plane}val`).value = deg.toFixed(0) + '°';
+  updateSlice(+slW.value);
+}
+
+slW .addEventListener('input', () => setW(+slW.value));
+slXW.addEventListener('input', () => setAngle('xw', +slXW.value));
+slYW.addEventListener('input', () => setAngle('yw', +slYW.value));
+slZW.addEventListener('input', () => setAngle('zw', +slZW.value));
+
+// Editable value fields: commit on Enter/blur, revert on Escape
+function bindValField(id, commit, fmt) {
+  const el = document.getElementById(id);
+  let saved;
+  el.addEventListener('focus', () => { saved = el.value; });
+  el.addEventListener('keydown', e => {
+    if (e.key === 'Enter')  { e.preventDefault(); commit(el.value); el.blur(); }
+    if (e.key === 'Escape') { el.value = saved; el.blur(); }
+    e.stopPropagation(); // don't let ←→ fire the slice-move handler
+  });
+  el.addEventListener('blur', () => commit(el.value));
+}
+
+bindValField('wval',  v => setW(parseFloat(v)));
+bindValField('xwval', v => setAngle('xw', parseFloat(v)));
+bindValField('ywval', v => setAngle('yw', parseFloat(v)));
+bindValField('zwval', v => setAngle('zw', parseFloat(v)));
+
+slW.addEventListener('wheel', e => {
+  e.preventDefault();
+  setW(+slW.value + (e.deltaY > 0 ? -0.02 : 0.02));
+}, { passive: false });
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowLeft')  { e.preventDefault(); setW(+slW.value - 0.02); }
+  if (e.key === 'ArrowRight') { e.preventDefault(); setW(+slW.value + 0.02); }
+});
+
+document.getElementById('btn-rand').addEventListener('click', () => {
+  setAngle('xw', Math.random() * 360 - 180);
+  setAngle('yw', Math.random() * 360 - 180);
+  setAngle('zw', Math.random() * 360 - 180);
+});
+
+document.getElementById('btn-reset').addEventListener('click', () => {
+  setAngle('xw', 0);
+  setAngle('yw', 0);
+  setAngle('zw', 0);
+});
+
+// ── Resize & render loop ───────────────────────────────────────────────────
+
+function resize() {
+  const w = window.innerWidth;
+  const h = window.innerHeight - document.getElementById('panel').offsetHeight;
+  renderer.setSize(w, h);
+  camera.aspect = w / h;
+  camera.updateProjectionMatrix();
+}
+window.addEventListener('resize', resize);
+requestAnimationFrame(resize);
+
+function animate() {
+  requestAnimationFrame(animate);
+  controls.update();
+  renderer.render(scene, camera);
+}
+
+// ── GIF export ─────────────────────────────────────────────────────────────
+
+document.getElementById('btn-gif').addEventListener('click', async () => {
+  const btn   = document.getElementById('btn-gif');
+  if (btn.disabled) return;
+  btn.disabled = true;
+
+  const W_MIN   = -1.5, W_MAX = 1.5;
+  const STEP    = Math.max(0.005, parseFloat(document.getElementById('gif-step').value) || 0.05);
+  const FRAMES  = Math.max(4, Math.round((W_MAX - W_MIN) * 2 / STEP));
+  const DELAY   = Math.max(20, parseInt(document.getElementById('gif-delay').value)  || 100);
+  const SIZE    = Math.max(120, parseInt(document.getElementById('gif-size').value)  || 480);
+
+  // Fetch the gif.js worker and turn it into a blob URL (avoids CORS issues
+  // when the page is served from file://)
+  let workerUrl;
+  try {
+    const resp = await fetch('https://cdn.jsdelivr.net/npm/gif.js@0.2.0/dist/gif.worker.js');
+    workerUrl = URL.createObjectURL(await resp.blob());
+  } catch {
+    alert('Could not fetch GIF worker — internet required for first export.');
+    btn.disabled = false;
+    return;
+  }
+
+  const gif = new GIF({           // eslint-disable-line no-undef
+    workers: 2,
+    quality: 7,                   // 1 = best, 20 = fastest
+    width:   SIZE,
+    height:  SIZE,
+    workerScript: workerUrl,
+    repeat: 0,                    // loop forever
+  });
+
+  // Off-screen 2D canvas for scaling / cropping
+  const oc   = document.createElement('canvas');
+  oc.width   = oc.height = SIZE;
+  const octx = oc.getContext('2d');
+
+  // Freeze orbit controls so camera doesn't drift during capture
+  controls.enabled = false;
+  const savedW = +slW.value;
+
+  // Source rect: largest centred square in the WebGL canvas
+  const cw = canvas.width, ch = canvas.height;
+  const sq = Math.min(cw, ch);
+  const sx = (cw - sq) / 2, sy = (ch - sq) / 2;
+
+  for (let i = 0; i < FRAMES; i++) {
+    // Cosine ping-pong: W_MIN → W_MAX → W_MIN, smooth loop
+    const t = i / FRAMES;
+    const w = W_MIN + (W_MAX - W_MIN) * (0.5 - 0.5 * Math.cos(2 * Math.PI * t));
+
+    setW(w);
+    renderer.render(scene, camera);
+
+    octx.drawImage(canvas, sx, sy, sq, sq, 0, 0, SIZE, SIZE);
+    gif.addFrame(oc, { delay: DELAY, copy: true });
+
+    btn.textContent = `capture ${i + 1}/${FRAMES}`;
+    await new Promise(r => setTimeout(r, 0));   // yield to browser
+  }
+
+  // Restore state
+  setW(savedW);
+  controls.enabled = true;
+
+  gif.on('progress', p => {
+    btn.textContent = `encode ${Math.round(p * 100)}%`;
+  });
+
+  gif.on('finished', blob => {
+    const url = URL.createObjectURL(blob);
+    const a   = document.createElement('a');
+    a.href     = url;
+    a.download = '24cell.gif';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    URL.revokeObjectURL(workerUrl);
+    btn.disabled    = false;
+    btn.textContent = 'export GIF';
+  });
+
+  gif.render();
+});
+
+setW(0);
+animate();
+</script>
+</body>
+</html>
