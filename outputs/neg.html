@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>CS double auction</title>
+	<style>
+		* { box-sizing: border-box; margin: 0; padding: 0; }
+
+		body
+		{
+			font-family: monospace;
+			background: #f7f7f2;
+			color: #111;
+			padding: 2rem 1rem;
+			line-height: 1.5;
+		}
+
+		h1 { font-size: 1rem; margin-bottom: 0.2rem; }
+
+		.sub
+		{
+			font-size: 0.8rem;
+			color: #777;
+			margin-bottom: 1.25rem;
+		}
+
+		.sub a { color: #555; }
+
+		.tabs
+		{
+			display: flex;
+			margin-bottom: 0.4rem;
+			border-bottom: 1px solid #bbb;
+		}
+
+		.tab
+		{
+			font-family: monospace;
+			font-size: 0.8rem;
+			padding: 0.3rem 0.9rem;
+			border: 1px solid #bbb;
+			border-bottom: none;
+			background: #eee;
+			color: #777;
+			cursor: pointer;
+			margin-right: -1px;
+		}
+
+		.tab.active
+		{
+			background: #f7f7f2;
+			color: #111;
+			border-bottom: 1px solid #f7f7f2;
+			position: relative;
+			z-index: 1;
+		}
+
+		.mode-desc
+		{
+			font-size: 0.78rem;
+			color: #888;
+			margin-bottom: 1.5rem;
+			min-height: 1.2em;
+		}
+
+		.panels
+		{
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 1.5rem;
+			max-width: 900px;
+		}
+
+		@media (max-width: 640px) { .panels { grid-template-columns: 1fr; } }
+
+		.panel
+		{
+			background: #fff;
+			border: 1px solid #ccc;
+			padding: 1.25rem;
+		}
+
+		.panel h2
+		{
+			font-size: 0.8rem;
+			text-transform: uppercase;
+			letter-spacing: 0.08em;
+			color: #555;
+			margin-bottom: 1rem;
+		}
+
+		label
+		{
+			display: block;
+			font-size: 0.8rem;
+			color: #666;
+			margin-bottom: 0.2rem;
+		}
+
+		input[type="text"],
+		input[type="number"],
+		textarea
+		{
+			width: 100%;
+			padding: 0.35rem 0.5rem;
+			border: 1px solid #bbb;
+			font-family: monospace;
+			font-size: 0.85rem;
+			background: #fafafa;
+			margin-bottom: 0.75rem;
+		}
+
+		textarea { resize: vertical; min-height: 5rem; }
+
+		input:focus, textarea:focus { outline: none; border-color: #555; background: #fff; }
+
+		.role-row { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+
+		.role-btn
+		{
+			flex: 1;
+			font-family: monospace;
+			font-size: 0.8rem;
+			padding: 0.35rem;
+			border: 1px solid #bbb;
+			background: #fafafa;
+			cursor: pointer;
+		}
+
+		.role-btn.active { background: #111; color: #fff; border-color: #111; }
+
+		.axis-row
+		{
+			display: grid;
+			grid-template-columns: 1fr 1fr auto;
+			gap: 0.4rem;
+			margin-bottom: 0.4rem;
+		}
+
+		.axis-row input { margin-bottom: 0; }
+
+		.axis-top
+		{
+			display: grid;
+			grid-template-columns: 1fr auto;
+			gap: 0.4rem;
+			margin-bottom: 0.25rem;
+		}
+
+		.axis-top input { margin-bottom: 0; }
+
+		.tri-row
+		{
+			display: grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			gap: 0.4rem;
+			margin-bottom: 0.3rem;
+		}
+
+		.tri-row input { margin-bottom: 0; }
+
+		.tri-lbl
+		{
+			display: block;
+			font-size: 0.7rem;
+			color: #999;
+			margin-bottom: 0.15rem;
+		}
+
+		.axis-section-lbl { font-size: 0.78rem; color: #666; margin-bottom: 0.25rem; }
+
+		svg.dv
+		{
+			display: block;
+			width: 100%;
+			height: 58px;
+			margin-bottom: 0.75rem;
+			background: #fafafa;
+			border: 1px solid #eee;
+		}
+
+		button
+		{
+			font-family: monospace;
+			font-size: 0.8rem;
+			padding: 0.35rem 0.7rem;
+			border: 1px solid #bbb;
+			background: #fafafa;
+			cursor: pointer;
+		}
+
+		button:hover { background: #eee; }
+		button:active { background: #ddd; }
+
+		button.primary { background: #111; color: #fff; border-color: #111; }
+		button.primary:hover { background: #333; }
+		button.rm { border-color: #ddd; color: #aaa; padding: 0.35rem 0.5rem; }
+		button.sm { font-size: 0.72rem; padding: 0.2rem 0.5rem; }
+
+		hr { border: none; border-top: 1px solid #eee; margin: 1rem 0; }
+
+		.box
+		{
+			background: #f7f7f2;
+			border: 1px solid #ddd;
+			padding: 0.6rem 0.75rem;
+			font-size: 0.75rem;
+			word-break: break-all;
+			white-space: pre-wrap;
+			margin-bottom: 0.4rem;
+		}
+
+		.lbl { font-size: 0.75rem; color: #888; margin-bottom: 0.2rem; margin-top: 0.75rem; }
+
+		.hidden { display: none !important; }
+
+		#result
+		{
+			margin-top: 1rem;
+			padding: 0.75rem 1rem;
+			border: 2px solid #111;
+			font-size: 0.85rem;
+		}
+
+		#result.deal   { border-color: #1a6e1a; background: #f0fff0; }
+		#result.nodeal { border-color: #8b1a1a; background: #fff5f5; }
+		#result.warn   { border-color: #8b6a00; background: #fffbf0; }
+
+		.rtitle { font-weight: bold; margin-bottom: 0.5rem; }
+		.rrow   { margin-bottom: 0.2rem; }
+		.rpass  { color: #1a6e1a; }
+		.rfail  { color: #8b1a1a; }
+		.rmeta  { font-size: 0.72rem; color: #888; margin-top: 0.5rem; }
+	</style>
+</head>
+<body>
+	<h1>CS double auction</h1>
+	<p class="sub">
+		<a href="https://en.wikipedia.org/wiki/Double_auction" target="_blank">Chatterjee–Samuelson</a>
+		simultaneous-reveal negotiation · SHA-256 commitment · no server ·
+		<a href="https://github.com/" target="_blank">source</a>
+	</p>
+
+	<div class="tabs">
+		<button id="tab-point" class="tab active" onclick="switch_mode('point')">point estimate</button>
+		<button id="tab-dist"  class="tab"        onclick="switch_mode('dist')">distribution (triangular)</button>
+	</div>
+	<p id="mode-desc" class="mode-desc"></p>
+
+	<div class="panels">
+
+		<div class="panel">
+			<h2>1 · Your commitment</h2>
+
+			<div class="role-row">
+				<button class="role-btn active" id="btn-floor" onclick="set_role('floor')">Floor (minimum)</button>
+				<button class="role-btn"        id="btn-ceil"  onclick="set_role('ceiling')">Ceiling (maximum)</button>
+			</div>
+
+			<div id="axes"></div>
+			<button onclick="add_axis()" style="margin-bottom:1rem">+ axis</button>
+
+			<hr>
+			<button class="primary" onclick="gen_commit()">Generate commitment</button>
+
+			<div id="commit-out" class="hidden">
+				<div class="lbl">Hash — share this <em>first</em></div>
+				<div class="box" id="my-hash"></div>
+				<button class="sm" onclick="cp('my-hash')">copy</button>
+
+				<div class="lbl">Reveal string — share <em>after</em> you have their hash</div>
+				<div class="box" id="my-reveal"></div>
+				<button class="sm" onclick="cp('my-reveal')">copy</button>
+			</div>
+		</div>
+
+		<div class="panel">
+			<h2>2 · Verify &amp; compute</h2>
+
+			<label>Their commitment hash</label>
+			<input type="text" id="their-hash" placeholder="sha256 hex…">
+
+			<label>Their reveal string (paste the whole thing)</label>
+			<textarea id="their-reveal" placeholder="values:&#10;  rate: 80&#10;nonce: 3f9a…"
+				oninput="parse_their_reveal()"></textarea>
+
+			<div id="parse-status"
+				style="font-size:0.75rem;color:#888;margin-top:-0.5rem;margin-bottom:0.75rem"></div>
+
+			<button class="primary" onclick="verify()">Verify &amp; compute</button>
+
+			<div id="result" class="hidden"></div>
+		</div>
+
+	</div>
+
+	<script>
+	'use strict';
+
+	let mode  = 'point';
+	let role  = 'floor';
+	let axes_p = [{label: 'rate', value: ''}];
+	let axes_d = [{label: 'rate', a: '', c: '', b: ''}];
+	let saved_nonce = '';
+	let saved_seed  = '';
+	let saved_p = [];
+	let saved_d = [];
+	let their_parsed = null;
+
+	/* ── mode / role ─────────────────────────────────── */
+
+	function switch_mode(m)
+	{
+		mode = m;
+		document.getElementById('tab-point').classList.toggle('active', m === 'point');
+		document.getElementById('tab-dist').classList.toggle('active',  m === 'dist');
+		document.getElementById('mode-desc').textContent = m === 'point'
+			? 'Each party commits to a single value per axis. Agreed rate = midpoint if ceiling ≥ floor.'
+			: 'Each party commits to a triangular distribution (lo, typical, hi) and a random seed. '
+			+ 'A shared draw from the combined seed determines effective values — same round count as point mode.';
+		document.getElementById('commit-out').classList.add('hidden');
+		document.getElementById('result').classList.add('hidden');
+		their_parsed = null;
+		document.getElementById('their-reveal').value = '';
+		document.getElementById('parse-status').textContent = '';
+		render();
+	}
+
+	function set_role(r)
+	{
+		role = r;
+		document.getElementById('btn-floor').classList.toggle('active', r === 'floor');
+		document.getElementById('btn-ceil').classList.toggle('active',  r === 'ceiling');
+	}
+
+	/* ── axes ────────────────────────────────────────── */
+
+	function add_axis()
+	{
+		if (mode === 'point') axes_p.push({label: '', value: ''});
+		else                  axes_d.push({label: '', a: '', c: '', b: ''});
+		render();
+	}
+
+	function rm_axis(i)
+	{
+		const arr = mode === 'point' ? axes_p : axes_d;
+		if (arr.length === 1) return;
+		arr.splice(i, 1);
+		render();
+	}
+
+	/* ── rendering ───────────────────────────────────── */
+
+	function render()
+	{
+		mode === 'point' ? render_p() : render_d();
+	}
+
+	function render_p()
+	{
+		const lc = document.getElementById('axes');
+		lc.innerHTML = '';
+		axes_p.forEach((ax, i) =>
+		{
+			const d = document.createElement('div');
+			d.className = 'axis-row';
+			d.innerHTML =
+				`<input type="text" placeholder="label" value="${esc(ax.label)}"
+					oninput="axes_p[${i}].label=this.value">` +
+				`<input type="number" placeholder="your value" value="${esc(ax.value)}"
+					oninput="axes_p[${i}].value=this.value">` +
+				`<button class="rm" onclick="rm_axis(${i})">×</button>`;
+			lc.appendChild(d);
+		});
+	}
+
+	function render_d()
+	{
+		const lc = document.getElementById('axes');
+		lc.innerHTML = '';
+		axes_d.forEach((ax, i) =>
+		{
+			const d = document.createElement('div');
+			d.innerHTML =
+				`<div class="axis-top">` +
+					`<input type="text" placeholder="label" value="${esc(ax.label)}"
+						oninput="axes_d[${i}].label=this.value">` +
+					`<button class="rm" onclick="rm_axis(${i})">×</button>` +
+				`</div>` +
+				`<div class="tri-row">` +
+					`<div><span class="tri-lbl">lo</span>` +
+						`<input type="number" placeholder="min" value="${esc(ax.a)}"
+							oninput="axes_d[${i}].a=this.value; draw_my_svg(${i})"></div>` +
+					`<div><span class="tri-lbl">typical</span>` +
+						`<input type="number" placeholder="mode" value="${esc(ax.c)}"
+							oninput="axes_d[${i}].c=this.value; draw_my_svg(${i})"></div>` +
+					`<div><span class="tri-lbl">hi</span>` +
+						`<input type="number" placeholder="max" value="${esc(ax.b)}"
+							oninput="axes_d[${i}].b=this.value; draw_my_svg(${i})"></div>` +
+				`</div>` +
+				`<svg id="svg-d-${i}" class="dv"></svg>`;
+			lc.appendChild(d);
+			draw_my_svg(i);
+		});
+	}
+
+	/* ── SVG visualizations ──────────────────────────── */
+
+	const NS = 'http://www.w3.org/2000/svg';
+	const W = 300, H = 52, PAD = 10;
+
+	function draw_tri_svg(svg_el, dists, marks)
+	{
+		/*
+		  dists: [{a, c, b, fill, stroke}]
+		  marks: [{x, color, width, dash}]
+		  x domain = [min(all a), max(all b)]
+		*/
+		svg_el.setAttribute('viewBox', `0 0 ${W} ${H}`);
+		svg_el.innerHTML = '';
+
+		const valid = dists.filter(d => isFinite(d.a) && isFinite(d.c) && isFinite(d.b)
+		                               && d.b > d.a && d.c >= d.a && d.c <= d.b);
+		if (!valid.length) return;
+
+		const x_min = Math.min(...valid.map(d => d.a));
+		const x_max = Math.max(...valid.map(d => d.b));
+		if (x_max === x_min) return;
+
+		const peaks   = valid.map(d => 2 / (d.b - d.a));
+		const peak_max = Math.max(...peaks);
+
+		const mx = v => PAD + (v - x_min) / (x_max - x_min) * (W - 2 * PAD);
+		const my = v => H - PAD / 2 - (v / peak_max) * (H - PAD * 1.2);
+
+		/* baseline */
+		const base = mk('line', {x1: PAD, y1: H - PAD/2, x2: W - PAD, y2: H - PAD/2,
+		                          stroke: '#ddd', 'stroke-width': 1});
+		svg_el.appendChild(base);
+
+		/* triangles */
+		valid.forEach((d, i) =>
+		{
+			const peak = peaks[i];
+			const pts  = `${mx(d.a)},${my(0)} ${mx(d.c)},${my(peak)} ${mx(d.b)},${my(0)}`;
+			svg_el.appendChild(mk('polygon', {
+				points: pts, fill: d.fill, stroke: d.stroke,
+				'stroke-width': 1.5, 'stroke-linejoin': 'round'
+			}));
+		});
+
+		/* vertical markers */
+		for (const m of (marks || []))
+		{
+			if (!isFinite(m.x)) continue;
+			const x = mx(m.x);
+			svg_el.appendChild(mk('line', {
+				x1: x, y1: PAD / 2, x2: x, y2: H - PAD / 2,
+				stroke: m.color || '#333',
+				'stroke-width': m.width || 1.5,
+				...(m.dash ? {'stroke-dasharray': m.dash} : {})
+			}));
+		}
+	}
+
+	function mk(tag, attrs)
+	{
+		const el = document.createElementNS(NS, tag);
+		for (const [k, v] of Object.entries(attrs)) el.setAttribute(k, v);
+		return el;
+	}
+
+	function draw_my_svg(i)
+	{
+		const svg = document.getElementById(`svg-d-${i}`);
+		if (!svg) return;
+		const ax = axes_d[i];
+		draw_tri_svg(svg,
+			[{a: +ax.a, c: +ax.c, b: +ax.b, fill: 'rgba(60,120,220,0.18)', stroke: '#3c78dc'}],
+			null
+		);
+	}
+
+	function draw_overlay_svg(i, my_dist, their_dist, sample_floor, sample_ceil)
+	{
+		const svg = document.getElementById(`svg-d-${i}`);
+		if (!svg) return;
+
+		const floor_d = role === 'floor' ? my_dist    : their_dist;
+		const ceil_d  = role === 'floor' ? their_dist : my_dist;
+
+		draw_tri_svg(svg,
+			[
+				{...floor_d, fill: 'rgba(60,120,220,0.2)',  stroke: '#3c78dc'},
+				{...ceil_d,  fill: 'rgba(210,100,40,0.2)',  stroke: '#d26428'}
+			],
+			[
+				{x: sample_floor, color: '#3c78dc', width: 1.5, dash: '3,2'},
+				{x: sample_ceil,  color: '#d26428', width: 1.5, dash: '3,2'},
+				{x: (sample_floor + sample_ceil) / 2, color: '#111', width: 2}
+			]
+		);
+	}
+
+	/* ── parse their pasted reveal string ────────────── */
+
+	function parse_their_reveal()
+	{
+		const raw    = document.getElementById('their-reveal').value;
+		const status = document.getElementById('parse-status');
+		their_parsed = null;
+
+		try
+		{
+			const lines   = raw.split('\n').map(l => l.trim()).filter(l => l);
+			const obj     = {};
+			let section   = null;
+
+			for (const line of lines)
+			{
+				if (line.endsWith(':') && !line.includes(' '))
+				{
+					section = line.slice(0, -1);
+					obj[section] = {};
+				}
+				else if (line.startsWith('nonce:'))
+				{ obj.nonce = line.slice(6).trim(); section = null; }
+				else if (line.startsWith('seed:'))
+				{ obj.seed = line.slice(5).trim(); section = null; }
+				else if (section && line.includes(':'))
+				{
+					const colon = line.indexOf(':');
+					obj[section][line.slice(0, colon).trim()] = line.slice(colon + 1).trim();
+				}
+			}
+
+			if (!obj.nonce) { status.textContent = '⚠ no nonce found'; return; }
+
+			if (mode === 'point')
+			{
+				if (!obj.values) { status.textContent = '⚠ no values section'; return; }
+				their_parsed = {vals: obj.values, nonce: obj.nonce};
+				const n = Object.keys(obj.values).length;
+				status.textContent = `✓ parsed ${n} axis${n !== 1 ? 'es' : ''}`;
+			}
+			else
+			{
+				if (!obj.distributions) { status.textContent = '⚠ no distributions section'; return; }
+				if (!obj.seed)          { status.textContent = '⚠ no seed found'; return; }
+				their_parsed = {dists: obj.distributions, seed: obj.seed, nonce: obj.nonce};
+				const n = Object.keys(obj.distributions).length;
+				status.textContent = `✓ parsed ${n} axis${n !== 1 ? 'es' : ''}`;
+			}
+		}
+		catch(e) { status.textContent = '⚠ parse error: ' + e.message; }
+	}
+
+	/* ── crypto / math ───────────────────────────────── */
+
+	async function sha256(s)
+	{
+		const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(s));
+		return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+	}
+
+	function rand_hex(n)
+	{
+		const b = new Uint8Array(n);
+		crypto.getRandomValues(b);
+		return Array.from(b).map(x => x.toString(16).padStart(2, '0')).join('');
+	}
+
+	function xor_hex(h1, h2)
+	{
+		const len = Math.min(h1.length, h2.length);
+		let r = '';
+		for (let i = 0; i < len; i += 2)
+			r += (parseInt(h1.slice(i, i+2), 16) ^ parseInt(h2.slice(i, i+2), 16))
+			         .toString(16).padStart(2, '0');
+		return r;
+	}
+
+	async function hash_to_float(seed, tag)
+	{
+		const h = await sha256(seed + '|' + tag);
+		return parseInt(h.slice(0, 8), 16) / 0x100000000;
+	}
+
+	/* triangular(a,c,b) inverse CDF */
+	function tri_inv(u, a, c, b)
+	{
+		if (a === b) return a;
+		const fc = (c - a) / (b - a);
+		return u <= fc
+			? a + Math.sqrt(u * (b - a) * (c - a))
+			: b - Math.sqrt((1 - u) * (b - a) * (b - c));
+	}
+
+	/* ── preimage strings ────────────────────────────── */
+
+	function preimage_p_own(vals, nonce)
+	{
+		return axes_p.map((ax, i) => `${ax.label}:${vals[i]}`).join(';') + '|' + nonce;
+	}
+
+	function preimage_p_their(vals_map, nonce)
+	{
+		return axes_p.map(ax => `${ax.label}:${vals_map[ax.label]}`).join(';') + '|' + nonce;
+	}
+
+	function preimage_d_own(dists, seed, nonce)
+	{
+		return axes_d.map((ax, i) =>
+			`${ax.label}:${dists[i].a},${dists[i].c},${dists[i].b}`
+		).join(';') + '|' + seed + '|' + nonce;
+	}
+
+	function preimage_d_their(dists_map, seed, nonce)
+	{
+		return axes_d.map(ax =>
+			`${ax.label}:${dists_map[ax.label]}`
+		).join(';') + '|' + seed + '|' + nonce;
+	}
+
+	/* ── commit ──────────────────────────────────────── */
+
+	async function gen_commit()
+	{
+		document.getElementById('commit-out').classList.add('hidden');
+
+		if (mode === 'point')
+		{
+			const vals = axes_p.map(ax => ax.value.trim());
+			if (vals.some(v => v === '')) { alert('Fill in all values.'); return; }
+			saved_nonce = rand_hex(16);
+			saved_p     = vals;
+			const h     = await sha256(preimage_p_own(vals, saved_nonce));
+			const lines = axes_p.map((ax, i) => `  ${ax.label || 'axis'+i}: ${vals[i]}`).join('\n');
+			document.getElementById('my-hash').textContent   = h;
+			document.getElementById('my-reveal').textContent =
+				`values:\n${lines}\nnonce: ${saved_nonce}`;
+		}
+		else
+		{
+			const dists = axes_d.map(ax => ({a: ax.a.trim(), c: ax.c.trim(), b: ax.b.trim()}));
+			if (dists.some(d => !d.a || !d.c || !d.b)) { alert('Fill in all distribution params.'); return; }
+			saved_nonce = rand_hex(16);
+			saved_seed  = rand_hex(16);
+			saved_d     = dists;
+			const h     = await sha256(preimage_d_own(dists, saved_seed, saved_nonce));
+			const lines = axes_d.map((ax, i) =>
+				`  ${ax.label || 'axis'+i}: [${dists[i].a}, ${dists[i].c}, ${dists[i].b}]`
+			).join('\n');
+			document.getElementById('my-hash').textContent   = h;
+			document.getElementById('my-reveal').textContent =
+				`distributions:\n${lines}\nseed: ${saved_seed}\nnonce: ${saved_nonce}`;
+		}
+
+		document.getElementById('commit-out').classList.remove('hidden');
+	}
+
+	/* ── verify & compute ────────────────────────────── */
+
+	async function verify()
+	{
+		const their_hash = document.getElementById('their-hash').value.trim();
+		const el         = document.getElementById('result');
+		el.classList.remove('hidden', 'deal', 'nodeal', 'warn');
+
+		if (!their_hash)    { alert('Paste their commitment hash.'); return; }
+		if (!their_parsed)  { alert('Paste and parse their reveal string first.'); return; }
+
+		if (mode === 'point')
+		{
+			const {vals, nonce} = their_parsed;
+			const computed      = await sha256(preimage_p_their(vals, nonce));
+			const hash_ok       = computed === their_hash;
+			const my_vals       = saved_p.length ? saved_p : axes_p.map(ax => ax.value.trim());
+			if (my_vals.some(v => v === '')) { alert('Generate your commitment first.'); return; }
+			show_result_p(el, hash_ok, my_vals, vals, computed, their_hash);
+		}
+		else
+		{
+			const {dists, seed: their_seed, nonce} = their_parsed;
+			const computed = await sha256(preimage_d_their(dists, their_seed, nonce));
+			const hash_ok  = computed === their_hash;
+			const my_d     = saved_d.length ? saved_d : axes_d.map(ax => ({a:ax.a, c:ax.c, b:ax.b}));
+			if (my_d.some(d => !d.a || !d.c || !d.b)) { alert('Generate your commitment first.'); return; }
+			const combined = xor_hex(saved_seed, their_seed);
+			await show_result_d(el, hash_ok, my_d, dists, combined, computed, their_hash);
+		}
+	}
+
+	function show_result_p(el, hash_ok, my_vals, their_vals_map, computed, their_hash)
+	{
+		if (!hash_ok)
+		{
+			el.classList.add('warn');
+			el.innerHTML =
+				`<div class="rtitle">⚠ hash mismatch</div>` +
+				`<div class="rrow">expected: ${their_hash}</div>` +
+				`<div class="rrow">computed: ${computed}</div>`;
+			return;
+		}
+
+		const axis_res = axes_p.map((ax, i) =>
+		{
+			const my = parseFloat(my_vals[i]);
+			const th = parseFloat(their_vals_map[ax.label]);
+			const fv = role === 'floor' ? my : th;
+			const cv = role === 'floor' ? th : my;
+			return {lbl: ax.label || `axis ${i+1}`, fv, cv, ok: cv >= fv, mid: (fv+cv)/2};
+		});
+
+		const deal = axis_res.every(r => r.ok);
+		el.classList.add(deal ? 'deal' : 'nodeal');
+		let html = `<div class="rtitle">${deal ? 'DEAL ✓' : 'NO DEAL'}</div>`;
+		axis_res.forEach(r =>
+		{
+			if (r.ok)
+				html += `<div class="rrow rpass">${r.lbl}: floor=${fmt(r.fv)}, ceil=${fmt(r.cv)} → <b>${fmt(r.mid)}</b></div>`;
+			else
+				html += `<div class="rrow rfail">${r.lbl}: ✗ floor ${fmt(r.fv)} &gt; ceil ${fmt(r.cv)}</div>`;
+		});
+		el.innerHTML = html;
+	}
+
+	async function show_result_d(el, hash_ok, my_d, their_dists_map, combined, computed, their_hash)
+	{
+		if (!hash_ok)
+		{
+			el.classList.add('warn');
+			el.innerHTML =
+				`<div class="rtitle">⚠ hash mismatch</div>` +
+				`<div class="rrow">expected: ${their_hash}</div>` +
+				`<div class="rrow">computed: ${computed}</div>`;
+			return;
+		}
+
+		const axis_res = [];
+		for (let i = 0; i < axes_d.length; i++)
+		{
+			const ax  = axes_d[i];
+			const u_f = await hash_to_float(combined, `${i}:floor`);
+			const u_c = await hash_to_float(combined, `${i}:ceil`);
+
+			const md      = my_d[i];
+			const td_str  = their_dists_map[ax.label] || '';
+			const td_nums = td_str.replace(/[\[\]]/g, '').split(',').map(s => parseFloat(s.trim()));
+			if (td_nums.length !== 3 || td_nums.some(isNaN))
+			{
+				axis_res.push({lbl: ax.label, err: `could not parse: "${td_str}"`});
+				continue;
+			}
+
+			const [ta, tc, tb]  = td_nums;
+			const [ma, mc, mb]  = [+md.a, +md.c, +md.b];
+			const my_sample     = tri_inv(role === 'floor' ? u_f : u_c, ma, mc, mb);
+			const their_sample  = tri_inv(role === 'floor' ? u_c : u_f, ta, tc, tb);
+			const fv            = role === 'floor' ? my_sample   : their_sample;
+			const cv            = role === 'floor' ? their_sample : my_sample;
+
+			axis_res.push({
+				lbl: ax.label || `axis ${i+1}`,
+				my_sample, their_sample,
+				my_dist:   {a: ma, c: mc, b: mb},
+				their_dist:{a: ta, c: tc, b: tb},
+				fv, cv, ok: cv >= fv, mid: (fv + cv) / 2
+			});
+		}
+
+		const deal = axis_res.every(r => !r.err && r.ok);
+		el.classList.add(deal ? 'deal' : 'nodeal');
+
+		let html = `<div class="rtitle">${deal ? 'DEAL ✓' : 'NO DEAL'}</div>`;
+		axis_res.forEach(r =>
+		{
+			if (r.err)
+			{
+				html += `<div class="rrow rfail">${r.lbl}: ⚠ ${r.err}</div>`;
+			}
+			else if (r.ok)
+			{
+				const fl = role === 'floor' ? 'floor' : 'ceil';
+				const cl = role === 'floor' ? 'ceil'  : 'floor';
+				html += `<div class="rrow rpass">${r.lbl}: ${fl}=${fmt(r.my_sample)}, ${cl}=${fmt(r.their_sample)} → <b>${fmt(r.mid)}</b></div>`;
+			}
+			else
+			{
+				html += `<div class="rrow rfail">${r.lbl}: ✗ floor draw ${fmt(r.fv)} &gt; ceil draw ${fmt(r.cv)}</div>`;
+			}
+		});
+		html += `<div class="rmeta">combined seed: ${combined}</div>`;
+		el.innerHTML = html;
+
+		/* update SVGs with overlay */
+		axis_res.forEach((r, i) =>
+		{
+			if (!r.err)
+				draw_overlay_svg(i, r.my_dist, r.their_dist, r.fv, r.cv);
+		});
+	}
+
+	/* ── misc ────────────────────────────────────────── */
+
+	function fmt(n) { return parseFloat(n.toFixed(4)).toString(); }
+
+	function esc(s)
+	{
+		return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+	}
+
+	function cp(id)
+	{
+		navigator.clipboard.writeText(document.getElementById(id).textContent);
+	}
+
+	switch_mode('point');
+	</script>
+</body>
+</html>
