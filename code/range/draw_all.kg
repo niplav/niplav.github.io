@@ -1,0 +1,176 @@
+.l("nplot")
+.l("./load.kg")
+
+example::.oc("example.eps")
+.tc(example)
+
+setrgb(0;0;0)
+grid([0 170 10];[-0.1 1 0.1])
+xtitle("Range (in hours)")
+ytitle("Probability given")
+
+shortrange::[[24 0.3][14 0.1]]
+longrange::[[168 0.95][158 0.6]]
+questions::[[24 0.2][168 0.775]]
+
+fillrgb(1;0;0)
+setrgb(1;0;0)
+
+text(90;45;"Outcome for question 1")
+text(330;45;"Outcome for question 2")
+
+fillrgb(0;0.8;0.8)
+setrgb(0;0.8;0.8)
+
+scplot2(shortrange)
+plot(lr(;lreg(shortrange)))
+
+text(80;120;"Predictions with a short range")
+
+fillrgb(0.7;0.7;0)
+setrgb(0.7;0.7;0)
+
+scplot2(longrange)
+plot(lr(;lreg(longrange)))
+
+text(270;400;"Predictions with a long range")
+
+fillrgb(1;0;0)
+setrgb(1;0;0)
+
+setdot(6)
+
+scplot2([[24 0][168 0]])
+
+fillrgb(0;0;0)
+setrgb(0;0;0)
+
+plot(lr(;lreg(shortrange,longrange)))
+
+text(130;300;"Linear regression over all forecasts")
+
+fillrgb(0.4;0.4;1)
+setrgb(0.4;0.4;1)
+
+plot(lr(;lreg(questions)))
+
+text(200;200;"Linear regression between questions")
+
+draw()
+
+.fl()
+.cc(example)
+
+allscatter::.oc("allscatter.eps")
+.tc(allscatter)
+
+uplim::|/metrngs,pbrngs
+
+setrgb(0;0;0)
+grid([0],uplim,(_uplim%10);[0 1 0.1])
+xtitle("Range (in days)")
+ytitle("Brier Score")
+
+setdot(2)
+
+fillrgb(0;0;1)
+setrgb(0;0;1)
+scplot2(subsetpb)
+plot(lr(;lreg(subsetpb)))
+
+fillrgb(1;0;0)
+setrgb(1;0;0)
+scplot2(subsetmet)
+plot(lr(;lreg(subsetmet)))
+
+draw()
+
+.fl()
+.cc(allscatter)
+
+ssplot::.oc("ss_plot.eps")
+.tc(ssplot)
+
+setrgb(0;0;0)
+grid([0],maxval,(maxval:%15);[0],maxlen,(maxlen:%15))
+xtitle("Range (in months)")
+ytitle("Number of predictions")
+
+setrgb(0;0;1)
+segplot(metss)
+setrgb(1;0;0)
+segplot(pbss)
+
+draw()
+.fl()
+.cc(ssplot)
+
+allq::.oc("allq.eps")
+.tc(allq)
+
+setrgb(0;0;0)
+grid([0],uplim,(_uplim%10);[0 1 0.1])
+xtitle("Range (in days)")
+ytitle("Brier Score")
+
+setdot(2)
+
+fillrgb(0;0;1)
+setrgb(0;0;1)
+scplot2(pbqbrier)
+plot(lr(;lreg(pbqbrier)))
+
+fillrgb(1;0;0)
+setrgb(1;0;0)
+scplot2(metqbrier)
+plot(lr(;lreg(metqbrier)))
+
+draw()
+
+.fl()
+.cc(allq)
+
+perquestion::.oc("perquestion.eps")
+.tc(perquestion)
+
+uplim::|/metrngs
+
+setrgb(0;0;0)
+grid([0],uplim,(_uplim%10);[0 1 0.1])
+
+xtitle("Range (in days)")
+ytitle("Brier Score")
+
+sketch::{q::x;
+	setrgb(.rn();.rn();.rn());
+	pltr::{:[(x>**q)|x<**|q;0;lr(x;lreg(q))]};
+	plot(pltr)}
+
+sketch'wmetqbrier
+
+draw()
+
+.fl()
+.cc(perquestion)
+
+uplim::|/metrngs,pbrngs
+
+withintotal::.oc("withintotal.eps")
+.tc(withintotal)
+
+setrgb(0;0;0)
+setdot(2)
+grid([0],uplim,(_uplim%10);[0 1 0.1])
+
+xtitle("Range (in days)")
+ytitle("Brier score")
+
+setrgb(1;0;0)
+plot(lr(;awmetqlr))
+
+setrgb(0;0;1)
+plot(lr(;awpbqlr))
+
+draw()
+.fl()
+.cc(withintotal)
