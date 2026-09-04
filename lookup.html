@@ -1,0 +1,390 @@
+<html><body><h2 id="home"><a href="./index.html">home</a></h2>
+<!DOCTYPE html>
+
+<title>niplav</title>
+<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
+<link href="main.css" rel="stylesheet" type="text/css"/>
+<link href="https://niplav.substack.com/feed" rel="alternate" type="application/atom+xml"/>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+<script src="footnotes.js"></script>
+<style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+	// Change the title to the h1 header
+	var title = document.querySelector('h1')
+	if(title) {
+		var title_elem = document.querySelector('title')
+		title_elem.textContent=title.textContent + " – niplav"
+	}
+});
+</script>
+<p><em>author: niplav, created: 2026-03-29, modified: 2026-06-28, language: english, status: maintenance, importance: 6, confidence: likely</em></p>
+<blockquote>
+<p><strong>I try to square the agent-structure problem with LLMs.</strong></p>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#LLMs_as_Giant_LookupTables_of_Shallow_Circuits">LLMs as Giant Lookup-Tables of Shallow Circuits</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
+<h2 id="LLMs_as_Giant_LookupTables_of_Shallow_Circuits"><a class="hanchor" href="#LLMs_as_Giant_LookupTables_of_Shallow_Circuits">LLMs as Giant Lookup-Tables of Shallow Circuits</a></h2>
+<p>Early 2026 LLMs in scaffolds, from simple ones
+such as giving the model access to a scratchpad/"<a href="https://blog.research.google/2022/05/language-models-perform-reasoning-via.html">chain of
+thought</a>"
+up to <a href="https://en.wikipedia.org/wiki/Model_Context_Protocol">MCP servers</a>,
+<a href="https://claude.com/skills">skills</a> and <a href="https://platform.claude.com/docs/en/build-with-claude/compaction">context
+compaction</a>
+&amp;c are <em>quite</em> capable. (<a href="https://metr.org/time-horizons/">Obligatory meme link to the METR
+graph</a>.)</p>
+<p>Yet: If someone had told me in 2019 that systems with
+such capability would exist in 2026, I would strongly
+predict that they would be almost uncontrollable optimizers,
+ruthlessly &amp; tirelessly pursuing their goals and finding <a href="https://arbital.com/p/edge_instantiation/">edge
+instantiations</a> in everything.
+But they don't seem to be doing that. Current-day LLMs are just not <em>that</em>
+optimizer-y, they appear to have capable behavior without apparent <a href="https://www.lesswrong.com/posts/osxNg6yBCJ4ur9hpi/does-agent-like-behavior-imply-agent-like-architecture">agent
+structure</a>.</p>
+<p>Discussions from the time either ruled out giant lookup-tables (<a href="https://www.lesswrong.com/posts/oxsBpx9v3bgxraiPj/towards-a-formalization-of-the-agent-structure-problem">Altair 2024</a>):</p>
+<blockquote>
+<p>One obvious problem is that there could be a policy which is the
+equivalent of a giant look-up table it's just a list of key-value pairs
+where the previous observation sequence is the look-up key, and it returns
+a next action. For any well-performing policy, there could exist a table
+version of it. These are clearly not of interest, and in some sense they
+have no "structure" at all, let alone agent structure. A way to filter
+out the look-up tables is to put an upper bound on the description length
+of the policies […].</p>
+</blockquote>
+<p>or specified that the optimizer must be in the causal
+history of such a giant lookup-table (<a href="https://www.lesswrong.com/posts/osxNg6yBCJ4ur9hpi/does-agent-like-behavior-imply-agent-like-architecture">Garrabrant
+2019</a>):</p>
+<blockquote>
+<p>First a giant look-up table is not (directly) a counterexample. This
+is because it might be that the only way to produce an agent-like GLUT
+is to use agent-like architecture to search for it. Similarly a program
+that outputs all possible GLUTs is also not a counterexample because you
+might have to use your agent-like architecture to point at the specific
+counterexample. A longer version of the conjecture is “If you see a
+program impelements agent-like behavior, there must be some agent-like
+architecture in the program itself, in the causal history of the program,
+or in the process that brought your attention to the program.”</p>
+</blockquote>
+<p>The most fitting rejoinder to the observation
+of capable non-optimizer AIs is probably <a href="https://www.allmusicals.com/lyrics/hamilton/alexanderhamilton.htm"><em>"Just you
+wait"</em></a>—current
+LLMs are <em>capable</em>, sure, but they're not wildly superhuman
+to an extent comparable to the original worries about extreme
+optimization pressure. In this view, they're molting into
+full agency right now, and we should see the problems of high
+optimization pressure show up by the end of 2026 or the five years
+after<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.245ex" height="1.843ex" style="vertical-align: -0.838ex;" viewBox="0 -432.6 1397.2 793.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-1-Title">
+<title id="MathJax-SVG-1-Title">_{50\%}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(0,-187)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-35"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-30" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-25" x="1001" y="0"></use>
+</g>
+</g>
+</svg></span><sup id="fnref1"><a href="#fn1" rel="footnote">1</a></sup> if they're not hidden from us by <a href="https://www.lesswrong.com/s/r9tYkB2a8Fp4DN8yB/p/zthDPAjh9w6Ytbeks">deceptive
+AIs</a><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.245ex" height="1.843ex" style="vertical-align: -0.838ex;" viewBox="0 -432.6 1397.2 793.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-2-Title">
+<title id="MathJax-SVG-2-Title">_{35\%}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(0,-187)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-33"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-35" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-25" x="1001" y="0"></use>
+</g>
+</g>
+</svg></span>.
+Indeed, current LLMs <a href="https://metr.org/blog/2025-06-05-recent-reward-hacking/"><em>do</em>
+reward-hack</a>,
+though the developers have been decent at suppressing the tendency down
+to a consumer-acceptable level.</p>
+<p>But I have <a href="https://www.lesswrong.com/posts/yeADMcScw8EW9yxpH/a-sketch-of-good-communication">a different model
+of</a>
+how LLMs can be capable without being agentic/pernicioulsy optimizing:</p>
+<p><strong>LLMs are superlinear-in-network-width
+<a href="https://en.wikipedia.org/wiki/Lookup_table">lookup-table</a>-like
+collections of <em>depth-limited</em>, <em>composeable</em> and
+<em><a href="https://www.lesswrong.com/posts/nWRj6Ey8e5siAEXbK/simple-versus-short-higher-order-degeneracy-and-error-1">error-correcting</a></em>
+<a href="https://en.wikipedia.org/wiki/Circuit_(computer_theory)">circuits</a>,
+<a href="https://www.lesswrong.com/w/comp-in-sup">computed in superposition</a></strong>.</p>
+<p>One could call this the GLUT-of-circuits model of LLMs.</p>
+<p>To elaborate:</p>
+<ol>
+<li>"<a href="https://en.wikipedia.org/wiki/Lookup_table">lookup-table</a>-like": A common issue in <a href="https://www.lesswrong.com/posts/oxsBpx9v3bgxraiPj/towards-a-formalization-of-the-agent-structure-problem">proving theorems about agent structure</a> is to avoid including giant lookup tables where each sequence of previous percepts and actions is matched to an optimal next action. Such a giant lookup table is infeasible in the real world, but I think something <em>similar</em> to a giant lookup table might be possible, namely through computation in superposition.</li>
+<li>"circuits": Turing machines aren't a great model for the type of computation that neural networks use (namely because they assume an infinite tape and arbitrary serial depth); a slightly better one is <a href="https://en.wikipedia.org/wiki/Circuit_(computer_science)">circuits</a>, which have limited depth, though in computer science circuits are usually defined for booleans or integers. See also <a href="https://distill.pub/2020/circuits/zoom-in/">Olah et al. 2020)</a> on the relatedly defined concept in mechanistic interpretability.</li>
+<li>"computed in superposition": Current LLMs <a href="https://transformer-circuits.pub/2022/toy_model/index.html">represent features in superposition</a>, that is, they exploit the fact that high-dimensional spaces can have exponentially many almost-orthogonal vectors relative to the number of dimensions (a consequence of the <a href="https://en.wikipedia.org/wiki/Johnson-Lindenstrauss_lemma">Johnson-Lindenstrauss lemma</a>). The idea of <a href="https://www.lesswrong.com/w/comp-in-sup">computation in superposition</a> generalizes this observation to cram more computation into a neural network.</li>
+<li>"superlinear-in-network-width": Computation in superposition allows for running many circuits at the same time. E.g. <a href="https://arxiv.org/abs/2408.05451">Hänni et al. 2024</a> construct (shallow) neural networks of witdh <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.503ex" height="4.009ex" style="vertical-align: -0.838ex;" viewBox="0 -1365.4 4091.7 1726.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-3-Title">
+<title id="MathJax-SVG-3-Title">\tilde{O}(m^{\frac{2}{3}}s^2)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-4F" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-7E" x="214" y="598"></use>
+ <use xlink:href="#MJMAIN-28" x="763" y="0"></use>
+<g transform="translate(1153,0)">
+ <use xlink:href="#MJMATHI-6D" x="0" y="0"></use>
+<g transform="translate(878,520)">
+<g transform="translate(120,0)">
+<rect stroke="none" width="407" height="60" x="0" y="146"></rect>
+ <use transform="scale(0.574)" xlink:href="#MJMAIN-32" x="104" y="647"></use>
+ <use transform="scale(0.574)" xlink:href="#MJMAIN-33" x="104" y="-697"></use>
+</g>
+</g>
+</g>
+<g transform="translate(2778,0)">
+ <use xlink:href="#MJMATHI-73" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="663" y="513"></use>
+</g>
+ <use xlink:href="#MJMAIN-29" x="3702" y="0"></use>
+</g>
+</svg></span> that are able emulate an <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.09ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 469.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-4-Title">
+<title id="MathJax-SVG-4-Title">s</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-73" x="0" y="0"></use>
+</g>
+</svg></span>-sparse<sup id="fnref2"><a href="#fn2" rel="footnote">2</a></sup> boolean circuit of width <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.04ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 878.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-5-Title">
+<title id="MathJax-SVG-5-Title">m</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6D" x="0" y="0"></use>
+</g>
+</svg></span> (<strong>Theorem 8</strong>).
+<ol>
+<li>This result gestures at the possibility that one <em>can</em> put a superlinear number of circuits<sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup> into a single neural network, making the neural network more of a lookup-table than an example of <a href="https://www.lesswrong.com/posts/6mysMAqvo9giHC4iX/what-s-general-purpose-search-and-why-might-we-expect-to-see">general-purpose search</a>.</li>
+</ol></li>
+<li>"depth-limited": A forward pass in SOTA language models has a limited number of steps of <a href="https://en.wikipedia.org/wiki/Serial_computation">serial computation</a>; <a href="./doc/cs/ai/language_models_are_few_shot_learners_brown_et_al_2020.pdf">gpt-3-davinci</a> had 96 layers, which results in a circuit depth of 78-83 steps per layer, impliying in <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="25.707ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 11068.3 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-6-Title">
+<title id="MathJax-SVG-6-Title">96 \cdot [78, 83]=[7488, 7968]</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMAIN-39"></use>
+ <use xlink:href="#MJMAIN-36" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-22C5" x="1223" y="0"></use>
+ <use xlink:href="#MJMAIN-5B" x="1723" y="0"></use>
+<g transform="translate(2002,0)">
+ <use xlink:href="#MJMAIN-37"></use>
+ <use xlink:href="#MJMAIN-38" x="500" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="3003" y="0"></use>
+<g transform="translate(3448,0)">
+ <use xlink:href="#MJMAIN-38"></use>
+ <use xlink:href="#MJMAIN-33" x="500" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-5D" x="4449" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="5005" y="0"></use>
+ <use xlink:href="#MJMAIN-5B" x="6062" y="0"></use>
+<g transform="translate(6340,0)">
+ <use xlink:href="#MJMAIN-37"></use>
+ <use xlink:href="#MJMAIN-34" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-38" x="1001" y="0"></use>
+ <use xlink:href="#MJMAIN-38" x="1501" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-2C" x="8342" y="0"></use>
+<g transform="translate(8787,0)">
+ <use xlink:href="#MJMAIN-37"></use>
+ <use xlink:href="#MJMAIN-39" x="500" y="0"></use>
+ <use xlink:href="#MJMAIN-36" x="1001" y="0"></use>
+ <use xlink:href="#MJMAIN-38" x="1501" y="0"></use>
+</g>
+ <use xlink:href="#MJMAIN-5D" x="10789" y="0"></use>
+</g>
+</svg></span> serial steps per forward pass. Current LLMs might look different due to sparse attention and other developments in architecture, no to speak of increased model size, but I'd guess that current frontier models don't have a circuit depth of more than 20000<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.245ex" height="1.843ex" style="vertical-align: -0.838ex;" viewBox="0 -432.6 1397.2 793.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-7-Title">
+<title id="MathJax-SVG-7-Title">_{65\%}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(0,-187)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-36"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-35" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-25" x="1001" y="0"></use>
+</g>
+</g>
+</svg></span>, unless I really messed something up in my calculation. Claude Sonnet 4.5 estimates that Kimi K2.5 Thinking has slightly less than 5000 serial steps of computation, mostly due to being only 61 layers deep.</li>
+<li>"composeable": If the neural network just contained an unrelated collection of circuits, the network wouldn't be effective at solving difficult math problems. Instead, my best guess is that the circuits are selected by reinforcement learning, especially RLVR, to be <em>composeable</em>, that is each circuit takes inputs of the same type as outputs of other circuits in the network. (Maybe this explains the some of the "sameness"/"slop"-factor of LLM outputs, the "semantic type" has to match?)</li>
+<li>"error-correcting": If a forward pass executes many circuits in superposition, there will be some interference between individual circuits, so circuits will be selected to be either robust to small errors or error-correcting. This is oddly similar to results from singular learning theory, which imply that (very roughly) <a href="https://www.lesswrong.com/posts/nWRj6Ey8e5siAEXbK/simple-versus-short-higher-order-degeneracy-and-error-1">Bayesian inference selects for error-correcting programs</a>. I don't know which implications this would have.</li>
+</ol>
+<p>Estimate on the circuit depth of gpt-3-davinci:</p>
+<ol>
+<li>Self-attention
+<ol>
+<li><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.759ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 3340.8 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-8-Title">
+<title id="MathJax-SVG-8-Title">Q, K, V</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-51" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="791" y="0"></use>
+ <use xlink:href="#MJMATHI-4B" x="1236" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="2126" y="0"></use>
+ <use xlink:href="#MJMATHI-56" x="2571" y="0"></use>
+</g>
+</svg></span> projections: single step</li>
+<li>Compute <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.322ex" height="2.843ex" style="vertical-align: -0.671ex;" viewBox="0 -934.9 2291.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-9-Title">
+<title id="MathJax-SVG-9-Title">QK^T</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-51" x="0" y="0"></use>
+<g transform="translate(791,0)">
+ <use xlink:href="#MJMATHI-4B" x="0" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMATHI-54" x="1274" y="513"></use>
+</g>
+</g>
+</svg></span>: <code>matmul</code> of square matrix with size 12288, at logarithmic circuit depth for <code>matmul</code>s we get 13-14 steps</li>
+<li><code>softmax</code> over an array of length <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0.693ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 298.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-10-Title">
+<title id="MathJax-SVG-10-Title">l</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6C" x="0" y="0"></use>
+</g>
+</svg></span> has depth <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.766ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 3774.1 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-11-Title">
+<title id="MathJax-SVG-11-Title">\mathcal{O}(\log_2 l)</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJCAL-4F" x="0" y="0"></use>
+ <use xlink:href="#MJMAIN-28" x="796" y="0"></use>
+<g transform="translate(1186,0)">
+ <use xlink:href="#MJMAIN-6C"></use>
+ <use xlink:href="#MJMAIN-6F" x="278" y="0"></use>
+ <use xlink:href="#MJMAIN-67" x="779" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="1809" y="-343"></use>
+</g>
+ <use xlink:href="#MJMATHI-6C" x="3086" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="3384" y="0"></use>
+</g>
+</svg></span> (summation of a list can be done via a summation in a binary tree), for a vector size of 2048 we get 11 steps</li>
+<li>Multiply by <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.787ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 769.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-12-Title">
+<title id="MathJax-SVG-12-Title">V</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-56" x="0" y="0"></use>
+</g>
+</svg></span>, one <code>matmul</code>, 13-14 steps</li>
+<li>Output projection, another <code>matmul</code>, 13-14 steps</li>
+</ol></li>
+<li>Feed-forward
+<ol>
+<li>First linear layer: one <code>matmul</code>, 13-14 steps</li>
+<li><a href="https://en.wikipedia.org/wiki/Activation_function">GELU</a>: single step</li>
+<li>Second linear layer: another <code>matmul</code>, 13-14 steps</li>
+</ol></li>
+</ol>
+<p>Inferences from this model:</p>
+<p><strong>Circuit selection</strong>: This model would imply that circuits are
+selected mostly by another algorithm with very small serial depth,
+relying on features of a problem that can be determined by very parallel
+computations.</p>
+<p>That somewhat matches my observations from looking at LLMs trying to
+tackle problems: It often looks to me like they try one strategy after
+another, and less often use detailed information from the past failed
+attempt to form a complicated new strategy.</p>
+<p>It <em>also</em> matches what we've seen from LLMs
+<a href="https://palisaderesearch.org/blog/shutdown-resistance">self-preserving</a>/<a href="https://www.anthropic.com/research/agentic-misalignment">black-mailing</a>/reward-hacking:
+The actions seem opportunistic, not carefully hidden once they've been
+performed, not embedded in larger plans; they look mostly like "another
+strategy to try, oops, I guess that didn't quite work".</p>
+<p><strong>Alignment</strong>: My guess is that most or almost all of
+these circuits are <em>individually aligned</em> through bog-standard
+<a href="https://en.wikipedia.org/wiki/Reinforcement_learning_from_human_feedback">RLHF</a>/<a href="https://en.wikipedia.org/wiki/Constitutional_AI">Constitutional
+AI</a>.
+This works because the standard problems of <a href="https://arbital.com/p/edge_instantiation/">edge
+instantiation</a> and <a href="./doc/cs/ai/alignment/agent_foundations/categorizing_variants_of_goodharts_law_manheim_garrabrant_2019.pdf">Goodhart's
+law</a>
+don't show up as strongly, because the optimization mainly occurs
+by either:</p>
+<ol>
+<li>Selecting one circuit from the giant lookup table that is all the circuits in superposition in the LLM</li>
+<li>Running many circuits in superposition and selecting the best result or aggregating the best results.</li>
+</ol>
+<p>In this model every circuit is individually "aligned" (insofar such a
+shallow program can be misaligned at all). Chain of "thought" composes
+calls to related circuits (though more on CoT below).</p>
+<p>If this view is correct, a folk view of alignment as simply
+"deleting/downweighting the bad parts of a model" would be <em>mostly
+correct</em>: There would be a large but finite number of circuits embedded
+in the model, which can be upweighted, downweighted or outright
+deleted by gradient descent. My extremely speculative guess is that
+there is less than a quadrillion circuits stored in superposition in a
+trillion-parameter model<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.245ex" height="1.843ex" style="vertical-align: -0.838ex;" viewBox="0 -432.6 1397.2 793.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-13-Title">
+<title id="MathJax-SVG-13-Title">_{85\%}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(0,-187)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-38"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-35" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-25" x="1001" y="0"></use>
+</g>
+</g>
+</svg></span>, which which thorough-enough safety
+training could exhaustively or near-exhaustively check and select. In
+this view, AI alignment really <em>would</em> be purely bottlenecked on the
+amount of computation spent on whac-a-moling unaligned circuits.</p>
+<p>People might not spend enough compute on alignment training, and that
+would still be a problem (though a lesser one, since the model wouldn't be
+actively working against the developers), but the problem of alignment
+would've been turned from a <a href="https://musingsandroughdrafts.wordpress.com/2021/04/05/on-category-i-and-category-ii-problems/">category I problem into a category II
+problem</a>.</p>
+<p><strong>Chain of thought</strong>: The obvious wrinkle in this story is that I haven't
+talked about chain-of-"thought"/"reasoning" LLMs. It goes with saying that
+long chains of thought enable vastly more serial computation to be done,
+and I haven't yet quite teased apart how this impacts the overall picture
+(besides "it makes it worse").</p>
+<p>Still, some guesses at implications from the GLUT-of-circuits models
+for alignment and chain-of-"thought":</p>
+<ol>
+<li>The token bottleneck is <em>real</em>. Every &lt;10k serial steps the entire state needs to be compressed down to one of 50k-200k tokens, resulting in at most 16-20 bits of state to be passed between each circuit. My guess is that it's actually closer to ~8-10 bits (given <a href="https://en.wikipedia.org/wiki/Entropy_(information)#Introduction">~1 bit per character in English</a>), so maybe 2 bits per character in an optimized chain of "thought", at four to five characters per token. A vector of a thousand floats becomes a token of a dozen bits.
+<ol>
+<li>This may allow us to estimate an upper limit on the optimization power of an LLM outputting <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.395ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 600.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-14-Title">
+<title id="MathJax-SVG-14-Title">n</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-6E" x="0" y="0"></use>
+</g>
+</svg></span> tokens?</li>
+</ol></li>
+<li>Continuous chains of "thought" would be quite bad, since they'd increase the serial depth without information bottlenecks by a lot.</li>
+<li>It now matters that all the circuits are aligned even when composed with each other, which is not guaranteed at all, and even having to extend the guarantees for alignment from every circuit to every ordered pair of circuits increases the size of the search space quadratically.
+<ol>
+<li>Though, I'm still not convinced this would give us ruthless optimizers. You gotta chain together <em>a lot</em> of short circuits in a semi-related fashion to result in strong optimization pressure/Goodharting/edge instantiation.</li>
+</ol></li>
+</ol>
+<p>Most of the other things (backtracking in a forward pass is really hard
+&amp;c) I'd otherwise say here have already been said by others.</p>
+<p><strong>Training process</strong>: If we see this whole model as being about amortized
+optimization, maybe it's the training process that takes up all the
+optimization power? Are LLMs the most dangerous during training, or is
+it rather the whole training process which is dangerous?</p>
+<hr/>
+<p>I think this model is mostly correct<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.245ex" height="1.843ex" style="vertical-align: -0.838ex;" viewBox="0 -432.6 1397.2 793.3" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-15-Title">
+<title id="MathJax-SVG-15-Title">_{50\%}</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<g transform="translate(0,-187)">
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-35"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-30" x="500" y="0"></use>
+ <use transform="scale(0.707)" xlink:href="#MJMAIN-25" x="1001" y="0"></use>
+</g>
+</g>
+</svg></span>, and also has implications
+for capabilities progress/the need to switch to another paradigm/overhaul
+parts of the current paradigm to reach wildly superhuman capabilities. I
+think it predicts we'll see some gains from training but that we'll
+plateau, or trade hard to measure capabilities for easily measurable
+capabilities. I think I want to point to 55% "LLMs are agents" and 45%
+"LLMs are stochastic parrots", but there's tons of AI capabilities
+forecast questions I'm not yet able to answer (e.g. the infamous "which
+concrete capability would you expect an LLM-based system not to have in
+$YEAR?"). And plausibly the whole thing is just moot because long chains
+of thought just enable enough chaining together to get the capabilities.</p>
+<p>or smth idk</p>
+<p>(Thanks to Claude 4.5 Sonnet for help and feedback)</p>
+<h2 id="See_Also"><a class="hanchor" href="#See_Also">See Also</a></h2>
+<p>Related/prior work/inspirations:</p>
+<ol>
+<li><a href="https://www.lesswrong.com/s/nyEFg3AuJpdAozmoX/p/iCfdcxiyr2Kj8m8mT">The shard theory of human values (Quintin Pope/TurnTrout, 2022)</a>: This post may as well be a recasting of the shard theory perspective on neural networks, with computation in superposition as a possible mechanism for <em>how</em> shard theory could work.</li>
+<li><a href="https://generative.ink/posts/simulators/">Simulators (janus, 2022)</a>: The simulators perspective is <em>related</em>, but slightly distinct, it is more interested in the behavior of pretrained base models, but similarly asks questions about where the agency of LLMs is.</li>
+</ol>
+<div class="footnotes">
+<hr/>
+<ol>
+<li id="fn1">
+<p>Someone wrote a <a href="https://ai-2027.com/">long report</a> about this. <a href="#fnref1" rev="footnote">↩</a></p>
+</li>
+<li id="fn2">
+<p>The details of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.09ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 469.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-16-Title">
+<title id="MathJax-SVG-16-Title">s</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-73" x="0" y="0"></use>
+</g>
+</svg></span>-sparsity are beyond the purview of this short note. <a href="#fnref2" rev="footnote">↩</a></p>
+</li>
+<li id="fn3">
+<p><a href="https://arxiv.org/abs/2408.05451">Hänni et al. 2024</a> prove polynomial scaling, the <a href="https://en.wikipedia.org/wiki/Johnson-Lindenstrauss_lemma">Johnson-Lindenstrauss lemma</a>, taken too seriously, could imply exponential scaling. Polynomial scaling makes this picture more more feasible but less likely, since it's not clear a merely-polynomial number of circuits can deal with the complexity of the world with its exponentially growing observation-action sequences. <a href="#fnref3" rev="footnote">↩</a></p>
+</li>
+</ol>
+</div>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><defs id="MathJax_SVG_glyphs"><path stroke-width="1" id="MJMAIN-35" d="M164 157Q164 133 148 117T109 101H102Q148 22 224 22Q294 22 326 82Q345 115 345 210Q345 313 318 349Q292 382 260 382H254Q176 382 136 314Q132 307 129 306T114 304Q97 304 95 310Q93 314 93 485V614Q93 664 98 664Q100 666 102 666Q103 666 123 658T178 642T253 634Q324 634 389 662Q397 666 402 666Q410 666 410 648V635Q328 538 205 538Q174 538 149 544L139 546V374Q158 388 169 396T205 412T256 420Q337 420 393 355T449 201Q449 109 385 44T229 -22Q148 -22 99 32T50 154Q50 178 61 192T84 210T107 214Q132 214 148 197T164 157Z"></path><path stroke-width="1" id="MJMAIN-30" d="M96 585Q152 666 249 666Q297 666 345 640T423 548Q460 465 460 320Q460 165 417 83Q397 41 362 16T301 -15T250 -22Q224 -22 198 -16T137 16T82 83Q39 165 39 320Q39 494 96 585ZM321 597Q291 629 250 629Q208 629 178 597Q153 571 145 525T137 333Q137 175 145 125T181 46Q209 16 250 16Q290 16 318 46Q347 76 354 130T362 333Q362 478 354 524T321 597Z"></path><path stroke-width="1" id="MJMAIN-25" d="M465 605Q428 605 394 614T340 632T319 641Q332 608 332 548Q332 458 293 403T202 347Q145 347 101 402T56 548Q56 637 101 693T202 750Q241 750 272 719Q359 642 464 642Q580 642 650 732Q662 748 668 749Q670 750 673 750Q682 750 688 743T693 726Q178 -47 170 -52Q166 -56 160 -56Q147 -56 142 -45Q137 -36 142 -27Q143 -24 363 304Q469 462 525 546T581 630Q528 605 465 605ZM207 385Q235 385 263 427T292 548Q292 617 267 664T200 712Q193 712 186 709T167 698T147 668T134 615Q132 595 132 548V527Q132 436 165 403Q183 385 203 385H207ZM500 146Q500 234 544 290T647 347Q699 347 737 292T776 146T737 0T646 -56Q590 -56 545 0T500 146ZM651 -18Q679 -18 707 24T736 146Q736 215 711 262T644 309Q637 309 630 306T611 295T591 265T578 212Q577 200 577 146V124Q577 -18 647 -18H651Z"></path><path stroke-width="1" id="MJMAIN-33" d="M127 463Q100 463 85 480T69 524Q69 579 117 622T233 665Q268 665 277 664Q351 652 390 611T430 522Q430 470 396 421T302 350L299 348Q299 347 308 345T337 336T375 315Q457 262 457 175Q457 96 395 37T238 -22Q158 -22 100 21T42 130Q42 158 60 175T105 193Q133 193 151 175T169 130Q169 119 166 110T159 94T148 82T136 74T126 70T118 67L114 66Q165 21 238 21Q293 21 321 74Q338 107 338 175V195Q338 290 274 322Q259 328 213 329L171 330L168 332Q166 335 166 348Q166 366 174 366Q202 366 232 371Q266 376 294 413T322 525V533Q322 590 287 612Q265 626 240 626Q208 626 181 615T143 592T132 580H135Q138 579 143 578T153 573T165 566T175 555T183 540T186 520Q186 498 172 481T127 463Z"></path><path stroke-width="1" id="MJMATHI-4F" d="M740 435Q740 320 676 213T511 42T304 -22Q207 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435ZM637 476Q637 565 591 615T476 665Q396 665 322 605Q242 542 200 428T157 216Q157 126 200 73T314 19Q404 19 485 98T608 313Q637 408 637 476Z"></path><path stroke-width="1" id="MJMAIN-7E" d="M179 251Q164 251 151 245T131 234T111 215L97 227L83 238Q83 239 95 253T121 283T142 304Q165 318 187 318T253 300T320 282Q335 282 348 288T368 299T388 318L402 306L416 295Q375 236 344 222Q330 215 313 215Q292 215 248 233T179 251Z"></path><path stroke-width="1" id="MJMAIN-28" d="M94 250Q94 319 104 381T127 488T164 576T202 643T244 695T277 729T302 750H315H319Q333 750 333 741Q333 738 316 720T275 667T226 581T184 443T167 250T184 58T225 -81T274 -167T316 -220T333 -241Q333 -250 318 -250H315H302L274 -226Q180 -141 137 -14T94 250Z"></path><path stroke-width="1" id="MJMATHI-6D" d="M21 287Q22 293 24 303T36 341T56 388T88 425T132 442T175 435T205 417T221 395T229 376L231 369Q231 367 232 367L243 378Q303 442 384 442Q401 442 415 440T441 433T460 423T475 411T485 398T493 385T497 373T500 364T502 357L510 367Q573 442 659 442Q713 442 746 415T780 336Q780 285 742 178T704 50Q705 36 709 31T724 26Q752 26 776 56T815 138Q818 149 821 151T837 153Q857 153 857 145Q857 144 853 130Q845 101 831 73T785 17T716 -10Q669 -10 648 17T627 73Q627 92 663 193T700 345Q700 404 656 404H651Q565 404 506 303L499 291L466 157Q433 26 428 16Q415 -11 385 -11Q372 -11 364 -4T353 8T350 18Q350 29 384 161L420 307Q423 322 423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 181Q151 335 151 342Q154 357 154 369Q154 405 129 405Q107 405 92 377T69 316T57 280Q55 278 41 278H27Q21 284 21 287Z"></path><path stroke-width="1" id="MJMAIN-32" d="M109 429Q82 429 66 447T50 491Q50 562 103 614T235 666Q326 666 387 610T449 465Q449 422 429 383T381 315T301 241Q265 210 201 149L142 93L218 92Q375 92 385 97Q392 99 409 186V189H449V186Q448 183 436 95T421 3V0H50V19V31Q50 38 56 46T86 81Q115 113 136 137Q145 147 170 174T204 211T233 244T261 278T284 308T305 340T320 369T333 401T340 431T343 464Q343 527 309 573T212 619Q179 619 154 602T119 569T109 550Q109 549 114 549Q132 549 151 535T170 489Q170 464 154 447T109 429Z"></path><path stroke-width="1" id="MJMATHI-73" d="M131 289Q131 321 147 354T203 415T300 442Q362 442 390 415T419 355Q419 323 402 308T364 292Q351 292 340 300T328 326Q328 342 337 354T354 372T367 378Q368 378 368 379Q368 382 361 388T336 399T297 405Q249 405 227 379T204 326Q204 301 223 291T278 274T330 259Q396 230 396 163Q396 135 385 107T352 51T289 7T195 -10Q118 -10 86 19T53 87Q53 126 74 143T118 160Q133 160 146 151T160 120Q160 94 142 76T111 58Q109 57 108 57T107 55Q108 52 115 47T146 34T201 27Q237 27 263 38T301 66T318 97T323 122Q323 150 302 164T254 181T195 196T148 231Q131 256 131 289Z"></path><path stroke-width="1" id="MJMAIN-29" d="M60 749L64 750Q69 750 74 750H86L114 726Q208 641 251 514T294 250Q294 182 284 119T261 12T224 -76T186 -143T145 -194T113 -227T90 -246Q87 -249 86 -250H74Q66 -250 63 -250T58 -247T55 -238Q56 -237 66 -225Q221 -64 221 250T66 725Q56 737 55 738Q55 746 60 749Z"></path><path stroke-width="1" id="MJMAIN-39" d="M352 287Q304 211 232 211Q154 211 104 270T44 396Q42 412 42 436V444Q42 537 111 606Q171 666 243 666Q245 666 249 666T257 665H261Q273 665 286 663T323 651T370 619T413 560Q456 472 456 334Q456 194 396 97Q361 41 312 10T208 -22Q147 -22 108 7T68 93T121 149Q143 149 158 135T173 96Q173 78 164 65T148 49T135 44L131 43Q131 41 138 37T164 27T206 22H212Q272 22 313 86Q352 142 352 280V287ZM244 248Q292 248 321 297T351 430Q351 508 343 542Q341 552 337 562T323 588T293 615T246 625Q208 625 181 598Q160 576 154 546T147 441Q147 358 152 329T172 282Q197 248 244 248Z"></path><path stroke-width="1" id="MJMAIN-36" d="M42 313Q42 476 123 571T303 666Q372 666 402 630T432 550Q432 525 418 510T379 495Q356 495 341 509T326 548Q326 592 373 601Q351 623 311 626Q240 626 194 566Q147 500 147 364L148 360Q153 366 156 373Q197 433 263 433H267Q313 433 348 414Q372 400 396 374T435 317Q456 268 456 210V192Q456 169 451 149Q440 90 387 34T253 -22Q225 -22 199 -14T143 16T92 75T56 172T42 313ZM257 397Q227 397 205 380T171 335T154 278T148 216Q148 133 160 97T198 39Q222 21 251 21Q302 21 329 59Q342 77 347 104T352 209Q352 289 347 316T329 361Q302 397 257 397Z"></path><path stroke-width="1" id="MJMAIN-22C5" d="M78 250Q78 274 95 292T138 310Q162 310 180 294T199 251Q199 226 182 208T139 190T96 207T78 250Z"></path><path stroke-width="1" id="MJMAIN-5B" d="M118 -250V750H255V710H158V-210H255V-250H118Z"></path><path stroke-width="1" id="MJMAIN-37" d="M55 458Q56 460 72 567L88 674Q88 676 108 676H128V672Q128 662 143 655T195 646T364 644H485V605L417 512Q408 500 387 472T360 435T339 403T319 367T305 330T292 284T284 230T278 162T275 80Q275 66 275 52T274 28V19Q270 2 255 -10T221 -22Q210 -22 200 -19T179 0T168 40Q168 198 265 368Q285 400 349 489L395 552H302Q128 552 119 546Q113 543 108 522T98 479L95 458V455H55V458Z"></path><path stroke-width="1" id="MJMAIN-38" d="M70 417T70 494T124 618T248 666Q319 666 374 624T429 515Q429 485 418 459T392 417T361 389T335 371T324 363L338 354Q352 344 366 334T382 323Q457 264 457 174Q457 95 399 37T249 -22Q159 -22 101 29T43 155Q43 263 172 335L154 348Q133 361 127 368Q70 417 70 494ZM286 386L292 390Q298 394 301 396T311 403T323 413T334 425T345 438T355 454T364 471T369 491T371 513Q371 556 342 586T275 624Q268 625 242 625Q201 625 165 599T128 534Q128 511 141 492T167 463T217 431Q224 426 228 424L286 386ZM250 21Q308 21 350 55T392 137Q392 154 387 169T375 194T353 216T330 234T301 253T274 270Q260 279 244 289T218 306L210 311Q204 311 181 294T133 239T107 157Q107 98 150 60T250 21Z"></path><path stroke-width="1" id="MJMAIN-2C" d="M78 35T78 60T94 103T137 121Q165 121 187 96T210 8Q210 -27 201 -60T180 -117T154 -158T130 -185T117 -194Q113 -194 104 -185T95 -172Q95 -168 106 -156T131 -126T157 -76T173 -3V9L172 8Q170 7 167 6T161 3T152 1T140 0Q113 0 96 17Z"></path><path stroke-width="1" id="MJMAIN-5D" d="M22 710V750H159V-250H22V-210H119V710H22Z"></path><path stroke-width="1" id="MJMAIN-3D" d="M56 347Q56 360 70 367H707Q722 359 722 347Q722 336 708 328L390 327H72Q56 332 56 347ZM56 153Q56 168 72 173H708Q722 163 722 153Q722 140 707 133H70Q56 140 56 153Z"></path><path stroke-width="1" id="MJMAIN-34" d="M462 0Q444 3 333 3Q217 3 199 0H190V46H221Q241 46 248 46T265 48T279 53T286 61Q287 63 287 115V165H28V211L179 442Q332 674 334 675Q336 677 355 677H373L379 671V211H471V165H379V114Q379 73 379 66T385 54Q393 47 442 46H471V0H462ZM293 211V545L74 212L183 211H293Z"></path><path stroke-width="1" id="MJMATHI-51" d="M399 -80Q399 -47 400 -30T402 -11V-7L387 -11Q341 -22 303 -22Q208 -22 138 35T51 201Q50 209 50 244Q50 346 98 438T227 601Q351 704 476 704Q514 704 524 703Q621 689 680 617T740 435Q740 255 592 107Q529 47 461 16L444 8V3Q444 2 449 -24T470 -66T516 -82Q551 -82 583 -60T625 -3Q631 11 638 11Q647 11 649 2Q649 -6 639 -34T611 -100T557 -165T481 -194Q399 -194 399 -87V-80ZM636 468Q636 523 621 564T580 625T530 655T477 665Q429 665 379 640Q277 591 215 464T153 216Q153 110 207 59Q231 38 236 38V46Q236 86 269 120T347 155Q372 155 390 144T417 114T429 82T435 55L448 64Q512 108 557 185T619 334T636 468ZM314 18Q362 18 404 39L403 49Q399 104 366 115Q354 117 347 117Q344 117 341 117T337 118Q317 118 296 98T274 52Q274 18 314 18Z"></path><path stroke-width="1" id="MJMATHI-4B" d="M285 628Q285 635 228 637Q205 637 198 638T191 647Q191 649 193 661Q199 681 203 682Q205 683 214 683H219Q260 681 355 681Q389 681 418 681T463 682T483 682Q500 682 500 674Q500 669 497 660Q496 658 496 654T495 648T493 644T490 641T486 639T479 638T470 637T456 637Q416 636 405 634T387 623L306 305Q307 305 490 449T678 597Q692 611 692 620Q692 635 667 637Q651 637 651 648Q651 650 654 662T659 677Q662 682 676 682Q680 682 711 681T791 680Q814 680 839 681T869 682Q889 682 889 672Q889 650 881 642Q878 637 862 637Q787 632 726 586Q710 576 656 534T556 455L509 418L518 396Q527 374 546 329T581 244Q656 67 661 61Q663 59 666 57Q680 47 717 46H738Q744 38 744 37T741 19Q737 6 731 0H720Q680 3 625 3Q503 3 488 0H478Q472 6 472 9T474 27Q478 40 480 43T491 46H494Q544 46 544 71Q544 75 517 141T485 216L427 354L359 301L291 248L268 155Q245 63 245 58Q245 51 253 49T303 46H334Q340 37 340 35Q340 19 333 5Q328 0 317 0Q314 0 280 1T180 2Q118 2 85 2T49 1Q31 1 31 11Q31 13 34 25Q38 41 42 43T65 46Q92 46 125 49Q139 52 144 61Q147 65 216 339T285 628Z"></path><path stroke-width="1" id="MJMATHI-56" d="M52 648Q52 670 65 683H76Q118 680 181 680Q299 680 320 683H330Q336 677 336 674T334 656Q329 641 325 637H304Q282 635 274 635Q245 630 242 620Q242 618 271 369T301 118L374 235Q447 352 520 471T595 594Q599 601 599 609Q599 633 555 637Q537 637 537 648Q537 649 539 661Q542 675 545 679T558 683Q560 683 570 683T604 682T668 681Q737 681 755 683H762Q769 676 769 672Q769 655 760 640Q757 637 743 637Q730 636 719 635T698 630T682 623T670 615T660 608T652 599T645 592L452 282Q272 -9 266 -16Q263 -18 259 -21L241 -22H234Q216 -22 216 -15Q213 -9 177 305Q139 623 138 626Q133 637 76 637H59Q52 642 52 648Z"></path><path stroke-width="1" id="MJMATHI-54" d="M40 437Q21 437 21 445Q21 450 37 501T71 602L88 651Q93 669 101 677H569H659Q691 677 697 676T704 667Q704 661 687 553T668 444Q668 437 649 437Q640 437 637 437T631 442L629 445Q629 451 635 490T641 551Q641 586 628 604T573 629Q568 630 515 631Q469 631 457 630T439 622Q438 621 368 343T298 60Q298 48 386 46Q418 46 427 45T436 36Q436 31 433 22Q429 4 424 1L422 0Q419 0 415 0Q410 0 363 1T228 2Q99 2 64 0H49Q43 6 43 9T45 27Q49 40 55 46H83H94Q174 46 189 55Q190 56 191 56Q196 59 201 76T241 233Q258 301 269 344Q339 619 339 625Q339 630 310 630H279Q212 630 191 624Q146 614 121 583T67 467Q60 445 57 441T43 437H40Z"></path><path stroke-width="1" id="MJMATHI-6C" d="M117 59Q117 26 142 26Q179 26 205 131Q211 151 215 152Q217 153 225 153H229Q238 153 241 153T246 151T248 144Q247 138 245 128T234 90T214 43T183 6T137 -11Q101 -11 70 11T38 85Q38 97 39 102L104 360Q167 615 167 623Q167 626 166 628T162 632T157 634T149 635T141 636T132 637T122 637Q112 637 109 637T101 638T95 641T94 647Q94 649 96 661Q101 680 107 682T179 688Q194 689 213 690T243 693T254 694Q266 694 266 686Q266 675 193 386T118 83Q118 81 118 75T117 65V59Z"></path><path stroke-width="1" id="MJCAL-4F" d="M308 428Q289 428 289 438Q289 457 318 508T378 593Q417 638 475 671T599 705Q688 705 732 643T777 483Q777 380 733 285T620 123T464 18T293 -22Q188 -22 123 51T58 245Q58 327 87 403T159 533T249 626T333 685T388 705Q404 705 404 693Q404 674 363 649Q333 632 304 606T239 537T181 429T158 290Q158 179 214 114T364 48Q489 48 583 165T677 438Q677 473 670 505T648 568T601 617T528 636Q518 636 513 635Q486 629 460 600T419 544T392 490Q383 470 372 459Q341 430 308 428Z"></path><path stroke-width="1" id="MJMAIN-6C" d="M42 46H56Q95 46 103 60V68Q103 77 103 91T103 124T104 167T104 217T104 272T104 329Q104 366 104 407T104 482T104 542T103 586T103 603Q100 622 89 628T44 637H26V660Q26 683 28 683L38 684Q48 685 67 686T104 688Q121 689 141 690T171 693T182 694H185V379Q185 62 186 60Q190 52 198 49Q219 46 247 46H263V0H255L232 1Q209 2 183 2T145 3T107 3T57 1L34 0H26V46H42Z"></path><path stroke-width="1" id="MJMAIN-6F" d="M28 214Q28 309 93 378T250 448Q340 448 405 380T471 215Q471 120 407 55T250 -10Q153 -10 91 57T28 214ZM250 30Q372 30 372 193V225V250Q372 272 371 288T364 326T348 362T317 390T268 410Q263 411 252 411Q222 411 195 399Q152 377 139 338T126 246V226Q126 130 145 91Q177 30 250 30Z"></path><path stroke-width="1" id="MJMAIN-67" d="M329 409Q373 453 429 453Q459 453 472 434T485 396Q485 382 476 371T449 360Q416 360 412 390Q410 404 415 411Q415 412 416 414V415Q388 412 363 393Q355 388 355 386Q355 385 359 381T368 369T379 351T388 325T392 292Q392 230 343 187T222 143Q172 143 123 171Q112 153 112 133Q112 98 138 81Q147 75 155 75T227 73Q311 72 335 67Q396 58 431 26Q470 -13 470 -72Q470 -139 392 -175Q332 -206 250 -206Q167 -206 107 -175Q29 -140 29 -75Q29 -39 50 -15T92 18L103 24Q67 55 67 108Q67 155 96 193Q52 237 52 292Q52 355 102 398T223 442Q274 442 318 416L329 409ZM299 343Q294 371 273 387T221 404Q192 404 171 388T145 343Q142 326 142 292Q142 248 149 227T179 192Q196 182 222 182Q244 182 260 189T283 207T294 227T299 242Q302 258 302 292T299 343ZM403 -75Q403 -50 389 -34T348 -11T299 -2T245 0H218Q151 0 138 -6Q118 -15 107 -34T95 -74Q95 -84 101 -97T122 -127T170 -155T250 -167Q319 -167 361 -139T403 -75Z"></path><path stroke-width="1" id="MJMATHI-6E" d="M21 287Q22 293 24 303T36 341T56 388T89 425T135 442Q171 442 195 424T225 390T231 369Q231 367 232 367L243 378Q304 442 382 442Q436 442 469 415T503 336T465 179T427 52Q427 26 444 26Q450 26 453 27Q482 32 505 65T540 145Q542 153 560 153Q580 153 580 145Q580 144 576 130Q568 101 554 73T508 17T439 -10Q392 -10 371 17T350 73Q350 92 386 193T423 345Q423 404 379 404H374Q288 404 229 303L222 291L189 157Q156 26 151 16Q138 -11 108 -11Q95 -11 87 -5T76 7T74 17Q74 30 112 180T152 343Q153 348 153 366Q153 405 129 405Q91 405 66 305Q60 285 60 284Q58 278 41 278H27Q21 284 21 287Z"></path></defs></svg>
+</body></html>
