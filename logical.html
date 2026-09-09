@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 
 <title>niplav</title>
-<link href="./favicon.png" rel="shortcut icon" type="image/png"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
+<link href="/favicon.png" rel="icon" type="image/png"/>
+<link href="/main.css" rel="stylesheet" type="text/css"/>
 <link href="https://niplav.substack.com/feed" rel="alternate" type="application/atom+xml"/>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
-<script src="footnotes.js"></script>
+<script src="/footnotes.js"></script>
 <style type="text/css">
 code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
 </style>
@@ -24,7 +24,19 @@ document.addEventListener('DOMContentLoaded', function () {
 <blockquote>
 <p><strong>In which to compare how similarly programs compute their outputs,
 <a href="#A_Nave_Formula">naïvely</a> and <a href="#A_Less_Nave_Formula">less naïvely</a>.</strong></p>
-</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#PreScript">Pre-Script</a><ul><li><a href="#Motivation_Briefly">Motivation, Briefly</a><ul></ul></li></ul></li><li><a href="#A_Nave_Formula">A Naïve Formula</a><ul><li><a href="#Setup">Setup</a><ul></ul></li><li><a href="#Possible_Desiderata">Possible Desiderata</a><ul></ul></li><li><a href="#Formal_Definition">Formal Definition</a><ul><li><a href="#Explanation">Explanation</a><ul></ul></li><li><a href="#Different_Trace_Lengths">Different Trace Lengths</a><ul></ul></li></ul></li><li><a href="#Desiderata_Fulfilled">Desiderata Fulfilled?</a><ul><li><a href="#None">Proving $合(p, p)=0$</a><ul></ul></li><li><a href="#Proving_Symmetry">Proving Symmetry</a><ul></ul></li><li><a href="#Proving_Positivity">Proving Positivity</a><ul><li><a href="#Only_A_Pseudometric">Only A Pseudometric</a><ul></ul></li></ul></li></ul></li></ul></li><li><a href="#A_Less_Nave_Formula">A Less Naïve Formula</a><ul><li><a href="#Explanation_1">Explanation</a><ul><li><a href="#Shapley_Values_for_Tape_States">Shapley Values for Tape States</a><ul></ul></li><li><a href="#Comparing_Lists_of_Influences">Comparing Lists of Influences</a><ul></ul></li><li><a href="#Permuted_Tapes">Permuted Tapes</a><ul></ul></li></ul></li><li><a href="#Final_Equation">Final Equation</a><ul><li><a href="#Remaining_Problem_TimePermuted_Tapes">Remaining Problem: Time-Permuted Tapes</a><ul></ul></li></ul></li></ul></li><li><a href="#Other_Ideas">Other Ideas</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
+</blockquote><div class="toc"><div class="toc-title">Contents</div><ul><li><a href="#PreScript">Pre-Script</a><ul><li><a href="#Motivation_Briefly">Motivation, Briefly</a><ul></ul></li></ul></li><li><a href="#A_Nave_Formula">A Naïve Formula</a><ul><li><a href="#Setup">Setup</a><ul></ul></li><li><a href="#Possible_Desiderata">Possible Desiderata</a><ul></ul></li><li><a href="#Formal_Definition">Formal Definition</a><ul><li><a href="#Explanation">Explanation</a><ul></ul></li><li><a href="#Different_Trace_Lengths">Different Trace Lengths</a><ul></ul></li></ul></li><li><a href="#Desiderata_Fulfilled">Desiderata Fulfilled?</a><ul><li><a href="#Proving_p_p0">Proving <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.61ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 4998.6 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-10-Title">
+<title id="MathJax-SVG-10-Title">合(p, p)=0</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
+ <use xlink:href="#MJMAIN-28" x="932" y="0"></use>
+ <use xlink:href="#MJMATHI-70" x="1322" y="0"></use>
+ <use xlink:href="#MJMAIN-2C" x="1825" y="0"></use>
+ <use xlink:href="#MJMATHI-70" x="2271" y="0"></use>
+ <use xlink:href="#MJMAIN-29" x="2774" y="0"></use>
+ <use xlink:href="#MJMAIN-3D" x="3441" y="0"></use>
+ <use xlink:href="#MJMAIN-30" x="4498" y="0"></use>
+</g>
+</svg></span></a><ul></ul></li><li><a href="#Proving_Symmetry">Proving Symmetry</a><ul></ul></li><li><a href="#Proving_Positivity">Proving Positivity</a><ul><li><a href="#Only_A_Pseudometric">Only A Pseudometric</a><ul></ul></li></ul></li></ul></li></ul></li><li><a href="#A_Less_Nave_Formula">A Less Naïve Formula</a><ul><li><a href="#Explanation_1">Explanation</a><ul><li><a href="#Shapley_Values_for_Tape_States">Shapley Values for Tape States</a><ul></ul></li><li><a href="#Comparing_Lists_of_Influences">Comparing Lists of Influences</a><ul></ul></li><li><a href="#Permuted_Tapes">Permuted Tapes</a><ul></ul></li></ul></li><li><a href="#Final_Equation">Final Equation</a><ul><li><a href="#Remaining_Problem_TimePermuted_Tapes">Remaining Problem: Time-Permuted Tapes</a><ul></ul></li></ul></li></ul></li><li><a href="#Other_Ideas">Other Ideas</a><ul></ul></li><li><a href="#See_Also">See Also</a><ul></ul></li></ul></div>
 <h1 id="Logical_Correlation"><a class="hanchor" href="#Logical_Correlation">Logical Correlation</a></h1>
 <h2 id="PreScript"><a class="hanchor" href="#PreScript">Pre-Script</a></h2>
 <p>I've now realized that this post is not very useful, because the methods
@@ -50,8 +62,8 @@ index-finger-nail, I would still cooperate, even though we're different
 algorithms, since little enough has been changed about our algorithms
 that the internal states and the output are basically the same.</p>
 <p>It could be that I'm in a prisoner's dilemma with some program
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 995.9 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-10-Title">
-<title id="MathJax-SVG-10-Title">p^{\star}</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 995.9 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-11-Title">
+<title id="MathJax-SVG-11-Title">p^{\star}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-22C6" x="712" y="513"></use>
@@ -59,8 +71,8 @@ that the internal states and the output are basically the same.</p>
 </svg></span> that, given some inputs, returns the same outputs as I do,
 but for completely different "reasons"—that is, the internal states
 are very different, and a slight change in input would cause the output
-to be radically different. Intuitively, my similarity to <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 995.9 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-11-Title">
-<title id="MathJax-SVG-11-Title">p^{\star}</title>
+to be radically different. Intuitively, my similarity to <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 995.9 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-12-Title">
+<title id="MathJax-SVG-12-Title">p^{\star}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-22C6" x="712" y="513"></use>
@@ -96,8 +108,8 @@ that all other implementations of my decision algorithm also cooperate.</p>
 between different decision algorithms.</p>
 <h2 id="A_Nave_Formula"><a class="hanchor" href="#A_Nave_Formula">A Naïve Formula</a></h2>
 <p>Thus: Consider the some naïve formula (which we'll designate by
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-12-Title">
-<title id="MathJax-SVG-12-Title">合</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-13-Title">
+<title id="MathJax-SVG-13-Title">合</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
 </g>
@@ -105,8 +117,8 @@ between different decision algorithms.</p>
 programs and returns a number that quantifies how similarly the two
 programs compute what they compute.</p>
 <h3 id="Setup"><a class="hanchor" href="#Setup">Setup</a></h3>
-<p>Let a program <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-13-Title">
-<title id="MathJax-SVG-13-Title">p</title>
+<p>Let a program <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-14-Title">
+<title id="MathJax-SVG-14-Title">p</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
 </g>
@@ -114,8 +126,8 @@ programs compute what they compute.</p>
 machine</a> and intermediate
 tape states after each command execution. We'll treat the final tape
 state as the output, all in binary.</p>
-<p>That is <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.047ex" height="2.843ex" style="vertical-align: -0.838ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 3895.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-14-Title">
-<title id="MathJax-SVG-14-Title">p=(c, t)</title>
+<p>That is <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.047ex" height="2.843ex" style="vertical-align: -0.838ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 3895.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-15-Title">
+<title id="MathJax-SVG-15-Title">p=(c, t)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-3D" x="781" y="0"></use>
@@ -125,8 +137,8 @@ state as the output, all in binary.</p>
  <use xlink:href="#MJMATHI-74" x="3105" y="0"></use>
  <use xlink:href="#MJMAIN-29" x="3467" y="0"></use>
 </g>
-</svg></span>, with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.042ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4754.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-15-Title">
-<title id="MathJax-SVG-15-Title">c \in \{0, 1\}^+</title>
+</svg></span>, with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.042ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4754.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-16-Title">
+<title id="MathJax-SVG-16-Title">c \in \{0, 1\}^+</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-63" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-2208" x="711" y="0"></use>
@@ -139,8 +151,8 @@ state as the output, all in binary.</p>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="707" y="513"></use>
 </g>
 </g>
-</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="14.195ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 6111.7 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-16-Title">
-<title id="MathJax-SVG-16-Title">t \in (\{0,
+</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="14.195ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 6111.7 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-17-Title">
+<title id="MathJax-SVG-17-Title">t \in (\{0,
 1\}^+)^+</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-74" x="0" y="0"></use>
@@ -159,8 +171,8 @@ state as the output, all in binary.</p>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-2B" x="550" y="513"></use>
 </g>
 </g>
-</svg></span>. Let <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.925ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2551.1 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-17-Title">
-<title id="MathJax-SVG-17-Title">l=|t|</title>
+</svg></span>. Let <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.925ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2551.1 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-18-Title">
+<title id="MathJax-SVG-18-Title">l=|t|</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6C" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-3D" x="576" y="0"></use>
@@ -168,14 +180,14 @@ state as the output, all in binary.</p>
  <use xlink:href="#MJMATHI-74" x="1911" y="0"></use>
  <use xlink:href="#MJMAIN-7C" x="2272" y="0"></use>
 </g>
-</svg></span> be the number of steps that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-18-Title">
-<title id="MathJax-SVG-18-Title">p</title>
+</svg></span> be the number of steps that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-19-Title">
+<title id="MathJax-SVG-19-Title">p</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
 </g>
 </svg></span> takes to halt.</p>
-<p>For simplicity's sake, let's give <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.827ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 1217 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-19-Title">
-<title id="MathJax-SVG-19-Title">t[l]</title>
+<p>For simplicity's sake, let's give <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.827ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 1217 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-20-Title">
+<title id="MathJax-SVG-20-Title">t[l]</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-74" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-5B" x="361" y="0"></use>
@@ -183,16 +195,16 @@ state as the output, all in binary.</p>
  <use xlink:href="#MJMAIN-5D" x="938" y="0"></use>
 </g>
 </svg></span> (the tape state upon halting)
-the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.128ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 485.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-20-Title">
-<title id="MathJax-SVG-20-Title">o</title>
+the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.128ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 485.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-21-Title">
+<title id="MathJax-SVG-21-Title">o</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
 </g>
 </svg></span>, the output.</p>
 <h3 id="Possible_Desiderata"><a class="hanchor" href="#Possible_Desiderata">Possible Desiderata</a></h3>
 <ol>
-<li>The type signature should be <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.141ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 4797 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-21-Title">
-<title id="MathJax-SVG-21-Title">合: P \rightarrow ℝ</title>
+<li>The type signature should be <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.141ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 4797 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-22-Title">
+<title id="MathJax-SVG-22-Title">合: P \rightarrow ℝ</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
  <use xlink:href="#MJMAIN-3A" x="1210" y="0"></use>
@@ -200,21 +212,21 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
  <use xlink:href="#MJMAIN-2192" x="2796" y="0"></use>
  <use xlink:href="#MJAMS-52" x="4074" y="0"></use>
 </g>
-</svg></span> where <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.745ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 751.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-22-Title">
-<title id="MathJax-SVG-22-Title">P</title>
+</svg></span> where <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.745ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 751.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-23-Title">
+<title id="MathJax-SVG-23-Title">P</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-50" x="0" y="0"></use>
 </g>
-</svg></span> is the set of all possible programs for some Turing machine. <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-23-Title">
-<title id="MathJax-SVG-23-Title">合</title>
+</svg></span> is the set of all possible programs for some Turing machine. <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-24-Title">
+<title id="MathJax-SVG-24-Title">合</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
 </g>
 </svg></span> may potentially only map into a real <a href="https://en.wikipedia.org/wiki/Interval_(mathematics)">interval</a>, but I definitely want it to be a spectrum, which rules out many other notions of program similarity from computer science.</li>
 <li>If possible, we would want our formula for logical correlation to be a <a href="https://en.wikipedia.org/wiki/Metric_space">metric</a> or a <a href="https://en.wikipedia.org/wiki/Pseudometric_space">pseudometric</a> on the space of programs:
 <ol>
-<li><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.61ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 4998.6 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-24-Title">
-<title id="MathJax-SVG-24-Title">合(p, p)=0</title>
+<li><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.61ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 4998.6 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-25-Title">
+<title id="MathJax-SVG-25-Title">合(p, p)=0</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
  <use xlink:href="#MJMAIN-28" x="932" y="0"></use>
@@ -226,8 +238,8 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
  <use xlink:href="#MJMAIN-30" x="4498" y="0"></use>
 </g>
 </svg></span>.</li>
-<li><a href="https://en.wikipedia.org/wiki/Symmetric_function">Symmetry</a>: <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.013ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 9477.8 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-25-Title">
-<title id="MathJax-SVG-25-Title">合(p_1, p_2)=合(p_2, p_1)</title>
+<li><a href="https://en.wikipedia.org/wiki/Symmetric_function">Symmetry</a>: <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.013ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 9477.8 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-26-Title">
+<title id="MathJax-SVG-26-Title">合(p_1, p_2)=合(p_2, p_1)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
  <use xlink:href="#MJMAIN-28" x="932" y="0"></use>
@@ -258,8 +270,8 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
  <use xlink:href="#MJMAIN-29" x="9088" y="0"></use>
 </g>
 </svg></span>.</li>
-<li>If <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.635ex" height="2.676ex" style="vertical-align: -0.838ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 3287.4 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-26-Title">
-<title id="MathJax-SVG-26-Title">p_1 \not=p_2</title>
+<li>If <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.635ex" height="2.676ex" style="vertical-align: -0.838ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 3287.4 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-27-Title">
+<title id="MathJax-SVG-27-Title">p_1 \not=p_2</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="712" y="-213"></use>
@@ -269,8 +281,8 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
  <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="712" y="-213"></use>
 </g>
 </g>
-</svg></span>, then <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.718ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 5906.4 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-27-Title">
-<title id="MathJax-SVG-27-Title">合(p_1, p_2)&gt;0</title>
+</svg></span>, then <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="13.718ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 5906.4 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-28-Title">
+<title id="MathJax-SVG-28-Title">合(p_1, p_2)&gt;0</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
  <use xlink:href="#MJMAIN-28" x="932" y="0"></use>
@@ -287,14 +299,14 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
  <use xlink:href="#MJMAIN-3E" x="4349" y="0"></use>
  <use xlink:href="#MJMAIN-30" x="5405" y="0"></use>
 </g>
-</svg></span>. This condition is dropped if we're fine with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-28-Title">
-<title id="MathJax-SVG-28-Title">合</title>
+</svg></span>. This condition is dropped if we're fine with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-29-Title">
+<title id="MathJax-SVG-29-Title">合</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
 </g>
 </svg></span> being a pseudometric.</li>
-<li>The <a href="https://en.wikipedia.org/wiki/Triangle_Inequality">triangle inequality</a>: <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="34.311ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 14772.5 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-29-Title">
-<title id="MathJax-SVG-29-Title">合(p_1, p_3) \le 合(p_1, p_2)+合(p_2, p_3)</title>
+<li>The <a href="https://en.wikipedia.org/wiki/Triangle_Inequality">triangle inequality</a>: <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="34.311ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 14772.5 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-30-Title">
+<title id="MathJax-SVG-30-Title">合(p_1, p_3) \le 合(p_1, p_2)+合(p_2, p_3)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
  <use xlink:href="#MJMAIN-28" x="932" y="0"></use>
@@ -341,26 +353,26 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
 </g>
 </svg></span>.</li>
 </ol></li>
-<li>If <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-30-Title">
-<title id="MathJax-SVG-30-Title">p_1</title>
+<li>If <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-31-Title">
+<title id="MathJax-SVG-31-Title">p_1</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="712" y="-213"></use>
 </g>
-</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-31-Title">
-<title id="MathJax-SVG-31-Title">p_2</title>
+</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-32-Title">
+<title id="MathJax-SVG-32-Title">p_2</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="712" y="-213"></use>
 </g>
-</svg></span> have very similar outputs, and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-32-Title">
-<title id="MathJax-SVG-32-Title">p_3</title>
+</svg></span> have very similar outputs, and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-33-Title">
+<title id="MathJax-SVG-33-Title">p_3</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-33" x="712" y="-213"></use>
 </g>
-</svg></span> has a very different output, then <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.013ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 9477.8 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-33-Title">
-<title id="MathJax-SVG-33-Title">合(p_1, p_2)&lt;合(p_1, p_3)</title>
+</svg></span> has a very different output, then <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.013ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 9477.8 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-34-Title">
+<title id="MathJax-SVG-34-Title">合(p_1, p_2)&lt;合(p_1, p_3)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
  <use xlink:href="#MJMAIN-28" x="932" y="0"></use>
@@ -390,8 +402,8 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
 </g>
  <use xlink:href="#MJMAIN-29" x="9088" y="0"></use>
 </g>
-</svg></span> (and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.013ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 9477.8 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-34-Title">
-<title id="MathJax-SVG-34-Title">合(p_1, p_2)&lt;合(p_2, p_3)</title>
+</svg></span> (and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="22.013ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 9477.8 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-35-Title">
+<title id="MathJax-SVG-35-Title">合(p_1, p_2)&lt;合(p_2, p_3)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
  <use xlink:href="#MJMAIN-28" x="932" y="0"></use>
@@ -423,13 +435,13 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
 </g>
 </svg></span>).
 <ol>
-<li>I'm not <em>so sure</em> about this one: Let's say there's <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-35-Title">
-<title id="MathJax-SVG-35-Title">p</title>
+<li>I'm not <em>so sure</em> about this one: Let's say there's <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-36-Title">
+<title id="MathJax-SVG-36-Title">p</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
 </g>
-</svg></span>, which outputs a binary string <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.652ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4155.7 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-36-Title">
-<title id="MathJax-SVG-36-Title">o \in \{0, 1\}</title>
+</svg></span>, which outputs a binary string <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="9.652ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4155.7 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-37-Title">
+<title id="MathJax-SVG-37-Title">o \in \{0, 1\}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-2208" x="763" y="0"></use>
@@ -439,46 +451,46 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
  <use xlink:href="#MJMAIN-31" x="3154" y="0"></use>
  <use xlink:href="#MJMAIN-7D" x="3655" y="0"></use>
 </g>
-</svg></span>, and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.77ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 1192.5 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-37-Title">
-<title id="MathJax-SVG-37-Title">p^{\not \sim}</title>
+</svg></span>, and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.77ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 1192.5 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-38-Title">
+<title id="MathJax-SVG-38-Title">p^{\not \sim}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJAMS-2241" x="712" y="513"></use>
 </g>
-</svg></span>, which computes <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.128ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 485.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-38-Title">
-<title id="MathJax-SVG-38-Title">o</title>
+</svg></span>, which computes <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.128ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 485.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-39-Title">
+<title id="MathJax-SVG-39-Title">o</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
 </g>
-</svg></span> in a completely different way, as well as <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.587ex" height="2.343ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -719.6 1114 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-39-Title">
-<title id="MathJax-SVG-39-Title">p^{\lnot}</title>
+</svg></span> in a completely different way, as well as <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.587ex" height="2.343ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -719.6 1114 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-40-Title">
+<title id="MathJax-SVG-40-Title">p^{\lnot}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-AC" x="712" y="513"></use>
 </g>
-</svg></span>, which first runs <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-40-Title">
-<title id="MathJax-SVG-40-Title">p</title>
+</svg></span>, which first runs <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-41-Title">
+<title id="MathJax-SVG-41-Title">p</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
 </g>
-</svg></span>, and then flips every bit on the tape, finally returning the negation of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.128ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 485.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-41-Title">
-<title id="MathJax-SVG-41-Title">o</title>
+</svg></span>, and then flips every bit on the tape, finally returning the negation of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.128ex" height="1.676ex" style="vertical-align: -0.338ex;" viewBox="0 -576.1 485.5 721.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-42-Title">
+<title id="MathJax-SVG-42-Title">o</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
 </g>
-</svg></span>. In this case, it seems that if <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-42-Title">
-<title id="MathJax-SVG-42-Title">p</title>
+</svg></span>. In this case, it seems that if <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-43-Title">
+<title id="MathJax-SVG-43-Title">p</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
 </g>
-</svg></span> is a decision algorithm, it has far more "control" over the output of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.587ex" height="2.343ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -719.6 1114 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-43-Title">
-<title id="MathJax-SVG-43-Title">p^{\lnot}</title>
+</svg></span> is a decision algorithm, it has far more "control" over the output of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.587ex" height="2.343ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -719.6 1114 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-44-Title">
+<title id="MathJax-SVG-44-Title">p^{\lnot}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-AC" x="712" y="513"></use>
 </g>
-</svg></span> than over <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.77ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 1192.5 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-44-Title">
-<title id="MathJax-SVG-44-Title">p^{\not \sim}</title>
+</svg></span> than over <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.77ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 1192.5 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-45-Title">
+<title id="MathJax-SVG-45-Title">p^{\not \sim}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJAMS-2241" x="712" y="513"></use>
@@ -488,8 +500,8 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
 </ol></li>
 </ol>
 <h3 id="Formal_Definition"><a class="hanchor" href="#Formal_Definition">Formal Definition</a></h3>
-<p>Let <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="25.364ex" height="2.843ex" style="vertical-align: -0.838ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 10920.6 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-45-Title">
-<title id="MathJax-SVG-45-Title">p_1=(c_1, t_1), p_2=(c_2, t_2)</title>
+<p>Let <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="25.364ex" height="2.843ex" style="vertical-align: -0.838ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 10920.6 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-46-Title">
+<title id="MathJax-SVG-46-Title">p_1=(c_1, t_1), p_2=(c_2, t_2)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="712" y="-213"></use>
@@ -524,8 +536,8 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
  <use xlink:href="#MJMAIN-29" x="10492" y="0"></use>
 </g>
 </svg></span> be two halting programs,
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.529ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1950 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-46-Title">
-<title id="MathJax-SVG-46-Title">l_1, l_2</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.529ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 1950 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-47-Title">
+<title id="MathJax-SVG-47-Title">l_1, l_2</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6C" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="422" y="-213"></use>
@@ -535,8 +547,8 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
  <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="422" y="-213"></use>
 </g>
 </g>
-</svg></span> are the number of steps it takes <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.571ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 2398.5 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-47-Title">
-<title id="MathJax-SVG-47-Title">p_1, p_2</title>
+</svg></span> are the number of steps it takes <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.571ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 2398.5 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-48-Title">
+<title id="MathJax-SVG-48-Title">p_1, p_2</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="712" y="-213"></use>
@@ -547,8 +559,8 @@ the name <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wi
 </g>
 </g>
 </svg></span> to halt,
-and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.382ex" height="2.676ex" style="vertical-align: -1.005ex;" viewBox="0 -719.6 7053.3 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-48-Title">
-<title id="MathJax-SVG-48-Title">o_1=t_{l_1}, o_2=t_{l_2}</title>
+and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.382ex" height="2.676ex" style="vertical-align: -1.005ex;" viewBox="0 -719.6 7053.3 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-49-Title">
+<title id="MathJax-SVG-49-Title">o_1=t_{l_1}, o_2=t_{l_2}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="686" y="-213"></use>
@@ -576,13 +588,13 @@ and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="
 </g>
 </svg></span> the last tape states (outputs) of the
 two programs.</p>
-<p>Then a formula for the logical correlation <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-49-Title">
-<title id="MathJax-SVG-49-Title">合</title>
+<p>Then a formula for the logical correlation <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-50-Title">
+<title id="MathJax-SVG-50-Title">合</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
 </g>
-</svg></span> of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.571ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 2398.5 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-50-Title">
-<title id="MathJax-SVG-50-Title">p_1, p_2</title>
+</svg></span> of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.571ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 2398.5 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-51-Title">
+<title id="MathJax-SVG-51-Title">p_1, p_2</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="712" y="-213"></use>
@@ -593,14 +605,14 @@ two programs.</p>
 </g>
 </g>
 </svg></span>,
-a tape-state discount factor <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.262ex" height="2.176ex" style="vertical-align: -0.838ex; margin-right: -0.058ex;" viewBox="0 -576.1 543.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-51-Title">
-<title id="MathJax-SVG-51-Title">γ</title>
+a tape-state discount factor <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.262ex" height="2.176ex" style="vertical-align: -0.838ex; margin-right: -0.058ex;" viewBox="0 -576.1 543.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-52-Title">
+<title id="MathJax-SVG-52-Title">γ</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-3B3" x="0" y="0"></use>
 </g>
 </svg></span><sup id="fnref3"><a href="#fn3" rel="footnote">3</a></sup>, and a <a href="https://en.wikipedia.org/wiki/String_similarity_metric">string-distance
-metric</a> <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="25.675ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 11054.4 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-52-Title">
-<title id="MathJax-SVG-52-Title">d:
+metric</a> <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="25.675ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 11054.4 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-53-Title">
+<title id="MathJax-SVG-53-Title">d:
 \{0, 1\}^+ \times \{0, 1\}^+ \rightarrow ℕ</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
@@ -726,20 +738,20 @@ metric</a> <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" 
  <use xlink:href="#MJMAIN-29" x="30235" y="0"></use>
 </g>
 </svg></span></div>
-<p>The lower <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-53-Title">
-<title id="MathJax-SVG-53-Title">合</title>
+<p>The lower <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-54-Title">
+<title id="MathJax-SVG-54-Title">合</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
 </g>
-</svg></span>, the higher the logical correlation between <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-54-Title">
-<title id="MathJax-SVG-54-Title">p_1</title>
+</svg></span>, the higher the logical correlation between <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-55-Title">
+<title id="MathJax-SVG-55-Title">p_1</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="712" y="-213"></use>
 </g>
 </svg></span>
-and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-55-Title">
-<title id="MathJax-SVG-55-Title">p_2</title>
+and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-56-Title">
+<title id="MathJax-SVG-56-Title">p_2</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="712" y="-213"></use>
@@ -976,8 +988,8 @@ output/further towards the start of the computation</span>.</p>
 this (discounted) sum of trace differences from the output difference<sup id="fnref4"><a href="#fn4" rel="footnote">4</a></sup>.</p>
 <p>The value of the exponential function here can maximally be 1 (since
 the smallest value of the sum is zero) and will always be greater than
-zero. Thus, since we're subtracting a number ≤1 from <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.426ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5349.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-56-Title">
-<title id="MathJax-SVG-56-Title">d(o_1, o_2)+1</title>
+zero. Thus, since we're subtracting a number ≤1 from <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.426ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5349.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-57-Title">
+<title id="MathJax-SVG-57-Title">d(o_1, o_2)+1</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-28" x="523" y="0"></use>
@@ -995,8 +1007,8 @@ zero. Thus, since we're subtracting a number ≤1 from <span class="mjpage"><svg
  <use xlink:href="#MJMAIN-31" x="4849" y="0"></use>
 </g>
 </svg></span>,
-the resulting logical correlation must be <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="42.665ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 18369.5 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-57-Title">
-<title id="MathJax-SVG-57-Title">d(o_1, o_2)≤合(p_1, p_2,
+the resulting logical correlation must be <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="42.665ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 18369.5 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-58-Title">
+<title id="MathJax-SVG-58-Title">d(o_1, o_2)≤合(p_1, p_2,
 γ)≤d(o_1, o_2)+1-ε</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
@@ -1048,8 +1060,8 @@ the resulting logical correlation must be <span class="mjpage"><svg xmlns:xlink=
 </g>
 </svg></span>. That implies that for three programs with
 the same output, their logical correlations all lie in that range. That
-also means that if <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="19.944ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 8587 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-58-Title">
-<title id="MathJax-SVG-58-Title">d(o_1, o_2)&lt;d(o_1, o_3)</title>
+also means that if <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="19.944ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 8587 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-59-Title">
+<title id="MathJax-SVG-59-Title">d(o_1, o_2)&lt;d(o_1, o_3)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-28" x="523" y="0"></use>
@@ -1078,8 +1090,8 @@ also means that if <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999
  <use xlink:href="#MJMAIN-29" x="8197" y="0"></use>
 </g>
 </svg></span>, then it's the case that
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="26.489ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 11405.1 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-59-Title">
-<title id="MathJax-SVG-59-Title">合(p_1, p_2, γ)&lt;合(p_1, p_3, γ)</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="26.489ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 11405.1 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-60-Title">
+<title id="MathJax-SVG-60-Title">合(p_1, p_2, γ)&lt;合(p_1, p_3, γ)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
  <use xlink:href="#MJMAIN-28" x="932" y="0"></use>
@@ -1175,14 +1187,14 @@ different trace lengths, and penalize that, e.g. amending the formula:</p>
 </svg></span></div>
 <h3 id="Desiderata_Fulfilled"><a class="hanchor" href="#Desiderata_Fulfilled">Desiderata Fulfilled?</a></h3>
 <p>Does this fulfill our desiderata from earlier? I'll assume that the
-string distance <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-60-Title">
-<title id="MathJax-SVG-60-Title">d</title>
+string distance <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-61-Title">
+<title id="MathJax-SVG-61-Title">d</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
 </g>
 </svg></span> is a metric, in the mathematical sense.</p>
-<h4 id="None"><a class="hanchor" href="#None">Proving <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.61ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 4998.6 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-61-Title">
-<title id="MathJax-SVG-61-Title">合(p, p)=0</title>
+<h4 id="Proving_p_p0"><a class="hanchor" href="#Proving_p_p0">Proving <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="11.61ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 4998.6 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-62-Title">
+<title id="MathJax-SVG-62-Title">合(p, p)=0</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
  <use xlink:href="#MJMAIN-28" x="932" y="0"></use>
@@ -1308,13 +1320,13 @@ string distance <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xl
 </g>
 </g>
 </svg></span></div>
-<p>Since <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-62-Title">
-<title id="MathJax-SVG-62-Title">d</title>
+<p>Since <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-63-Title">
+<title id="MathJax-SVG-63-Title">d</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
 </g>
-</svg></span> is a metric, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="10.575ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4553.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-63-Title">
-<title id="MathJax-SVG-63-Title">d(o, o)=0</title>
+</svg></span> is a metric, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="10.575ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 4553.2 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-64-Title">
+<title id="MathJax-SVG-64-Title">d(o, o)=0</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-28" x="523" y="0"></use>
@@ -1327,8 +1339,8 @@ string distance <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xl
 </g>
 </svg></span>.</p>
 <h4 id="Proving_Symmetry"><a class="hanchor" href="#Proving_Symmetry">Proving Symmetry</a></h4>
-<p>Symmetry is trivially true if we assume that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-64-Title">
-<title id="MathJax-SVG-64-Title">d</title>
+<p>Symmetry is trivially true if we assume that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-65-Title">
+<title id="MathJax-SVG-65-Title">d</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
 </g>
@@ -1612,8 +1624,8 @@ string distance <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xl
 </svg></span></div>
 <p>This is true, because:</p>
 <ol>
-<li><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.684ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5461 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-65-Title">
-<title id="MathJax-SVG-65-Title">d(o_1, o_2)≥0</title>
+<li><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="12.684ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 5461 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-66-Title">
+<title id="MathJax-SVG-66-Title">d(o_1, o_2)≥0</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-28" x="523" y="0"></use>
@@ -1630,8 +1642,8 @@ string distance <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xl
  <use xlink:href="#MJMAIN-2265" x="3904" y="0"></use>
  <use xlink:href="#MJMAIN-30" x="4960" y="0"></use>
 </g>
-</svg></span>, hence <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.687ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 7184.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-66-Title">
-<title id="MathJax-SVG-66-Title">d(o_1, o_2)+1≥1</title>
+</svg></span>, hence <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.687ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 7184.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-67-Title">
+<title id="MathJax-SVG-67-Title">d(o_1, o_2)+1≥1</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-28" x="523" y="0"></use>
@@ -1650,8 +1662,8 @@ string distance <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xl
  <use xlink:href="#MJMAIN-2265" x="5627" y="0"></use>
  <use xlink:href="#MJMAIN-31" x="6683" y="0"></use>
 </g>
-</svg></span> and thus <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="20.435ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 8798.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-67-Title">
-<title id="MathJax-SVG-67-Title">\ln(d(o_1, o_2)+1)≥0</title>
+</svg></span> and thus <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="20.435ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 8798.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-68-Title">
+<title id="MathJax-SVG-68-Title">\ln(d(o_1, o_2)+1)≥0</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-6C"></use>
  <use xlink:href="#MJMAIN-6E" x="278" y="0"></use>
@@ -1675,8 +1687,8 @@ string distance <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xl
  <use xlink:href="#MJMAIN-30" x="8297" y="0"></use>
 </g>
 </svg></span>.</li>
-<li><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="26.293ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 11320.7 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-68-Title">
-<title id="MathJax-SVG-68-Title">d(t_1[l_1-k], t_2[l_2-k])≥0</title>
+<li><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="26.293ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 11320.7 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-69-Title">
+<title id="MathJax-SVG-69-Title">d(t_1[l_1-k], t_2[l_2-k])≥0</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-28" x="523" y="0"></use>
@@ -1709,27 +1721,27 @@ string distance <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xl
  <use xlink:href="#MJMAIN-2265" x="9763" y="0"></use>
  <use xlink:href="#MJMAIN-30" x="10820" y="0"></use>
 </g>
-</svg></span> for every <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-69-Title">
-<title id="MathJax-SVG-69-Title">k</title>
+</svg></span> for every <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-70-Title">
+<title id="MathJax-SVG-70-Title">k</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6B" x="0" y="0"></use>
 </g>
-</svg></span> (since <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-70-Title">
-<title id="MathJax-SVG-70-Title">d</title>
+</svg></span> (since <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-71-Title">
+<title id="MathJax-SVG-71-Title">d</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
 </g>
 </svg></span> is a metric).</li>
-<li><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.554ex" height="3.009ex" style="vertical-align: -0.838ex;" viewBox="0 -934.9 2821.8 1295.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-71-Title">
-<title id="MathJax-SVG-71-Title">γ^k≥0</title>
+<li><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="6.554ex" height="3.009ex" style="vertical-align: -0.838ex;" viewBox="0 -934.9 2821.8 1295.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-72-Title">
+<title id="MathJax-SVG-72-Title">γ^k≥0</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-3B3" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-6B" x="733" y="513"></use>
  <use xlink:href="#MJMAIN-2265" x="1265" y="0"></use>
  <use xlink:href="#MJMAIN-30" x="2321" y="0"></use>
 </g>
-</svg></span> for every <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-72-Title">
-<title id="MathJax-SVG-72-Title">k</title>
+</svg></span> for every <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-73-Title">
+<title id="MathJax-SVG-73-Title">k</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6B" x="0" y="0"></use>
 </g>
@@ -1738,8 +1750,8 @@ string distance <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xl
 <p>Thus we have a sum of products of only positive things, which is in turn
 positive itself.</p>
 <h5 id="Only_A_Pseudometric"><a class="hanchor" href="#Only_A_Pseudometric">Only A Pseudometric</a></h5>
-<p>But, unfortunately, it isn't the case that if <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.635ex" height="2.676ex" style="vertical-align: -0.838ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 3287.4 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-73-Title">
-<title id="MathJax-SVG-73-Title">p_1≠p_2</title>
+<p>But, unfortunately, it isn't the case that if <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.635ex" height="2.676ex" style="vertical-align: -0.838ex; margin-left: -0.089ex;" viewBox="-38.5 -791.3 3287.4 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-74-Title">
+<title id="MathJax-SVG-74-Title">p_1≠p_2</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="712" y="-213"></use>
@@ -1750,8 +1762,8 @@ positive itself.</p>
 </g>
 </g>
 </svg></span>, then
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="15.956ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 6870.1 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-74-Title">
-<title id="MathJax-SVG-74-Title">合(p_1, p_2, γ)&gt;0</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="15.956ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 6870.1 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-75-Title">
+<title id="MathJax-SVG-75-Title">合(p_1, p_2, γ)&gt;0</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
  <use xlink:href="#MJMAIN-28" x="932" y="0"></use>
@@ -1770,27 +1782,27 @@ positive itself.</p>
  <use xlink:href="#MJMAIN-3E" x="5313" y="0"></use>
  <use xlink:href="#MJMAIN-30" x="6369" y="0"></use>
 </g>
-</svg></span>. Thus <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-75-Title">
-<title id="MathJax-SVG-75-Title">合</title>
+</svg></span>. Thus <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-76-Title">
+<title id="MathJax-SVG-76-Title">合</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
 </g>
 </svg></span> is only a pseudometric.</p>
-<p>Consider, for example, two programs that both write a <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 500.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-76-Title">
-<title id="MathJax-SVG-76-Title">1</title>
+<p>Consider, for example, two programs that both write a <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 500.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-77-Title">
+<title id="MathJax-SVG-77-Title">1</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-31" x="0" y="0"></use>
 </g>
 </svg></span> to the
 starting position on the tape and then halt, but with the difference that
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-77-Title">
-<title id="MathJax-SVG-77-Title">p_1</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-78-Title">
+<title id="MathJax-SVG-78-Title">p_1</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="712" y="-213"></use>
 </g>
-</svg></span> moves left and then right in the first two steps, and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-78-Title">
-<title id="MathJax-SVG-78-Title">p_2</title>
+</svg></span> moves left and then right in the first two steps, and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-79-Title">
+<title id="MathJax-SVG-79-Title">p_2</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="712" y="-213"></use>
@@ -1818,63 +1830,63 @@ TODO: implement in Rust using Brainfuck-->
 <p>I think that <a href="#Some_Nave_Formula">the naïve formula</a> is <em>too</em> naïve.
 Reasons:</p>
 <ol>
-<li>If you have a program <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-79-Title">
-<title id="MathJax-SVG-79-Title">p</title>
+<li>If you have a program <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-80-Title">
+<title id="MathJax-SVG-80-Title">p</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
 </g>
-</svg></span> and a program <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.77ex" height="2.676ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 1192.5 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-80-Title">
-<title id="MathJax-SVG-80-Title">p^-</title>
+</svg></span> and a program <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.77ex" height="2.676ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 1192.5 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-81-Title">
+<title id="MathJax-SVG-81-Title">p^-</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="712" y="513"></use>
 </g>
-</svg></span> which is just <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-81-Title">
-<title id="MathJax-SVG-81-Title">p</title>
-<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
- <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
-</g>
-</svg></span> but with the tape reversed (so that whenever <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-82-Title">
+</svg></span> which is just <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-82-Title">
 <title id="MathJax-SVG-82-Title">p</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
 </g>
-</svg></span> makes a step left, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.77ex" height="2.676ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 1192.5 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-83-Title">
-<title id="MathJax-SVG-83-Title">p^-</title>
+</svg></span> but with the tape reversed (so that whenever <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-83-Title">
+<title id="MathJax-SVG-83-Title">p</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
+</g>
+</svg></span> makes a step left, <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.77ex" height="2.676ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 1192.5 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-84-Title">
+<title id="MathJax-SVG-84-Title">p^-</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="712" y="513"></use>
 </g>
-</svg></span> makes a step right, and same with right steps for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-84-Title">
-<title id="MathJax-SVG-84-Title">p</title>
-<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
- <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
-</g>
-</svg></span>). Intuitively <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-85-Title">
+</svg></span> makes a step right, and same with right steps for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-85-Title">
 <title id="MathJax-SVG-85-Title">p</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
 </g>
-</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.77ex" height="2.676ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 1192.5 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-86-Title">
-<title id="MathJax-SVG-86-Title">p^-</title>
+</svg></span>). Intuitively <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-86-Title">
+<title id="MathJax-SVG-86-Title">p</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+ <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
+</g>
+</svg></span> and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.77ex" height="2.676ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 1192.5 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-87-Title">
+<title id="MathJax-SVG-87-Title">p^-</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="712" y="513"></use>
 </g>
-</svg></span> should have a very high logical correlation, but <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-87-Title">
-<title id="MathJax-SVG-87-Title">合</title>
-<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
-<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
-</g>
-</svg></span> would tell us that they very much don't.</li>
-<li><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-88-Title">
+</svg></span> should have a very high logical correlation, but <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-88-Title">
 <title id="MathJax-SVG-88-Title">合</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
 </g>
-</svg></span> doesn't <em>really</em> make a statement about which states of the program influence which other states, it just compares them.</li>
-<li>I'm a bit unhappy that the code doesn't factor into <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-89-Title">
+</svg></span> would tell us that they very much don't.</li>
+<li><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-89-Title">
 <title id="MathJax-SVG-89-Title">合</title>
+<g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
+<text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
+</g>
+</svg></span> doesn't <em>really</em> make a statement about which states of the program influence which other states, it just compares them.</li>
+<li>I'm a bit unhappy that the code doesn't factor into <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-90-Title">
+<title id="MathJax-SVG-90-Title">合</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">合</text>
 </g>
@@ -1886,8 +1898,8 @@ Values</a> and possible
 tape-permutations.</p>
 <h3 id="Explanation_1"><a class="hanchor" href="#Explanation_1">Explanation</a></h3>
 <p>We'll inherit <a href="#Setup">the basic setup</a> from the naïve formula, but now
-we won't determine the logical correlation of the whole outputs <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.398ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 2324 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-90-Title">
-<title id="MathJax-SVG-90-Title">o_1,
+we won't determine the logical correlation of the whole outputs <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.398ex" height="2.009ex" style="vertical-align: -0.671ex;" viewBox="0 -576.1 2324 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-91-Title">
+<title id="MathJax-SVG-91-Title">o_1,
 o_2</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6F" x="0" y="0"></use>
@@ -1898,8 +1910,8 @@ o_2</title>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="686" y="-213"></use>
 </g>
 </g>
-</svg></span>.  Instead we pick one bit from each output, say <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="20.708ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 8915.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-91-Title">
-<title id="MathJax-SVG-91-Title">b_1=o_1[k],
+</svg></span>.  Instead we pick one bit from each output, say <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="20.708ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 8915.9 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-92-Title">
+<title id="MathJax-SVG-92-Title">b_1=o_1[k],
 b_2=o_2[k]</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-62" x="0" y="0"></use>
@@ -1926,8 +1938,8 @@ b_2=o_2[k]</title>
  <use xlink:href="#MJMATHI-6B" x="8115" y="0"></use>
  <use xlink:href="#MJMAIN-5D" x="8637" y="0"></use>
 </g>
-</svg></span> for some <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.73ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2467.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-92-Title">
-<title id="MathJax-SVG-92-Title">k \in ℕ</title>
+</svg></span> for some <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.73ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 2467.1 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-93-Title">
+<title id="MathJax-SVG-93-Title">k \in ℕ</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6B" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-2208" x="799" y="0"></use>
@@ -1936,28 +1948,28 @@ b_2=o_2[k]</title>
 </svg></span>.</p>
 <p>This formula is based on the assumption that Shapley values of tape
 cells over time are a kind of <em>fingerprint</em> of the program as it runs,
-and as such can be compared with some distance function akin to <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-93-Title">
-<title id="MathJax-SVG-93-Title">d</title>
+and as such can be compared with some distance function akin to <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-94-Title">
+<title id="MathJax-SVG-94-Title">d</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
 </g>
 </svg></span>
 in the naïve formula.</p>
 <h4 id="Shapley_Values_for_Tape_States"><a class="hanchor" href="#Shapley_Values_for_Tape_States">Shapley Values for Tape States</a></h4>
-<p>We treat each tape state <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.639ex" height="2.343ex" style="vertical-align: -0.671ex;" viewBox="0 -719.6 705.8 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-94-Title">
-<title id="MathJax-SVG-94-Title">t_i</title>
+<p>We treat each tape state <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.639ex" height="2.343ex" style="vertical-align: -0.671ex;" viewBox="0 -719.6 705.8 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-95-Title">
+<title id="MathJax-SVG-95-Title">t_i</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-74" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="511" y="-213"></use>
 </g>
 </svg></span> of a Turing machine as a set of players,
-which can play either <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 500.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-95-Title">
-<title id="MathJax-SVG-95-Title">0</title>
+which can play either <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 500.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-96-Title">
+<title id="MathJax-SVG-96-Title">0</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-30" x="0" y="0"></use>
 </g>
-</svg></span> or <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 500.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-96-Title">
-<title id="MathJax-SVG-96-Title">1</title>
+</svg></span> or <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.162ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 500.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-97-Title">
+<title id="MathJax-SVG-97-Title">1</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-31" x="0" y="0"></use>
 </g>
@@ -1965,8 +1977,8 @@ which can play either <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1
 tape can assume).</p>
 <p>Then we compute the Shapley value for each tape state on the bit
 produced down the line by the Turing machine. To recap, the Shapley value
-assumes that there's a set <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.407ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 1897.3 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-97-Title">
-<title id="MathJax-SVG-97-Title">t_i(j)</title>
+assumes that there's a set <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.407ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 1897.3 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-98-Title">
+<title id="MathJax-SVG-98-Title">t_i(j)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-74" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="511" y="-213"></use>
@@ -1974,16 +1986,16 @@ assumes that there's a set <span class="mjpage"><svg xmlns:xlink="http://www.w3.
  <use xlink:href="#MJMATHI-6A" x="1095" y="0"></use>
  <use xlink:href="#MJMAIN-29" x="1507" y="0"></use>
 </g>
-</svg></span> (with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.504ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.027ex;" viewBox="-11.5 -791.3 2369.6 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-98-Title">
-<title id="MathJax-SVG-98-Title">j \in ℕ</title>
+</svg></span> (with <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.504ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.027ex;" viewBox="-11.5 -791.3 2369.6 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-99-Title">
+<title id="MathJax-SVG-99-Title">j \in ℕ</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6A" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-2208" x="690" y="0"></use>
  <use xlink:href="#MJAMS-4E" x="1635" y="0"></use>
 </g>
 </svg></span>) of players,
-and a function <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.933ex" height="3.176ex" style="vertical-align: -0.838ex;" viewBox="0 -1006.6 7290.5 1367.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-99-Title">
-<title id="MathJax-SVG-99-Title">v: 2^{t_i(j)} \rightarrow \{0,1\}</title>
+and a function <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="16.933ex" height="3.176ex" style="vertical-align: -0.838ex;" viewBox="0 -1006.6 7290.5 1367.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-100-Title">
+<title id="MathJax-SVG-100-Title">v: 2^{t_i(j)} \rightarrow \{0,1\}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-76" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-3A" x="763" y="0"></use>
@@ -2005,15 +2017,15 @@ and a function <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xli
  <use xlink:href="#MJMAIN-7D" x="6789" y="0"></use>
 </g>
 </svg></span> for all subsets
-of players—in this case the execution of the program from <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.639ex" height="2.343ex" style="vertical-align: -0.671ex;" viewBox="0 -719.6 705.8 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-100-Title">
-<title id="MathJax-SVG-100-Title">t_i</title>
+of players—in this case the execution of the program from <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.639ex" height="2.343ex" style="vertical-align: -0.671ex;" viewBox="0 -719.6 705.8 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-101-Title">
+<title id="MathJax-SVG-101-Title">t_i</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-74" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMATHI-69" x="511" y="-213"></use>
 </g>
 </svg></span>
-until it halts. It's assumed that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.36ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 3599.6 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-101-Title">
-<title id="MathJax-SVG-101-Title">v(\emptyset)=0</title>
+until it halts. It's assumed that <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.36ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 3599.6 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-102-Title">
+<title id="MathJax-SVG-102-Title">v(\emptyset)=0</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-76" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-28" x="485" y="0"></use>
@@ -2028,8 +2040,8 @@ value is some kind of Platonic ideal of measuring
 contribution. I don't know about that, but it has some <a href="https://en.wikipedia.org/wiki/Shapley_value#Properties">nice
 properties</a>
 that uniquely identify it.</p>
-<p>The Shapley value for a player <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0.985ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.027ex;" viewBox="-11.5 -791.3 424 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-102-Title">
-<title id="MathJax-SVG-102-Title">j</title>
+<p>The Shapley value for a player <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0.985ex" height="2.509ex" style="vertical-align: -0.671ex; margin-left: -0.027ex;" viewBox="-11.5 -791.3 424 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-103-Title">
+<title id="MathJax-SVG-103-Title">j</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6A" x="0" y="0"></use>
 </g>
@@ -2107,19 +2119,19 @@ that uniquely identify it.</p>
 the program preceding the tapestate. I imagine this as a tapestate being
 able to "decide" to flip to the opposite bit before the program resumes,
 which counts as participating. We'll designate the function of letting
-a program <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-103-Title">
-<title id="MathJax-SVG-103-Title">p</title>
+a program <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-104-Title">
+<title id="MathJax-SVG-104-Title">p</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
 </g>
-</svg></span> continue running from a timestep <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-104-Title">
-<title id="MathJax-SVG-104-Title">k</title>
+</svg></span> continue running from a timestep <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-105-Title">
+<title id="MathJax-SVG-105-Title">k</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6B" x="0" y="0"></use>
 </g>
 </svg></span> until halting as
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.538ex" height="2.509ex" style="vertical-align: -0.838ex; margin-left: -0.089ex;" viewBox="-38.5 -719.6 1092.6 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-105-Title">
-<title id="MathJax-SVG-105-Title">\bar{p}_k</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.538ex" height="2.509ex" style="vertical-align: -0.838ex; margin-left: -0.089ex;" viewBox="-38.5 -719.6 1092.6 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-106-Title">
+<title id="MathJax-SVG-106-Title">\bar{p}_k</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-AF" x="84" y="8"></use>
@@ -2136,28 +2148,28 @@ something worth fixing here.)</p>
 <p>For 2., my best solution is to be (overly?) expansive in which tape cells
 are considered as potential contributions: Let's call the "leftmost"
 tape cell reached by a program on a Turing machine during the whole
-execution <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.196ex" height="2.676ex" style="vertical-align: -0.671ex;" viewBox="0 -863.1 1376 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-106-Title">
-<title id="MathJax-SVG-106-Title">f^{\leftarrow}</title>
+execution <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.196ex" height="2.676ex" style="vertical-align: -0.671ex;" viewBox="0 -863.1 1376 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-107-Title">
+<title id="MathJax-SVG-107-Title">f^{\leftarrow}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-2190" x="804" y="513"></use>
 </g>
-</svg></span> and the "rightmost" one <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.196ex" height="2.676ex" style="vertical-align: -0.671ex;" viewBox="0 -863.1 1376 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-107-Title">
-<title id="MathJax-SVG-107-Title">f^{\rightarrow}</title>
+</svg></span> and the "rightmost" one <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.196ex" height="2.676ex" style="vertical-align: -0.671ex;" viewBox="0 -863.1 1376 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-108-Title">
+<title id="MathJax-SVG-108-Title">f^{\rightarrow}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-2192" x="804" y="513"></use>
 </g>
 </svg></span>
-(<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.279ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 550.5 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-108-Title">
-<title id="MathJax-SVG-108-Title">f</title>
+(<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.279ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 550.5 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-109-Title">
+<title id="MathJax-SVG-109-Title">f</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
 </g>
 </svg></span> for "frontier").</p>
 <p>Then the subrange indexed of the whole tape is a range of natural
-numbers <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="33.143ex" height="3.009ex" style="vertical-align: -1.005ex;" viewBox="0 -863.1 14269.9 1295.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-109-Title">
-<title id="MathJax-SVG-109-Title">[\min(f^{\leftarrow}_1, f^{\leftarrow}_2), \dots,
+numbers <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="33.143ex" height="3.009ex" style="vertical-align: -1.005ex;" viewBox="0 -863.1 14269.9 1295.7" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-110-Title">
+<title id="MathJax-SVG-110-Title">[\min(f^{\leftarrow}_1, f^{\leftarrow}_2), \dots,
 \max(f^{\rightarrow}_1, f^{\rightarrow}_2)]</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-5B" x="0" y="0"></use>
@@ -2203,8 +2215,8 @@ numbers <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wid
  <use xlink:href="#MJMAIN-5D" x="13991" y="0"></use>
 </g>
 </svg></span>, abbreviated as
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.196ex" height="2.676ex" style="vertical-align: -0.671ex;" viewBox="0 -863.1 1376 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-110-Title">
-<title id="MathJax-SVG-110-Title">f^{\leftrightarrow}</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="3.196ex" height="2.676ex" style="vertical-align: -0.671ex;" viewBox="0 -863.1 1376 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-111-Title">
+<title id="MathJax-SVG-111-Title">f^{\leftrightarrow}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-66" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-2194" x="804" y="513"></use>
@@ -2214,19 +2226,19 @@ numbers <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" wid
 automatically have a Shapley value of 0, that just falls out of the
 formula.<sup id="fnref5"><a href="#fn5" rel="footnote">5</a></sup> Because we're taking the biggest possible "reached envelope"
 on the tape the tape segments for both programs have the same size.</p>
-<p>So, for a bit <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0.998ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 429.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-111-Title">
-<title id="MathJax-SVG-111-Title">b</title>
+<p>So, for a bit <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0.998ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 429.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-112-Title">
+<title id="MathJax-SVG-112-Title">b</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-62" x="0" y="0"></use>
 </g>
-</svg></span> in the output of the program <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-112-Title">
-<title id="MathJax-SVG-112-Title">p</title>
+</svg></span> in the output of the program <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-113-Title">
+<title id="MathJax-SVG-113-Title">p</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
 </g>
 </svg></span>, at some timestep
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-113-Title">
-<title id="MathJax-SVG-113-Title">k</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-114-Title">
+<title id="MathJax-SVG-114-Title">k</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6B" x="0" y="0"></use>
 </g>
@@ -2265,8 +2277,8 @@ on the tape the tape segments for both programs have the same size.</p>
  <use xlink:href="#MJMAIN-5D" x="11945" y="0"></use>
 </g>
 </svg></span></div>
-<p>We'll call <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.514ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 3665.8 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-114-Title">
-<title id="MathJax-SVG-114-Title">ᖫ(p, t, k)</title>
+<p>We'll call <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="8.514ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 3665.8 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-115-Title">
+<title id="MathJax-SVG-115-Title">ᖫ(p, t, k)</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᖫ</text>
  <use xlink:href="#MJMAIN-28" x="609" y="0"></use>
@@ -2278,13 +2290,13 @@ on the tape the tape segments for both programs have the same size.</p>
  <use xlink:href="#MJMAIN-29" x="3276" y="0"></use>
 </g>
 </svg></span> the <strong>Shapley value profile</strong> of a program
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-115-Title">
-<title id="MathJax-SVG-115-Title">p</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.259ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 542 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-116-Title">
+<title id="MathJax-SVG-116-Title">p</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
 </g>
-</svg></span> at a timestep <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-116-Title">
-<title id="MathJax-SVG-116-Title">k</title>
+</svg></span> at a timestep <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.211ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 521.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-117-Title">
+<title id="MathJax-SVG-117-Title">k</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-6B" x="0" y="0"></use>
 </g>
@@ -2292,8 +2304,8 @@ on the tape the tape segments for both programs have the same size.</p>
 <!--TODO: check if we really don't have to do some weird comparison with
 the final output. Not really firm in this at the moment.-->
 <h4 id="Comparing_Lists_of_Influences"><a class="hanchor" href="#Comparing_Lists_of_Influences">Comparing Lists of Influences</a></h4>
-<p><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.417ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 610 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-117-Title">
-<title id="MathJax-SVG-117-Title">ᖫ</title>
+<p><span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.417ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 610 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-118-Title">
+<title id="MathJax-SVG-118-Title">ᖫ</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">ᖫ</text>
 </g>
@@ -2305,8 +2317,8 @@ they are.</p>
 but for convience let's pretend we take the element-wise <a href="https://en.wikipedia.org/wiki/Mean-squared_error">mean-squared
 error</a> and call it
 a day.</p>
-<p>I'll designate whatever difference measure is decided on as <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-118-Title">
-<title id="MathJax-SVG-118-Title">d</title>
+<p>I'll designate whatever difference measure is decided on as <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="1.216ex" height="2.176ex" style="vertical-align: -0.338ex;" viewBox="0 -791.3 523.5 936.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-119-Title">
+<title id="MathJax-SVG-119-Title">d</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-64" x="0" y="0"></use>
 </g>
@@ -2321,8 +2333,8 @@ are very similar.</p>
 <p>As hinted, I don't have a <em>great</em> solution to this, but my current best
 approach is to look at permutations of one of the tapes, and choose the
 one which best "matches up" the two Shapley value profiles with each
-other. E.g. for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.973ex" height="2.676ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 2141.1 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-119-Title">
-<title id="MathJax-SVG-119-Title">p, p^{-}</title>
+other. E.g. for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.973ex" height="2.676ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 2141.1 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-120-Title">
+<title id="MathJax-SVG-120-Title">p, p^{-}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-2C" x="503" y="0"></use>
@@ -2332,8 +2344,8 @@ other. E.g. for <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xl
 </g>
 </g>
 </svg></span> from earlier we'd compare the two programs
-using the permutation that reverses the tape of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.77ex" height="2.676ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 1192.5 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-120-Title">
-<title id="MathJax-SVG-120-Title">p^{-}</title>
+using the permutation that reverses the tape of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.77ex" height="2.676ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 1192.5 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-121-Title">
+<title id="MathJax-SVG-121-Title">p^{-}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-2212" x="712" y="513"></use>
@@ -2341,15 +2353,15 @@ using the permutation that reverses the tape of <span class="mjpage"><svg xmlns:
 </svg></span>.</p>
 <p>It's important that this permutation be chosen once for all timesteps.</p>
 <p>I don't like this solution. Permutations are too permissive,
-and two programs where <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-121-Title">
-<title id="MathJax-SVG-121-Title">p_1</title>
+and two programs where <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-122-Title">
+<title id="MathJax-SVG-122-Title">p_1</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="712" y="-213"></use>
 </g>
 </svg></span> is best modeled as being pairwise
-flips of neighboring cells of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-122-Title">
-<title id="MathJax-SVG-122-Title">p_2</title>
+flips of neighboring cells of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-123-Title">
+<title id="MathJax-SVG-123-Title">p_2</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="712" y="-213"></use>
@@ -2362,8 +2374,8 @@ constructed from few pairwise swappings (one <a href="https://en.wikipedia.org/w
 set</a> of the
 <a href="https://en.wikipedia.org/wiki/Symmetric_group">symmetric group</a>).
 But that would strongly penalize "natural" very similar programs, such as
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.973ex" height="2.676ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 2141.1 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-123-Title">
-<title id="MathJax-SVG-123-Title">p, p^{-}</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="4.973ex" height="2.676ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -863.1 2141.1 1152.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-124-Title">
+<title id="MathJax-SVG-124-Title">p, p^{-}</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-2C" x="503" y="0"></use>
@@ -2712,21 +2724,21 @@ profile</span>. <span style="color:blue">Permute one Shapley value
 profile that it "best" matches up with the other one</span>. <span style="color:grey">Compute the difference of the Shapley value
 profiles</span>, and <span style="color:orange">sum them up</span>.</p>
 <p>The <em>bigger the summed diffence</em>, the smaller the exponent of the
-negative of that distance. The largest possible value of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-124-Title">
-<title id="MathJax-SVG-124-Title">挧</title>
+negative of that distance. The largest possible value of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.167ex" height="3.343ex" style="vertical-align: -1.171ex;" viewBox="0 -934.9 932.9 1439.2" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-125-Title">
+<title id="MathJax-SVG-125-Title">挧</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
 <text font-family="monospace" stroke="none" transform="scale(71.759) matrix(1 0 0 -1 0 0)">挧</text>
 </g>
 </svg></span> is
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.086ex" height="2.343ex" style="vertical-align: -0.505ex;" viewBox="0 -791.3 2189.9 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-125-Title">
-<title id="MathJax-SVG-125-Title">2-ε</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.086ex" height="2.343ex" style="vertical-align: -0.505ex;" viewBox="0 -791.3 2189.9 1008.6" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-126-Title">
+<title id="MathJax-SVG-126-Title">2-ε</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMAIN-32" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-2212" x="722" y="0"></use>
  <use xlink:href="#MJMATHI-3B5" x="1723" y="0"></use>
 </g>
-</svg></span>, the smallest possible value is 0—in cases where <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.202ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 3100.9 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-126-Title">
-<title id="MathJax-SVG-126-Title">b_1=b_2</title>
+</svg></span>, the smallest possible value is 0—in cases where <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="7.202ex" height="2.509ex" style="vertical-align: -0.671ex;" viewBox="0 -791.3 3100.9 1080.4" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-127-Title">
+<title id="MathJax-SVG-127-Title">b_1=b_2</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-62" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="607" y="-213"></use>
@@ -2743,16 +2755,16 @@ kinda ugly up there-->
 <!--TODO: Prove desiderata for being a (pseudo-)metric-->
 <h4 id="Remaining_Problem_TimePermuted_Tapes"><a class="hanchor" href="#Remaining_Problem_TimePermuted_Tapes">Remaining Problem: Time-Permuted Tapes</a></h4>
 <p>I see one clear indicator that this hasn't been ironed out yet: If
-<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-127-Title">
-<title id="MathJax-SVG-127-Title">p_1</title>
+<span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-128-Title">
+<title id="MathJax-SVG-128-Title">p_1</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-31" x="712" y="-213"></use>
 </g>
 </svg></span> computes an output by first computing the "left half" and then the
 "right half" (in terms of location on the tape relative to the starting
-position), and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-128-Title">
-<title id="MathJax-SVG-128-Title">p_2</title>
+position), and <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="2.313ex" height="2.009ex" style="vertical-align: -0.671ex; margin-left: -0.089ex;" viewBox="-38.5 -576.1 995.9 865.1" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-129-Title">
+<title id="MathJax-SVG-129-Title">p_2</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-70" x="0" y="0"></use>
  <use transform="scale(0.707)" xlink:href="#MJMAIN-32" x="712" y="-213"></use>
@@ -2770,8 +2782,8 @@ and lack desired features. Some possible alternatives, which I'm not fond of
 for various reasons:</p>
 <ol>
 <li><strong>Checking <a href="https://en.wikipedia.org/wiki/Bisimulation">bisimilarity</a></strong>: Bisimilarity is a binary category: two programs either <em>are</em> bisimilar or they <em>aren't</em>. Logical correlation needs to be a <a href="https://tsvibt.blogspot.com/2023/02/communicating-with-binaries-and-spectra.html">spectrum</a> so that one can tell which programs have higher &amp; lower logical correlation with each other. At best, bisimilarity increases the space of programs that are surely highly logically correlated with another.</li>
-<li><strong><a href="https://en.wikipedia.org/wiki/Mutual_information">Mutual information</a> of the programs</strong>: If we allow the tapes to be initialized before running the programs, we can vary the initialized tape states and get two distributions of tape histories. From those two distributions one can calculate the mutual information. This solution has <em>a lot</em> going for it: It's simple to describe and mathematically beautiful, as well being <a href="https://www.lesswrong.com/posts/FWvzwCDRgcjb9sigb/why-agent-foundations-an-overly-abstract-explanation#Goodhart_Is_Not_Inevitable">safe to maximize</a>. The two downsides I can think of for it are that (1) it's computationally costly to calculate, requiring a large number of samples of initializations of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.329ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2294.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-129-Title">
-<title id="MathJax-SVG-129-Title">t[f^{\leftrightarrow}]</title>
+<li><strong><a href="https://en.wikipedia.org/wiki/Mutual_information">Mutual information</a> of the programs</strong>: If we allow the tapes to be initialized before running the programs, we can vary the initialized tape states and get two distributions of tape histories. From those two distributions one can calculate the mutual information. This solution has <em>a lot</em> going for it: It's simple to describe and mathematically beautiful, as well being <a href="https://www.lesswrong.com/posts/FWvzwCDRgcjb9sigb/why-agent-foundations-an-overly-abstract-explanation#Goodhart_Is_Not_Inevitable">safe to maximize</a>. The two downsides I can think of for it are that (1) it's computationally costly to calculate, requiring a large number of samples of initializations of <span class="mjpage"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="5.329ex" height="2.843ex" style="vertical-align: -0.838ex;" viewBox="0 -863.1 2294.5 1223.9" role="img" focusable="false" xmlns="http://www.w3.org/2000/svg" aria-labelledby="MathJax-SVG-130-Title">
+<title id="MathJax-SVG-130-Title">t[f^{\leftrightarrow}]</title>
 <g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)" aria-hidden="true">
  <use xlink:href="#MJMATHI-74" x="0" y="0"></use>
  <use xlink:href="#MJMAIN-5B" x="361" y="0"></use>
