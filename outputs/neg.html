@@ -239,7 +239,7 @@
 	<p class="sub">
 		<a href="https://en.wikipedia.org/wiki/Double_auction" target="_blank">Chatterjee–Samuelson</a>
 		simultaneous-reveal negotiation · SHA-256 commitment · no server ·
-		<a href="https://github.com/" target="_blank">source</a>
+		<a href="neg.html">source</a>
 	</p>
 
 	<div class="tabs">
@@ -267,11 +267,11 @@
 			<div id="commit-out" class="hidden">
 				<div class="lbl">Hash — share this <em>first</em></div>
 				<div class="box" id="my-hash"></div>
-				<button class="sm" onclick="cp('my-hash')">copy</button>
+				<button class="sm" onclick="cp('my-hash', this)">copy</button>
 
 				<div class="lbl">Reveal string — share <em>after</em> you have their hash</div>
 				<div class="box" id="my-reveal"></div>
-				<button class="sm" onclick="cp('my-reveal')">copy</button>
+				<button class="sm" onclick="cp('my-reveal', this)">copy</button>
 			</div>
 		</div>
 
@@ -620,7 +620,7 @@
 	function preimage_d_their(dists_map, seed, nonce)
 	{
 		return axes_d.map(ax =>
-			`${ax.label}:${dists_map[ax.label]}`
+			`${ax.label}:${(dists_map[ax.label] || '').replace(/[\[\]\s]/g, '')}`
 		).join(';') + '|' + seed + '|' + nonce;
 	}
 
@@ -629,6 +629,14 @@
 	async function gen_commit()
 	{
 		document.getElementById('commit-out').classList.add('hidden');
+
+		const arr    = mode === 'point' ? axes_p : axes_d;
+		const labels = arr.map(ax => ax.label.trim());
+		if (labels.some(l => !l || /[:;\n\[\]]/.test(l)))
+		{ alert('Every axis needs a label without : ; [ ] or newlines.'); return; }
+		if (new Set(labels).size !== labels.length)
+		{ alert('Axis labels must be unique.'); return; }
+		arr.forEach((ax, i) => ax.label = labels[i]);
 
 		if (mode === 'point')
 		{
@@ -812,9 +820,23 @@
 		return String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
 	}
 
-	function cp(id)
+	async function cp(id, btn)
 	{
-		navigator.clipboard.writeText(document.getElementById(id).textContent);
+		const text = document.getElementById(id).textContent;
+		let ok = false;
+		try { await navigator.clipboard.writeText(text); ok = true; }
+		catch(e)
+		{
+			const t = document.createElement('textarea');
+			t.value = text;
+			document.body.appendChild(t);
+			t.select();
+			try { ok = document.execCommand('copy'); } catch(e2) {}
+			document.body.removeChild(t);
+		}
+		const old = btn.textContent;
+		btn.textContent = ok ? 'copied ✓' : 'copy failed, select manually';
+		setTimeout(() => btn.textContent = old, 1500);
 	}
 
 	switch_mode('point');
